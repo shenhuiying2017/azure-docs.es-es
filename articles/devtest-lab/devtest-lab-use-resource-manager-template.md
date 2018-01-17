@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: v-craic
-ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 97822d5fb11c5c106c67aaaab0b8972e1ec8deee
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager con una máquina virtual
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creación de máquinas virtuales con una plantilla de Azure Resource Manager 
 
 Al crear una máquina virtual (VM) en DevTest Labs a través de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), puede ver la plantilla de Azure Resource Manager antes de guardar la máquina virtual. La plantilla, a continuación, se puede usar como punto de partida para crear más máquinas virtuales de laboratorio con la misma configuración.
 
-Este artículo describe cómo ver la plantilla de Resource Manager al crear una máquina virtual y cómo implementarla posteriormente para automatizar la creación de la misma máquina virtual.
+En este artículo se describen las plantillas de Resource Manager de varias VM frente a las de una sola VM y también se muestra cómo puede ver y guardar una plantilla al crear una máquina virtual.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Plantillas de Resource Manager de una sola máquina virtual o de varias
 Hay dos maneras de crear máquinas virtuales en DevTest Labs mediante una plantilla de Resource Manager: aprovisionar el recurso Microsoft.DevTestLab/labs/virtualmachines o el recurso Microsoft.Commpute/virtualmachines. Cada una se utiliza en escenarios diferentes y requiere permisos distintos.
@@ -53,18 +53,15 @@ En [Procedimientos recomendados para crear plantillas de Azure Resource Manager]
    ![Botón View ARM template (Ver plantilla ARM)](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copie y guarde la plantilla de Resource Manager para usarla más adelante para crear otra máquina virtual.
 
-   ![Plantilla de Resource Manager que guardar para usarla más adelante](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Plantilla de Resource Manager que se debe guardar para usarla más adelante](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 Después de guardar la plantilla de Resource Manager, debe actualizar la sección de parámetros de la plantilla para poder utilizarla. Puede crear un archivo parameter.json que personalice solamente los parámetros, fuera de la plantilla de Resource Manager real. 
 
-![Personalización de parámetros con un archivo JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Personalización de los parámetros con un archivo JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Implementación de una plantilla de Resource Manager para crear una máquina virtual
-Después de guardar una plantilla de Resource Manager y personalizarla según sus necesidades, puede utilizarla para automatizar la creación de una máquina virtual. En [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) se describe cómo usar PowerShell de Azure con plantillas de Resource Manager para implementar recursos en Azure. En [Implementación de recursos con plantillas de Resource Manager y CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) se describe cómo usar CLI de Azure con plantillas de Resource Manager para implementar recursos en Azure.
-
-> [!NOTE]
-> Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando [ **az lab vm create** de la CLI ](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+La plantilla de Resource Manager ya está lista para usarse para [crear una máquina virtual](devtest-lab-create-environment-from-arm.md).
 
 ### <a name="next-steps"></a>pasos siguientes
 * Aprenda a [crear entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md).
-* Explore más plantillas Resource Manager de inicio rápido para la automatización de DevTest Labs desde el [repositorio público de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
+* [Deploy a Resource Manager template to create a VM](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm) (Implementación de una plantilla de Resource Manager para crear una máquina virtual)
+* Explore más plantillas de Resource Manager de inicio rápido para la automatización de DevTest Labs desde el [repositorio público de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

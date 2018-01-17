@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Azure Location Based Services: geocodificación de la cobertura
-Azure Location Based Services (LBS) proporciona información detallada de geocodificación para la búsqueda de direcciones, lugares y otras entidades geográficas alrededor del mundo. Esto es importante para los clientes que quieren saber dónde pueden o no pueden esperar encontrar diversos niveles de fidelidad al buscar direcciones en Search Service. Al buscar regiones con una cobertura de baja fidelidad, no se pueden esperar resultados de búsqueda con una confianza inferior. En la tabla siguiente se proporciona información de cobertura de codificación geográfica de búsqueda de Azure LBS.
+Azure Location Based Services (LBS) proporciona información detallada de geocodificación para la búsqueda de direcciones, lugares y otras entidades geográficas alrededor del mundo. Esto es importante para los clientes que quieren saber dónde pueden o no pueden esperar encontrar diversos niveles de fidelidad al buscar direcciones en Search Service. Al buscar regiones con una cobertura de baja fidelidad, se pueden esperar resultados de la búsqueda con una confianza inferior. En la tabla siguiente se proporciona información de cobertura de codificación geográfica de búsqueda de Azure LBS.
 
 
 |Region  |Puntos de dirección  |Números de casa |Nivel de calle|
@@ -30,8 +30,8 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Bahamas     |         |         |✓         |
 |Barbados     |         |         |✓         |
 |Bermudas     |         |         |✓         |
-|Brasil     |✓         |✓          |✓         |
-|Canadá     |✓         |✓          |✓         |
+|Brasil     |✓         |✓         |✓         |
+|Canadá     |✓         |✓         |✓         |
 |Islas Caimán     |         |         |✓         |
 |Chile     |         |✓         |✓         |
 |Colombia     |         |✓         |✓         |
@@ -45,96 +45,96 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Granada     |         |         |✓         |
 |Guadalupe     |         |✓         |✓         |
 |Guatemala     |         |         |✓         |
-|Guam     |✓         |✓          | ✓        |
+|Guam     |✓         |✓         | ✓        |
 |Haití     |         |         |✓         |
 |Honduras     |         |         |✓         |
 |Jamaica     |         |         | ✓        |
 |Martinica     |         |✓         |✓         |
-|México     |✓         |✓          |✓         |
+|México     |✓         |✓         |✓         |
 |Nicaragua     |         |         |✓         |
 |Panamá     |         |         |✓         |
 |Perú     |         |         | ✓        |
-|Puerto Rico     |✓         |✓          | ✓        |
+|Puerto Rico     |✓         |✓         | ✓        |
 |San Bartolomé     |         |         | ✓        |
 |San Cristóbal y Nieves     |         |         |✓         |
 |San Martín     |         |         | ✓        |
 |Sint Maarten     |         |         |✓        |
 |Trinidad y Tobago     |         |         |✓         |
-|Estados Unidos de América     |✓         |✓          | ✓        |
+|Estados Unidos de América     |✓         |✓         | ✓        |
 |Uruguay     |         |✓         |✓         |
 |Venezuela     |         |         | ✓        |
-|Islas Vírgenes de los Estados Unidos de América     |✓         |✓          |✓         |
+|Islas Vírgenes de los Estados Unidos de América     |✓         |✓         |✓         |
 |     |         |         |         |
 |**Asia Pacífico**     |         |         |         |
 |Samoa Americana     |         |         |✓         |
-|Australia     |✓         |✓          |✓         |
-|Brunei     |✓         |✓          |✓         |
+|Australia     |✓         |✓         |✓         |
+|Brunei     |✓         |✓         |✓         |
 |Isla Christmas     |         |         |✓         |
-|Hong Kong     |✓         |✓          |✓         |
-|Indonesia     |✓         |✓          | ✓        |
-|Macao     |✓         |✓          |✓         |
-|Malasia     |✓         |✓          |  ✓       |
-|Nueva Zelanda     |✓         |✓          | ✓       |
+|Hong Kong     |✓         |✓         |✓         |
+|Indonesia     |✓         |✓         | ✓        |
+|Macao     |✓         |✓         |✓         |
+|Malasia     |✓         |✓         |  ✓       |
+|Nueva Zelanda     |✓         |✓         | ✓       |
 |Islas Marianas del Norte     |         |✓         |  ✓       |
-|Filipinas     |✓         |✓          |   ✓      |
-|Singapur     |✓         |✓          |   ✓      |
+|Filipinas     |✓         |✓         |   ✓      |
+|Singapur     |✓         |✓         |   ✓      |
 |Islas de Kuriles del Sur     |         |         |  ✓       |
-|Taiwán     |✓         |✓          |      ✓   |
+|Taiwán     |✓         |✓         |      ✓   |
 |Tailandia     |✓         |         |    ✓     |
-|Vietnam     |✓         |✓          |    ✓     |
+|Vietnam     |✓         |✓         |    ✓     |
 |     |         |         |         |
 |**Europa**     |         |         |         |
 |Albania     |         |         |✓         |
-|Andorra     |✓         |✓          |✓         |
-|Austria     |✓         |✓          | ✓        |
-|Bélgica     |✓         |✓          |✓         |
+|Andorra     |✓         |✓         |✓         |
+|Austria     |✓         |✓         | ✓        |
+|Bélgica     |✓         |✓         |✓         |
 |Bosnia y Herzegovina     |         |         |✓         |
 |Bulgaria     |         |✓         |✓         |
 |Bielorrusia     |         |         |✓         |
-|Croacia     |✓         |✓          |✓         |
+|Croacia     |✓         |✓         |✓         |
 |Chipre     |         |✓         |✓         |
-|República Checa     |✓         |✓          |✓         |
-|Dinamarca     |✓         |✓          |✓         |
+|República Checa     |✓         |✓         |✓         |
+|Dinamarca     |✓         |✓         |✓         |
 |Estonia     |         |✓         |✓         |
 |Finlandia     |         |✓         |✓         |
-|Francia     |✓         |✓          |✓         |
-|Alemania     |✓         |✓          | ✓        |
+|Francia     |✓         |✓         |✓         |
+|Alemania     |✓         |✓         | ✓        |
 |Gibraltar     |         |✓         | ✓        |
 |Grecia     |         |✓         | ✓        |
 |Guernesey     |         |✓         |✓         |
 |Hungría     |         |✓         |✓         |
 |Islandia     |         |✓         |✓         |
-|Irlanda (República de)     |✓         |✓          |✓         |
+|Irlanda (República de)     |✓         |✓         |✓         |
 |Isla de Man     |         |✓         |✓         |
-|Italia     |✓         |✓          |✓         |
+|Italia     |✓         |✓         |✓         |
 |Jersey     |         |✓         | ✓        |
 |Kosovo     |         |         |✓        |
 |Letonia     |         |✓         |✓         |
-|Liechtenstein     |✓         |✓          |✓         |
+|Liechtenstein     |✓         |✓         |✓         |
 |Lituania     |         |✓         |✓         |
-|Luxemburgo     |✓         |✓          |✓         |
+|Luxemburgo     |✓         |✓         |✓         |
 |Macedonia     |         |         |✓         |
 |Malta     |         |✓         |✓         |
 |Moldova     |         |         |✓         |
 |Mónaco     |         |✓         | ✓        |
 |Montenegro     |         |✓         | ✓        |
-|Países Bajos     |✓         |✓          |✓         |
+|Países Bajos     |✓         |✓         |✓         |
 |Noruega     |         |✓         |✓         |
-|Polonia     |✓         |✓          |✓         |
-|Portugal     |✓         |✓          | ✓        |
+|Polonia     |✓         |✓         |✓         |
+|Portugal     |✓         |✓         | ✓        |
 |Rumania     |         |✓         |✓         |
-|Federación Rusa     |✓         |✓          |✓        |
-|San Marino     |✓         |✓          | ✓        |
+|Federación Rusa     |✓         |✓         |✓        |
+|San Marino     |✓         |✓         | ✓        |
 |Serbia     |         |✓         |✓         |
-|Eslovaquia     |✓         |✓          |✓         |
-|Eslovenia     |✓         |✓          | ✓        |
-|España     |✓         |✓          |✓         |
+|Eslovaquia     |✓         |✓         |✓         |
+|Eslovenia     |✓         |✓         | ✓        |
+|España     |✓         |✓         |✓         |
 |Svalbard     |         |         |✓         |
 |Suecia     |         |✓         |✓         |
-|Suiza     |✓         |✓          |✓         |
-|Turquía     |✓         |✓          |✓         |
+|Suiza     |✓         |✓         |✓         |
+|Turquía     |✓         |✓         |✓         |
 |Ucrania     |         | ✓        | ✓        |
-|Reino Unido     |✓         | ✓         |✓         |
+|Reino Unido     |✓         | ✓        |✓         |
 |Ciudad del Vaticano     |         |         |✓         |
 |     |         |         |         |
 |**Oriente Medio y África**     |         |         |         |
@@ -153,7 +153,7 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Côte D'ivoire     |         |         |✓         |
 |República Democrática del Congo     |         |         |✓         |
 |Yibuti     |         |         |✓         |
-|Egipto     |✓         | ✓         |✓         |
+|Egipto     |✓         | ✓        |✓         |
 |República de Guinea Ecuatorial     |         |         |✓         |
 |Eritrea     |         |         |✓        |
 |Etiopía     |         |         |✓         |
@@ -164,7 +164,7 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Iraq     |         |         |✓         |
 |Jordania     |✓         |         |✓         |
 |Kenia     |         |         |✓         |
-|Kuwait     |✓         |✓          |✓         |
+|Kuwait     |✓         |✓         |✓         |
 |Líbano     |         |         |✓         |
 |Lesoto     |         |         |✓         |
 |Liberia     |         |         |✓         |
@@ -189,7 +189,7 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Senegal     |         |         |✓         |
 |Seychelles     |         |         |✓         |
 |Sierra Leona     |         |         |✓         |
-|Sudáfrica     |✓         |✓          |✓         |
+|Sudáfrica     |✓         |✓         |✓         |
 |Sudán del Sur     |         |         |✓         |
 |Sudán     |         |         |✓         |
 |Suazilandia     |         |         |✓         |
@@ -197,7 +197,7 @@ Azure Location Based Services (LBS) proporciona información detallada de geocod
 |Togo     |         |         | ✓        |
 |Túnez     |         |         |✓         |
 |Uganda     |         |         |✓         |
-|Emiratos Árabes Unidos     |✓         |✓          |✓         |
+|Emiratos Árabes Unidos     |✓         |✓         |✓         |
 |Yemen     |         |         |✓         |
 |Zambia     |         |         |✓        |
 |Zimbabue     |         |         |✓         |

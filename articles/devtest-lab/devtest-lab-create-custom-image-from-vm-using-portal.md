@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Crear una imagen personalizada a partir de una máquina virtual
 
@@ -30,25 +30,30 @@ Puede crear una imagen personalizada a partir de una máquina virtual aprovision
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
 1. En la lista de laboratorios, seleccione el laboratorio que desee.  
 
-1. En la hoja del laboratorio, seleccione **Mis máquinas virtuales**.
+1. En el panel principal del laboratorio, seleccione **Mis máquinas virtuales**.
  
-1. En la hoja **Mis máquinas virtuales** , seleccione la máquina virtual desde la que quiere crear la imagen personalizada.
+1. En el panel **Mis máquinas virtuales**, seleccione la máquina virtual desde la que quiere crear la imagen personalizada.
 
-1. En la hoja de la máquina virtual, seleccione **Create custom image (VHD)**(Crear imagen personalizada [VHD]).
+1. En el panel de administración de la máquina virtual, seleccione **Create custom image (VHD)**(Crear imagen personalizada [VHD]).
 
     ![Crear elemento de menú de imagen personalizada](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. En la hoja **Create image** (Crear imagen), escriba un nombre y una descripción para la imagen personalizada. Esta información se muestra en la lista de bases cuando se crea una máquina virtual.
+1. En el panel **Imagen personalizada**, escriba un nombre y una descripción para la imagen personalizada. Esta información se muestra en la lista de bases cuando se crea una máquina virtual.
 
-    ![Crear imagen personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Creación de un panel de imagen personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Seleccione si sysprep se ha ejecutado en la máquina virtual. Si no se ha ejecutado sysprep en la máquina virtual, especifique si quiere ejecutar sysprep cuando se cree una máquina virtual a partir de esta imagen personalizada.
 
 1. Cuando termine de crear la imagen personalizada, seleccione **Aceptar** .
+
+Después de unos minutos, la imagen personalizada se crea y se almacena dentro de la cuenta de almacenamiento del laboratorio. Cuando un usuario de laboratorio quiera crear una nueva máquina virtual, la imagen estará disponible en la lista de imágenes base.
+
+![Imagen personalizada disponible en la lista de imágenes base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ Puede crear una imagen personalizada a partir de una máquina virtual aprovision
 - [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Agregar una máquina virtual al laboratorio](devtest-lab-add-vm.md)

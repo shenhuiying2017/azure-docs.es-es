@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso de la API de REST de Azure Storage
 
@@ -32,7 +32,7 @@ La aplicación muestra los contenedores de almacenamiento de blobs de una cuenta
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Una cuenta de almacenamiento de uso general. Si no tiene ninguna cuenta de almacenamiento, puede crear una mediante [Azure Portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md) o la [CLI de Azure](storage-quickstart-create-storage-account-cli.md).
+* Una cuenta de almacenamiento de uso general. Si aún no dispone de una cuenta de almacenamiento, consulte [Create a storage account](storage-quickstart-create-account.md) (Creación de una cuenta de almacenamiento).
 
 * En el ejemplo de este artículo se indica cómo mostrar los contenedores de una cuenta de almacenamiento. Para ver la salida, agregue algunos contenedores al almacenamiento de blobs en la cuenta de almacenamiento antes de comenzar.
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 En este artículo, aprendió a realizar una solicitud a la API de REST de almacenamiento de blobs para recuperar una lista de contenedores o una lista de blobs de un contenedor. También aprendió a crear la firma de autorización de la llamada a la API de REST, cómo usarla en la solicitud de REST y cómo examinar la respuesta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API de REST de File Service)

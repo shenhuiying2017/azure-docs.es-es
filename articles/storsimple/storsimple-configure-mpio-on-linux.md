@@ -4,7 +4,7 @@ description: "Configuración de MPIO en StorSimple conectado a un host Linux que
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -26,9 +26,8 @@ Este artículo explica los pasos necesarios para configurar E/S de múltiples ru
 Este procedimiento se aplica a todos los modelos de dispositivos de la serie 8000 de StorSimple.
 
 > [!NOTE]
-> No se puede usar este procedimiento para un dispositivo virtual de StorSimple. Para obtener más información, consulte cómo configurar los servidores host para el dispositivo virtual.
-> 
-> 
+> No se puede usar este procedimiento para StorSimple Cloud Appliance. Para obtener más información, consulte cómo configurar los servidores host para su instancia de Cloud Appliance.
+
 
 ## <a name="about-multipathing"></a>Acerca de múltiples rutas
 La característica de múltiples rutas permite configurar varias rutas de acceso de E/S entre un servidor host y un dispositivo de almacenamiento. Estas rutas de acceso de E/S son conexiones físicas de SAN que pueden incluir cables independientes, conmutadores, interfaces de red y controladores. La característica de múltiples rutas agrega las rutas de acceso de E/S para configurar un nuevo dispositivo asociado a todas las rutas de acceso agregadas.
@@ -71,7 +70,7 @@ Con el siguiente procedimiento explicamos cómo configurar las múltiples rutas 
 En esta sección se detallan los requisitos previos de configuración para el servidor CentOS y el dispositivo de StorSimple.
 
 ### <a name="on-centos-host"></a>En el host CentOS
-1. Asegúrese de que el host CentOS tiene dos interfaces de red habilitadas. Escriba:
+1. Asegúrese de que el host CentOS tiene dos interfaces de red habilitadas. Escriba: 
    
     `ifconfig`
    
@@ -109,10 +108,10 @@ En esta sección se detallan los requisitos previos de configuración para el se
 2. Instale *iSCSI-initiator-utils* en el servidor CentOS. Realice los pasos siguientes para instalar *iSCSI-initiator-utils*.
    
    1. Inicie sesión como `root` en el host CentOS.
-   2. Instale *iSCSI-initiator-utils*. Escriba:
+   2. Instale *iSCSI-initiator-utils*. Escriba: 
       
        `yum install iscsi-initiator-utils`
-   3. Cuando *iSCSI-Initiator-utils* esté correctamente instalado, inicie el servicio iSCSI. Escriba:
+   3. Cuando *iSCSI-Initiator-utils* esté correctamente instalado, inicie el servicio iSCSI. Escriba: 
       
        `service iscsid start`
       
@@ -130,7 +129,7 @@ En esta sección se detallan los requisitos previos de configuración para el se
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        En el ejemplo anterior, puede ver que el entorno iSCSI se ejecutará en tiempo de arranque en los niveles de ejecución 2, 3, 4 y 5.
-3. Instale *device-mapper-multipath*. Escriba:
+3. Instale *device-mapper-multipath*. Escriba: 
    
     `yum install device-mapper-multipath`
    
@@ -186,19 +185,19 @@ Los pasos de configuración de múltiples rutas implican la configuración de la
 ### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Paso 1: Configuración de múltiples rutas para la detección automática
 Se pueden detectar y configurar automáticamente los dispositivos compatibles con múltiples rutas.
 
-1. Inicialice el archivo `/etc/multipath.conf` . Escriba:
+1. Inicialice el archivo `/etc/multipath.conf` . Escriba: 
    
      `mpathconf --enable`
    
     El comando anterior crea un archivo `sample/etc/multipath.conf` .
-2. Inicie el servicio de múltiples rutas. Escriba:
+2. Inicie el servicio de múltiples rutas. Escriba: 
    
     `service multipathd start`
    
     Verá la salida siguiente:
    
     `Starting multipathd daemon:`
-3. Habilite la detección automática de múltiples rutas. Escriba:
+3. Habilite la detección automática de múltiples rutas. Escriba: 
    
     `mpathconf --find_multipaths y`
    
@@ -213,7 +212,7 @@ Se pueden detectar y configurar automáticamente los dispositivos compatibles co
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Paso 2: Configuración de múltiples rutas para volúmenes de StorSimple
 De forma predeterminada, todos los dispositivos se encuentran en la lista negra del archivo multipath.conf y se omitirán. Deberá crear excepciones de la lista negra para permitir las múltiples rutas para volúmenes de dispositivos StorSimple.
 
-1. Edite el archivo `/etc/mulitpath.conf` . Escriba:
+1. Edite el archivo `/etc/mulitpath.conf` . Escriba: 
    
     `vi /etc/multipath.conf`
 2. Busque la sección de blacklist_exceptions en el archivo multipath.conf. El dispositivo StorSimple debe mostrarse como una excepción de la lista negra de esta sección. Puede quitar el comentario de las líneas pertinentes en este archivo para modificarlo, tal como se muestra a continuación (use solo el modelo específico del dispositivo que esté usando):
@@ -232,7 +231,7 @@ De forma predeterminada, todos los dispositivos se encuentran en la lista negra 
 ### <a name="step-3-configure-round-robin-multipathing"></a>Paso 3: Configuración de múltiples rutas por round-robin
 Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles en el controlador activo de forma equilibrada y por round-robin.
 
-1. Edite el archivo `/etc/multipath.conf` . Escriba:
+1. Edite el archivo `/etc/multipath.conf` . Escriba: 
    
     `vi /etc/multipath.conf`
 2. En la sección `defaults`, establezca `path_grouping_policy` en `multibus`. `path_grouping_policy` especifica la directiva de agrupación de rutas de acceso predeterminada se aplique a múltiples rutas no especificadas. La sección de valores predeterminados será como se muestra a continuación.
@@ -251,7 +250,7 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 > 
 
 ### <a name="step-4-enable-multipathing"></a>Paso 4: Habilitación de múltiples rutas
-1. Reinicie el demonio `multipathd` . Escriba:
+1. Reinicie el demonio `multipathd` . Escriba: 
    
     `service multipathd restart`
 2. La salida será como se muestra a continuación:
@@ -262,7 +261,7 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 ### <a name="step-5-verify-multipathing"></a>Paso 5: Comprobación de múltiples rutas
 1. En primer lugar asegúrese de que la conexión iSCSI se establece con el dispositivo StorSimple como sigue:
    
-   a. Detecte su dispositivo StorSimple. Escriba:
+   a. Detecte su dispositivo StorSimple. Escriba: 
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -277,7 +276,7 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 
     Copie el IQN del dispositivo StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, desde la salida anterior.
 
-   b. Conecte con el dispositivo mediante el IQN de destino. El dispositivo StorSimple aquí es el destino de iSCSI. Escriba:
+   b. Conecte con el dispositivo mediante el IQN de destino. El dispositivo StorSimple aquí es el destino de iSCSI. Escriba: 
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -298,9 +297,9 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 
     Si ve solo una interfaz de host y dos rutas de acceso, tendrá que habilitar ambas interfaces de host para iSCSI. Puede seguir las [instrucciones detalladas en la documentación de Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Creación de un volumen](storsimple-deployment-walkthrough.md#step-6-create-a-volume) mediante el Portal de Azure clásico en el dispositivo StorSimple.
+2. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Crear un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) mediante Azure Portal en el dispositivo StorSimple.
 
-3. Compruebe las rutas de acceso disponibles. Escriba:
+3. Compruebe las rutas de acceso disponibles. Escriba: 
 
       ```
       multipath –l
@@ -335,13 +334,13 @@ En esta sección se proporcionan algunos consejos útiles si surge algún proble
 
 P: No puedo ver que los cambios en el archivo `multipath.conf` surtan efecto.
 
-A. Si ha realizado algún cambio en el archivo `multipath.conf` , tendrá que reiniciar el servicio de múltiples rutas. Escriba el siguiente comando:
+A. Si ha realizado algún cambio en el archivo `multipath.conf` , tendrá que reiniciar el servicio de múltiples rutas. Escriba el siguiente comando: 
 
     service multipathd restart
 
 P: He habilitado dos interfaces de red en el dispositivo StorSimple y dos interfaces de red en el host. Al mostrar las rutas de acceso disponibles, veo solo dos rutas de acceso. Esperaba ver cuatro rutas de acceso disponibles.
 
-A. Asegúrese de que las dos rutas de acceso se encuentran en la misma subred y son enrutables. Si las interfaces de red se encuentran en VLAN distintas y no son enrutables, verá solo dos rutas de acceso. Una manera de comprobarlo es asegurarse de que puede tener acceso a las interfaces de host desde una interfaz de red en el dispositivo StorSimple. Tendrá que [ponerse en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) ya que esta comprobación solo se puede realizar a través de una sesión de soporte técnico.
+A. Asegúrese de que las dos rutas de acceso se encuentran en la misma subred y son enrutables. Si las interfaces de red se encuentran en VLAN distintas y no son enrutables, verá solo dos rutas de acceso. Una manera de comprobarlo es asegurarse de que puede tener acceso a las interfaces de host desde una interfaz de red en el dispositivo StorSimple. Tendrá que [ponerse en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) ya que esta comprobación solo se puede realizar a través de una sesión de soporte técnico.
 
 P: Cuando muestro las rutas de acceso disponibles, no aparece ninguna salida.
 
@@ -356,7 +355,7 @@ También sería conveniente comprobar que realmente puede ver algunos discos des
   
     `$ dmesg | grep sd*`
      
-     O
+     o
   
     `$ fdisk –l`
   
@@ -371,7 +370,7 @@ Una causa menos probable pero posible también podría ser iscsid pid desusado. 
 
     iscsiadm -m node --logout -p <Target_IP>
 
-Repita este comando para todas las interfaces de red conectada en el destino iSCSI, que es el dispositivo StorSimple. Una vez cerrada la sesión de todas las sesiones de iSCSI, use el IQN de destino de iSCSI para restablecer la sesión de iSCSI. Escriba el siguiente comando:
+Repita este comando para todas las interfaces de red conectada en el destino iSCSI, que es el dispositivo StorSimple. Una vez cerrada la sesión de todas las sesiones de iSCSI, use el IQN de destino de iSCSI para restablecer la sesión de iSCSI. Escriba el siguiente comando: 
 
     iscsiadm -m node --login -T <TARGET_IQN>
 
@@ -420,7 +419,7 @@ A. Para comprobar si el dispositivo se encuentra en la lista blanca, use el sigu
 Para obtener más información, consulte [Usar el comando interactivo de solución de problemas para múltiples rutas](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos útiles
-| Cuando se le pida confirmación, escriba  | Comando | Description |
+| Cuando se le pida confirmación, escriba  | Get-Help | DESCRIPCIÓN |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar el servicio iSCSI |
 | &nbsp; |`service iscsid stop` |Detener el servicio iSCSI |
@@ -435,13 +434,13 @@ Para obtener más información, consulte [Usar el comando interactivo de soluci�
 | **Múltiples rutas** |`service multipathd start` |Iniciar el daemon de múltiples rutas |
 | &nbsp; |`service multipathd stop` |Detener el daemon de múltiples rutas |
 | &nbsp; |`service multipathd restart` |Reiniciar el daemon de múltiples rutas |
-| &nbsp; |`chkconfig multipathd on` </br> O </br> `mpathconf –with_chkconfig y` |Habilitar el daemon de múltiples rutas al arrancar |
+| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y` |Habilitar el daemon de múltiples rutas al arrancar |
 | &nbsp; |`multipathd –k` |Iniciar la consola interactiva para la solución de problemas |
 | &nbsp; |`multipath –l` |Enumerar dispositivos y conexiones de múltiples rutas |
 | &nbsp; |`mpathconf --enable` |Crear un archivo de ejemplo mulitpath.conf en `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer referencia a los siguientes documentos de CentoS 6.6:
 
 * [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

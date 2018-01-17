@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar)
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
@@ -39,6 +39,10 @@ Las reglas de red se pueden aplicar a cuentas de almacenamiento existentes o se 
 Una vez que se apliquen las reglas de red, se aplicarán a todas las solicitudes.  Los tokens de SAS que conceden acceso a un servicio de dirección IP específico sirven para **limitar** el acceso del titular del token, pero no conceden un acceso nuevo más allá de las reglas de red configuradas. 
 
 El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y desmontaje y las operaciones de E/S de disco) **no** se ve afectado por las reglas de red.  El acceso de REST a los blobs en páginas está protegido por las reglas de red.
+
+> [!NOTE]
+> La copia de seguridad y restauración de las máquinas virtuales con discos no administrados en las cuentas de almacenamiento con reglas de red aplicadas no se admite actualmente.  Para obtener más información, consulte [Limitaciones al realizar copias de seguridad y restaurar una máquina virtual](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Las cuentas de almacenamiento clásicas **no** admite Firewalls and Virtual Networks (Firewalls y redes virtuales).
 
@@ -196,7 +200,7 @@ Los intervalos de dirección de Internet pueden proporcionarse mediante la [nota
 > Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles.  Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
 >
 
-Las reglas de red IP solo se permiten para direcciones IP de **Internet público**.  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP.  Las redes privadas incluyen direcciones que comienzan por *10.\** , *172.16.\**  y *192.168.\** .
+Las reglas de red IP solo se permiten para direcciones IP de **Internet público**.  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP.  Las redes privadas incluyen direcciones que comienzan por *10.\**, *172.16.\** y *192.168\**.
 
 Solo se admiten direcciones IPV4 en este momento.
 
@@ -298,7 +302,6 @@ Cuando la excepción "Servicios de Microsoft de confianza" está habilitada, se 
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture.  [Más información](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |HDInsight de Azure|Microsoft.HDInsight|Aprovisionamiento e instalación de clústeres.  [Más información](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Conexión a Azure|Microsoft.Networking|Almacenamiento y análisis de los registros de tráfico de red.  [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|Copia de seguridad y restauración de discos no administrados.  [Más información](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento
@@ -356,7 +359,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) para la denegación o a eliminación de las excepciones no tendrá ningún efecto.
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información acerca de los puntos de conexión de servicio de red de Azure en [Puntos de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Profundice en la seguridad de Azure Storage en la [Guía de seguridad de Azure Storage](storage-security-guide.md).

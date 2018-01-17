@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -51,7 +51,7 @@ Security Center evalúa la configuración de los recursos para identificar probl
 Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
 
 ## <a name="data-collection"></a>Colección de datos
-Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede al Centro de seguridad la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. También se puede habilitar la recopilación de datos en la directiva de Security Center.
+Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. También se puede habilitar la recopilación de datos en la directiva de Security Center.
 
 ### <a name="how-do-i-disable-data-collection"></a>¿Cómo se puede deshabilitar la recolección de datos?
 Si se utiliza el nivel Gratis de Azure Security Center, también es posible deshabilitar en cualquier momento la recopilación de datos de las máquinas virtuales. La recopilación de datos es necesaria para las suscripciones del nivel Estándar. Se puede deshabilitar la recopilación de datos de una suscripción en la directiva de seguridad. ([Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**).  Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la opción **Colección de datos**.
@@ -61,6 +61,10 @@ Puede habilitar la colección de datos de la suscripción de Azure en la directi
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>¿Qué sucede cuando se habilita la colección de datos?
 Cuando se habilita la recopilación de datos, Microsoft Monitoring Agent se aprovisiona automáticamente en todas las máquinas virtuales existentes y recién admitidas que estén implementadas en la suscripción.
+
+El agente habilita el evento 4688 de creación de procesos y el campo *CommandLine* dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center los supervisan. Para obtener información sobre los detalles que se registran para cada nuevo proceso, consulte los [campos de descripción en 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). El agente también recopila los eventos 4688 creados en la máquina virtual y los almacena en la búsqueda.
+
+Cuando Security Center detecta actividad sospechosa en la máquina virtual, el cliente recibe una notificación por correo electrónico si se ha proporcionado [información de contacto de seguridad](security-center-provide-security-contact-details.md). También se puede ver una alerta en el panel de alertas de seguridad de Security Center.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>¿Microsoft Monitoring Agent afecta al rendimiento de mis servidores?
 El agente utiliza una cantidad simbólica de recursos del sistema y apenas tiene impacto en el rendimiento. Para obtener más información sobre el impacto en el rendimiento, y el agente y la extensión, vea la [guía de planeación y las operaciones](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -116,7 +120,7 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 * Azure Web Apps ([en App Service Environment](../app-service/environment/intro.md))
 * Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en App Service Environment
 
-## <a name="virtual-machines"></a>Máquinas virtuales
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>¿Qué tipos de máquinas virtuales se admiten?
 La funcionalidad de supervisión y las recomendaciones están disponibles para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md).
 
@@ -131,7 +135,7 @@ Este mensaje aparece cuando no hay datos de examen de una máquina virtual. Los 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>¿Con qué frecuencia Security Center analiza las vulnerabilidades del sistema operativo, las actualizaciones del sistema y los problemas de Endpoint Protection?
 La latencia de los análisis de Security Center en busca de vulnerabilidades, actualizaciones y problemas es:
 
-- Vulnerabilidades del sistema operativo (por Microsoft): los datos se actualizan en un plazo de 48 horas.
+- Configuraciones de seguridad del sistema operativo: los datos se actualizan en un plazo de 48 horas
 - Actualizaciones del sistema: los datos se actualizan en un plazo de 24 horas.
 - Problemas de Endpoint Protection: los datos se actualizan en un plazo de 8 horas.
 

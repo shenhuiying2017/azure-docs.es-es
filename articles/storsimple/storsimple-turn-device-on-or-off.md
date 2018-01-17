@@ -4,7 +4,7 @@ description: "Explica cómo encender un dispositivo de StorSimple nuevo, encende
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
 
@@ -147,16 +147,16 @@ Puede ser necesario apagar un dispositivo StorSimple activo si debe trasladarlo,
 * [Dispositivo con gabinete EBOD](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo con gabinete principal <a name="8100a">
-Para apagar el dispositivo de manera ordenada y controlada, use el Portal de Azure clásico o Windows PowerShell para StorSimple. 
+Para apagar el dispositivo de manera ordenada y controlada, use Azure Portal o Windows PowerShell para StorSimple. 
 
 > [!IMPORTANT]
 > No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
 > 
-> Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos**  > **Mantenimiento** > **Estado del hardware** y compruebe que el color del estado de todos los componentes sea verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
+> Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En Azure Portal, vaya a **Dispositivos** > **Supervisar** > **Mantenimiento de hardware** y compruebe que todos los componentes tengan el estado verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
 > 
 > 
 
-Después de obtener acceso a Windows PowerShell para StorSimple o al Portal de Azure clásico, siga los pasos para [apagar un dispositivo de StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Después de acceder a Windows PowerShell para StorSimple o a Azure Portal, siga los pasos para [apagar un dispositivo de StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo con gabinete EBOD <a name="8600a">
 > [!IMPORTANT]
@@ -171,6 +171,6 @@ Después de obtener acceso a Windows PowerShell para StorSimple o al Portal de A
 > [!NOTE]
 > Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) .
 

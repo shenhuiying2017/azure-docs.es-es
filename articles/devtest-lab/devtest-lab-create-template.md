@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crear una imagen personalizada a partir de un archivo VHD
 
@@ -34,15 +34,15 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
 1. En la lista de laboratorios, seleccione el laboratorio que desee.  
 
-1. En la hoja del laboratorio, seleccione **Configuración**. 
+1. En el panel principal del laboratorio, seleccione **Configuración y directivas**. 
 
-1. En la hoja **Configuración** del laboratorio, seleccione **Custom images (VHDs)** (Imágenes personalizadas [VHD]).
+1. En el panel **Configuración y directivas**, seleccione **Imágenes personalizadas**.
 
-1. En la hoja **Custom images** (Imágenes personalizadas), seleccione **+Agregar**.
+1. En el panel **Imágenes personalizadas**, seleccione **+Agregar**.
 
     ![Adición de imágenes personalizadas](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -50,21 +50,21 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 
 1. Escriba la descripción de la imagen personalizada. Esta descripción se muestra en la lista de imágenes base al crear una máquina virtual.
 
-1. Seleccione **VHD**.
+1. En **Tipo de SO**, seleccione **Windows** o **Linux**.
 
-1. En la hoja **VHD**, seleccione el archivo VHD deseado.
+    - Si selecciona **Windows**, especifique mediante la casilla si se ha ejecutado *sysprep* en la máquina. 
+    - Si selecciona **Linux**, especifique mediante la casilla si se ha ejecutado *deprovision* en la máquina. 
 
-1. Seleccione **Aceptar** para cerrar la hoja **VHD**.
+1. Seleccione un **VHD** en el menú desplegable. Es el disco duro virtual que se usará para crear la nueva imagen personalizada. Si es necesario, seleccione **Cargar un VHD con PowerShell**.
 
-1. Seleccione la **configuración del sistema operativo**.
-
-1. En la pestaña **Configuración de SO**, seleccione **Windows** o **Linux**.
-
-1. Si se selecciona **Windows** , especifique mediante la casilla si se ha ejecutado *Sysprep* en la máquina. 
-
-1. Seleccione **Aceptar** para cerrar la hoja **Configuración de SO**.
+1. También puede escribir el nombre, la oferta y el publicador del plan si la imagen utilizada para crear la imagen personalizada no la publicó Microsoft.
 
 1. Seleccione **Aceptar** para crear la imagen personalizada.
+
+Después de unos minutos, la imagen personalizada se crea y se almacena dentro de la cuenta de almacenamiento del laboratorio. Cuando un usuario de laboratorio quiera crear una nueva máquina virtual, la imagen estará disponible en la lista de imágenes base.
+
+![Imagen personalizada disponible en la lista de imágenes base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -73,6 +73,6 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 - [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Agregar una máquina virtual al laboratorio](./devtest-lab-add-vm.md)
