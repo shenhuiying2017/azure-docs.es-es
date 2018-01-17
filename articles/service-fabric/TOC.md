@@ -44,7 +44,7 @@
 ## [Idea general](service-fabric-content-roadmap.md)
 ## [Escenarios de aplicación](service-fabric-application-scenarios.md)
 ## [Patrones y escenarios](service-fabric-patterns-and-scenarios.md)
-## [Arquitectura](service-fabric-architecture.md)
+## [Architecture](service-fabric-architecture.md)
 ## [Terminología](service-fabric-technical-overview.md)
 
 ## [Modelos de programación admitidos](service-fabric-choose-framework.md)
@@ -64,7 +64,7 @@
 #### [Uso avanzado](service-fabric-reliable-services-advanced-usage.md)
 
 ### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-#### [Arquitectura](service-fabric-reliable-actors-platform.md)
+#### [Architecture](service-fabric-reliable-actors-platform.md)
 #### [Ciclo de vida y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
 #### [Administración de estados](service-fabric-reliable-actors-state-management.md)
 #### [Polimorfismo](service-fabric-reliable-actors-polymorphism.md)
@@ -96,6 +96,7 @@
 ##### [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)
 ##### [Serialización de datos en actualizaciones de aplicaciones](service-fabric-application-upgrade-data-serialization.md)
 ##### [Temas avanzados sobre actualización de aplicaciones](service-fabric-application-upgrade-advanced.md)
+#### [Administración de aplicaciones en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Prueba de aplicaciones con el análisis de errores](service-fabric-testability-overview.md)
 #### [Configuración de ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -108,7 +109,7 @@
 #### [Tipos de nodos y conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md)
 #### [Patrones de redes de clúster](service-fabric-patterns-networking.md)
 ### [Administrador de recursos del clúster](service-fabric-cluster-resource-manager-introduction.md)
-#### [Arquitectura](service-fabric-cluster-resource-manager-architecture.md)
+#### [Architecture](service-fabric-cluster-resource-manager-architecture.md)
 #### [Descripción de un clúster](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Introducción a los grupos de aplicaciones](service-fabric-cluster-resource-manager-application-groups.md)
 #### [Definición de la configuración de Resource Manager de clúster](service-fabric-cluster-resource-manager-configure-services.md)
@@ -156,7 +157,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Configuración de la CLI de Service Fabric](service-fabric-cli.md)
 
-## Planeamiento y preparación
+## Planeación y preparación
 ### [Planeamiento de la capacidad del clúster](service-fabric-cluster-capacity.md)
 ### [Planeamiento de la implementación de clústeres independientes](service-fabric-cluster-standalone-deployment-preparation.md)
 ### [Preparación para la recuperación ante desastres](service-fabric-disaster-recovery.md)
@@ -226,7 +227,6 @@
 ## Trabajo en un entorno de desarrollo de Windows o VS
 ### [Administración de aplicaciones en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configuración de conexiones seguras en Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configuración de la aplicación para varios entornos](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Depuración de un servicio .NET en VS](service-fabric-debugging-your-application.md)
 ### [Errores y excepciones habituales](service-fabric-errors-and-exceptions.md)
 ### [Supervisión y diagnóstico local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,10 +244,13 @@
 
 ## Administración del ciclo de vida de las aplicaciones
 ### [Empaquetado de una aplicación](service-fabric-package-apps.md)
+### [Uso de parámetros con archivos de configuración](service-fabric-how-to-parameterize-configuration-files.md)
+### [Especificación de números de puerto mediante parámetros](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Especificación de variables de entorno](service-fabric-how-to-specify-environment-variables.md)
 
 ### Implementación o eliminación de aplicaciones
 #### [Implementación de aplicaciones en un clúster local](service-fabric-get-started-with-a-local-cluster.md)
-#### [Administrador de recursos de Azure](service-fabric-application-arm-resource.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [CLI de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [API de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -273,7 +276,7 @@
 ## Creación y administración de clústeres
 ### Clústeres en Azure
 #### Crear
-##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+##### [portal de Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
 #### Escala
 ##### [Manualmente](service-fabric-cluster-scale-up-down.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Esquema XML del modelo de servicio](service-fabric-service-model-schema.md)
+## [Variables de entorno](service-fabric-environment-variables-reference.md)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

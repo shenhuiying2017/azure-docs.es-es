@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -52,14 +52,14 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-diagnostics"></a>Nombre de sección: Diagnostics
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| ConsumerInstances |String | Dinámica |La lista de instancias de consumidor de DCA. |
-| ProducerInstances |String | Dinámica |La lista de instancias de productor de DCA. |
+| ConsumerInstances |string | Dinámica |La lista de instancias de consumidor de DCA. |
+| ProducerInstances |string | Dinámica |La lista de instancias de productor de DCA. |
 | AppEtwTraceDeletionAgeInDays |Int, el valor predeterminado es 3. | Dinámica |Número de días transcurridos los cuales se eliminarán los archivos ETL antiguos que contienen seguimientos de ETW de aplicación. |
 | AppDiagnosticStoreAccessRequiresImpersonation |Bool, el valor predeterminado es true. | Dinámica |Si se requerirá o no suplantación para acceder a los almacenes de diagnóstico en nombre de la aplicación. |
 | MaxDiskQuotaInMB |Int, el valor predeterminado es 65 536. | Dinámica |Cuota de disco en MB para archivos de registro de Windows Fabric. |
 | DiskFullSafetySpaceInMB |Int, el valor predeterminado es 1024. | Dinámica |Espacio en disco restante en MB para proteger contra el uso por DCA. |
 | ApplicationLogsFormatVersion |Int, el valor predeterminado es 0. | Dinámica |Versión del formato de registros de aplicación. Los valores admitidos son 0 y 1. La versión 1 incluye más campos del registro de eventos de ETW que la versión 0. |
-| ClusterId |String | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
+| ClusterId |string | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
 | EnableTelemetry |Bool, el valor predeterminado es true. | Dinámica |Indica si se habilitará o deshabilitará la telemetría. |
 | EnableCircularTraceSession |Bool, el valor predeterminado es false. | estática |La marca indica si se deben usar sesiones de seguimiento circulares. |
 
@@ -73,16 +73,16 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 | IsEnabled |Bool, el valor predeterminado es true. | Dinámica |La marca indica si está habilitada la colección de contadores de rendimiento en el nodo local. |
 | SamplingIntervalInSeconds |Int, el valor predeterminado es 60. | Dinámica |Intervalo de muestreo para los contadores de rendimiento que se recolectarán. |
-| Counters |String | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
+| Counters |string | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
 | MaxCounterBinaryFileSizeInMB |Int, el valor predeterminado es 1. | Dinámica |Tamaño máximo (en MB) de cada archivo binario de contador de rendimiento. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, el valor predeterminado es 10. | Dinámica |Intervalo máximo (en segundos) después del cual se crea un nuevo archivo binario de contador de rendimiento. |
 
 ### <a name="section-name-setup"></a>Nombre de sección: Setup
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| FabricDataRoot |String | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
-| FabricLogRoot |String | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
-| ServiceRunAsAccountName |String | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
+| FabricDataRoot |string | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
+| FabricLogRoot |string | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
+| ServiceRunAsAccountName |string | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
 | SkipFirewallConfiguration |Bool, el valor predeterminado es false. | No permitida |Especifica si el sistema debe establecer o no la configuración de firewall. Solo aplicable si usa Firewall de Windows. Si usa firewalls de terceros, debe abrir los puertos para que los usen el sistema y las aplicaciones. |
 |NodesToBeRemoved|string, el valor predeterminado es "".| Dinámica |Nodos que deben quitarse como parte de la actualización de la configuración. (Solo para implementaciones independientes.)|
 |ContainerNetworkSetup|bool, el valor predeterminado es FALSE| estática |Establece si se debe configurar una red de contenedores.|
@@ -107,8 +107,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | CheckpointThresholdInMB |Int, el valor predeterminado es 50. |estática|Cuando el uso del registro supera este valor, se inicia un punto de control. |
 | MaxAccumulatedBackupLogSizeInMB |Int, el valor predeterminado es 800. |estática|El tamaño máximo acumulado (en MB) de los registros de copia de seguridad de una cadena de registros de copia de seguridad determinada. Las solicitudes de copia de seguridad incremental no se realizarán correctamente si esta genera un registro de copia de seguridad que provoque la acumulación de este tipo de elemento, ya que la copia de seguridad completa tendrá un tamaño superior. En tales casos, el usuario tiene que realizar una copia de seguridad completa. |
 | MaxWriteQueueDepthInKB |Int, el valor predeterminado es 0. |No permitida| Valor entero para la profundidad máxima de la cola de escritura que puede usar el registrador de núcleos, especificado en kilobytes para el registro asociado con esta réplica. Este valor es el número máximo de bytes que pueden estar pendientes durante las actualizaciones del registrador de núcleos. Puede ser 0 para que el registrador de núcleos calcule un valor adecuado, o un múltiplo de 4. |
-| SharedLogId |String |No permitida|Identificador de registro compartido. Es un GUID y debe ser único para cada registro compartido. |
-| SharedLogPath |String |No permitida|Ruta de acceso al registro compartido. Si este valor está vacío, se usa el registro compartido predeterminado. |
+| SharedLogId |string |No permitida|Identificador de registro compartido. Es un GUID y debe ser único para cada registro compartido. |
+| SharedLogPath |string |No permitida|Ruta de acceso al registro compartido. Si este valor está vacío, se usa el registro compartido predeterminado. |
 | SlowApiMonitoringDuration |Tiempo en segundos, el valor predeterminado es 300. |estática| Especifique la duración de la API antes de que se desencadene el evento de mantenimiento de advertencia.|
 | MinLogSizeInMB |Int, el valor predeterminado es 0. |estática|Tamaño mínimo del registro transaccional. El registro no podrá truncarse a un tamaño inferior a este valor. 0 indica que el replicador determinará el tamaño de registro mínimo según otros valores de configuración. Al aumentar este valor, incrementa la posibilidad de hacer copias parciales y copias de seguridad incrementales, ya que se reducen las posibilidades de que se trunquen registros pertinentes. |
 
@@ -389,7 +389,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-imagestoreservice"></a>Nombre de sección: ImageStoreService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| Enabled |Bool, el valor predeterminado es false. |estática|La marca "Enabled" para ImageStoreService. Valor predeterminado: false |
+| habilitado |Bool, el valor predeterminado es false. |estática|La marca "Enabled" para ImageStoreService. Valor predeterminado: false |
 | TargetReplicaSetSize | Int, el valor predeterminado es 7. |estática|TargetReplicaSetSize para ImageStoreService. |
 | MinReplicaSetSize | Int, el valor predeterminado es 3. |estática|MinReplicaSetSize para ImageStoreService. |
 | ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es 60.0 * 30. |estática|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ImageStoreService. |
@@ -686,6 +686,7 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 |RunAsPolicyEnabled| bool, el valor predeterminado es FALSE|estática| Habilita la ejecución de paquetes de código como un usuario local que no es el usuario que está ejecutando el proceso de Fabric. Para habilitar esta directiva, Fabric se debe ejecutar como SYSTEM o como usuario con SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. Valor de tiempo de espera de la llamada de sincronización de Register(Stateless/Stateful)ServiceFactory. |
 |ServiceTypeDisableGraceInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de tiempo después del cual se puede deshabilitar el tipo de servicio. |
+|EnableDockerHealthCheckIntegration|bool, el valor predeterminado es TRUE|estática|Habilita la integración de eventos HEALTHCHECK de Docker con el informe de mantenimiento del sistema de Service Fabric. |
 
 ### <a name="section-name-federation"></a>Nombre de sección: Federación
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -773,7 +774,7 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 |MaxSecondaryReplicationQueueSize|uint, el valor predeterminado es 2048|estática|Es el número máximo de operaciones que podrían existir en la cola de replicación secundaria. Tenga en cuenta que debe ser una potencia de 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, el valor predeterminado es 0|estática|Es el valor máximo de la cola de replicación secundaria en bytes.|
 |QueueHealthMonitoringInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|estática|Especifique el intervalo de tiempo en segundos. Este valor determina el período de tiempo que usa el replicador para supervisar los eventos de estado de advertencia o error de las colas de la operación de replicación. Un valor "0" deshabilita la supervisión del estado. |
-|QueueHealthWarningAtUsagePercent|uint, el valor predeterminado es 80|estática|Este valor determina el uso de la cola de replicación (en porcentaje) a partir del cual se advierte acerca de un alto uso de la cola. Esto se hace después de un intervalo de gracia de QueueHealthMonitoringInterval. Si el uso de la cola cae por debajo de este porcentaje en el intervalo de gracia, no se notificará la advertencia.|
+|QueueHealthWarningAtUsagePercent|uint, el valor predeterminado es 80|estática|Este valor determina el uso de la cola de replicación (en porcentaje) a partir del cual se advierte acerca de un alto uso de la cola. Esto se hace después de un intervalo de gracia de QueueHealthMonitoringInterval. Si el uso de la cola cae por debajo de este porcentaje en el intervalo de gracia.|
 |RetryInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(5)|estática|Especifique el intervalo de tiempo en segundos. Cuando una operación se pierde o rechaza, este temporizador determina con qué frecuencia el replicador volverá a intentar enviar la operación.|
 
 ### <a name="section-name-transport"></a>Nombre de sección: Transport
@@ -782,7 +783,7 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 |ResolveOption|string, el valor predeterminado es L"unspecified"|estática|Determina cómo se resuelve el FQDN.  Los valores válidos son "sin especificar/ipv4/ipv6". |
 |ConnectionOpenTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60)|estática|Especifique el intervalo de tiempo en segundos. Tiempo de espera para la configuración de la conexión en los lados de aceptación y entrada (incluida la negociación de seguridad en el modo seguro). |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Lea estos artículos para más información sobre la administración de clúster:
 
 [Agregar o quitar certificados del clúster de Azure ](service-fabric-cluster-security-update-certs-azure.md) 

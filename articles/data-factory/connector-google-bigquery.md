@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10e7687448f4401864e06545447ed4c46e5552be
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Copiar datos de Google BigQuery con Azure Data Factory (beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector Google BigQuery.
 
@@ -45,18 +45,18 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Google BigQuery:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **GoogleBigQuery** | Sí |
-| proyecto | Proyecto predeterminado de BigQuery para el que se realizarán consultas.  | Sí |
-| additionalProjects | Lista separada por comas de proyectos públicos de BigQuery para su acceso.  | No |
-| requestGoogleDriveScope | Si desea solicitar acceso a Google Drive. Al permitir el acceso a Google Drive, se habilita la compatibilidad para las tablas federadas que combinan datos de BigQuery con datos de Google Drive. El valor predeterminado es false.  | No |
+| Tipo | La propiedad type debe establecerse en: **GoogleBigQuery** | Sí |
+| proyecto | Identificador del proyecto predeterminado de BigQuery para el que se realizarán consultas.  | Sí |
+| additionalProjects | Lista separada por comas de identificadores de proyectos públicos de BigQuery para su acceso.  | Sin  |
+| requestGoogleDriveScope | Si desea solicitar acceso a Google Drive. Al permitir el acceso a Google Drive, se habilita la compatibilidad para las tablas federadas que combinan datos de BigQuery con datos de Google Drive. El valor predeterminado es false.  | Sin  |
 | authenticationType | Mecanismo de autenticación OAuth 2.0 que se usa para autenticar. ServiceAuthentication solo puede utilizarse en IR autohospedados. <br/>Los valores permitidos son: **ServiceAuthentication** y **UserAuthentication**. | Sí |
-| refreshToken | Token de actualización obtenido de Google para autorizar el acceso a BigQuery para UserAuthentication. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | No |
-| email | Id. de correo electrónico de la cuenta de servicio usado para ServiceAuthentication y que solo puede utilizarse en IR autohospedados.  | No |
-| keyFilePath | Ruta de acceso completa al archivo de clave. p12 que se usa para autenticar la dirección de correo electrónico de la cuenta de servicio y que solo puede utilizarse en IR autohospedados.  | No |
-| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
-| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | No |
+| refreshToken | Token de actualización obtenido de Google para autorizar el acceso a BigQuery para UserAuthentication. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| email | Id. de correo electrónico de la cuenta de servicio usado para ServiceAuthentication y que solo puede utilizarse en IR autohospedados.  | Sin  |
+| keyFilePath | Ruta de acceso completa al archivo de clave. p12 que se usa para autenticar la dirección de correo electrónico de la cuenta de servicio y que solo puede utilizarse en IR autohospedados.  | Sin  |
+| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |
+| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin  |
 
 **Ejemplo:**
 
@@ -66,13 +66,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Google B
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }
@@ -108,9 +108,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Google BigQuery, establezca el tipo de origen de la actividad de copia en **GoogleBigQuerySource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **GoogleBigQuerySource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **GoogleBigQuerySource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |
 
 **Ejemplo:**
@@ -145,5 +145,5 @@ Para copiar datos de Google BigQuery, establezca el tipo de origen de la activid
 ]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -19,7 +19,7 @@
 - name: Inicios rápidos
   expanded: true
   items:
-    - name: Implementación de Azure Stack
+    - name: Evaluación de Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Tutoriales
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Conceptos
   items:
-    - name: Consideraciones de planeación
-      href: azure-stack-planning-considerations.md
     - name: Directiva de mantenimiento
       href: azure-stack-servicing-policy.md
     - name: Características y conceptos principales
@@ -43,9 +41,9 @@
       href: azure-stack-manage-basics.md
 - name: Guías de procedimientos
   items:
-    - name: Implementación
+    - name: Implementación del ASDK
       items:
-        - name: Requisitos previos
+        - name: requisitos previos
           href: azure-stack-deploy.md
         - name: Telemetría
           href: azure-stack-telemetry.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Creación de una máquina virtual de prueba
           href: azure-stack-provision-vm.md
+    - name: Implementación de los sistemas integrados de Azure Stack
+      items:
+        - name: Consideraciones de planeación de implementación
+          href: azure-stack-deployment-planning.md
+        - name: Decisiones de planeación de implementación
+          href: azure-stack-deployment-decisions.md
+        - name: Implementación conectado a Azure
+          href: azure-stack-connected-deployment.md
+        - name: Implementación desconectado de Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Requisitos de infraestructura de clave pública para la implementación de Azure Stack
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Obtención de certificados de infraestructura de clave pública para la implementación de Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Registro de Azure Stack
+          href: azure-stack-registration.md
     - name: Integración del centro de datos
       items:
         - name: DNS

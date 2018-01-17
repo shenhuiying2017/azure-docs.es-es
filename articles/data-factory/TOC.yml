@@ -11,6 +11,10 @@
   items:
     - name: Creación de Data Factory
       items:
+        - name: Interfaz de usuario (UI)
+          href: quickstart-create-data-factory-portal.md
+        - name: Herramienta Copiar datos
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portal
-          href: quickstart-create-data-factory-portal.md
         - name: Plantilla de Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutoriales
   items:
     - name: 1 - Implementación de paquetes SSIS en Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Interfaz de usuario (UI)
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Copia de datos en la nube
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Herramienta Copiar datos
+          href: tutorial-copy-data-tool.md
+        - name: Interfaz de usuario (UI)
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 - Copia de datos locales en la nube
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Herramienta Copiar datos
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Interfaz de usuario (UI)
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Copia de datos masiva
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Interfaz de usuario (UI)
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 - Copia de datos de forma incremental
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - Copia desde una tabla
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Interfaz de usuario (UI)
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copia desde varias tablas
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Uso de la característica de control de cambios
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Interfaz de usuario (UI)
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Transformación de datos en la nube
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Interfaz de usuario (UI)
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Transformación de datos en una red virtual
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Interfaz de usuario (UI)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Flujo de control
-      href: tutorial-control-flow.md
+      items:
+        - name: Interfaz de usuario (UI)
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Muestras
   items:
     - name: Ejemplos de código
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Guías de procedimientos
   items:
+    - name: Creación visual de factorías de datos
+      href: author-visually.md
     - name: Copia de datos
       items:
-        - name: Copia de datos de orígenes admitidos en destinos
+        - name: Copia de datos con la actividad de copia
           href: copy-activity-overview.md
+        - name: Herramienta Copiar datos
+          href: copy-data-tool.md
         - name: Lectura o escritura de datos con particiones
           href: how-to-read-write-partitioned-data.md
         - name: Conectores
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Almacén de Azure Data Lake
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Cargar Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Azure Database for MySQL
               href: connector-azure-database-for-mysql.md
             - name: Azure Database for PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Cargar SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Ejecución de paquetes SSIS en Azure
       items:
-        - name: Creación de una instancia de Integration Runtime de SSIS de Azure
-          href: create-azure-ssis-integration-runtime.md
         - name: Unión de Integration Runtime de SSIS de Azure a una red virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Administración de Integration Runtime de SSIS de Azure

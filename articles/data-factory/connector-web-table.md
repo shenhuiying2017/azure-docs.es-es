@@ -11,24 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copia de datos de una tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-web-table-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-web-table-connector.md)
 > * [Versión 2: versión preliminar](connector-web-table.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos de tabla web. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
-
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de tabla web](v1/data-factory-web-table-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de tabla web](v1/data-factory-web-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -36,8 +35,13 @@ Puede copiar datos desde la base de datos de la tabla web en cualquier almacén 
 
 En concreto, este conector de tabla web permite **extraer contenido de tablas de una página HTML**. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](connector-http.md) en su lugar.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+Para usar este conector de tabla web, tiene que configurar una instancia de Integration Runtime autohospedada. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
+
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](create-self-hosted-integration-runtime.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de tabla web.
 
@@ -45,12 +49,12 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de tabla web:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Web** |Sí |
-| url | Dirección URL para el origen de Web |Sí |
+| Tipo | La propiedad type debe establecerse en: **Web** |Sí |
+| URL | Dirección URL para el origen de Web |Sí |
 | authenticationType | El valor permitido es: **Anónima**. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
 
@@ -62,6 +66,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de tabla we
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -73,10 +81,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde una tabla web, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **WebTable** | Sí |
-| path |Dirección URL relativa al recurso que contiene la tabla. |No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **WebTable** | Sí |
+| path |Dirección URL relativa al recurso que contiene la tabla. |Nº Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
 | index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
 
 **Ejemplo:**
@@ -161,5 +169,5 @@ Para copiar datos desde una tabla web, establezca el tipo de origen de la activi
 Si usa Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obtener el índice. Consulte el artículo [Conectarse a una página web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para más información. Los pasos son similares si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Ejecución mediante Azure PowerShell
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: Uso de una canalización de análisis de datos
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: Uso de Oozie para flujos de trabajo
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true

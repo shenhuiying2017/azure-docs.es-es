@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
 
@@ -62,9 +62,10 @@ Event Grid agrega una pequeña selección aleatoria a todos los intervalos de re
 
 ## <a name="retry-duration"></a>Duración de reintentos
 
-Durante la versión preliminar, Azure Event Grid expira todos los eventos que no se hayan entregado en dos horas. Antes de la disponibilidad general, este tiempo se <aumentará a 24. 
+Durante la versión preliminar, Azure Event Grid expira todos los eventos que no se hayan entregado en dos horas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
+* Para ver el estado de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
 * Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).

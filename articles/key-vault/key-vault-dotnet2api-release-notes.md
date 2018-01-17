@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 de Azure Key Vault: notas de la versión y guía de migración
 Tanto las notas como la guía siguientes son para desarrolladores que trabajan con la biblioteca de C# o .NET de Azure Key Vault. En la transición de la versión 1.0 a la versión 2.0, se han creado una serie de actualizaciones que requerirán un trabajo de migración en su código para que pueda disfrutar de las mejoras funcionales y la incorporación de características, como, por ejemplo, la compatibilidad con **certificados de Key Vault**.
@@ -36,8 +36,9 @@ La compatibilidad con certificados de Key Vault proporciona la administración d
 
 ## <a name="net-support"></a>Compatibilidad con .NET
 
-* **.NET 4.0** no es compatible con la versión 2.0 de .NET de Azure Key Vault ni con la biblioteca de C#
-* **.NET Core** no es compatible con la versión 2.0 de .NET de Azure Key Vault ni con la biblioteca de C#
+* **.NET 4.0** no es compatible con la versión 2.0 de la biblioteca .NET de Azure Key Vault.
+* **.NET Framework 4.5.2** es compatible con la versión 2.0 de la biblioteca .NET de Azure Key Vault.
+* **.NET Standard 1.4** es compatible con la versión 2.0 de la biblioteca .NET de Azure Key Vault.
 
 ## <a name="namespaces"></a>Espacios de nombres
 

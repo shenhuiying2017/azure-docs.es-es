@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adición o eliminación de un punto de conexión de servidor de Azure File Sync (versión preliminar)
 Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -32,7 +32,7 @@ Para crear un punto de conexión de servidor, primero debe asegurarse de que se 
 - El servidor tiene instalado el agente de Azure File Sync y se ha registrado. Puede encontrar instrucciones para instalar el agente de Azure File Sync en el artículo [Registro y cancelación del registro de un servidor con Azure File Sync (versión preliminar)](storage-sync-files-server-registration.md). 
 - Asegúrese de que se ha implementado un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar un servicio de sincronización de almacenamiento, consulte [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) (Implementación de Azure File Sync [versión preliminar]). 
 - Asegúrese de que se ha implementado un grupo de sincronización. Aprenda a [crear un grupo de sincronización](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Asegúrese de que el servidor está conectado a Internet y que se puede acceder a Azure.
+- Asegúrese de que el servidor está conectado a Internet y que se puede acceder a Azure. Se usa el puerto 443 para todas las comunicaciones entre el servidor y el servicio.
 
 ## <a name="add-a-server-endpoint"></a>Adición de un punto de conexión de servidor
 Para agregar un punto de conexión de servidor, vaya al grupo de sincronización que prefiera y seleccione "Agregar punto de conexión del servidor".
@@ -69,6 +69,6 @@ Para quitar el punto de conexión de servidor:
 
     ![Eliminación de un punto de conexión de servidor de un grupo de sincronización](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Registro y cancelación del registro de un servidor con Azure File Sync (versión preliminar)](storage-sync-files-server-registration.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
