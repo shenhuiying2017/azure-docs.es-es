@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Aprenda a crear una función que se desencadena cuando se agregan o se cambian d
 
 ![Vea el mensaje en los registros.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -71,7 +71,7 @@ Después, cree una función en la nueva Function App.
 
 6. Al crear una nueva cuenta de Cosmos DB, use la configuración **Nueva cuenta** tal como se especifica en la tabla.
 
-    | Configuración      | Valor sugerido  | Descripción                                |
+    | Configuración      | Valor sugerido  | DESCRIPCIÓN                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Id** | Nombre de base de datos | Identificador único para la base de datos de Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | En este tema se usa la API de base de datos de documentos.  |
@@ -107,7 +107,7 @@ A continuación, se conectará a la cuenta de Azure Cosmos DB y creará la colec
  
     ![Definición de taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
  
-    | Configuración|Valor sugerido|Descripción |
+    | Configuración|Valor sugerido|DESCRIPCIÓN |
     | ---|---|--- |
     | **Identificador de base de datos** | Tareas |Nombre de la nueva base de datos. Debe coincidir con el nombre definido en el enlace de función. |
     | **Identificador de colección** | Elementos | Nombre de la nueva colección. Debe coincidir con el nombre definido en el enlace de función.  |
@@ -143,10 +143,10 @@ Una vez que la colección especificada en el enlace de función existe, puede pr
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado una función que se ejecuta cuando se agrega o modifica un documento en su instancia de Azure Cosmos DB.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Para más información sobre los desencadenadores de Azure Cosmos DB, consulte [Enlaces de Azure Cosmos DB para Azure Functions](functions-bindings-documentdb.md).
+Para más información sobre los desencadenadores de Azure Cosmos DB, consulte [Enlaces de Azure Cosmos DB para Azure Functions](functions-bindings-cosmosdb.md).

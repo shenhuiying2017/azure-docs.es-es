@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-ms.date: 10/02/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e9e5c378ac304a7b594a3ed113bb3a5d5b643750
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 675ebb56496846c5d00ecb5af0e4a69c092b74c6
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Copia de seguridad de una máquina virtual en Azure con la CLI
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) en Azure con la CLI de Azure. Estos pasos también se pueden llevar a cabo con [Azure PowerShell](quick-backup-vm-powershell.md) o en [Azure Portal](quick-backup-vm-portal.md).
@@ -124,7 +124,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta guía de inicio rápido, ha creado un almacén de Recovery Services, habilitado la protección en una máquina virtual y creado el punto de recuperación inicial. Para más información acerca de Azure Backup, y Recovery Services, continúe con los tutoriales.
 
 > [!div class="nextstepaction"]

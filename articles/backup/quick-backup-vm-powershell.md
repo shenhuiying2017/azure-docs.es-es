@@ -1,26 +1,26 @@
 ---
 title: "Guía de inicio rápido de Azure: Copia de seguridad de una máquina virtual con PowerShell | Microsoft Docs"
 description: "Aprenda a realizar copias de seguridad de sus máquinas virtuales con Azure PowerShell"
-services: virtual-machines-windows, azure-backup
+services: backup, virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup, virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9abb85c7a23a1fadc0afc1c4716c81aae712f30b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 534d00c0938aaadf9abd9942be80eb456787fcf9
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 El módulo Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) con el módulo Azure PowerShell. Estos pasos también se pueden llevar a cabo estos pasos con la [CLI de Azure](quick-backup-vm-cli.md) o [Azure Portal](quick-backup-vm-portal.md).

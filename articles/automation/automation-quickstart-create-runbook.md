@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Creación de un runbook de Azure Automation
 
@@ -71,7 +72,7 @@ Una vez creado el runbook, debe probarlo para asegurarse de que funciona.
 
 1. En la página **Editar Runbook de PowerShell**, haga clic en **Publicar** para publicar el runbook como la versión oficial del runbook en la cuenta.
 
-   ![Información general del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Ejecución del runbook
 
@@ -83,11 +84,11 @@ Una vez publicado el runbook, se muestra la página de información general.
 
 1. Deje el valor de **Nombre** en blanco para que se use el valor predeterminado y haga clic en **Aceptar**. Se envía el trabajo del runbook y aparece la página de trabajo.
 
-   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Cuando el valor de **Estado del trabajo** sea **En ejecución** o **Completado**, haga clic en **Salida** para abrir el panel **Salida** y ver la salida del runbook.
 
-    ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

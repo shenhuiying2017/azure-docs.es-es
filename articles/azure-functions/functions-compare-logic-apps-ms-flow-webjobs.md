@@ -16,19 +16,18 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Elección entre Flow, Logic Apps, Functions y WebJobs
 En este artículo se comparan y contrastan los siguientes servicios en la nube de Microsoft. Todos ellos pueden resolver los problemas de integración y la automatización de los procesos empresariales:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* 
-            [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service/web-sites-create-web-jobs.md)
 
 Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio tiene ventajas únicas y no se trata de saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
@@ -77,12 +76,12 @@ Functions es la evolución natural de WebJobs ya que toma lo mejor de WebJobs y 
 
 En la tabla siguiente se resumen las diferencias entre Functions y WebJobs:
 
-|  | Funciones | Trabajos web |
+|  | Functions | Trabajos web |
 | --- | --- | --- |
 | Escalado |Escalado sin configuración |escalado con plan de App Service |
 | Precios |Pago por uso o parte del plan de App Service |parte del plan de App Service |
 | Tipo ejecución |desencadenada, programada (por desencadenador de temporizador) |desencadenada, continua, programada |
-| Desencadenar eventos |[Temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |[colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |
+| Desencadenar eventos |[Temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |[colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |
 | Desarrollo en el explorador |Compatible |No compatible |
 | C# |Compatible |Compatible |
 | F# |Compatible |No compatible |
@@ -112,7 +111,7 @@ Como se mencionó anteriormente, el servicio más adecuado dependerá de su situ
 
 Puede llamar a una aplicación lógica en un flujo. También puede llamar a una función en una aplicación lógica y a una aplicación lógica en una función. La integración entre Flow, Logic Apps y Functions sigue mejorando con el tiempo. Puede crear algo en un servicio y usarlo en los otros. Por lo tanto, cualquier inversión que realice en estas tres tecnologías merecerá la pena.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Comience con cada uno de estos servicios creando su primer flujo, aplicación lógica, aplicación de función o trabajo web. Haga clic en cualquiera de los siguientes vínculos:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/) (Introducción a Microsoft Flow)

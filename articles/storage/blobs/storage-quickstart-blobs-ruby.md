@@ -10,20 +10,20 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferencia de objetos hacia y desde Azure Blob Storage mediante Ruby
 En esta guía de inicio rápido, aprenderá a usar Ruby para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido: 
 * Instalación de [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale la [biblioteca de Azure Storage para Ruby](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) mediante el paquete rubygem. 
+* Instale la [biblioteca de Azure Storage para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) mediante el paquete rubygem. 
 
 ```
 gem install azure-storage
@@ -170,7 +170,7 @@ File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Ruby. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

@@ -6,14 +6,14 @@ keywords: "dsc, configuración, automation"
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual Linux con Desired State Configuration
 
@@ -31,7 +31,7 @@ Para completar este inicio rápido necesita instalar:
 Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="onboard-a-virtual-machine"></a>Incorporar una máquina virtual
-Hay muchos métodos diferentes para incorporar una máquina y habilitar Desired State Configuration. Esta guía de inicio rápido trata la incorporación a través de una cuenta de Automation. Para obtener más información sobre los distintos métodos de incorporación de máquinas a Desired State Configuration, lea el artículo sobre la [incorporación](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding).
+Hay muchos métodos diferentes para incorporar una máquina y habilitar Desired State Configuration. Esta guía de inicio rápido trata la incorporación a través de una cuenta de Automation. Para obtener más información sobre los distintos métodos de incorporación de máquinas a Desired State Configuration, lea el artículo sobre la [incorporación](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. En el panel izquierdo de Azure Portal, seleccione **Cuentas de Automation**. Si la opción no está visible en el panel izquierdo, haga clic en **Todos los servicios** y búsquela en la vista que se muestra.
 1. Seleccione una cuenta de Automation de la lista.
@@ -39,7 +39,7 @@ Hay muchos métodos diferentes para incorporar una máquina y habilitar Desired 
 1. Haga clic en la opción de menú **Agregar máquina virtual de Azure**.
 1. Busque la máquina virtual para la que quiere habilitar DSC. Puede usar el campo de búsqueda y las opciones de filtro para buscar una máquina virtual específica.
 1. Haga clic en la máquina virtual y, a continuación, seleccione **Conectar**.
-1. Seleccione la configuración de DSC adecuada para la máquina virtual. Si ya tiene una configuración preparada, la puede especificar como *Nombre de la configuración del nodo*. Puede establecer el [modo de configuración](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig) para controlar el comportamiento de la configuración de la máquina.
+1. Seleccione la configuración de DSC adecuada para la máquina virtual. Si ya tiene una configuración preparada, la puede especificar como *Nombre de la configuración del nodo*. Puede establecer el [modo de configuración](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar el comportamiento de la configuración de la máquina.
 1. Haga clic en **Aceptar**
 
 ![Incorporación de una máquina virtual de Azure a DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ Para importar la configuración:
 
 ## <a name="compile-a-configuration"></a>Compilar una configuración
 
-Las configuraciones DSC se deben compilar en una configuración de nodo (documento MOF) antes de asignarse a un nodo. La compilación valida la configuración y permite la entrada de valores de parámetro. Para obtener más información sobre la compilación de una configuración, consulte: [Compilación de configuraciones en DSC de Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Las configuraciones DSC se deben compilar en una configuración de nodo (documento MOF) antes de asignarse a un nodo. La compilación valida la configuración y permite la entrada de valores de parámetro. Para obtener más información sobre la compilación de una configuración, consulte: [Compilación de configuraciones en DSC de Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 
 Para compilar la configuración:
 
@@ -141,6 +141,6 @@ En esta guía de inicio rápido, incorporó una máquina virtual Linux a DSC, cr
 > [!div class="nextstepaction"]
 > [Implementación continua en máquinas virtuales con DSC y Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Para obtener más información sobre Desired State Configuration de PowerShell, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://docs.microsoft.com/en-us/powershell/dsc/overview).
-* Para obtener más información acerca de cómo administrar DSC de Automatización desde PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
-* Para obtener información sobre cómo reenviar los informes de DSC a Log Analytics para la generación de informes y alertas, consulte el tema sobre el [reenvío de informes de DSC a Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics). 
+* Para obtener más información sobre Desired State Configuration de PowerShell, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
+* Para obtener más información acerca de cómo administrar DSC de Automatización desde PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
+* Para obtener información sobre cómo reenviar los informes de DSC a Log Analytics para la generación de informes y alertas, consulte el tema sobre el [reenvío de informes de DSC a Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 

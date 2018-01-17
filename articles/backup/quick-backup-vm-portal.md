@@ -1,26 +1,26 @@
 ---
 title: "Guía de inicio rápido de Azure: Copia de seguridad de una máquina virtual con Azure Portal | Microsoft Docs"
 description: "Aprenda a realizar copias de seguridad de sus máquinas virtuales con Azure Portal"
-services: virtual-machines-windows, azure-backup
+services: backup, virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup, virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b34e812379ed25945ae32b600e0db82afaf78d77
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 Se pueden crear copias de seguridad de Azure a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar copias de seguridad de Azure y todos los recursos asociados. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) con Azure Portal. 
