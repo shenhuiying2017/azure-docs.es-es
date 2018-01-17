@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Asociación o adición de una suscripción de Azure a Azure Active Directory
 
@@ -46,7 +46,7 @@ Todos los usuarios tienen un único directorio de inicio que los autentica, pero
 
     ![Captura de pantalla que muestra la interfaz de usuario de cambio de directorio](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Haga clic en **Cambiar**.
-6. ¡Éxito! Utilice el modificador del directorio para ir al directorio nuevo.
+6. ¡Éxito! Utilice el modificador del directorio para ir al directorio nuevo. Puede tardar hasta 10 minutos para que todo se muestre correctamente.
 
     ![Captura de pantalla que muestra la notificación correcta de cambio de directorio](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 
@@ -55,11 +55,11 @@ Todos los usuarios tienen un único directorio de inicio que los autentica, pero
 
 El cambio del directorio de suscripción es una operación de nivel de servicio. La propiedad de facturación de suscripción no se ve afectada y el Administrador de cuenta todavía puede cambiar el Administrador de servicios mediante el [Centro de cuentas](https://account.azure.com/subscriptions). Si desea eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información acerca de cómo crear un nuevo directorio de Azure AD de forma gratuita, vea [Obtención de un inquilino de Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Para más información acerca de cómo transferir la propiedad de facturación de una suscripción de Azure, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
-* Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
+* Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
 * Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

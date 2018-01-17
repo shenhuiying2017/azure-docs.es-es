@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
-> [!div class="op_single_selector"]
-> * [Protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md)
-> * [Protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
->
->
 
 Este tutorial le guiará por los pasos necesarios para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
 
@@ -48,15 +43,13 @@ Para más información sobre lo que puede hacer una copia de seguridad y sobre l
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Dependiendo del número de máquinas virtuales que quiera proteger, puede usar diferentes puntos de partida. Si quiere hacer una copia de seguridad de varias máquinas virtuales en una operación, vaya al almacén de Recovery Services e [inicie el trabajo de copia de seguridad desde el panel del almacén](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si quiere realizar una copia de seguridad de una sola máquina virtual, puede iniciar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configuración del trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales
 
-Use los pasos siguientes para configurar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales de Azure Portal. Estos pasos no se aplican a las máquinas virtuales del Portal clásico.
+Use los pasos siguientes para configurar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales de Azure Portal. Los pasos siguientes se aplican únicamente a máquinas virtuales de Azure Portal.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú del concentrador, haga clic en **More Services** (Más servicios) y, en el cuadro de diálogo Filtrar, escriba **Máquinas virtuales**. A medida que escribe, se filtra la lista de recursos. Cuando vea Máquinas virtuales, selecciónelo.
 
   ![En el menú del concentrador, haga clic en More Services (Más servicios) para abrir el cuadro de diálogo Texto y escriba Máquinas virtuales.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -160,7 +153,7 @@ Para crear un almacén de Recovery Services:
 6. En la sección **Grupo de recursos**:
 
     * Si desea crear un nuevo grupo de recursos, seleccione **Crear nuevo**.
-    O
+    o
     * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
 
   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
@@ -325,13 +318,13 @@ Obtenga información acerca del [agente de máquina virtual](https://go.microsof
 
 La tabla siguiente proporciona información adicional acerca del agente de máquina virtual para las máquinas virtuales de Windows y Linux.
 
-| **Operación** | **Windows** | **Linux** |
+| **operación** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalación del agente de la máquina virtual |<li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |<li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Para completar la instalación, necesita privilegios de administrador. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
 | Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual |<li>Acceda a la carpeta *C:\WindowsAzure\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
-### <a name="backup-extension"></a>Extensión de copia de seguridad
+### <a name="backup-extension"></a>Extensión de Backup
 Una vez que el agente de máquina virtual está instalado en la máquina virtual, el servicio Azure Backup instala la extensión de copia de seguridad en el agente de máquina virtual. El servicio Azure Backup actualiza y aplica revisiones perfectamente a la extensión de copia de seguridad sin la intervención del usuario.
 
 El servicio Backup instalará la extensión de la copia de seguridad, incluso si no se está ejecutando la máquina virtual. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Azure Backup sigue realizando la copia de seguridad de la máquina virtual aunque esté apagada y no haya sido posible instalar la extensión. Este tipo de copia de seguridad se conoce como máquina virtual sin conexión y el punto de recuperación es *coherente frente a bloqueos*.

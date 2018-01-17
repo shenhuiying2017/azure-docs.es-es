@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: efe34835d20e3b0aa679ceaa4a6428848c735a3e
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7f8836fb792151dbfdd156735d3e2c297c80cd8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -73,7 +73,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 * Azure PowerShell. Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
-* **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene ninguna cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
+* **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en Azure SQL Database
 1. Inicie **SQL Server Management Studio** y conéctese a su servidor de Azure SQL. 
@@ -185,7 +185,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+* El nombre de la factoría de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
 
     ```
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
@@ -384,12 +384,12 @@ En este paso, creará un conjunto de datos para almacenar la versión de control
     DataFactoryName   : IncCopyChgTrackingDF
     Structure         :
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
-        ```
+    ```
 
-## Create a pipeline for the full copy
-In this step, you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
+## <a name="create-a-pipeline-for-the-full-copy"></a>Creación de una canalización para la copia completa
+En este paso, va a crear una canalización con la actividad de copia que copia todos los datos desde el almacén de datos de origen (Azure SQL Database) al almacén de datos de destino (Azure Blob Storage).
 
-1. Create a JSON file: FullCopyPipeline.json in same folder with the following content: 
+1. Cree un archivo JSON llamado FullCopyPipeline.json en la misma carpeta con el siguiente contenido: 
 
     ```json
     {
@@ -663,7 +663,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Pase al tutorial siguiente para obtener información acerca de la transformación de datos mediante el uso de un clúster de Spark en Azure:
 
 > [!div class="nextstepaction"]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 
@@ -35,15 +35,13 @@ En este artículo, aprenderá acerca de lo siguiente:
 * La migración de datos de almacenamiento
 * Las distintas bibliotecas de cliente de Storage disponibles
 
-Para empezar a trabajar con Azure Storage rápidamente, consulte alguno de las siguientes guías de inicio rápido:
-* [Creación de una cuenta de almacenamiento mediante PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Creación de una cuenta de almacenamiento mediante la CLI](storage-quickstart-create-storage-account-cli.md)
+Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Introducción de los servicios Azure Storage
 
 Para utilizar cualquiera de los servicios que proporciona Azure Storage (Blob Storage, File Storage y Queue Storage), cree primero una cuenta de almacenamiento para migrar datos desde o hacia uno de sus servicios específicos.
 
-## <a name="blob-storage"></a>Almacenamiento de blobs
+## <a name="blob-storage"></a>Blob Storage
 
 Básicamente, los blobs son archivos como los que se almacenan en el equipo (o tableta, dispositivo móvil, etc.). Pueden ser imágenes, archivos de Microsoft Excel, archivos HTML, discos duros virtuales (VHD), macrodatos, como registros, copias de seguridad de bases de datos..., cualquier cosa. Los blobs se almacenan en contenedores, que son similares a las carpetas.
 
@@ -99,7 +97,7 @@ En esta tabla se muestran los distintos tipos de cuentas de almacenamiento y los
 
 Hay dos tipos de cuentas de almacenamiento de uso general.
 
-#### <a name="standard-storage"></a>Standard storage
+#### <a name="standard-storage"></a>Standard Storage
 
 Las cuentas de almacenamiento más usadas son las estándar, que se pueden usar para cualquier tipo de datos. Las cuentas de almacenamiento estándar usan medios magnéticos para almacenar los datos.
 
@@ -139,7 +137,7 @@ Hay un par de tipos básicos de cifrado disponibles para los servicios de almace
 
 Puede habilitar el cifrado de servicio de almacenamiento (SSE) en File Service (versión preliminar) o en Blob Service para una cuenta de Azure Storage. Si está habilitado, todos los datos escritos en el servicio específico se cifran antes de la escritura. Cuando se leen los datos, se descifran antes de devolverlos.
 
-### <a name="client-side-encryption"></a>cifrado de cliente
+### <a name="client-side-encryption"></a>Cifrado de cliente
 
 Las bibliotecas de cliente de almacenamiento tienen métodos que puede llamar para cifrar los datos mediante programación antes de enviarlos por cable del cliente a Azure. Se almacenan cifrados, lo que significa que también se cifran en reposo. Cuando se leen los datos de nuevo, se descifra la información después de recibirla.
 
@@ -213,15 +211,13 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 * [Cmdlets de Storage para PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
 * [Comandos de Storage para la CLI 2.0](/cli/azure/storage)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Más información sobre Blob Storage](../blobs/storage-blobs-introduction.md)
 * [Más información sobre File Storage](../storage-files-introduction.md)
 * [Más información sobre Queue Storage](../queues/storage-queues-introduction.md)
 
-Para empezar a trabajar con Azure Storage rápidamente, consulte alguno de las siguientes guías de inicio rápido:
-* [Creación de una cuenta de almacenamiento mediante PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Creación de una cuenta de almacenamiento mediante la CLI](storage-quickstart-create-storage-account-cli.md)
+Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -270,7 +266,7 @@ To learn more about Azure Storage, explore these resources:
 * [Uso de la CLI de Azure con Azure Storage](../storage-azure-cli.md)
 
 ### <a name="for-net-developers"></a>Para desarrolladores de .NET
-* [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Introducción a Azure Blob Storage mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Desarrollo para Azure Files con .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Introducción a Azure Table Storage mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Introducción a Azure Queue Storage mediante .NET](../storage-dotnet-how-to-use-queues.md)
@@ -297,7 +293,7 @@ To learn more about Azure Storage, explore these resources:
 * [Uso de Queue Storage en Ruby](../storage-ruby-how-to-use-queue-storage.md)
 
 ### <a name="for-python-developers"></a>Para desarrolladores de Python
-* [Uso del almacenamiento de blobs de Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Uso de Blob Storage en Python](../blobs/storage-python-how-to-use-blob-storage.md)
 * [Desarrollo para Azure Files con Python](../files/storage-python-how-to-use-file-storage.md)
 * [Uso de Table Storage en Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [Uso de Queue Storage en Python](../storage-python-how-to-use-queue-storage.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Lanzamiento: SSPR de Azure AD | Microsoft Docs'
+title: "Guía de implementación de restablecimiento de contraseña de autoservicio: Azure Active Directory"
 description: "Sugerencia para el lanzamiento del autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 4eb3465ec36b6e25a1a36fb5b15a823adf536d83
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -83,7 +83,7 @@ Debe [Rellenar los datos de autenticación para los usuarios](active-directory-p
 
 Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 * [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)

@@ -1,6 +1,6 @@
 ---
 title: "Una solución predictiva para el riesgo de crédito con Machine Learning | Microsoft Docs"
-description: "Un tutorial detallado que muestra cómo crear una solución de análisis predictiva para la evaluación del riesgo de crédito en Estudio de aprendizaje automático de Azure"
+description: "Un tutorial detallado que muestra cómo crear una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning Studio"
 keywords: "riesgo de crédito, solución de análisis predictivo, evaluación de riesgos"
 services: machine-learning
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning
 
 En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo en Machine Learning Studio. Desarrollaremos un modelo simple en Machine Learning Studio y lo implementaremos como un servicio web Azure Machine Learning, donde podrá realizar predicciones utilizando datos nuevos. 
 
@@ -47,7 +47,7 @@ En este detallado tutorial, comenzamos con datos de riesgo de crédito y desarro
 
 Para crear esta solución de evaluación de riesgos de crédito, seguiremos estos pasos:  
 
-1. [Creación de un área de trabajo de Aprendizaje automático](walkthrough-1-create-ml-workspace.md)
+1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carga de los datos existentes](walkthrough-2-upload-data.md)
 3. [Creación de un experimento](walkthrough-3-create-new-experiment.md)
 4. [Entrenamiento y evaluación de los modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -55,6 +55,6 @@ Para crear esta solución de evaluación de riesgos de crédito, seguiremos esto
 6. [Acceso al servicio web](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Puede encontrar una copia de trabajo del experimento que desarrollamos en este tutorial en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com). Vaya a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: predicción de riesgos de crédito) y haga clic en **Abrir en Studio** para descargar una copia del experimento al área de trabajo de Machine Learning Studio.
+> Puede encontrar una copia de trabajo del experimento que desarrollamos en este tutorial en la [Galería de Azure AI](https://gallery.cortanaintelligence.com). Vaya a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: predicción de riesgos de crédito) y haga clic en **Abrir en Studio** para descargar una copia del experimento al área de trabajo de Machine Learning Studio.
 > 
 > Este tutorial se basa en una versión simplificada del experimento de ejemplo, [Clasificación binaria: predicción de riesgos de crédito](http://go.microsoft.com/fwlink/?LinkID=525270), también disponible en la [galería](http://gallery.cortanaintelligence.com/).

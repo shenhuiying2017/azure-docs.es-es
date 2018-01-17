@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Lección 2: Obtención de datos
+# <a name="get-data"></a>Obtener los datos
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-En esta lección, usará Obtención de datos en SSDT para conectarse a la base de datos de ejemplo AdventureWorksDW2014, seleccionar datos, obtener una vista previa, filtrar e importar en el área de trabajo del modelo.  
+En esta lección, usará Obtención de datos en SSDT para conectarse a la base de datos de ejemplo Adventure Works, seleccionar los datos, obtener una vista previa de los mismos, filtrarlos e importarlos en el área de trabajo del modelo.  
   
 Al usar Obtención de datos, puede importar datos de diversos de orígenes: Azure SQL Database, Oracle, Sybase, fuente OData, Teradata, archivos y mucho más. También puede consultar datos mediante una expresión de fórmula de Power Query M.
 
 > [!NOTE]
-> Las tareas y las imágenes en este tutorial muestran cómo establecer una conexión a una base de datos de AdventureWorksDW2014 en un servidor local. En algunos casos, una base de datos de AdventureWorksDW2014 en Azure puede ser diferente.
+> Las tareas y las imágenes en este tutorial muestran cómo establecer una conexión a una base de datos de AdventureWorksDW2014 en un servidor local. En algunos casos, una base de datos de Adventure Works en Azure puede ser diferente.
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   

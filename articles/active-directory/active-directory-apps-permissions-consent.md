@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplicaciones, permisos y consentimiento en Azure Active Directory
-Dentro de Azure Active Directory puede agregar aplicaciones a su directorio.  Las aplicaciones pueden variar según el tipo de aplicación.  Para ver las aplicaciones en el portal clásico, seleccione un directorio y elija las aplicaciones.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+Dentro de Azure Active Directory puede agregar aplicaciones a su directorio.  Las aplicaciones pueden variar según el tipo de aplicación.  Para ver las aplicaciones en el portal, seleccione un directorio y elija las aplicaciones.
 
 > [!IMPORTANT]
-> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo.
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure al que se hace referencia en este artículo.
 
 ## <a name="types-of-apps"></a>Tipos de aplicaciones
 
@@ -73,9 +71,7 @@ En resumen:
 
 ## <a name="controls"></a>Controles
 
-La siguiente es una lista de los diferentes controles de administración disponibles para este comportamiento. Se puede obtener acceso a los controles de administración en el portal clásico desde la opción de configuración del directorio.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+La siguiente es una lista de los diferentes controles de administración disponibles para este comportamiento.
 
 En Azure Portal en **Administrar**, **Configuración de usuario**.
 
@@ -85,18 +81,14 @@ En Azure Portal en **Administrar**, **Configuración de usuario**.
 
 - Puede controlar si los usuarios pueden dar consentimiento a aplicaciones:
 
-En el portal clásico, seleccione **Users may give applications permissions to access their data**(Los usuarios pueden otorgar permisos para la aplicación para tener acceso a los datos).
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 En Azure Portal, seleccione **Los usuarios pueden permitir que las aplicaciones accedan a sus datos**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Puede controlar si los usuarios pueden registrar sus propias aplicaciones de línea de negocio de inquilino único: en el portal clásico, seleccione **Los usuarios pueden agregar aplicaciones integradas**.
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Puede controlar si los usuarios pueden registrar sus propias aplicaciones de línea de negocio de único inquilino:
 
-En Azure Portal, seleccione **Los usuarios pueden permitir que las aplicaciones accedan a sus datos**.
+En Azure Portal, seleccione **Los usuarios pueden registrar aplicaciones**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ En Azure Portal, seleccione **Los usuarios pueden permitir que las aplicaciones 
 >- Al registrar aplicaciones de línea de negocio de inquilino único, los usuarios no pueden solicitar permisos delegados para otras aplicaciones si esos permisos requieren el consentimiento del administrador.
 >- Los usuarios no pueden realizar cambios en las aplicaciones de las que no son propietarios.
 
-
-
-- Puede controlar si los usuarios pueden por sí mismos agregar aplicaciones previamente integradas que utilizan el inicio de sesión único con contraseña (proceso también conocido como "almacenamiento de contraseña") ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Puede controlar en qué condiciones se puede tener acceso a las aplicaciones (es decir, un acceso condicional). Tenga en cuenta que esto se aplica a la aplicación cliente y a la aplicación de recurso. Por tanto, supongamos que establece una directiva de acceso condicional que indica que solo se puede acceder a la aplicación "Office 365 Exchange Online" desde máquinas que sean compatibles.  Esta directiva también se activará si un usuario intenta usar una aplicación cliente que solicita permisos para Exchange Online.
-
-
-
-- De esta forma, tiene visibilidad para ver a qué aplicaciones se le ha dado consentimiento y cuáles se están usando.
-
-1.  Cuando un usuario da su consentimiento a una aplicación, se crea un objeto ServicePrincipal en el inquilino. La creación de ServicePrincipal se incluye en el informe de auditoría.
-2.  Los informes de actividad de inicio de sesión del usuario le indican en qué aplicación está iniciando sesión el usuario. 
 
 ## <a name="example"></a>Ejemplo
 

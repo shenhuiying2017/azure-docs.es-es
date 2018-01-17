@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Estudio de aprendizaje automático de Azure
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Azure Machine Learning Studio
 
 Si nunca ha usado **Azure Machine Learning Studio** antes, este tutorial le ayudará.
 
@@ -34,9 +34,9 @@ Le mostraremos cómo usar Studio por primera vez para crear un experimento de ap
 >
 >Si está familiarizado con el aprendizaje automático pero busca información más general sobre Machine Learning Studio y los algoritmos de aprendizaje automático que contiene, aquí se indican algunos buenos recursos:
 >
-- [¿Qué es Estudio de aprendizaje automático?](what-is-ml-studio.md) - Esta es una descripción de alto nivel de Studio.
+- [¿Qué es Machine Learning Studio?](what-is-ml-studio.md) - Esta es una descripción de alto nivel de Studio.
 - [Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](basics-infographic-with-algorithm-examples.md): esta infografía es útil si quiere aprender más sobre los diferentes tipos de algoritmos de aprendizaje automático que se incluyen con Machine Learning Studio.
-- [Guía de aprendizaje automático](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1): esta guía incluye información similar a la infografía mencionada anteriormente, pero en formato interactivo.
+- [Guía de Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1): esta guía incluye información similar a la infografía mencionada anteriormente, pero en formato interactivo.
 - [Hoja de referencia rápida de algoritmos de aprendizaje automático ](algorithm-cheat-sheet.md) y [Cómo elegir algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md): este póster descargable y el artículo que le acompaña tratan en profundidad los algoritmos de Studio.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: ayuda de algoritmos y módulos): esta es la referencia completa para todos los módulos de Studio, incluidos los algoritmos de aprendizaje automático.
 
@@ -44,9 +44,9 @@ Le mostraremos cómo usar Studio por primera vez para crear un experimento de ap
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="how-does-machine-learning-studio-help"></a>¿Cómo funciona la ayuda de Estudio de aprendizaje automático?
+## <a name="how-does-machine-learning-studio-help"></a>¿Cómo funciona la ayuda de Machine Learning Studio?
 
-Estudio de aprendizaje automático facilita la configuración de un experimento con módulos de arrastrar y colocar programados previamente con técnicas de modelado predictivo.
+Machine Learning Studio facilita la configuración de un experimento con módulos de arrastrar y colocar programados previamente con técnicas de modelado predictivo.
 
 Mediante un área de trabajo visual e interactiva, se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un lienzo interactivo. Luego se conectan para formar un ***experimento*** que se ejecuta en Machine Learning Studio.
 Se ***crea un modelo***, ***se entrena***, se ***puntúa y se prueba***.
@@ -81,7 +81,7 @@ En este tutorial de aprendizaje automático se enumeran los cinco pasos básicos
 [Paso 5: Predecir los precios de los automóviles nuevos]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Puede encontrar una copia de trabajo del experimento siguiente en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com). Vaya a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Su primer experimento de ciencia de los datos: predicción de los precios de automóviles) y haga clic en **Abrir en Studio** para descargar una copia del experimento en su área de trabajo de Machine Learning Studio.
+> Puede encontrar una copia de trabajo del experimento siguiente en la [galería de Azure AI](https://gallery.cortanaintelligence.com). Vaya a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Su primer experimento de ciencia de los datos: predicción de los precios de automóviles) y haga clic en **Abrir en Studio** para descargar una copia del experimento en su área de trabajo de Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Paso 1: Obtener los datos
@@ -132,9 +132,9 @@ Normalmente, un conjunto de datos requiere algún procesamiento previo antes de 
 
 Primero agregaremos un módulo que quite completamente la columna **normalized-losses** y luego agregaremos otro módulo que quite cualquier fila a la que le falten datos.
 
-1. Escriba **seleccionar columnas** en el cuadro de búsqueda de la parte superior de la paleta de módulos, y busque [Select Columns in Dataset][select-columns]; después, arrastre este módulo al lienzo del experimento. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
+1. Escriba **seleccionar columnas** en el cuadro de búsqueda de la parte superior de la paleta de módulos, y busque [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns]; después, arrastre este módulo al lienzo del experimento. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
-2. Conecte el puerto de salida del conjunto de datos **Automobile price data (Raw)** al puerto de entrada del módulo [Select Columns in Dataset][select-columns].
+2. Conecte el puerto de salida del conjunto de datos **Automobile price data (Raw)** al puerto de entrada del módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns].
 
     ![Agregar el módulo "Seleccionar columnas en el conjunto de datos" al lienzo del experimento y conectarlo][type-select-columns]
     <br/>
@@ -143,7 +143,7 @@ Primero agregaremos un módulo que quite completamente la columna **normalized-l
 3. Haga clic en el módulo [Select Columns in Dataset][select-columns] y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
 
     - A la izquierda, haga clic en **Con reglas**
-    - En **Empiezan por**, haga clic en **Todas las columnas**. Esto indica a [Select Columns in Dataset][select-columns] que pase por todas las columnas (excepto las que se van a excluir).
+    - En **Empiezan por**, haga clic en **Todas las columnas**. Esto indica a [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] que pase por todas las columnas (excepto las que se van a excluir).
     - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
     - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
 
@@ -158,7 +158,7 @@ Primero agregaremos un módulo que quite completamente la columna **normalized-l
     ***El panel de propiedades muestra que la columna "normalized-losses" se ha excluido***
 
     > [!TIP]
-    Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] y escriba el comentario "Excluir normalized-losses".
+    Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y escriba el comentario "Excluir normalized-losses".
     >
     >
 
@@ -167,7 +167,7 @@ Primero agregaremos un módulo que quite completamente la columna **normalized-l
     <br/>
     ***Hacer doble clic en un módulo para agregar un comentario***
 
-3. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Esto indica al módulo [Clean Missing Data][clean-missing-data] que quite las filas que tienen valores que faltan para limpiar los datos. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
+3. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Esto indica al módulo [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data] que quite las filas que tienen valores que faltan para limpiar los datos. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
     ![Establecer el modo de limpieza en "Quitar la fila entera" para el módulo "Limpiar los datos que faltan"][set-remove-entire-row]
     <br/>
@@ -182,9 +182,9 @@ Primero agregaremos un módulo que quite completamente la columna **normalized-l
 ***Después de ejecutarlo, el experimento debe tener un aspecto similar al siguiente***
 
 > [!TIP]
-> ¿Por qué ejecutamos el experimento ahora? Al ejecutar el experimento, las definiciones de columna de nuestros datos pasan desde el conjunto de datos hasta los módulos [Select Columns in Dataset][select-columns] y [Clean Missing Data][clean-missing-data]. Esto significa que los módulos que conectamos a [Clean Missing Data][clean-missing-data] tendrán también esta misma información.
+> ¿Por qué ejecutamos el experimento ahora? Al ejecutar el experimento, las definiciones de columna de nuestros datos pasan desde el conjunto de datos hasta los módulos [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] y [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data]. Esto significa que los módulos que conectamos a [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data] tendrán también esta misma información.
 
-Todo lo que hemos hecho en el experimento hasta el momento es limpiar los datos. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
+Todo lo que hemos hecho en el experimento hasta el momento es limpiar los datos. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data] y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
 
 Ahora los datos están limpios y ya puede especificar qué características se van a usar en el modelo predictivo.
 
@@ -199,7 +199,7 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 
-1. Arrastre otro módulo [Select Columns in Dataset][select-columns] al lienzo del experimento. Conecte el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] a la entrada del módulo [Select Columns in Dataset][select-columns].
+1. Arrastre otro módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] al lienzo del experimento. Conecte el puerto de salida izquierdo del módulo [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data] a la entrada del módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns].
 
     ![Conectar el módulo "Seleccionar columnas en el conjunto de datos" al módulo "Limpiar los datos que faltan"][connect-clean-to-select]
     <br/>
@@ -237,7 +237,7 @@ Para entrenar el modelo le proporcionamos un conjunto de datos que incluye el pr
 
 Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los dividiremos en conjuntos de datos distintos, de entrenamiento y de prueba.
 
-1. Seleccione y arrastre el módulo [Split Data][split] al lienzo del experimento y conéctelo al último módulo [Select Columns in Dataset][select-columns].
+1. Seleccione y arrastre el módulo [Split Data][split] al lienzo del experimento y conéctelo al último módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns].
 
 2. Haga clic en el módulo [Split Data][split] (Dividir datos) para seleccionarlo. Busque **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) (en el panel **Propiedades** a la derecha de lienzo) y establézcalo en 0,75. De esta manera, usaremos el 75 por ciento de los datos para entrenar el modelo y mantendremos el 25 por ciento para prueba (más adelante, puede experimentar con el uso de diferentes porcentajes).
 
@@ -248,10 +248,10 @@ Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los div
     > [!TIP]
     > Al cambiar el parámetro **Valor de inicialización aleatorio** , puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
-2. Ejecute el experimento. Cuando se ejecuta el experimento, los módulos [Select Columns in Dataset][select-columns] y [Split Data][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.  
+2. Ejecute el experimento. Cuando se ejecuta el experimento, los módulos [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] y [Split Data] (Dividir datos) [split] pasan las definiciones de columna a los módulos que se agregarán a continuación.  
 
-3. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Aprendizaje automático** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático. Para este experimento, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** y arrástrelo al lienzo del experimento.
-(Otra forma de encontrar el módulo es escribir "regresión lineal" en el cuadro Buscar de la paleta.)
+3. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Machine Learning** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático. Para este experimento, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** y arrástrelo al lienzo del experimento.
+(Otra forma de encontrar el módulo es escribir "regresión lineal" en el cuadro Buscar de la paleta).
 
 4. Busque y arrastre el módulo [Train Model][train-model] (Entrenar modelo) al lienzo del experimento. Conecte la salida del módulo [Linear Regression][linear-regression] (Regresión lineal) a la entrada izquierda del módulo [Train Model][train-model] (Entrenar modelo), y conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo [Split Data][split] (Dividir datos) a la entrada derecha del módulo [Train Model][train-model].
 
@@ -279,7 +279,7 @@ Ahora tenemos un modelo de regresión entrenado que puede usarse para puntuar nu
 
 Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos usarlo para puntuar el otro 25 % de los datos y ver cómo funciona el modelo.
 
-1. Busque y arrastre el módulo [Score Model][score-model] al lienzo del experimento. Conecte la salida del módulo [Train Model][train-model] al puerto de entrada izquierdo de [Score Model][score-model]. Conecte la salida de datos de prueba (puerto derecho) del módulo [Split Data][split] al puerto de entrada derecho de [Score Model][score-model].
+1. Busque y arrastre el módulo [Score Model] (Puntuar modelo) [score-model] al lienzo del experimento. Conecte la salida del módulo [Train Model][train-model] al puerto de entrada izquierdo de [Score Model][score-model]. Conecte la salida de datos de prueba (puerto derecho) del módulo [Split Data][split] (Dividir datos) al puerto de entrada derecho de [Score Model][score-model] (Puntuar modelo).
 
     ![Conectar el módulo "Puntuar modelo" a los módulos "Entrenar modelo" y "Dividir datos"][connect-score-model]
     <br/>
@@ -291,7 +291,7 @@ Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos us
     <br/>
     ***Salida del módulo "Score Model" (Puntuar modelo)***
 
-3. Por último, probamos la calidad de los resultados. Seleccione y arrastre el módulo [Evaluate Model][evaluate-model] al lienzo del experimento y conecte la salida del módulo [Score Model][score-model]  a la entrada izquierda del módulo [Evaluate Model][evaluate-model].
+3. Por último, probamos la calidad de los resultados. Seleccione y arrastre el módulo [Evaluate Model][evaluate-model] (Evaluar modelo) al lienzo del experimento y conecte la salida del módulo [Score Model][score-model] (Puntuar modelo) a la entrada izquierda del módulo [Evaluate Model][evaluate-model] (Evaluar modelo).
 
     > [!TIP]
     > Hay dos puertos de entrada en el módulo [Evaluate Model][evaluate-model] (Evaluar modelo) porque puede usarse para comparar dos modelos en paralelo. Más adelante, puede agregar otro algoritmo al experimento y usar [Evaluate Model][evaluate-model] (Evaluar modelo) para ver cuál ofrece mejores resultados.
@@ -322,12 +322,12 @@ El experimento final debe tener un aspecto similar a este:
 <br/>
 ***El experimento final***
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha completado el primer tutorial de aprendizaje automático y tiene su experimento configurado, puede continuar mejorando el modelo y luego implementarlo como un servicio web predictivo.
 
 - **Iterar para intentar mejorar el modelo**; por ejemplo, puede cambiar las características que usará en su predicción. O bien, puede modificar las propiedades del algoritmo [Linear Regression][linear-regression] (Regresión lineal) o probar un algoritmo completamente diferente. Incluso puede agregar varios algoritmos de aprendizaje automático a la vez al experimento y comparar dos de ellos mediante el módulo [Evaluate Model][evaluate-model] (Evaluar modelo).
-Para ver un ejemplo de cómo comparar varios modelos en un único experimento, consulte [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Comparar regresores) en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com).
+Para ver un ejemplo de cómo comparar varios modelos en un único experimento, consulte [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Comparar regresores) en la [galería de Azure AI](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Para copiar cualquier iteración del experimento, use el botón **GUARDAR COMO** situado en la parte inferior de la página. Puede ver todas las iteraciones del experimento haciendo clic en **VER HISTORIAL DE EJECUCIÓN** en la parte inferior de la página. Para más información, consulte [Administración de iteraciones de experimentos en Azure Machine Learning Studio][runhistory].

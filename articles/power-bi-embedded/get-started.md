@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introducción a Microsoft Power BI Embedded
 
@@ -47,9 +47,12 @@ Tenemos ejemplos para ayudarle a empezar. Para ver un tutorial de los ejemplos, 
 
 Cree capacidad de Power BI Embedded en Microsoft Azure para mover la aplicación a producción. Para información sobre cómo crear capacidad, consulte [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Creación de capacidad de Power BI Embedded en Azure Portal).
 
-Administre la capacidad en el portal de administración de Power BI. Asigne el asignador de áreas de trabajo para que le ayude con las áreas de trabajo de aplicación. Para más información, consulte [Administración de la capacidad en Power BI Premium y Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
+> [!IMPORTANT]
+> Debido a que los tokens insertados están pensados únicamente para pruebas de desarrollo, el número este tipo de tokens que puede generar una cuenta maestra de Power BI es limitado. [Debe adquirirse una capacidad](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para los escenarios de inserción de producción. No hay límite para insertar la generación de tokens cuando se adquiere una capacidad.
 
-## <a name="next-steps"></a>Pasos siguientes
+Administre la capacidad en el portal de administración de Power BI. Asigne el asignador de áreas de trabajo para que le ayude con las áreas de trabajo de aplicación. Para obtener más información, consulte [Administración de la capacidad en Power BI Premium y Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
+
+## <a name="next-steps"></a>pasos siguientes
 
 Si está listo para crear capacidad de Power BI Embedded, consulte [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Creación de capacidad de Power BI Embedded en Azure Portal).
 

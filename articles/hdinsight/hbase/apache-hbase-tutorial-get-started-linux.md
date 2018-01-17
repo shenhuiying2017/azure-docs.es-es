@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: e4f2a4d5263b30b16ffd137c47fb63caa8340e16
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1073c8eb0bfb8176f81826c4ea8967d5c04098ec
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Introducción a un ejemplo de Apache HBase en HDInsight
 
@@ -31,14 +31,14 @@ Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a c
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar a probar este ejemplo de HBase, debe tener los siguientes elementos:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Creación del clúster de HBase.
 El siguiente procedimiento usa una plantilla de Azure Resource Manager para crear un clúster de HBase y la cuenta de Azure Storage predeterminada dependiente. Para comprender los parámetros utilizados en el procedimiento y otros métodos de creación del clúster, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Haga clic en la imagen siguiente para abrir la plantilla en el Portal de Azure. La plantilla se encuentra en un contenedor de blobs público. 
+1. Haga clic en la imagen siguiente para abrir la plantilla en el Portal de Azure. La plantilla se encuentra en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. En la hoja **Implementación personalizada**, escriba los valores siguientes:
@@ -272,7 +272,7 @@ Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes d
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a crear un clúster de HBase, a crear tablas y a ver los datos de esas tablas en el shell de HBase. También ha aprendido a usar una consulta de datos de Hive en las tablas de HBase y a usar las API de REST de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla.
 
 Para obtener más información, consulte:

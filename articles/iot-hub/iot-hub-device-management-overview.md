@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
 ## <a name="introduction"></a>Introducción
@@ -57,7 +57,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     *Lecturas adicionales*: [Introducción a los dispositivos gemelos][lnk-twins-getstarted], [Dispositivos gemelos][lnk-twins-devguide], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties]
 * **Aprovisionamiento**: aprovisionar de forma segura nuevos dispositivos en IoT Hub y permitir que los operadores puedan detectar de inmediato las funcionalidades de los dispositivos.  Use el registro de identidad de IoT Hub para crear credenciales e identidades de dispositivo flexibles, y para realizar esta operación de forma masiva mediante un trabajo. Cree dispositivos para informar de sus funcionalidades y condiciones mediante las propiedades de dispositivo en el dispositivo gemelo.
   
-    *Lecturas adicionales*: [Administración de identidades de dispositivo][lnk-identity-registry], [Administración masiva de identidades de dispositivo][lnk-bulk-identity], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties]
+    *Información adicional*: [Administración de identidades de dispositivo][lnk-identity-registry], [Administración de identidades de dispositivo de forma masiva][lnk-bulk-identity], [Uso de las propiedades de dispositivos gemelos][lnk-twin-properties], [servicio Azure IoT Hub Device Provisioning][lnk-dps].
 * **Configuración**: facilitar los cambios de configuración de forma masiva y las actualizaciones de firmware en dispositivos, a la vez que se mantienen el estado y la seguridad. Realice estas operaciones de administración de dispositivos de forma masiva usando las propiedades que desee o con métodos directos y trabajos de difusión.
   
     *Lecturas adicionales*: [Uso de métodos directos][lnk-c2d-methods], [Invocación de un método directo en un dispositivo][lnk-methods-devguide], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties], [Programación y difusión de trabajos ][lnk-jobs], [Programación de trabajos en varios dispositivos][lnk-jobs-devguide].
@@ -113,3 +113,4 @@ Para más información acerca de las características de administración de disp
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

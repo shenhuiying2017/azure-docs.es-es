@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 Si su organización está federada con Azure Active Directory, use Azure Multi-Factor Authentication o los servicios de federación de Active Directory (AD FS) para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
@@ -76,23 +76,20 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
             => issue(claim = c);
     ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
 13. Haga clic en **Finalizar**
-14. Haga clic en **Apply**.
+14. Haga clic en **Aplicar**.
 15. Haga clic en **Aceptar**.
 16. Cierre Administración de AD FS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuración de las IP de confianza de Azure Multi-Factor Authentication con usuarios federados
 Ahora que las notificaciones están listas, podemos configurar direcciones IP de confianza.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, haga clic en **Active Directory**.
-3. En Directorio, seleccione el directorio en el que desea configurar las direcciones IP de confianza.
-4. En el directorio que ha seleccionado, haga clic en **Configurar**.
-5. En la sección de Multi-Factor Authentication, haga clic en **Administrar configuración del servicio**.
-6. En la página Configuración del servicio, en IP de confianza, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.  
+1. Inicie sesión en el [Azure Portal](https://portal.com).
+2. Seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
+3. Desde la hoja **Acceso condicional: ubicaciones con nombre**, seleccione **Configurar direcciones IP de confianza de MFA**
 
-   ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Haga clic en **guardar**.
-8. Una vez que se han aplicado las actualizaciones, haga clic en **Cerrar**.
+   ![Acceso condicional de Azure AD, ubicaciones con nombre, Configurar direcciones IP de confianza de MFA](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. En la página Configuración del servicio, en **direcciones IP de confianza**, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.  
+5. Haga clic en **guardar**.
 
 ¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.

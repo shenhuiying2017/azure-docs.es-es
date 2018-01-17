@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -63,6 +63,7 @@ Reemplace &lsaquo;server name&rsaquo; (nombre del servidor), &lsaquo;user name&r
 
     ![Lista de nombres de máquinas virtuales en Deployment Planner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Inicio de la generación de perfiles
 Una vez que tenga la lista de máquinas virtuales cuyo perfil se va a generar, puede ejecutar la herramienta en modo de generación de perfiles. Esta es la lista de parámetros obligatorios y opcionales de la herramienta para que se ejecute en modo de generación de perfiles.
 
@@ -70,7 +71,7 @@ Una vez que tenga la lista de máquinas virtuales cuyo perfil se va a generar, p
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nombre de parámetro | Descripción |
+| Nombre de parámetro | DESCRIPCIÓN |
 |---|---|
 | -Operation | Inicio de la generación de perfiles |
 | -Server | El nombre de dominio completo o la dirección IP del servidor vCenter/host de vSphere ESXi de cuyas máquinas virtuales se va a generar el perfil.|
@@ -94,6 +95,17 @@ Se recomienda generar perfiles de las máquinas virtuales durante más de 7 día
 Durante la generación de perfiles, también se pueden pasar un nombre y una clave de cuenta de almacenamiento para ver el rendimiento que Site Recovery puede lograr en el momento de la replicación desde el servidor de configuración o de procesos a Azure. Si el nombre y la clave de la cuenta de almacenamiento no se pasan durante la generación de perfiles, la herramienta no calculará el rendimiento que se puede obtener.
 
 Puede ejecutar varias instancias de la herramienta para varios conjuntos de máquinas virtuales. Asegúrese de que los nombres de máquina virtual no se repiten en ninguno de los conjuntos de generación de perfiles. Por ejemplo, si ha generado el perfil de diez máquinas virtuales (de VM1 a VM10) y unos días después desea generar el de otras cinco (de VM11 a VM15), puede ejecutar la herramienta desde otra consola de línea de comandos para el segundo conjunto de máquinas virtuales (de VM11 a VM15). Asegúrese de que el segundo conjunto de máquinas virtuales no tiene ningún nombre de máquina virtual de la primera instancia de generación de perfiles o utilice un directorio de salida diferente para la segunda ejecución. Si se usan dos instancias de la herramienta para generar los perfiles de las mismas máquinas virtuales y se usa el mismo directorio de salida, el informe generado no será correcto.
+
+De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 máquinas virtuales. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Con la configuración predeterminada, para generar perfiles de 1500 máquinas virtuales, cree dos archivos VMList.txt. Uno con 1000 máquinas virtuales y otro con una lista de 500 máquinas virtuales. Ejecute las dos instancias de ASR Deployment Planner, una con VMList1.txt y la otra con VMList2.txt. Puede usar la misma ruta de acceso de directorio para almacenar los datos de los perfiles de las máquinas virtuales de ambos VMList. 
+
+Hemos visto que en función de la configuración de hardware, sobre todo el tamaño de la RAM del servidor desde el que se ejecuta la herramienta para generar el informe, la operación puede no completarse debido a que la memoria no es suficiente. Si el hardware es bueno, puede asignar cualquier valor MaxVMsSupported, por grande que sea.  
+
+Si tiene varios servidores de vCenter, para generar los perfiles debe ejecutar una instancia de ASRDeploymentPlanner por cada uno de ellos.
 
 Las configuraciones de las máquinas virtuales se capturan una vez al principio de la operación de generación de perfiles y se almacena en un archivo denominado VMDetailList.xml. Esta información se usa cuando se genera el informe. Los cambios en la configuración de una máquina virtual (por ejemplo, un mayor número de núcleos, discos o NIC) que se realizan desde el principio hasta el final de la generación de perfiles no se capturan. Esta es la solución alternativa para obtener la información más reciente de la máquina virtual más reciente al generar un informe en caso de que la configuración de una máquina virtual haya cambiado durante el transcurso de la generación de perfiles en la versión preliminar pública:
 
@@ -136,7 +148,7 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nombre de parámetro | Descripción |
+|Nombre de parámetro | DESCRIPCIÓN |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  El nombre de dominio completo o la dirección IP del servidor vCenter o vSphere (use el mismo nombre o dirección IP que utilizó en la generación de perfiles) en el que se encuentran las máquinas virtuales con perfiles cuyo informe va a generar. Tenga en cuenta que si usó un servidor vCenter en el momento de la generación de perfiles, no puede usar un servidor de vSphere para la generación de informes, y viceversa.|
@@ -158,6 +170,12 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 |-TargetRegion|(Opcional) La región de Azure que es el destino de la replicación. Como Azure tiene diferentes costos por región, para generar un informe con la región de Azure de destino específica, use este parámetro.<br>El valor predeterminado es WestUS2 o la región de destino usada por última vez.<br>Consulte la lista de [regiones de destino admitidas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) La oferta asociada a la suscripción especificada. El valor predeterminado es MS-AZR-0003P (pago por uso).|
 |-Currency|(Opcional) La moneda en la que se muestra el costo en el informe generado. El valor predeterminado es el dólar estadounidense ($) o la moneda usada por última vez.<br>Consulte la lista de [monedas admitidas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 máquinas virtuales. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Ejemplo 1: Generación de un informe con los valores predeterminados cuando los datos de generación de perfiles están en la unidad local
 ```
@@ -240,7 +258,7 @@ Abra una consola de línea de comandos y vaya a la carpeta de la herramienta de 
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nombre de parámetro | Descripción |
+|Nombre de parámetro | DESCRIPCIÓN |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Especifique el tipo de virtualización (Hyper-V o VMware).|
@@ -273,6 +291,6 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  4. Cambie la configuración de Site Recovery en el servidor de procesos para [aumentar la cantidad de ancho de banda de red que se usa para la replicación](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Análisis del informe generado](site-recovery-vmware-deployment-planner-analyze-report.md).
 

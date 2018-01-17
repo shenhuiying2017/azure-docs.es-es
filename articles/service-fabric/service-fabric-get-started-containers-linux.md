@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -202,6 +202,30 @@ Configure la asignación de puertos de puerto a host del contenedor, para lo que
     </Policies>
    </ServiceManifestImport>
 ``` 
+## <a name="configure-docker-healthcheck"></a>Configuración de la instrucción HEALTHCHECK de Docker 
+A partir de la versión 6.1, Service Fabric integra automáticamente eventos de la [instrucción HEALTHCHECK de Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) en su informe de mantenimiento del sistema. Esto significa que si el contenedor tiene habilitada la instrucción **HEALTHCHECK**, Service Fabric informará acerca del mantenimiento siempre que el estado de mantenimiento del contenedor cambie tal y como lo indique Docker. Aparecerá un informe de mantenimiento **correcto** en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) siempre que *health_status* sea *correcto* y aparecerá **ADVERTENCIA** si *health_status* es *incorrecto*. La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el **archivo de Docker** que se usa al generar la imagen de contenedor. 
+
+![HealthCheckHealthy][1]
+
+![HealthCheckUnealthyApp][2]
+
+![HealthCheckUnhealthyDsp][3]
+
+Puede configurar el comportamiento **HEALTHCHECK** en cada contenedor mediante la especificación de las opciones **HealthConfig** como parte de **ContainerHostPolicies** en ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+De forma predeterminada, se establece *IncludeDockerHealthStatusInSystemHealthReport* en **true** y *RestartContainerOnUnhealthyDockerHealthStatus* en  **false**. Si se establece *RestartContainerOnUnhealthyDockerHealthStatus* en **true**, se reiniciará un contenedor que constantemente informa de un error de mantenimiento (posiblemente en otros nodos).
+
+Si quiere deshabilitar la integración de la instrucción **HEALTHCHECK** para todo el clúster de Service Fabric, deberá establecer [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) en **false**.
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Creación y empaquetamiento de la aplicación de Service Fabric
 Las plantillas de Yeoman de Service Fabric incluyen un script de compilación para [Gradle](https://gradle.org/), que se puede usar para compilar la aplicación desde el terminal. Para compilar y empaquetar la aplicación, ejecute el siguiente código:
@@ -231,6 +255,7 @@ Abra un explorador y vaya a Service Fabric Explorer en http://localhost:19080/Ex
 Conéctese al contenedor en ejecución.  Abra un explorador web que apunte a la dirección IP que se devuelve en el puerto 4000; por ejemplo, "http://localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 !["¡Hola mundo!"][hello-world]
+
 
 ## <a name="clean-up"></a>Limpieza
 Para eliminar la instancia de aplicación del clúster de desarrollo local y anular el registro del tipo de aplicación, utilice el script de desinstalación proporcionado en la plantilla.
@@ -359,7 +384,6 @@ Puede configurar un intervalo de tiempo para que el entorno de ejecución espere
 ```
 El intervalo de tiempo predeterminado se establece en diez segundos. Puesto que esta configuración es dinámica, una actualización de solo configuración en el clúster actualiza el tiempo de espera. 
 
-
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configuración del entorno de ejecución para quitar imágenes de contenedor sin usar
 
 Puede configurar el clúster de Service Fabric para quitar del nodo las imágenes de contenedor sin usar. Esta configuración permite recuperar el espacio en disco si hay demasiadas imágenes de contenedor en el nodo.  Para habilitar esta característica, actualice la sección `Hosting` en el manifiesto de clúster, tal como se muestra en el fragmento siguiente: 
@@ -380,8 +404,35 @@ Puede configurar el clúster de Service Fabric para quitar del nodo las imágene
 
 Puede especificar las imágenes que no se deben eliminar en el parámetro `ContainerImagesToSkip`. 
 
+## <a name="configure-container-image-download-time"></a>Configuración del tiempo de descarga de la imagen de contenedor
 
-## <a name="next-steps"></a>Pasos siguientes
+De forma predeterminada, el entorno de tiempo de ejecución de Service Fabric asigna un tiempo de 20 minutos para descargar y extraer las imágenes de contenedor, lo cual suele bastar en la mayoría de los casos. En el caso de imágenes grandes, o si la conexión de red es lenta, puede que sea necesario aumentar el tiempo de espera antes de anular la descarga y extracción de la imagen. Esto se puede establecer mediante el atributo **ContainerImageDownloadTimeout** de la sección de **hospedaje** del manifiesto de clúster, tal y como se muestra en el siguiente fragmento de código:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Establecimiento de la directiva de retención de contenedor
+
+Para ayudar a diagnosticar los errores de inicio del contenedor, Service Fabric (versión 6.1 o posterior) admite la retención de contenedores que finalizaron o que produjeron un error en el inicio. Esta directiva se puede establecer en el archivo **ApplicationManifest.xml** tal y como se muestra en el siguiente fragmento de código:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+El valor **ContainersRetentionCount** especifica el número de contenedores que se conservarán cuando se produzca un error en ellos. Si se especifica un valor negativo, se conservarán todos los contenedores con errores. Si no se especifica el atributo **ContainersRetentionCount**, no se conservará ningún contenedor. El atributo **ContainersRetentionCount** también admite parámetros de aplicación, por lo que los usuarios pueden especificar valores diferentes para los clústeres de prueba y de producción. Se recomienda usar restricciones de colocación para seleccionar un destino para el servicio de contenedor en un nodo concreto al usar estas características, para impedir que este se mueva a otros nodos. Los contenedores que se conserven mediante esta característica deben quitarse manualmente.
+
+
+## <a name="next-steps"></a>pasos siguientes
 * Más información acerca de cómo ejecutar [contenedores en Service Fabric](service-fabric-containers-overview.md).
 * Consulte el tutorial [Implementación de una aplicación .NET en un contenedor](service-fabric-host-app-in-a-container.md).
 * Más información acerca del [ciclo de vida de aplicaciones](service-fabric-application-lifecycle.md) de Service Fabric.
@@ -389,3 +440,7 @@ Puede especificar las imágenes que no se deben eliminar en el parámetro `Conta
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
+
+[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

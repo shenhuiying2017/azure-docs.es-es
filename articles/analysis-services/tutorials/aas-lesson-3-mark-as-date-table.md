@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-3-mark-as-date-table"></a>Lección 3: Marcar como tabla de fechas
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="mark-as-date-table"></a>Marcar como tabla de fechas
 
 En la lección 2: Obtención de datos, importó una tabla de dimensiones denominada DimDate. Mientras que en su modelo esta tabla se denomina DimDate, también se conoce como *tabla de fechas* porque contiene datos de fecha y hora.  
   
@@ -40,7 +38,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Para cambiar el nombre de la columna FullDateAlternateKey, siga estos pasos:
 
-1.  En el diseñador de modelos, haga clic en la tabla **DimDate**.
+1.  En el Diseñador de modelos, haga clic en la tabla **DimDate**.
 
 2.  Haga doble clic en el encabezado de la columna **FullDateAlternateKey** y luego cambie su nombre por **Date**.
 
@@ -51,7 +49,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 2.  Haga clic en el menú **Tabla**, haga clic en **Fecha** y luego en **Marcar como tabla de fechas**.  
   
-3.  En el cuadro de diálogo **Marcar como tabla de fechas**, en el cuadro de lista **Fecha**, seleccione la columna **Date** como identificador único. Normalmente se selecciona de forma predeterminada. Haga clic en **Aceptar**. 
+3.  En el cuadro de diálogo **Marcar como tabla de fechas**, en el cuadro de lista **Fecha**, seleccione la columna **Date** como identificador único. Normalmente se selecciona de forma predeterminada. Haga clic en **OK**. 
 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   

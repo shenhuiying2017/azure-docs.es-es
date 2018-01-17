@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Supervisión del estado de seguridad en el Centro de seguridad de Azure
 Este artículo le ayuda a usar las funcionalidades de supervisión de Azure Security Center para supervisar el cumplimiento de las directivas.
@@ -48,11 +48,11 @@ Al hacer clic en el icono **Compute**, verá tres pestañas:
 Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto.
 
 #### <a name="monitoring-recommendations"></a>Supervisión de las recomendaciones
-En esta sección se muestra el número total de máquinas virtuales y equipos que se inicializaron para el aprovisionamiento automático y sus estados actuales. Al hacer clic en esta entrada, se abre la página **Supervisión de problemas de Agent Health**.
+En esta sección se muestra el número total de máquinas virtuales y equipos que se inicializaron para el aprovisionamiento automático y sus estados actuales. En este ejemplo hay una recomendación, **Problemas de mantenimiento del agente de supervisión**.  Seleccione esta recomendación.
 
 ![Supervisión de problemas de Agent Health](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Se enumeran las máquinas virtuales y los equipos que el Centro de seguridad no puede supervisar correctamente. Seleccione una máquina virtual o un equipo para obtener información detallada. En **ESTADO DE SUPERVISIÓN** se define el problema.
+Se abre **Problemas de mantenimiento del agente de supervisión**. Se enumeran las máquinas virtuales y los equipos que el Centro de seguridad no puede supervisar correctamente. Seleccione una máquina virtual o un equipo para obtener información detallada. **ESTADO DE SUPERVISIÓN** proporciona un motivo por el que Security Center no puede supervisar. Consulte la [Guía de solución de problemas de Security Center](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para obtener una lista de los valores, las descripciones y los pasos de resolución de **ESTADO DE SUPERVISIÓN**.
 
 #### <a name="recommendations"></a>Recomendaciones
 Esta sección contiene un conjunto de [recomendaciones para cada máquina virtual y equipo](security-center-virtual-machine-recommendations.md) que supervisa Azure Security Center. La primera columna muestra la recomendación. La segunda columna muestra el número total de máquinas virtuales y equipos a los que afecta esa recomendación. La tercera columna muestra la gravedad del problema como se muestra en la captura de pantalla siguiente:

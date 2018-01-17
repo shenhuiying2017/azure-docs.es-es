@@ -3,7 +3,7 @@ title: Acerca de Mobile Apps en Azure App Service
 description: "Obtenga información sobre las ventajas que aporta App Service a las aplicaciones móviles de la empresa."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"></a>Acerca de Mobile Apps en Azure App Service
 Azure App Service es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente administrada para desarrolladores profesionales. El servicio ofrece un amplio conjunto de funcionalidades para escenarios web, móviles y de integración. 
@@ -65,7 +65,7 @@ Las siguientes características de plataforma son útiles para los sitios de pro
 
   Descubra más acerca de los [Entornos de ensayo].
 
-* **Implementación continua**: App Service puede integrarse con sistemas de administración de cadena de suministro (SCM) comunes, para poder implementar automáticamente una nueva versión del back-end mediante la inserción de una rama del sistema SCM.
+* **Implementación continua**: App Service puede integrarse con sistemas de administración de control de código fuente (SCM) comunes, para poder implementar automáticamente una nueva versión del back-end mediante la inserción de una rama del sistema SCM.
 
   Descubra más acerca de las [opciones de implementación](../app-service/app-service-deploy-local-git.md).
 
@@ -77,7 +77,7 @@ Las siguientes características de plataforma son útiles para los sitios de pro
 
   Descubra más acerca de [los entornos de App Service].
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para empezar a trabajar con Mobile Apps en Azure App Service, complete el tutorial de [introducción]. En el tutorial se tratan los conceptos básicos de producir un back-end móvil y cliente de su elección. También cubre la integración de la autenticación, de la sincronización sin conexión y de las notificaciones push. Puede completar el tutorial varias veces, una para cada aplicación cliente.
 

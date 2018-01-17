@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carga de archivos en una cuenta de Media Services mediante el servicio Aspera Server On Demand en Azure
 
@@ -33,7 +33,7 @@ Este tutorial le guía por los pasos para cargar archivos en una cuenta de almac
 Puede encontrar un ejemplo que muestra cómo usar las funciones de Azure con Aspera y Media Services [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Hay un límite para el tamaño máximo de archivo admitido para el procesamiento con los procesadores de multimedia (MP) de Azure Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
+>Hay un límite para el tamaño máximo de archivo admitido para el procesamiento con los procesadores de multimedia (MP) de Azure Media Services. Consulte [este](media-services-quotas-and-limitations.md) artículo para obtener información más detallada acerca de la limitación de tamaño de archivo.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos 
@@ -127,11 +127,11 @@ En este artículo se mencionaron los siguientes recursos.
 * [Cliente Aspera](http://downloads.asperasoft.com/en/downloads/2)
 * [Guía de cliente](http://downloads.asperasoft.com/en/documentation/2)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora puede [copiar blobs de una cuenta de almacenamiento a una cuenta de AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

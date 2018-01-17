@@ -1,5 +1,5 @@
 ---
-title: "Qué es Azure Analysis Services | Microsoft Docs"
+title: "Introducción a Azure Analysis Services | Microsoft Docs"
 description: "Obtenga una visión general de Analysis Services en Azure."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Introducción a Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services proporciona modelado de datos de nivel empresarial en la nube. Es una plataforma totalmente administrada como servicio (PaaS), que se integra con los servicios de la plataforma de datos de Azure. 
@@ -64,7 +64,7 @@ Los servidores de Azure Analysis Services se pueden crear en las siguientes [reg
 
 | América | Europa | Asia Pacífico |
 |----------|--------|--------------|
-|  Sur de Brasil<br> Centro de Canadá<br> Este de EE. UU. 2<br> Centro-Norte de EE. UU<br> Centro-Sur de EE. UU<br> Centro occidental de EE.UU.<br> Oeste de EE. UU. | Europa del Norte<br> Sur del Reino Unido<br> Europa occidental |   Sudeste de Australia<br> Este de Japón<br> Sudeste asiático<br> Oeste de la India  |
+|  Sur de Brasil<br> Centro de Canadá<br> Este de EE. UU. 2<br> Centro-Norte de EE. UU<br> Centro-Sur de EE. UU<br> Centro occidental de EE.UU.<br> Oeste de EE. UU | Europa del Norte<br> Sur del Reino Unido 2<br> Europa occidental |   Sudeste de Australia<br> Este de Japón<br> Sudeste asiático<br> Oeste de la India  |
 
 Constantemente se agregan nuevas regiones, por lo que esta lista puede estar incompleta. Elija una ubicación cuando cree el servidor en Azure Portal o mediante las plantillas de Azure Resource Manager. Para obtener el mejor rendimiento, elija la ubicación más cercana a su base de usuarios más grande. Garantice una [alta disponibilidad](analysis-services-bcdr.md) mediante la implementación de los modelos en servidores redundantes de varias regiones.
 
@@ -121,7 +121,7 @@ Las herramientas modernas de exploración y visualización de datos como Power B
 Los clientes usan las [bibliotecas de cliente](analysis-services-data-providers.md) de MSOLAP, AMO o ADOMD para conectarse a los servidores de Analysis Services. Las aplicaciones cliente de Microsoft, como Power BI Desktop y Excel, instalan las tres bibliotecas de cliente. Sin embargo, tenga en cuenta que, dependiendo de la versión o la frecuencia de las actualizaciones, las bibliotecas de cliente pueden no ser las versiones más recientes que necesita Azure Analysis Services. Esto mismo se aplica a aplicaciones personalizadas u otras interfaces, como AsCmd, TOM, ADOMD.NET. Estas aplicaciones normalmente requieren la instalación manual de las bibliotecas como parte de un paquete.
 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 #### <a name="documentation"></a>Documentación
 Azure Analysis Services es fácil de configurar y administrar. Puede encontrar toda la información que necesita para crear y administrar los servicios del servidor aquí. Crear un modelo de datos para implementar en el servidor es similar a crear un modelo de datos que se implementa en un servidor local. Hay una amplia biblioteca de artículos de referencia, sobre conceptos, procedimientos y tutoriales en la [ayuda de SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
@@ -140,5 +140,5 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 
 ¿Tiene sugerencias sobre la documentación? Puede agregar comentarios mediante Livefyre al final de cada artículo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que sabe más acerca de Azure Analysis Services, es momento de empezar a trabajar. Aprenda a [crear un servidor](analysis-services-create-server.md) en Azure. Cuando el servidor esté listo, vaya al [tutorial de Adventure Works](tutorials/aas-adventure-works-tutorial.md) para aprender a crear un modelo tabular totalmente funcional y a implementarlo en el servidor.

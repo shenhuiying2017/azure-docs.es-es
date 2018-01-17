@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -29,7 +29,7 @@ Antes de empezar a proteger cualquier máquina virtual (VM) de VMware mediante S
 
 También es preciso que cree el tipo y número correctos de cuentas de Azure Storage de destino. Cree cuentas de almacenamiento Estándar o Premium, para lo que debe tener en cuenta el crecimiento en los servidores de producción de origen debido al aumento del uso con el paso del tiempo. Elija el tipo de almacenamiento por máquina virtual, en función de las características de la carga de trabajo (por ejemplo, operaciones de E/S por segundo [IOPS] de lectura/escritura o actividad de datos) y de los límites de Site Recovery.
 
-Azure Site Recovery Deployment Planner (versión 2) es una herramienta de línea de comandos disponible para escenarios de recuperación ante desastres de Hyper-V y de VMware a Azure. Con esta herramienta es posible generar de forma remota un perfil para las máquinas virtuales de VMware (sin ningún efecto en la producción) para conocer el ancho de banda y los requisitos de Azure Storage necesarios para realizar una correcta replicación y conmutación por error de prueba. La herramienta se puede ejecutar sin que sea preciso instalar localmente ningún componente de Site Recovery. Sin embargo, para obtener unos resultados de rendimiento adecuados, se recomienda ejecutar el organizador en una instancia de Windows Server que cumpla los requisitos mínimos del servidor de configuración de Site Recovery que debería implementarse como uno de los primeros pasos de la implementación en producción.
+Azure Site Recovery Deployment Planner es una herramienta de línea de comandos para escenarios de recuperación ante desastres tanto de Hyper-V a Azure como de VMware a Azure. Con esta herramienta es posible generar de forma remota un perfil para las máquinas virtuales de VMware (sin ningún efecto en la producción) para conocer el ancho de banda y los requisitos de Azure Storage necesarios para realizar una correcta replicación y conmutación por error de prueba. La herramienta se puede ejecutar sin que sea preciso instalar localmente ningún componente de Site Recovery. Sin embargo, para obtener unos resultados de rendimiento adecuados, se recomienda ejecutar el organizador en una instancia de Windows Server que cumpla los requisitos mínimos del servidor de configuración de Site Recovery que debería implementarse como uno de los primeros pasos de la implementación en producción.
 
 La herramienta proporciona los detalles siguientes:
 
@@ -71,7 +71,7 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|No|Sí*|No
+Escenarios admitidos |Sí|Sí|Sin |Sí*|Sin 
 Versión admitida | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Azure Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
@@ -81,7 +81,7 @@ Número de servidores cuyo perfil puede generarse por instancia en ejecución de
 ## <a name="prerequisites"></a>Requisitos previos
 La herramienta tiene dos fases principales: la generación de perfiles y la generación de informes. También hay una tercera opción para calcular solo el rendimiento. Los requisitos del servidor desde el que se inician la medición del rendimiento y la generación de perfiles se presentan en la tabla siguiente:
 
-| Requisito del servidor | Descripción|
+| Requisito del servidor | DESCRIPCIÓN|
 |---|---|
 |Generación de perfiles y medición de rendimiento| <ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2<br>(lo ideal es que coincida al menos con las [recomendaciones de tamaño del servidor de configuración](https://aka.ms/asr-v2a-on-prem-components)).</li><li>Configuración del equipo: 8 vCPU, 16 GB de RAM y 300 GB de HDD</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La configuración del nivel de las estadísticas de VMware vCenter debe establecerse en 2, o en un nivel superior</li><li>Permitir el puerto 443: ASR Deployment Planner utiliza este puerto para conectarse al servidor de vCenter o host ESXi</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
@@ -106,9 +106,9 @@ La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRD
 
     Ejemplo:  
     Copie el archivo .zip en la unidad E:\ y extráigalo.
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
@@ -122,5 +122,10 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
  >
  >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
-## <a name="next-steps"></a>Pasos siguientes
+
+## <a name="version-history"></a>Historial de versiones
+La versión más reciente de la herramienta ASR Deployment Planner es la 2.1.
+Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
+
+## <a name="next-steps"></a>pasos siguientes
 * [Ejecución de Deployment Planner](site-recovery-vmware-deployment-planner-run.md).

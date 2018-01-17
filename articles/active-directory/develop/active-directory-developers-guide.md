@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desarrolladores
-Azure Active Directory (Azure AD) es un servicio de identidad en la nube que permite a los desarrolladores iniciar la sesión de los usuarios en una cuenta profesional o educativa de Microsoft de forma segura. En esta documentación se muestra cómo agregar compatibilidad con Azure AD a la aplicación mediante los protocolos de autenticación estándar del sector: OAuth y OpenID Connect.
+Azure Active Directory (Azure AD) es un servicio de identidad en la nube que permite a los desarrolladores iniciar la sesión de los usuarios en una cuenta profesional o educativa de Microsoft de forma segura. En esta documentación se muestra cómo agregar compatibilidad con Azure AD a una aplicación mediante los protocolos estándar del sector: OAuth 2.0 y OpenID Connect.
 
 | | |
 | --- | --- |
@@ -33,11 +33,11 @@ Las siguientes configuraciones guiadas le llevan por el uso de las bibliotecas d
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Aplicaciones móviles y de escritorio](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Aplicaciones móviles y de escritorio</center> | [Información general](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
-| <center>![Aplicaciones web](./media/active-directory-developers-guide/Web_app.png)<br />Aplicaciones web</center> | [Información general](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![Aplicaciones móviles y de escritorio](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Aplicaciones móviles y de escritorio</center> | [Información general](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET (UWP)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
+| <center>![Aplicaciones web](./media/active-directory-developers-guide/Web_app.png)<br />Aplicaciones web</center> | [Información general](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
 | <center>![Aplicaciones de una sola página](./media/active-directory-developers-guide/SPA.png)<br />Aplicaciones de una sola página</center> | [Información general](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![API web](./media/active-directory-developers-guide/Web_API.png)<br />API web</center> | [Información general](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Service-to-service](./media/active-directory-developers-guide/Service_App.png)<br />De servicio a servicio</center> | [Información general](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Credenciales del cliente de OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
+| <center>![Service-to-service](./media/active-directory-developers-guide/Service_App.png)<br />De servicio a servicio</center> | [Información general](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Guías de procedimientos
 Las siguientes guías informan sobre cómo realizar tareas comunes con Azure AD.

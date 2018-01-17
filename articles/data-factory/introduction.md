@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-introduction.md)
-> * [Versión 2: Versión preliminar](introduction.md)
+> * [Versión 2: versión preliminar](introduction.md)
 
 En el mundo de los macrodatos, los datos sin procesar y desorganizados suelen almacenarse en sistemas de almacenamiento relacionales, no relacionales y de otros tipos. Sin embargo, en sí mismos, los datos sin procesar no tienen el contexto o el significado adecuados para proporcionar información significativa a los analistas, científicos de datos y responsables de decisiones empresariales. 
 
@@ -78,7 +78,7 @@ La ventaja de esto es que la canalización le permite administrar las actividade
 ### <a name="activity"></a>Actividad
 Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede usar una actividad de copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control.
 
-### <a name="datasets"></a>CONJUNTOS DE DATOS
+### <a name="datasets"></a>Conjuntos de datos
 Los conjuntos de datos representan las estructuras de datos de los almacenes de datos que simplemente apuntan o hacen referencia a los datos que desea utilizar en sus actividades como entradas o salidas. 
 
 ### <a name="linked-services"></a>Servicios vinculados
@@ -96,7 +96,7 @@ Los desencadenadores representan una unidad de procesamiento que determina cuán
 ### <a name="pipeline-runs"></a>Ejecuciones de la canalización
 Una ejecución de la canalización es una instancia de la ejecución de la canalización. Normalmente, las instancias de ejecuciones de canalización se crean al pasar argumentos a los parámetros definidos en las canalizaciones. Los argumentos se pueden pasar manualmente o dentro de la definición del desencadenador.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 Los parámetros son pares clave-valor de configuración de solo lectura.  Los parámetros se definen en la canalización. Los argumentos de los parámetros definidos se pasan durante la ejecución desde el contexto de ejecución creado por un desencadenador o una canalización que se ejecuta manualmente. Las actividades dentro de la canalización consumen los valores de parámetro.
 
 Un conjunto de datos es un parámetro fuertemente tipado y una entidad reutilizable o a la que se puede hacer referencia. Una actividad puede hacer referencia a conjuntos de datos y puede consumir las propiedades definidas en la definición del conjunto de datos.
@@ -119,12 +119,12 @@ Actualmente, se pueden crear factorías de datos en las regiones del este de EE.
 
 Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los almacenes de datos admitidos y organizar el procesamiento de los datos mediante servicios de proceso en otras regiones o en entornos locales. También permite supervisar y administrar flujos de trabajo mediante mecanismos de programación y de interfaz de usuario.
 
-Aunque Data Factory solamente está disponible en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental, el servicio que atiende el movimiento de datos en Data Factory está disponible mundialmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Data Management Gateway instalada en el entorno local la que mueva los datos en su lugar.
+Aunque Data Factory solamente está disponible en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental, el servicio que atiende el movimiento de datos en Data Factory está disponible mundialmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Integration Runtime autohospedado instalada en el entorno local la que mueva los datos en su lugar.
 
-Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Europa del Norte y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
+Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Este de EE. UU. o Este de EE. UU. 2, y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
 
 ## <a name="compare-with-version-2"></a>Comparación con la versión 2
 Para obtener una lista de las diferencias entre las versiones 1 y 2 del servicio Data Factory, consulte [Compare with version 1](compare-versions.md) (Comparación de las versiones 1 y 2 de Azure Data Factory). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para saber cómo crear una factoría de datos, siga las instrucciones paso a paso en los inicios rápidos siguientes: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API de REST](quickstart-create-data-factory-rest-api.md) y Azure Portal. 

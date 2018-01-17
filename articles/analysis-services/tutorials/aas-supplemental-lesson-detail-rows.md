@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lección complementaria: Filas de detalles
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 En esta lección complementaria, usará el Editor DAX para definir una expresión personalizada de filas de detalles. Una expresión de filas de detalles es una propiedad de una medida, que proporciona a los usuarios finales más información sobre los resultados agregados de una medida. 
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Esta lección complementaria forma parte de un tutorial de modelado tabular. Antes de realizar las tareas de esta lección complementaria, debería haber finalizado todas las lecciones anteriores o haber completado un proyecto de modelo de ejemplo de ventas por Internet de Adventure Works.  
+Esta lección complementaria forma parte de un tutorial de modelas tabulares. Antes de realizar las tareas de esta lección complementaria, debería haber finalizado todas las lecciones anteriores o haber completado un proyecto de modelo de ejemplo de ventas por Internet de Adventure Works.  
   
-## <a name="what-do-we-need-to-solve"></a>¿Qué es necesario solucionar?
+## <a name="whats-the-issue"></a>¿Cuál es el problema?
 Vamos a echar un vistazo a los detalles de nuestra medida InternetTotalSales, antes de agregar una expresión de filas de detalles.
 
 1.  En SSDT, haga clic en el menú **Modelo** > **Analizar en Excel** para abrir Excel y crear una tabla dinámica en blanco.
   
-2.  En **Campos de tabla dinámica**, agregue la medida **InternetTotalSales** de la tabla FactInternetSales a **Valores**, **CalendarYear** de la tabla DimDate a **Columnas** y **EnglishCountryRegionName** a **Filas**. Nuestra tabla dinámica nos proporciona ahora resultados agregados de la medida InternetTotalSales por regiones y año. 
+2.  En **Campos de tabla dinámica**, agregue la medida **InternetTotalSales** de la tabla FactInternetSales a **Valores**, **CalendarYear** de la tabla DimDate a **Columnas** y **EnglishCountryRegionName** a **Filas**. Ahora, la tabla dinámica nos proporciona resultados agregados de la medida InternetTotalSales por regiones y año. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ Lo que nos gustaría ver aquí es una tabla que contenga columnas y filas de dat
 
 #### <a name="to-create-a-detail-rows-expression"></a>Para crear una expresión de filas de detalles, siga estos pasos: 
   
-1. En SSDT, en la cuadrícula de medidas de la tabla FactInternetSales, haga clic en la medida **InternetTotalSales**. 
+1. En la cuadrícula de medidas de la tabla FactInternetSales, haga clic en la medida **InternetTotalSales**. 
 
 2. En **Propiedades** > **Expresión de filas de detalles**, haga clic en el botón del editor para abrir el Editor DAX.
 
@@ -82,6 +80,6 @@ Lo que nos gustaría ver aquí es una tabla que contenga columnas y filas de dat
 
   
 ## <a name="see-also"></a>Otras referencias  
-[Función SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Función SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [Lección complementaria: Seguridad dinámica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lección complementaria: Jerarquías desiguales](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

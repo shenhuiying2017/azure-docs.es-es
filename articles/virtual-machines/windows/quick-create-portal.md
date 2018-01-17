@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ccc9694f74b655d5b9497378632f05defdbcbf0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 663a850cf46bf002808b9f791d9e8daefb6cc308
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Cree una máquina virtual Windows en Azure Portal.
 
@@ -38,7 +38,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 2. Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
 
-3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. Cuando haya terminado, haga clic en **Aceptar**.
+3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Cuando haya terminado, haga clic en **Aceptar**.
 
     ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
@@ -87,7 +87,7 @@ Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. C
 3. En el menú de la izquierda, en Configuración, haga clic en **Reglas de seguridad de entrada**.
 4. Haga clic en **Agregar**.
 5. En **Nombre**, escriba **http**. Asegúrese de que **Intervalo de puertos** esté establecido en 80 y **Acción** esté establecido en **Permitir**. 
-6. Haga clic en **Aceptar**.
+6. Haga clic en **OK**.
 
 
 ## <a name="view-the-iis-welcome-page"></a>Página principal de IIS
@@ -100,7 +100,7 @@ Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acce
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 

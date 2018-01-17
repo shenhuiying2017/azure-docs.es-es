@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f96aa9fe12aba28e1ac3429f012419341bdf92c1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-azure-files"></a>Introducción a Azure Files
 Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor) estándar](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (también conocido como Sistema de archivos de Internet común o CIFS). Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de Azure Files se pueden almacenar en caché en servidores de Windows Server con Azure Files Sync (versión preliminar), que permite un acceso rápido allí donde se utilizan los datos.
@@ -38,12 +38,12 @@ Los recursos compartidos de archivos de Azure se pueden usar para:
     Azure Files facilita la migración mediante "lift and shift" de aplicaciones a la nube que espera un recurso compartido de archivos para almacenar datos de la aplicación de archivos o de un usuario. Azure Files permite la migración clásica mediante "lift and shift" en la que tanto la aplicación como sus datos se mueven a Azure, y la migración híbrida mediante "lift and shift" en la que los datos de la aplicación se mueven a Azure Files pero la aplicación continúa ejecutándose de forma local. 
 
 * **Simplificar el desarrollo en la nube**:  
-    Azure Files también se puede utilizar de muchas formas para simplificar los nuevos proyectos de desarrollo en la nube. Por ejemplo:
+    Azure Files también se puede utilizar de muchas formas para simplificar los nuevos proyectos de desarrollo en la nube. Por ejemplo: 
     * **Configuración de aplicaciones compartidas**  
         Un patrón habitual entre las aplicaciones distribuidas es contar con archivos de configuración en una ubicación centralizada que permite tener acceso a ellos desde muchas instancias de aplicaciones. Las instancias de la aplicación pueden cargar su configuración mediante la API de REST de Azure Files y los usuarios pueden acceder a ella según sea necesario montando el recurso compartido SMB localmente.
 
     * **Recurso compartido de diagnóstico**:  
-        Un recurso compartido de Azure Files es un lugar adecuado para que las aplicaciones en la nube almacenen sus registros de escritura, métricas y volcados de memoria. Las instancias de la aplicación pueden escribir los registros mediante la API de REST de Azure Files, y los desarrolladores pueden acceder a ellos montando el recurso compartido de archivos en su máquina local. Esto permite una gran flexibilidad, ya que los desarrolladores pueden adoptar el desarrollo en la nube sin tener que abandonar las herramientas existentes que ya conocen y disfrutan.
+        Un recurso compartido de Azure Files es un lugar adecuado para que las aplicaciones en la nube escriban sus registros, métricas y volcados de memoria. Las instancias de la aplicación pueden escribir los registros mediante la API de REST de Azure Files, y los desarrolladores pueden acceder a ellos montando el recurso compartido de archivos en su máquina local. Esto permite una gran flexibilidad, ya que los desarrolladores pueden adoptar el desarrollo en la nube sin tener que abandonar las herramientas existentes que ya conocen y disfrutan.
 
     * **Desarrollo, pruebas y depuración**:  
         Cuando los desarrolladores o administradores están trabajando en máquinas virtuales en la nube, a menudo necesitan diversas herramientas o utilidades. Copiar estas utilidades y herramientas en cada máquina virtual puede ser una tarea que consuma mucho tiempo. Mediante el montaje de un recurso compartido de Azure Files localmente en las máquinas virtuales, un desarrollador o administrador pueden acceder rápidamente a sus herramientas y utilidades, sin tener que copiarlos.

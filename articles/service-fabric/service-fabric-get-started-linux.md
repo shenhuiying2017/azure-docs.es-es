@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -128,6 +128,10 @@ sudo apt-get install servicefabricsdkcommon
   > No se admiten clústeres independientes en Linux.
   >
 
+
+>   [!TIP]
+    Si tiene una unidad de estado sólido, es aconsejable que pase una ruta de acceso de las carpetas de dicha unidad mediante `--clusterdataroot` con devclustersetup.sh, ya que mejorará el rendimiento.
+
 ## <a name="set-up-the-service-fabric-cli"></a>Configuración de la CLI de Service Fabric
 
 La [CLI de Service Fabric](service-fabric-cli.md) tiene comandos para interactuar con las entidades de Service Fabric, incluidos los clústeres y las aplicaciones.
@@ -215,7 +219,7 @@ sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con el complemento de Eclipse para Service Fabric](service-fabric-get-started-eclipse.md)

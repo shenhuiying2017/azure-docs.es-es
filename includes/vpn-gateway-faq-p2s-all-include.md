@@ -39,7 +39,7 @@ Sí. Para el modelo de implementación de Resource Manager, debe tener un tipo d
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 
-No. Un cliente de punto a sitio solo puede conectarse a los recursos de la red virtual en la que reside la puerta de enlace de red virtual.
+Nº Un cliente de punto a sitio solo puede conectarse a los recursos de la red virtual en la que reside la puerta de enlace de red virtual.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>¿Qué rendimiento puedo esperar en las conexiones de sitio a sitio o de punto a sitio?
 
@@ -47,7 +47,7 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>¿Puedo usar cualquier software de cliente VPN para punto a sitio que admita SSTP o IKEv2?
 
-No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Consulte la lista de sistemas operativos cliente compatibles.
+Nº Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Consulte la lista de sistemas operativos cliente compatibles.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 
@@ -59,6 +59,6 @@ Los usuarios se pueden conectar a Azure con el cliente integrado de VPN de Windo
 
 Azure solo admite Windows y Mac para VPN de P2S.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Ya tengo implementada una instancia de Azure VPN Gateway. ¿Puedo habilitar VPN de IKEv2 o RADIUS en ella?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Ya tengo implementada una instancia de Azure VPN Gateway. ¿Puedo habilitar VPN de IKEv2 o RADIUS en ella?
 
-Sí, puede habilitar estas nuevas características en puertas de enlace ya implementadas, tanto mediante PowerShell como a través de Azure Portal.
+Sí, puede habilitar estas características nuevas en puertas de enlace ya implementadas mediante Powershell o Azure Portal, siempre que la SKU de la puerta de enlace que use admita RADIUS o IKEv2. Por ejemplo, la SKU de nivel Básico de VPN Gateway no admite RADIUS ni IKEv2.

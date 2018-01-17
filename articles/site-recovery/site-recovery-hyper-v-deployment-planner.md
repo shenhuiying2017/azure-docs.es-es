@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0baf595266e71fad2df16996d63af3ba7d23a6ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de Hyper-V a Azure.
@@ -28,7 +28,7 @@ Antes de empezar a proteger cualquier máquina virtual (VM) de Hyper-V mediante 
 
 También es preciso que cree el tipo y número correctos de cuentas de Azure Storage de destino. Cree cuentas de almacenamiento Estándar o Premium, para lo que debe tener en cuenta el crecimiento en los servidores de producción de origen debido al aumento del uso con el paso del tiempo. Elija el tipo de almacenamiento por máquina virtual, en función de las características de la carga de trabajo (por ejemplo, operaciones de E/S por segundo [IOPS] de lectura/escritura o actividad de datos) y de los límites de Azure Site Recovery. 
 
-Azure Site Recovery Deployment Planner (versión 2) es una herramienta de línea de comandos disponible para escenarios de recuperación ante desastres de Hyper-V y de VMware a Azure. Puede generar de forma remota un perfil para las máquinas virtuales de Hyper-V presentes en varios hosts Hyper-V mediante esta herramienta (sin ningún efecto en la producción) para averiguar el ancho de banda y los requisitos de Azure Storage necesarios para realizar una correcta replicación y conmutación por error de prueba. La herramienta se puede ejecutar sin que sea preciso instalar localmente ningún componente de Azure Site Recovery. Sin embargo, para obtener resultados precisos del rendimiento obtenido, se recomienda ejecutar el programador en una instancia de Windows Server que tenga la misma configuración de hardware que alguno de los servidores Hyper-V que se va a usar para habilitar la protección de recuperación ante desastres en Azure. 
+Azure Site Recovery Deployment Planner es una herramienta de línea de comandos para escenarios de recuperación ante desastres tanto de Hyper-V a Azure como de VMware a Azure. Puede generar de forma remota un perfil para las máquinas virtuales de Hyper-V presentes en varios hosts Hyper-V mediante esta herramienta (sin ningún efecto en la producción) para averiguar el ancho de banda y los requisitos de Azure Storage necesarios para realizar una correcta replicación y conmutación por error de prueba. La herramienta se puede ejecutar sin que sea preciso instalar localmente ningún componente de Azure Site Recovery. Sin embargo, para obtener resultados precisos del rendimiento obtenido, se recomienda ejecutar el programador en una instancia de Windows Server que tenga la misma configuración de hardware que alguno de los servidores Hyper-V que se va a usar para habilitar la protección de recuperación ante desastres en Azure. 
 
 La herramienta proporciona los detalles siguientes:
 
@@ -78,7 +78,7 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|No|Sí*|No
+Escenarios admitidos |Sí|Sí|Sin |Sí*|Sin 
 Versión admitida | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Azure Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
@@ -88,7 +88,7 @@ Número de servidores cuyo perfil puede generarse por instancia en ejecución de
 ## <a name="prerequisites"></a>Requisitos previos
 La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máquinas virtuales, generación de perfiles y generación de informes. También hay una cuarta opción para calcular solo el rendimiento. Los requisitos para el servidor en el que se deben ejecutar las distintas fases se presentan en la tabla siguiente:
 
-| Requisito del servidor | Descripción |
+| Requisito del servidor | DESCRIPCIÓN |
 |---|---|
 |Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración del equipo: 8 vCPU, 16 GB de RAM y 300 GB de HDD</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Las máquinas virtuales de todos los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
@@ -121,9 +121,9 @@ Configuración recomendada de la máquina virtual: 8 vCPU, 16 GB de RAM, disco d
 3.  Extraiga la carpeta .zip.
 La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
-Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.0.zip
+Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
@@ -137,5 +137,10 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
   >
   >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="version-history"></a>Historial de versiones
+La versión más reciente de la herramienta ASR Deployment Planner es la 2.1.
+Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
+
+
+## <a name="next-steps"></a>pasos siguientes
 * [Ejecución de Deployment Planner](site-recovery-hyper-v-deployment-planner-run.md).

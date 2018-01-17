@@ -2,7 +2,7 @@
 
 Para permitir que Mobile Engagement envíe notificaciones de inserción en su nombre, deberá conceder acceso a la clave de API. Esto se hace configurando y escribiendo la clave en el portal de Mobile Engagement.
 
-1. En el Portal de Azure clásico, asegúrese de que se encuentra en la aplicación que estamos usando para este proyecto y luego haga clic en el botón **Interactuar** en la parte inferior:
+1. En Azure Portal, asegúrese de que se encuentra en la aplicación que estamos usando para este proyecto y luego haga clic en el botón **Interactuar** en la parte inferior:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

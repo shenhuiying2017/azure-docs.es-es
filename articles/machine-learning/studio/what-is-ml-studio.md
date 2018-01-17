@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
@@ -40,10 +40,10 @@ No se requiere ningún tipo de programación, basta con conectar visualmente con
 > 
 > 
 
-![Diagrama de Azure Machine Learning Studio: crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.][ml-studio-overview]
+![Diagrama de Azure ML Studio: crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introducción a Machine Learning Studio
-La primera vez que entre en [Machine Learning Studio](https://studio.azureml.net) , verá la página **principal** . Desde aquí puede ver documentación, vídeos y seminarios web, y encontrar otros recursos valiosos.
+La primera vez que entre en [Machine Learning Studio](https://studio.azureml.net), verá la página **principal** . Desde aquí puede ver documentación, vídeos y seminarios web, y encontrar otros recursos valiosos.
 
 Haga clic en el menú de la parte superior izquierda ![Menú](./media/what-is-ml-studio/menu.png) y verá varias opciones.
 
@@ -64,9 +64,9 @@ Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**.
 * **CONFIGURACIÓN** : una colección de ajustes que puede utilizar para configurar la cuenta y los recursos.
 
 ### <a name="gallery"></a>Galería
-Haga clic en **Galería** y se le dirigirá a **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
+Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](http://gallery.cortanaintelligence.com/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
-Para más información sobre la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+Para más información acerca de la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Componentes de un experimento
 Un experimento consta de conjuntos de datos que proporcionan datos a módulos analíticos, que se conectan en conjunto para construir un modelo de análisis predictivo. En concreto, un experimento válido tiene estas características:
@@ -83,7 +83,7 @@ Para obtener un ejemplo de creación de un experimento simple, consulte [Creaci�
 
 Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
-### <a name="datasets"></a>CONJUNTOS DE DATOS
+### <a name="datasets"></a>Conjuntos de datos
 Un conjunto de datos son datos que se han cargado en Machine Learning Studio para utilizarse en el proceso de modelado. Machine Learning Studio incluye varios conjuntos de datos de ejemplo con los que puede experimentar, y puede cargar más a medida que los necesite. A continuación se muestran algunos ejemplos de los conjuntos de datos incluidos:
 
 * **Datos sobre consumo de combustible por distancia recorrida para varios automóviles** : valores sobre consumo de combustible por distancia recorrida para automóviles identificados por el número de cilindros, los caballos de potencia, etc.
