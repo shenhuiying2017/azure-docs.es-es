@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Creación de archivos de solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
@@ -39,7 +39,7 @@ Puede usar cualquier editor de texto para trabajar con archivos de solución, pe
 
 
 ## <a name="structure"></a>sección Estructura
-La estructura básica de un archivo de una solución de administración, que se muestra a continuación, es la misma que la de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format).  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
+La estructura básica del archivo de una solución de administración es la misma que la de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) y se muestra a continuación.  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -69,12 +69,12 @@ A continuación se muestra un parámetro de ejemplo.
 
 En la tabla siguiente se describen los atributos de un parámetro.
 
-| Atributo | Descripción |
+| Atributo | DESCRIPCIÓN |
 |:--- |:--- |
-| type |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
+| Tipo |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
 | categoría |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
 | control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
-| Description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
+| Descripción |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
 
 ### <a name="standard-parameters"></a>Parámetros estándar
 En la tabla siguiente se enumeran los parámetros estándar de todas las soluciones de administración.  Estos valores se rellenan para el usuario en lugar de pedírseles cuando se instala la solución desde las plantillas de Azure Marketplace o de inicio rápido.  El usuario debe proporcionar los valores si la solución se instala con otro método.
@@ -84,14 +84,14 @@ En la tabla siguiente se enumeran los parámetros estándar de todas las solucio
 >
 >
 
-| Parámetro | Tipo | Descripción |
+| . | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| accountName |string |Nombre de la cuenta de Automation de Azure. |
-| pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Automation de Azure. |
-| regionId |string |Región de la cuenta de Azure Automation. |
-| solutionName |string |Nombre de la solución.  Si va a implementar la solución a través de plantillas de inicio rápido, debe definir solutionName como parámetro para poder definir una cadena en lugar de pedir al usuario que especifique una. |
-| workspaceName |string |Nombre del área de trabajo de Log Analytics. |
-| workspaceRegionId |string |Región del área de trabajo de Log Analytics. |
+| accountName |cadena |Nombre de la cuenta de Azure Automation. |
+| pricingTier |cadena |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Azure Automation. |
+| regionId |cadena |Región de la cuenta de Azure Automation. |
+| solutionName |cadena |Nombre de la solución.  Si va a implementar la solución a través de plantillas de inicio rápido, debe definir solutionName como parámetro para poder definir una cadena en lugar de pedir al usuario que especifique una. |
+| workspaceName |cadena |Nombre del área de trabajo de Log Analytics. |
+| workspaceRegionId |cadena |Región del área de trabajo de Log Analytics. |
 
 
 Esta es la estructura de los parámetros estándar que puede copiar y pegar en el archivo de solución.  
@@ -132,7 +132,7 @@ Esta es la estructura de los parámetros estándar que puede copiar y pegar en e
 
 Consulte los valores de parámetro de otros elementos de la solución con la sintaxis **parameters('nombre de parámetro')**.  Por ejemplo, para tener acceso al nombre de área de trabajo, use **parameters('workspaceName')**
 
-## <a name="variables"></a>Variables
+## <a name="variables"></a>variables
 [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) son valores que usará en el resto de la solución de administración.  Estos valores no se exponen al usuario que instala la solución.  Están destinados a proporcionar al creador una única ubicación donde pueda administrar los valores que pueden utilizarse varias veces a lo largo de la solución. Debe colocar los valores específicos para su solución en variables en lugar de codificarlos de forma rígida en el elemento **resources**.  De este modo, el código es más legible y los valores se pueden cambiar fácilmente en versiones posteriores.
 
 A continuación se muestra un ejemplo del elemento **variables** con parámetros típicos usados en las soluciones.
@@ -176,7 +176,7 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -208,10 +208,10 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
 ### <a name="dependencies"></a>Dependencias
 El recurso de la solución debe tener un [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
 
-### <a name="properties"></a>Propiedades
+### <a name="properties"></a>Properties (Propiedades)
 Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | workspaceResourceId |Identificador del área de trabajo de Log Analytics en el formulario *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<nombre del espacio de trabajo\>*. |
 | referencedResources |Lista de recursos de la solución que no se deben quitar cuando se quita la solución. |
@@ -222,9 +222,9 @@ El ejemplo anterior es para una solución con un runbook, una programación y un
 ### <a name="plan"></a>Plan
 La entidad **plan** del recurso de la solución tiene las propiedades en la tabla siguiente.
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| name |Nombre de la solución. |
+| Nombre |Nombre de la solución. |
 | versión |Versión de la solución según determine el autor. |
 | product |Cadena única para identificar la solución. |
 | publisher |Publicador de la solución. |
@@ -238,7 +238,7 @@ Puede ver ejemplos de archivos de solución con un recurso de la solución en la
 - [Recursos de búsqueda y alerta](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.
 * [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de y otros recursos Automation](operations-management-suite-solutions-resources-automation.md) a la solución de administración.

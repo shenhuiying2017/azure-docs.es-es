@@ -1,5 +1,5 @@
 ---
-title: Ver los registros de actividad de Azure con Log Analytics | Microsoft Docs
+title: Recopilar y analizar los registros de actividad de Azure en Log Analytics | Microsoft Docs
 description: "Puede usar la solución Registros de actividad de Azure para analizar y buscar en el registro de actividad de Azure de todas las suscripciones de Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Ver los registros de actividad de Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recopilar y analizar los registros de actividad de Azure en Log Analytics
 
 ![Símbolo de registros de actividad de Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,12 +50,12 @@ Si está en el nivel de precios Gratis, los registros de actividad no se aplican
 
 A diferencia de la mayoría de las demás soluciones Log Analytics, los agentes no recopilan datos de los registros de actividad. Todos los datos usados por la solución proceden directamente de Azure.
 
-| Origen conectado | Compatible | Descripción |
+| Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | La solución no recopila información de Azure Storage. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | Sin  | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -88,7 +88,7 @@ Haga clic en el icono **Registros de actividad de Azure** para abrir el panel **
 
 Los datos del registro de actividad solo aparecen *después* de haber configurado los registros de actividad para ir a la solución, así que antes de eso no se pueden ver.
 
-| Hoja | Descripción |
+| Hoja | DESCRIPCIÓN |
 | --- | --- |
 | Entradas del registro de actividad de Azure | Muestra un gráfico de barras de los principales totales de registro de entrada de registro de actividad del intervalo de fechas seleccionado y una lista de los 10 principales llamadores de actividad. Haga clic en el gráfico de barras para ejecutar una búsqueda de registros de <code>Type=AzureActivity</code>. Haga clic en un elemento de llamador para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese elemento. |
 | Registros de actividad por estado | Muestra un gráfico de anillos del estado de registro de actividad de Azure para el intervalo de fechas seleccionado. También muestra una lista de los diez principales registros de estado. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Haga clic en un elemento de estado para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese registro de estado. |
@@ -97,7 +97,7 @@ Los datos del registro de actividad solo aparecen *después* de haber configurad
 
 ![Panel Registros de actividad de Azure](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Cree una [alerta](log-analytics-alerts-creating.md) cuando se produzca una actividad determinada.
 - Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada de los registros de actividad.

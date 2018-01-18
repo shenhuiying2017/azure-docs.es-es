@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-onprem-oracle-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-onprem-oracle-connector.md)
 > * [Versión 2: versión preliminar](connector-oracle.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos Oracle como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Oracle](v1/data-factory-onprem-oracle-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Oracle](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -46,7 +46,8 @@ En concreto, este conector Oracle admite las versiones siguientes de base de dat
 Para copiar datos con una base de datos Oracle como origen o destino que no es accesible públicamente, debe configurar un entorno Integration Runtime autohospedado. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información sobre Integration Runtime. Integration Runtime proporciona un controlador Oracle integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos con Oracle como origen o destino.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Oracle.
 
@@ -54,11 +55,11 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type se debe establecer en: **Oracle** | Sí |
-| connectionString | Especifique la información necesaria para conectarse a la instancia de Oracle Database. Marque este campo como SecureString. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
+| Tipo | La propiedad type se debe establecer en: **Oracle** | Sí |
+| connectionString | Especifique la información necesaria para conectarse a la instancia de Oracle Database. Marque este campo como SecureString.<br><br>**Tipo de conexión que se admite**: para identificar su base de datos, puede elegir usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Usar el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Usar el nombre de servicio: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sí |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -87,9 +88,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con Oracle como origen o destino, establezca la propiedad type del conjunto de datos en **OracleTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos se debe establecer en: **OracleTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable** | Sí |
 | tableName |Nombre de la tabla en la instancia de Base de datos de Oracle a la que hace referencia el servicio vinculado. | Sí |
 
 **Ejemplo:**
@@ -119,10 +120,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de copia en **OracleSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource** | Sí |
-| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource** | Sí |
+| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sin  |
 
 Si no se especifica "oracleReaderQuery", las columnas que se define en la sección "structure" del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en la base de datos Oracle. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
@@ -162,12 +163,12 @@ Si no se especifica "oracleReaderQuery", las columnas que se define en la secci�
 
 Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad de copia en **OracleSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
-| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: 00:30:00 (30 minutos). | No |
-| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | No |
+| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: 00:30:00 (30 minutos). | Sin  |
+| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin  |
 
 **Ejemplo:**
 
@@ -208,29 +209,29 @@ Al copiar datos con Oracle como origen o destino, se usan las siguientes asignac
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(solo se admite en Oracle 10g y versiones posteriores) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |string |
+| CLOB |string |
+| DATE |Datetime |
 | FLOAT |Decimal, String (si la precisión > 28) |
 | INTEGER |Decimal, String (si la precisión > 28) |
-| LONG |String |
+| LONG |string |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |string |
+| NCLOB |string |
 | NUMBER |Decimal, String (si la precisión > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |string |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
+| ROWID |string |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |string |
+| TIMESTAMP WITH TIME ZONE |string |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |string |
+| XML |string |
 
 > [!NOTE]
 > Los tipos de datos INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND no son compatibles.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

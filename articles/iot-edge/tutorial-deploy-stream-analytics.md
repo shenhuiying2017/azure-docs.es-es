@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
 
@@ -153,7 +153,7 @@ Ya está listo para implementar el trabajo de Azure Stream Analytics en el dispo
 
     ![Establecer módulo][6]
 
-6. Copie el nombre generado automáticamente para el módulo Azure Stream Analytics. 
+6. Copie el nombre de su módulo de Azure Stream Analytics. 
 
     ![Módulo de temperatura][11]
 
@@ -174,7 +174,7 @@ Ya está listo para implementar el trabajo de Azure Stream Analytics en el dispo
 
 9. Seleccione **Siguiente**.
 
-10. En el paso **Review Template** (Revisar plantilla), seleccione **Enviar**.
+10. En el paso **Revisar plantilla**, seleccione **Enviar**.
 
 11. Vuelva a la página de detalles del dispositivo y, luego, seleccione **Actualizar**.  
     Debería ver el nuevo módulo de Stream Analytics en ejecución junto con el módulo del agente de IoT Edge y el centro de IoT Edge.
@@ -204,7 +204,7 @@ Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanz
    ![Registro de Docker][9]
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha configurado un contenedor de Azure Storage y un trabajo de Stream Analytics para analizar datos desde un dispositivo de IoT Edge. Luego, ha cargado un módulo Azure Stream Analytics personalizado para mover datos desde el dispositivo a un blob, a través del flujo de datos para su descarga. Para ver cómo Azure IoT Edge puede crear más soluciones para la empresa, siga con los otros tutoriales.
 

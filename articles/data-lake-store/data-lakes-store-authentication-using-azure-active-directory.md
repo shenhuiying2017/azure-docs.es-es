@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación con Data Lake Store mediante Azure Active Directory
 
@@ -44,11 +44,11 @@ En la tabla siguiente se indica cómo se admiten los mecanismos de autenticació
 |Entre servicios (con certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
 <i>* Haga clic en el símbolo <b>✔\*</b>. Es un vínculo.</i><br>
-<i>** MFA hace referencia a Multi-Factor Authentication</i>.
+<i>** MFA hace referencia a la autenticación multifactor</i>.
 
 Vea [Escenarios de autenticación para Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md) para obtener más información sobre cómo usar Azure Active Directory para la autenticación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Autenticación de usuario final](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Autenticación entre servicios](data-lake-store-service-to-service-authenticate-using-active-directory.md)

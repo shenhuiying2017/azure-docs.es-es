@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrado de tráfico de red con la red de Azure y grupos de seguridad de aplicaciones (versión preliminar)
 
@@ -31,9 +31,9 @@ En las secciones siguientes se incluyen los pasos que se pueden seguir para crea
 En este artículo se indican los pasos para crear grupos de seguridad de red mediante el modelo de implementación del Administrador de recursos, que es el que se recomienda para crear redes virtuales. Si necesita crear un grupo de seguridad de red (clásico), vea [Creación de grupos de seguridad de red (clásicos) en PowerShell](virtual-networks-create-nsg-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> En este tutorial se usan las características de grupo de seguridad de red que actualmente se encuentran en la versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general. Mientras esté en la versión preliminar, las características están disponibles solamente en esta región: Oeste del centro de EE. UU. Si quiere implementar los grupos de seguridad de red usando solamente características de la versión general, vea [Creación de grupos de seguridad de red con Azure Portal](virtual-networks-create-nsg-arm-pportal.md). 
+> En este tutorial se usan las características de grupo de seguridad de red que actualmente se encuentran en la versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general. Si quiere implementar los grupos de seguridad de red usando solamente características de la versión general, vea [Creación de grupos de seguridad de red con Azure Portal](virtual-networks-create-nsg-arm-pportal.md). 
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Los comandos de la CLI de Azure son los mismos, con independencia de que se ejecuten desde Windows, Linux o macOS. Pero existen diferencias de scripting entre los shells del sistema operativo. Los scripts de los pasos siguientes se ejecutan en un shell de Bash. 
 
@@ -42,14 +42,14 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 3. Inicie sesión en Azure con el comando `az login`.
 4. Regístrese para obtener la versión preliminar mediante estos comandos:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 6. Ejecute el siguiente script de Bash para crear un grupo de recursos:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 7. Cree tres grupos de seguridad de aplicaciones, uno para cada tipo de servidor:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 8. Cree un grupo de seguridad de red:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 9. Cree reglas de seguridad en los grupos de seguridad de red (NSG) y configure los grupos de seguridad de la aplicación como el destino:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 10. Cree una red virtual: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 11. Asocie el grupo de seguridad de red a la subred de la red virtual:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     
 12. Cree tres interfaces de red, una para cada tipo de servidor: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --application-security-groups "DatabaseServers"
     ```
 
-    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 9, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myNic1*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myNic1*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
+    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 9, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo la regla *AppRule* es eficaz para *myNic2*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *AppServers* y la regla especifica el grupo de seguridad de aplicaciones *AppServers* como su destino. Las reglas *WebRule* y *DatabaseRule* no se aplican a *myNic2*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *WebServers* y *DatabaseServers*. Tanto la regla *WebRule* como la regla *AppRule* son efectivas para *myNic1*; sin embargo, la interfaz de red de *myNic1* es miembro de los grupos de seguridad de aplicaciones *WebServers* y *AppServers* y las reglas especifican los grupos de seguridad de aplicaciones *WebServers* y *AppServers* como sus destinos. 
 
 13. Cree una máquina virtual para cada tipo de servidor, conectando la interfaz de red correspondiente a cada máquina virtual. En este ejemplo se crean máquinas virtuales de Windows, pero puede cambiar *win2016datacenter* a *UbuntuLTS* para crear máquinas virtuales de Linux, si lo prefiere.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Cree un grupo de seguridad de red:
@@ -361,7 +363,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 8, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myNic1*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myNic1*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
+    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 8, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo la regla *AppRule* es eficaz para *myNic2*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *AppServers* y la regla especifica el grupo de seguridad de aplicaciones *AppServers* como su destino. Las reglas *WebRule* y *DatabaseRule* no se aplican a *myNic2*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *WebServers* y *DatabaseServers*. Tanto la regla *WebRule* como la regla *AppRule* son efectivas para *myNic1*; sin embargo, la interfaz de red de *myNic1* es miembro de los grupos de seguridad de aplicaciones *WebServers* y *AppServers* y las reglas especifican los grupos de seguridad de aplicaciones *WebServers* y *AppServers* como sus destinos. 
 
 13. Cree una máquina virtual para cada tipo de servidor, conectando la interfaz de red correspondiente a cada máquina virtual. En este ejemplo se crean máquinas virtuales de Windows, pero si quiere crear máquinas virtuales de Linux, antes de ejecutar el script puede cambiar *-Windows* por *- Linux*, *MicrosoftWindowsServer* por *Canonical*, *WindowsServer* por *UbuntuServer* y *2016-Datacenter* por *14.04.2-LTS*.
 
@@ -429,6 +431,33 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 
 14. **Opcional**: elimine los recursos que cree en este tutorial. Para ello, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Eliminar un adaptador de red de ASG
+Una vez que se quita una interfaz de red de un grupo de seguridad de aplicaciones, ninguna de las reglas que especifican el grupo de seguridad de aplicaciones se aplica a la interfaz de red que se va a quitar.
+
+### <a name="azure-cli"></a>Azure CLI
+
+Para quitar *myNic3* de todos los grupos de seguridad de aplicaciones, escriba el siguiente comando:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Para quitar *myNic3* de todos los grupos de seguridad de aplicaciones, escriba el siguiente comando:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Eliminación de recursos
 
 Cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
@@ -443,7 +472,7 @@ Cuando termine este tutorial, es posible que quiera eliminar los recursos que ha
 
 En una sesión de la CLI, escriba el comando siguiente:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

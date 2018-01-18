@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 01/05/2018
 ms.author: subramar
-ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccfbd03ed6d2cd84f8c2cf789e4fc1e99b1e5bbf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
 El manifiesto de servicio permite que los recursos que utilizará el servicio sean declarados o modificados sin cambiar el código compilado. Service Fabric de Azure admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-## <a name="endpoints"></a>Extremos
+## <a name="endpoints"></a>Puntos de conexión
 Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Por ejemplo, analice el punto de conexión *ServiceEndpoint1* especificado en el fragmento de manifiesto que encontrará después de este párrafo. Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Las réplicas de servicio pueden usar estos puertos según sea necesario para la replicación y procesar solicitudes de cliente.
 
 ```xml
@@ -33,6 +33,17 @@ Cuando se define un recurso de punto de conexión en el manifiesto de servicio, 
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+Si hay varios paquetes de código en un solo paquete de servicio, también necesita hacer referencia al paquete de código en la sección **Puntos de conexión**.  Por ejemplo, si **ServiceEndpoint2a** y **ServiceEndpoint2b** son los puntos de conexión del mismo paquete de servicio y hacen referencia a paquetes de código diferentes, el paquete de código correspondiente a cada punto de conexión se indica de la siguiente manera:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -185,7 +196,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Nota: Si los valores proporcionados para ApplicationParameters están vacíos se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
 
-Por ejemplo:
+Por ejemplo: 
 
 Si en ServiceManifest ha especificado
 

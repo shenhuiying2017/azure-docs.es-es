@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -48,16 +48,16 @@ Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red 
 
     |Configuración|¿Necesario?|Detalles|
     |---|---|---|
-    |Nombre|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione. Con el tiempo, probablemente tendrá varias interfaces de red en la suscripción de Azure. Lea el artículo de [convenciones de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) para obtener sugerencias sobre la creación de convenciones de nomenclatura para facilitar la administración de la interfaz de red. El nombre no se puede cambiar una vez creada la interfaz de red.|
+    |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione. Con el tiempo, probablemente tendrá varias interfaces de red en la suscripción de Azure. Lea el artículo de [convenciones de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) para obtener sugerencias sobre la creación de convenciones de nomenclatura para facilitar la administración de la interfaz de red. El nombre no se puede cambiar una vez creada la interfaz de red.|
     |Red virtual|Sí|Seleccione la red virtual para la interfaz de red. Solo se puede asignar una interfaz de red a una red virtual que exista en la misma suscripción y ubicación que la interfaz de red. Una vez creada la interfaz de red, no se puede cambiar la red virtual a la que está asignada. La máquina virtual que se agrega a la interfaz de red también debe existir en la misma ubicación y suscripción que la interfaz de red.|
     |Subred|Sí|Seleccione una subred dentro de la red virtual que seleccionó. Puede cambiar la subred a la que está asignada la interfaz de red después de crearla.|
-    |Asignación de la dirección IP privada|Sí| En esta configuración, va a elegir el método de asignación para la dirección IPv4. Elija entre los siguientes métodos de asignación: **Dinámico:** al seleccionar esta opción, Azure asigna automáticamente una dirección disponible del espacio de direcciones de la subred seleccionada. Azure puede asignar una dirección diferente a una interfaz de red cuando su máquina virtual se inicia después de haberse detenido (haberse desasignado). La dirección sigue siendo la misma si la máquina virtual se reinicia y no estuvo en estado detenido (desasignado). **Estático:** al seleccionar esta opción, debe asignar manualmente una dirección IP disponible del espacio de direcciones de la subred seleccionada. Las direcciones estáticas no cambian hasta que se cambian o se elimina la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. El servidor DHCP de Azure asigna esta dirección a la interfaz de red en el sistema operativo de la máquina virtual.|
-    |Grupo de seguridad de red|No| Déjelo establecido en **Ninguno**, seleccione un [grupo de seguridad de red](virtual-networks-nsg.md) existente o [cree uno](virtual-networks-create-nsg-arm-pportal.md). Los grupos de seguridad de red permiten filtrar el tráfico de red hacia y desde una interfaz de red. Puede aplicar un grupo de seguridad de red, o ninguno, a una interfaz de red. También puede aplicar un grupo de seguridad de red, o ninguno, a la subred a la que está asignada la interfaz de red. Cuando un grupo de seguridad de red se aplica a una interfaz de red y a la subred a la que está asignada la interfaz de red, en ocasiones se producen resultados inesperados. Para solucionar problemas de los grupos de seguridad de red aplicados a interfaces de red y a subredes, consulte el artículo [Solución de problemas de grupos de seguridad de red](virtual-network-nsg-troubleshoot-portal.md#nsg).|
+    |Asignación de la dirección IP privada|Sí| En esta configuración, va a elegir el método de asignación para la dirección IPv4. Elija entre los siguientes métodos de asignación: **Dinámico:** al seleccionar esta opción, Azure asigna automáticamente la siguiente dirección disponible del espacio de direcciones de la subred seleccionada. **Estático:** al seleccionar esta opción, debe asignar manualmente una dirección IP disponible del espacio de direcciones de la subred seleccionada. Las direcciones estática y dinámica no cambian hasta que usted realice algún cambio elimine la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. El servidor DHCP de Azure asigna esta dirección a la interfaz de red en el sistema operativo de la máquina virtual.|
+    |Grupo de seguridad de red|Sin | Déjelo establecido en **Ninguno**, seleccione un [grupo de seguridad de red](virtual-networks-nsg.md) existente o [cree uno](virtual-networks-create-nsg-arm-pportal.md). Los grupos de seguridad de red permiten filtrar el tráfico de red hacia y desde una interfaz de red. Puede aplicar un grupo de seguridad de red, o ninguno, a una interfaz de red. También puede aplicar un grupo de seguridad de red, o ninguno, a la subred a la que está asignada la interfaz de red. Cuando un grupo de seguridad de red se aplica a una interfaz de red y a la subred a la que está asignada la interfaz de red, en ocasiones se producen resultados inesperados. Para solucionar problemas de los grupos de seguridad de red aplicados a interfaces de red y a subredes, consulte el artículo [Solución de problemas de grupos de seguridad de red](virtual-network-nsg-troubleshoot-portal.md#nsg).|
     |La suscripción|Sí|Seleccione una de las [suscripciones](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) de Azure. La máquina virtual asociada a una interfaz de red y la red virtual a la que está conectada deben existir en la misma suscripción.|
-    |Dirección IP privada (IPv6)|No| Si activa esta casilla, se asigna una dirección IPv6 a la interfaz de red, además de la dirección IPv4 ya asignada. Consulte la sección [IPv6](#IPv6) de este artículo para obtener información importante sobre el uso de IPv6 con interfaces de red. No se puede seleccionar un método de asignación a la dirección IPv6. Si desea asignar una dirección IPv6, hay que asignarla con el método dinámico.
+    |Dirección IP privada (IPv6)|Sin | Si activa esta casilla, se asigna una dirección IPv6 a la interfaz de red, además de la dirección IPv4 ya asignada. Consulte la sección [IPv6](#IPv6) de este artículo para obtener información importante sobre el uso de IPv6 con interfaces de red. No se puede seleccionar un método de asignación a la dirección IPv6. Si desea asignar una dirección IPv6, hay que asignarla con el método dinámico.
     |Nombre de IPv6 (solo aparece cuando la casilla **Dirección IP privada (IPv6)** está activada) |Sí, si la casilla **Dirección IP privada (IPv6)** está activada.| Este nombre se asigna a una configuración IP secundaria de la interfaz de red. Obtenga más información sobre las configuraciones de IP en la sección [Visualización de la configuración de la interfaz de red](#view-network-interface-settings) en este artículo.|
     |Grupos de recursos|Sí|Seleccione un [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) existente o cree uno. La interfaz de red puede existir en el mismo grupo de recursos que la máquina virtual a la que está asociada o conectada, o en otro.|
-    |Ubicación|Sí|La máquina virtual asociada a una interfaz de red y la red virtual a la que está conectada deben existir en la misma [ubicación](https://azure.microsoft.com/regions), que también se conoce como región.|
+    |La ubicación|Sí|La máquina virtual asociada a una interfaz de red y la red virtual a la que está conectada deben existir en la misma [ubicación](https://azure.microsoft.com/regions), que también se conoce como región.|
 
 El portal no proporciona la opción de asignar una dirección IP pública a la interfaz de red al crearla, aunque el portal crea una dirección IP pública y la asigna a una interfaz de red cuando se crea una máquina virtual mediante el portal. Para aprender a agregar una dirección IP pública a la interfaz de red después de crearla, consulte el artículo sobre la [administración de direcciones IP](virtual-network-network-interface-addresses.md). Si desea crear una interfaz de red con una dirección IP pública, debe utilizar la CLI o PowerShell para crearla.
 
@@ -66,7 +66,7 @@ El portal no proporciona la opción de asignar una dirección IP pública a la i
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
@@ -92,7 +92,7 @@ Puede ver y cambiar la mayoría de las opciones de una interfaz de red después 
 
 Si se asigna una dirección IPv6 a una interfaz de red, la salida de PowerShell devuelve el hecho de que la dirección está asignada, pero no devuelve la dirección asignada. De forma similar, la CLI devuelve el hecho de que la dirección está asignada, pero devuelve *null* en su salida para la dirección.
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) para ver las interfaces de red en la suscripción; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) para ver la configuración de una interfaz de red|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) para ver las interfaces de red en la suscripción o ver la configuración de una interfaz de red|
@@ -108,11 +108,11 @@ El servidor DHCP de Azure asigna el servidor DNS a la interfaz de red en el sist
 5. Haga clic en:
     - **Heredar desde la red virtual (valor predeterminado)**: elija esta opción para heredar la configuración del servidor DNS definida para la red virtual a la que la interfaz de red está conectada. En el nivel de red virtual, se define un servidor DNS personalizado o el servidor DNS proporcionado por Azure. El servidor DNS proporcionado por Azure puede resolver los nombres de host de los recursos asignados a la misma red virtual. Para resolver los recursos asignados a otras redes virtuales, debe utilizarse FQDN.
     - **Personalizado**: puede configurar su propio servidor DNS para resolver nombres en diferentes redes virtuales. Escriba la dirección IP del servidor que desea usar como servidor DNS. La dirección del servidor DNS especificado se asigna solo a esta interfaz de red y reemplaza cualquier configuración DNS de la red virtual a la que está asignada la interfaz de red.
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -130,11 +130,11 @@ La configuración debe estar habilitada para cada interfaz de red que esté asoc
 3. En la hoja **Interfaces de red** que aparece, haga clic en la interfaz de red para la cual desee habilitar o deshabilitar el reenvío IP.
 4. Haga clic en **Configuraciones de IP** en sección **CONFIGURACIÓN** de la hoja de la interfaz de red seleccionada.
 5. Haga clic en **Habilitado** o **Deshabilitado** (valor predeterminado) para cambiar la configuración.
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -149,13 +149,13 @@ Puede cambiar la subred, pero no la red virtual, a la que está asignada una int
 4. Haga clic en **Configuraciones de IP** de **CONFIGURACIÓN** en la hoja de la interfaz de red seleccionada. Si junto a las direcciones IP privadas de las configuraciones de IP que se enumeran aquí aparece **(Estático)**, debe seguir los pasos a continuación y así cambiar al método dinámico de asignación de direcciones IP. Para cambiar la asignación de subred para la interfaz de red de todas las direcciones IP privadas, es obligatorio el método dinámico de asignación. Si las direcciones se han asignado con el método dinámico, vaya al paso cinco. Si se asignó alguna dirección IPv4 con el método estático, complete los pasos siguientes para cambiar al método de asignación dinámico:
     - Haga clic en la configuración de IP cuyo método de asignación de dirección IPv4 desea cambiar de la lista de configuraciones de IP.
     - En la hoja que aparece para la configuración de IP, haga clic en **Dinámica** para el método **Asignación**. No se puede asignar una dirección IPv6 con el método de asignación estático.
-    - Haga clic en **Guardar**.
+    - Haga clic en **Save**(Guardar).
 5. Seleccione la subred a la que desea conectar la interfaz de red en la lista desplegable **Subred**.
-6. Haga clic en **Guardar**. Las nuevas direcciones dinámicas se asignan a partir del intervalo de direcciones de la subred nueva. Una vez asignada la interfaz de red a una nueva subred, si lo prefiere, podrá asignar direcciones IPv4 estáticas del nuevo intervalo de direcciones de subred. Para más información sobre la incorporación, el cambio o la eliminación de direcciones IP de una interfaz de red, lea el artículo sobre la [administración de direcciones IP](virtual-network-network-interface-addresses.md).
+6. Haga clic en **Save**(Guardar). Las nuevas direcciones dinámicas se asignan a partir del intervalo de direcciones de la subred nueva. Una vez asignada la interfaz de red a una nueva subred, si lo prefiere, podrá asignar direcciones IPv4 estáticas del nuevo intervalo de direcciones de subred. Para más información sobre la incorporación, el cambio o la eliminación de direcciones IP de una interfaz de red, lea el artículo sobre la [administración de direcciones IP](virtual-network-network-interface-addresses.md).
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -174,17 +174,17 @@ Cuando se elimina una interfaz de red, se liberan las direcciones MAC o IP asign
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para crear una máquina virtual con varias interfaces de red o direcciones IP, lea los siguientes artículos:
 
 **Comandos**
 
-|Tarea|Herramienta|
+|Task|Herramienta|
 |---|---|
 |Creación de una máquina virtual con varias NIC|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-azure-table-connector.md)
-> * [Versión 2: Versión preliminar](connector-azure-table-storage.md)
+> * [Versión 2: versión preliminar](connector-azure-table-storage.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Table Storage como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Table Storage](v1/data-factory-azure-table-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Table Storage](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -36,7 +36,8 @@ Puede copiar datos desde cualquier almacén de datos de origen compatible a Azur
 En concreto, este conector de Azure Table Storage permite copiar datos utilizando las autenticaciones de **clave de cuenta** y **SAS de servicio** (firma de acceso compartido).
 
 ## <a name="get-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporciona información sobre las propiedades que se usan para definir entidades de Data Factory específicas de Azure Table Storage.
 
@@ -46,11 +47,11 @@ En las secciones siguientes se proporciona información sobre las propiedades qu
 
 Puede crear un servicio vinculado de Azure Storage con la clave de cuenta, que proporciona a la factoría de datos acceso global a Azure Storage. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AzureStorage** |Sí |
+| Tipo | La propiedad type debe establecerse en: **AzureStorage** |Sí |
 | connectionString | Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. Marque este campo como SecureString. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -81,15 +82,18 @@ Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 > [!IMPORTANT]
 > Ahora Azure Data Factory solo admite **SAS de servicio**, pero no SAS de cuenta. Consulte [Tipos de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) para más información acerca de estos dos tipos y cómo construirlos. La dirección URL de SAS generable desde Azure Portal o el Explorador de Storage es una SAS de cuenta, que no es compatible.
->
+
+> [!TIP]
+> Puede ejecutar a continuación los comandos de PowerShell para generar una SAS de servicio para su cuenta de almacenamiento (reemplace los marcadores de posición y conceda el permiso necesario): `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para usar la autenticación de SAS de servicio, se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AzureStorage** |Sí |
+| Tipo | La propiedad type debe establecerse en: **AzureStorage** |Sí |
 | sasUri | Especifique el URI de Firma de acceso compartido a los recursos de Azure Storage como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -124,9 +128,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con Azure Table Storage como origen o destino, establezca la propiedad type del conjunto de datos en **AzureTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **AzureTable**. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureTable**. |Sí |
 | tableName |Nombre de la tabla en la instancia de Base de datos de tablas de Azure a la que hace referencia el servicio vinculado. |Sí |
 
 **Ejemplo:**
@@ -165,11 +169,11 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Si va a copiar datos desde Azure Table Storage, establezca el tipo de origen de la actividad de copia en **AzureTableSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureTableSource**. |Sí |
-| AzureTableSourceQuery |Utilice la consulta personalizada de Azure Table Storage para leer los datos. Consulte los ejemplos en la sección siguiente. |No |
-| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente.<br/>Los valores válidos son **True** y **False** (valor predeterminado). |No |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureTableSource**. |Sí |
+| AzureTableSourceQuery |Utilice la consulta personalizada de Azure Table Storage para leer los datos. Consulte los ejemplos en la sección siguiente. |Sin  |
+| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente.<br/>Los valores válidos son **True** y **False** (valor predeterminado). |Sin  |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
 
@@ -191,13 +195,13 @@ Si usa el parámetro de canalización, convierta el valor de fecha y hora al for
 
 Para copiar datos a la Tabla de Azure, establezca el tipo de receptor de la actividad de copia en **AzureTableSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **AzureTableSink**. |Sí |
-| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |No |
-| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza "AzureTableDefaultPartitionKeyValue" como clave de la partición. |No |
-| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |No |
-| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y**replace**. <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). |No |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **AzureTableSink**. |Sí |
+| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Sin  |
+| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza "AzureTableDefaultPartitionKeyValue" como clave de la partición. |Sin  |
+| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Sin  |
+| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y**replace**. <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). |Sin  |
 | writeBatchSize |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:20:00" (20 minutos). |No (el valor predeterminado es 90 segundos; el tiempo de expiración predeterminado del cliente de almacenamiento) |
 
@@ -266,12 +270,12 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Matriz de bytes de hasta 64 KB. |
 | Edm.Boolean |booleano |Valor booleano. |
-| Edm.DateTime |DateTime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a las 12:00 de la noche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
+| Edm.DateTime |Datetime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a las 12:00 de la noche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
 | Edm.Double |double |Valor de punto flotante de 64 bits. |
 | Edm.Guid |Guid |Identificador único global de 128 bits. |
 | Edm.Int32 |Int32 |Entero de 32 bits. |
 | Edm.Int64 |Int64 |Entero de 64 bits. |
-| Edm.String |String |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
+| Edm.String |string |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

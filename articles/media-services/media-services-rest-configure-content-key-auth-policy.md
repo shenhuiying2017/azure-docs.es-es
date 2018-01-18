@@ -1,5 +1,5 @@
 ---
-title: "Configuración de la directiva de autorización de claves de contenido mediante REST: Azure | Microsoft Docs"
+title: "Configurar la directiva de autorización de claves de contenido mediante REST: Azure | Microsoft Docs"
 description: "Aprenda a configurar una directiva de autorización para una clave de contenido mediante la API de REST de Media Services."
 services: media-services
 documentationcenter: 
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d3388643a3d7c38104a4c61f94a8b68a86168846
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Información general
-Microsoft Azure Media Services permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady o Widevine DRM. Media Services también proporciona un servicio para entregar claves y licencias de PlayReady o Widevine a los clientes autorizados.
+ Puede usar Azure Media Services para entregar el contenido cifrado de forma dinámica con el Estándar de cifrado avanzado (AES) mediante claves de cifrado de 128 bits y la administración de derechos digitales (DRM) de PlayReady o Widevine. Media Services también proporciona un servicio para entregar claves y licencias de PlayReady o Widevine a los clientes autorizados.
 
-Si desea que Media Services cifre un recurso, debe asociar una clave de cifrado (**CommonEncryption** o **EnvelopeEncryption**) con el recurso (tal como se describe [aquí](media-services-rest-create-contentkey.md)) y también configurar directivas de autorización para la clave (como se describe en este artículo).
+Si quiere que Media Services cifre un recurso, debe asociar una clave de cifrado (CommonEncryption o EnvelopeEncryption) con el recurso. Para obtener más información, consulte [Creación de claves de contenido con REST](media-services-rest-create-contentkey.md). También debe configurar las directivas de autorización de la clave, tal como se describe en este artículo.
 
-Cuando un reproductor solicita una secuencia, los Media Services usan la clave especificada para cifrar de forma dinámica el contenido mediante AES o el cifrado de PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+Cuando un reproductor solicita una secuencia, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante AES o el cifrado de PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para determinar si el usuario tiene permiso para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: **abrir** o restricción de **token**. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en formato **Token de web simple** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato **JSON Web Token** (JWT).
+Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido puede tener una o más restricciones de autorización, ya sean restricciones de apertura o de token. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de token de web simple ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y de token de web JSON (JWT).
 
-Media Services no proporciona Servicios de tokens seguros. Puede crear un STS personalizado o usar tokens de número de Azure Active Directory (AAD). El STS debe configurarse para crear un token firmado con las notificaciones especificadas de clave y el número que especificó en la configuración de restricción de token (como se describe en este artículo). El servicio de entrega de claves de los Media Services devuelve la clave de cifrado al cliente si el token es válido y las notificaciones del token coinciden con las configuradas para la clave de contenido.
+Tenga en cuenta que Media Services no proporciona STS. Puede crear un STS personalizado o usar Azure Active Directory (Azure AD) para emitir tokens. El STS debe configurarse para crear un token firmado con las notificaciones especificadas de clave y el número que especificó en la configuración de restricción de token (como se describe en este artículo). Si el token es válido y las notificaciones del token coinciden con las que se han configurado en la clave de contenido, el servicio de entrega de claves de Media Services devuelve la clave de cifrado al cliente.
 
 Para más información, consulte los siguientes artículos.
 - [Autenticación de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integración de la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+- [Integrar una la aplicación OWIN basada en MVC de Azure Media Services con Azure Active Directory y restringir la entrega de claves de contenido basada en notificaciones de JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones:
-* Para utilizar el empaquetado dinámico y el cifrado dinámico, asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución).
+### <a name="some-considerations-apply"></a>Se deben tener en cuenta ciertas cosas:
+* Para usar el empaquetado y el cifrado dinámicos, asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado "En ejecución".
 * El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
-* Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted** .
+* Cargue y codifique los recursos con la opción AssetCreationOptions.StorageEncrypted.
 * Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
-* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos.  Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", la prueba y, a continuación, actualiza la directiva a la restricción "Open", la directiva tarda aproximadamente 15 minutos antes de cambiar a su versión "Open".
-* Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente (si hay) y crear uno nuevo.
+* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y los objetos relacionados (opciones y restricciones de directiva) durante 15 minutos. Puede crear ContentKeyAuthorizationPolicy, especificar que se utilice una restricción de token, probarla y actualizar la directiva con la restricción abierta. Este proceso tarda aproximadamente unos 15 minutos antes de que la directiva cambie a su versión abierta.
+* Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente y crear uno nuevo.
 * En este momento no se pueden cifrar las descargas progresivas.
-* El punto de conexión de streaming AMS establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta preparatoria como comodín "\*". Esto funciona bien con la mayoría de los reproductores, incluidos Azure Media Player, Roku y JW, entre otros. Sin embargo, algunos reproductores que aprovechan dashjs no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus dashjs no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación en cuanto a dashjs, si hospeda al cliente desde un solo dominio, Azure Media Services puede especificar ese dominio en el encabezado de respuesta preparatoria. Puede ponerse en contacto abriendo un vale de soporte a través de Azure Portal.
+* El punto de conexión de streaming de Media Services establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta de la comprobación preliminar como el comodín "\*". Este valor funciona bien con la mayoría de reproductores, incluyendo Azure Media Player, Roku y JWPlayer, entre otros. Sin embargo, algunos reproductores que usan dash.js no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus archivos dash.js no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación de los archivos dash.js, si hospeda al cliente desde un solo dominio, Media Services puede especificar ese dominio en el encabezado de respuesta de la comprobación preliminar. Para obtener ayuda, abra un vale de soporte técnico en Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>Cifrado dinámico AES-128
 > [!NOTE]
-> Al trabajar con la API de REST de Media Services, se aplican las consideraciones siguientes:
+> Al trabajar con la API de REST de Media Services, se aplica lo siguiente.
 > 
-> Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
+> Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado y los valores específicos en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
 > 
 > 
 > 
@@ -155,7 +155,7 @@ Respuesta:
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>Incorporación de una directiva de autorización a la clave de contenido
+#### <a id="AddAuthorizationPolicyToKey"></a>Agregar una directiva de autorización a la clave de contenido
 Solicitud:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -177,9 +177,9 @@ Respuesta:
     HTTP/1.1 204 No Content
 
 ### <a name="token-restriction"></a>Restricción de token
-En esta sección se describe cómo crear una directiva de autorización de claves de contenido y asociarla a la clave de contenido. La directiva de autorización describe los requisitos de autorización que se deben cumplir para determinar si el usuario está autorizado para recibir la clave (por ejemplo, si la lista de "claves de comprobación" contiene la clave con la que se firmó el token).
+En esta sección se describe cómo crear una directiva de autorización de claves de contenido y asociarla a la clave de contenido. La directiva de autorización describe los requisitos de autorización que se deben cumplir para determinar si el usuario está autorizado para recibir la clave. Por ejemplo, ¿la lista de claves de comprobación contiene la clave con la que se firmó el token?
 
-Para configurar la opción de restricción de token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el siguiente esquema XML:
+Para configurar la opción de restricción del token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el siguiente esquema XML:
 
 
 #### <a id="schema"></a>Esquema de restricción de token
@@ -230,12 +230,12 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Al configurar la directiva restringida por **token**, debe especificar los parámetros de **clave de comprobación** principal, **emisor** y **público**. La **clave de comprobación** principal contiene la clave con la que se ha firmado el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
+Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el STS que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
-En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tendría que presentar un token que contenga: una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
+En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tiene que presentar un token que contenga una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
 
 ### <a name="create-contentkeyauthorizationpolicies"></a>Creación de ContentKeyAuthorizationPolicies
-Cree la "directiva de restricción de token" tal como se muestra [aquí](#ContentKeyAuthorizationPolicies).
+Cree una directiva de restricción de token, tal como se muestra en la sección "[Crear ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 ### <a name="create-contentkeyauthorizationpolicyoptions"></a>Creación de ContentKeyAuthorizationPolicyOptions
 Solicitud:
@@ -273,14 +273,14 @@ Respuesta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vinculación de ContentKeyAuthorizationPolicies con opciones
-Vincule ContentKeyAuthorizationPolicies con opciones tal como se muestra [aquí](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vincular ContentKeyAuthorizationPolicies con opciones
+Vincule ContentKeyAuthorizationPolicies con opciones, tal como se muestra en la sección "[Crear ContentKeyAuthorizationPolicies ](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Incorporación de una directiva de autorización a la clave de contenido
-Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Agregar una directiva de autorización a la clave de contenido
+Agregue AuthorizationPolicy a ContentKey, tal como se muestra en la sección "[Agregar una directiva de autorización a la clave de contenido](#AddAuthorizationPolicyToKey)".
 
-## <a name="playready-dynamic-encryption"></a>Cifrado dinámico PlayReady.
-Media Services permite configurar los derechos y las restricciones que desee para que el tiempo de ejecución de PlayReady DRM las aplique cuando un usuario intente reproducir contenido protegido. 
+## <a name="playready-dynamic-encryption"></a>Cifrado dinámico de PlayReady
+Puede usar Media Services para configurar los derechos y restricciones que quiera que el entorno de ejecución de PlayReady DRM aplique cuando un usuario intente reproducir contenido protegido. 
 
 Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la [plantilla de licencias PlayReady](media-services-playready-license-template-overview.md). 
 
@@ -362,17 +362,17 @@ Respuesta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vinculación de ContentKeyAuthorizationPolicies con opciones
-Vincule ContentKeyAuthorizationPolicies con opciones tal como se muestra [aquí](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vincular ContentKeyAuthorizationPolicies con opciones
+Vincule ContentKeyAuthorizationPolicies con opciones, tal como se muestra en la sección "[Crear ContentKeyAuthorizationPolicies ](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Incorporación de una directiva de autorización a la clave de contenido
-Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Agregar una directiva de autorización a la clave de contenido
+Agregue AuthorizationPolicy a ContentKey, tal como se muestra en la sección "[Agregar una directiva de autorización a la clave de contenido](#AddAuthorizationPolicyToKey)".
 
 ### <a name="token-restriction"></a>Restricción de token
-Para configurar la opción de restricción de token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el esquema XML que se muestra en [esta](#schema) sección.
+Para configurar la opción de restricción del token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricciones de token debe cumplir el esquema XML que se muestra en la sección "[Esquema de restricciones de token](#schema)".
 
 #### <a name="create-contentkeyauthorizationpolicies"></a>Creación de ContentKeyAuthorizationPolicies
-Cree ContentKeyAuthorizationPolicies tal como se muestra [aquí](#ContentKeyAuthorizationPolicies2).
+Cree ContentKeyAuthorizationPolicies, tal como se muestra en la sección "[Crear ContentKeyAuthorizationPolicies ](#ContentKeyAuthorizationPolicies2)".
 
 #### <a name="create-contentkeyauthorizationpolicyoptions"></a>Creación de ContentKeyAuthorizationPolicyOptions
 Solicitud:
@@ -410,13 +410,13 @@ Respuesta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vinculación de ContentKeyAuthorizationPolicies con opciones
-Vincule ContentKeyAuthorizationPolicies con opciones tal como se muestra [aquí](#ContentKeyAuthorizationPolicies).
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Vincular ContentKeyAuthorizationPolicies con opciones
+Vincule ContentKeyAuthorizationPolicies con opciones, tal como se muestra en la sección "[Crear ContentKeyAuthorizationPolicies ](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Incorporación de una directiva de autorización a la clave de contenido
-Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthorizationPolicyToKey).
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Agregar una directiva de autorización a la clave de contenido
+Agregue AuthorizationPolicy a ContentKey, tal como se muestra en la sección "[Agregar una directiva de autorización a la clave de contenido](#AddAuthorizationPolicyToKey)".
 
-## <a id="types"></a>Tipos usados al definir ContentKeyAuthorizationPolicy
+## <a id="types"></a>Tipos que se usan al definir ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
@@ -446,6 +446,6 @@ Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthori
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el artículo [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
