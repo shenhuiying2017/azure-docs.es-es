@@ -8,8 +8,8 @@ sql-database-elastic-pool.md
 
 | eDTU por grupo | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Almacenamiento incluido por grupo (GB) | 5 | 10 | 20 | | 29 | 39 | 78 | 117 | 156 |
-| Opciones de almacenamiento máximo por grupo (GB) | 5 | 10 | 20 | | 29 | 39 | 78 | 117 | 156 |
+| Almacenamiento incluido por grupo (GB) | 5 | 10 | 20  | 29 | 39 | 78 | 117 | 156 |
+| Opciones de almacenamiento máximo por grupo (GB) | 5 | 10 | 20  | 29 | 39 | 78 | 117 | 156 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | Máximo número de bases de datos por grupo | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -74,7 +74,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | 
 | Almacenamiento incluido por grupo (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Opciones de almacenamiento máximo por grupo (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
-| Almacenamiento máximo de OLTP en memoria por grupo (GB) | 16 | 20 | | 24 | 28 | 32 |
+| Almacenamiento máximo de OLTP en memoria por grupo (GB) | 16 | 20  | 24 | 28 | 32 |
 | Máximo número de bases de datos por grupo | 100 | 100 | 100 | 100 | 100 | 
 | Cantidad máxima de trabajos (solicitudes) simultáneos por grupo | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Cantidad máxima de inicios de sesión simultáneos por grupo | 3200 | 4000 | 4800 | 5600 | 6400 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. 
+> \* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de Australia, sureste de Australia, centro de Canadá, este de Canadá, centro de Francia, centro de Alemania, este de Japón, centro de Corea, centro y sur de EE. UU., sudeste de Asia, este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. 
 >
 >\*\* La cantidad mín. o máx. de eDTU por base de datos, a partir de 200 eDTU en los grupos **Estándar**, está en versión preliminar.
 >

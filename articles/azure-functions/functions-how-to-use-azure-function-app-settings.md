@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Administración de una Function App en Azure Portal 
 
@@ -70,7 +70,7 @@ Para más información sobre cómo trabajar con la configuración de App Service
 
 | | |
 |-|-|
-| ![Configuración de la aplicación Function App](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | En la hoja **Configuración de la aplicación** de App Service puede configurar y administrar las versiones de Framework, la depuración remota, la configuración de las aplicaciones y las cadenas de conexión. Al integrar Function App con otros servicios de Azure y de terceros, puede modificar esta configuración aquí. |
+| ![Configuración de la aplicación Function App](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | En la hoja **Configuración de la aplicación** de App Service puede configurar y administrar las versiones de Framework, la depuración remota, la configuración de las aplicaciones y las cadenas de conexión. Al integrar Function App con otros servicios de Azure y de terceros, puede modificar esta configuración aquí. Para eliminar un valor, desplácese a la derecha y seleccione el icono **X** situado en el extremo derecho de la línea (no se muestra en la siguiente imagen).
 
 ![Configuración de la aplicación](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ Para más información sobre cómo trabajar con la configuración de App Service
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 + [Configuración de Azure App Service](../app-service/web-sites-configure.md)
 + [Implementación continua para Azure Functions](functions-continuous-deployment.md)

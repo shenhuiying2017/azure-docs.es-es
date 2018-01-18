@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -37,7 +37,7 @@ Para que una aplicación de función envíe datos a Application Insights, debe c
 
 * [Crear una instancia de Application Insights conectada al crear la aplicación de función](#new-function-app).
 * [Conectar una instancia de Application Insights a una aplicación de función existente](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nueva aplicación de función
 
 Habilite Application Insights en la página **Crear** de Function App:
@@ -64,7 +64,15 @@ Obtenga la clave de instrumentación y guárdela en una aplicación de función:
 
    ![Agregar clave de instrumentación a la configuración de la aplicación](media/functions-monitoring/add-ai-key.png)
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
+
+## <a name="disable-built-in-logging"></a>Deshabilitar el registro integrado
+
+Si habilita Application Insights, es recomendable que deshabilite el [registro integrado que usa Azure Storage](#logging-to-storage). El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está diseñado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría estar incompleto debido a la limitación de Azure Storage.
+
+Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función).
+
+Cuando se habilita Application Insights y se deshabilita el registro integrado, la pestaña **Supervisión** de una función en Azure Portal le lleva a Application Insights.
 
 ## <a name="view-telemetry-data"></a>Visualización de datos de telemetría
 
@@ -153,7 +161,7 @@ El registrador de funciones de Azure también incluye un *nivel de registro* con
 |Warning (Advertencia)     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
-|Ninguna        | 6 |
+|None        | 6 |
 
 El nivel de registro `None` se explica en la sección siguiente. 
 
@@ -464,58 +472,41 @@ Para notificar un problema con la integración de Application Insights en Functi
 
 ## <a name="monitoring-without-application-insights"></a>Supervisión sin Application Insights
 
-Se recomienda Application Insights para supervisar funciones porque ofrece más datos y mejores maneras de analizarlos. Pero también puede buscar datos de telemetría y registro en las páginas de Azure Portal para una aplicación Function. 
+Se recomienda Application Insights para supervisar funciones porque ofrece más datos y mejores maneras de analizarlos. No obstante, también puede encontrar registros y datos de telemetría en las páginas de Azure Portal de una instancia de Function App.
 
-Seleccione la pestaña **Supervisión** para una función y obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
+### <a name="logging-to-storage"></a>Registro en el almacenamiento
 
-> [!IMPORTANT]
-> Al usar el [plan de hospedaje de consumo](functions-overview.md#pricing) para Azure Functions, el icono **Monitoring** (Supervisión) de Function App no muestra ningún dato. Esto se debe a que la plataforma escala y administra de forma dinámica las instancias de proceso. Estas métricas no son significativas en un plan de consumo.
+El registro integrado usa la cuenta de almacenamiento especificada por la cadena de conexión en la configuración de la aplicación `AzureWebJobsDashboard`. Si la configuración de la aplicación está establecida, puede ver los datos del registro en Azure Portal. En la página de una aplicación de función, seleccione una función y elija la pestaña **Supervisión**. Obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
+
+Si usa Application Insights y tiene el [registro integrado deshabilitado](#disable-built-in-logging), la pestaña **Supervisión** le lleva a Application Insights.
 
 ### <a name="real-time-monitoring"></a>Supervisión en tiempo real
 
-La supervisión en tiempo real está disponible cuando se hace clic en **Secuencia de eventos en directo** en la pestaña **Supervisión** de la función. El flujo de eventos en directo se muestra en un gráfico en una nueva pestaña del explorador.
+Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la [interfaz de la línea de comandos (CLI) de Azure 2.0](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Existe un problema conocido que puede provocar que no se pueden rellenar los datos. Puede que tenga que cerrar la pestaña del explorador que contiene la secuencia de eventos en directo y luego hacer clic de nuevo en **Secuencia de eventos en directo** para poder rellenar correctamente los datos de la secuencia de eventos. 
-
-Estas estadísticas son en tiempo real, pero el gráfico real de los datos de ejecución puede tener alrededor de 10 segundos de latencia.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Supervisión de archivos de registro desde una línea de comandos
-
-Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la interfaz de la línea de comandos (CLI) de Azure 1.0 o PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Supervisión de archivos de registro de la aplicación de función con la CLI de Azure 1.0
-
-Para comenzar, [instale la CLI de Azure 1.0](../cli-install-nodejs.md) e [inicie sesión en Azure](/cli/azure/authenticate-azure-cli).
-
-Use los siguientes comandos para habilitar el modo clásico de Service Management, elija su suscripción y transmita los archivos de registro:
+Para la CLI de Azure 2.0, use los siguientes comandos para iniciar sesión, elija su suscripción y transmita los archivos de registro:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Supervisión de archivos de registro de la aplicación de función con PowerShell
-
-Para comenzar, [instale y configure Azure PowerShell](/powershell/azure/overview).
-
-Use los siguientes comandos para agregar su cuenta de Azure, elija su suscripción y transmita los archivos de registro:
+Para Azure PowerShell, use los siguientes comandos para agregar su cuenta de Azure, elija su suscripción y transmita los archivos de registro:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Para más información, vea [How to: Stream logs for web apps (Cómo: Transmitir registros para aplicaciones web)](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para más información, vea [How to: Stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs) (Cómo: Transmitir registros).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Más información acerca de Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Para obtener más información, consulte los siguientes recursos:
 
-> [!div class="nextstepaction"]
-> [Más información acerca de la plataforma de registro que usa Functions](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [Registro de ASP.NET Core](/aspnet/core/fundamentals/logging/)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -171,7 +171,7 @@ Como procedimiento recomendado, si desea requerir la autenticación multifactor 
 
 Tras completar estos pasos, se garantiza que la autenticación multifactor sea necesaria para un inicio de sesión de riesgo.
 
-#### <a name="best-practices"></a>Prácticas recomendadas
+#### <a name="best-practices"></a>Procedimientos recomendados
 Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios.  
 
 Sin embargo, excluye de la directiva a los usuarios marcados con un riesgo **Bajo** y **Medio**, por lo que es posible que no impida que un atacante aproveche una identidad en peligro.
@@ -202,7 +202,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 * [Inicios de sesión peligrosos bloqueados](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
 * [Experiencias de inicio de sesión con Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
 
-**Para abrir el cuadro de diálogo de configuración relacionado**:
+**Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
 
 - En la hoja **Azure AD Identity Protection**, en la sección **Configurar**, haga clic en **Directiva de riesgo de inicio de sesión**.
 
@@ -291,7 +291,7 @@ El cuadro de diálogo relacionado proporciona dos métodos diferentes de restabl
 
 ![Directiva](./media/active-directory-identityprotection/1005.png "Directiva")
 
-**Para abrir el cuadro de diálogo de configuración relacionado**:
+**Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
 
 1. En la hoja **Azure AD Identity Protection**, haga clic en **Usuarios marcados en riesgo**.
 
@@ -343,7 +343,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 * [Flujo de recuperación de cuentas en peligro](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 * [Flujo de cuentas en peligro bloqueadas](active-directory-identityprotection-flows.md#compromised-account-blocked).  
 
-**Para abrir el cuadro de diálogo de configuración relacionado**:
+**Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
 
 - En la hoja **Azure AD Identity Protection**, en la sección **Configurar**, haga clic en **Directiva de riesgo de usuario**.
 
@@ -390,13 +390,13 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 * [Flujo de registro de autenticación multifactor](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
 * [Experiencias de inicio de sesión con Azure AD Identity Protection](active-directory-identityprotection-flows.md).  
 
-**Para abrir el cuadro de diálogo de configuración relacionado**:
+**Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
 
 - En la hoja **Azure AD Identity Protection**, en la sección **Configurar**, haga clic en **Registro para autenticación multifactor**.
 
     ![Directiva de MFA](./media/active-directory-identityprotection/1019.png "Directiva de MFA")
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 * [Habilitación de Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)

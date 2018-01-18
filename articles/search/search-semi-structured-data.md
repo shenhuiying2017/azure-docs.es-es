@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Búsqueda de datos semiestructurados en el almacenamiento en la nube
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Búsqueda de datos semiestructurados en el almacenamiento en la nube
 
-En esta serie de tutoriales de dos partes, aprenderá a buscar datos semiestructurados y no estructurados con Azure Search. En este tutorial se muestra cómo buscar datos semiestructurados, como JSON, almacenados en blobs de Azure. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Esto difiere de los datos estructurados en que no están estructurados formalmente según un modelo de datos, como un esquema de base de datos relacional.
+En una serie de tutoriales de dos partes, aprenderá a buscar datos semiestructurados y no estructurados con Azure Search. La [Parte 1](../storage/blobs/storage-unstructured-search.md) le guiaba en la búsqueda a través de datos no estructurados, además de incluir requisitos previos importantes para este tutorial, como la creación de la cuenta de almacenamiento. 
 
-En esta parte se explica cómo:
+En la Parte 2, en enfoque cambia a los datos semiestructurados, como JSON, almacenados en blobs de Azure. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Divide la diferencia entre los datos no estructurados que se deben indexar de manera holística y los datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden rastrear por campo.
+
+La Parte 2 incluye información sobre cómo:
 
 > [!div class="checklist"]
-> * Crear y rellenar un índice dentro de Azure Search Service
-> * Usar Azure Search Service para buscar en el índice
+> * Configurar un origen de datos de Azure Search para un contenedor de blobs de Azure.
+> * Crear y rellenar un índice de Azure Search y un indexador para rastrear el contenedor y extraer el contenido utilizable en búsquedas.
+> * Buscar el índice que acaba de crear.
 
 > [!NOTE]
-> "La compatibilidad con la matriz JSON es una característica de versión preliminar de Azure Search y todavía no está disponible en el portal. Por esta razón, estamos usando la versión preliminar de la API de REST, que proporciona esta característica, y una herramienta del cliente de REST para llamar a la API."
+> Este tutorial se basa en la compatibilidad de la matriz de JSON, que actualmente es una característica de versión preliminar de Azure Search. No está disponible en el portal. Por esta razón, estamos usando la versión preliminar de la API de REST, que proporciona esta característica, y una herramienta del cliente de REST para llamar a la API.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial:
-* Complete el [tutorial anterior](../storage/blobs/storage-unstructured-search.md).
-    * En este tutorial se usa la cuenta de almacenamiento y el servicio de búsqueda creados en el tutorial anterior.
-* Instale un cliente de REST y averigüe cómo puede crear una solicitud HTTP.
+* Completar el [tutorial anterior](../storage/blobs/storage-unstructured-search.md) y proporcionar la cuenta de almacenamiento y el servicio de búsqueda creados en este.
 
+* Instalar un cliente de REST y comprender cómo se crea una solicitud HTTP. Para este tutorial, estamos usando [Postman](https://www.getpostman.com/). No dude en usar otro cliente de REST si ya está familiarizado con uno determinado.
 
-## <a name="set-up-the-rest-client"></a>Configuración del cliente de REST
+## <a name="set-up-postman"></a>Configuración de Postman
 
-Necesita un cliente de REST para completar este tutorial. Para este tutorial, estamos usando [Postman](https://www.getpostman.com/). No dude en usar otro cliente de REST si ya está familiarizado con uno determinado.
+Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API de REST de Azure Search mediante Fiddler o Postman](search-fiddler.md) para obtener más información.
 
-Después de instalar Postman, inícielo.
-
-Si se trata de la primera vez que realiza llamadas de REST a Azure, aquí tiene una breve introducción acerca de los componentes importantes de este tutorial: el método de solicitud de todas las llamadas en este tutorial es "POST". Las claves de encabezado son "Content-type" y "api-key". Los valores de las claves de encabezado son, respectivamente, "application/json" y su "clave de administrador" (la clave de administrador es un marcador de posición para su clave principal de búsqueda). El cuerpo es donde se coloca el contenido real de la llamada. En función del cliente que esté usando, puede haber algunas variaciones en cómo se crea la consulta, pero estos son los conceptos básicos.
+El método de solicitud para todas las llamadas de este tutorial es "POST". Las claves de encabezado son "Content-type" y "api-key". Los valores de las claves de encabezado son, respectivamente, "application/json" y su "clave de administrador" (la clave de administrador es un marcador de posición para su clave principal de búsqueda). El cuerpo es donde se coloca el contenido real de la llamada. En función del cliente que esté usando, puede haber algunas variaciones en cómo se crea la consulta, pero estos son los conceptos básicos.
 
   ![Búsqueda de datos semiestructurados](media/search-semi-structured-data/postmanoverview.png)
 
@@ -277,7 +276,7 @@ Si quiere, puede experimentar y probar más consultas usted mismo. Tenga en cuen
 
 El parámetro `$filter` solo funciona con los metadatos que se marcaron como filtrables al crear el índice.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, aprendió a buscar datos semiestructurados con Azure Search como, por ejemplo:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Uso de complementos de volumen y controladores de registro de Docker en el contenedor
 Azure Service Fabric admite la especificación de [complementos de volumen de Docker](https://docs.docker.com/engine/extend/plugins_volume/) y [controladores de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) en el servicio de contenedor. Puede conservar los datos en [Azure Files](https://azure.microsoft.com/services/storage/files/) cuando el contenedor se mueve o se reinicia en un host diferente.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 Datacenter no admite montajes de SMB en el host ([solo se admiten en Windows Server versión 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Esto impide el uso de ciertos controladores de volumen como los de Azure Files. En su lugar, se pueden montar los recursos compartidos directamente en el contenedor mediante **net use**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Especificación del complemento o el controlador en el manifiesto
 Los complementos se especifican en el manifiesto de aplicación de la manera siguiente:
@@ -87,5 +92,5 @@ Al especificar un complemento de volumen, Service Fabric crea automáticamente e
 ```
 Si se especifica un controlador de registro de Docker, debe implementar agentes (o contenedores) para administrar los registros en el clúster. La etiqueta **DriverOption** se puede usar para especificar opciones para el controlador de registro.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para implementar contenedores en un clúster de Service Fabric, consulte [Implementación de un contenedor en Service Fabric](service-fabric-deploy-container.md).

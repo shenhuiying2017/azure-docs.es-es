@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
-Obtenga información acerca de cómo crear o aprovisionar un servicio de Azure Search en el portal. Para obtener instrucciones de PowerShell, consulte [Administración del servicio Azure Search con PowerShell](search-manage-powershell.md).
+Obtenga información acerca de cómo crear o aprovisionar un servicio de Azure Search en el portal. 
+
+¿Prefiere PowerShell? Use la [plantilla de servicio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) de Azure Resource Manager. Para obtener ayuda acerca de cómo empezar, vea [Administración del servicio Azure Search con PowerShell](search-manage-powershell.md) para conocer el contexto.
 
 ## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
 
@@ -30,7 +32,7 @@ Obtenga información acerca de cómo crear o aprovisionar un servicio de Azure S
 Como alternativa, [active las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Una suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago. 
 
 ## <a name="find-azure-search"></a>Búsqueda de Azure Search
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Haga clic en el signo más ("+") en la esquina superior izquierda.
 3. Seleccione **Web y móvil** > **Azure Search**.
 
@@ -107,7 +109,7 @@ Aunque la mayoría de los clientes usan un solo servicio, la redundancia de serv
 
 No se requiere un segundo servicio para lograr alta disponibilidad. La alta disponibilidad en las consultas se logra al usar 2 o más réplicas en el mismo servicio. Las actualizaciones de réplicas son secuenciales, lo que significa que, al menos, una es operativa cuando se implementa una actualización de servicio. Para obtener más información, consulte [Acuerdos de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de aprovisionar un servicio Azure Search, está listo para [definir un índice](search-what-is-an-index.md) para que pueda cargar y buscar los datos. 
 
 > [!div class="nextstepaction"]

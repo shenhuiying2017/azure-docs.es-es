@@ -19,7 +19,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier"></a>Nivel de servicio Estándar
 | **Nivel de rendimiento** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| DTU máx.** | 10 | 20 | | 50 | 100 |
+| DTU máx.** | 10 | 20  | 50 | 100 |
 | Almacenamiento incluido (GB) | 250 | 250 | 250 | 250 |
 | Opciones de almacenamiento máximo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Almacenamiento máximo de OLTP en memoria (GB) | N/D | N/D | N/D | N/D |
@@ -65,9 +65,9 @@ sql-database-single-database-resources.md
 |||||||
 
 > [!IMPORTANT]
-> \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+> \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. Consulte [Limitaciones actuales P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de Australia, sureste de Australia, centro de Canadá, este de Canadá, centro de Francia, centro de Alemania, este de Japón, centro de Corea, centro y sur de EE. UU., sudeste de Asia, este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\* La cantidad máx. de DTU por base de datos a partir de 200 DTU en Estándar está en versión preliminar.
 >

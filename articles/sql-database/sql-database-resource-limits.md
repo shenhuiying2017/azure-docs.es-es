@@ -1,6 +1,6 @@
 ---
 title: "Límites de recursos de Azure SQL Database | Microsoft Docs"
-description: "En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure."
+description: "En esta página se describen algunos límites de recursos comunes para Azure SQL Database."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 01/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 13641b190c3c157f5b302314f88a42a160a1f2e0
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="azure-sql-database-resource-limits"></a>Límites de recursos de Base de datos SQL
+# <a name="azure-sql-database-resource-limits"></a>Límites de recursos de SQL Database
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de datos única: tamaños de almacenamiento y niveles de rendimiento
 
@@ -49,8 +49,7 @@ Al cambiar el nivel de servicio o de rendimiento de una base de datos, se crea u
 La duración de todo el proceso de escalado vertical depende del nivel de servicio y del tamaño de la base de datos antes y después del cambio. Por ejemplo, el cambio de una base de datos de 250 GB dentro de un nivel de servicio Estándar, o bien desde o hacia este, se completará en seis horas. Para una base de datos del mismo tamaño que cambie los niveles de rendimiento del nivel de servicio Premium, el escalado vertical se completará en unas tres horas.
 
 > [!TIP]
-> Para comprobar el estado de una operación de escalado de bases de datos SQL en curso puede utilizar la siguiente consulta: ```select * from sys.dm_operation_status```.
->
+> Para supervisar las operaciones en curso, consulte los temas sobre [administración de operaciones mediante la API de REST de SQL](/rest/api/sql/Operations/List), [administración de operaciones mediante la CLI](/cli/azure/sql/db/op) y [supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database), y los dos siguientes comandos de PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) y [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * Si va a actualizar a un nivel de servicio o rendimiento más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
 * Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del nivel de rendimiento. 
@@ -84,13 +83,13 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio Base de datos SQL proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
+Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 
 En la tabla siguiente se describen las propiedades de las bases de datos agrupadas.
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Cantidad máxima de eDTU por base de datos |Cantidad máxima de eDTU que puede utilizar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo. La cantidad máxima de eDTU por base de datos no garantiza la disponibilidad de recursos. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. Establezca una cantidad máxima de eDTU por base de datos lo suficientemente alta como para gestionar los picos de uso de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de uso no tienen lugar en todas las bases de datos a la vez. Por ejemplo, supongamos que el pico de uso de cada base de datos es 20 eDTU y solo tiene lugar en el 20 % de las 100 bases de datos del grupo a la vez. Si la cantidad máxima de eDTU por base de datos se establece en 20, puede asignar al grupo una cantidad 5 veces mayor y establecer las eDTU por grupo en 400. |
 | Cantidad mínima de eDTU por base de datos |Cantidad mínima de eDTU que se garantiza en cualquier base de datos del grupo. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. La cantidad mínima de eDTU por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de eDTU por base de datos. El resultado de multiplicar la cantidad de bases de datos del grupo y la cantidad mínima de eDTU por base de datos no puede superar el número de eDTU por grupo. Por ejemplo, si un grupo tiene 20 bases de datos y la cantidad mínima de eDTU por base de datos establecida es 10, el número de eDTU por grupo debe ser de, al menos, 200. |
@@ -140,10 +139,11 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Aumentar el nivel de servicio o el nivel de rendimiento de la base de datos o del grupo elástico. Consulte [Base de datos única: cambio de tamaño de almacenamiento](#single-database-change-storage-size), [Base de datos única: cambio de DTU](#single-database-change-dtus), [Grupo elástico: cambio de tamaño de almacenamiento](#elastic-pool-change-storage-size) y [Grupo elástico: cambio de eDTU](#elastic-pool-change-edtus).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para más información sobre los niveles de servicio, consulte [Niveles de servicio](sql-database-service-tiers.md).
 - Para más información sobre las bases de datos únicas, consulte [Recursos de bases de datos únicas](sql-database-resource-limits.md).
 - Para más información sobre los grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 - Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-what-is-a-dtu.md).
+- Para obtener información acerca de los límites de tamaño de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

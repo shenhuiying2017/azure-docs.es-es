@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> La integración de Azure Active Directory solo está disponible en los niveles [Desarrollador y Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+> La integración de Azure Active Directory solo está disponible en los niveles [Desarrollador, Estándar y Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Azure API Management
 ## <a name="overview"></a>Información general
@@ -115,7 +115,7 @@ Vuelva al portal del publicador y pegue la clave en el cuadro de texto **Secreto
 
 Una vez especificada la configuración deseada, haga clic en **Guardar**.
 
-![Guardar][api-management-client-allowed-tenants-save]
+![Save][api-management-client-allowed-tenants-save]
 
 Después de guardar los cambios, los usuarios de la instancia de Azure Active Directory especificada pueden iniciar sesión en el portal para desarrolladores mediante los pasos descritos en [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
 
