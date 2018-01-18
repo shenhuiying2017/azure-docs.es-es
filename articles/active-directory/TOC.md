@@ -284,10 +284,11 @@
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
 #### [Condición de ubicación](active-directory-conditional-access-locations.md)
-#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
+#### [Herramienta What if](active-directory-conditional-access-whatif.md)
 #### Tareas
 ##### [Migración de directiva de MFA clásica](active-directory-conditional-access-migration-mfa.md)
 ##### [Configuración del acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md)
@@ -305,7 +306,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
+#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)
