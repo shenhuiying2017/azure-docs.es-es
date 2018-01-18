@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas al implementar recursos de Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
-Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con varias plantillas vinculadas. En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Es posible ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos y volver a usar plantillas.
+Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con varias plantillas relacionadas. La plantilla relacionada puede ser un archivo independiente que está vinculado a partir de la plantilla principal, o bien una plantilla que está anidada dentro de la plantilla principal.
+
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Es posible ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos y volver a usar plantillas.
 
 Al usar una plantilla vinculada, se crea una plantilla principal que recibe los valores de parámetro durante la implementación. La plantilla principal contiene todas las plantillas vinculadas y pasa valores a esas plantillas según sea necesario.
 
 ![plantillas vinculadas](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Vínculo a una plantilla
+## <a name="link-or-nest-a-template"></a>Vinculación o anidamiento de una plantilla
 
 Para crear un vínculo a otra plantilla, agregue un recurso **implementaciones** a la plantilla principal.
 
@@ -40,17 +42,17 @@ Para crear un vínculo a otra plantilla, agregue un recurso **implementaciones**
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Las propiedades que se proporcionan para el recurso de implementación varían en función de si va a vincular a una plantilla externa o va a insertar una plantilla alineada en la plantilla principal.
+Las propiedades que se proporcionan para el recurso de implementación varían en función de si va a vincular a una plantilla externa o va a anidar una plantilla alineada en la plantilla principal.
 
-### <a name="inline-template"></a>Plantilla alineada
+### <a name="nested-template"></a>Plantilla anidada
 
-Para insertar la plantilla vinculada, use la propiedad **template** e incluya la plantilla.
+Para anidar la plantilla dentro de la plantilla principal, use la propiedad **template** y especifique la sintaxis de la plantilla.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Para insertar la plantilla vinculada, use la propiedad **template** e incluya la
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Para insertar la plantilla vinculada, use la propiedad **template** e incluya la
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+En las plantillas anidadas, no puede utilizar parámetros o variables definidos en la plantilla anidada. Puede usar parámetros y variables de la plantilla principal. En el ejemplo anterior, `[variables('storageName')]` recupera un valor de la plantilla principal, no de la plantilla anidada. Esta restricción no se aplica a las plantillas externas.
 
 ### <a name="external-template-and-external-parameters"></a>Plantilla externa y parámetros externos
 
@@ -309,9 +310,9 @@ Para usar la dirección IP pública de la plantilla anterior al implementar un e
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Plantillas vinculadas en el historial de implementación
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Plantillas vinculadas y anidadas en el historial de implementación
 
-Resource Manager procesa cada plantilla vinculada como una implementación independiente en el historial de implementación. Por lo tanto, una plantilla principal con tres plantillas vinculadas aparece en el historial de implementación del modo siguiente:
+Resource Manager procesa cada plantilla como una implementación independiente en el historial de implementación. Por lo tanto, una plantilla principal con tres plantillas vinculadas o anidadas aparece en el historial de implementación del modo siguiente:
 
 ![Historial de implementación](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -480,13 +481,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 En los ejemplos siguientes se muestran los usos más comunes de las plantillas vinculadas.
 
-|Plantilla principal  |Plantilla vinculada |Descripción  |
+|Plantilla principal  |Plantilla vinculada |DESCRIPCIÓN  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[plantillas vinculadas](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devuelve una cadena de plantilla vinculada. |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[plantilla vinculada](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devuelve una cadena de plantilla vinculada. |
 |[Load Balancer con dirección IP pública](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[plantilla vinculada](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devuelve una dirección IP pública de la plantilla vinculada y establece ese valor en el equilibrador de carga. |
 |[Varias direcciones IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [plantilla vinculada](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crea varias direcciones IP públicas en la plantilla vinculada.  |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md).
 * Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).

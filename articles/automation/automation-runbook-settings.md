@@ -1,6 +1,6 @@
 ---
 title: "Configuración de runbooks | Microsoft Docs"
-description: "Describe las opciones de configuración para un runbook en Azure Automation y cómo cambiarlas mediante el Portal de administración de Azure y Windows PowerShell."
+description: "Describe las opciones de configuración para un runbook en Azure Automation y cómo cambiarlas mediante Azure Portal y Windows PowerShell."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Configuración de runbook
 Cada runbook en Azure Automation tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 ### <a name="name-and-description"></a>Nombre y descripción
 No se puede cambiar el nombre de un runbook después de su creación. La descripción es opcional y puede tener hasta 512 caracteres.
 
@@ -55,7 +55,7 @@ Los siguientes comandos de ejemplo muestran cómo establecer las propiedades de 
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para aprender a crear y recuperar los mensajes de salida y de error de los runbooks, consulte [Salida y mensajes de los runbooks](automation-runbook-output-and-messages.md) 
 * Para saber cómo agregar un runbook que ya haya desarrollado la Comunidad u otro medio, o para crear sus propios runbooks, consulte [Creación o importación de un runbook](automation-creating-importing-runbook.md). 
 

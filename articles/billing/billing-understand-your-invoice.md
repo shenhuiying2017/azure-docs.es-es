@@ -1,5 +1,5 @@
 ---
-title: Conocimiento de la factura de Azure | Microsoft Docs
+title: Conocimiento de la factura de Azure
 description: "Aprenda a leer y entender el uso y la factura de la suscripción de Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
+
 La factura proporciona un resumen de los gastos e incluye instrucciones del pago. Se encuentra disponible en Portable Document Format (.pdf) desde [Azure Portal](https://portal.azure.com/) o puede enviarse por correo electrónico. Para obtener más información, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md).
 
 Puntos a tener en cuenta:
@@ -31,9 +32,7 @@ Puntos a tener en cuenta:
 
 -   Los cargos enumerados en los extractos de facturación para clientes internacionales tienen únicamente carácter estimativo. Los bancos pueden tener costes diferentes para los tipos de conversión.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Términos y descripciones detallados de la factura
 Las siguientes secciones enumeran los términos importantes que ve en la factura y las descripciones de cada uno.
@@ -44,7 +43,7 @@ La sección de información de la cuenta de la factura se encuentra en la parte 
 
 ![Sección de información de cuenta de la factura](./media/billing-understand-your-invoice/1.png)
 
-| Término | Descripción |
+| Término | DESCRIPCIÓN |
 | --- | --- |
 | N.º de pedido del cliente |Un número de pedido de compra opcional asignado por usted para el seguimiento |
 | Número de factura |Un número de factura único generado por Microsoft usado para fines de seguimiento |
@@ -65,7 +64,7 @@ En nombre de suscripción ("Almacenamiento de producción") es el nombre de la s
 #### <a name="understand-the-previous-charges"></a>Conocimiento de los cargos anteriores
 Las secciones Saldo anterior, Pagos y Saldo pendiente de la factura resumen las transacciones desde el último período de facturación.
 
-| Término | Description |
+| Término | DESCRIPCIÓN |
 | --- | --- |
 | Saldo anterior |El importe total debido del último período de facturación |
 | Pagos |Los pagos y créditos totales aplicados al último período de facturación |
@@ -74,7 +73,7 @@ Las secciones Saldo anterior, Pagos y Saldo pendiente de la factura resumen las 
 #### <a name="understand-the-current-charges"></a>Comprender los cargos actuales
 La sección Cargos actuales de la factura muestra detalles sobre el período de facturación actual.
 
-| Término | Description |
+| Término | DESCRIPCIÓN |
 | --- | --- |
 | Cargos de uso |Los cargos de uso son los cargos totales mensuales de una suscripción para el período de facturación actual.|
 | Descuentos |Descuentos de servicio aplicados al período de facturación actual.|
@@ -84,7 +83,7 @@ La sección Cargos actuales de la factura muestra detalles sobre el período de 
 
 En la tabla siguiente se describen la dirección de venta y las instrucciones de pago que se muestran en la segunda página de la factura.
 
-| Término |Description |
+| Término |DESCRIPCIÓN |
 | --- | --- |
 | Dirección de venta |Dirección de perfil que figura en la cuenta. <br/><br/>Si tiene que modificar la dirección, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](billing-how-to-change-azure-account-profile.md).|
 | Instrucciones de pago |Instrucciones sobre cómo realizar un pago según el método de pago (por ejemplo, mediante tarjeta de crédito o factura). |
@@ -97,10 +96,10 @@ La sección Cargos de uso de la factura muestra la información de nivel de medi
 
 La tabla siguiente describe los encabezados de columna de los cargos de uso que se muestra en la factura.
 
-| Término |Descripción |
+| Término |DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Identifica el servicio de nivel superior para el uso. |
-| Tipo |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
+| NOMBRE |Identifica el servicio de nivel superior para el uso. |
+| type |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
 | Recurso |Identifica la unidad de medida del medidor que se está utilizando. |
 | Region |Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
 | Consumida |La cantidad del medidor usado durante el período de facturación. |

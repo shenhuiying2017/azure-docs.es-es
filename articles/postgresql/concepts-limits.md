@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 El servicio Azure Database for PostgreSQL se encuentra en versión preliminar pública. En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -27,12 +27,12 @@ Hay un número máximo de conexiones, unidades de proceso y almacenamiento en ca
 | | |
 | :------------------------- | :---------------- |
 | **Conexiones máximas**        |                   |
-| 50 unidades de proceso básicas     | 50 conexiones    |
-| 100 unidades de proceso básicas    | 100 conexiones   |
-| 100 unidades de proceso estándar | 200 conexiones   |
-| 200 unidades de proceso estándar | 300 conexiones   |
-| 400 unidades de proceso estándar | 400 conexiones   |
-| 800 unidades de proceso estándar | 500 conexiones   |
+| 50 unidades de proceso básicas     | 55 conexiones    |
+| 100 unidades de proceso básicas    | 105 conexiones   |
+| 100 unidades de proceso estándar | 150 conexiones   |
+| 200 unidades de proceso estándar | 250 conexiones   |
+| 400 unidades de proceso estándar | 480 conexiones   |
+| 800 unidades de proceso estándar | 950 conexiones   |
 | **Unidades de proceso máximas**      |                   |
 | Nivel de servicio Básico         | 100 unidades de proceso |
 | Nivel de servicio Estándar      | 800 unidades de proceso |
@@ -40,8 +40,9 @@ Hay un número máximo de conexiones, unidades de proceso y almacenamiento en ca
 | Nivel de servicio Básico         | 1 TB              |
 | Nivel de servicio Estándar      | 1 TB              |
 
-Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
+El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azure Database for PostgreSQL. Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 > FATAL:  sorry, too many clients already
+
 
 ## <a name="preview-functional-limitations"></a>Limitaciones funcionales de la versión preliminar
 ### <a name="scale-operations"></a>Operaciones de escalado
@@ -59,7 +60,7 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 1.  La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
 2.  La restauración a un servidor que se ha quitado no se admite en este momento.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Comprenda lo que [hay disponible en cada plan de tarifa](concepts-service-tiers.md).
 - Conozca las [versiones de base de datos de PostgreSQL admitidas](concepts-supported-versions.md).
 - Revise [cómo hacer una copia de seguridad de un servidor y restaurarlo en Azure Database for PostgreSQL mediante Azure Portal](howto-restore-server-portal.md)

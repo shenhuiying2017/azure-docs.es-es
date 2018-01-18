@@ -1,5 +1,5 @@
 ---
-title: Conocimiento del uso detallado de Azure | Microsoft Docs
+title: Conocimiento del uso detallado de Azure
 description: "Aprenda a leer y entender las secciones del archivo CSV de uso detallado de la suscripción de Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
+
 El archivo CSV de cargos de uso detallados contiene los cargos por uso diario y por medidor del periodo de facturación actual. 
 
 Para obtener el archivo de uso detallado, consulte [Obtención de los datos de uso diario y la factura de Azure](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,18 +29,17 @@ Está disponible en un formato de archivo de valores separados por comas (.csv) 
 
 Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos de uso no tienen en cuenta los créditos o descuentos.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Términos y descripciones detallados del archivo de uso detallado
+
 En las secciones siguientes se describen los términos importantes que se muestran en la versión 2 del archivo de uso detallado.
 
 ### <a name="statement"></a>Instrucción
+
 La sección superior del archivo CSV de uso detallado muestra los servicios usados durante el ciclo de facturación del mes anterior. En la tabla siguiente se enumeran los términos y las descripciones que se muestran en esta sección.
 
-| Término | Descripción |
+| Término | DESCRIPCIÓN |
 | --- | --- |
 |Período de facturación |El período de facturación en el que se utilizaron los medidores |
 |Categoría de medidor |Identifica el servicio de nivel superior para el uso. |
@@ -62,7 +62,7 @@ La sección superior del archivo CSV de uso detallado muestra los servicios usad
 
 La sección de uso diario del archivo CSV muestra los detalles de uso que afectan a las tarifas de facturación. En la tabla siguiente se enumeran los términos y las descripciones que se muestran en esta sección.
 
-| Término | Descripción |
+| Término | DESCRIPCIÓN |
 | --- | --- |
 |Fecha de uso |La fecha en que se usó el medidor. |
 |Categoría de medidor |Identifica el servicio de nivel superior al que pertenece este uso. |

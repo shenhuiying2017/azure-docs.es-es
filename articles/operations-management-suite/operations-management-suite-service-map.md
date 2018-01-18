@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Uso de la solución Service Map de Operations Management Suite
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -49,7 +49,7 @@ Los agentes de Service Map recopilan información acerca de todos los procesos d
 
 ![Introducción a Mapa de servicio](media/oms-service-map/service-map-overview.png)
 
-Las máquinas se pueden expandir en la asignación para mostrar los procesos en ejecución con conexiones de red activas durante el intervalo de tiempo seleccionado. Cuando un equipo remoto con un agente de Service Map se expande para mostrar los detalles del proceso, se muestran solo aquellos procesos que se comunican con el equipo de foco. Se indica el recuento de equipos front-end sin agente que se conectan al equipo de foco en el lado izquierdo de los procesos a los que se conectan. Si el equipo de foco establece una conexión con un equipo back-end sin agente, el servidor back-end se incluye en un grupo de puertos de servidor, junto con otras conexiones al mismo número de puerto.
+Las máquinas se pueden expandir en la asignación para mostrar los grupos de procesos en ejecución y los procesos con conexiones de red activas durante el intervalo de tiempo seleccionado. Cuando un equipo remoto con un agente de Service Map se expande para mostrar los detalles del proceso, se muestran solo aquellos procesos que se comunican con el equipo de foco. Se indica el recuento de equipos front-end sin agente que se conectan al equipo de foco en el lado izquierdo de los procesos a los que se conectan. Si el equipo de foco establece una conexión con un equipo back-end sin agente, el servidor back-end se incluye en un grupo de puertos de servidor, junto con otras conexiones al mismo número de puerto.
 
 De forma predeterminada, las asignaciones de Service Map muestran los 30 últimos minutos de la información de dependencia. Mediante los controles de tiempo de la parte superior izquierda, se pueden consultar las asignaciones de intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio). Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
 
@@ -59,6 +59,9 @@ En la parte inferior de cada servidor en el mapa puede haber una lista de notifi
 Según la gravedad de las notificaciones de estado, los bordes del nodo de la máquina pueden ser rojos (crítico), amarillos (advertencia) o azules (informativo). El color representa el estado más grave de cualquiera de las notificaciones de estado. Un borde gris indica que un nodo no tiene indicadores de estado.
 
 ![Notificaciones de estado](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Grupos de procesos
+Un grupo de procesos combina procesos que están asociados a un producto o servicio común de ese grupo.  Al expandirse un nodo de máquina, se muestran los procesos independientes junto con los grupos de procesos.  Si se ha producido un error de conexión entrante y saliente a un proceso en un grupo de procesos, la conexión se muestra como errónea para todo el grupo.
 
 ## <a name="machine-groups"></a>Grupos de equipos
 Los grupos de equipos permiten ver asignaciones centradas en torno a un conjunto de servidores, no solo uno, para que pueda ver todos los miembros de una aplicación de varios niveles o un clúster de servidores de una asignación.
@@ -121,7 +124,7 @@ Haga clic en el menú de puntos suspensivos situado junto al nombre del grupo en
 ## <a name="role-icons"></a>Iconos de rol
 Ciertos procesos cumplen roles determinados en los equipos: servidores web, servidores de aplicaciones, base de datos, etc. Service Map marca las casillas de proceso y máquina con iconos de rol, lo que facilita la identificación rápida del rol que desempeña un proceso o un servidor.
 
-| Icono de rol | Descripción |
+| Icono de rol | DESCRIPCIÓN |
 |:--|:--|
 | ![Servidor Web](media/oms-service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicaciones](media/oms-service-map/role-application-server.png) | Servidor de aplicaciones |
@@ -277,9 +280,9 @@ Puesto que pueden existir varios registros para un proceso y equipo especificado
 ### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario de servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de una máquina en el área de trabajo |
 | ResourceName_s | Identificador único de una máquina en el área de trabajo |
@@ -304,9 +307,9 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 ### <a name="servicemapprocesscl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
 Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de un proceso en el área de trabajo |
 | ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|
@@ -330,37 +333,37 @@ Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario p
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
 ### <a name="list-all-known-machines"></a>Enumerar todas las máquinas conocidas
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumerar la capacidad de memoria física de todos los equipos administrados.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Enumerar el nombre de equipo, DNS, IP y SO.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Buscar todos los procesos con "sql" en la línea de comandos
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Buscar una máquina (registro más reciente) por el nombre de recurso
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Buscar un equipo (registro más reciente) por dirección IP
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos los procesos conocidos en un equipo determinado
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Enumerar todos los equipos que ejecutan SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumerar todas las versiones de producto únicas de curl en mi centro de datos
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos con CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
-## <a name="rest-api"></a>API de REST
+## <a name="rest-api"></a>API DE REST
 Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
 
@@ -370,11 +373,11 @@ Microsoft recopila automáticamente datos de uso y rendimiento a través del ser
 Para más información sobre el uso y la recopilación de datos, vea la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información sobre las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Consulte la [sección de solución de problemas del documento de configuración de Service Map](operations-management-suite-service-map-configure.md#troubleshooting).
 
 

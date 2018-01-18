@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: jeedes
+ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integración de Azure Active Directory con Halosys
 
@@ -27,7 +28,7 @@ La integración de Halosys con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a Halosys.
 - Puede permitir que los usuarios inicien sesión automáticamente en Halosys (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -52,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-La situación descrita en este tutorial consta de dos bloques de creación principales:
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Halosys desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,22 +64,17 @@ Para configurar la integración de Halosys en Azure AD, será preciso que agregu
 
 **Para agregar Halosys desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Applications][2]
+    ![APLICACIONES][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
-
-    ![Aplicaciones][3]
-
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-
-    ![Aplicaciones][4]
+    ![APLICACIONES][3]
 
 6. En el cuadro de búsqueda, escriba **Halosys**.
 
@@ -105,101 +101,74 @@ Para configurar y probar el inicio de sesión único de Azure AD con Halosys, es
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Halosys.
+En esta sección, habilitará el inicio de sesión único de Azure AD en el portal y configurará el inicio de sesión único en la aplicación Halosys.
 
 
 **Para configurar el inicio de sesión único de Azure AD con Halosys, realice los pasos siguientes:**
 
-1. En el portal clásico, en la página de integración de aplicaciones de **Halosys**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-     
-    ![Configurar inicio de sesión único][6] 
+1. En Azure Portal, en la página de integración de la aplicación **SCC LifeCycle**, haga clic en **Inicio de sesión único**.
 
-2. En la página **How would you like users to sign on to HPE SaaS** (¿Cómo desea que los usuarios inicien sesión en HPE SaaS?), seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+    ![Configurar inicio de sesión único][4]
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
 
-3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
+3. En la sección **Dominio y direcciones URL de Halosys**, lleve a cabo los pasos siguientes:
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
-
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Halosys con el siguiente patrón: `https://<company-name>.Halosys.com/client-api/api`.
-
-    b. En el cuadro de texto **Identifier URL** (URL del identificador), escriba la dirección URL con el siguiente patrón: `https://<company-name>.Halosys.com`.   
+    2. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    | |
+    |--|--|
+    | `https://bs1.hs.com/<entity>`|
+    | `https://lifecycle.hs.com/<entity>`|
+    
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte al cliente de SCC LifeCycle](mailto:lifecycle.support@scc.com). 
          
-4. En la página **Configurar inicio de sesión único en Halosys**, haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
+4. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** en **Descargar** y, a continuación, guarde el archivo de metadatos en el equipo.
    
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Halosys y proporcione lo siguiente:
 
-    • El **archivo de metadatos** descargado
-    
-    • La **dirección URL de inicio de sesión único de SAML**
+  * El **archivo de metadatos** descargado
+  * La **dirección URL de inicio de sesión único de SAML**
     
 
-6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-    
-    ![Inicio de sesión único de Azure AD ][10]
-
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
- 
-    ![Inicio de sesión único de Azure AD ][11]
+  >[!NOTE]
+  >El equipo de soporte técnico de Halosys es el que debe habilitar el inicio de sesión único.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
+En esta sección, creará un usuario de prueba llamado Britta Simon en el portal.
 
 
 ![Creación de un usuario de Azure AD][20]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png). 
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-
-    c. Haga clic en **Siguiente**.
-
-6.  En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
-
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-
-    d. En la lista **Rol**, seleccione **Usuario**.
-
-    e. Haga clic en **Siguiente**.
-
-7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
-
-8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
-
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
-
-    a. Anote el valor del campo **Nueva contraseña**.
-
-    b. Haga clic en **Completo**.   
-
+    d. Haga clic en **Create**(Crear).
 
 
 ### <a name="creating-a-halosys-test-user"></a>Creación de un usuario de prueba de Halosys
@@ -215,30 +184,31 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 **Para asignar a Britta Simon a Halosys, siga estos pasos:**
 
-1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
 2. En la lista de aplicaciones, seleccione **Halosys**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-3. En el menú de la parte superior, haga clic en **Usuarios**.
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-4. En la lista Usuarios, seleccione **Britta Simon**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-    ![Asignar usuario][205]
-
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
 
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Halosys en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Halosys.
+Al hacer clic en el icono de Halosys en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Halosys. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -261,6 +231,8 @@ Al hacer clic en el icono de Halosys en el panel de acceso, debería iniciar ses
 
 [200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
+ 

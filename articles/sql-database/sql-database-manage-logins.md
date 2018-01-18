@@ -1,10 +1,10 @@
 ---
 title: "Usuarios e inicios de sesión de SQL Azure | Microsoft Docs"
-description: "Obtenga información acerca de la administración de seguridad de la Base de datos SQL, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor."
+description: "Obtenga información acerca de la administración de seguridad de la SQL Database, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor."
 keywords: "seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -16,16 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 4963e67317f22140c318e29bcd03bce4b9f57ab6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Control y concesión de acceso a bases de datos
 
-Cuando se hayan configurado las reglas de firewall, los usuarios pueden conectarse a una instancia de SQL Database como una de las cuentas de administrador, como el propietario de la base de datos o como un usuario de base de datos en la base de datos.  
+Cuando se hayan configurado las reglas de firewall, los usuarios pueden conectarse a una instancia de SQL Database como una de las cuentas de administrador, como el propietario de la base de datos o como un usuario de la base de datos.  
 
 >  [!NOTE]  
 >  Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. 
@@ -64,13 +64,13 @@ Cuando el firewall de nivel de servidor está configurado correctamente, el **ad
 
 ![Ruta de acceso de administrador](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-Si se usa un puerto abierto en el firewall de nivel de servidor, los administradores pueden conectarse a cualquier Base de datos SQL.
+Si se usa un puerto abierto en el firewall de nivel de servidor, los administradores pueden conectarse a cualquier SQL Database.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conexión a una base de datos mediante SQL Server Management Studio
 Para ver un tutorial en el que se explica cómo crear un servidor, una base de datos, reglas de firewall de nivel de servidor y cómo usar SQL Server Management Studio para realizar consultas en una base de datos, consulte [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
-> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Roles administrativos de nivel de servidor adicionales
@@ -155,7 +155,7 @@ La administración de acceso eficiente utiliza los permisos asignados a grupos y
 Los roles de base de datos pueden ser roles integrados como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** y **db_denydatareader**. **db_owner** se usa habitualmente para conceder permiso completo solo a algunos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar cuidadosamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realiza la agregación de los permisos de todos ellos.
 
 ## <a name="permissions"></a>Permisos
-En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar individualmente. Muchos de estos permisos están anidados. Por ejemplo, el permiso `UPDATE` de un esquema incluye el permiso `UPDATE` en cada tabla dentro de dicho esquema. Al igual que en la mayoría de los sistemas de permisos, la denegación de un permiso anula su concesión. Dada la naturaleza anidada y el número de permisos, es preciso realizar un estudio meticuloso para diseñar un sistema de permisos apropiado para proteger adecuadamente la base de datos. Empiece con la lista de permisos de [Permisos (motor de base de datos)](https://msdn.microsoft.com/library/ms191291.aspx) y revise el [gráfico a tamaño de póster](http://go.microsoft.com/fwlink/?LinkId=229142) de los permisos.
+En SQL Database, hay más de 100 permisos que pueden conceder o denegar individualmente. Muchos de estos permisos están anidados. Por ejemplo, el permiso `UPDATE` de un esquema incluye el permiso `UPDATE` en cada tabla dentro de dicho esquema. Al igual que en la mayoría de los sistemas de permisos, la denegación de un permiso anula su concesión. Dada la naturaleza anidada y el número de permisos, es preciso realizar un estudio meticuloso para diseñar un sistema de permisos apropiado para proteger adecuadamente la base de datos. Empiece con la lista de permisos de [Permisos (motor de base de datos)](https://msdn.microsoft.com/library/ms191291.aspx) y revise el [gráfico a tamaño de póster](http://go.microsoft.com/fwlink/?LinkId=229142) de los permisos.
 
 
 ### <a name="considerations-and-restrictions"></a>Consideraciones y restricciones
@@ -185,7 +185,7 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 * Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso `VIEW DEFINITION` del usuario. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para más información acerca de las reglas de firewall, consulte [Firewall de Azure SQL Database](sql-database-firewall-configure.md).
 - Para una información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).

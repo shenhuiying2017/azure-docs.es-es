@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d551a62a59e0a7f63f5fd4862680a271de659a19
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -82,18 +82,18 @@ Se puede ver la información de mantenimiento planeado con [azure vm get-instanc
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no hay ningún mantenimiento programado que afecte a la máquina virtual, el comando no devuelve ninguna información de mantenimiento. 
 
 ```azure-cli
-az vm get-instance-view  - g rgName  -n vmName 
+az vm get-instance-view -g rgName -n vmName
 ```
 
 Los siguientes valores se devuelven en MaintenanceRedeployStatus: 
 
-| Valor | Descripción   |
+| Valor | DESCRIPCIÓN   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento ||
 | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
 | PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
-| MaintenanceWindowStartTime            | El comienzo de la ventana de mantenimiento programado en la que puede iniciar el mantenimiento en la máquina virtual ||
-| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que puede iniciar el mantenimiento en la máquina virtual ||
+| MaintenanceWindowStartTime            | El comienzo de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual ||
+| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual ||
 | LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual ||
 
 
@@ -132,7 +132,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 ```
 
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 
 **P: ¿Por qué hay que reiniciar las máquinas virtuales ahora?**
@@ -159,7 +159,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: ¿Cuánto tiempo tardará en reiniciar mi máquina virtual?**
 
-**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos. Tenga en cuenta que si usa Cloud Services (roles de trabajo o web), conjuntos de escalado de máquinas virtuales o conjuntos de disponibilidad, se le proporcionarán 30 minutos entre cada grupo de máquinas virtuales (UD). 
+**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos durante la ventana de mantenimiento de autoservicio. En los reinicios ejecutados por Azure en la ventana de mantenimiento programada, el reinicio suele tardar unos 25 minutos. Tenga en cuenta que si usa Cloud Services (roles de trabajo o web), Virtual Machine Scale Sets o conjuntos de disponibilidad, se le proporcionarán 30 minutos entre cada grupo de máquinas virtuales (UD) durante la ventana de mantenimiento programada.
 
 **P: ¿Cómo es en el caso de Cloud Services (roles de trabajo o web), Service Fabric y conjuntos de escalado de máquinas virtuales?**
 

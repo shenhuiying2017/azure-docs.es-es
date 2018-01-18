@@ -3,7 +3,7 @@ title: "Administración de acceso y permisos con RBAC: Azure RBAC | Microsoft Do
 description: "Introducción al control de acceso basado en roles de Azure en Azure Portal. Use las asignaciones de roles para asignar permisos en el directorio."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
-ms.author: andredm
+ms.date: 01/02/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introducción al control de acceso basado en roles en Azure Portal
 Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
@@ -50,15 +50,15 @@ El resto de los roles RBAC de Azure permiten la administración de recursos espe
 * Cada **grupo de recursos** pertenece a una única suscripción.
 * Cada **recurso** pertenece a un único grupo de recursos.
 
-El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Por ejemplo:
+El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Por ejemplo: 
 
 * Asigne el rol de lector a un grupo de Azure AD en el ámbito de la suscripción. Los miembros de ese grupo pueden ver todos los grupos de recursos y los recursos de la suscripción.
 * Asigne el rol de colaborador a una aplicación en el ámbito del grupo de recursos. Puede administrar todos los tipos de recursos de ese grupo de recursos, pero no otros grupos de la suscripción.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>RBAC de Azure frente a administradores de la suscripción clásica
-Los administradores y coadministradores de la suscripción clásica tienen acceso completo a la suscripción de Azure. Pueden administrar recursos con [Azure Portal](https://portal.azure.com) con las API de Azure Resource Manager, o bien con el [Portal de Azure clásico](https://manage.windowsazure.com) y el modelo de implementación clásica de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
+[Los administradores y coadministradores de la suscripción clásica](../billing/billing-add-change-azure-subscription-administrator.md) tienen acceso completo a la suscripción de Azure. Se puede administrar los recursos con [Azure Portal](https://portal.azure.com), con las API de Azure Resource Manager o bien con las API del modelo de implementación clásica. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
 
-RBAC de Azure solo es compatible con el Portal de Azure y las nuevas API de Azure Resource Manager. Los usuarios y las aplicaciones a los que se asignan roles RBAC no pueden usar el Portal de administración clásico ni el modelo de implementación clásica de Azure.
+RBAC de Azure solo es compatible con el Portal de Azure y las nuevas API de Azure Resource Manager. Los usuarios y las aplicaciones a los que se asignan roles de RBAC no pueden usar las API del modelo de implementación clásica de Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorización para administración frente a operaciones de datos
 RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencias de Microsoft® Smooth Streaming Client Porting Kit
 ## <a name="overview"></a>Información general
-Microsoft Smooth Streaming Client Porting Kit (**SSPK** para abreviar) es una implementación del cliente de Smooth Streaming que está optimizada para ayudar a los fabricantes de dispositivos incrustados y los operadores de cable y dispositivos móviles, los proveedores de servicios de contenido, los fabricantes de auriculares, los fabricantes de software independientes (ISV) y los proveedores de soluciones para crear productos y servicios para contenido de streaming adaptable en formato de Smooth Streaming. SSPK es una implementación independiente del dispositivo y la plataforma del cliente de Smooth Streaming que el licenciatario puede portar a cualquier dispositivo y plataforma. 
+Microsoft Smooth Streaming Client Porting Kit (**SSPK** para abreviar) es una implementación del cliente de Smooth Streaming que está optimizada para ayudar a los fabricantes de dispositivos insertados, los operadores de cable y dispositivos móviles, los proveedores de servicios de contenido, los fabricantes de auriculares, los fabricantes de software independientes (ISV) y los proveedores de soluciones a crear productos y servicios para hacer streaming de contenido adaptable en formato de Smooth Streaming. SSPK es una implementación independiente del dispositivo y la plataforma del cliente de Smooth Streaming que el licenciatario puede portar a cualquier dispositivo y plataforma. 
 
-A continuación se incluye una arquitectura de alto nivel y el IIS Smooth Streaming Porting Kit es la implementación de Smooth Streaming Client proporcionada por Microsoft e incluye toda la lógica básica para la reproducción del contenido de Smooth Streaming. A continuación, los asociados los portan para un dispositivo o plataforma específicos mediante la implementación de interfaces adecuadas. 
+A continuación se incluye una arquitectura de alto nivel y el IIS Smooth Streaming Porting Kit es la implementación de Smooth Streaming Client proporcionada por Microsoft e incluye toda la lógica básica para la reproducción del contenido de Smooth Streaming. A continuación, los asociados portan este contenido para un dispositivo o plataforma específicos mediante la implementación de interfaces adecuadas. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>DESCRIPCIÓN
 La licencia de SSPK tiene unos términos que ofrecen un valor empresarial excelente. La licencia SSPK proporciona al sector:
 
 * Código fuente de Smooth Streaming Porting Kit en C++ 
@@ -103,7 +103,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -130,7 +130,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co.,Ltd
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
@@ -140,7 +140,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
 * Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co.,Ltd
+* Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.

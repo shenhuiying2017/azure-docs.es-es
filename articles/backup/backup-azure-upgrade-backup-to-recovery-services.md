@@ -1,5 +1,5 @@
 ---
-title: "Actualización de un almacén de Backup a un almacén de Recovery Services (versión preliminar) | Microsoft Docs"
+title: "Actualización de un almacén de Backup a un almacén de Recovery Services | Microsoft Docs"
 description: "Instrucciones e información de compatibilidad para actualizar el almacén de Azure Backup a un almacén de Recovery Services."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -34,7 +34,7 @@ Cuando se actualiza un almacén de Backup a un almacén de Recovery Services, no
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Cambios en la automatización y la herramienta después de actualizar
 
 Al preparar la infraestructura de la actualización del almacén, debe actualizar la automatización existente o las herramientas para asegurarse de que sigue funcionando después de la actualización.
-Consulte las guías de referencia de los cmdlets de PowerShell para más información sobre el [modelo de implementación de Service Manager](backup-client-automation-classic.md) y el [modelo de implementación de Resource Manager](backup-client-automation.md).
+Consulte las guías de referencia de los cmdlets de PowerShell para más información sobre el [modelo de implementación de Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Antes de la actualización
@@ -62,7 +62,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 **SubscriptionID**: Número de identificación de la suscripción del almacén de credenciales que se está actualizando.<br/>
 **VaultName**: Nombre del almacén de Backup que se está actualizando.<br/>
 **Location**: Ubicación del almacén que se va a actualizar.<br/>
-**ResourceType**: Use BackupVault.<br/>
+**ResourceType**: Usar BackupVault.<br/>
 **TargetResourceGroupName**: Puesto que va a actualizar el almacén a una implementación basada en Resource Manager, especifique un grupo de recursos. Puede usar un grupo de recursos existente o crear uno proporcionando un nuevo nombre. Si se equivoca al escribir el nombre de un grupo de recursos, puede crear uno nuevo. Para más información sobre los grupos de recursos, lea la [introducción a Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
@@ -117,10 +117,10 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **¿Afecta el plan de actualización a mis copias de seguridad en curso?**</br>
-No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
+Nº Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 **¿Qué ocurre con mis almacenes si no tengo previsto actualizar pronto?**</br>
-Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. Finalmente, Microsoft dejará de usar el portal clásico. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Después del 30 de noviembre de 2017, ya no podrá crear almacenes de Backup con PowerShell. El almacén se puede actualizar automáticamente en cualquier momento hasta esa fecha. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
+Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Después del 30 de noviembre de 2017, ya no podrá crear almacenes de Backup con PowerShell. El almacén se puede actualizar automáticamente en cualquier momento hasta esa fecha. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
 
 **¿Qué supone esta actualización para las herramientas existentes?**</br>
 Actualice las herramientas al modelo de implementación de Resource Manager. Los almacenes de Recovery Services se crearon para utilizarse en el modelo de implementación de Resource Manager. La planeación para el modelo de implementación de Resource Manager y la observación de la diferencia en los almacenes son importantes. 
@@ -129,19 +129,16 @@ Actualice las herramientas al modelo de implementación de Resource Manager. Los
 Depende del número de recursos que se vayan a actualizar. Para implementaciones pequeñas (de unas decenas de instancias protegidas), toda la actualización debería tardar menos de 20 minutos. Para implementaciones grandes, debe tardar una hora como máximo.
 
 **¿Puedo revertir la actualización?**</br>
-No. No se admite la reversión una vez actualizados correctamente los recursos.
+Nº No se admite la reversión una vez actualizados correctamente los recursos.
 
 **¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la actualización?**</br>
 Sí. El primer paso de la actualización comprueba si los recursos son aptos para la actualización. En caso de que se produzca un error en la validación, recibirá mensajes para todas las razones que no se pudo completar la actualización.
 
-**¿Qué permisos debo tener que desencadenar la actualización del almacén?**</br>
-Para realizar la actualización del almacén, usted se debe agregar como coadministrador de la suscripción en el Portal de Azure clásico. Esto es necesario incluso aunque ya figure como propietario en Azure Portal. Trate de agregar un coadministrador de la suscripción en el Portal de Azure clásico para averiguar si es coadministrador de la suscripción. Si no puede agregar un coadministrador, póngase en contacto con un administrador de servicios o coadministrador de la suscripción, que le puede ayudar como coadministrador.
-
 **¿Puedo actualizar mi almacén de Backup basado en CSP?**</br>
-No. Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
+Nº Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
 
 **¿Puedo ver mi almacén clásico después de la actualización?**</br>
-No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
+Nº No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
 
 **Hubo un error de actualización, pero la máquina que mantenía el agente que requiere actualización ya no existe. ¿Qué hago en este caso?**</br>
 Si tiene que usar el almacén, las copias de seguridad de esta máquina para una retención a largo plazo, no podrá actualizar el almacén. En versiones futuras se agregará compatibilidad para actualizar tal almacén.
@@ -154,8 +151,8 @@ La supervisión de copias de seguridad (agente de MARS e IaaS) es una caracterí
 Si se produce un error en cualquier parte de la actualización del almacén, tenga en cuenta el identificador de la operación que figura en el error. Soporte técnico de Microsoft trabajará proactivamente para resolver el problema. Puede conectar con el soporte técnico o enviarnos un correo electrónico a rsvaultupgrade@service.microsoft.com con su identificador de suscripción, el nombre del almacén y el identificador de la operación. Intentaremos resolver el problema lo antes posible. No vuelva a intentar la operación a menos que Microsoft se lo indique explícitamente.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Utilice el siguiente artículo para:</br>
 [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Hacer una copia de seguridad de Windows Server](backup-configure-vault.md)
+[Copia de seguridad de Windows Server](backup-configure-vault.md).

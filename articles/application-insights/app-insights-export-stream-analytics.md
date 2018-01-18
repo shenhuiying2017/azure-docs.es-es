@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](app-insights-export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -32,11 +32,11 @@ En este ejemplo, vamos a crear un adaptador que toma datos de Application Insigh
 ![Diagrama de bloques para exportar a través de SA a PBI](./media/app-insights-export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Creación de almacenamiento en Azure
-La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
+La exportación continua siempre envía los datos a una cuenta de Azure Storage, por lo que necesitará crear primero el almacenamiento.
 
 1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
    
-   ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-stream-analytics/030.png)
+   ![En Azure Portal, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-stream-analytics/030.png)
 2. Crear un contenedor
    
     ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-export-stream-analytics/040.png)
@@ -75,32 +75,32 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para canalizar los datos a Power BI.
 
-## <a name="create-an-azure-stream-analytics-instance"></a>Creación de una instancia de Análisis de transmisiones de Azure
-Desde el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio Análisis de transmisiones de Azure y cree un nuevo trabajo de Análisis de transmisiones:
+## <a name="create-an-azure-stream-analytics-instance"></a>Creación de una instancia de Azure Stream Analytics
+Desde [Azure Portal](https://portal.azure.com/), seleccione el servicio Azure Stream Analytics y cree un nuevo trabajo de Stream Analytics:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Cuando se cree el nuevo trabajo, expanda los detalles:
+Cuando se cree el nuevo trabajo, seleccione **Ir al recurso**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Establecimiento de la ubicación del blob
+### <a name="add-a-new-input"></a>Incorporación de una nueva entrada
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Configúrelo de manera que tome los datos del blob de Exportación continua:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, que anotó anteriormente. Establézcala como la clave de cuenta de almacenamiento.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Establecimiento del patrón del prefijo de la ruta de acceso
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).**
 
-El patrón del prefijo de la ruta de acceso especifica dónde busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
+El patrón del prefijo de la ruta de acceso especifica dónde busca el Stream Analytics los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
@@ -114,33 +114,19 @@ En este ejemplo:
 > [!NOTE]
 > Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Finalización de la instalación inicial
-Confirme el formato de serialización:
+## <a name="add-new-output"></a>Incorporación de una nueva salida
+Ahora seleccione el trabajo > **Salidas** > **Agregar**.
 
-![Confirme y cierre el asistente.](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Cierre el asistente y espere a que el programa de instalación finalice.
 
-> [!TIP]
-> Use el comando de ejemplo para descargar algunos datos. Guardarlo como un ejemplo de prueba para depurar la consulta.
-> 
-> 
+![Seleccione el canal nuevo, haga clic en Salidas, Agregar, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
-## <a name="set-the-output"></a>Establecimiento de la salida
-Ahora seleccione el trabajo y establezca la salida.
-
-![Seleccione el canal nuevo, haga clic en Salidas, Agregar, Power BI](./media/app-insights-export-stream-analytics/160.png)
-
-Ofrezca su **cuenta profesional o educativa** para autorizar el Análisis de transmisiones a tener acceso al recurso de Power BI. Luego invente un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
-
-![Invente tres nombres](./media/app-insights-export-stream-analytics/170.png)
+Ofrezca su **cuenta profesional o educativa** para autorizar el Stream Analytics a tener acceso al recurso de Power BI. Luego invente un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
 
 ## <a name="set-the-query"></a>Definición de la consulta
 La consulta controla la traducción de la entrada en la salida.
-
-![Seleccione el trabajo y haga clic en Consultar. Pegue el siguiente ejemplo.](./media/app-insights-export-stream-analytics/180.png)
 
 Use la función de prueba para comprobar que obtiene la salida correcta. Proporciónele los datos de ejemplo que tomó de la página de entradas. 
 
@@ -162,7 +148,7 @@ Pegue esta consulta:
 
 * export-input es el alias que damos a la entrada de transmisiones
 * pbi-output es el alias que hemos definido para la salida
-* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque el nombre del evento se encuentra en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa los elementos en períodos de tiempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque el nombre del evento se encuentra en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa los elementos en períodos de tiempo de un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Consulta para mostrar valores de métrica
 ```SQL
@@ -206,7 +192,7 @@ Pegue esta consulta:
 ## <a name="run-the-job"></a>Ejecución del trabajo
 Puede seleccionar una fecha en el pasado desde la que iniciar el trabajo. 
 
-![Seleccione el trabajo y haga clic en Consultar. Pegue el siguiente ejemplo.](./media/app-insights-export-stream-analytics/190.png)
+![Seleccione el trabajo y haga clic en Consultar. Pegue el siguiente ejemplo.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Espere hasta que el trabajo esté en ejecución.
 
@@ -216,7 +202,7 @@ Espere hasta que el trabajo esté en ejecución.
 > 
 > 
 
-Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de datos y la tabla que ha definido como la salida del trabajo del Análisis de transmisiones.
+Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de datos y la tabla que ha definido como la salida del trabajo del Stream Analytics.
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-stream-analytics/200.png)
 
@@ -234,7 +220,7 @@ Noam Ben Zeev muestra cómo procesar los datos exportados mediante Stream Analyt
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

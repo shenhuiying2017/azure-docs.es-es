@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -131,18 +131,18 @@ Para obtener detalles del esquema específico sobre alertas del registro de acti
 
 Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](monitoring-overview-activity-logs.md).
 
-| Nombre del elemento | Descripción |
+| Nombre del elemento | DESCRIPCIÓN |
 | --- | --- |
 | status |Usado para alertas de métrica. Siempre se establece en "activated" para las alertas del registro de actividad. |
 | contexto |Contexto del evento |
 | resourceProviderName |Proveedor de recursos del recurso afectado |
 | conditionType |Siempre "Event" |
-| name |Nombre de la regla de alerta. |
+| Nombre |Nombre de la regla de alerta. |
 | id |Identificador de recurso de la alerta |
-| description |Descripción de la alerta establecida al crear la alerta. |
+| Descripción |Descripción de la alerta establecida al crear la alerta. |
 | subscriptionId |Identificador de suscripción de Azure |
 | timestamp |Cuándo generó el evento el servicio de Azure que procesó la solicitud |
-| resourceId |Identificador de recurso del recurso afectado. |
+| ResourceId |Identificador de recurso del recurso afectado. |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
 | propiedades |Conjunto de pares `<Key, Value>` (es decir, `Dictionary<String, String>`) que incluye detalles sobre el evento. |
 | event |Elemento que contiene metadatos sobre el evento. |
@@ -154,14 +154,14 @@ Para obtener información del esquema específico en todas las otras alertas del
 | eventDataId |Identificador único para el evento |
 | eventSource |Nombre de la infraestructura o el servicio de Azure que generó el evento |
 | httpRequest |La solicitud normalmente incluye clientRequestId, clientIpAddress y el método HTTP (por ejemplo, PUT). |
-| level |Uno de los siguientes valores: Critical, Error, Warning, Informational y Verbose. |
+| level |Uno de los siguientes valores: Critical, Error, Warning e Informational. |
 | operationId |Por lo general, un GUID compartido entre los eventos correspondientes a una sola operación |
 | operationName |Nombre de la operación. |
 | propiedades |Propiedades del evento. |
 | status |String. Estado de la operación. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
 | subStatus |Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Entre los valores de subestado habituales se incluyen OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504). |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Más información sobre el registro de actividad](monitoring-overview-activity-logs.md).
 * [Ejecución de scripts de Azure Automation (runbooks) en alertas de Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
 * [Uso de una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.

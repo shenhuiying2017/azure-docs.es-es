@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs Capture
 
@@ -39,12 +39,18 @@ Los datos capturados se escriben en el formato de [Apache Avro][Apache Avro], qu
 Event Hubs Capture permite configurar una ventana para controlar la captura. Esta ventana es una configuración mínima de tamaño y tiempo con una "directiva de que el primero gana", lo que significa que el primer desencadenador que se encuentre provocará una operación de captura. Si tiene una ventana de captura de 100 MB cada quince minutos y envía 1 MB/s, la ventana de tamaño se desencadenará antes que la ventana de tiempo. Cada partición se captura de forma independiente y escribe un blob en bloques completado en el momento de la captura, denominado como la hora en que se encontró el intervalo de captura. Esta es la convención de nomenclatura de almacenamiento:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Tenga en cuenta que los valores de fecha se rellenan con ceros; un nombre de archivo de ejemplo podría ser:
+
+```
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Escalado a unidades de procesamiento
 
-El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-features.md#capacity). Una sola unidad de procesamiento permite una entrada de 1 MB/s o 1000 eventos por segundo y una salida que duplica esas cifras. Standard Event Hubs se puede configurar con entre 1 y 20 unidades de procesamiento, y puede adquirir más a través de una solicitud de aumento de cuota al [equipo de soporte técnico][support request]. El uso por encima de las unidades de procesamiento adquiridas está limitado. Event Hubs Capture copia los datos directamente del almacenamiento interno de Event Hubs, omite las cuotas de salida de unidades de procesamiento y guarda la salida para otros lectores de procesamiento como Stream Analytics o Spark.
+El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-features.md#capacity). Una sola unidad de procesamiento permite una entrada de 1 MB/s o 1000 eventos por segundo y una salida que duplica esas cifras. Event Hubs estándar se puede configurar con entre 1 y 20 unidades de procesamiento, y puede adquirir más a través de una solicitud de aumento de cuota al [equipo de soporte técnico][support request]. El uso por encima de las unidades de procesamiento adquiridas está limitado. Event Hubs Capture copia los datos directamente del almacenamiento interno de Event Hubs, omite las cuotas de salida de unidades de procesamiento y guarda la salida para otros lectores de procesamiento como Stream Analytics o Spark.
 
 Una vez configurado, Event Hubs Capture se ejecuta automáticamente cuando se envía el primer evento y continúa ejecutándose. Para facilitar que el procesamiento de bajada sepa que el proceso funciona, Event Hubs escribe archivos vacíos cuando no hay datos. Este proceso proporciona un marcador y una cadencia predecibles que puede alimentar sus procesadores de lotes.
 
@@ -98,7 +104,7 @@ Apache Avro tiene guías de introducción para [Java][Java] y [Python][Python] m
 
 Event Hubs Capture se mide de forma similar a las unidades de procesamiento, por hora. El cargo es directamente proporcional al número de unidades de procesamiento que se adquirieron para el espacio de nombres. A medida que las unidades de procesamiento se incrementan y reducen, las mediciones de Event Hubs Capture aumentan y disminuyen, con el fin de proporcionar un rendimiento coincidente. Los medidores se ejecutan de manera simultánea. Para conocer los precios detallados, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Event Hubs Capture es el modo más sencillo de obtener datos en Azure. Con Azure Data Lake, Azure Data Factory y Azure HDInsight, se puede realizar el procesamiento por lotes y cualquier otro análisis mediante las plataformas y herramientas conocidas a la escala que necesite.
 

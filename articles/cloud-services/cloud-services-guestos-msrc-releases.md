@@ -12,16 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="january-guest-os"></a>SO invitado de enero
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| N/D | [4056898] |Indicador de seguridad de Windows |4.50 |3 de enero de 2018 |
+| N/D | [4056890] |Indicador de seguridad de Windows |5.15 |3 de enero de 2018 |
+
+## <a name="december-guest-os"></a>SO invitado de diciembre
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Versión 17-12 | [4053579], [4054517] |Actualizaciones de seguridad de Windows 10 |4.49, 5.14 |12 de diciembre de 2017 |
+| Versión 17-12 | [4054521], [4054522], [4054523] |Indicador de seguridad de Windows |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
+| Versión 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
+| Versión 17-12 | [4052978] |Intermitente |3.56, 4.49, 5.14 |12 de diciembre de 2017 |
+| N/D | [4048957] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |2.67 |14 de noviembre de 2017 |
+| N/D | [4048959] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |3.56 |14 de noviembre de 2017 |
+| N/D | [4048958] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |4.49 |14 de noviembre de 2017 |
+| N/D | [4049068] |Actualización de zona horaria de diciembre |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
+
+## <a name="november-guest-os"></a>SO invitado de noviembre
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Rel 17-11 | [4048953] |Actualizaciones de Windows 10 |5.13 |14 de noviembre de 2017 |
+| Rel 17-11 | [4048960], [4048962], [4048961] |Indicador de seguridad de Windows |2.68, 3.55, 4.48 |14 de noviembre de 2017 |
+| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 de noviembre de 2017 |
+| Rel 17-11 | [4048951] |Intermitente |3.55, 4.48, 5.13 |14 de noviembre de 2017 |
+| N/D | [4041681] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |2.67 |10 de octubre de 2017 |
+| N/D | [4041690] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |3.55 |10 de octubre de 2017 |
+| N/D | [4041693] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |4.48 |10 de octubre de 2017 |
+| N/D | [3191566] |Actualización de Windows Management Framework 5.1  |2.68 |14 de noviembre de 2017 |
+| N/D | [3191565] |Actualización de Windows Management Framework 5.1  |3.55 |14 de noviembre de 2017 |
+| N/D | [3191564] |Actualización de Windows Management Framework 5.1  |4.48 |14 de noviembre de 2017 |
 
 ## <a name="october-guest-os"></a>SO invitado de octubre
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -548,6 +580,36 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3007054] |Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

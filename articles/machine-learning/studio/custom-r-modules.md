@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creación de módulos R personalizados en Azure Machine Learning
 En este tema se describe cómo crear e implementar un módulo R personalizado en Azure Machine Learning. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
@@ -28,7 +28,7 @@ En este tema se describe cómo crear e implementar un módulo R personalizado en
 ## <a name="what-is-a-custom-r-module"></a>¿Qué es un módulo R personalizado?
 Un **módulo personalizado** es un módulo definido por el usuario que se puede cargar en el área de trabajo de un usuario y ejecutarlo como parte de un experimento de Azure Machine Learning. Un **módulo de R personalizado** es un módulo personalizado que ejecuta una función de R definida por el usuario. **R** es un lenguaje de programación de computación estadística y gráficos utilizado ampliamente por científicos estadísticos y de datos para implementar algoritmos. Actualmente, R es el único lenguaje que se admite en los módulos personalizados, pero en las próximas versiones se ha programado la compatibilidad con idiomas adicionales.
 
-Los módulos personalizados tienen un **estado de primera clase** en Azure Machine Learning, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Usted tiene control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la galería de Cortana Intelligence también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.
+Los módulos personalizados tienen un **estado de primera clase** en Azure Machine Learning, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Usted tiene control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la Galería de Azure AI también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.
 
 ## <a name="files-in-a-custom-r-module"></a>Archivos de un módulo R personalizado
 Un módulo R personalizado se define mediante un archivo .zip que contiene, como mínimo, dos archivos:
@@ -286,7 +286,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
   * **allowedTypes** : permite filtrar los tipos de columnas entre los que puede elegir. Los valores válidos son: 
     
     * Numeric
-    * Booleano
+    * boolean
     * Categorías
     * string
     * Etiqueta

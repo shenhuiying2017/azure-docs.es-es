@@ -60,7 +60,7 @@ Aquí se muestran algunas de las características de Premium Storage:
     Azure usa la cuenta de almacenamiento como contenedor para discos no administrados. Cuando crea una máquina virtual de Azure de las series DS, DSv2, GS o Fs con discos no administrados y selecciona una cuenta de Premium Storage, tanto el disco del sistema operativo como el de datos se almacenan en dicha cuenta de almacenamiento.
 
 ## <a name="supported-vms"></a>VM admitidas
-Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls y Fs. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
+Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls, Fs y B. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
 
 Para más información sobre los tamaños y tipos de VM en Azure para Windows, vea [Tamaños de VM para Windows](../articles/virtual-machines/windows/sizes.md). Para más información sobre los tamaños y tipos de VM en Azure para Linux, vea [Tamaños de VM para Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -293,7 +293,7 @@ Para recuperación ante desastres regionales, debe realizar una copia de los dis
 
 Para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la VM y directivas de retención de copia de seguridad, use Azure Backup. Puede utilizar Backup con discos administrados y no administrados. Para más información, vea [Azure Backup para VM con Unmanaged Disks ](../articles/backup/backup-azure-vms-first-look-arm.md) y [Azure Backup para VM con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre el Premium Storage, consulte los siguientes artículos.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Diseño e implementación con Premium Storage

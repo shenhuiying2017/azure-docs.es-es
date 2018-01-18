@@ -51,9 +51,9 @@ Veámoslas más detalladamente.
 
 Estos son los tamaños de disco disponibles para un disco administrado premium:
 
-| **Tipo de disco <br>administrado premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Tipo de disco <br>administrado premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Estos son los tamaños de disco disponibles para un disco administrado estándar:
@@ -111,7 +111,7 @@ Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero 
 
 Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca de Managed Disks, consulte los siguientes artículos.
 

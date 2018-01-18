@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
@@ -127,7 +127,7 @@ Ahora ya debería tener acceso a su cuenta. Si no es así, póngase en contacto 
 | Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña. <br> <br> Lamentablemente, el personal de TI no ha configurado la cuenta para usar este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que el personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo "No se puede tener acceso a su cuenta", o bien no le ha autorizado para usar la característica. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía y decirles que quiere restablecer su contraseña para que puedan habilitarle esta característica. |
 | Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a http://aka.ms/ssprsetup después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Cómo registrarse para usar el autoservicio de restablecimiento de la contraseña](active-directory-passwords-reset-register.md)
 * [Página de registro en el restablecimiento de contraseña](http://aka.ms/ssprsetup)
@@ -141,4 +141,3 @@ Ahora ya debería tener acceso a su cuenta. Si no es así, póngase en contacto 
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Vínculo para el restablecimiento de la contraseña en la página de inicio de sesión de Windows 10 Fall Creators Update"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Compruebe los datos de autenticación"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Cambio de la contraseña"
-

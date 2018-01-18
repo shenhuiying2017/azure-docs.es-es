@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -414,32 +414,34 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
 Sin embargo, lo que se recomienda para enviar telemetría de solicitudes es que la solicitud actúe como <a href="#operation-context">contexto de operación</a>.
 
 ## <a name="operation-context"></a>Contexto de operación
-Se pueden asociar elementos de telemetría adjuntándoles un identificador de operación común. El módulo de seguimiento de solicitud estándar realiza esta operación para excepciones y otros eventos enviados al procesar una solicitud HTTP. En [Búsqueda](app-insights-diagnostic-search.md) y [Análisis](app-insights-analytics.md), puede utilizar el identificador para encontrar fácilmente los eventos asociados a la solicitud.
+Puede correlacionar los elementos de telemetría juntos mediante su asociación con el contexto de la operación. El módulo de seguimiento de solicitud estándar realiza esta operación para excepciones y otros eventos enviados al procesar una solicitud HTTP. En [Búsqueda](app-insights-diagnostic-search.md) y [Análisis](app-insights-analytics.md), puede encontrar fácilmente cualquier evento asociado a la solicitud mediante su identificador de operación.
 
-La manera más fácil de establecer el identificador es definir un contexto de operación mediante este patrón:
+Para más información sobre la correlación, vea [Correlación de telemetría en Application Insights](application-insights-correlation.md).
+
+Al realizar el seguimiento de la telemetría manualmente, la forma más fácil de garantizar la correlación de telemetría es mediante el uso de este patrón:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Junto con la configuración de un contexto de la operación, `StartOperation` crea un elemento de telemetría del tipo que especifique. Envía el elemento de telemetría al eliminar la operación, o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como tipo de telemetría, su duración se establece en el intervalo cronometrado entre el inicio y la detención.
 
-Los contextos de operación no pueden estar anidados. Si ya existe un contexto de operación, su identificador está asociado a todos los elementos contenidos, incluido el elemento que se ha creado con `StartOperation`.
+Los elementos de telemetría notificados dentro de un ámbito de operación se convierten en "elementos secundarios" de dicha operación. Los contextos de operación pueden estar anidados. 
 
 En la Búsqueda, el contexto de la operación se utiliza para crear la lista de **Elementos relacionados**:
 
@@ -900,7 +902,7 @@ Puede escribir código para procesar la telemetría antes de que se envíe desde
 
 [Agregue propiedades](app-insights-api-filtering-sampling.md#add-properties) a la telemetría mediante la implementación de `ITelemetryInitializer`. Por ejemplo, puede agregar números de versión o valores calculados a partir de otras propiedades.
 
-El [filtrado](app-insights-api-filtering-sampling.md#filtering) puede modificar o descartar la telemetría antes de que se envíe desde el SDK, mediante la implementación de `ITelemetryProcessor`. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
+El [filtrado](app-insights-api-filtering-sampling.md#filtering) puede modificar o descartar la telemetría antes de que se envíe desde el SDK, mediante la implementación de `ITelemetryProcesor`. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
 
 El [muestreo](app-insights-api-filtering-sampling.md) es una solución empaquetada para reducir el volumen de datos enviado desde la aplicación al portal. Lo hace sin que las métricas mostradas resulten afectadas. Y sin repercutir tampoco sobre capacidad para diagnosticar problemas navegando entre elementos relacionados, como excepciones, solicitudes y vistas de página.
 

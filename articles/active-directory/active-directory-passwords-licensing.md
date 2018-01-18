@@ -1,5 +1,5 @@
 ---
-title: 'Licensing: Azure AD SSPR (Licencias: SSPR de Azure AD) | Microsoft Docs'
+title: "Licencia para el autoservicio de restablecimiento de contraseña: Azure Active Directory"
 description: "Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
 Para que el restablecimiento de contraseña de Azure Active Directory (Azure AD) funcione, *debe tener al menos una licencia asignada en su organización*. No aplicamos la concesión de licencias por usuario en la experiencia de restablecimiento de contraseña. A fin de que se siga cumpliendo el contrato de licencia de Microsoft, debe asignar licencias a los usuarios que usen características premium.
 
 * **Solo usuarios en la nube**: Office 365, cualquier SKU de pago o Azure AD Basic
-* **Usuarios en la nube** o **locales**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Secure Productive Enterprise (SPE)
+* **Usuarios en la nube** o **locales**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licencias necesarias para la escritura diferida de contraseñas
 
@@ -42,6 +42,7 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 
 > [!WARNING]
 > Los planes de licencias de Office 365 independientes *no admiten la escritura diferida de contraseñas* y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
+>
 
 En las páginas siguientes, encontrará información adicional sobre licencias, incluidos los costos:
 
@@ -56,7 +57,7 @@ Ahora, Azure AD admite licencias basadas en grupos. Los administradores pueden a
 
 Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. La asignación de licencias puede hacerse en la sección **Usuario** > **Perfil** > **Configuración** de Azure Portal. *Cuando se utiliza la asignación de licencias de grupo, los usuarios sin ubicación de uso especificada heredan la ubicación del directorio.*
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
@@ -69,4 +70,3 @@ Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. A
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](active-directory-passwords-how-it-works.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
-

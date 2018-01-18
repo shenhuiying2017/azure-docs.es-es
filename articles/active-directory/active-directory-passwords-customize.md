@@ -1,5 +1,5 @@
 ---
-title: Personalizar SSPR de Azure AD | Microsoft Docs
+title: "Personalización del autoservicio de restablecimiento de contraseña: Azure Active Directory"
 description: "Opciones de personalización para el autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -107,7 +107,7 @@ Puede cambiar el atributo del nombre de directorio en **Azure Active Directory**
 * Nombre descriptivo del correo electrónico "Demostración de Microsoft en nombre de CONTOSO".
 * Línea de asunto del correo electrónico "Código de verificación del correo electrónico de la cuenta de demostración CONTOSO".
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)

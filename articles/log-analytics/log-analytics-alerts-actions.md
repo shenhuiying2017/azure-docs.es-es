@@ -1,6 +1,6 @@
 ---
-title: Respuesta a las alertas en OMS Log Analytics | Microsoft Docs
-description: "Las alertas de Log Analytics identifican información importante en el repositorio de OMS y pueden avisarle proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describe cómo crear una regla de alerta y los detalles de las distintas acciones que pueden realizar."
+title: Respuesta a las alertas en Azure Log Analytics | Microsoft Docs
+description: "Las alertas de Log Analytics identifican información importante en el área de trabajo de Azure y pueden avisarlo proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describe cómo crear una regla de alerta y los detalles de las distintas acciones que pueden realizar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Adición de acciones a reglas de alerta en Log Analytics
 Cuando se [crea una alerta en Log Analytics](log-analytics-alerts.md), tiene la opción de [configurar la regla de alerta](log-analytics-alerts.md) para realizar una o varias acciones.  En este artículo se describen las diferentes acciones que están disponibles y los detalles sobre la configuración de cada tipo.
 
-| Acción | Descripción |
+| . | DESCRIPCIÓN |
 |:--|:--|
 | [Correo electrónico](#email-actions) | Envía un correo electrónico con los detalles de la alerta a uno o varios destinatarios. |
 | [Webhook](#webhook-actions) | Invoca un proceso externo a través de una sola solicitud HTTP POST. |
@@ -36,7 +36,7 @@ Las acciones de correo electrónico envían un correo electrónico con los detal
 
 Las acciones de correo electrónico requieren las propiedades de la siguiente tabla.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Asunto |El asunto del correo electrónico.  No se puede modificar el cuerpo del mensaje de correo. |
 | Recipients |Direcciones de todos los destinatarios de correo electrónico.  Si especifica más de una dirección, separe las direcciones con un punto y coma (;). |
@@ -48,7 +48,7 @@ Las acciones de Webhook permiten invocar un proceso externo a través de una sol
 
 Las acciones de webhook requieren las propiedades de la siguiente tabla.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Dirección URL de Webhook |La dirección URL del webhook. |
 | Carga de JSON personalizada |Carga personalizada para enviar con el webhook.  Consulte a continuación para más información. |
@@ -59,7 +59,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la carga del webhook ha cambiado.  Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Puede ver una muestra en la sección [Ejemplos](#sample-payload) más adelante.
 
-| Parámetro | Variable | Descripción |
+| . | Variable | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nombre de la regla de alerta. |
 | AlertThresholdOperator |ThresholdOperator |Operador de umbral para la regla de alerta.  *Mayor que* o *menor que*. |
@@ -71,7 +71,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Hora de inicio para la consulta en formato UTC. |
 | SearchQuery |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | SearchResults |Consulte a continuación |Registros devueltos por la consulta en formato JSON.  Limitado a los primeros 5000 registros. |
-| WorkspaceID |#workspaceid |Identificador del área de trabajo de OMS. |
+| WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics. |
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 
@@ -97,15 +97,15 @@ Por ejemplo, para crear una carga personalizada que incluya solo el nombre de la
     }
 
 
-Puede recorrer un ejemplo completo de creación de una regla de alerta con un webhook para iniciar un servicio externo en [Webhooks en alertas de Log Analytics](log-analytics-alerts-webhooks.md).
+Puede recorrer un ejemplo completo de creación de una regla de alerta con un webhook para iniciar un servicio externo en [Creación de una acción de alerta de webhook en Log Analytics de OMS para enviar mensajes a Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Acciones de runbook
-Las acciones de runbook inician un runbook en Automatización de Azure.  Para usar este tipo de acción, debe tener la [solución de Automatización](log-analytics-add-solutions.md) instalada y configurada en el área de trabajo de OMS.  Puede seleccionar entre los runbooks de la cuenta de automatización que configuró en la solución de Automatización.
+Las acciones de runbook inician un runbook en Azure Automation.  Para usar este tipo de acción, debe tener la [solución de Automation](log-analytics-add-solutions.md) instalada y configurada en el área de trabajo de Log Analytics.  Puede seleccionar entre los runbooks de la cuenta de Automation que configuró en la solución de Automation.
 
 Las acciones de runbook requieren las propiedades de la siguiente tabla.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:---|
 | Runbook | El runbook que desea iniciar cuando se crea una alerta. |
 | Ejecutar en | Especifique **Azure** para ejecutar el runbook en la nube.  Especifique **Hybrid Worker** para ejecutar el runbook en un agente con [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) instalado.  |
@@ -117,7 +117,7 @@ No se pueden llenar directamente los parámetros del runbook, pero el [parámetr
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la carga del runbook ha cambiado.  Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Puede ver una muestra en la sección [Ejemplos](#sample-payload) más adelante.  
 
-| Nodo | Descripción |
+| Nodo | DESCRIPCIÓN |
 |:--- |:--- |
 | id |Ruta de acceso y el GUID de la búsqueda. |
 | __metadata |Información sobre la alerta, como el número de registros y el estado de los resultados de búsqueda. |
@@ -620,6 +620,6 @@ A continuación se muestra una carga de ejemplo para una acción de runbook en u
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Complete un tutorial para [configurar un webhook](log-analytics-alerts-webhooks.md) con una regla de alerta.  
-- Aprenda a escribir [runbooks en Automatización de Azure](https://azure.microsoft.com/documentation/services/automation) para solucionar los problemas identificados por las alertas.
+- Aprenda a escribir [runbooks en Azure Automation](https://azure.microsoft.com/documentation/services/automation) para solucionar los problemas identificados por las alertas.

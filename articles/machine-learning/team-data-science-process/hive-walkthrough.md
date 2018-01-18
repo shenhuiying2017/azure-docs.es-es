@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: d10026b4f04ab77accf7d089e98270c4c769b636
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
-En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](overview.md) en un escenario completo con un clúster de [Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Azure Machine Learning para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
+En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Azure Machine Learning para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
 
 Para acceder a un tutorial que muestra cómo controlar un conjunto de datos de mayor tamaño (1 terabyte) para un escenario similar con clústeres de Hadoop de HDInsight para el procesamiento de datos, consulte [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md).
 
 También es posible utilizar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial con el conjunto de datos de 1 TB. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trips
-Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivos comprimidos de valores separados por comas (CSV) (~48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+Los datos de NYC Taxi Trip son aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (~48GB descomprimidos). Están compuestos por más de 173 millones de carreras individuales y las tarifas que se pagaron para cada una de ellas. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
-1. Los archivos CSV 'trip_data' contienen información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
+1. Los archivos CSV "trip_data" contienen información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración y la longitud del recorrido. Estos son algunos registros de ejemplo:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archiv
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. Los archivos CSV 'trip_fare' contienen información detallada de la tarifa que se paga en cada carrera, como el tipo de pago, el importe de la tarifa, los suplementos e impuestos, las propinas y peajes, y el importe total pagado. Estos son algunos registros de ejemplo:
+2. Los archivos CSV "trip_fare" contienen información detallada de la tarifa abonada en cada carrera. Esto incluye el tipo de pago, la tarifa, los suplementos y los impuestos, las propinas y los peajes y la cantidad total abonada. Estos son algunos registros de ejemplo:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -57,7 +57,7 @@ Se describen detalles adicionales de los datos al almacenarlos en tablas de Hive
 Al trabajar con datos, determinar el tipo de predicciones que desea realizar en función de su análisis ayuda a aclarar las tareas que necesitará incluir en el proceso.
 A continuación presentamos tres ejemplos de problemas de predicción que abordaremos en este tutorial cuya formulación se basa en el importe de la propina, *tip\_amount*:
 
-1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+1. **Clasificación binaria**: permite predecir si se dio propina en una carrera, o no. Es decir, un *importe\_ de propina* que sea mayor que 0 $ es un ejemplo positivo, mientras que un *importe\_ de propina* de 0 $ es un ejemplo negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
@@ -91,7 +91,7 @@ Puede configurar un entorno de Azure para análisis avanzado que emplee un clús
 > 
 > 
 
-Para obtener el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) de su ubicación pública, puede usar cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md) para copiar los datos en su máquina.
+Para copiar el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) en su equipo desde una ubicación pública, puede usar cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md).
 
 Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -109,7 +109,7 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***&amp;#60;path_to_data_folder&gt;***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.  
+* ***&amp;#60;path_to_data_folder&gt;***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir  
 * ***&amp;#60;storage account name of Hadoop cluster&gt;***: la cuenta de almacenamiento asociada con el clúster de HDInsight.
 * ***&amp;#60;default container of Hadoop cluster&gt;***: el contenedor predeterminado que usa el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
 * ***&amp;#60;storage account key&gt;***: clave para la cuenta de almacenamiento usada por el clúster.
@@ -142,7 +142,7 @@ Para preparar el clúster para el análisis de exploración de datos, se descarg
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Estos dos comandos descargarán todos los archivos .hql necesarios en este tutorial en el directorio local ***C:\temp&#92;*** del nodo principal.
+Estos dos comandos descargan todos los archivos .hql necesarios en este tutorial en el directorio local ***C:\temp&#92;*** del nodo principal.
 
 ## <a name="#hive-db-tables"></a>Creación de base de datos y tablas de Hive con particiones por mes
 > [!NOTE]
@@ -150,7 +150,7 @@ Estos dos comandos descargarán todos los archivos .hql necesarios en este tutor
 > 
 > 
 
-Ahora estamos listos para crear tablas de Hive para nuestro conjunto de datos de taxis de Nueva York.
+Ahora estamos listos para crear tablas de Hive para el conjunto de datos de taxis de Nueva York.
 En el nodo principal del clúster de Hadoop, abra la ***línea de comandos de Hadoop*** en el escritorio del nodo principal y especifique el directorio de Hive mediante este comando:
 
     cd %hive_home%\bin
@@ -222,7 +222,7 @@ El conjunto de datos de taxis de Nueva York tiene una partición natural por mes
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-El archivo *sample\_hive\_load\_data\_by\_partitions.hql* contiene los siguientes comandos **LOAD**.
+El archivo *sample\_hive\_load\_data\_by\_partitions.hql* contiene los siguientes comandos **LOAD**:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -341,7 +341,7 @@ Esto nos da el siguiente resultado:
 
 En este caso, la primera columna es el mes y la segunda el número de carreras de ese mes.
 
-También se puede contar el número total de registros del conjunto de datos de carreras emitiendo el comando siguiente en el símbolo del sistema del directorio de Hive.
+También se puede contar el número total de registros del conjunto de datos de carreras emitiendo el comando siguiente en el símbolo del sistema del directorio de Hive:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -425,7 +425,7 @@ Desde el símbolo del sistema del directorio de Hive, emita el siguiente comando
 
 Al explorar un conjunto de datos, con frecuencia deseamos examinar el número de repeticiones de grupos de valores. En esta sección se ofrece un ejemplo de cómo llevar esto a cabo para los taxis y los conductores.
 
-El archivo *sample\_hive\_trip\_count\_by\_medallion\_license.hql* agrupa el conjunto de datos de tarifas en función de los valores de "medallion" y "hack_license", y devuelve los recuentos de cada combinación. A continuación se muestra su contenido.
+El archivo *sample\_hive\_trip\_count\_by\_medallion\_license.hql* agrupa el conjunto de datos de tarifas en función de los valores de "medallion" y "hack_license", y devuelve los recuentos de cada combinación. A continuación se muestra su contenido:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -477,7 +477,7 @@ Para el problema de clasificación binaria descrito en la sección [Ejemplos de 
 * Propina dada (clase 1, tip\_amount > 0 $).  
 * Sin propina (clase 0, tip\_amount = 0 $).
 
-El archivo *sample\_hive\_tipped\_frequencies.hql* que se muestra a continuación lo lleva a cabo.
+El archivo *sample\_hive\_tipped\_frequencies.hql* que se muestra a continuación lo lleva a cabo:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -555,7 +555,7 @@ Desde el símbolo del sistema del directorio de Hive, ejecute:
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-Los resultados de la consulta se escriben en 9 blobs de Azure de ***queryoutputdir/000000\_0*** a ***queryoutputdir/000008\_0*** bajo el contenedor predeterminado del clúster de Hadoop.
+Los resultados de la consulta se escriben en nueve blobs de Azure de ***queryoutputdir/000000\_0*** a ***queryoutputdir/000008\_0*** bajo el contenedor predeterminado del clúster de Hadoop.
 
 Para ver el tamaño de los blobs individuales, se ejecuta el siguiente comando desde el símbolo del sistema del directorio de Hive:
 
@@ -578,7 +578,7 @@ Una ventaja clave de tener estos datos en un blob de Azure es que se pueden expl
 > 
 > 
 
-Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Azure Machine Learning. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Azure Machine Learning.
+Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Azure Machine Learning. En esta sección, se muestra cómo usar una consulta de Hive para reducir la muestra de datos. A continuación, se tiene acceso a ellos desde el módulo [Importar datos][import-data] en Azure Machine Learning.
 
 ### <a name="down-sampling-the-data"></a>Reducción de los datos
 Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: "medallion", "hack\_license" y "pickup\_datetime". Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
@@ -589,7 +589,7 @@ La consulta aplica funciones estándar de Hive directamente para generar la hora
 
 Después esta consulta reduce los datos para que los resultados quepan en Azure Machine Learning Studio. Aproximadamente solo el 1% del conjunto de datos original se importa en Estudio.
 
-A continuación se muestra el contenido del archivo *sample\_hive\_prepare\_for\_aml\_full.hql* que prepara los datos para la creación de modelos en Azure Machine Learning.
+A continuación se muestra el contenido del archivo *sample\_hive\_prepare\_for\_aml\_full.hql* que prepara los datos para la creación de modelos en Azure Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -719,7 +719,7 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 Ahora tenemos una tabla interna nyctaxidb.nyctaxi_downsampled_dataset, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Azure Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Uso del módulo Importar datos de Azure Machine Learning para acceder a los datos muestreados
-Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Azure Machine Learning, se necesita acceso a un área de trabajo de Azure Machine Learning y a las credenciales del clúster y su cuenta de almacenamiento asociada.
+Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Azure Machine Learning, se necesita acceso a un área de trabajo de Azure Machine Learning. También se necesita acceso a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
 A continuación se indican algunos detalles del módulo [Importar datos][import-data] y los parámetros de entrada:
 
@@ -763,17 +763,17 @@ Ya se puede pasar a la creación del modelo y la implementación del mismo en [A
 
 a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de tip\_class, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
-La siguiente instantánea muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada.
+La siguiente instantánea muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada:
 
 ![Instantánea del experimento](./media/hive-walkthrough/QGxRz5A.png)
 
 b. En este experimento las distribuciones de la etiqueta de destino eran aproximadamente 1:1.
 
-La siguiente instantánea muestra la distribución de las etiquetas de clase de propina para el problema de clasificación binaria.
+La siguiente instantánea muestra la distribución de las etiquetas de clase de propina para el problema de clasificación binaria:
 
 ![Distribución de las etiquetas de clase de sugerencia](./media/hive-walkthrough/9mM4jlD.png)
 
-Como resultado, obtenemos un área bajo la curva de 0,987 tal como se muestra en la figura siguiente.
+Como resultado, obtenemos un área bajo la curva de 0,987 tal como se muestra en la figura siguiente:
 
 ![Valor de AUC](./media/hive-walkthrough/8JDT0F8.png)
 
@@ -787,11 +787,11 @@ La siguiente instantánea muestra nuestro experimento para predecir en qué ubic
 
 ![Instantánea del experimento](./media/hive-walkthrough/5ztv0n0.png)
 
-Ahora vemos qué aspecto tiene nuestra distribución de clases de prueba real. Se puede ver que, mientras que las clase 0 y 1 son frecuentes, las demás no lo son.
+Ahora vemos qué aspecto tiene la distribución de clases de prueba real. Se puede ver que, mientras que las clase 0 y 1 son frecuentes, las demás no lo son.
 
 ![Distribución de la clase de prueba](./media/hive-walkthrough/Vy1FUKa.png)
 
-b. En este experimento utilizamos una matriz de confusión para analizar la precisión de las predicciones. Esto se muestra a continuación.
+b. En este experimento utilizamos una matriz de confusión para analizar la precisión de las predicciones. Esto se muestra a continuación:
 
 ![Matriz de confusión](./media/hive-walkthrough/cxFmErM.png)
 
@@ -803,18 +803,18 @@ Observe que, aunque la precisión para las clases frecuentes es bastante buena, 
 
 a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este caso, las pérdidas de destino son: tipped, tip\_class y total\_amount; todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
-La instantánea siguiente muestra nuestro experimento para predecir el importe de una propina determinada.
+La instantánea siguiente muestra nuestro experimento para predecir el importe de una propina determinada:
 
 ![Instantánea del experimento](./media/hive-walkthrough/11TZWgV.png)
 
-b. En los problemas de regresión se mide la precisión de nuestra predicción mediante la observación del error cuadrático en las predicciones, el coeficiente de determinación y similares. Lo mostramos a continuación.
+b. En los problemas de regresión se mide la precisión de nuestra predicción mediante la observación del error cuadrático en las predicciones, el coeficiente de determinación y similares:
 
 ![Estadísticas de predicción](./media/hive-walkthrough/Jat9mrz.png)
 
 Vemos que el coeficiente de determinación es 0,709, lo que implica que aproximadamente el 71% de la varianza se explica por nuestros coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para obtener más información sobre Azure Machine Learning y cómo obtener acceso a él y usarlo, vea [¿Qué es Machine Learning en Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Azure Machine Learning.
+> Para obtener más información sobre Azure Machine Learning y cómo obtener acceso a él y usarlo, vea [¿Qué es Machine Learning en Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Azure AI](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Azure Machine Learning.
 > 
 > 
 

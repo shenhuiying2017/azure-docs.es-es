@@ -1,21 +1,21 @@
 ---
 title: "Guía de inicio rápido de Azure IoT Edge + Linux | Microsoft Docs"
-description: "Prueba de Azure IoT Edge mediante la ejecución de un análisis en un dispositivo perimetral simulado"
+description: "Pruebe Azure IoT Edge mediante la realización de análisis en un dispositivo perimetral simulado"
 services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Linux - versión preliminar
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge en un dispositivo Linux o Mac (versión preliminar)
 
 Azure IoT Edge traslada la eficacia de la nube a los dispositivos de Internet de las cosas. En este tema, obtenga información sobre cómo usar la interfaz de nube para implementar código creado previamente de manera remota en un dispositivo IoT Edge.
 
@@ -23,12 +23,16 @@ Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita][lnk-acco
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar esta tarea, use el equipo o una máquina virtual para simular un dispositivo de Internet de las cosas. Para implementar correctamente un dispositivo con IoT Edge se requieren los siguientes servicios:
+En esta guía de inicio rápido se usa el equipo o la máquina virtual como un dispositivo de Internet de las cosas. Para convertir una máquina en un dispositivo IoT Edge, se requieren los siguientes servicios:
 
-- [Instale Docker en Linux][lnk-docker-ubuntu] y asegúrese de que se ejecuta. 
-- La mayoría de las distribuciones de Linux, incluida Ubuntu, ya tienen Python 2.7 instalado. Use el siguiente comando para asegurarse de que PIP está instalado: `sudo apt-get install python-pip`.
+* PIP de Python, para instalar el runtime de IoT Edge.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, para ejecutar los módulos de IoT Edge
+   * [Instale Docker para Linux][lnk-docker-ubuntu] y asegúrese de que se ejecuta. 
+   * [Instale Docker para Mac][lnk-docker-mac] y asegúrese de que se ejecuta. 
 
-## <a name="create-an-iot-hub-with-azure-cli"></a>Creación de una instancia de IoT Hub con la CLI de Azure
+## <a name="create-an-iot-hub-with-azure-cli"></a>Creación de un centro de IoT con la CLI de Azure
 
 Cree un centro de IoT en una suscripción de Azure. El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ya ha usado IoT Hub y ha creado una centro gratuito, puede omitir esta sección e ir a [Registro de un dispositivo de IoT Edge][anchor-register]. Cada suscripción no puede tener más de un centro de IoT gratuito. 
 
@@ -85,7 +89,7 @@ Compruebe Docker para ver si el agente de IoT Edge se ejecuta como un módulo:
 sudo docker ps
 ```
 
-![Vea edgeAgent en Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
+![Ver edgeAgent en Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implementación de un módulo
 
@@ -121,7 +125,7 @@ Cuando ya no necesite la instancia de IoT Hub que ha creado, puede usar el coman
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha aprendido a implementar un módulo de IoT Edge en un dispositivo de IoT Edge. Ahora intente implementar distintos tipos de servicios de Azure como módulos, para poder analizar los datos en el perímetro. 
 
@@ -135,6 +139,7 @@ Ha aprendido a implementar un módulo de IoT Edge en un dispositivo de IoT Edge.
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

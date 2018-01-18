@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -32,11 +32,12 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 
 Antes de empezar a configurar dispositivos híbridos unidos a un dominio de Active AD en su entorno, debe familiarizarse con los escenarios admitidos y las restricciones.  
 
+Si está confiando en la [Herramienta de preparación del sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), asegúrese de crear imágenes desde una instalación de Windows que no se haya registrado aún con Azure AD.
+
 Para mejorar la legibilidad de las descripciones, en este tema se utiliza el término siguiente: 
 
 - **Dispositivos de Windows actuales**: este término indica los dispositivos unidos a un dominio en los que se ejecutan Windows 10 o Windows Server 2016.
 - **Dispositivos de Windows de nivel inferior**: este término indica todos los dispositivos de Windows unidos a un dominio **compatibles** en los que no se ejecutan Windows 10 ni Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Dispositivos de Windows actuales
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Mantiene la asociación entre la cuenta del equipo en la instancia local de Active Directory (AD) y el objeto de dispositivo en Azure AD. 
 - Habilita otras características relacionadas del dispositivo como Windows Hello para empresas.
 
+Asegúrese de que las direcciones URL siguientes son accesibles desde equipos dentro de la red de su organización para el registro de equipos en Azure AD:
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+Si la organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD.
 
 
 ## <a name="configuration-steps"></a>Pasos de configuración
@@ -86,7 +96,7 @@ Utilice la tabla siguiente para obtener una visión general de los pasos necesar
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Paso 1: Configurar el punto de conexión de servicio
+## <a name="step-1-configure-service-connection-point"></a>Paso 1: Configuración del punto de conexión de servicio
 
 El objeto de punto de conexión de servicio (SCP) lo usan los dispositivos durante el registro para detectar la información del inquilino de Azure AD. En la instancia de Active Directory (AD) local, el objeto SCP para los dispositivos híbridos unidos a Azure AD debe existir en la partición del contexto de nomenclatura de la configuración del bosque del equipo. Hay solo un contexto de nomenclatura de configuración por bosque. En una configuración de Active Directory con varios bosques, el punto de conexión debe existir en todos los bosques que contengan equipos unidos a un dominio.
 
@@ -548,7 +558,7 @@ Para controlar el lanzamiento de equipos actuales de Windows, es preciso que imp
 2. Vaya al nodo del dominio correspondiente al dominio en el que desee activar el registro automático de los equipos actuales de Windows.
 3. Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**.
 4. Escriba un nombre para el objeto de directiva de grupo. Por ejemplo, *Unión a Azure AD híbrido. 
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
 6. Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y seleccione **Editar**.
 7. Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Registro de dispositivos**. 
 8. Haga clic con el botón derecho en **Registrar los equipos asociados a un dominio como dispositivos** y seleccione **Editar**.
@@ -557,7 +567,7 @@ Para controlar el lanzamiento de equipos actuales de Windows, es preciso que imp
    > Esta plantilla de directiva de grupo ha cambiado de nombre desde versiones anteriores de la consola de Administración de directivas de grupo. Si utiliza una versión anterior de la consola, vaya a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
 7. Seleccione **Habilitado** y luego **Aplicar**.
-8. Haga clic en **Aceptar**.
+8. Haga clic en **OK**.
 9. Vincule el objeto de la directiva de grupo a una ubicación de su elección. Por ejemplo, puede vincularlo a una unidad organizativa específica. También puede vincularlo a un grupo de seguridad específico de equipos que se unen automáticamente en Azure AD. Para establecer esta directiva para todos los equipos con Windows 10 y Windows Server 2016 unidos a un dominio en su organización, vincule el objeto de directiva de grupo al dominio.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Paquetes de Windows Installer para equipos sin Windows 10
@@ -574,7 +584,7 @@ Para comprobar los dispositivos unidos correctamente en la organización, use el
 
 La salida de este cmdlet muestra los dispositivos que se han registrado y unido en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor **Unido a dominio**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)
 

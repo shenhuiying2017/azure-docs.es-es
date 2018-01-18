@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Herramientas de Azure Functions para Visual Studio  
 
@@ -46,7 +46,8 @@ Para crear e implementar funciones, también necesita:
 
 * Una suscripción de Azure activa. Si no tiene una suscripción de Azure, hay disponibles [cuentas gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Una cuenta de Azure Storage. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Una cuenta de Azure Storage. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -68,7 +69,7 @@ El entorno de tiempo de ejecución de Functions usa internamente una cuenta de A
 
 1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor **Cadena de conexión principal**.   
 
-2. En el proyecto, abra el archivo del proyecto local.settings.json y establezca el valor de la clave **AzureWebJobsStorage** en la cadena de conexión que copió.
+2. En el proyecto, abra el archivo local.settings.json y establezca el valor de la clave **AzureWebJobsStorage** en la cadena de conexión que copió.
 
 3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.  
 
@@ -106,7 +107,7 @@ En las funciones compiladas previamente, los enlaces que la función usa se defi
     } 
     ````
  
-    Se aplica un atributo específico de enlace a cada parámetro de enlace que se suministra al método de punto de entrada. El atributo toma la información de enlace como parámetros. En el ejemplo anterior, el primer parámetro tiene aplicado un atributo **QueueTrigger**, que indica la función desencadenada de cola. El nombre de la configuración de cadena de conexión y el nombre de cola se pasan como parámetros.  
+    Se aplica un atributo específico de enlace a cada parámetro de enlace que se suministra al método de punto de entrada. El atributo toma la información de enlace como parámetros. En el ejemplo anterior, el primer parámetro tiene aplicado un atributo **QueueTrigger**, que indica la función desencadenada de cola. El nombre de la configuración de cadena de conexión y el nombre de cola se pasan como parámetros en el atributo **QueueTrigger**.
 
 ## <a name="testing-functions"></a>Funciones de prueba
 
@@ -131,9 +132,9 @@ Para más información sobre cómo usar Azure Functions Core Tools, consulte [Co
 >* [Uso de la opción de publicación de `--publish-local-settings` en Herramientas principales de Azure Functions](functions-run-local.md#publish).
 >* [Uso de la CLI de Azure](/cli/azure/functionapp/config/appsettings#set). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Herramientas de Azure Functions, consulte la sección Preguntas comunes de la entrada de blog [Herramientas de Visual Studio 2017 para Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 Para más información sobre Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md).  
-Para más información sobre el desarrollo de funciones como bibliotecas de clases .NET, consulte [Utilizar bibliotecas de clases de .NET con Azure Functions](functions-dotnet-class-library.md). En este tema también se ofrecen ejemplos sobre cómo usar atributos para declarar varios tipos de vínculos admitidos por Azure Functions.    
+Para más información sobre el desarrollo de funciones como las bibliotecas de clases de .NET, consulte [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md). En este tema también se ofrecen ejemplos sobre cómo usar atributos para declarar varios tipos de vínculos admitidos por Azure Functions.    

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -26,7 +26,7 @@ Use Azure File Sync (versión preliminar) para centralizar los recursos comparti
 Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure Files](storage-files-planning.md) y [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) antes de seguir los pasos que se describen en este artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Una cuenta de Azure Storage y un recurso compartido de archivos de Azure en la misma región en la que quiere implementar Azure File Sync. Para más información, consulte:
+* Una cuenta de Azure Storage y un recurso compartido de archivos de Azure en la misma región en la que quiere implementar Azure File Sync. Para obtener más información, consulte 
     - [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability) de Azure File Sync.
     - [Crear una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener una descripción paso a paso sobre cómo crear una cuenta de almacenamiento.
     - [Creación de un recurso compartido de archivos](storage-how-to-create-file-share.md) para obtener una descripción paso a paso sobre cómo crear un recurso compartido de archivos.
@@ -71,6 +71,7 @@ El agente de Azure File Sync es un paquete descargable que permite la sincroniza
 
 > [!Important]  
 > Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster.
+
 
 El paquete de instalación del agente de Azure File Sync se debería instalar relativamente rápido y sin demasiados mensajes adicionales. Se recomienda hacer lo siguiente:
 - Dejar la ruta de instalación predeterminada (C:\Archivos de programa\Azure\StorageSyncAgent), para simplificar las operaciones de solución de problemas y mantenimiento del servidor.
@@ -119,6 +120,36 @@ Para agregar el punto de conexión de servidor, seleccione **Crear**. Los archiv
 > [!Important]  
 > Puede realizar cambios en cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
 
+## <a name="onboarding-with-azure-file-sync"></a>Incorporación con Azure File Sync
+Los pasos recomendados para la incorporación en Azure File Sync por primera vez con un tiempo de inactividad nulo conservando al mismo tiempo la fidelidad total en los archivos y la lista de control de acceso (ACL) son los siguientes:
+ 
+1.  Implementar un servicio de sincronización de almacenamiento.
+2.  Crear un grupo de sincronización.
+3.  Instalar el agente de Azure File Sync en el servidor con el conjunto de datos completo.
+4.  Registrar ese servidor y crear un punto de conexión de servidor en el recurso compartido. 
+5.  Permitir que la sincronización realice la carga completa al recurso compartido de archivos de Azure (punto de conexión en la nube).  
+6.  Una vez finalizada la carga inicial, instalar el agente de Azure File Sync en cada uno de los demás servidores.
+7.  Crear nuevos recursos compartidos de archivos en cada uno de los demás servidores.
+8.  Crear puntos de conexión de servidor en nuevos recursos compartidos de archivos con la directiva de niveles de nube, si lo desea. (Este paso requiere que haya almacenamiento adicional disponible para la instalación inicial).
+9.  Permitir que el agente de Azure File Sync realice una restauración rápida del espacio de nombres completo sin la transferencia de datos real. Después de la sincronización del espacio de nombres completo, el motor de sincronización rellenará el espacio en disco local en función de la directiva de niveles de nube para el punto de conexión del servidor. 
+10. Asegúrese de que la sincronización finaliza y pruebe la topología según sea necesario. 
+11. Redirigir a los usuarios y las aplicaciones a este recurso compartido nuevo.
+12. Si lo desea, se pueden eliminar todos los recursos compartidos duplicados en los servidores.
+ 
+Si no tiene almacenamiento adicional para la incorporación inicial y le gustaría conectarse a los recursos compartidos existentes, puede inicializar previamente los datos de los recursos compartidos de archivos de Azure. Se recomienda este enfoque si y solo si puede aceptar un tiempo de inactividad y garantiza de forma absoluta que no cambia ningún dato en los recursos compartidos del servidor durante el proceso de incorporación inicial. 
+ 
+1.  Asegúrese que los datos no pueden cambiar en ninguno de los servidores durante el proceso de incorporación.
+2.  Inicialice previamente los recursos compartidos de archivos de Azure con los datos del servidor mediante cualquier herramienta de transferencia de datos a través de SMB, p. ej. Robocopy, copia directa de SMB. Puesto que AzCopy no carga datos a través de SMB, no se puede usar para la inicialización previa.
+3.  Cree la topología de Azure File Sync con los puntos de conexión de servidor que desee que apunten a los recursos compartidos existentes.
+4.  Permita que la sincronización finalice el proceso de conciliación en todos los puntos de conexión. 
+5.  Una vez completada la conciliación, puede abrir recursos compartidos para los cambios.
+ 
+Tenga en cuenta que, actualmente, el enfoque de inicialización previa tiene algunas limitaciones: 
+- No se conserva la fidelidad total en los archivos. Por ejemplo, los archivos pierden las ACL y las marcas de tiempo.
+- Los datos cambian en el servidor antes de que la topología de sincronización esté totalmente activa y la ejecución puede producir conflictos en los puntos de conexión del servidor.  
+- Después de crearse el punto de conexión en la nube, Azure File Sync ejecuta un proceso para detectar los archivos en la nube antes de llevar a cabo la sincronización inicial. El tiempo necesario para completar este proceso depende de distintos factores, como la velocidad de la red, el ancho de banda disponible y el número de archivos y carpetas. Para una estimación aproximada del lanzamiento de la versión preliminar, el proceso de detección se ejecuta a una velocidad aproximada de diez archivos/s. Por lo tanto, incluso si la inicialización previa se ejecuta rápido, el tiempo total para obtener un sistema totalmente operativo puede ser considerablemente mayor cuando los datos se inicializan previamente en la nube.
+
+
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migración de una implementación de la replicación DFS (DFS-R) a Azure File Sync
 Para migrar una implementación de DFS-R a Azure File Sync:
 
@@ -135,6 +166,6 @@ Para migrar una implementación de DFS-R a Azure File Sync:
 
 Para más información, consulte [Interoperabilidad de Azure File Sync con el sistema de archivos distribuido (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Adición o eliminación de un punto de conexión de servidor de Azure File Sync ](storage-sync-files-server-endpoint.md)
 - [Registro y cancelación del registro de un servidor con Azure File Sync](storage-sync-files-server-registration.md)

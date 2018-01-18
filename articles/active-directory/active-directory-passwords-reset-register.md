@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD: registro de SSPR | Microsoft Docs'
+title: "Registro para el autoservicio de restablecimiento de contraseña: Azure Active Directory"
 description: "Registro de datos de autenticación de autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: bae62762decf530521ba10ce684d5db9afa0b86c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 976eb5e710b0ffca48dae268b394b3d31fe2e938
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro para el autoservicio de restablecimiento de contraseñas
 
@@ -58,7 +58,7 @@ Los administradores pueden requerir que confirme los métodos de autenticación 
 | Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña. <br> <br> Su personal de TI no ha configurado la cuenta para utilizarla con este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje, es que el personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo **No se puede tener acceso a su cuenta** o bien no le han autorizado para usar la característica. <br> <br> Para restablecer la contraseña, seleccione el vínculo **Póngase en contacto con un administrador**. Se enviará un correo electrónico al personal de TI de su empresa. El correo electrónico les permite saber que desea restablecer la contraseña para que puedan habilitar esta característica para usted. |
 | Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje, es que está habilitado para usar el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a la [página de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup) después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, seleccione el vínculo **Póngase en contacto con un administrador** para enviar un correo electrónico al personal de TI de la compañía. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Cambiar la contraseña mediante el autoservicio de restablecimiento de contraseñas](active-directory-passwords-update-your-own-password.md)
 * [Página de registro en el restablecimiento de contraseña](http://aka.ms/ssprsetup)

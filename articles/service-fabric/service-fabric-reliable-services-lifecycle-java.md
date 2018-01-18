@@ -1,132 +1,141 @@
 ---
-title: "Información general del ciclo de vida de Reliable Services de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga más información sobre los distintos eventos de ciclo de vida en los servicios de Reliable Services de Service Fabric"
-services: Service-Fabric
+title: Ciclo de vida de Reliable Services de Azure Service Fabric | Microsoft Docs
+description: "Obtenga información sobre los distintos eventos del ciclo de vida en Reliable Services de Service Fabric."
+services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
 ms.assetid: 
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 93fd003ff5ba7673e5a719fb1ced0cbb97034610
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ad4228ade68f4494e5be0454643752e742c1cc81
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
+# <a name="reliable-services-lifecycle"></a>Ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
 > * [C# en Windows](service-fabric-reliable-services-lifecycle.md)
 > * [Java en Linux](service-fabric-reliable-services-lifecycle-java.md)
 >
 >
 
-Al analizar los ciclos de vida de Reliable Services, los conceptos básicos del ciclo de vida son lo más importante. En general:
+Reliable Services es uno de los modelos de programación disponibles en Azure Service Fabric. Cuando se aprende sobre el ciclo de vida de Reliable Services, es muy importante comprender los eventos básicos del ciclo de vida. El orden exacto de los eventos depende de los detalles de configuración. 
+
+En general, el ciclo de vida de Reliable Services incluye los siguientes eventos:
 
 * Durante el inicio:
-  * se construyen los servicios,
-  * tienen la oportunidad de construir y devolver cero o más agentes de escucha,
-  * se abre cualquier agente de escucha devuelto, lo cual permite la comunicación con el servicio y
-  * se llama al método runAsync del servicio, lo cual permite a este último realizar trabajos de ejecución prolongada o en segundo plano.
+  * Se construyen los servicios.
+  * Los servicios tienen la oportunidad de construir y devolver cero o más agentes de escucha.
+  * Se abre cualquier agente de escucha devuelto para la comunicación con el servicio.
+  * Se llama al método `runAsync` del servicio para que el servicio pueda realizar trabajos de ejecución prolongada o en segundo plano.
 * Durante el cierre:
-  * se cancela el token de cancelación pasado a runAsync y se cierran los agentes de escucha y
-  * una vez completado, se destruye el propio objeto de servicio.
+  * Se cancela el token de cancelación pasado a `runAsync` y se cierran los agentes de escucha.
+  * Se destruye el propio objeto del servicio.
 
-Hay información sobre la ordenación exacta de estos eventos. En concreto, el orden de eventos puede cambiar ligeramente dependiendo de si Reliable Service es sin estado o con estado. Además, para los servicios con estado, tenemos que tratar con el escenario de intercambio principal. Durante esta secuencia, el rol Principal se transfiere a otra réplica (o se devuelve) sin que el servicio tenga que cerrarse. Por último, hay que pensar en condiciones de error.
+El orden de los eventos en Reliable Services puede cambiar ligeramente en función de si la instancia es sin estado o con estado. 
+
+Además, en los servicios con estado, debe resolver el escenario de intercambio principal. Durante esta secuencia, el rol principal se transfiere a otra réplica (o se devuelve) sin que el servicio tenga que cerrarse. 
+
+Por último, hay que pensar en las condiciones de error.
 
 ## <a name="stateless-service-startup"></a>Inicio de un servicio sin estado
 El ciclo de vida de un servicio sin estado es bastante sencillo. Este es el orden de los eventos:
 
 1. Se construye el servicio.
-2. A continuación, suceden dos cosas simultáneamente:
-    - Se invoca `StatelessService.createServiceInstanceListeners()` y se abren los agentes de escucha devueltos (se llama a `CommunicationListener.openAsync()` en cada agente de escucha).
-    - Se llama al método runAsync (`StatelessService.runAsync()`) del servicio.
-3. Si está presente, se llama al propio método onOpenAsync del servicio (en concreto, se llama a `StatelessService.onOpenAsync()`. Se trata de una invalidación poco habitual, pero está disponible).
+2. Estos eventos se producen en paralelo:
+    - Se invoca `StatelessService.createServiceInstanceListeners()` y se abren los agentes de escucha devueltos. Se llama a `CommunicationListener.openAsync()` en cada uno de los agentes de escucha.
+    - Se llama al método `runAsync` del servicio (`StatelessService.runAsync()`).
+3. Si está presente, se llama al propio método `onOpenAsync` del servicio. En concreto, se llama a `StatelessService.onOpenAsync()`. Esta invalidación es poco habitual, pero está disponible.
 
-Es importante tener en cuenta que no hay ninguna ordenación entre las llamadas para crear y abrir los agentes de escucha y runAsync. Los agentes de escucha se pueden abrir antes de iniciar runAsync. De forma similar, runAsync puede terminar invocándose antes de que se abran o incluso de que se hayan construido los agentes de escucha de comunicación. Si se necesita cualquier sincronización, se deja como un ejercicio para el implementador. Soluciones comunes:
+Es importante tener en cuenta que no hay ninguna ordenación entre las llamadas para crear y abrir los agentes de escucha y la llamada a `runAsync`. Los agentes de escucha podrían abrirse antes de que se inicie `runAsync`. De forma similar, `runAsync` podría ser invocado antes de que se abran o incluso de que se hayan construido los agentes de escucha de comunicación. El implementador deberá llevar a cabo cualquier sincronización necesaria. Estas son algunas de las soluciones habituales:
 
-* En ocasiones, los agentes de escucha no pueden funcionar hasta que se crea otra información o se realiza un trabajo. Para los servicios sin estado, ese trabajo normalmente se puede realizar en el constructor del servicio, durante la llamada a `createServiceInstanceListeners()`, o como parte de la construcción del propio agente de escucha.
-* En ocasiones, el código de runAsync no se inicia hasta que estén abiertos los agentes de escucha. En este caso, hace falta coordinación adicional. Una solución habitual es incluir alguna marca dentro de los agentes de escucha que indique cuándo se han completado, lo cual se comprueba en runAsync antes de continuar con el trabajo real.
+* En ocasiones, los agentes de escucha no pueden funcionar hasta que se crea otra información o se realiza otro trabajo. En los servicios sin estado ese trabajo se suele realizar en el constructor del servicio. Se puede realizar durante la llamada a `createServiceInstanceListeners()` o como parte de la construcción del propio agente de escucha.
+* En ocasiones, el código de `runAsync` no se inicia hasta que están abiertos los agentes de escucha. En este caso, hace falta coordinación adicional. Una solución habitual consiste en agregar una marca en los agentes de escucha. La marca indica cuándo han terminado los agentes de escucha. El método `runAsync` comprueba esto antes de continuar el trabajo real.
 
 ## <a name="stateless-service-shutdown"></a>Cierre de un servicio sin estado
 Al cerrar un servicio sin estado, se sigue el mismo patrón, solo que en orden inverso:
 
-1. En paralelo
-    - Se cierran todos los agentes de escucha abiertos (se llama a `CommunicationListener.closeAsync()` en cada agente de escucha)
-    - Se cancela el token de cancelación que se pasó a `runAsync()` (la comprobación de la propiedad `isCancelled` del token de cancelación devuelve el valor True y, si se llama al método `throwIfCancellationRequested` del token, se inicia una excepción `CancellationException`).
-2. Cuando `closeAsync()` se ha completado en cada agente de escucha y también finaliza `runAsync()`, se llama al método `StatelessService.onCloseAsync()` del servicio, si está presente (de nuevo, se trata de una invalidación poco habitual).
-3. Una vez completado `StatelessService.onCloseAsync()`, se destruye el objeto de servicio.
+1. Estos eventos se producen en paralelo:
+    - Todos los agentes de escucha abiertos se cierran. Se llama a `CommunicationListener.closeAsync()` en cada uno de los agentes de escucha.
+    - Se cancela el token de cancelación que se pasó a `runAsync()`. La comprobación de la propiedad `isCancelled` del token de cancelación devuelve `true` y, si se llama al método `throwIfCancellationRequested` del token, se inicia una excepción `CancellationException`.
+2. Una vez que `closeAsync()` finaliza en cada agente de escucha y tras finalizar también `runAsync()`, se llama al método `StatelessService.onCloseAsync()` del servicio, si está presente. Una vez más, esto no es un reemplazo común.
+3. Una vez finalizado `StatelessService.onCloseAsync()`, se destruye el objeto de servicio.
 
 ## <a name="stateful-service-startup"></a>Inicio de un servicio con estado
 Los servicios con estado tienen un patrón similar al de los servicios sin estado, con unos pocos cambios. Al iniciarse un servicio con estado, el orden de los eventos es el siguiente:
 
 1. Se construye el servicio.
 2. Se llama a `StatefulServiceBase.onOpenAsync()`. Por lo general, la llamada no se invalida en el servicio.
-3. Las siguientes operaciones tienen lugar en paralelo:
+3. Estos eventos se producen en paralelo:
     - Se invoca a `StatefulServiceBase.createServiceReplicaListeners()`. 
       - Si se trata de un servicio principal, se abren todos los agentes de escucha devueltos. Se llama a `CommunicationListener.openAsync()` en cada uno de los agentes de escucha.
       - Si se trata de un servicio secundario, solamente se abren los agentes de escucha con la marca `listenOnSecondary = true`. No es muy frecuente tener agentes de escucha abiertos en servicios secundarios.
     - Si en la actualidad el servicio es un servicio principal, se llama al método `StatefulServiceBase.runAsync()` del servicio.
 4. Una vez que se han completado todas las llamadas a `openAsync()` de los agentes de escucha de la réplica y se ha llamando a `runAsync()`, se llama a `StatefulServiceBase.onChangeRoleAsync()`. Por lo general, la llamada no se invalida en el servicio.
 
-Al igual que en los servicios sin estado, no existe relación entre el orden en el que se crean y se abren los agentes de escucha y el momento en que se llama a **runAsync**. Si necesita que estas operaciones estén coordinadas, las soluciones serían prácticamente iguales. Hay un caso adicional para servicios con estado. Imaginemos que las llamadas que llegan a los agentes de escucha de comunicación requieren que la información se mantenga dentro de alguna instancia de [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Dado que es posible que los agentes de escucha de comunicación se abrieran antes de que se pudiera leer o escribir en las colecciones confiables, y antes de que se pudiera iniciar **runAsync**, se necesita coordinación adicional. La solución más sencilla y habitual consiste en que los agentes de escucha de comunicación devuelvan un código de error que permita informar al cliente para que intente la solicitud de nuevo.
+Al igual que en los servicios sin estado, en los servicios con estado no existe relación entre el orden en el que se crean y se abren los agentes de escucha y el momento en que se llama a `runAsync`. Si necesita que estas operaciones estén coordinadas, las soluciones serían prácticamente iguales. Hay un caso adicional en los servicios con estado. Imaginemos que las llamadas que llegan a los agentes de escucha de comunicación requieren que la información se mantenga dentro de alguna instancia de [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Dado que es posible que los agentes de escucha de comunicación se abrieran antes de que se pudiera leer o escribir en las colecciones confiables y antes de que se inicie `runAsync`, se necesita coordinación adicional. La solución más sencilla y habitual consiste en que los agentes de escucha de comunicación devuelvan un código de error. El cliente utiliza el código de error para saber si volver a intentar la solicitud.
 
 ## <a name="stateful-service-shutdown"></a>Cierre de un servicio con estado
 De forma similar a los servicios sin estado, los eventos de ciclo de vida durante el cierre son los mismos que durante el inicio, pero a la inversa. Cuando un servicio con estado se está cerrando, se producen los siguientes eventos:
 
-1. En paralelo:
+1. Estos eventos se producen en paralelo:
     - Todos los agentes de escucha abiertos se cierran. Se llama a `CommunicationListener.closeAsync()` en cada uno de los agentes de escucha.
-    - Se cancela el token de cancelación que se pasó a `runAsync()`. Una llamada al método `isCancelled()` del token de cancelación devuelve el valor True y, si se llama al método `throwIfCancellationRequested()` del token, se inicia una excepción `OperationCanceledException`.
+    - Se cancela el token de cancelación que se pasó a `runAsync()`. Una llamada al método `isCancelled()` del token de cancelación devuelve `true` y, si se llama al método `throwIfCancellationRequested()` del token, se inicia una excepción `OperationCanceledException`.
 2. Una vez que `closeAsync()` finaliza en cada agente de escucha y tras finalizar también `runAsync()`, se llama al método `StatefulServiceBase.onChangeRoleAsync()` del servicio. Por lo general, la llamada no se invalida en el servicio.
 
    > [!NOTE]  
-   > Solo es necesario esperar a que finalice **runAsync** si esta réplica es una réplica principal.
+   > Solo es necesario esperar a que `runAsync` finalice si esta réplica es una réplica principal.
 
 3. Una vez que finaliza el método `StatefulServiceBase.onChangeRoleAsync()`, se llama al método `StatefulServiceBase.onCloseAsync()`. Esta llamada es una invalidación poco habitual, pero está disponible.
 3. Una vez finalizado `StatefulServiceBase.onCloseAsync()`, se destruye el objeto de servicio.
 
 ## <a name="stateful-service-primary-swaps"></a>Intercambios de servicios con estado principales
-Durante la ejecución de un servicio con estado, solo se abren los agentes de escucha de comunicación y se llama al método **runAsync** de los servicios con estado principales. Se construyen réplicas secundarias, pero no reciben más llamadas. No obstante, durante la ejecución de un servicio con estado la réplica que es actualmente la principal puede cambiar. ¿Cómo afecta esto a los eventos de ciclo de vida que puede ver una réplica? El comportamiento de la réplica con estado depende de si es la réplica que está subiendo o bajando de categoría.
+Durante la ejecución de un servicio con estado, solo se abren los agentes de escucha de comunicación y se llama al método `runAsync` en las réplicas principales de esos servicios con estado. Se construyen réplicas secundarias, pero no reciben más llamadas. Durante la ejecución de un servicio con estado la réplica que es actualmente la principal puede cambiar. Los eventos del ciclo de vida que un réplica con estado puede ver dependen de si es la réplica que está subiendo o bajando de categoría.
 
-### <a name="for-the-primary-thats-demoted"></a>En el caso de que la principal baje de categoría
-Si la réplica principal baja de categoría, Service Fabric necesita que esta réplica deje de procesar mensajes y que cierre cualquier trabajo que esté realizando en segundo plano. Como resultado, este paso es similar al del servicio cuando se cierra. Se diferencia en que el servicio no se destruye ni se cierra, puesto que permanece como un elemento secundario. Se llama a las API siguientes:
+### <a name="for-the-demoted-primary"></a>Para la réplica principal degradada
+Service Fabric necesita que la réplica principal degradada deje de procesar mensajes y que cierre cualquier trabajo que esté realizando en segundo plano. Este paso es similar a cuando se cierra el servicio. Se diferencia en que el servicio no se destruye ni se cierra, puesto que permanece como secundario. Se producen los siguientes eventos:
 
-1. En paralelo:
+1. Estos eventos se producen en paralelo:
     - Todos los agentes de escucha abiertos se cierran. Se llama a `CommunicationListener.closeAsync()` en cada uno de los agentes de escucha.
-    - Se cancela el token de cancelación que se pasó a `runAsync()`. La comprobación método `isCancelled()` del token de cancelación devuelve el valor True y, si se llama al método `throwIfCancellationRequested()` del token, se inicia una excepción `OperationCanceledException`.
+    - Se cancela el token de cancelación que se pasó a `runAsync()`. Una comprobación del método `isCancelled()` del token de cancelación devuelve `true`. Si se le llama, el método `throwIfCancellationRequested()` del token produce una excepción `OperationCanceledException`.
 2. Una vez que `closeAsync()` finaliza en cada agente de escucha y tras finalizar también `runAsync()`, se llama al método `StatefulServiceBase.onChangeRoleAsync()` del servicio. Por lo general, la llamada no se invalida en el servicio.
 
-### <a name="for-the-secondary-thats-promoted"></a>En el caso de que la secundaria suba de categoría
-De igual modo, Service Fabric necesita que la réplica secundaria que sube de categoría comience a escuchar los mensajes de la conexión e inicie las tareas en segundo plano que debe completar. Como resultado, este proceso es similar a cuando se crea el servicio, salvo que la propia réplica ya existe. Se llama a las API siguientes:
+### <a name="for-the-promoted-secondary"></a>Para la réplica secundaria promovida
+De igual modo, Service Fabric necesita que la réplica secundaria que sube de categoría comience a escuchar los mensajes de la conexión e inicie las tareas en segundo plano que debe completar. Este proceso es similar a cuando se crea el servicio. La diferencia es que la propia réplica ya existe. Se producen los siguientes eventos:
 
-1. En paralelo:
+1. Estos eventos se producen en paralelo:
     - Se invoca `StatefulServiceBase.createServiceReplicaListeners()` y se abren los agentes de escucha devueltos. Se llama a `CommunicationListener.openAsync()` en cada uno de los agentes de escucha.
     - Se llama al método `StatefulServiceBase.runAsync()` del servicio.
 2. Una vez que se han completado todas las llamadas a `openAsync()` de los agentes de escucha de la réplica y se ha llamando a `runAsync()`, se llama a `StatefulServiceBase.onChangeRoleAsync()`. Por lo general, la llamada no se invalida en el servicio.
 
-
 ### <a name="common-issues-during-stateful-service-shutdown-and-primary-demotion"></a>Problemas habituales durante la degradación de la categoría principal y el cierre de un servicio con estado
-Service Fabric cambia la categoría principal del un servicio con estado por diferentes razones. La más frecuente es el [reequilibrio de clusteres](service-fabric-cluster-resource-manager-balancing.md) y la [actualización de aplicaciones](service-fabric-application-upgrade.md). Durante estas operaciones (así como durante el cierre normal del servicio, al igual que ocurriría si el servicio se eliminara), es importante que el servicio respete el objeto `cancellationToken`. 
+Service Fabric cambia la categoría principal de un servicio con estado por diferentes razones. Las razones más frecuente son el [reequilibrio de clústeres](service-fabric-cluster-resource-manager-balancing.md) y la [actualización de aplicaciones](service-fabric-application-upgrade.md). Durante estas operaciones, es importante que el servicio respete el `cancellationToken`. Esto también se aplica durante el cierre normal del servicio, por ejemplo, si se ha eliminado el servicio.
 
-Los servicios que no administren correctamente la cancelación pueden experimentar errores. El rendimiento de estas operaciones es lento, ya que Service Fabric espera que los servicios se detengan sin que se produzcan errores. En última instancia, esto puede producir errores en las actualizaciones, que pueden agotar el tiempo de espera o revertirse. Si no se respeta el token de cancelación, también puede producirse un desequilibrio en los clústeres. Este desequilibrio puede producirse porque los nodos pueden sobrecargarse sin que los servicios puedan reequilibrarse, dado que se tarda algún tiempo en transferirlos a otro sitio. 
+Los servicios que no administren correctamente la cancelación pueden experimentar errores. El rendimiento de estas operaciones es lento, ya que Service Fabric espera que los servicios se detengan sin que se produzcan errores. En última instancia, esto puede producir errores en las actualizaciones, que pueden agotar el tiempo de espera y revertirse. Si no se respeta el token de cancelación, también puede producirse un desequilibrio en los clústeres. Los clústeres pueden llegar a estar desequilibrados porque exceso de carga en los nodos. Sin embargo, los servicios no se vuelven a equilibrar porque es demasiado lento moverlos a otra parte. 
 
-Como los servicios tienen estado, también es probable que utilicen [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). En Service Fabric, cuando un servicio principal se degrada de nivel, una de las primeras cosas que ocurren es que se revoca el acceso de escritura al estado subyacente. Esto genera una serie problemas secundarios que pueden afectar al ciclo de vida del servicio. Las colecciones devuelven excepciones en función del momento elegido y de si la réplica se está transfiriendo a otro lugar o cerrando. Estas excepciones deberían administrarse correctamente. Las excepciones iniciadas por Service Fabric pueden corresponder a dos categorías: permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) y transitorias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Las excepciones permanentes tienen que registrarse e iniciarse, mientras que las transitorias pueden volver a intentarse con arreglo a una determinada lógica de recuperación.
+Como los servicios tienen estado, también es probable que utilicen [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md). En Service Fabric, cuando un servicio principal se degrada de nivel, una de las primeras cosas que ocurren es que se revoca el acceso de escritura al estado subyacente. Esto genera un segundo conjunto de problemas que pueden afectar al ciclo de vida del servicio. Las colecciones devuelven excepciones en función del momento elegido y de si la réplica se está transfiriendo a otro lugar o cerrando. Es importante controlar estas excepciones correctamente. 
 
-Administrar las excepciones que proceden del uso de `ReliableCollections` junto con los acontecimientos del ciclo de vida del servicio es una parte importante del proceso de comprobación y validación de un servicio de Reliable Services. Se recomienda ejecutar siempre el servicio con carga mientras se realizan actualizaciones y [pruebas de caos](service-fabric-controlled-chaos.md) antes de realizar una implementación en producción. Estos pasos básicos ayudan a garantizar que el servicio está implementado correctamente y puede administrar los eventos del ciclo de vida correctamente.
+Las excepciones producidas por Service Fabric son permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) o transitorias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Las excepciones permanentes deberían ser registras y lanzadas. Las excepciones transitorias se pueden volver a intentar en función de una lógica de reintento.
+
+Administrar las excepciones que proceden del uso de `ReliableCollections` junto con los eventos del ciclo de vida del servicio es una parte importante del proceso de comprobación y validación de un servicio de Reliable Services. Se recomienda que ejecute siempre el servicio bajo carga. También debe realizar las actualizaciones y las [pruebas de caos](service-fabric-controlled-chaos.md) antes de la implementación en producción. Estos pasos básicos ayudan a garantizar que el servicio está implementado correctamente y que puede administrar los eventos del ciclo de vida correctamente.
 
 ## <a name="notes-on-service-lifecycle"></a>Notas sobre el ciclo de vida del servicio
-* Tanto el método `runAsync()` como las llamadas a `createServiceInstanceListeners/createServiceReplicaListeners` son opcionales. Un servicio puede tener uno, ambos o ninguno. Por ejemplo, si el servicio realiza todo su trabajo en respuesta a las llamadas del usuario, no es necesario que implemente `runAsync()`. Solo son necesarios los agentes de escucha de comunicación y el código asociado. Del mismo modo, la creación y devolución de los agentes de escucha de comunicación es opcional, ya que el servicio tal vez solo tiene que realizar trabajo en segundo plano, por lo que solo necesita implementar `runAsync()`.
-* Un servicio puede completar `runAsync()` correctamente y volver desde este. Esto no se considera una condición de error y representaría el trabajo en segundo plano de la finalización del servicio. Para los servicios de Reliable Services con estado, se llamaría a `runAsync()` de nuevo si el servicio pasara de principal a secundario y de nuevo a principal.
-* Si un servicio sale de `runAsync()` iniciando una excepción inesperada, se trata de un error, de modo que se cierra el objeto de servicio y se notifica un error de mantenimiento.
-* Aunque no hay un límite de tiempo para que se devuelvan resultados de estos métodos, se pierde inmediatamente la posibilidad de escribir y, por lo tanto, no se puede realizar ningún trabajo real. Se recomienda que devuelva resultados lo antes posible tras recibir la solicitud de cancelación. Si su servicio no responde a estas llamadas a la API en un intervalo de tiempo razonable, Service Fabric puede forzar la finalización del servicio. Esto solo suele pasar durante las actualizaciones de aplicación o cuando se elimina un servicio. Este tiempo de espera es de 15 minutos de manera predeterminada.
-* Los errores en la ruta `onCloseAsync()` dan como resultado una llamada a `onAbort()`, que es una oportunidad como último recurso para hacer todo lo posible para que el servicio limpie y libere cualquier recurso que haya reclamado.
+* Tanto el método `runAsync()` como las llamadas a `createServiceInstanceListeners/createServiceReplicaListeners` son opcionales. Un servicio puede tener uno, ambos o ninguno. Por ejemplo, si el servicio realiza todo su trabajo en respuesta a las llamadas del usuario, no es necesario que implemente `runAsync()`. Solo son necesarios los agentes de escucha de comunicación y el código asociado. 
 
-## <a name="next-steps"></a>Pasos siguientes
+  Del mismo modo, crear y devolver agentes de escucha de comunicación es opcional. El servicio puede tener solo trabajos en segundo plano, por lo que solo es necesario implementar `runAsync()`.
+* Un servicio puede completar `runAsync()` correctamente y volver desde este. Esto no se considera una condición de error. Representa la finalización del trabajo en segundo plano del servicio. Para los servicios de Reliable Services con estado, se llamaría a `runAsync()` de nuevo si el servicio pasara de principal a secundario y de nuevo a principal.
+* Si un servicio sale de `runAsync()` iniciando una excepción inesperada, se considera un error. El objeto del servicio se cierra y se notifica un error de mantenimiento.
+* Aunque no hay un límite de tiempo para que se devuelvan resultados de estos métodos, se pierde inmediatamente la posibilidad de escribir. Por lo tanto, no se puede completar ningún trabajo real. Se recomienda que devuelva resultados lo antes posible tras recibir la solicitud de cancelación. Si su servicio no responde a estas llamadas a la API en un intervalo de tiempo razonable, Service Fabric puede forzar la finalización del servicio. Esto solo suele pasar durante las actualizaciones de aplicaciones o cuando se elimina un servicio. Este tiempo de espera es de 15 minutos de manera predeterminada.
+* Los errores en la ruta de acceso de `onCloseAsync()` provocan la llamada a `onAbort()`. Esta llamada es una oportunidad como último recurso para hacer todo lo posible para que el servicio limpie y libere cualquier recurso que haya reclamado.
+
+## <a name="next-steps"></a>pasos siguientes
 * [Introducción a Reliable Services](service-fabric-reliable-services-introduction.md)
-* [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start-java.md)
+* [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start-java.md)
 * [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)

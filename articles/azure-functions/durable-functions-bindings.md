@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -66,7 +66,7 @@ Estas son algunas notas acerca del desencadenador de orquestación:
 
 El enlace de desencadenador de orquestación admite entradas y salidas. Estas son algunas cosas que hay que saber acerca del control de entradas y salidas:
 
-* **entradas**: las funciones de orquestación admiten solamente [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como tipo de parámetro. No se admiten entradas de deserialización directamente en la firma de función. El código tiene que usar el método [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) para capturar entradas de la función del orquestador. Estas entradas tienen que ser tipos serializables con JSON.
+* **entradas**: las funciones de orquestación admiten solamente [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como tipo de parámetro. No se admite deserialización de entradas directamente en la firma de función. El código tiene que usar el método [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) para capturar entradas de la función del orquestador. Estas entradas tienen que ser tipos serializables con JSON.
 * **salidas**: los desencadenadores de orquestación admiten valores de salida, así como de entrada. El valor devuelto de la función se utiliza para asignar el valor de salida y tiene que ser serializable con JSON. Si una función devuelve `Task` o `void`, un valor `null` se guardará como la salida.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-La mayoría de las funciones del orquestador llaman a otras funciones, aquí tenemos un ejemplo de "Hello World" que muestra cómo llamar a una función:
+La mayoría de las funciones del orquestador llaman a funciones de actividad, por lo que aquí tenemos un ejemplo de "Hola mundo" que muestra cómo llamar a una función de actividad:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Estas son algunas notas acerca del desencadenador de actividad:
 El enlace de desencadenador de actividad admite entradas y salidas como el desencadenador de orquestación. Estas son algunas cosas que hay que saber acerca del control de entradas y salidas:
 
 * **entradas**: las funciones de actividad usan de forma nativa [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como tipo de parámetro. De forma alternativa, una función de actividad puede declararse con cualquier tipo de parámetro que se puede serializar con JSON. Cuando usa `DurableActivityContext`, puede llamar a [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) para capturar y deserializar la entrada de la función de actividad.
-* **salidas**: los desencadenadores de actividad admiten valores de salida, así como de entrada. El valor devuelto de la función se utiliza para asignar el valor de salida y tiene que ser serializable con JSON. Si una función devuelve `Task` o `void`, un valor `null` se guardará como la salida.
+* **salidas**: las funciones de actividad admiten valores de salida, así como de entrada. El valor devuelto de la función se utiliza para asignar el valor de salida y tiene que ser serializable con JSON. Si una función devuelve `Task` o `void`, un valor `null` se guardará como la salida.
 * **metadatos**: las funciones de actividad pueden enlazar a un parámetro `string instanceId` para obtener el identificador de instancia de la orquestación primaria.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ El enlace del cliente de orquestación le permite escribir funciones que interac
 
 Si está utilizando Visual Studio, puede enlazar al cliente de orquestación mediante el atributo. NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html).
 
-Si utiliza lenguajes de scripting (por ej. archivos *.csx*) para desarrollar, el desencadenador de orquestación está definido por el objeto JSON siguiente en la matriz `bindings` de función .json:
+Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx*) para desarrollar, el desencadenador de orquestación está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Si utiliza lenguajes de scripting (por ej. archivos *.csx*) para desarrollar, el
 ```
 
 * `taskHub`: se usa en escenarios donde varias aplicaciones de función comparten la misma cuenta de almacenamiento, pero tienen que estar aisladas entre sí. Si no se especifica, se usa el valor predeterminado `host.json`. Este valor tiene que coincidir con el valor usado por las funciones de orquestador de destino.
-* `connectionName`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. La cuenta de almacenamiento representada por esta cadena de conexión tiene que ser la misma que utilizan las funciones del orquestador de destino. Si no se especifica, se utiliza la cadena de conexión predeterminada de la aplicación de función.
+* `connectionName`: nombre de una configuración de aplicación que contiene una cadena de conexión de cuenta de almacenamiento. La cuenta de almacenamiento representada por esta cadena de conexión tiene que ser la misma que utilizan las funciones del orquestador de destino. Si no se especifica, se utiliza la cadena de conexión de cuenta de almacenamiento predeterminada de la aplicación de función.
 
 > [!NOTE]
 > En la mayoría de los casos, se recomienda omitir estas propiedades y confiar en el comportamiento predeterminado.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Ejemplo de cliente (no de Visual Studio)
 
-Si no está usando Visual Studio para el desarrollo, puede crear el siguiente archivo de función.json. En este ejemplo se muestra cómo configurar una función desencadenada por la cola que utiliza el enlace del cliente de orquestación durable:
+Si no está usando Visual Studio para el desarrollo, puede crear el siguiente archivo *function.json*. En este ejemplo se muestra cómo configurar una función desencadenada por la cola que utiliza el enlace del cliente de orquestación durable:
 
 ```json
 {
@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Pueden encontrar más información acerca de cómo iniciar instancias en [Administración de instancias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Obtenga información acerca de los comportamientos de los puntos de control y reproducción](durable-functions-checkpointing-and-replay.md)

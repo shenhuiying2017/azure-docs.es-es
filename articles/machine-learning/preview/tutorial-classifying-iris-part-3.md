@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -161,6 +161,9 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
 
    La tercera línea de la salida muestra **"registrationState": "Registering"** ("registrationState": "Registrando"). Espere unos minutos y repita el comando **show**, hasta que la salida muestre **"registrationState": "Registered"** ("registrationState": "Registrado").
 
+   >[!NOTE] 
+   Si va a realizar la implementación en un clúster de ACS, debe registrar el proveedor de recursos **Microsoft.ContainerService** y usar exactamente el mismo método.
+
 3. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
 
    Tenga en cuenta que el siguiente comando de configuración requiere que tenga acceso de colaborador a la suscripción. Si no lo tiene, al menos necesita acceso de colaborador al grupo de recursos en el que va a realizar la implementación. Para hacer esto último, es preciso especificar el nombre del grupo de recursos como parte del comando de configuración mediante la marca `-g`. 
@@ -206,7 +209,7 @@ Ya está listo para crear el servicio web en tiempo real.
 1. Use el comando siguiente para crear un servicio web en tiempo real:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    Este comando genera un identificador del servicio web que puede usar más adelante.
 
@@ -298,7 +301,7 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Visualización de los datos recopilados en Azure Blob Storage
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Busque todas las cuentas de almacenamiento. Para ello, seleccione **Más servicios**.
 
@@ -336,7 +339,7 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
       ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta tercera parte de la serie de tutoriales de tres partes, ha aprendido a usar Azure Machine Learning Services para:
 > [!div class="checklist"]
 > * Buscar el archivo de modelo

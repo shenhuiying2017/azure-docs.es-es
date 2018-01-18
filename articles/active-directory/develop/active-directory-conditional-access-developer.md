@@ -1,5 +1,5 @@
 ---
-title: Instrucciones para desarrolladores para Acceso condicional de Azure Active Directory | Microsoft Docs
+title: Instrucciones para desarrolladores para Acceso condicional de Azure Active Directory
 description: Instrucciones para desarrolladores y escenarios para el acceso condicional de Azure AD
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para Acceso condicional de Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) ofrece varias de maneras para proteger la aplicació
 * Autorización para que solo los dispositivos inscritos en Intune accedan a servicios específicos
 * Restricción de ubicaciones de usuario e intervalos IP
 
-Para más información sobre la totalidad de funcionalidades de acceso condicional, consulte [Acceso condicional en el Portal de Azure clásico](../active-directory-conditional-access-azure-portal.md). 
+Para más información sobre las funcionalidades completas del acceso condicional, consulte [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 En este artículo, nos centramos en el significado que tiene el acceso condicional para los desarrolladores que compilan aplicaciones para Azure AD.  En él se supone que tiene conocimientos de aplicaciones de inquilino [único](active-directory-integrating-applications.md) y [multiinquilino](active-directory-devhowto-multi-tenant-overview.md), además de los [patrones comunes de autenticación](active-directory-authentication-scenarios.md).
 
@@ -74,7 +73,7 @@ Los desarrolladores pueden tomar este desafío y anexarlo a una solicitud nueva 
 
 ## <a name="scenarios"></a>Escenarios
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../active-directory-conditional-access-unlicensed-usage-report.md).  Los desarrolladores pueden unirse a [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
 
@@ -218,7 +217,7 @@ Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA 
 
 ## <a name="see-also"></a>Otras referencias
 
-* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Para más información sobre los ejemplos de código de Azure AD, consulte [repositorio de GitHub de ejemplos de código](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Para más información sobre el SDK de ADAL y acceso a la documentación de referencia, consulte la [guía de la biblioteca](active-directory-authentication-libraries.md).
 * Para más información sobre los escenarios multiinquilino, consulte el artículo sobre el [inicio de sesión de usuarios con el patrón multiinquilino](active-directory-devhowto-multi-tenant-overview.md).

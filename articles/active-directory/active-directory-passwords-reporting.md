@@ -1,5 +1,5 @@
 ---
-title: "Creación de informes: SSPR de Azure AD | Microsoft Docs"
+title: "Informes del autoservicio de restablecimiento de contraseña: Azure Active Directory"
 description: "Creación de informes sobre eventos de autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1d27dd77547c62a3c2f77aeba214f05326c9cab4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -64,6 +64,12 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 
 La API de eventos e informes de Azure AD admite la recuperación de toda la información incluida en los informes de restablecimiento de contraseña y de registro de restablecimiento de contraseña. Mediante esta API, puede descargar eventos individuales de restablecimiento de contraseña y de registro de restablecimiento de contraseña e integrarlos con la tecnología de informes que prefiera.
 
+> [!IMPORTANT]
+> Actualmente, la API de eventos e informes de Azure AD recupera hasta *75 000 eventos individuales* de tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) y [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). La API abarca los últimos 30 días.
+> 
+> Si necesita recuperar o almacenar datos más allá de este período, se sugiere mantenerlos en una base de datos externa que use la API para consultar las diferencias que se generen. Se recomienda comenzar a recuperar estos datos cuando se empiece a usar SSPR en la organización. Manténgalos externamente y luego siga realizando el seguimiento de las diferencias a partir de ese momento.
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>Introducción a la API de informes
 
 Para obtener acceso a estos datos, debe escribir una pequeña aplicación o un script para recuperarlos de los servidores. Para obtener más información, vea [Introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
@@ -72,12 +78,6 @@ Cuando tenga un script que funcione, querrá examinar los eventos de registro y 
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): muestra las columnas disponibles para los eventos de restablecimiento de contraseña.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): muestra las columnas disponibles para eventos de registro de restablecimiento de contraseña.
-
-### <a name="reporting-api-data-retrieval-limitations"></a>Informes de las limitaciones de recuperación de datos de la API
-
-Actualmente, la API de eventos e informes de Azure AD recupera hasta *75 000 eventos individuales* de tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) y [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). La API abarca los *últimos 30 días*.
-
-Si necesita recuperar o almacenar datos más allá de este período, se sugiere mantenerlos en una base de datos externa que use la API para consultar las diferencias que se generen. Se recomienda comenzar a recuperar estos datos cuando se empiece a usar SSPR en la organización. Manténgalos externamente y luego siga realizando el seguimiento de las diferencias a partir de ese momento.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 
@@ -194,7 +194,7 @@ En la lista siguiente se explica en detalle esta actividad:
      >Un error no implica que un usuario no pueda restablecer su propia contraseña. Sino que no finaliza el proceso de registro. Si en la cuenta hay datos no comprobados que son correctos (como un número de teléfono no validado), todavía pueden usarse para restablecer la contraseña aunque no estén comprobados. Para obtener más información, vea [¿Qué ocurre cuando se registra un usuario?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).

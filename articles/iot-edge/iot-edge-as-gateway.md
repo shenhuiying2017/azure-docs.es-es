@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Uso de un dispositivo IoT Edge como puerta de enlace (versión preliminar)
 
@@ -49,9 +49,9 @@ Se trata de una hoja de referencia rápida que compara los primitivos de IoT Hub
 | Métodos directos y mensajes de nube a dispositivo | La nube puede tratar individualmente cada dispositivo conectado | La nube solo puede tratar el dispositivo de puerta de enlace | La nube puede tratar individualmente cada dispositivo conectado |
 | [Limitaciones y cuotas de IoT Hub][lnk-iothub-throttles-quotas] | Aplicación a cada dispositivo | Aplicación al dispositivo de puerta de enlace | Aplicación a cada dispositivo |
 
-Cuando se usa un patrón de puerta de enlace opaca, todos los dispositivos que se conectan a través de esa puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener 50 mensajes como máximo. De ello se desprende que el patrón de puerta de enlace opaca debe usarse solo cuando muy pocos dispositivos están conectados a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo sea bajo.
+Cuando se usa un patrón de puerta de enlace opaca (traducción de protocolo), todos los dispositivos que se conectan a través de esa puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener 50 mensajes como máximo. De ello se desprende que el patrón de puerta de enlace opaca debe usarse solo cuando muy pocos dispositivos están conectados a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo sea bajo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Usar un dispositivo IoT Edge como [puerta de enlace transparente][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md

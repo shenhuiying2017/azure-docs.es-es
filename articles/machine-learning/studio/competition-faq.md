@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
 
-Las competiciones de Microsoft Cortana Intelligence nos permiten unir a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Las competiciones que hospedamos están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de nuestros 10 marcadores públicos principales. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
+Las competiciones de Microsoft Cortana Intelligence unen a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Estas competiciones hospedadas están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de diez marcadores públicos principales. Puede acceder a la página principal de competiciones en [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **¿Con qué frecuencia publica Microsoft nuevas competiciones?**
 
@@ -31,33 +31,33 @@ Iniciaremos las competiciones propias de Microsoft de forma periódica, aproxima
 
 **¿Dónde puedo exponer preguntas generales sobre la ciencia de datos?**
 
-Use nuestro [foro de Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Para preguntas generales, puede usar el [foro de Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **¿Cómo puedo participar en una competición?**
 
-Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](http://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
+Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de la [Galería de Azure AI](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](http://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
 
-1. Busque la competición en la que le gustaría participar, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón **Enter Competition** (Participar en la competición) para copiar el experimento de inicio en su área de trabajo de Azure Machine Learning. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
+1. Busque la competición en la que le gustaría participar, lea todas las instrucciones y vea el vídeo tutorial. Después, haga clic en el botón **Enter Competition** (Entrar en la competición) y copie el experimento de inicio en el área de trabajo existente de Azure Machine Learning. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
 
-2. Cree un experimento predictivo a partir del modelo entrenado del experimento de inicio. Después, ajuste con cuidado el esquema de entrada y de salida del servicio web para asegurarse de que cumplen con el requisito especificado en la documentación de la competición. El documento del tutorial generalmente contiene instrucciones detalladas sobre ello. También puede ver el vídeo del tutorial, si está disponible.   
+2. Cree un experimento predictivo a partir del modelo entrenado del experimento de inicio. Después, ajuste con cuidado el esquema de entrada y de salida del servicio web para asegurarse de que cumplen con el requisito especificado en la documentación de la competición. El documento del tutorial generalmente tiene instrucciones detalladas sobre ello. También puede ver el vídeo del tutorial, si está disponible.   
 
 3. Implemente un servicio web a partir de su experimento predictivo. Pruebe el servicio web pulsando el botón **Test** (Probar) o con la plantilla de Excel que se genera automáticamente para asegurarse de que funciona correctamente.   
 
-4. Envíe el servicio web como entrada de la competición y podrá ver la puntuación pública que obtiene en la página de la competición de la galería de Cortana Intelligence. Si consigue aparecer en el marcador, celébrelo como se merece.  
+4. Envíe el servicio web como entrada de la competición y podrá ver la puntuación pública que obtiene en la página de la competición de la Galería de Azure AI. Si consigue aparecer en el marcador, celébrelo como se merece.  
 
-Después de enviar una entrada correctamente, puede volver al experimento de inicio copiado, repetir todos los pasos, actualizar el experimento predictivo, actualizar el servicio web y enviar una nueva entrada.   
+Después de enviar una entrada correctamente, puede volver al experimento de inicio copiado. A continuación, itere y actualice el experimento predictivo, actualice el servicio web y envíe una nueva entrada.   
 
 **¿Puedo usar herramientas de código abierto para participar en estas competiciones?**
 
-Los participantes de la competición usan Azure Machine Learning Studio, un servicio basado en la nube dentro de Cortana Intelligence Suite, para desarrollar modelos de ciencia de datos y crear entradas para participar en la competición. Machine Learning Studio no solo proporciona una interfaz gráfica de usuario para crear experimentos de aprendizaje automático, sino que también permite aprovechar sus propios scripts de R o Python para la ejecución nativa. El tiempo de ejecución de R y Python en Studio incluye un amplio conjunto de paquetes de R o Python de código abierto y también permite importar sus propios paquetes como parte del experimento. Studio también incluye un servicio integrado de Jupyter Notebook para que pueda llevar a cabo exploración de datos de estilo libre. Por supuesto, siempre puede descargar los conjuntos de datos usados en la competición y explorarlos en su herramienta favorita fuera de Machine Learning Studio. 
+Los participantes de la competición usan Azure Machine Learning Studio, un servicio basado en la nube dentro de Cortana Intelligence Suite, para desarrollar modelos de ciencia de datos y crear entradas para participar en la competición. Machine Learning Studio no solo proporciona una interfaz gráfica de usuario para crear experimentos de aprendizaje automático, sino que también permite aprovechar sus propios scripts de R o Python para la ejecución nativa. Los entornos de ejecución de R y Python en Studio incluyen un amplio conjunto de paquetes de código abierto de R y Python. También puede importar sus propios paquetes como parte del experimento. Studio también incluye un servicio integrado de Jupyter Notebook para que pueda llevar a cabo exploración de datos de estilo libre. Por supuesto, siempre puede descargar los conjuntos de datos usados en la competición y explorarlos en su herramienta favorita fuera de Machine Learning Studio. 
 
 **¿Es necesario ser un experto en datos para participar?**
 
-Nº De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. Nuestro público de destino es el siguiente:
+Nº De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. El público de destino es el siguiente:
 
 * **Desarrolladores de datos**, **científicos de datos**, **profesionales de BI** y **de análisis**: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
 * **Administradores de datos**: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
-* **Estudiantes** & **investigadores:** los usuarios que estén aprendiendo y adquiriendo habilidades relacionadas con los datos a través de programas académicos en universidades o participantes de los cursos en línea abiertos y masivos (MOOC).
+* **Estudiantes** & e**investigadores:** los usuarios que estén aprendiendo y adquiriendo habilidades relacionadas con los datos a través de programas académicos en universidades o participantes de los cursos en línea abiertos y masivos (MOOC).
 
 **¿Puedo participar con mis compañeros y formar un equipo?**
 
@@ -65,7 +65,7 @@ La plataforma de competición no admite actualmente la participación de equipos
 
 **¿Tengo que pagar para participar en una competición?**
 
-La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de Azure Machine Learning para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea adquirir una suscripción de Azure, vaya a la página [Precios de Azure](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán las tasas estándar si se usa un área de trabajo estándar para construir experimentos. Vea la [información sobre precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obtener más información. 
+La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de Azure Machine Learning para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea adquirir una suscripción de Azure, vaya a la página [Precios de Azure](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán las tasas estándar si se usa un área de trabajo estándar para construir experimentos. Para más información, vea la [información sobre precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -78,7 +78,7 @@ Esto es lo que sucede:
 * El conjunto de datos completo que se usa en la competición se divide al azar por estratificación entre datos de entrenamiento y datos de prueba (el resto). La división aleatoria se estratifica para asegurarnos de que la distribución de las etiquetas de los datos de entrenamiento y los de pruebas sea coherente.
 * Los datos de entrenamiento se cargan y se proporcionan a los usuarios como parte del experimento inicial en la configuración del módulo Importar datos.
 * Además, los datos de prueba se dividen en datos de pruebas públicas y privadas con la misma estratificación.
-* Los datos de pruebas públicas se utilizan para la ronda inicial de puntuaciones. El resultado se conoce como puntuación pública y es el que puede verse en el historial de envío tras enviar la entrada. Esta puntuación se calcula para cada entrada que se envía. Esta puntuación pública se utiliza para clasificarle en el marcador público.
+* Los datos de pruebas públicas se utilizan para la ronda inicial de puntuaciones. El resultado se conoce como la puntuación pública. Es lo que ve en el historial de envío cuando envía la entrada. Esta puntuación se calcula para cada entrada que se envía. Esta puntuación pública se utiliza para clasificarle en el marcador público.
 * Los datos de pruebas privadas se utilizan para la ronda final de puntuación una vez finalizada la competición. Esto se conoce como puntuación privada. 
 * Para cada participante se selecciona automáticamente un número fijo de entradas con las puntuaciones públicas más altas para entrar en la ronda de puntuación privada (este número puede variar en función de la competición). Finalmente, se selecciona la entrada con la puntuación privada más alta para entrar en la clasificación final, que en última instancia determina quiénes son los ganadores del premio.  
 

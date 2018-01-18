@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala (versión preliminar)
 
@@ -49,7 +49,7 @@ Un manifiesto de implementación es un documento JSON que describe los módulos 
 
 Los metadatos de configuración de cada módulo incluyen: 
 * Versión 
-* Tipo 
+* type 
 * Estado (p. ej., en funcionamiento o detenido) 
 * Directiva de reinicio 
 * Repositorio de imágenes y contenedores 
@@ -57,7 +57,23 @@ Los metadatos de configuración de cada módulo incluyen:
 
 ### <a name="target-condition"></a>Condición de destino
 
-Las condiciones de destino especifican si un dispositivo IoT Edge debe incluirse en el ámbito de una implementación. Se basan en las etiquetas de dispositivo gemelo. 
+La condición de destino se evalúa continuamente para incluir todos los nuevos dispositivos que cumplen los requisitos o para desconectar los dispositivos que ya no lo hacen durante la vigencia de la implementación. La implementación se volverá a activar si el servicio detecta cualquier cambio en la condición de destino. Por ejemplo, tiene una implementación A que tiene una condición de destino tags.environment = 'prod'. Al comenzar la implementación, hay 10 dispositivos prod. Los módulos se instalarán correctamente en estos 10 dispositivos. El estado del agente de IoT Edge se muestra con 10 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 0 respuestas pendientes. Ahora agregue 5 dispositivos más con tags.environment = 'prod'. El servicio detectará el cambio y el estado del agente de IoT Edge pasará a incluir 15 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 5 respuestas pendientes al intentar implementar los cinco nuevos dispositivos.
+
+Use cualquier condición booleana en las etiquetas de los dispositivos gemelos o deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Ejemplos de condiciones de destino:
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+
+Estas son algunas limitaciones a la hora de construir una condición de destino:
+
+* En dispositivos gemelos, solo puede crear una condición de destino mediante etiquetas o deviceId.
+* No se permiten las comillas dobles en ninguna porción de la condición de destino. Use comillas simples.
+* Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, la condición de destino para: operator'sDevice se debería escribir como deviceId='operator''sDevice'.
+* Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino:-:.+%_#*?!(),=@;$
 
 ### <a name="priority"></a>Prioridad
 
@@ -100,7 +116,7 @@ Realice las reversiones siguiendo esta secuencia:
    * La segunda implementación ahora debe incluir el estado de implementación de los dispositivos que se han revertido.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Siga los pasos para crear, actualizar o eliminar una implementación en [Deploy and monitor IoT Edge modules at scale][lnk-howto] (Implementación y supervisión de módulos de IoT Edge a escala).
 * Aprenda más sobre otros conceptos de IoT Edge como el [entorno de tiempo de ejecución de IoT Edge][ lnk-runtime] y los [módulos de IoT Edge][lnk-modules].

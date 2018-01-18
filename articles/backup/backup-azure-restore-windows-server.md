@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
 
@@ -33,7 +33,7 @@ En enero de 2017, Microsoft publicó una actualización de versión preliminar p
 > Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/en-us/help/3216528?preview) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/en-us/help/3216528?preview) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea. La restauración instantánea **no** está actualmente disponible en todas las configuraciones regionales.
 >
 
-La restauración instantánea está disponible en los almacenes de Recovery Services de Azure Portal y en los almacenes de Backup del portal clásico. Si desea usar la restauración instantánea, descargue la actualización de MARS y siga los procedimientos que mencionan la restauración instantánea.
+Use almacenes de Restauración instantánea con Recovery Services en Azure Portal. Si almacenó datos en los almacenes de Backup, se convirtieron en almacenes de Recovery Services. Si desea usar la restauración instantánea, descargue la actualización de MARS y siga los procedimientos que mencionan la restauración instantánea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -149,7 +149,7 @@ La terminología usada en estos pasos incluye:
     > Si no hace clic en Desmontar, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta 24 horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
     >
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si Azure Backup no monta correctamente el volumen de recuperación incluso después de varios minutos de hacer clic en **Montar** o no se puede montar el volumen de recuperación con uno o varios errores, siga los pasos siguientes para empezar a realizar la recuperación normalmente.
 
 1.  Cancele el proceso de montaje en curso en caso de que se haya estado ejecutando durante varios minutos.
@@ -176,5 +176,5 @@ Si Azure Backup no monta correctamente el volumen de recuperación incluso despu
 
 Si la recuperación sigue sin funcionar, reinicie el cliente y el servidor. Si no es recomendable reiniciar el equipo o la recuperación sigue sin funcionar incluso después de reiniciar el servidor, intente recuperar desde una máquina alternativa y póngase en contacto con el soporte técnico de Azure. Para ello, vaya a [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y envíe una solicitud de soporte técnico.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).

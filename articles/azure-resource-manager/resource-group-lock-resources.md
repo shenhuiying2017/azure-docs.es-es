@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados 
+
 Como administrador, puede que tenga que bloquear una suscripción, un grupo de recursos o un recurso para impedir que otros usuarios de su organización eliminen o modifiquen accidentalmente recursos esenciales. Puede establecer el bloqueo de nivel en **CanNotDelete** o **ReadOnly**. 
 
 * **CanNotDelete** significa que los usuarios autorizados pueden leer y modificar recursos, pero no eliminarlos. 
@@ -43,29 +44,76 @@ Para crear o eliminar bloqueos de administración, debe tener acceso a las accio
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Plantilla
-El ejemplo siguiente muestra una plantilla que crea un bloqueo en una cuenta de almacenamiento. La cuenta de almacenamiento en la que se va a aplicar el bloqueo se proporciona como un parámetro. El nombre del bloqueo se crea mediante la concatenación del nombre del recurso con **/Microsoft.Authorization/** y el propio nombre del bloqueo (en este caso, **myLock**).
+En el ejemplo siguiente se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El tipo de recurso del bloqueo es el tipo de recurso del recurso que se bloqueará y **/providers/locks**. El nombre del bloqueo se crea mediante la concatenación del nombre del recurso con **/Microsoft.Authorization/** y el propio nombre del bloqueo.
 
-El tipo proporcionado es específico del tipo de recurso. Para el almacenamiento, establezca este tipo en "Microsoft.Storage/storageaccounts/providers/locks".
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "lockedResource": {
-          "type": "string"
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
         }
-      },
-      "resources": [
+    },
+    "variables": {
+        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
         {
-          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-          "type": "Microsoft.Storage/storageAccounts/providers/locks",
-          "apiVersion": "2015-01-01",
-          "properties": {
-            "level": "CannotDelete"
-          }
+            "apiVersion": "2016-09-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "targetWorkerCount": 1
+            }
+        },
+        {
+            "apiVersion": "2016-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+            ],
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/locks",
+            "apiVersion": "2016-09-01",
+            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+            ],
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Site should not be deleted."
+            }
         }
-      ]
-    }
+    ]
+}
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
+New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli
+az group create --name sitegroup --location southcentralus
+az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
+```
 
 ## <a name="powershell"></a>PowerShell
 Bloquee recursos implementados con Azure PowerShell mediante el comando [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock).
@@ -73,16 +121,13 @@ Bloquee recursos implementados con Azure PowerShell mediante el comando [New-Azu
 Para bloquear un recurso, proporcione el nombre del recurso, su tipo y el nombre del grupo de recursos.
 
 ```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite `
-  -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Para bloquear un grupo de recursos, proporcione el nombre del grupo de recursos.
 
 ```powershell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 Para obtener información sobre un bloqueo, use [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Para obtener todos los bloqueos en su suscripción, use:
@@ -94,8 +139,7 @@ Get-AzureRmResourceLock
 Para obtener todos los bloqueos para un recurso, use:
 
 ```powershell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Para obtener todos los bloqueos para un grupo de recursos, use:
@@ -104,7 +148,12 @@ Para obtener todos los bloqueos para un grupo de recursos, use:
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Azure PowerShell ofrece otros comandos para trabajar con bloqueos, como [Set-AzureRmResourceLock](/powershell/module/azurerm.resources/set-azurermresourcelock) para actualizar un bloqueo y [Remove-AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) para eliminarlo.
+Para eliminar un bloqueo, use:
+
+```powershell
+$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzureRmResourceLock -LockId $lockId
+```
 
 ## <a name="azure-cli"></a>CLI de Azure
 
@@ -113,16 +162,13 @@ Bloquee recursos implementados con la CLI de Azure mediante el comando [az lock 
 Para bloquear un recurso, proporcione el nombre del recurso, su tipo y el nombre del grupo de recursos.
 
 ```azurecli
-az lock create --name LockSite --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup --resource-name examplesite \
-  --resource-type Microsoft.Web/sites
+az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
 Para bloquear un grupo de recursos, proporcione el nombre del grupo de recursos.
 
 ```azurecli
-az lock create --name LockGroup --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
 Para obtener información sobre un bloqueo, use [az lock list](/cli/azure/lock#list). Para obtener todos los bloqueos en su suscripción, use:
@@ -134,8 +180,7 @@ az lock list
 Para obtener todos los bloqueos para un recurso, use:
 
 ```azurecli
-az lock list --resource-group exampleresourcegroup --resource-name examplesite \
-  --namespace Microsoft.Web --resource-type sites --parent ""
+az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
 Para obtener todos los bloqueos para un grupo de recursos, use:
@@ -144,9 +189,14 @@ Para obtener todos los bloqueos para un grupo de recursos, use:
 az lock list --resource-group exampleresourcegroup
 ```
 
-La CLI de Azure proporciona otros comandos para trabajar con bloqueos, como [az lock update](/cli/azure/lock#update) para actualizar un bloqueo y [az lock delete](/cli/azure/lock#delete) para eliminarlo.
+Para eliminar un bloqueo, use:
 
-## <a name="rest-api"></a>API de REST
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="rest-api"></a>API DE REST
 Puede bloquear los recursos implementados con la [API de REST para bloqueos de administración](https://docs.microsoft.com/rest/api/resources/managementlocks). La API de REST le permite crear y eliminar bloqueos, y recuperar información acerca de los bloqueos existentes.
 
 Para crear un bloqueo, ejecute:
@@ -164,8 +214,7 @@ En la solicitud, incluya un objeto JSON que especifique las propiedades para el 
       }
     } 
 
-## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre cómo trabajar con bloqueos de recursos, consulte [Bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+## <a name="next-steps"></a>pasos siguientes
 * Para aprender a organizar de manera lógica los recursos, vea [Uso de etiquetas para organizar sus recursos](resource-group-using-tags.md)
 * Para cambiar el grupo de recursos en que reside un recurso, vea [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md)
 * Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)

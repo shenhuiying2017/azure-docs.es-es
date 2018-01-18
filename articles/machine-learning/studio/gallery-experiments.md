@@ -1,6 +1,6 @@
 ---
-title: "Experimentos de la Galería de Cortana Intelligence | Microsoft Docs"
-description: "Detecte y comparta experimentos en la Galería de Cortana Intelligence."
+title: "Experimentos de la Galería de Azure AI | Microsoft Docs"
+description: "Descubra y comparta experimentos en la Galería de Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Detección de experimentos en la Galería de Cortana Intelligence
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Descubrimiento de experimentos en la Galería de Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimentos de Machine Learning Studio
@@ -45,7 +45,7 @@ Puede obtener más información sobre un experimento en la página de detalles d
 ## <a name="download"></a>Descargar
 Puede descargar una copia de cualquier experimento de la Galería en el área de trabajo de Machine Learning Studio. Luego puede modificar la copia para crear sus propias soluciones.
 
-La Galería de Cortana Intelligence ofrece dos formas de importar una copia de un experimento:
+La Galería de Azure AI ofrece dos formas de importar una copia de un experimento:
 
 * **Desde la Galería**. Si encuentra un experimento que le guste en la Galería, puede descargar una copia y luego abrirla en el área de trabajo de Machine Learning Studio.
 * **Desde Machine Learning Studio**. En Machine Learning Studio, puede usar cualquier experimento de la Galería como plantilla para crear un nuevo experimento.

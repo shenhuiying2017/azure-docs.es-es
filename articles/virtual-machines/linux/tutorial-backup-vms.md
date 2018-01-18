@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Linux en Azure
 
@@ -45,7 +45,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 3. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
 4. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
@@ -62,7 +62,7 @@ La primera copia de seguridad tarda aproximadamente 20 minutos. Cuando la copia 
 
 ## <a name="restore-a-file"></a>Restauración de un archivo
 
-Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. Recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como unidad local. Estas unidades permanecerán montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
+Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. La recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como una unidad local. Estas unidades permanecerán montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
 
 En este ejemplo, se muestra cómo recuperar la página web predeterminada de nginx, /var/www/html/index.nginx-debian.html. En este ejemplo, la dirección IP pública de la máquina virtual es *13.69.75.209*. Para encontrar la dirección IP de una máquina virtual, utilice:
 
@@ -157,12 +157,12 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
 
     ![Página web predeterminada de nginx](./media/tutorial-backup-vms/nginx-working.png)
 
-18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente tras 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
+18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.

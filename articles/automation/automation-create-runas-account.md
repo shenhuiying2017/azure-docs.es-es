@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Actualizar la autenticación de la cuenta de Automation con cuentas de ejecución 
 Puede actualizar una cuenta de Automation existente desde Azure Portal o mediante PowerShell si:
@@ -40,7 +40,7 @@ El proceso crea los siguientes elementos en su cuenta de Automation.
 * Crea un recurso de certificado de Automation llamado *AzureClassicRunAsCertificate* en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que usa el certificado de administración.
 * Crea un recurso de conexión de Automation llamado *AzureClassicRunAsConnection* en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Si elige [usar PowerShell para crear las cuentas de ejecución](#create-run-as-account-using-powershell), necesitará para este proceso:
 
 * Windows 10 y Windows Server 2016 con módulos de Azure Resource Manager 3.4.1 y versiones posteriores. El script de PowerShell no admite versiones anteriores de Windows.
@@ -225,7 +225,7 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,7 +277,7 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
 
 Una vez que el script se ejecuta correctamente, observe lo siguiente:
 * Si creó una cuenta de ejecución clásica con un certificado público autofirmado (formato .cer), el script lo crea y lo guarda en la carpeta de archivos temporales del equipo con el perfil de usuario *%USERPROFILE%\AppData\Local\Temp*, que se usa para ejecutar la sesión de PowerShell.
-* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de API de administración en el Portal de Azure clásico](../azure-api-management-certs.md) y luego valide la configuración de credenciales con recursos de implementación clásicos mediante el [código de ejemplo para realizar la autenticación con recursos del modelo de implementación clásica de Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de API de administración en Azure Portal](../azure-api-management-certs.md) y luego valide la configuración de credenciales con recursos de implementación clásicos mediante el [código de ejemplo para realizar la autenticación con recursos del modelo de implementación clásica de Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Si *no* creó una cuenta de ejecución clásica, realice la autenticación con recursos de Resource Manager y valide la configuración de credenciales mediante el [código de ejemplo para la autenticación con recursos de Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>pasos siguientes

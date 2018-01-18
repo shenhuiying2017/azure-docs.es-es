@@ -3,7 +3,7 @@ title: "Autenticación basada en encabezados con PingAccess para el proxy de la 
 description: "Publique aplicaciones con PingAccess y el proxy de la aplicación que admitan la autenticación basada en encabezados."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -73,6 +73,10 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 4. Seleccione **Aplicación local**.
 5. Rellene los campos requeridos con la información de la aplicación nueva. Utilice las siguientes instrucciones para realizar la configuración:
    - **Dirección URL interna**: normalmente, especifica la dirección URL que lleva a la página de inicio de sesión la aplicación cuando esté en la red corporativa. En este escenario, el conector tiene que tratar el proxy de PingAccess como la página principal de la aplicación. Use este formato: `https://<host name of your PA server>:<port>`. El puerto predeterminado es 3000, pero puedo configurar uno distinto en PingAccess.
+
+    > [!WARNING]
+    > Para este tipo de inicio de sesión único, la dirección URL interna debe usar https y no puede emplear http.
+
    - **Método de autenticación previa**: Azure Active Directory.
    - **Traducir URL en encabezados**: No.
 
@@ -135,7 +139,7 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional: actualice GraphAPI para enviar los campos personalizados
 
-Para obtener una lista de los tokens de seguridad que Azure AD envía para la autenticación, consulte la [referencia de tokens de Azure AD](./develop/active-directory-token-and-claims.md). Si necesita una notificación personalizada que enviar a otros tokens, use GraphAPI para establecer el campo de la aplicación *acceptMappedClaims* en **True**. Solo puede utilizar el Explorador de Azure AD Graph para hacer esta configuración. 
+Para obtener una lista de los tokens de seguridad que Azure AD envía para la autenticación, consulte la [referencia de tokens de Azure AD](./develop/active-directory-token-and-claims.md). Si necesita una notificación personalizada que envíe otros tokens, utilice Probador de Graph o el manifiesto para la aplicación en Azure Portal, para establecer el campo de aplicación *acceptMappedClaims* en **True**.    
 
 En este ejemplo se usa el Explorador de Graph:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Este ejemplo utiliza [Azure Portal](https://portal.azure.com) para actualizar el campo *acceptedMappedClaims*:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
+2. Seleccione **Azure Active Directory** > **Registros de aplicaciones**.
+3. Seleccione aplicación > **Manifiesto**.
+4. Seleccione **Editar**, busque el campo *acceptedMappedClaims* y cambie el valor a **true**.
+![Manifiesto de aplicación](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Seleccione **Guardar**.
 
 >[!NOTE]
 >Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación.  Esta directiva debe incluir todos los atributos personalizados necesarios.
@@ -167,7 +178,7 @@ Dichos pasos le guiarán a través del proceso de obtención de una cuenta de Pi
 
 Cuando haya completado todos los pasos, la aplicación debería estar en funcionamiento. Para probarla, abra un explorador y navegue a la dirección URL externa que creó al publicar la aplicación en Azure. Inicie sesión con la cuenta de prueba que asignó a la aplicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Configuración de PingAccess para Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [¿Cómo permite el proxy de aplicación de Azure AD el inicio de sesión único?](application-proxy-sso-overview.md)

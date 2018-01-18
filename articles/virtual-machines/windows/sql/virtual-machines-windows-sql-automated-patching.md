@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -58,10 +58,10 @@ Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguien
 > 
 > 
 
-## <a name="settings"></a>Settings
-En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
+## <a name="settings"></a>Configuración
+En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 
-| Configuración | Valores posibles | Description |
+| Configuración | Valores posibles | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Aplicación de revisiones automatizada** |Habilitar/deshabilitar (deshabilitado) |Habilita o deshabilita Aplicación de revisión automatizada para una máquina virtual de Azure. |
 | **Programación de mantenimiento** |Cada día, el lunes, el martes, el miércoles, el jueves, el viernes, el sábado, el domingo |La programación para descargar e instalar actualizaciones de Windows, SQL Server y Microsoft para la máquina virtual. |
@@ -110,9 +110,12 @@ En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisi
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
+> [!IMPORTANT]
+> Si la extensión todavía no está instalada, su instalación reiniciará el servicio de SQL Server.
+
 Según este ejemplo, la siguiente tabla describe el efecto práctico en la máquina virtual de Azure de destino:
 
-| Parámetro | Efecto |
+| . | Efecto |
 | --- | --- |
 | **DayOfWeek** |Las revisiones instaladas cada jueves. |
 | **MaintenanceWindowStartingHour** |Inicia las actualizaciones a las 11:00 a.m. |
@@ -123,7 +126,7 @@ La instalación y configuración del agente de Iaas de SQL Server puede tardar a
 
 Para deshabilitar Aplicación de revisión automatizada, ejecute el mismo script sin el parámetro **-Enable** en **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en Azure Virtual Machines, consulte [Introducción a SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

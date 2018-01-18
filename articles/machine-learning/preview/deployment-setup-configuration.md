@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -25,8 +25,8 @@ Con Administración de modelos de Azure Machine Learning, puede implementar y ad
 Al final de este documento, debe tener el entorno de administración de modelo configurado y listo para implementar los modelos de aprendizaje automático.
 
 ## <a name="what-you-need-to-get-started"></a>Qué necesita para empezar
-Para obtener el máximo partido de esta guía, debe tener acceso de propietario a una suscripción de Azure en la que pueda implementar los modelos.
-La CLI viene preinstalada en Azure Machine Learning Workbench y en las instancias de [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Para obtener el máximo partido de esta guía, debería tener acceso de colaborador a una suscripción de Azure o a un grupo de recursos donde pueda implementar los modelos.
+La CLI viene preinstalada en Azure Machine Learning Workbench y en las instancias de [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Uso de la CLI
 Para usar las interfaces de línea de comandos (CLI) desde el área de trabajo, haga clic en **Archivo** -> **Abrir símbolo del sistema**. 
@@ -81,13 +81,15 @@ Para empezar, tiene que configurar el entorno de implementación. La configuraci
 
 Cuando realice la configuración del entorno:
 - Se le pide que inicie sesión en Azure. Para iniciar sesión use un explorador web para abrir la página https://aka.ms/devicelogin y escriba el código que se le ha proporcionado para autenticarse.
-- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando se haya realizado el inicio de sesión, se presenta la información de suscripción y se le pregunta si desea continuar con la cuenta seleccionada.
+- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: Seleccione una cuenta que tenga una suscripción a Azure válida y los permisos necesarios para crear recursos en ella. Cuando el registro se haya completado, se presentará la información de suscripción y se le preguntará si desea continuar con la cuenta seleccionada.
 
 ### <a name="environment-setup"></a>Configuración del entorno
-Para iniciar el proceso de configuración, tiene que registrar al proveedor de entorno escribiendo el comando siguiente:
+Para iniciar el proceso de configuración, tiene que registrar a algunos proveedores del entorno escribiendo los siguientes comandos:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Implementación local
 Para implementar y probar el servicio web en el equipo local, configure un entorno local con el comando siguiente. El nombre del grupo de recursos es opcional.
@@ -128,7 +130,7 @@ El comando de instalación de entorno del clúster crea los siguientes recursos 
 - Una cuenta de Application Insights
 
 >[!IMPORTANT]
-> Para crear correctamente un entorno de clúster, tiene que ser propietario de la suscripción de Azure y también tener la capacidad de crear una entidad de servicio. Para comprobar si dispone de suficientes privilegios, siga las instrucciones que aparecen en esta página de [creación de una entidad de servicio en Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Para crear correctamente un entorno de clúster, debe tener acceso de colaborador en la suscripción de Azure o el grupo de recursos.
 
 El grupo de recursos, la cuenta de almacenamiento y el ACR se crean rápidamente. La implementación de ACS puede tardar hasta 20 minutos. 
 
@@ -169,5 +171,5 @@ Ahora está listo para implementar el modelo guardado como un servicio web.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Pruebe uno de los muchos ejemplos en la galería.

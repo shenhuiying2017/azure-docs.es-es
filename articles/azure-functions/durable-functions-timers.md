@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 27312846caf4f51e708b48655578846a52cbd1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e29e472860890e3f44af79c42c31ff524acb9276
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores en Durable Functions (Azure Functions)
 
 [Durable Functions](durable-functions-overview.md) proporciona *temporizadores durables* para usarlos en funciones de orquestador para implementar retrasos o configurar tiempos de expiración en acciones asincrónicas. Los temporizadores durables deben usarse en funciones de orquestador en lugar de `Thread.Sleep` o `Task.Delay`.
 
-Un temporizador durable se crea mediante una llamada a [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). El método devuelve una tarea que se reanuda en una fecha y hora especificadas.
+Se crea un temporizador durable mediante una llamada al método [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) en [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). El método devuelve una tarea que se reanuda en una fecha y hora especificadas.
 
 ## <a name="timer-limitations"></a>Limitaciones de los temporizadores
 
@@ -95,7 +95,7 @@ Este mecanismo no finaliza realmente la ejecución de la función de actividad e
 
 Para obtener un ejemplo más detallado de cómo implementar los tiempos de expiración en funciones de orquestador, consulte el tutorial [Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo](durable-functions-phone-verification.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información acerca de cómo generar y controlar eventos externos](durable-functions-external-events.md)

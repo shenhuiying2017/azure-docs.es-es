@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para Azure App Service
 En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -37,7 +37,7 @@ Si observa que una aplicación consume más memoria de lo esperado, lo que se in
 ## <a name="CPUresources"></a>Cuando las aplicaciones consumen más CPU de lo esperado
 Si observa que una aplicación consume más CPU de lo esperado o experimenta repetidas puntas de actividad de la CPU como indican la supervisión o las recomendaciones de servicio, considere la posibilidad de escalar el plan de App Service vertical u horizontalmente. Si una aplicación es con estado, el escalado vertical es la única opción, mientras que si es sin estado, el escalado horizontal le proporcionará mayor flexibilidad y mayor potencial de escalado. 
 
-Para obtener más información sobre las aplicaciones "con estado" y "sin estado", puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)(Planeamiento de una aplicación completa de niveles múltiples en una aplicación web de Microsoft Azure). Para obtener más información sobre las opciones de escalado y escalado automático de App Service, consulte [Escalación de una aplicación web en Azure App Service](web-sites-scale.md).  
+Para obtener más información sobre las aplicaciones "con estado" y "sin estado", puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Planeamiento de una aplicación completa de niveles múltiples en una aplicación web de Microsoft Azure). Para obtener más información sobre las opciones de escalado y escalado automático de App Service, consulte [Escalación de una aplicación web en Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Cuando se agotan los recursos del socket
 Una razón habitual para agotar las conexiones TCP salientes es el uso de bibliotecas de cliente que no se han implementado para reutilizar las conexiones TCP o en el caso de un protocolo de nivel superior como HTTP, no saca provecho de las conexiones persistentes. Revise la documentación de las bibliotecas a las que hacen referencia las aplicaciones del plan de App Service para asegurarse de que se configuran o se tiene acceso a ellas en el código para una reutilización eficiente de las conexiones salientes. Siga también la guía de la documentación de la biblioteca para que la creación y liberación, o la limpieza sean correctas para evitar las conexiones con fugas. Aunque las investigaciones de estas bibliotecas de cliente están en curso, el impacto se pueden mitiga mediante el escalado horizontal a varias instancias.
@@ -66,7 +66,6 @@ Los dos principales motivos por los que comienza a fallar la copia de seguridad 
 
 Cuando aparecen errores de copia de seguridad, revise los resultados más recientes para saber qué tipo de error se está produciendo. En el caso de errores de acceso de almacenamiento, revise y actualice la configuración de almacenamiento utilizada en la configuración de copia de seguridad. En el caso de errores de acceso de la base de datos, revise y actualice las cadenas de conexiones como parte de la configuración de la aplicación. Después, continúe para actualizar la configuración de copia de seguridad con el fin de incluir correctamente las bases de datos necesarias. Para más información sobre la copia de seguridad de aplicaciones, consulte el documento [Realizar una copia de seguridad de la aplicación en Azure](web-sites-backup.md).
 
-## <a name="nodejs">
-            </a>Cuando se implementan nuevas aplicaciones de Node.js en Azure App Service
+## <a name="nodejs"></a>Cuando se implementan nuevas aplicaciones de Node.js en Azure App Service
 La configuración predeterminada de Azure App Service para las aplicaciones Node.js tiene que como objetivo satisfacer mejor los requisitos de las aplicaciones más comunes. Si considera que la configuración de la aplicación Node.js va a beneficiarse del ajuste personalizado para mejorar el rendimiento o para optimizar el uso de recursos para los recursos de la CPU, memoria o red, podría consultar nuestras prácticas recomendadas y pasos para solucionar problemas. En este artículo se describe las opciones de IISNode que pueda necesitar para configurar una aplicación de Node.js, así como los distintos escenarios o problemas de dicha aplicación. También se muestra cómo solucionar estos problemas: [Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Aplicaciones web de Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
 

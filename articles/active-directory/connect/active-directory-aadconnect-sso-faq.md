@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -30,7 +30,11 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 
 ## <a name="is-seamless-sso-a-free-feature"></a>¿SSO de conexión directa es una característica gratuita?
 
-SSO de conexión directa es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla. Seguirá siendo gratuita cuando la característica alcance la disponibilidad general.
+SSO de conexión directa es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible el inicio de sesión único de conexión directa en la [nube Microsoft Azure Alemania](http://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+
+Nº El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` de SSO de conexión directa?
 
@@ -39,6 +43,12 @@ Estamos en el proceso de compilar las listas de aplicaciones que envían estos p
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>¿SSO de conexión directa admite `Alternate ID` como nombre de usuario en lugar de `userPrincipalName`?
 
 Sí. SSO de conexión directa admite `Alternate ID` como el nombre de usuario cuando se configura en Azure AD Connect, tal como se muestra [aquí](active-directory-aadconnect-get-started-custom.md). No todas las aplicaciones de Office 365 admiten `Alternate ID`. Consulte la documentación de la aplicación específica para conocer la declaración de compatibilidad.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>¿Cuál es la diferencia entre la experiencia de inicio de sesión único que proporciona [Azure AD Join](../active-directory-azureadjoin-overview.md) y SSO de conexión directa?
+
+[Azure AD Join](../active-directory-azureadjoin-overview.md) permite el inicio de sesión único a los usuarios si sus dispositivos se han registrado con Azure AD. Estos dispositivos no deben estar unidos al dominio necesariamente. SSO se proporciona mediante *tokens de actualización principal* o *PRT*, y no con Kerberos. La experiencia del usuario es más adecuada en dispositivos Windows 10. SSO se realiza automáticamente en el explorador Edge. También funciona en Chrome mediante una extensión de explorador.
+
+Puede usar tanto Azure AD Join como SSO de conexión directa en el inquilino. Estas dos características son complementarias. Si ambas están activadas, SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Quiero registrar dispositivos no de Windows 10 con Azure AD, sin usar AD FS. ¿Puedo usar SSO de conexión directa en su lugar?
 
@@ -94,9 +104,9 @@ Para completar el proceso, siga estos pasos manuales en el servidor local donde 
 
 ### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Paso 2: Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [**Inicio rápido**](active-directory-aadconnect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Profundización técnica**](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
-- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): aprenda a resolver problemas comunes de esta característica.
+- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.

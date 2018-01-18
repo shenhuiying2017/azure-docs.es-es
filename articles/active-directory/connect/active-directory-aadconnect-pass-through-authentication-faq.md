@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -34,7 +34,7 @@ La autenticación de paso a través es una característica gratuita. Por tanto, 
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible la autenticación de paso a través en la [nube Microsoft Azure Alemania](http://www.microsoft.de/cloud-deutschland) y en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
-No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
+Nº La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../active-directory-conditional-access-azure-portal.md) con la autenticación de paso a través?
 
@@ -46,7 +46,7 @@ Sí. La autenticación de paso a través admite `Alternate ID` como nombre de us
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>¿Actúa la sincronización de hash de contraseña como una reserva de la autenticación de paso a través?
 
-No. La autenticación de paso a través _no_ realiza una conmutación automática por error a la sincronización de hash de contraseña. Solo actúa como reserva para [escenarios en los que la autenticación de paso a través no se admite en la actualidad](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nº La autenticación de paso a través _no_ realiza una conmutación automática por error a la sincronización de hash de contraseña. Solo actúa como reserva para [escenarios en los que la autenticación de paso a través no se admite en la actualidad](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../active-directory-application-proxy-get-started.md) en el mismo servidor que un agente de autenticación de paso a través?
 
@@ -81,6 +81,12 @@ Sí. Si la Detección automática de proxy web (WPAD) está habilitada en el ent
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>¿Puedo instalar dos o más agentes de autenticación de paso a través en el mismo servidor?
 
 No, solo se puede instalar un agente de autenticación de paso a través en un único servidor. Si desea configurar la autenticación de paso a través para alta disponibilidad, siga las instrucciones descritas en [Autenticación de paso a través de Azure Active Directory: inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>¿Cómo quito un agente de autenticación de paso a través?
+
+Mientras se esté ejecutando un agente de autenticación de paso a través, permanecerá activo y controlará continuamente las solicitudes de inicio de sesión del usuario. Si desea desinstalar un agente de autenticación, vaya a **Panel de Control -> Programas -> Programas y características** y desinstale los programas **Agente de autenticación de Microsoft Azure AD Connect** y el **Agent Updater de Microsoft Azure AD Connect**.
+
+Si activa la hoja Autenticación de paso a través en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) después de completar los pasos anteriores, verá que el agente de autenticación se muestra como **inactivo**. Se _espera_ que esto sea así. El agente de autenticación se quita automáticamente de la lista después de unos días.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Ya utilizo AD FS para iniciar sesión en Azure AD. ¿Cómo se puede cambiar a la autenticación de paso a través?
 
@@ -122,7 +128,7 @@ Vuelva a ejecutar al Asistente de Azure AD Connect y cambie el método de inicio
 
 Si desinstala un agente de autenticación de paso a través de un servidor, el servidor deja de aceptar las solicitudes de inicio de sesión. Para evitar anular la funcionalidad de inicio de sesión del usuario en el inquilino, asegúrese de que haya otro agente de autenticación en ejecución antes de desinstalar un agente de autenticación de paso a través.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Limitaciones actuales](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [Inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
 - [Bloqueo inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.

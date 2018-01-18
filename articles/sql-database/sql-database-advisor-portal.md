@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -31,7 +31,7 @@ Para ver y aplicar recomendaciones de rendimiento, necesita los permisos correct
 
 Use los pasos siguientes para buscar recomendaciones de rendimiento en Azure Portal:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a **Más servicios** > **Bases de datos SQL** y seleccione la base de datos.
 3. Vaya a **Recomendaciones de rendimiento** para ver las recomendaciones disponibles para la base de datos seleccionada.
 
@@ -41,7 +41,7 @@ Las recomendaciones de rendimiento se muestran en una tabla similar a la de la s
 
 Las recomendaciones se ordenan en las siguientes categorías, según su impacto potencial sobre el rendimiento:
 
-| Impacto | Descripción |
+| Impacto | DESCRIPCIÓN |
 |:--- |:--- |
 | Alto |Las recomendaciones de alto impacto debe tener el impacto más importante en el rendimiento. |
 | Mediano |Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
@@ -91,6 +91,10 @@ Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaci
 2. Seleccione un elemento descartado de la lista para ver los detalles.
 3. También puede hacer clic en **Deshacer Descartar** para volver a agregar el índice a la lista principal de **Recomendaciones**.
 
+> [!NOTE]
+> Tenga en cuenta que si el [Ajuste automático](sql-database-automatic-tuning.md) de SQL Database está habilitado y se ha descartado manualmente una recomendación de la lista, esta nunca se aplicará automáticamente. Descartar una recomendación es una forma práctica para que los usuarios tengan el ajuste automático habilitado en casos en que se requiera que no se aplique dicha recomendación específica.
+> Se puede revertir este comportamiento si se vuelven a agregar las recomendaciones descartadas a la lista de recomendaciones con la selección de la opción Deshacer Descartar.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
 Puede establecer que Azure SQL Database implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las recomendaciones que administra el servicio, si el impacto en el rendimiento es negativo, se revierte la recomendación.
@@ -116,7 +120,7 @@ Las recomendaciones que se encuentran en estado **Pending**, **Verifying** o **S
 ## <a name="monitoring-operations"></a>Supervisión de operaciones
 Puede que una recomendación no se aplique de manera inmediata. El portal proporciona detalles sobre el estado de la recomendación. A continuación se indican los posibles estados en los que un índice puede encontrarse:
 
-| Estado | Descripción |
+| Status | DESCRIPCIÓN |
 |:--- |:--- |
 | Pending |El comando de aplicación de recomendaciones se ha recibido y su ejecución está programada. |
 | Executing |La recomendación está aplicándose. |
@@ -146,7 +150,7 @@ Una vez implementadas correctamente las recomendaciones (actualmente, solo recom
 ## <a name="summary"></a>Resumen
 Azure SQL Database ofrece recomendaciones para mejorar el rendimiento de la base de datos SQL. Al proporcionar scripts T-SQL, consigue ayuda útil para optimizar la base de datos y, en última instancia, para mejorar el rendimiento de las consultas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. Azure SQL Database sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 
 
 * Consulte [Ajuste automático](sql-database-automatic-tuning.md) para más información sobre el ajuste automático en Azure SQL Database.

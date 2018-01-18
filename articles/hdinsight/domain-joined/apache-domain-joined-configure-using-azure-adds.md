@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 
@@ -50,7 +50,7 @@ Es más fácil colocar el servicio de dominio de Azure AD y el clúster de HDIns
 Al crear un clúster de HDInsight unidos a un dominio, debe proporcionar los parámetros siguientes:
 
 - **Nombre de dominio**: nombre de dominio asociado con Azure AD DS. Por ejemplo, contoso.onmicrosoft.com.
-- **Nombre de usuario de dominio**: cuenta de servicio del grupo Administradores de controladores de dominio de AAD creada en la sección anterior. Por ejemplo: hdiadmin@contoso.onmicrosoft.com. Este usuario de dominio es el administrador de este clúster de HDInsight unido a un dominio.
+- **Nombre de usuario de dominio**: cuenta de servicio del grupo Administradores de controladores de dominio de AAD creada en la sección anterior. Por ejemplo, hdiadmin@contoso.onmicrosoft.com. Este usuario de dominio es el administrador de este clúster de HDInsight unido a un dominio.
 - **Contraseña de dominio**: contraseña de la cuenta de servicio.
 - **Unidad organizativa**: nombre distintivo de la unidad organizativa (UO) que quiere utilizar con el clúster de HDInsight. Por ejemplo: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Si no existe esta unidad organizativa, el clúster de HDInsight intenta crearla. 
 - **Dirección URL de LDAPS**: ldaps://contoso.onmicrosoft.com:636.
@@ -61,7 +61,7 @@ En la siguiente captura de pantalla se muestran las configuraciones en Azure Por
 ![Configuración de Active Directory Domain Services unido a un dominio de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
 * Para utilizar SSH para conectarse a clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

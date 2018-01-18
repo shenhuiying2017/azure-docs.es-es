@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con Media Encoder Standard.
@@ -26,7 +26,7 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 ## <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo (extensiones de archivo) | Compatible |
 | --- | --- | --- | --- |
-| FLV (con códecs H.264 y AAC) (.flv) |yes |
+| FLV (con códecs H.264 y AAC) (.flv) |Sí |
 | MXF    (.mxf) |Sí |
 | GXF    (.gxf) |Sí |
 | MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sí |
@@ -46,13 +46,13 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 ### <a name="audio-formats-in-input-containers"></a>Formatos de audio en contenedores de entrada
 Media Encoder Standard admite el transporte de los siguientes formatos de audio en contenedores de entrada:
 
-* Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1 
+* Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1
 
 o
 
 * Archivos MXF, GXF y QuickTime donde el audio se transporte como pistas PCM independientes, pero la asignación de canal (a estéreo o 5.1) se pueda deducir de los metadatos del archivo
 
-Tenga en cuenta que la compatibilidad con la asignación de canal explícita o proporcionada por el usuario se incluirá en un futuro próximo.
+La compatibilidad con la asignación de canal explícita o proporcionada por el usuario se incluirá en un futuro próximo.
 
 ## <a name="input-video-codecs"></a>Códecs de vídeo de entrada
 | Códecs de vídeo de entrada | Compatible |
@@ -65,7 +65,7 @@ Tenga en cuenta que la compatibilidad con la asignación de canal explícita o p
 | MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Hasta 422 Perfil |
 | MPEG-1 |Sí |
 | VC-1/WMV9 |Sí |
-| Canopus HQ/HQX |No |
+| Canopus HQ/HQX |Sin  |
 | MPEG-4, parte 2 |Sí |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sí |
 | YUV420 sin comprimir o intermedio |Sí |
@@ -84,14 +84,14 @@ Tenga en cuenta que la compatibilidad con la asignación de canal explícita o p
 | MP3 (MPEG-1 Audio Layer 3) |Sí |
 | Windows Media Audio |Sí |
 | WAV/PCM |Sí |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |yes |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |yes |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sí |
+| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sí |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |
 | AMR (velocidad múltiple adaptable) |Sí |
-| AES (SMPTE 331M y 302M, AES3-2003) |No |
-| Dolby® E |No |
-| Dolby® Digital (AC3) |No |
-| Dolby® Digital Plus (E-AC3) |No |
+| AES (SMPTE 331M y 302M, AES3-2003) |Sin  |
+| Dolby® E |Sin  |
+| Dolby® Digital (AC3) |Sin  |
+| Dolby® Digital Plus (E-AC3) |Sin  |
 
 ## <a name="output-formats-and-codecs"></a>Códecs y formatos de salida
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
@@ -101,14 +101,14 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 | MP4  <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte también
-[Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
+## <a name="see-also"></a>Otras referencias
+[Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md)
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 

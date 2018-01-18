@@ -3,7 +3,7 @@ title: "Inicio de sesión único con el proxy de aplicación | Microsoft Docs"
 description: "Explica cómo proporcionar el inicio de sesión único mediante el proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 170498b2876947a45128377fa6cecb3931784237
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -121,11 +121,11 @@ Si se usa la identidad de inicio de sesión delegada, es posible que el valor no
 Si se produce un error en el proceso de inicio de sesión único, aparece en el registro de eventos del equipo de conexión, como se explica en [Solución de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Pero, en algunos casos, la solicitud se envía correctamente a la aplicación del back-end mientras que esta aplicación responde en otras respuestas HTTP. La solución de problemas de estos casos debe empezar por examinar el número de evento 24029 en el equipo de conexión en el registro de eventos de sesión de Proxy de aplicación. La identidad del usuario que se usó para la delegación aparece en el campo “usuario” de los detalles del evento. Para activar el registro de sesión, seleccione **Mostrar registros analíticos y de depuración** en el menú de vista del Visor de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Configuración de una aplicación de proxy de aplicación para que use la delegación restringida de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 
 
-Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 

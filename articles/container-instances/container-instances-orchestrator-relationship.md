@@ -1,19 +1,19 @@
 ---
 title: "Azure Container Instances y orquestación de contenedores"
-description: "Descripción de cómo Azure Container Instances interactúa con orquestadores de contenedores"
+description: "Descripción de cómo Azure Container Instances interactúa con los orquestadores de contenedores."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances y orquestadores de contenedores
 
@@ -40,8 +40,6 @@ Azure Container Instances permite un enfoque por niveles a la orquestación, lo 
 
 Como Azure administra toda la infraestructura subyacente de Container Instances, una plataforma de orquestadores no necesita ocuparse de encontrar un equipo host adecuado en el cual ejecutar un solo contenedor. La elasticidad de la nube garantiza que siempre haya uno disponible. En lugar de eso, el orquestador se puede centrar en las tareas que simplifican la implementación de arquitecturas con varios contenedores, incluidas actualizaciones coordinadas y escalado.
 
-
-
 ## <a name="potential-scenarios"></a>Escenarios potenciales
 
 Si bien la integración de los orquestadores con Azure Container Instances todavía es incipiente, podemos prever que surgirán algunos entornos distintos:
@@ -67,7 +65,7 @@ Es posible crear conectores para otros orquestadores que se integren simplemente
 > [!WARNING]
 > El conector ACI para Kubernetes es *experimental* y no se debe usar en el entorno de producción.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Use la [guía de inicio rápido](container-instances-quickstart.md) para crear el primer contenedor con Azure Container Instances.
 
@@ -75,6 +73,6 @@ Use la [guía de inicio rápido](container-instances-quickstart.md) para crear e
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

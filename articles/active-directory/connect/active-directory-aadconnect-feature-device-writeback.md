@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 9c0ff3394dac12bdcac9d618832566ef0d3a6609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Habilitación de escritura diferida de dispositivos
 > [!NOTE]
 > Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
-> 
-> 
+>
+>
 
 En la siguiente documentación se ofrece información sobre cómo habilitar la característica de escritura diferida de dispositivo en Azure AD Connect. La escritura diferida de dispositivo se usa en los siguientes escenarios:
 
@@ -34,7 +34,8 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 
 > [!IMPORTANT]
 > <li>Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribirse en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.</li>
-> <li>Solo se puede agregar un objeto de configuración de registro de dispositivo al bosque de Active Directory local. Esta característica no es compatible con una topología en la que el Active Directory local está sincronizado a varios directorios de Azure AD.</li>> 
+> <li>Solo se puede agregar un objeto de configuración de registro de dispositivo al bosque de Active Directory local. Esta característica no es compatible con una topología en la que la instancia de Active Directory local esté sincronizada con varios inquilinos de Azure AD.</li>
+>
 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalación de Azure AD Connect
 1. Instale Azure AD Connect mediante la configuración rápida o personalizada. Microsoft recomienda empezar con todos los usuarios y grupos sincronizados correctamente antes de habilitar la escritura diferida de dispositivos.
@@ -43,15 +44,15 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 Lleve a cabo los siguientes pasos para prepararse para usar la reescritura de dispositivos.
 
 1. Desde el equipo donde está instalado Azure AD Connect, inicie PowerShell en modo elevado.
-2. Si el módulo de Active Directory PowerShell NO está instalado, instale Herramientas de administración remota del servidor que contiene el módulo AD PowerShell y dsacls.exe que se requiere para ejecutar el script.  Ejecute el siguiente comando:
-  
+2. Si el módulo de Active Directory PowerShell NO está instalado, instale Herramientas de administración remota del servidor, que contiene el módulo AD PowerShell y dsacls.exe que se requiere para ejecutar el script. Ejecute el siguiente comando:
+
    ``` powershell
    Add-WindowsFeature RSAT-AD-Tools
    ```
 
 3. Si NO está instalado el módulo de Azure Active Directory PowerShell, descárguelo e instálelo desde el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente tiene una dependencia en el Ayudante para el inicio de sesión, que se instala con Azure AD Connect.  
 4. Con credenciales de administrador de organización, ejecute los comandos siguientes y luego salga de PowerShell.
-   
+
    ``` powershell
    Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
    ```
@@ -62,8 +63,7 @@ Lleve a cabo los siguientes pasos para prepararse para usar la reescritura de di
 
 Se necesitan credenciales de administrador de organización, puesto que es necesario realizar cambios en el espacio de nombres de configuración. Un administrador de dominio no tiene suficientes permisos.
 
-![Powershell para habilitar la escritura diferida de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/powershell.png) d
-
+![Powershell para habilitar la escritura diferida de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
 
 Description:
 
@@ -87,20 +87,24 @@ Lleve a cabo el siguiente procedimiento para habilitar la reescritura de disposi
 3. En la página de escritura diferida, verá el dominio suministrado como el bosque de escritura diferida de dispositivos predeterminado.
    ![Instalación personalizada del bosque de destino de escritura diferida de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4. Complete la instalación del asistente sin realizar ningún cambio de configuración adicional. En caso necesario, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+5. Si ha habilitado el [filtrado](active-directory-aadconnectsync-configure-filtering.md) en Azure AD Connect, asegúrese de que el contenedor recién creado, CN = RegisteredDevices, se incluya en el ámbito.
 
-## <a name="enable-conditional-access"></a>Habilitar el acceso condicional
-Encontrará a su disposición instrucciones detalladas para habilitar este escenario en [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
-
-## <a name="verify-devices-are-synchronized-to-active-directory"></a>Comprobar que los dispositivos están sincronizados con Active Directory
-La reescritura de dispositivos debería funcionar ahora correctamente. Tenga en cuenta que se puede tardar hasta tres horas en que los objetos de dispositivos se vuelvan a escribir en AD.  Para comprobar que los dispositivos que se están sincronizados correctamente, siga este procedimiento después de completar las reglas de sincronización:
+## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Parte 4: Comprobar que los dispositivos están sincronizados con Active Directory
+La reescritura de dispositivos debería funcionar ahora correctamente. Tenga en cuenta que se puede tardar hasta tres horas en que los objetos de dispositivos se vuelvan a escribir en AD. Para comprobar que los dispositivos se están sincronizando correctamente, siga este procedimiento después de completar la sincronización:
 
 1. Inicie el Centro de administración de Active Directory.
-2. Expanda RegisteredDevices dentro del dominio que se está federando.
-   ![Dispositivos registrados del centro de administración de Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3. Los dispositivos registrados actuales aparecerá en la lista.
-   ![Lista de dispositivos registrados del centro de administración de Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+2. Expanda RegisteredDevices, dentro del dominio que se configuró en la [Parte 2](#part-2-prepare-active-directory).  
 
-## <a name="troubleshooting"></a>Solución de problemas
+   ![Dispositivos registrados del centro de administración de Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
+   
+3. Los dispositivos actualmente registrados aparecerán en la lista.  
+
+   ![Lista de dispositivos registrados del centro de administración de Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+
+## <a name="enable-conditional-access"></a>Habilitar el acceso condicional
+   Encontrará a su disposición instrucciones detalladas para habilitar este escenario en [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+
+## <a name="troubleshooting"></a>solución de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La casilla de reescritura sigue deshabilitada
 Si la casilla para la reescritura de dispositivos no se habilita a pesar de haber seguido los pasos anteriores, los siguientes pasos le guiarán por lo que el Asistente para la instalación comprueba antes de habilitar la casilla.
 
@@ -113,8 +117,9 @@ En primer lugar:
   * Abra la pestaña **Conectores** .
   * Busque el conector con el tipo Dominio de Active Directory y selecciónelo.
   * En **Acciones**, seleccione **Propiedades**.
-  * Vaya a **Conexión al bosque de Active Directory**. Compruebe que el dominio y el nombre de usuario especificados en esta pantalla coinciden con la cuenta proporcionada para el script.
-    ![Cuenta de conector en Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
+  * Vaya a **Conexión al bosque de Active Directory**. Compruebe que el dominio y el nombre de usuario especificados en esta pantalla coinciden con la cuenta proporcionada para el script.  
+  
+    ![Cuenta de conector en Synchronization Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Compruebe la configuración en Active Directory:
 
@@ -144,6 +149,5 @@ Compruebe la configuración en Active Directory:
 * [Administración de riesgos con el acceso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

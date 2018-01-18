@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
@@ -80,7 +80,7 @@ Los dispositivos StorSimple tienen una combinación de unidades de disco duro y 
 | Capacidad total utilizable* |~ 15 TB |~ 38 TB |
 | Capacidad máxima de la solución (incluida la nube) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacidad total utilizable incluye la capacidad disponible para datos, metadatos y búferes.*
+<sup>* </sup>- *La capacidad total utilizable incluye la capacidad disponible para datos, metadatos y búferes. Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB en dispositivos del modelo 8100 o de hasta 22,5 TB en dispositivos del modelo 8600 de mayor tamaño. Para obtener más información, consulte la sección [Volúmenes de StorSimple anclados localmente](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Especificaciones de dimensiones y peso del revestimiento
 
@@ -193,7 +193,7 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 
 Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cables de red y módulos compatibles](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para más información, vea [Implementar un dispositivo local](storsimple-8000-deployment-walkthrough-u2.md).
 

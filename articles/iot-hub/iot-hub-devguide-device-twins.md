@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
 Los *dispositivos gemelos* son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. En este artículo se describe:
+
 
 * La estructura del dispositivo gemelo: *etiquetas*, las propiedades *deseadas* y las *notificadas*.
 * Las operaciones que las aplicaciones de dispositivo y los back-ends pueden realizar en los dispositivos gemelos.
@@ -51,8 +52,7 @@ Un dispositivo gemelo es un documento JSON que incluye:
 * **Etiquetas**. Una sección del documento JSON en la que el back-end de solución puede leer y escribir. Las etiquetas no son visibles para las aplicaciones de dispositivo.
 * **Propiedades deseadas**. Se usan en conjunción con las propiedades notificadas para sincronizar la configuración o la condición del dispositivo. El back-end de solución puede establecer propiedades deseadas, y la aplicación de dispositivo puede leerlas. La aplicación de dispositivo también puede recibir notificaciones de los cambios en las propiedades deseadas.
 * **Propiedades notificadas**. Se usan en conjunción con las propiedades deseadas para sincronizar la configuración o la condición del dispositivo. La aplicación de dispositivo puede establecer propiedades notificadas, y el back-end de solución puede leerlas y consultarlas.
-
-Además, la raíz del documento JSON del dispositivo gemelo contiene las propiedades de solo lectura de la identidad de dispositivo correspondiente, almacenadas en el [registro de identidad de dispositivo][lnk-identity].
+* **Propiedades de identidad del dispositivo**. La raíz del documento JSON del dispositivo gemelo contiene las propiedades de solo lectura de la identidad de dispositivo correspondiente, almacenadas en el [registro de identidad de dispositivo][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ En el ejemplo siguiente se muestra un documento JSON del dispositivo gemelo:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ En el ejemplo siguiente se muestra un documento JSON del dispositivo gemelo:
             }
         }
 
-En el objeto raíz, están las propiedades del sistema y los objetos de contenedor para `tags` y las propiedades `reported` y `desired`. El contenedor `properties` incluye algunos elementos de solo lectura (`$metadata`, `$etag` y `$version`) descritos en las secciones [Metadatos de dispositivo gemelo][lnk-twin-metadata] y [Simultaneidad optimista][lnk-concurrency].
+En el objeto raíz están las propiedades de identidad del sistema y los objetos de contenedor para `tags` y las propiedades `reported` y `desired`. El contenedor `properties` incluye algunos elementos de solo lectura (`$metadata`, `$etag` y `$version`) descritos en las secciones [Metadatos de dispositivo gemelo][lnk-twin-metadata] y [Simultaneidad optimista][lnk-concurrency].
 
 ### <a name="reported-property-example"></a>Ejemplo de propiedad notificada
 En el ejemplo anterior, el dispositivo gemelo contiene una propiedad `batteryLevel` notificada por la aplicación de dispositivo. Esta propiedad permite consultar y operar en los dispositivos en función del último nivel de batería notificado. Otros ejemplos incluyen la aplicación de dispositivo notificando las funcionalidades del dispositivo o las opciones de conectividad.
@@ -103,7 +109,7 @@ En el ejemplo anterior, el dispositivo gemelo contiene una propiedad `batteryLev
 > Las propiedades notificadas simplifican los escenarios donde el back-end de la solución está interesado en el último valor conocido de una propiedad. Use [mensajes de dispositivo a nube][lnk-d2c] si el back-end de la solución debe procesar la telemetría del dispositivo en forma de secuencias de eventos con marca de tiempo, por ejemplo, series temporales.
 
 ### <a name="desired-property-example"></a>Ejemplo de propiedad deseada
-En el ejemplo anterior, el back-end de la solución y la aplicación de dispositivo usan las propiedades deseadas y notificadas del dispositivo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este dispositivo. Por ejemplo:
+En el ejemplo anterior, el back-end de la solución y la aplicación de dispositivo usan las propiedades deseadas y notificadas del dispositivo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este dispositivo. Por ejemplo: 
 
 1. El back-end de la solución establece la propiedad deseada con el valor de configuración deseado. Esta es la parte del documento con el conjunto de propiedad deseada:
    
@@ -156,9 +162,9 @@ Para trabajar en el back-end de la solución, el dispositivo gemelo usa las sigu
 * **Reemplazar etiquetas**. Esta operación permite que el back-end de la solución sobrescriba completamente todas las etiquetas y sustituya un nuevo documento JSON para `tags`.
 * **Recibir notificaciones gemelas**. Esta operación permite que el back-end de la solución reciba una notificación cuando se modifique la gemela. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *twinChangeEvents*. De forma predeterminada, no se envían notificaciones gemelas, es decir, no existen previamente tales rutas. Si la tasa de cambio es demasiado alta, o por otras razones, como errores internos, IoT Hub podría enviar una sola notificación que contiene todos los cambios. Por lo tanto, si la aplicación necesita registro y auditoría confiables de todos los estados intermedios, la recomendación sigue siendo usar mensajes D2C. El mensaje de notificaciones gemelas incluye propiedades y el cuerpo.
 
-    - Propiedades
+    - Properties (Propiedades)
 
-    | Nombre | Valor |
+    | NOMBRE | Valor |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Hora de envío de la notificación |
@@ -240,13 +246,13 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
 * Todos los valores de cadena pueden tener una longitud de 4 KB como máximo.
 
 ## <a name="device-twin-size"></a>Tamaño del dispositivo gemelo
-IoT Hub impone un límite de tamaño de 8 KB en los valores totales de `tags`, `properties/desired` y `properties/reported`, excepto los elementos de solo lectura.
+IoT Hub impone un límite de tamaño de 8 KB en cada uno de los valores totales respectivos `tags`, `properties/desired` y `properties/reported`, excepto los elementos de solo lectura.
 El tamaño se calcula contando todos los caracteres, excepto los caracteres de control UNICODE (segmentos C0 y C1) y los espacios que se encuentran fuera de las constantes de cadena.
 IoT Hub rechaza con un error todas las operaciones que podrían aumentar el tamaño de los documentos por encima del límite.
 
 ## <a name="device-twin-metadata"></a>Metadatos de dispositivo gemelo
 IoT Hub conserva la marca de tiempo de la última actualización para cada objeto JSON en las propiedades deseadas y notificadas del dispositivo gemelo. Las marcas de tiempo están en formato UTC y se codifican con el formato [ISO8601]`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Por ejemplo:
+Por ejemplo: 
 
         {
             ...
@@ -324,7 +330,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En el artículo [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En el artículo sobre la [compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ya conoce algo más sobre los dispositivos gemelos, quizás le interesen los siguientes temas de la guía para desarrolladores de IoT Hub:
 
 * [Invocación de un método directo en un dispositivo][lnk-methods]

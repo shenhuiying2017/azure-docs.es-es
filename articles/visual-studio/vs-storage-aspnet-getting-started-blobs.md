@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Cómo empezar a usar el almacenamiento de blobs de Azure en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+description: "Cómo empezar a usar Azure Blob Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: kraig
-ms.openlocfilehash: f0d0815e71149749cb52efe21e1f0af3cabae21c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Blob Storage es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
-Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios comunes con Azure Blob Storage. Los escenarios incluyen la creación de un contenedor de blob y la carga, enumeración, descarga y eliminación de blobs.
+En este tutorial se muestra cómo escribir código de ASP.NET para algunos escenarios comunes que utilizan Blob Storage. Los escenarios incluyen la creación de un contenedor de blob y la carga, enumeración, descarga y eliminación de blobs.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
@@ -41,21 +41,23 @@ Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios com
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Creación de un controlador MVC 
+## <a name="create-an-mvc-controller"></a>Creación de un controlador MVC 
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Controladores** y, en el menú contextual, seleccione **Agregar > Controlador**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Controladores**.
 
-    ![Incorporación de un controlador a una aplicación de ASP.NET MVC](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+2. En el menú contextual, seleccione **Agregar** > **Controlador**.
 
-1. En el cuadro de diálogo **Agregar scaffold**, seleccione **Controlador MVC 5 - Vacío** y seleccione **Agregar**.
+    ![Captura de pantalla del Explorador de soluciones, en Agregar y Controlador destacados](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
-    ![Especifique el tipo de controlador MVC](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
+1. En el cuadro de diálogo **Agregar scaffold**, seleccione **Controlador de MVC 5: en blanco** y **Agregar**.
+
+    ![Captura de pantalla del cuadro de diálogo Agregar scaffold](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
 
 1. En el cuadro de diálogo **Agregar controlador**, denomine *BlobsController* al controlador y seleccione **Agregar**.
 
-    ![Asignación de nombre al controladorMVC](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
+    ![Captura de pantalla del cuadro de diálogo Agregar controlador](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-1. Agregue las siguientes directivas *using* al archivo `BlobsController.cs`:
+1. Agregue las siguientes directivas `using` al archivo `BlobsController.cs`:
 
     ```csharp
     using Microsoft.Azure;
@@ -65,9 +67,9 @@ Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios com
 
 ## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Conexión a una cuenta de almacenamiento y obtención de una referencia de contenedor
 
-Un contenedor de blob es una jerarquía anidada de blobs y carpetas.  El resto de los pasos que se describen en este documento requieren una referencia a un contenedor de blobs, por lo que el código debe colocarse en su propio método para poder reutilizarlo.
+Un contenedor de blob es una jerarquía anidada de blobs y carpetas. El resto de los pasos que se describen en este documento requieren una referencia a un contenedor de blobs, por lo que el código debe colocarse en su propio método para poder reutilizarlo.
 
-Con los pasos siguientes se crea un método para conectar con la cuenta de almacenamiento mediante la cadena de conexión de **Web.config** y se crea una referencia a un contenedor.  La configuración de la cadena de conexión de **Web.config** se denominará con el formato `<storageaccountname>_AzureStorageConnectionString`. 
+Con los pasos siguientes se crea un método para conectar con la cuenta de almacenamiento mediante la cadena de conexión de **Web.config**. Los pasos sirven también una referencia a un contenedor.  La configuración de la cadena de conexión de **Web.config** se denomina con el formato `<storageaccountname>_AzureStorageConnectionString`. 
 
 1. Abra el archivo `BlobsController.cs` .
 
@@ -85,7 +87,7 @@ Con los pasos siguientes se crea un método para conectar con la cuenta de almac
     ```
 
 > [!NOTE]
-> Aunque *test-blob-container* no existe aún, este código crea una referencia a él, por lo que el contenedor se puede crear con el método `CreateIfNotExists` que se muestra en el siguiente paso.
+> Aunque el *contenedor de blobs de prueba* no existe todavía, este código crea una referencia a él. Esto se hace así para que el contenedor pueda crearse con el método `CreateIfNotExists` que se muestra en el paso siguiente.
 
 ## <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 
@@ -108,7 +110,7 @@ Los siguientes pasos muestran cómo crear un contenedor de blobs:
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Llame al método `CloudBlobContainer.CreateIfNotExists` para crear el contenedor si aún no existe. El método `CloudBlobContainer.CreateIfNotExists` devuelve **true** si el contenedor no existe y se crea correctamente. En caso contrario, se devuelve **false**.    
+1. Llame al método `CloudBlobContainer.CreateIfNotExists` para crear el contenedor si aún no existe. El método `CloudBlobContainer.CreateIfNotExists` devuelve **true** si el contenedor no existe y se crea correctamente. En caso contrario, el método devuelve **false**.    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExists();
@@ -133,9 +135,13 @@ Los siguientes pasos muestran cómo crear un contenedor de blobs:
     }
     ```
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Vistas** y, en el menú contextual, seleccione **Agregar->Nueva carpeta**. Asigne a la nueva carpeta el nombre *Blobs*. 
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Vistas**.
+
+2. En el menú contextual, seleccione **Agregar** > **Nueva carpeta**. Asigne a la nueva carpeta el nombre *Blobs*. 
  
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas**, haga clic con el botón derecho en **Blobs** y, en el menú contextual, seleccione **Agregar > Vista**.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** y haga clic con el botón derecho en **Blobs**.
+
+4. En el menú contextual, seleccione **Agregar** > **Vista**.
 
 1. En el cuadro de diálogo **Agregar vista**, escriba **CreateBlobContainer** para el nombre de la vista y seleccione **Agregar**.
 
@@ -151,7 +157,7 @@ Los siguientes pasos muestran cómo crear un contenedor de blobs:
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas->Compartido** y abra `_Layout.cshtml`.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** > **Compartido** y abra `_Layout.cshtml`.
 
 1. Después del último **Html.ActionLink**, agregue el siguiente **Html.ActionLink**:
 
@@ -161,7 +167,7 @@ Los siguientes pasos muestran cómo crear un contenedor de blobs:
 
 1. Ejecute la aplicación y seleccione **Crear contenedor de blobs** para ver resultados similares a la siguiente captura de pantalla:
   
-    ![Creación de un contenedor de blobs](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
+    ![Captura de pantalla de la creación de contenedor de blobs](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
     Como se mencionó anteriormente, el método `CloudBlobContainer.CreateIfNotExists` devuelve **true** solo cuando el contenedor no existe y se crea. Por lo tanto, si la aplicación se ejecuta cuando el contenedor existe, el método devuelve **false**.
 
@@ -188,7 +194,7 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Como se explicó anteriormente, el almacenamiento de Azure es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques.  Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
+1. Como se explicó anteriormente, Azure Storage es compatible con diferentes tipos de blob. En este tutorial se usan blobs en bloques. Para recuperar una referencia a un blob en bloques, llame al método `CloudBlobContainer.GetBlockBlobReference`.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -197,7 +203,7 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     > [!NOTE]
     > El nombre del blob es parte de la dirección URL utilizada para recuperar un blob y puede ser cualquier cadena, incluido el nombre del archivo.
 
-1. Una vez que haya una referencia de blob, cargue en ella cualquier flujo de datos mediante una llamada al método `UploadFromStream` del objeto de referencia. El método `UploadFromStream` crea el blob si no existe o lo sobrescribe si existe. (Cambie *&lt;file-to-upload>* por una ruta de acceso completa al archivo que se va a cargar).
+1. Una vez que haya una referencia de blob, puede cargar en ella cualquier flujo de datos mediante una llamada al método `UploadFromStream` del objeto de referencia del blob. El método `UploadFromStream` crea el blob si no existe o lo sobrescribe si existe. (Cambie *&lt;file-to-upload>* por una ruta de acceso completa al archivo que se va a cargar).
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -221,7 +227,7 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     }
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas->Compartido** y abra `_Layout.cshtml`.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** > **Compartido** y abra `_Layout.cshtml`.
 
 1. Después del último **Html.ActionLink**, agregue el siguiente **Html.ActionLink**:
 
@@ -229,12 +235,10 @@ Después de [crear el contenedor de blobs](#create-a-blob-container), cargue los
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Cargar blob**.  Se debería mostrar la palabra "success!" .
+1. Ejecute la aplicación y seleccione **Cargar blob**.  La palabra *success!* debería aparecer.
     
-    ![Comprobación correcta](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
+    ![Captura de pantalla de comprobación correcta](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
   
-La sección [Enumeración de blobs de un contenedor de blobs](#list-the-blobs-in-a-blob-container) muestra cómo enumerar los blobs en un contenedor de blobs.    
-
 ## <a name="list-the-blobs-in-a-blob-container"></a>Enumeración de blobs de un contenedor de blobs
 
 Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El código de ejemplo hace referencia al contenedor *test-blob-container* creado en la sección [Creación de un contenedor de blobs](#create-a-blob-container).
@@ -257,7 +261,7 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Para enumerar los blobs de un contenedor de blobs, use el método `CloudBlobContainer.ListBlobs`. El método `CloudBlobContainer.ListBlobs` devuelve un objeto `IListBlobItem` que se puede transmitir a un objeto `CloudBlockBlob`, `CloudPageBlob` o `CloudBlobDirectory`. El fragmento de código siguiente enumera todos los blobs en un contenedor de blobs. Cada blob se convierte en el objeto adecuado según su tipo y su nombre (o URI en el caso de un **CloudBlobDirectory**) se agrega a una lista.
+1. Para enumerar los blobs de un contenedor de blobs, use el método `CloudBlobContainer.ListBlobs`. El método `CloudBlobContainer.ListBlobs` devuelve un objeto `IListBlobItem` que se puede transmitir a un objeto `CloudBlockBlob`, `CloudPageBlob` o `CloudBlobDirectory`. El fragmento de código siguiente enumera todos los blobs en un contenedor de blobs. Cada blob se transmite a el objeto apropiado, según su tipo. Su nombre (o URI en el caso de **CloudBlobDirectory**) se agrega a una lista.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -304,7 +308,7 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
     //...
     ```
 
-    Si establece el parámetro **useFlatBlobListing** en **true** se devolverá una lista plana de todas las entidades del contenedor de blobs y se producirán los siguientes resultados:
+    Si establece el parámetro **useFlatBlobListing** en **true** se devolverá una lista plana de todas las entidades del contenedor de blobs. El resultado es este:
 
         foo.png
         dir1/bar.png
@@ -340,7 +344,9 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
     }
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas**, haga clic con el botón derecho en **Blobs** y, en el menú contextual, seleccione **Agregar > Vista**.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** y haga clic con el botón derecho en **Blobs**.
+
+2. En el menú contextual, seleccione **Agregar** > **Vista**.
 
 1. En el cuadro de diálogo **Agregar vista**, escriba `ListBlobs` como nombre de vista y seleccione **Agregar**.
 
@@ -362,7 +368,7 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
     </ul>
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas->Compartido** y abra `_Layout.cshtml`.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** > **Compartido** y abra `_Layout.cshtml`.
 
 1. Después del último **Html.ActionLink**, agregue el siguiente **Html.ActionLink**:
 
@@ -372,11 +378,11 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
 
 1. Ejecute la aplicación y seleccione **Enumerar blobs** para ver resultados similares a la siguiente captura de pantalla:
   
-    ![Lista de blobs](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
+    ![Captura de pantalla de Enumerar blobs](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Descargar blobs
 
-La sección siguiente muestra cómo descargar un blob y conservarlo en el almacenamiento local o leer el contenido en una cadena. El código de ejemplo hace referencia al contenedor *test-blob-container* creado en la sección [Creación de un contenedor de blobs](#create-a-blob-container).
+En esta sección se muestra cómo descargar un blob. Puede conservarlo en el almacenamiento local o leer el contenido en una cadena. El código de ejemplo hace referencia al contenedor *test-blob-container* creado en la sección [Creación de un contenedor de blobs](#create-a-blob-container).
 
 1. Abra el archivo `BlobsController.cs` .
 
@@ -403,7 +409,7 @@ La sección siguiente muestra cómo descargar un blob y conservarlo en el almace
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Para descargar un blob, use el método `CloudBlockBlob.DownloadToStream`. El código siguiente transfiere el contenido de un blob a un objeto de flujo que luego se guarda en un archivo local (cambie *&lt;local-file-name>* por el nombre de archivo completo que representa dónde se descarga el blob): 
+1. Para descargar un blob, use el método `CloudBlockBlob.DownloadToStream`. El código siguiente transfiere el contenido del blob en un objeto del flujo. Ese objeto se conserva en un archivo local. (Cambie *&lt;nombre del archivo local>* por el nombre completo de archivo que represente la ubicación en la que desea que descargar el blob). 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -427,7 +433,7 @@ La sección siguiente muestra cómo descargar un blob y conservarlo en el almace
     }
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas->Compartido** y abra `_Layout.cshtml`.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** > **Compartido** y abra `_Layout.cshtml`.
 
 1. Después del último **Html.ActionLink**, agregue el siguiente **Html.ActionLink**:
 
@@ -435,7 +441,7 @@ La sección siguiente muestra cómo descargar un blob y conservarlo en el almace
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Descargar blob** para descargar el blob. El blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference` se descarga en la ubicación especificada en la llamada al método `File.OpenWrite`.  El texto "success!" debería mostrarse en el explorador. 
+1. Ejecute la aplicación y seleccione **Descargar blob** para descargar el blob. El blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference` se descarga en la ubicación especificada en la llamada al método `File.OpenWrite`.  El texto *"success!"* debería aparecer en el explorador. 
 
 ## <a name="delete-blobs"></a>Eliminar blobs
 
@@ -484,7 +490,7 @@ Los siguientes pasos muestran cómo eliminar un blob:
     }
     ```
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas->Compartido** y abra `_Layout.cshtml`.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** > **Compartido** y abra `_Layout.cshtml`.
 
 1. Después del último **Html.ActionLink**, agregue el siguiente **Html.ActionLink**:
 
@@ -492,11 +498,11 @@ Los siguientes pasos muestran cómo eliminar un blob:
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Eliminar blob** para eliminar el blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference`.  El texto "success!" debería aparecer en el explorador.  Haga clic en el botón **Atrás** del explorador y seleccione **Mostrar blobs** para comprobar que el blob ya no está en el contenedor.
+1. Ejecute la aplicación y seleccione **Eliminar blob** para eliminar el blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference`. El texto *"success!"* debería aparecer en el explorador. Seleccione el botón **Atrás** del explorador y luego seleccione **Mostrar blobs** para comprobar que el blob ya no está en el contenedor.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, aprendió a almacenar, enumerar y recuperar blobs en Azure Storage mediante ASP.NET.  Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
+En este tutorial, aprendió a almacenar, enumerar y recuperar blobs en Azure Storage mediante ASP.NET. Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 
   * [Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
   * [Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

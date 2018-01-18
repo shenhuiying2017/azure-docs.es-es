@@ -1,11 +1,11 @@
 ---
 title: "Adición de notificaciones push a una aplicación de Apache Cordova con Azure Mobile Apps | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar las aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Apache Cordova."
+description: "Obtenga información acerca de cómo usar Azure Mobile Apps para enviar notificaciones push a su aplicación de Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -187,7 +187,7 @@ Abra index.js y actualice el código para usar el identificador numérico del pr
 Antes de implementar su aplicación en su dispositivo Android, debe habilitar la depuración USB.  Realice los pasos siguientes en su teléfono Android:
 
 1. Vaya a **Settings** (Ajustes) >**About phone** (Información del teléfono) y pulse **Build number** (Número de compilación) hasta que se habilite el modo de desarrollador (unas siete veces).
-2. Nuevamente en **Ajustes** >**Developer Options** (Opciones del desarrollador), habilite **USB debugging** (Depuración USB) y conecte el teléfono Android al equipo de desarrollo con un cable USB.
+2. De nuevo en **Configuración** > **Opciones del desarrollador** habilite **Depuración USB** y conecte su teléfono Android al equipo de desarrollo con un cable USB.
 
 Cuando lo probamos, usamos un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow).  Sin embargo, las técnicas son comunes a cualquier versión moderna de Android.
 

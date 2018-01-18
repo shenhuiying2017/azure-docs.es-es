@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimización del rendimiento de red en las máquinas virtuales de Azure
 
@@ -26,16 +26,16 @@ Las máquinas virtuales de Azure (VM) tienen una configuración de red predeterm
 
 ## <a name="windows-vm"></a>Máquina virtual de Windows
 
-Si la máquina virtual Windows es compatible con [redes aceleradas](virtual-network-create-vm-accelerated-networking.md), habilite esta característica para conseguir un rendimiento óptimo. En el caso de otras máquinas virtuales Windows, el uso de escalado en el lado de la recepción (RSS) pueden logar un rendimiento máximo mayor que las que no lo usan. En las máquinas virtuales Windows, RSS se puede deshabilitar de forma predeterminada. Complete los siguientes pasos para determinar si RSS está habilitado y, si no lo está, para habilitarlo.
+Si la máquina virtual Windows es compatible con [redes aceleradas](create-vm-accelerated-networking-powershell.md), habilite esta característica para conseguir un rendimiento óptimo. En el caso de otras máquinas virtuales Windows, el uso de escalado en el lado de la recepción (RSS) pueden logar un rendimiento máximo mayor que las que no lo usan. En las máquinas virtuales Windows, RSS se puede deshabilitar de forma predeterminada. Para determinar si RSS está habilitado y para habilitarlo si no lo está en la actualidad, complete los siguientes pasos:
 
-1. Escriba el comando `Get-NetAdapterRss` de PowerShell para ver si RSS está habilitado para un adaptador de red. En la siguiente salida de ejemplo que devuelve `Get-NetAdapterRss`, RSS no está habilitado.
+1. Compruebe si RSS está habilitado para un adaptador de red con el comando `Get-NetAdapterRss` de PowerShell. En la siguiente salida de ejemplo que devuelve `Get-NetAdapterRss`, RSS no está habilitado.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Escriba el siguiente comando para habilitar RSS:
+2. Para habilitar RSS escriba el siguiente comando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -46,7 +46,7 @@ Si la máquina virtual Windows es compatible con [redes aceleradas](virtual-netw
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Máquina virtual de Linux
@@ -56,12 +56,14 @@ De manera predeterminada, en las máquinas virtuales Linux de Azure RSS está si
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu para las nuevas implementaciones
 
 El kernel de Azure de Ubuntu proporciona el mejor rendimiento de la red en Azure y ha sido el kernel predeterminado desde el 21 de septiembre de 2017. Para obtener este kernel, primero instale la última versión compatible de 16.04-LTS, como se describe a continuación:
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Una vez que la creación finaliza, escriba los siguientes comandos para obtener el actualizaciones más recientes. Estos pasos también funcionan en las máquinas virtuales que ejecutan actualmente el kernel de Azure de Ubuntu.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Si la máquina virtual no tiene el kernel de Azure, el número de versión se comenzará normalmente con "4.4". En esos casos, ejecute los siguientes comandos como raíz.
+Si la máquina virtual no tiene el kernel de Azure, el número de versión comenzará normalmente con "4.4." Si la máquina virtual no tiene el kernel de Azure, ejecute los comandos siguientes como raíz:
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Para obtener las optimizaciones más recientes, se recomienda crear una máquina virtual con la versión más reciente compatible mediante la especificación de los siguientes parámetros:
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Tanto las máquinas virtuales nuevas como las existentes se pueden beneficiar de la versión más reciente de Linux Integration Services (LIS).
-La optimización del rendimiento es en LIS, a partir de 4.2.2-2, aunque las versiones posteriores contienen más mejoras. Escriba los siguientes comandos para instalar el LIS más reciente:
+
+Tanto las máquinas virtuales nuevas como las existentes se pueden beneficiar de la versión más reciente de Linux Integration Services (LIS). La optimización del rendimiento es en LIS, a partir de 4.2.2-2, aunque las versiones posteriores contienen más mejoras. Escriba los siguientes comandos para instalar el LIS más reciente:
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Para obtener las optimizaciones, se recomienda crear una máquina virtual con la versión más reciente compatible mediante la especificación de los siguientes parámetros:
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Tanto las máquinas virtuales nuevas como las existentes se pueden beneficiar de la versión más reciente de Linux Integration Services (LIS).
-La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para descargar e instalar LIS:
+
+Tanto las máquinas virtuales nuevas como las existentes se pueden beneficiar de la versión más reciente de Linux Integration Services (LIS). La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para descargar e instalar LIS:
 
 ```bash
 mkdir lis4.2.3-1
@@ -147,6 +152,7 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Para más información sobre la versión 4.2 de Linux Integration Services para Hyper-V, vea la [página de descarga](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Pasos siguientes
-* Ahora que la máquina virtual está optimizada, vea el resultado con [pruebas de ancho de banda y rendimiento (NTTTCP)](virtual-network-bandwidth-testing.md) para su escenario.
+## <a name="next-steps"></a>pasos siguientes
+* Vea el resultado con las [pruebas de ancho de banda y rendimiento de Azure VM](virtual-network-bandwidth-testing.md) para su escenario.
+* Obtenga información acerca de cómo [se asigna el ancho de banda a las máquinas virtuales] (virtual-machine-network-throughput.md)
 * Obtenga más información con las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)

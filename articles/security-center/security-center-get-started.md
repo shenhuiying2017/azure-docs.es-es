@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido de Azure Security Center | Microsoft Docs"
-description: "Este artículo le ayuda a empezar a trabajar rápidamente con Azure Security Center, guiándole en los componentes de supervisión de la seguridad y administración de directivas y ofreciendo vínculos a los pasos siguientes."
+title: "Guía de inicio rápido de Azure Security Center: incorporación de su suscripción de Azure al nivel Estándar de Security Center | Microsoft Docs"
+description: "Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,125 +12,109 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/07/2018
 ms.author: terrylan
-ms.openlocfilehash: c28f92af96f31d1c386cf072f83fc142b9a7f588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="azure-security-center-quick-start-guide"></a>Guía de inicio rápido de Azure Security Center
-Este artículo le ayuda a comenzar rápidamente con Azure Security Center guiándole por los componentes de supervisión de la seguridad y administración de directivas de Security Center.
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guía de inicio rápido: incorporación de su suscripción de Azure al nivel Estándar de Security Center
+Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. El nivel Estándar de Security Center se puede probar de forma gratuita los primeros 60 días.
+
+En este artículo, actualizará al nivel Estándar para una mayor seguridad e instalará Microsoft Monitoring Agent en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-El nivel Gratis de Security Center se habilita automáticamente en todas las suscripciones de Azure y proporciona recomendaciones de directivas de seguridad, de evaluación continua de la seguridad y de seguridad que requieren acción para que pueda proteger sus recursos de Azure.
+Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol de propietario de la suscripción, colaborador de la suscripción o administrador de seguridad.
 
-Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Para más información sobre Azure Portal, consulte la [documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/).
+## <a name="enable-your-azure-subscription"></a>Habilitación de la suscripción a Azure
 
-## <a name="permissions"></a>Permisos
-En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso. Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
+1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
+2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center - Información general**.
 
-## <a name="data-collection"></a>Colección de datos
-Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. Consulte el artículo sobre cómo [habilitar la recopilación de datos](security-center-enable-data-collection.md) para obtener más información acerca de cómo funciona esta característica.
+ ![Introducción a Security Center][2]
 
-El aprovisionamiento automático es muy recomendable y es necesario para las suscripciones del nivel Estándar de Security Center. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+**Security Center - Información general** proporciona una vista unificada de la situación de seguridad de las cargas de trabajo de la nube híbrida, lo que le permite detectar y evaluar la seguridad de las cargas de trabajo e identificar y mitigar riesgos. Security Center habilita automáticamente cualquiera de las suscripciones de Azure que no fueron incorporadas previamente por usted u otro usuario de la suscripción al nivel Gratis.
 
-Consulte los [planes de tarifa de Security Center](security-center-pricing.md) para obtener más información sobre los planes de tarifa Gratis y Estándar.
+Puede ver y filtrar la lista de suscripciones haciendo clic en el elemento de menú **Suscripciones**. Security Center comenzará ahora a evaluar la seguridad de estas suscripciones para identificar vulnerabilidades de seguridad. Para personalizar los tipos de evaluaciones, puede modificar la directiva de seguridad. Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa.
 
-Los pasos siguientes describen cómo acceder a los componentes de Security Center y usarlos.
+A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 
-> [!NOTE]
-> Este artículo es una introducción al servicio mediante una implementación de ejemplo. No es una guía paso a paso.
->
->
+- **Recomendaciones** para formas de mejorar la seguridad de las suscripciones de Azure. Al hacer clic en el icono **Recomendaciones** se iniciará una lista de prioridades.
+- Un inventario de los recursos **Compute**, **Redes**, **Almacenamiento y datos** y **Aplicaciones** a los que ahora accede Security Center junto con la posición de seguridad de cada uno de ellos.
 
-## <a name="access-security-center"></a>Acceso al Centro de seguridad
-En el portal, siga estos pasos para acceder al Centro de seguridad:
+Para aprovechar al máximo Security Center, debe completar los pasos siguientes para actualizar al nivel Estándar e instalar Microsoft Monitoring Agent.
 
-1. En el menú de **Microsoft Azure**, seleccione **Security Center**.
+## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
+Para conseguir las guías de inicio rápido y los tutoriales de Security Center, debe actualizar al nivel Estándar. Los primeros sesenta días son gratis y puede regresar al nivel Gratis en cualquier momento.
 
-   ![Menú de Azure][1]
-2. Si es la primera vez que accede a Security Center, se abre la hoja de **bienvenida**. Seleccione **Iniciar Security Center** para abrir **Security Center**.
-   ![Pantalla principal][10]
-3. Después de iniciar Security Center desde la hoja de bienvenida o seleccionarlo desde el menú de Microsoft Azure, se abre **Security Center**. Para facilitar el acceso a la hoja **Security Center** en el futuro, seleccione la opción **Anclar hoja al panel** (parte superior derecha).
-   ![Opción Anclar hoja al panel][2]
+1. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
 
-## <a name="use-security-center"></a>Uso del Centro de seguridad
-Puede configurar directivas de seguridad para los grupos de recursos y las suscripciones de Azure. Vamos a configurar una directiva de seguridad para su suscripción:
+2. En **Incorporación a la seguridad avanzada**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. Seleccione una suscripción en la lista.
+
+  ![Selección de una suscripción][4]
+
+3. **Directiva de seguridad** proporciona información sobre los grupos de recursos incluidos en la suscripción. **Precios** también se abre.
+4. En **Precios**, seleccione **Estándar** para actualizar del nivel Gratis al nivel Estándar y haga clic en **Guardar**.
+
+  ![Selección de Estándar][5]
+
+Ahora que ha actualizado al nivel Estándar, tiene acceso a características adicionales de Security Center, incluidos los **controles de aplicación adaptables**, **acceso a VM Just-In-Time**, **alertas de seguridad**, **inteligencia sobre amenazas**, **playbook de automatización** y mucho más. Tenga en cuenta que las alertas de seguridad solo aparecerán cuando Security Center detecte actividad malintencionada.
+
+  ![Alertas de seguridad][7]
+
+## <a name="automate-data-collection"></a>Recopilación automática de datos
+Security Center recopila datos de VM de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. De forma predeterminada, Azure Security Center creará automáticamente una nueva área de trabajo.
+
+Si el aprovisionamiento automático está habilitado, Security Center instala Microsoft Monitoring Agent en todas las VM de Azure compatibles y en las nuevas que se creen. Se recomienda encarecidamente el aprovisionamiento automático.
+
+Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. En **Security Center - Directiva de seguridad**, seleccione una suscripción.
-3. En **Directiva de seguridad - Colección de datos**, está activado **Aprovisionamiento automático**. Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen.
+2. Seleccione la suscripción.
+3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
+4. En **Recopilación de datos**, seleccione **Activado** para habilitar el aprovisionamiento automático.
+5. Seleccione **Guardar**.
 
-    ![Directiva de seguridad][12]
+  ![Habilitar el aprovisionamiento automático][6]
 
-4. En la hoja **Directiva de seguridad**, seleccione el componente de directiva **Directiva de seguridad**.
+Con esta nueva información sobre VM de Azure, Security Center puede proporcionar recomendaciones adicionales relacionados con el estado de actualización del sistema, las configuraciones de seguridad del SO, la protección de puntos de conexión, así como generar alertas de seguridad adicionales.
 
-     ![Directiva de seguridad][11]
+  ![Recomendaciones][8]
 
-5. En **Mostrar recomendaciones para**, active las recomendaciones que quiere ver como parte de la directiva de seguridad. Ejemplos:
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
 
-   * Al establecer **Actualizaciones del sistema** en **Activar**, se examinan todas las máquinas virtuales compatibles para comprobar si faltan actualizaciones del sistema operativo.
-   * Al establecer **Vulnerabilidades del sistema operativo** en **Activar**, se examinan todas las máquinas virtuales compatibles para identificar las configuraciones del sistema operativo que podrían hacer que la máquina virtual resultara más vulnerable a ataques.
+1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
+2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
+3. En **COMPONENTES DE LA DIRECTIVA**, seleccione **Plan de tarifa**.
+4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
+5. Seleccione **Guardar**.
 
-6. Seleccione **Guardar**.
+Si desea deshabilitar el aprovisionamiento automático:
 
-### <a name="view-recommendations"></a>Ver recomendaciones
-1. Vuelva a la hoja **Security Center** y haga clic en el icono **Recomendaciones**. El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, muestra recomendaciones en la hoja **Recomendaciones**.
-   ![Recomendaciones en Azure Security Center][5]
-2. Seleccione una recomendación en la hoja **Recomendaciones** para ver más información o realizar una acción para resolver el problema.
+1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
+2. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
+3. En **Directiva de seguridad: Colección de datos**, en **Incorporación**, seleccione **Desactivado** para deshabilitar el aprovisionamiento automático.
+4. Seleccione **Guardar**.
 
-### <a name="view-the-security-state-of-your-resources"></a>Visualización del estado de seguridad de los recursos
-1. Vuelva a la hoja **Centro de seguridad** . La sección **Prevención** del panel contiene indicadores del estado de seguridad de máquinas virtuales, redes, datos y aplicaciones.
-2. Seleccione **Proceso** para más información. La hoja **Proceso** se abre y muestra tres pestañas:
+>[!NOTE]
+> La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+>
 
-  - **Información general**: contiene recomendaciones de supervisión y de máquinas virtuales.
-  - **VM y equipos**: muestra el estado de seguridad actual de todas las máquinas virtuales y equipos.
-  - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
+## <a name="next-steps"></a>pasos siguientes
+En esta guía de inicio rápido ha actualizado al nivel Standard y ha aprovisionado Microsoft Monitoring Agent para la administración unificada de seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Para más información sobre cómo usar Security Center, siga la guía de inicio rápido para la incorporación de equipos Windows que se encuentran en local y en otras nubes.
 
-    ![Cálculo del estado de seguridad][6]
-
-3. En la pestaña **Información general**, seleccione una recomendación para ver más información o realizar una acción para configurar los controles necesarios.
-4. En la pestaña **VM y equipos**, seleccione un recurso para ver detalles adicionales.
-
-### <a name="view-security-alerts"></a>Ver alertas de seguridad
-1. Vuelva a la hoja **Security Center** y haga clic en el icono **Alertas de seguridad**. Se abre la hoja **Alertas de seguridad** con una lista de alertas. Las alertas se generan mediante el análisis que Security Center hace de los registros de seguridad y la actividad de la red. También se incluyen alertas de soluciones de asociados integradas.
-   ![Alertas de seguridad en el Centro de seguridad de Azure][7]
-
-2. Seleccione una alerta para ver información adicional. En este ejemplo, vamos a seleccionar **Modified system binary discovered in dump filter** (Binario del sistema modificado detectado en filtro de volcado de memoria). Al hacerlo, se abren varias hojas que proporcionan detalles adicionales sobre la alerta.
-   ![Detalles de alertas de seguridad en Azure Security Center][8]
-
-### <a name="view-the-health-of-your-partner-solutions"></a>Ver el estado de sus soluciones de asociados
-1. Vuelva a la hoja **Centro de seguridad** . El icono **Soluciones de seguridad** permite supervisar de un solo vistazo el estado de mantenimiento de las soluciones de asociados integradas en su suscripción de Azure.
-2. Seleccione el icono **Soluciones de seguridad**. Se abre una hoja con una lista de todas las soluciones de asociados conectadas a Security Center.
-   ![Soluciones de asociados][9]
-3. Seleccione una solución de asociado. Se abre una hoja que muestra el estado de la solución de asociados y de los recursos asociados de la solución. Seleccione **Consola de soluciones** para abrir la experiencia de administración de asociados de esta solución.
-
-   ![Soluciones de socios][13]
-
-## <a name="next-steps"></a>Pasos siguientes
-En este artículo se han presentado los componentes de supervisión de la seguridad y administración de directivas de Security Center. Ahora que está familiarizado con Security Center, pruebe los siguientes pasos:
-
-* Configure una directiva de seguridad para su suscripción de Azure mediante los pasos que se describen en [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
-* Use las recomendaciones de Security Center para proteger sus recursos de Azure mediante los pasos que se describen en [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
-* Revise y administre sus alertas de seguridad actuales mediante los pasos que se describen en [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
-- Aprenda más sobre la integración con asociados para mejorar la seguridad general en [Integración de asociados y soluciones en Azure Security Center](security-center-partner-integration.md).
-- Aprenda cómo se administran y protegen los datos en Security Center en [Seguridad de datos de Azure Security Center](security-center-data-security.md).
-* Aprenda más sobre las [características avanzadas de detección de amenazas](security-center-detection-capabilities.md) que vienen con el [nivel estándar](security-center-pricing.md) de Security Center. El nivel Estándar se ofrece gratis para los primeros 60 días.
-* Si tiene preguntas acerca de cómo usar Security Center, consulte las [P+F de Azure Security Center](security-center-faq.md).
+> [!div class="nextstepaction"]
+> [Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center](quick-onboard-windows-computer.md)
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/azure-menu.png
-[2]: ./media/security-center-get-started/security-center-pin.png
-[5]: ./media/security-center-get-started/recommendations.png
-[6]: ./media/security-center-get-started/resources-health.png
-[7]: ./media/security-center-get-started/security-alert.png
-[8]: ./media/security-center-get-started/security-alert-detail.png
-[9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/welcome.png
-[11]: ./media/security-center-get-started/show-recommendations-for.png
-[12]: ./media/security-center-get-started/automatic-provisioning.png
-[13]: ./media/security-center-get-started/partner-solutions-detail.png
+[2]: ./media/security-center-get-started/overview.png
+[4]: ./media/security-center-get-started/onboarding.png
+[5]: ./media/security-center-get-started/pricing.png
+[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
+[7]: ./media/security-center-get-started/security-alerts.png
+[8]: ./media/security-center-get-started/recommendations.png

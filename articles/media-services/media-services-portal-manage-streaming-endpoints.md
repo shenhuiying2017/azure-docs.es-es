@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure
 
-El tema muestra cómo usar Azure Portal para administrar puntos de conexión de streaming. 
+En este artículo se muestra cómo usar Azure Portal para administrar puntos de conexión de streaming. 
 
 >[!NOTE]
->No olvide revisar el tema de [Información general](media-services-streaming-endpoints-overview.md). 
+>No olvide revisar el artículo de [Información general](media-services-streaming-endpoints-overview.md). 
 
-Para obtener información sobre cómo escalar el punto de conexión de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) tema.
+Para obtener información sobre cómo escalar el punto de conexión de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artículo.
 
 ## <a name="start-managing-streaming-endpoints"></a>Inicio de la administración de puntos de conexión de streaming 
 
@@ -37,7 +37,7 @@ Para comenzar a administrar puntos de conexión de streaming de su cuenta, haga 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. En la hoja **Configuración**, haga clic en **Puntos de conexión de streaming**.
    
-    ![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
@@ -56,7 +56,7 @@ Para agregar/quitar el punto de conexión de streaming mediante el Portal de Azu
 2. Para eliminar un punto de conexión de streaming, haga clic en el botón **Eliminar** .      
 3. Haga clic en el botón **Iniciar** para iniciar el punto de conexión de streaming.
    
-    ![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
@@ -86,36 +86,36 @@ Aparecerá una breve descripción de los campos.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Escalado del punto de conexión de streaming premium
 
-Para obtener más información, consulte [este tema](media-services-portal-scale-streaming-endpoints.md) .
+Para obtener más información, consulte [este](media-services-portal-scale-streaming-endpoints.md) artículo.
 
 ## <a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
 
 Cuando se crea una nueva cuenta, la integración de la red CDN de Azure de punto de conexión de streaming está habilitada de forma predeterminada.
 
-Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Es posible que transcurran hasta dos horas hasta que la integración de la red CDN de Azure se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde ahí y, una vez que la integración esté completa, la transmisión se efectuará desde la red CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **starting** (iniciando) y es posible que note una reducción en el rendimiento.
+Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Es posible que transcurran hasta dos horas hasta que la integración de la red CDN de Azure se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde ahí y, una vez que la integración esté completa, la transmisión se efectúa desde la red CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **starting** (iniciando) y es posible que note una reducción en el rendimiento.
 
 La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto las regiones de China y el Gobierno Federal.
 
-Una vez habilitada, la configuración de **Access Control**, **nombre de host personalizado** y **autenticación de firma de Akamai** se deshabilita.
+Una vez habilitada, la configuración de **Access Control**, del **nombre de host personalizado y de la **autenticación de firma de Akamai** se deshabilita.
  
 > [!IMPORTANT]
-> La integración de Azure Media Services con la red CDN de Azure se implementa en la **red CDN de Azure de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de la red CDN de Azure**. Para obtener más información sobre las características de la red CDN de Azure, consulte la [información general de la red CDN](../cdn/cdn-overview.md).
+> La integración de Azure Media Services con la red CDN de Azure se implementa en la **red CDN de Azure de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de la red CDN de Azure**. Para más información acerca de las características de la red CDN de Azure, consulte la [información general de la red CDN](../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 
 * Cuando la red CDN está habilitada para un extremo de streaming, los clientes no pueden solicitar contenido directamente desde el origen. Si necesita poder probar el contenido con o sin red CDN, puede crear otro punto de conexión de streaming que no tenga habilitada la red CDN.
 * El nombre de host del extremo de streaming permanece igual después de habilitar la red CDN. No es necesario realizar ningún cambio en el flujo de trabajo de Servicios multimedia una vez habilitada la red CDN. Por ejemplo, si el nombre de host del extremo de streaming es strasbourg.streaming.mediaservices.windows.net, después de habilitar la red CDN se usa exactamente el mismo nombre de host.
 * Para los nuevos puntos de conexión de streaming, puede habilitar la red CDN creando un nuevo punto de conexión; para los puntos de conexión de streaming existentes, deberá detener primero el punto de conexión y, después, habilitar/deshabilitar la red CDN.
-* El punto de conexión de streaming estándar solo se puede configurar mediante el **proveedor de red CDN estándar de Verizon** con el portal de administración de Azure. Sin embargo, puede habilitar otros proveedores de la red CDN de Azure mediante las API de REST.
+* El punto de conexión de streaming estándar solo se puede configurar mediante el **proveedor de red CDN estándar de Verizon** con el portal de Azure clásico. Sin embargo, puede habilitar otros proveedores de la red CDN de Azure mediante las API de REST.
 
 ## <a name="configure-cdn-profile"></a>Configuración del perfil de la red CDN
 
 Puede configurar el perfil de la red CDN con el botón **Administrar red de entrega de contenido** de la parte superior.
 
-![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
+![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Pasos siguientes
-Consulte las rutas de aprendizaje de Servicios multimedia.
+## <a name="next-steps"></a>pasos siguientes
+Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

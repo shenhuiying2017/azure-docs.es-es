@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Incorporación de máquinas para administrarlas con DSC de Azure Automation
 
@@ -36,7 +36,7 @@ DSC de Azure Automation puede usarse para administrar diversas máquinas:
 Además, si no está preparado para administrar la configuración de máquina desde la nube, DSC de Azure Automation también puede utilizarse como punto de conexión meramente informativo. Esto le permite establecer (insertar) la configuración deseada a través del DSC local y ver numerosos detalles de informe sobre el cumplimiento del nodo con el estado deseado en Azure Automation.
 
 > [!NOTE]
-> La administración de VM de Azure con DSC se incluye sin cargo adicional si la extensión de máquina virtual DSC instalada es mayor que 2.7.  Para obtener más información, consulte la página [**Precios de Automation**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> La administración de VM de Azure con DSC se incluye sin cargo adicional si la extensión de máquina virtual DSC instalada es mayor que 2.70. Para obtener más información, consulte la página [**Precios de Automation**](https://azure.microsoft.com/en-us/pricing/details/automation/).
 
 
 En las secciones siguientes, se describe cómo incorporar cada tipo de máquina a DSC de Azure Automation.
@@ -121,7 +121,7 @@ $VM | Update-AzureVM
 
 Con DSC de Azure Automation, puede incorporar fácilmente máquinas virtuales de Azure para la administración de configuraciones, mediante el Portal de Azure, las plantillas del Administrador de recursos de Azure o PowerShell. Internamente y sin que un administrador tenga que acceder de forma remota a la máquina virtual, la extensión Configuración de estado deseado de la máquina virtual de Azure registra la máquina virtual con DSC de Azure Automation. Puesto que la extensión Configuración de estado deseado de la máquina virtual de Azure se ejecuta de forma asincrónica, se proporcionan los pasos para realizar un seguimiento de su progreso o solucionar problemas en la sección [**Solución de problemas de incorporación de máquinas virtuales de Azure**](#troubleshooting-azure-virtual-machine-onboarding) .
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de Azure Automation en la que quiere incorporar máquinas virtuales. En el panel de la cuenta de Automation, haga clic en **Nodos de DSC** -> **Agregar máquina virtual de Azure**.
 
@@ -133,7 +133,7 @@ En **Registro**, escriba los [valores del Administrador de configuración local 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Plantillas de Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
 Se pueden implementar máquinas virtuales de Azure e incorporarlas a DSC de Azure Automation mediante las plantillas de Azure Resource Manager. Consulte la página sobre cómo [configurar una máquina virtual mediante la extensión DSC y DSC de Azure Automation](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para ver una plantilla de ejemplo que incorpora una máquina virtual existente a DSC de Azure Automation. Para buscar la clave de registro y la dirección URL de registro tomadas como entrada en esta plantilla, consulte la sección [**Registro seguro**](#secure-registration) .
 
@@ -392,9 +392,6 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-* 
-            [Información general de DSC de Azure Automation](automation-dsc-overview.md)
-* 
-            [Cmdlets de DSC de Azure Automation](/powershell/module/azurerm.automation/#automation)
-* 
-            [Precios de DSC de Azure Automation](https://azure.microsoft.com/pricing/details/automation/)
+* [Información general de DSC de Azure Automation](automation-dsc-overview.md)
+* [Cmdlets de DSC de Azure Automation](/powershell/module/azurerm.automation/#automation)
+* [Precios de DSC de Azure Automation](https://azure.microsoft.com/pricing/details/automation/)

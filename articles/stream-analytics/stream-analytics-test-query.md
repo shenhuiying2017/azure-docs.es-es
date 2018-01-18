@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.openlocfilehash: 5e7bab0b0c3222ba093a93dc2d15f1e41898e62c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Prueba de consultas de Azure Stream Analytics en Azure Portal
 
@@ -27,7 +27,7 @@ Con Azure Stream Analytics, puede probar consultas en Azure Portal sin tener que
 
 ## <a name="test-the-input"></a>Prueba de la entrada
 
-1. Para probar con datos de entrada de ejemplo, haga clic en cualquiera de las entradas y, a continuación, seleccione **Cargar datos de ejemplo desde un archivo**.
+1. Para probar con datos de entrada de ejemplo, haga clic en cualquiera de las entradas y, a continuación, seleccione **Cargar datos de ejemplo desde un archivo**. Actualmente, solo puede cargar datos con formato JSON. Si los datos tienen un formato distinto, como CSV, deberá convertirlos al formato JSON antes de cargarlos. Puede usar cualquier herramienta de conversión de código abierto, como este [convertidor de CSV a JSON](http://www.convertcsv.com/csv-to-json.htm), para convertir los datos al formato JSON.
 
     ![consulta de prueba del editor de consultas de Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -43,14 +43,14 @@ Con varias salidas usadas en una consulta, podrá ver los resultados de ambas sa
 
 Cuando esté satisfecho con los resultados mostrados en el explorador, podrá guardar la consulta, iniciar el trabajo y permitir que se procesen eventos sin errores.
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

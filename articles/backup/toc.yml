@@ -31,7 +31,7 @@
       href: powershell-backup-samples.md
 - name: Conceptos
   items:
-    - name: P+F
+    - name: Preguntas más frecuentes
       items:
         - name: Preguntas más frecuentes sobre el almacén de Recovery Services
           href: backup-azure-backup-faq.md
@@ -49,9 +49,9 @@
       href: backup-azure-backup-import-export.md
     - name: Reemplazo de la biblioteca de cintas
       href: backup-azure-backup-cloud-as-tape.md
-- name: Cómo
+- name: Procedimientos
   items:
-    - name: Azure Backup Server
+    - name: Servidor de Azure Backup
       items:
         - name: Matriz de protección de Azure Backup Server
           href: backup-mabs-protection-matrix.md
@@ -83,7 +83,7 @@
       items:
         - name: Preparación de la VM
           items:
-            - name: Preparación de máquinas virtuales implementadas según el modelo de Resource Manager
+            - name: Preparación de máquinas virtuales implementadas en Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux
               href: backup-azure-linux-app-consistent.md
@@ -101,13 +101,13 @@
           items:
             - name: Administración de copias de seguridad de máquina virtual de Azure en Azure Portal
               href: backup-azure-manage-vms.md
-            - name: Supervisión de alertas para copias de seguridad de máquina virtual de Azure en Azure Portal
+            - name: Supervisión de alertas para copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-monitor-vms.md
         - name: Restauración de datos desde máquinas virtuales
           items:
             - name: Recuperación de archivos de las copias de seguridad de máquina virtual de Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Restauración de máquinas virtuales implementadas según el modelo de Resource Manager en Azure Portal
+            - name: Restauración de máquinas virtuales en Azure Portal
               href: backup-azure-arm-restore-vms.md
             - name: Restauración de máquinas virtuales cifradas
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Preparación de cargas de trabajo DPM en Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: Uso de System Center DPM para hacer copias de seguridad de un servidor Exchange
+        - name: Uso de DPM para hacer copias de seguridad de un servidor Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Recuperación de datos en un servidor DPM alternativo
           href: backup-azure-alternate-dpm-server.md

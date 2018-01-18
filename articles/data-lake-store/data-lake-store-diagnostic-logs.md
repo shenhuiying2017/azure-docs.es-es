@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
 
-Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas de Azure Data Lake Store para recopilar trazas de auditoría de acceso a datos que proporcionan información como, por ejemplo, la lista de usuarios que tienen acceso a los datos, con qué frecuencia se tiene acceso a ellos, qué cantidad de datos se almacena en la cuenta, etc.
+Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas de Azure Data Lake Store para recopilar trazas de auditoría de acceso a datos que proporcionan información como, por ejemplo, la lista de usuarios que tienen acceso a los datos, con qué frecuencia se tiene acceso a ellos, qué cantidad de datos se almacena en la cuenta, etc. Cuando está habilitado, el diagnóstico o las solicitudes se registran del mejor modo posible. Tanto las entradas de registro de solicitudes como de diagnóstico se crean solo si se presentan solicitudes al punto de conexión de servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
@@ -47,11 +47,11 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
         
         * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles para el área de trabajo de Operations Management Suite que usaría para realizar análisis de registros.
+        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles para el área de trabajo de Operations Management Suite que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para más información sobre el uso de Log Analytics.
      
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
    * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.
-   * Haga clic en **Guardar**.
+   * Haga clic en **Save**(Guardar).
 
 Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico** .
 
@@ -114,27 +114,27 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
     }
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación. |
-| categoría |String |Categoría del registro. Por ejemplo, **Requests**. |
-| operationName |String |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
-| resultType |String |Estado de la operación. Por ejemplo, 200. |
-| callerIpAddress |String |Dirección IP del cliente que realiza la solicitud. |
-| correlationId |String |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
+| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
+| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
+| categoría |string |Categoría del registro. Por ejemplo, **Requests**. |
+| operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
+| resultType |string |Estado de la operación. Por ejemplo, 200. |
+| callerIpAddress |string |Dirección IP del cliente que realiza la solicitud. |
+| correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
-| Ruta de acceso |String |Ruta de acceso en la que se ha realizado la operación. |
+| HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
+| Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
 | RequestContentLength |int |Longitud del contenido de la solicitud HTTP. |
-| ClientRequestId |String |Identificador que distingue de manera única esta solicitud. |
-| StartTime |String |Hora a la que el servidor ha recibido la solicitud. |
-| EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
+| ClientRequestId |string |Identificador que distingue de manera única esta solicitud. |
+| StartTime |string |Hora a la que el servidor ha recibido la solicitud. |
+| EndTime |string |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
 Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
@@ -160,26 +160,35 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
     }
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación. |
-| categoría |String |Categoría del registro. Por ejemplo, **Audit**. |
-| operationName |String |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
-| resultType |String |Estado de la operación. Por ejemplo, 200. |
-| correlationId |String |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
+| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
+| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
+| categoría |string |Categoría del registro. Por ejemplo, **Audit**. |
+| operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
+| resultType |string |Estado de la operación. Por ejemplo, 200. |
+| correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| StreamName |String |Ruta de acceso en la que se ha realizado la operación. |
+| StreamName |string |Ruta de acceso en la que se ha realizado la operación. |
 
 ## <a name="samples-to-process-the-log-data"></a>Ejemplos para procesar los datos de registro
+Al enviar registros de Azure Data Lake Store a Azure a Log Analytics (consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para más información sobre el uso de Log Analytics), la consulta siguiente devolverá una tabla que contiene una lista de nombres para mostrar de usuarios, la hora de los eventos y el recuento de eventos para la hora del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Otras referencias
-* [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+* [Información general de Azure Data Lake Store](data-lake-store-overview.md)
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 

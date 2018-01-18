@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - Actualización del clúster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Conceptos
+  items:
+    - name: Cuotas y límites regionales
+      href: container-service-quotas.md
 - name: Guías de procedimientos
   items:
     - name: Escalado de un clúster de AKS
@@ -49,13 +53,15 @@
       href: kubernetes-service-principal.md
     - name: Configuración de volúmenes de datos
       items:
+        - name: 'Azure Disks: volumen persistente'
+          href: azure-disks-dynamic-pv.md
         - name: 'Azure Files: volumen persistente'
           href: azure-files-dynamic-pv.md
         - name: 'Azure Files: volumen'
           href: azure-files.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks

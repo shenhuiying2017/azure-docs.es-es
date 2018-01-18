@@ -1,12 +1,11 @@
 ---
-title: "Sustitución de claves de firma en Azure AD | Microsoft Docs"
+title: "Sustitución de claves de firma en Azure AD"
 description: "En este artículo se analizan las prácticas recomendadas de sustitución de claves de firma de Azure Active Directory."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +14,17 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Sustitución de claves de firma de Azure Active Directory
-En este tema se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
+En este artículo se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Información general sobre las claves de firma de Azure AD
-Azure AD emplea una criptografía de clave pública basada en estándares del sector con el fin de establecer una relación de confianza entre ella y las aplicaciones que la utilizan. En términos prácticos, funciona de la siguiente manera: Azure AD usa una clave de firma que consta de un par de claves pública y privada. Cuando un usuario inicia sesión en una aplicación que utiliza Azure AD para realizar la autenticación, Azure AD crea un token de seguridad que contiene información sobre el usuario. Azure AD firma este token con su clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y que realmente se originó en Azure AD, la aplicación debe validar la firma del token usando la clave pública expuesta por Azure AD que se encuentra en el [documento de detección de OpenID Connect](http://openid.net/specs/openid-connect-discovery-1_0.html) del inquilino o en el [documento de metadatos de federación](active-directory-federation-metadata.md) de SAML/WS-Fed.
+Azure AD emplea una criptografía de clave pública basada en estándares del sector con el fin de establecer una relación de confianza entre ella y las aplicaciones que la utilizan. En términos prácticos, funciona de la siguiente manera: Azure AD usa una clave de firma que consta de un par de claves pública y privada. Cuando un usuario inicia sesión en una aplicación que utiliza Azure AD para realizar la autenticación, Azure AD crea un token de seguridad que contiene información sobre el usuario. Azure AD firma este token con su clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y que se originó en Azure AD, la aplicación debe validar la firma del token usando la clave pública expuesta por Azure AD que se encuentra en el [documento de detección de OpenID Connect](http://openid.net/specs/openid-connect-discovery-1_0.html) del inquilino o en el [documento de metadatos de federación](active-directory-federation-metadata.md) de SAML/WS-Fed.
 
 Por motivos de seguridad, Azure AD firma la sustitución de claves de forma periódica y, en caso de emergencia, podrían sustituirse inmediatamente. Cualquier aplicación que se integra con Azure AD debe estar preparada para controlar un evento de sustitución de claves, con independencia de la frecuencia con que se produzca. Si no es así y la aplicación trata de utilizar una clave expirada para comprobar la firma de un token, se producirá un error en la solicitud de inicio de sesión.
 
@@ -128,7 +127,7 @@ passport.use(new OIDCStrategy({
 ### <a name="vs2015"></a>Aplicaciones y API web de protección de recursos y creadas con Visual Studio 2015 o Visual Studio 2017
 Si la aplicación se compiló mediante una plantilla de aplicación web en Visual Studio 2015 o Visual Studio 2017 y seleccionó **Cuentas profesionales o educativas** en el menú **Cambiar autenticación**, ya tiene la lógica necesaria para controlar automáticamente la sustitución de clave. Esta lógica, inserta en el middleware OWIN OpenID Connect, recupera y almacena en caché las claves del documento de detección OpenID Connect y las actualiza periódicamente.
 
-Si ha agregado manualmente la autenticación a la solución, la aplicación no tendrá la lógica necesaria para la sustitución de claves. Tendrá que escribirla usted mismo o seguir los pasos que aparecen en [Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos](#other).
+Si ha agregado manualmente la autenticación a la solución, la aplicación no tendrá la lógica necesaria para la sustitución de claves. Tendrá que escribirlo usted mismo o seguir los pasos que aparecen en [Aplicaciones y API web que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos](#other).
 
 ### <a name="vs2013"></a>Aplicaciones Web de protección de recursos y creadas con Visual Studio 2013
 Si la aplicación se compiló mediante una plantilla de aplicación web en Visual Studio 2013 y seleccionó **Cuentas profesionales** en el menú **Cambiar autenticación**, ya tiene la lógica necesaria para controlar automáticamente la sustitución de claves. Esta lógica almacena la información de la clave de firma y el identificador único de la organización en dos tablas de base de datos asociadas al proyecto. Puede encontrar la cadena de conexión de la base de datos en el archivo Web.config del proyecto.
@@ -183,7 +182,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -284,7 +283,7 @@ Siga los pasos que figuran a continuación para comprobar que la lógica de sust
           </keys>
    ```
 2. En la tabla **<add thumbprint=””>** , cambie el valor de la huella digital reemplazando cualquier carácter por otro diferente. Guarde el archivo **Web.config** .
-3. Compile la aplicación y, después, ejecútela. Si puede completar el proceso de inicio de sesión, la aplicación actualizará correctamente la clave descargando la información necesaria del documento de metadatos de federación de su directorio. Si tiene problemas para iniciar sesión, asegúrese de que los cambios en la aplicación sean correctos; para ello, consulte el tema [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Incorporación del inicio de sesión único en aplicaciones web mediante Azure AD), o bien descargue e inspeccione el siguiente código de ejemplo: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Aplicación multiinquilino en la nube para Azure Active Directory).
+3. Compile la aplicación y, después, ejecútela. Si puede completar el proceso de inicio de sesión, la aplicación actualizará correctamente la clave descargando la información necesaria del documento de metadatos de federación de su directorio. Si tiene problemas para iniciar sesión, asegúrese de que los cambios en la aplicación sean correctos; para ello, consulte el artículo [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Incorporación del inicio de sesión único en aplicaciones web mediante Azure AD), o bien descargue e inspeccione el siguiente código de ejemplo: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Aplicación multiinquilino en la nube para Azure Active Directory).
 
 ### <a name="vs2010"></a>Aplicaciones web de protección de recursos y creadas con Visual Studio 2008 o 2010 y Windows Identity Foundation (WIF) v1.0 para .NET 3.5
 Si ha compilado una aplicación en la versión 1.0 de WIF, no habrá ningún mecanismo para actualizar automáticamente la configuración de la aplicación con el fin de usar una nueva clave.
@@ -303,11 +302,11 @@ Instrucciones para usar FedUtil para actualizar la configuración:
 ### <a name="other"></a>Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos
 Si está utilizando otra biblioteca o implementa manualmente cualquiera de los protocolos admitidos, debe revisar la biblioteca o la implementación para asegurarse de que se está recuperando la clave desde el documento de detección OpenID Connect o el documento de metadatos de federación. Una forma de comprobarlo es realizar una búsqueda en el código o en el de la biblioteca de las llamadas al documento de detección OpenID o al documento de metadatos de federación.
 
-Si la clave se está almacenando en algún lugar o está incrustada directamente en su aplicación, puede recuperar manualmente la clave y actualizarla según corresponda; para ello, realice una sustitución manual de acuerdo con las instrucciones al final de este documento de orientación. **se recomienda encarecidamente mejorar la aplicación para que admita la sustitución automática** mediante cualquiera de los enfoques descritos en este artículo.
+Si la clave se está almacenando en algún lugar o está incrustada directamente en la aplicación, puede recuperarla de forma manual y actualizarla según corresponda; para ello, realice una sustitución manual de acuerdo con las instrucciones al final de este documento de orientación. **Se recomienda encarecidamente mejorar la aplicación para que admita la sustitución automática** mediante cualquiera de los enfoques descritos en este artículo, a fin de evitar futuras interrupciones y la sobrecarga, si Azure AD aumenta su cadencia de sustitución o se produce una sustitución de emergencia no programada.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Cómo probar la aplicación para determinar si se verá afectada
 Puede validar si la aplicación admite la sustitución automática de claves descargando los scripts y siguiendo las instrucciones de [este repositorio de GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Cómo realizar una sustitución manual si la aplicación no admite la sustitución automática
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Cómo realizar una sustitución manual, si la aplicación no admite la sustitución automática
 Si la aplicación **no** admite la sustitución automática, debe establecer un proceso que supervise periódicamente las claves de firma de Azure AD y realizar una sustitución manual cuando corresponda. [Este repositorio de GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contiene scripts e instrucciones sobre cómo hacerlo.
 

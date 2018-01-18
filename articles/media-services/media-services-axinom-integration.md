@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de Axinom para entregar licencias de Widevine a Azure Media Services
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Este artículo describe cómo integrar y probar el servidor de licencias de Wide
 * Generación de un token JWT para cumplir los requisitos del servidor de licencias;
 * Desarrollo de la aplicación Azure Media Player que controla la adquisición de licencias con la autenticación mediante token JWT;
 
-El sistema completo y el flujo de la clave de contenido, el identificador de clave, inicialización de clave, token JTW y sus notificaciones pueden describirse mejor mediante el siguiente diagrama.
+El sistema completo y el flujo de la clave de contenido, el identificador de clave, inicialización de clave, token JTW y sus notificaciones pueden describirse mejor mediante el siguiente diagrama:
 
 ![DASH y CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -53,7 +53,7 @@ Puede configurar la protección dinámica de CENC con Multi-DRM para streaming d
 Vea la sección [Generación de token JWT](media-services-axinom-integration.md#jwt-token-generation) para saber por qué Azure Active Directory no se puede usar como STS para el servidor de licencias Widevine de Axinom.
 
 ### <a name="considerations"></a>Consideraciones
-1. Debe usar la inicialización de clave especificada de Axinom (8888000000000000000000000000000000000000) y el identificador de clave generado o seleccionado para generar la clave de contenido y configurar el servicio de entrega de claves. El servidor de licencias de Axinom emitirá todas las licencias que contienen claves de contenido basadas en la misma inicialización de clave, que es válida para las pruebas y la producción.
+1. Debe usar la inicialización de clave especificada de Axinom (8888000000000000000000000000000000000000) y el identificador de clave generado o seleccionado para generar la clave de contenido y configurar el servicio de entrega de claves. El servidor de licencias de Axinom emite todas las licencias que contienen claves de contenido basadas en la misma inicialización de clave, que es válida para las pruebas y la producción.
 2. Dirección URL de adquisición de licencias de Widevine para pruebas: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Se permiten tanto HTTP como HTTS.
 
 ## <a name="azure-media-player-preparation"></a>Preparación del Azure Media Player
@@ -65,14 +65,14 @@ El servidor de licencias de Widevine proporcionado por Axinom requiere autentica
 
 El resto del código de AMP es una API estándar de AMP como en el documento de AMP que se encuentra [aquí](http://amp.azure.net/libs/amp/latest/docs/).
 
-Tenga en cuenta que el código de Javascript anterior para configurar un encabezado de autorización personalizado sigue siendo un enfoque a corto plazo antes de que se publique el enfoque oficial a largo plazo en AMP.
+El código de Javascript anterior para configurar un encabezado de autorización personalizado sigue siendo un enfoque a corto plazo antes de que se publique el enfoque oficial a largo plazo en AMP.
 
 ## <a name="jwt-token-generation"></a>Generación de token JWT
 El servidor de licencias de Widevine de Axinom para pruebas requiere autenticación mediante token JWT. Además, una de las notificaciones en el token JWT es de un tipo de objeto complejo en lugar del tipo de datos primitivo.
 
 Lamentablemente, Azure AD solo puede emitir tokens JWT con tipos primitivos. De forma similar, la API de .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler y JwtPayload) solo permite especificar el tipo de objeto complejo como notificaciones. Sin embargo, las notificaciones todavía se serializan como cadena. Por lo tanto, no podemos usar ninguno de los dos para generar el token JWT para la solicitud de licencias de Widevine.
 
-El [paquete de Nuget JWT](https://www.nuget.org/packages/JWT) de John Sheehan se adapta a nuestras necesidades, por lo que vamos a usar este paquete de Nuget.
+El [paquete de NuGet JWT](https://www.nuget.org/packages/JWT) de John Sheehan se adapta a nuestras necesidades, por lo que vamos a usar este paquete de NuGet.
 
 A continuación se muestra el código para generar el token JWT con las notificaciones necesarias, en función de lo que requiere el servidor de licencias de Widevine de Axinom para las pruebas:
 
@@ -136,12 +136,12 @@ Servidor de licencias de Widevine de Axinom
 
 ### <a name="considerations"></a>Consideraciones
 1. Aunque el servicio de entrega de licencias de AMS PlayReady requiere un “Bearer=” que preceda a un token de autenticación, el servidor de licencias de Widevine de Axinom no lo usa.
-2. La clave de comunicación de Axinom se usa como clave de firma. Tenga en cuenta que la clave es una cadena hexadecimal, sin embargo, debe tratarse como una serie de bytes y no como una cadena cuando se codifica. Esto se logra mediante el método ConvertHexStringToByteArray.
+2. La clave de comunicación de Axinom se usa como clave de firma. La clave es una cadena hexadecimal, sin embargo, debe tratarse como una serie de bytes y no como una cadena cuando se codifica. Esto se logra mediante el método ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Recuperación del identificador de clave
 Quizá ha podido observar que en el código para generar un token JWT, se requiere el identificador de clave. Como el token JWT debe estar listo antes de cargar el reproductor de AMP, es necesario recuperar el identificador de clave para generar el token JWT.
 
-Por supuesto, hay varias maneras de obtener de el identificador de clave. Por ejemplo, se puede almacenar el identificador de clave junto con los metadatos de contenido en una base de datos. O bien recuperar el identificador de clave del archivo DASH MPD (Descripción de presentación de medios). El código siguiente es para esta última opción.
+Por supuesto, hay varias maneras de obtener el identificador de clave. Por ejemplo, se puede almacenar el identificador de clave junto con los metadatos de contenido en una base de datos. O bien recuperar el identificador de clave del archivo DASH MPD (Descripción de presentación de medios). El código siguiente es para esta última opción.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)
@@ -184,7 +184,7 @@ Con la reciente incorporación de la compatibilidad de Widevine tanto en Content
 
 Los parámetros siguientes son necesarios en la minisolución que saca partido del servidor de licencias de Widevine de Axinom. Excepto el identificador de clave, Axinom proporciona el resto de los parámetros en función de la configuración del servidor de Widevine.
 
-| Parámetro | Cómo se utiliza |
+| . | Cómo se utiliza |
 | --- | --- |
 | Id. de clave de comunicación |Se debe incluir como valor de la notificación "com_key_id" en el token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) sección). |
 | Clave de comunicación |Se debe usar como clave de firma de token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) sección). |

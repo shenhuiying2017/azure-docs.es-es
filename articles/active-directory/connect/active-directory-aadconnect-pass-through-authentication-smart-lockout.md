@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticación de paso a través de Azure Active Directory: Bloqueo inteligente
 
@@ -36,7 +36,7 @@ El bloqueo inteligente también distingue entre inicios de sesión de usuarios o
 La autenticación de paso a través reenvía las solicitudes de validación de contraseñas a la instancia local de Active Directory, de modo que tendrá que evitar que los atacantes bloqueen las cuentas de Active Directory de sus usuarios. Active Directory tiene sus propias directivas de bloqueo de cuenta: [Umbral de bloqueo de cuenta](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) y [Restablecer contador de bloqueo de cuenta tras](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx). Configure los valores de duración y umbral de bloqueo de Azure AD correctamente para filtrar ataques en la nube antes de que lleguen al sistema local en Active Directory.
 
 >[!NOTE]
->La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Si quiere modificar los valores de duración y umbral de bloqueo de Azure AD mediante la API Graph, el inquilino disponer de al menos una licencia de Azure AD Premium P2. No se necesita una licencia de Azure AD Premium P2 _por usuario_ para habilitar la característica de bloqueo inteligente con la autenticación de paso a través.
+>>La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Sin embargo, la modificación de los valores de Umbral de bloqueo y Duración del bloqueo de Azure AD mediante la API Graph requiere que el inquilino disponga al menos de una licencia de Azure AD Premium P2 activa. 
 
 Para asegurarse de que las cuentas locales de Active Directory de los usuarios están bien protegidas, debe asegurarse de que:
 
@@ -148,5 +148,5 @@ Siga estos pasos para actualizar los valores de bloqueo inteligente del inquilin
 
 Compruebe que haya actualizado correctamente los valores de bloqueo inteligente del inquilino mediante los pasos que se describen en [Ver los valores de Bloqueo inteligente](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.

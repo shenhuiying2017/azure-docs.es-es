@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conexión de productos o servicios de ITSM con IT Service Management Connector (versión preliminar)
 En este artículo se proporciona información sobre cómo conectar su producto o servicio de ITSM a IT Service Management Connector (ITSMC) en OMS y administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -91,7 +91,7 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 
 - Detalles de la suscripción de Azure
 - Definición de un nombre de grupo de recursos
-- Ubicación
+- La ubicación
 - Detalles del servidor de Service Manager (nombre del servidor, dominio, nombre de usuario y contraseña)
 - Prefijo de nombre de sitio de la aplicación web
 - Espacio de nombres de ServiceBus.
@@ -153,7 +153,7 @@ Utilice el procedimiento siguiente para configurar el programa de instalación d
 
 3. Inicie sesión con sus credenciales de Azure y seleccione la suscripción en la que se creó la conexión híbrida.
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 La conexión híbrida se ha conectado correctamente.
 
@@ -171,17 +171,21 @@ En la siguiente imagen de ejemplo se muestran los detalles de una conexión corr
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de ServiceNow con ITSMC en OMS.
 
 ### <a name="prerequisites"></a>Requisitos previos
-
 Asegúrese de que se cumplen los siguientes requisitos previos:
-
 - ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versiones admitidas de ServiceNow: Fuji, Ginebra, Helsinki.
+- Versiones admitidas de ServiceNow: Yakarta, Estambul, Helsinki, Ginebra
 
-Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:
-- Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto del cliente, consulte [el programa de instalación de OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Instalar la aplicación de usuario para la integración de Microsoft OMS (aplicación de ServiceNow). [Más información](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:**:
+- Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto de cliente, consulte la siguiente información según sea necesario:
+
+    - [Configuración de OAuth para Yakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configuración de OAuth para Estambul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configuración de OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configuración de OAuth para Ginebra](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Instalar la aplicación de usuario para la integración de Microsoft OMS (aplicación de ServiceNow). [Más información](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Crear el rol de usuario de integración para la aplicación de usuario instalada. [Aquí](#create-integration-user-role-in-servicenow-app) puede encontrar más información sobre cómo crear el rol de usuario de integración.
-
 
 ### <a name="connection-procedure"></a>**Procedimiento de conexión**
 Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
@@ -361,7 +365,7 @@ Para generar el identificador o clave de cliente para Cherwell, utilice el proce
     ![Identificador de usuario de Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  - [Creación de elementos de trabajo de ITSM para alertas de OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Creación de elementos de trabajo de ITSM desde registros de OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
  - [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -179,11 +179,11 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
    |Configuración |Valor | |
    | --- | --- | --- |
    |Prioridad |2000 | |
-   |Nombre |Custom_Dns  | |
+   |NOMBRE |Custom_Dns  | |
    |Origen |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Servicio | DNS (UDP/53) | |
-   |Acción | PERMITIR  | |
+   |. | PERMITIR  | |
    | | |
 
 4. Especifique el modo de red en el manifiesto de aplicación para cada servicio `<NetworkConfig NetworkType="Open">`. El modo **abierto** da lugar a que el servicio obtenga una dirección IP dedicada. Si no se especifica un modo, el servicio adopta como valor predeterminado el modo **nat**. En el siguiente ejemplo de manifiesto, los servicios `NodeContainerServicePackage1` y `NodeContainerServicePackage2` pueden escuchar en el mismo puerto (ambos servicios escuchan en `Endpoint1`). Cuando se especifica el modo de red abierto, no se pueden especificar configuraciones de `PortBinding`.
@@ -220,6 +220,16 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
     >[!NOTE]
     >En clústeres de Linux, no se admite la combinación de modos de red para diferentes servicios. 
     >
+
+5. Si el modo **Abierto** está seleccionado, la definición **Endpoint** del manifiesto de servicio debe apuntar de forma explícita al paquete de código correspondiente del punto de conexión, incluso si dicho paquete de servicio solo contiene un paquete de código. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Entender el modelo de aplicación de Service Fabric](service-fabric-application-model.md)

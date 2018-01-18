@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -84,7 +84,7 @@ Para más información sobre la importación y exportación de API, consulte [AP
 
 Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Table Storage, Blob Storage o Cosmos DB para almacenar datos de dispositivos adicionales.
 
-*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidades del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
+*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidades del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, vea la [documentación del servicio de aprovisionamiento][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Latido de dispositivo
 
@@ -105,7 +105,7 @@ IoT Hub puede notificar la solución de IoT al crearse o eliminarse la identidad
 
 Propiedades: las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
 
-| Nombre | Valor |
+| NOMBRE | Valor |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  Hora de envío de la notificación |
@@ -144,7 +144,7 @@ Cuerpo: esta sección está en formato JSON y representa el dispositivo gemelo d
 
 Las identidades de dispositivos se representan como documentos JSON con las propiedades siguientes:
 
-| Propiedad | Opciones | Description |
+| Propiedad | Opciones | DESCRIPCIÓN |
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
@@ -171,7 +171,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden interesarle los siguientes temas de la Guía para desarrolladores de IoT Hub:
 
@@ -183,6 +183,11 @@ Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden intere
 Si desea probar algunos de los conceptos descritos en este artículo, puede interesarle el siguiente tutorial de IoT Hub:
 
 * [Introducción a Azure IoT Hub][lnk-getstarted-tutorial]
+
+Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
+
+* [Servicio Azure IoT Hub Device Provisioning][lnk-dps]
+
 
 <!-- Links and images -->
 
@@ -205,3 +210,4 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

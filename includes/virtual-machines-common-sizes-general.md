@@ -23,7 +23,7 @@ Las máquinas virtuales ampliables de la serie B son idóneas para cargas de tra
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series-sup1sup"></a>Serie Dsv3<sup>1</sup>
+## <a name="dsv3-series-sup1sup"></a>Serie Dsv3 <sup>1</sup>
 
 ACU: 160-190
 
@@ -32,16 +32,16 @@ Los tamaños de la serie Dsv3 se basan en el procesador Intel Xeon® E5-2673 v3 
 
 | Tamaño             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4 000 / 32 (50)                                                       | 3200 / 48                                | 2 / moderado                                   |
-| Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8 000 / 64 (100)                                                      | 6400 / 96                                | 2 / moderado                                   |
-| Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / alto                                       |
-| Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / alto                                       |
-| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / extremadamente alto                                       |
-| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / extremadamente alto                                       |
+| Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4 000 / 32 (50)                                                       | 3200 / 48                                | 2 / 1000                                   |
+| Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8 000 / 64 (100)                                                      | 6400 / 96                                | 2 / 2000                                   |
+| Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / 4000                                      |
+| Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / 8000                                      |
+| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / 16 000                                               |
+| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / 30 000                                               |
 
-<sup>1</sup>Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
+<sup>1</sup> Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
-## <a name="dv3-series-sup1sup"></a>Serie Dv3<sup>1</sup>
+## <a name="dv3-series-sup1sup"></a>Serie Dv3 <sup>1</sup>
 
 ACU: 160-190
 
@@ -52,14 +52,14 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Ancho de banda de red/NIC máx. |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
-| Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / moderado                 |
-| Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / moderado                 |
-| Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4 / alto                     |
-| Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alto                     |
-| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / extremadamente alto                     |
-| Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / extremadamente alto                     |
+| Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / 1000                    |
+| Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / 2000                    |
+| Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4 / 4000                    |
+| Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / 8000                    |
+| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 16 000                             |
+| Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 30 000                             |
 
-<sup>1</sup>Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
+<sup>1</sup> Las máquinas virtuales de la serie Dv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
 ## <a name="dsv2-series"></a>DSv2-series
 
@@ -71,7 +71,7 @@ ACU: 210-250
 | Standard_DS2_v2 |2 |7 |14 |8 |8000 / 64 (86) |6400 / 96 |2 / 1500 |
 | Standard_DS3_v2 |4 |14 |28 |16 |16 000 / 128 (172) |12 800 / 192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32 000 / 256 (344) |25 600 / 384 |8 / 6000 |
-| Standard_DS5_v2 |16 |56 |112 |64 |64 000 / 512 (688) |51 200 / 768 |8 / 6000 - 12000 &#8224;|
+| Standard_DS5_v2 |16 |56 |112 |64 |64 000 / 512 (688) |51 200 / 768 |8 / 12 000 |
 
 
 
@@ -85,7 +85,7 @@ ACU: 210-250
 | Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
 | Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
 | Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 6000 - 12000 &#8224;          |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12 000  |
 
 
 <br>
@@ -124,10 +124,10 @@ ACU: 100
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
-| Standard_A2_v2  | 2         | 4           | 20 |             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
+| Standard_A2_v2  | 2         | 4           | 20              | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
-| Standard_A2m_v2 | 2         | 16          | 20 |             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
+| Standard_A2m_v2 | 2         | 16          | 20              | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
 
@@ -139,7 +139,7 @@ ACU: 50-100
 
 | Tamaño | vCPU | Memoria: GiB | Almacenamiento temporal (HDD): GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 <sup>1</sup> |1 |0,768 |20 | |1 |1x500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20  |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -149,7 +149,7 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 <br>
 
-<sup>1</sup>El tamaño A0 está sobresuscrito en el hardware físico. Solo en este tamaño específico, las implementaciones de otros clientes podrían afectar el rendimiento de la carga de trabajo en ejecución. A continuación, se indica el rendimiento relativo como la línea base esperada, sujeta a una variabilidad aproximada de 15 por ciento.
+<sup>1</sup> La suscripción del tamaño A0 es excesiva en el hardware físico. Solo en este tamaño específico, las implementaciones de otros clientes podrían afectar el rendimiento de la carga de trabajo en ejecución. A continuación, se indica el rendimiento relativo como la línea base esperada, sujeta a una variabilidad aproximada de 15 por ciento.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard_A0 - A4 con CLI y PowerShell
 En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en PowerShell:

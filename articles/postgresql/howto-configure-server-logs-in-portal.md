@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
@@ -26,7 +26,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging"></a>registro
 Configure el acceso a los registros de consulta y los registros de errores. 
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
 
 2. Seleccione su servidor de Azure Database for PostgreSQL.
 
@@ -72,7 +72,7 @@ Una vez que comience el registro, puede ver una lista de registros disponibles y
 
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Consulte [Configure and access server logs using Azure CLI](howto-configure-server-logs-using-cli.md) (Configuración y acceso a los registros del servidor con la CLI de Azure) para más información acerca de cómo descargar registros mediante programación.
 - Aprenda más sobre los [registros del servidor](concepts-server-logs.md) en Azure Database for PostgreSQL. 
 - Para más información sobre las definiciones de parámetros y el registro de PostgreSQL, consulte la documentación de PostgreSQL sobre [informes y registro de errores](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).

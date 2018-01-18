@@ -12,39 +12,39 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Análisis del el abandono de clientes mediante el Aprendizaje automático de Azure
+# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Análisis del el abandono de clientes mediante Azure Machine Learning
 ## <a name="overview"></a>Información general
-En este artículo se presenta una implementación de referencia de un proyecto de análisis de pérdida de clientes creado mediante Azure Machine Learning. Se describen los modelos asociados genéricos para solucionar holísticamente el problema de pérdida de clientes industrial. También medimos la precisión de los modelos generados mediante el aprendizaje automático y evaluamos instrucciones para su posterior desarrollo.  
+En este artículo se presenta una implementación de referencia de un proyecto de análisis de pérdida de clientes creado mediante Azure Machine Learning. Se describen los modelos asociados genéricos para solucionar holísticamente el problema de pérdida de clientes industrial. También medimos la precisión de los modelos generados mediante Machine Learning y evaluamos instrucciones para su posterior desarrollo.  
 
 ### <a name="acknowledgements"></a>Agradecimientos
-Este experimento lo desarrolló y probó Serge Berger, principal científico de datos de Microsoft y Roger Barga, anterior director de productos para Aprendizaje automático de Microsoft Azure. El equipo de documentación de Azure quiere expresar su agradecimiento por los conocimientos aportados y por compartir estas notas del producto.
+Este experimento lo desarrolló y probó Serge Berger, principal científico de datos de Microsoft y Roger Barga, anterior director de productos para Microsoft Azure Machine Learning. El equipo de documentación de Azure quiere expresar su agradecimiento por los conocimientos aportados y por compartir estas notas del producto.
 
 > [!NOTE]
-> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de aprendizaje automático de análisis de pérdida de clientes, consulte la [plantilla de modelo de pérdida de clientes minoristas](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) de la [galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
+> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de Machine Learning de análisis de abandono de clientes, consulte [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Plantilla de modelo de abandono de clientes minoristas) de [Azure AI Gallery](http://gallery.cortanaintelligence.com/).
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>El problema del abandono de clientes
-Los negocios del mercado de consumidores y de todos los sectores empresariales han de tratar con el abandono de clientes. En ocasiones el abandono es excesivo e influye sobre las decisiones políticas. La solución tradicional pasa por predecir a los clientes con una alta propensión a abandonar y abordar sus necesidades a través de un servicio de asistencia personal, campañas de marketing o mediante la aplicación de exenciones especiales. Estos enfoques pueden variar en función del sector e incluso de un clúster determinado de consumidor a otro dentro de un sector (por ejemplo, el de telecomunicaciones).
+Los negocios del mercado de consumidores y de todos los sectores empresariales han de tratar con el abandono de clientes. En ocasiones el abandono es excesivo e influye sobre las decisiones políticas. La solución tradicional pasa por predecir a los clientes con una alta propensión a abandonar y abordar sus necesidades a través de un servicio de asistencia personal, campañas de marketing o mediante la aplicación de exenciones especiales. Estos enfoques pueden variar de un sector a otro. Pueden variar de un clúster determinado de consumidor a otro dentro de un sector (por ejemplo, el de telecomunicaciones).
 
-El factor común es que las empresas necesitan reducir estos esfuerzos especiales de retención de clientes. Por lo tanto, una metodología natural sería puntuar a cada cliente con la probabilidad de abandono y abordar los N principales. Los clientes principales podrían ser los más fiables; por ejemplo, en escenarios más sofisticados, una función de beneficios se emplea durante la selección de candidatos a exenciones especiales. Son embargo, estos planteamientos son solo una parte de la estrategia holística de tratar con el abandono. Las empresas también tienen que tener en cuenta el riesgo (y la tolerancia a él asociada), el nivel y el coste de la intervención y la posible segmentación de los clientes.  
+El factor común es que las empresas necesitan reducir estos esfuerzos especiales de retención de clientes. Por lo tanto, una metodología natural sería puntuar a cada cliente con la probabilidad de abandono y abordar los N principales. Los clientes principales podrían ser los más rentables. Por ejemplo, en escenarios más sofisticados, una función de beneficios se emplea durante la selección de candidatos a exenciones especiales. Sin embargo, estos planteamientos son solo una parte de la estrategia completa de tratar con el abandono. Las empresas también tienen que tener en cuenta el riesgo (y la tolerancia a él asociada), el nivel y el coste de la intervención y la posible segmentación de los clientes.  
 
 ## <a name="industry-outlook-and-approaches"></a>Perspectiva y enfoques de la industria
 La gestión del abandono de forma adecuada es signo de madurez industrial. El ejemplo clásico es la industria de las telecomunicaciones, donde se sabe que los abonados cambian con frecuencia de un operador a otro. Este abandono voluntario es realmente preocupante. Además, los operadores han acumulado importantes conocimientos sobre los *factores del abandono*, que son los determinantes que impulsan a los consumidores a cambiar.
 
-Por ejemplo, la elección del terminal o dispositivo es un factor conocido de abandono en el negocio de los teléfonos móviles. Como resultado, una directiva popular es subvencionar el precio de un auricular para los nuevos suscriptores y cobrarlo a precio normal a los clientes ya existentes por obtener una actualización. Tradicionalmente, esa política ha llevado a los clientes a saltar de un operador a otro para obtener un nuevo descuento lo que, a su vez, ha provocado que los operadores refinen sus estrategias.
+Por ejemplo, la elección del terminal o dispositivo es un factor conocido de abandono en el negocio de los teléfonos móviles. Como resultado, una directiva popular es subvencionar el precio de un auricular para los nuevos suscriptores y cobrarlo a precio normal a los clientes ya existentes para obtener una actualización. Tradicionalmente, esa política ha llevado a los clientes a saltar de un operador a otro para obtener un nuevo descuento. Esto, a su vez, ha provocado que los operadores refinen sus estrategias.
 
-La alta volatilidad en las ofertas de terminales es un factor que invalida de manera muy rápida los modelos de abandono que se basan en los modelos de terminales actuales. Además, los teléfonos móviles no son solo dispositivos de telecomunicaciones; también son artículos de moda (por ejemplo, el iPhone), y estas predicciones sociales están fuera del ámbito de los conjuntos de datos de telecomunicaciones normales.
+La alta volatilidad en las ofertas de terminales es un factor que invalida de manera rápida los modelos de abandono que se basan en los modelos de terminales actuales. Además, los teléfonos móviles no son solo dispositivos de telecomunicaciones, también son artículos de moda (por ejemplo, el iPhone). Estas predicciones sociales están fuera del ámbito de los conjuntos de datos de telecomunicaciones normales.
 
 Como resultado, no se puede idear una buena política eliminando simplemente las razones conocidas del abandono. De hecho, es **obligatorio**establecer una estrategia de modelado continua, que incluye modelos clásicos que cuantifican variables de categorías (por ejemplo, árboles de decisión).
 
@@ -109,7 +109,7 @@ Los siguientes diagramas ilustran los datos usados.
  
 
 > Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos.
-> Pero, para obtener un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Pérdida de clientes en las empresas de telecomunicaciones).
+> Pero, para obtener un modelo similar utilizando los datos disponibles públicamente, consulte este experimento de ejemplo en [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Abandono de clientes en las empresas de telecomunicaciones).
 > 
 > Para obtener más información sobre cómo se puede implementar un modelo de análisis de pérdida de clientes con Cortana Intelligence Suite, también se recomienda ver [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director de programas Wee Hyong Tok. 
 > 
@@ -127,7 +127,7 @@ El siguiente diagrama ilustra una parte de la superficie de diseño del experime
 
 ![][6]  
 
-*Ilustración 8: Creación de modelos en Estudio de aprendizaje automático*  
+*Ilustración 8: Creación de modelos en Machine Learning Studio*  
 
 ### <a name="scoring-methods"></a>Métodos de puntuación
 Puntuamos a los cuatro modelos mediante el uso de un conjunto de datos de entrenamiento etiquetado.  
@@ -138,7 +138,7 @@ También enviamos el conjunto de datos de puntuaciones a un modelo comparable cr
 En esta sección, presentamos nuestros hallazgos sobre la exactitud de los modelos, según el conjunto de datos de puntuación.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Exactitud y precisión de la puntuación
-Por lo general, la implementación de Aprendizaje automático de Azure está, aproximadamente, entre un 10 y un 15 % por debajo de SAS en cuanto a precisión (área bajo la curva o AUC).  
+Por lo general, la implementación de Azure Machine Learning está, aproximadamente, entre un 10 y un 15 % por debajo de SAS en cuanto a precisión (área bajo la curva o AUC).  
 
 Sin embargo, la estadística más importante en el abandono es el índice de clasificaciones incorrectas: es decir, de los N primeros usuarios que el clasificador predijo que abandonarían, ¿cuáles de ellos **no** han abandonado realmente y, a pesar de todo, han recibido un tratamiento especial? En el diagrama siguiente se compara este índice de clasificaciones incorrectas para todos los modelos:  
 
@@ -168,7 +168,7 @@ El siguiente diagrama de Wikipedia representa la relación en un gráfico animad
 *Ilustración 10: Balance entre exactitud y precisión*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisión del modelo de árbol de decisiones ampliado
-El siguiente gráfico muestra los resultados sin formato desde la puntuación utilizando el prototipo de aprendizaje automático para el modelo de árbol de decisión ampliado, que resulta ser el más preciso entre los cuatro modelos de puntuación:  
+El siguiente gráfico muestra los resultados sin formato desde la puntuación utilizando el prototipo de Machine Learning para el modelo de árbol de decisión ampliado, que resulta ser el más preciso entre los cuatro modelos de puntuación:  
 
 ![][9]
 
@@ -203,24 +203,14 @@ Esta importante observación con frecuencia se pasa por alto en las empresas, qu
 
 Sin embargo, la promesa del análisis de autoservicio mediante Machine Learning Studio es que las cuatro categorías de información, clasificadas por división o departamento, se convierten en una valiosa fuente de aprendizaje automático sobre el abandono.  
 
-Otra capacidad interesante disponible en Aprendizaje automático de Azure es la capacidad de agregar un módulo personalizado al repositorio de módulos predefinidos que ya están disponibles. Esa función crea básicamente una oportunidad para seleccionar bibliotecas y crear plantillas para los mercados verticales. Es un elemento diferenciador importante del Aprendizaje automático de Azure en el mercado.  
+Otra capacidad interesante disponible en Azure Machine Learning es la capacidad de agregar un módulo personalizado al repositorio de módulos predefinidos que ya están disponibles. Esa función crea básicamente una oportunidad para seleccionar bibliotecas y crear plantillas para los mercados verticales. Es un elemento diferenciador importante de Azure Machine Learning en el mercado.  
 
 Esperamos seguir con este tema en el futuro, especialmente en lo relacionado con el análisis de macrodatos.
   
 
 ## <a name="conclusion"></a>Conclusión
-En este documento se describe un enfoque sensato para abordar el problema común del abandono de clientes mediante el uso de un marco genérico. Hemos considerado un prototipo para puntuar modelos y lo hemos implementado mediante el Aprendizaje automático de Azure. Finalmente, hemos evaluado la exactitud y el rendimiento del prototipo con respecto a algoritmos comparables en SAS.  
+En este documento se describe un enfoque sensato para abordar el problema común del abandono de clientes mediante el uso de un marco genérico. Hemos considerado un prototipo para puntuar modelos y lo hemos implementado mediante Azure Machine Learning. Finalmente, hemos evaluado la exactitud y el rendimiento del prototipo con respecto a algoritmos comparables en SAS.  
 
-**Para obtener más información:**  
-
-¿Le ha ayudado este documento? Proporciónenos sus comentarios. Díganos en una escala de 1 (pobre) a 5 (excelente), cómo valoraría este documento y porqué ha dado esta valoración. Por ejemplo:  
-
-* ¿Lo va a puntuar alto porque contiene buenos ejemplos, excelentes capturas de pantalla, redacción clara o por otro motivo?
-* ¿Lo va a puntuar bajo debido a ejemplos pobres, capturas de pantalla borrosas o redacción poco clara?  
-
-Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos que publicamos.   
-
-[Enviar comentarios](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Referencias
@@ -232,7 +222,7 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 
 [4] [[Big Data Marketing: Engage Your Customers More Effectively and Drive Value]](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
 
-[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Plantilla del modelo de pérdida de clientes en empresas de telecomunicaciones) en la [galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) 
+[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Anexo

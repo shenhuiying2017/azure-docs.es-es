@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fbc94734f3c49e7318734b05b30e0ef6b8767004
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f8e8570d9c3093b5f49b000916644888304eed4e
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Enlace de un certificado SSL personalizado a una aplicación de función
 
@@ -35,7 +35,7 @@ Para enlazar un certificado SSL, la aplicación de función se debe crear en un 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, debe emplear la versión 2.0 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -47,7 +47,7 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un plan de App Service necesario para enlazar certificados SSL. |
@@ -56,7 +56,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Carga un certificado SSL a una aplicación de función. |
 | [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Enlaza un certificado SSL cargado a una aplicación de función. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 

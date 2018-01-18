@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollar e implementar un módulo IoT Edge C# en su dispositivo simulado: versión preliminar
 
@@ -98,11 +98,19 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     }
     ```
 
-8. En el método **Init**, el código crea y configura un objeto **DeviceClient**. Este objeto permite al módulo conectarse al runtime de Azure IoT Edge local para enviar y recibir mensajes. La cadena de conexión que se usa en el método **Init** la suministra el runtime de IoT Edge al módulo. Tras la creación de **DeviceClient**, el código registra una devolución de llamada para recibir mensajes del centro de IoT Edge a través del punto de conexión **input1**. Reemplace el método `SetInputMessageHandlerAsync` por otro y agregue un método `SetDesiredPropertyUpdateCallbackAsync` para las actualizaciones de propiedades que quiera. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
+8. En el método **Init**, el código crea y configura un objeto **DeviceClient**. Este objeto permite al módulo conectarse al runtime de Azure IoT Edge local para enviar y recibir mensajes. La cadena de conexión que se usa en el método **Init** la suministra el runtime de IoT Edge al módulo. Tras la creación de **DeviceClient**, el código lee el umbral de temperatura de las propiedades deseadas del módulo gemelo y registra una devolución de llamada para recibir mensajes del centro de IoT Edge a través del punto de conexión **input1**. Reemplace el método `SetInputMessageHandlerAsync` por otro y agregue un método `SetDesiredPropertyUpdateCallbackAsync` para las actualizaciones de propiedades que quiera. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -261,8 +269,8 @@ Agregue las credenciales del Registro al runtime de Edge en el equipo en que eje
         }
         ```
  
-    6. Haga clic en **Guardar**.
-12. Haga clic en **Siguiente**.
+    6. Haga clic en **Save**(Guardar).
+12. Haga clic en **Next**.
 13. En el paso **Specify Routes** (Especificar rutas), copie el archivo JSON siguiente en el cuadro de texto. Los módulos publican todos los mensajes en el runtime de Edge. Las reglas declarativas del runtime definen por dónde fluyen esos mensajes. En este tutorial, necesita dos rutas. La primera transporta mensajes desde el sensor de temperatura hasta el módulo de filtro a través del punto de conexión "input1", que es el que configuró con el controlador **FilterMessages**. La segunda transporta mensajes desde el módulo de filtro hasta IoT Hub. En esta ruta, `upstream` es un destino especial que indica a Edge Hub que envíe mensajes a IoT Hub. 
 
     ```json
@@ -274,7 +282,7 @@ Agregue las credenciales del Registro al runtime de Edge en el equipo en que eje
     }
     ```
 
-4. Haga clic en **Siguiente**.
+4. Haga clic en **Next**.
 5. En el paso **Review Template** (Revisar plantilla), haga clic en **Enviar**. 
 6. Vuelva a la página de detalles del dispositivo IoT Edge y haga clic en **Actualizar**. Debería ver el nuevo **filtermodule** en ejecución junto con el módulo **tempSensor** y el **runtime de IoT Edge**. 
 
@@ -290,7 +298,7 @@ Para supervisar los mensajes del dispositivo a la nube enviados al centro de IoT
 1. Para supervisar los datos que llegan a IoT Hub, seleccione **Ver** > **Paleta de comandos** y busque el comando de menú **IoT: Start monitoring D2C message** (IoT: iniciar la supervisión del mensaje de D2C). 
 2. Para dejar de supervisar datos, use el comando de menú **IoT: Start monitoring D2C message** (IoT: detener la supervisión del mensaje de D2C). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, creó un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Puede continuar con cualquiera de los siguientes tutoriales para obtener información sobre otras formas en que Azure IoT Edge puede ayudarle a transformar datos en perspectivas empresariales en el límite.
 

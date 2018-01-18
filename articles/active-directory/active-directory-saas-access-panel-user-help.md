@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>¿Necesita ayuda con el portal Mis aplicaciones?
 
@@ -51,17 +51,17 @@ Si ha olvidado la contraseña, nunca ha recibido ninguna de su equipo de TI, est
 Como usuario final, puede restablecer su contraseña o desbloquear su cuenta sin necesidad de hablar con una persona que use el autoservicio de restablecimiento de contraseña (SSPR). Para poder usar esta funcionalidad, debe registrar los métodos de autenticación o confirmar los métodos de autenticación predefinidos que ha rellenado el administrador. Para más información, consulte [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Tengo problemas para instalar la extensión de explorador del portal My Apps
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Tengo problemas para instalar la Extensión de inicio de sesión seguro de mis aplicaciones
 
 Compruebe si se cumplen los requisitos del explorador:
 
 - El portal requiere un explorador compatible con JavaScript y que tenga habilitado CSS. Si usa aplicaciones de inicio de sesión único basado en contraseña, también debe instalarse la extensión que lo acompaña. Esta extensión se descarga automáticamente cuando inicia una aplicación que está configurada para usar inicio de sesión único basado en contraseña.
 
 - Los requisitos del explorador para la extensión son los siguientes:
-    - Internet Explorer 8, 9, 10, 11 en Windows 7 o posterior
     - Edge en Windows 10 Anniversary Edition o posterior
     - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
     - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
+    - Internet Explorer 8, 9, 10, 11 en Windows 7 o posterior (compatibilidad limitada)
 
 También puede descargar la extensión para Chrome y Edge desde los siguientes vínculos directos:
 
@@ -76,6 +76,32 @@ Después de la instalación, intente los pasos siguientes, si se están producie
 - Reinicie el explorador e inicie sesión en el portal Mis aplicaciones.
 
 - Borre las cookies del explorador e inicie sesión en el portal Mis aplicaciones.
+- Siga la guía de [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acceder a la herramienta de diagnóstico, junto con instrucciones paso a paso sobre cómo configurar la extensión para IE.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>¿Cómo uso Extensión de inicio de sesión seguro de mis aplicaciones?
+Cambie la dirección URL predeterminada de Mis aplicaciones para la extensión
+
+Si está utilizando una dirección URL para Mis aplicaciones diferente de https://myapps.microsoft.com, debe seguir estos pasos para configurar la dirección URL predeterminada:
+1. Sin iniciar sesión en la extensión, **haga clic con el botón derecho** en el icono de la extensión.
+2. Haga clic en **Select My Apps URL**  (Seleccionar dirección URL de Mis aplicaciones) en el menú.
+3. **Seleccione** la dirección URL predeterminada.
+4. Haga clic en el icono de la extensión.
+5. Inicie sesión en la extensión seleccionando **Iniciar sesión para comenzar**.
+
+Iniciar sesión directamente en una aplicación desde el explorador
+1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para comenzar**.
+2. Vaya a la **dirección URL de inicio de sesión** de la aplicación en la que desea iniciar sesión; suele ser la dirección URL de la aplicación que muestra el formulario de inicio de sesión.
+3. La extensión debe cambiar el estado y le permite saber que hay una contraseña disponible; haga clic en el **icono de extensión** para iniciar sesión.
+
+Iniciar una aplicación desde la extensión
+1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para comenzar**.
+2. Haga clic en el icono de extensión para abrir su menú.
+3. **Busque** una aplicación disponible en el portal Mis aplicaciones.
+4. Haga clic en la aplicación desde los **resultados de la búsqueda** para iniciarla.
+5. Las tres últimas aplicaciones iniciadas también se mostrarán en la lista de accesos directos **Usados recientemente**.
+
+> [!NOTE]
+> Estas opciones solo están disponibles para Edge, Chrome y Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
 
@@ -92,9 +118,9 @@ Después de la instalación, intente los pasos siguientes, si se están producie
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>¿Cómo puedo administrar la pertenencia a grupos?
 
-1. Haga clic en el icono de aplicación Grupos. 
-2. Para crear un grupo, en Grupos de mi propiedad, haga clic en Crear grupo y, a continuación, siga las instrucciones.
-3. Para unirse a un grupo, en Grupos de mi propiedad, haga clic en Unirse al grupo y, a continuación, siga las instrucciones.
+1. Haga clic en el icono de **Grupos**. 
+2. Para crear un grupo, en Grupos de mi propiedad, haga clic en **Crear grupo** y, a continuación, siga las instrucciones.
+3. Para unirse a un grupo, en Grupos en los que estoy, haga clic en **Unirse al grupo** y, a continuación, siga las instrucciones.
 
 **Comentarios:**
 
@@ -105,7 +131,7 @@ Después de la instalación, intente los pasos siguientes, si se están producie
 - En los grupos de los que es propietario, se le permite ver los detalles, agregar o quitar miembros, y abandonarlos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información relacionada con la solución de problemas, consulte [Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles](active-directory-application-access-panel-content-map.md).
 

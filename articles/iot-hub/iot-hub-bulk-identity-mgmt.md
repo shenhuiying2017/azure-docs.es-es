@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Administración de las identidades de dispositivo de IoT Hub de forma masiva
 
@@ -27,6 +27,8 @@ Cada Centro de IoT tiene un registro de identidad que se puede usar para crear r
 Las operaciones de importación y exportación tienen lugar en el contexto de *Trabajos* que permiten ejecutar operaciones de servicio de forma masiva en un IoT Hub.
 
 La clase **RegistryManager** incluye los métodos **ExportDevicesAsync** y **ImportDevicesAsync**, que usan el marco **Trabajo**. Estos métodos le permiten exportar, importar y sincronizar la totalidad de un Registro de identidad de IoT Hub.
+
+En este tema se describe el uso de la clase **RegistryManager** y del sistema de **trabajo** para realizar importaciones y exportaciones en bloque de dispositivos a y desde un registro de identidad de un centro de IoT. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, vea la [documentación del servicio de aprovisionamiento][lnk-dps].
 
 ## <a name="what-are-jobs"></a>¿Qué son los trabajos?
 
@@ -234,10 +236,10 @@ Si el archivo de importación especifica metadatos gemelos, estos sobrescriben l
 
 Use la propiedad opcional **importMode** en los datos de serialización de importación para cada dispositivo para controlar el proceso de importación por dispositivo. La propiedad **importMode** tiene las siguientes opciones:
 
-| importMode | Descripción |
+| importMode | DESCRIPCIÓN |
 | --- | --- |
 | **createOrUpdate** |Si no existe un dispositivo con el **id.**especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **create** |Si no existe un dispositivo con el **id.**especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **crear** |Si no existe un dispositivo con el **id.**especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
 | **update** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
 | **updateIfMatchETag** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
 | **createOrUpdateIfMatchETag** |Si no existe un dispositivo con el **id.**especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
@@ -395,7 +397,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, aprendió a realizar operaciones de forma masiva en el Registro de identidad en un centro de IoT. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
@@ -405,10 +407,16 @@ En este artículo, aprendió a realizar operaciones de forma masiva en el Regist
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Implementación de AI en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
+
+Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
+
+* [Servicio Azure IoT Hub Device Provisioning][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

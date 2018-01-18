@@ -14,67 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a0ab954bda3340b9010b16f54e343933808cc463
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="configure-content-key-authorization-policy"></a>Configuración de la directiva de autorización de claves de contenido
+# <a name="configure-a-content-key-authorization-policy"></a>Configuración de una directiva de autorización de claves de contenido
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Información general
-Microsoft Azure Media Services permute entregar transmisiones MPEG-DASH, Smooth Streaming y HTTP-Live-Streaming (HLS) protegidas con Estándar de cifrado avanzado (AES) (usando claves de cifrado de 128 bits) o [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/). AMS también permite entregar transmisiones DASH cifradas con DRM de Widevine. Tanto PlayReady como Widewine se cifran según la especificación de cifrado común (ISO/IEC 23001-7 CENC).
+ Puede usar Azure Media Services para entregar transmisiones MPEG-DASH, Smooth Streaming y HTTP Live Streaming (HLS) protegidas con Estándar de cifrado avanzado (AES) mediante el uso de claves de cifrado de 128 bits o [administración de derechos digitales (DRM) de PlayReady](https://www.microsoft.com/playready/overview/). Con Media Services, también puede entregar transmisiones DASH cifradas con DRM de Widevine. Tanto PlayReady como Widevine se cifran según la especificación de cifrado común (ISO/IEC 23001-7 CENC).
 
-Media Services también proporciona un **servicio de entrega de claves/licencias** con el que los clientes pueden obtener claves AES o licencias de PlayReady/Widevine con el fin de reproducir el contenido cifrado.
+Media Services también proporciona un servicio de entrega de claves/licencias con el que los clientes pueden obtener claves AES o licencias de PlayReady/Widevine con el fin de reproducir el contenido cifrado.
 
-Este artículo muestra cómo usar Azure Portal para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No se pueden cifrar las descargas progresivas.
+Este artículo muestra cómo usar Azure Portal para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Actualmente, puede cifrar los formatos HLS, MPEG-DASH y Smooth Streaming. No se pueden cifrar las descargas progresivas.
 
-Cuando un reproductor solicita una transmisión que se establece para cifrarse de forma dinámica, Media Services usa la clave configurada para cifrar dinámicamente el contenido mediante cifrado AES o DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+Cuando un reproductor solicita una transmisión que se establece para cifrarse de forma dinámica, Media Services usa la clave configurada para cifrar dinámicamente el contenido mediante cifrado AES o DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para determinar si el usuario tiene permiso para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-Si planea tener varias claves de contenido o desea especificar una dirección URL del **servicio de entrega de claves/licencias** que no sea el servicio de entrega de claves de Media Services, use el SDK de Media Services para .NET o las API de REST.
+Si planea tener varias claves de contenido o desea especificar una dirección URL del servicio de entrega de claves/licencias que no sea el servicio de entrega de claves de Media Services, use el SDK de Media Services para .NET o las API de REST. Para obtener más información, consulte 
 
+* [Configuración de la directiva de autorización de claves mediante el SDK de Media Services para .NET](media-services-dotnet-configure-content-key-auth-policy.md)
+* [Configuración de la directiva de autorización de claves mediante la API de REST de Media Services](media-services-rest-configure-content-key-auth-policy.md)
 
-            [Configuración de la directiva de autorización de claves mediante el SDK de Media Services para .NET](media-services-dotnet-configure-content-key-auth-policy.md)
-
-
-            [Configuración de la directiva de autorización de claves mediante la API de REST de Media Services](media-services-rest-configure-content-key-auth-policy.md)
-
-### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones:
-* Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming debe estar en estado **Running** (En ejecución). 
+### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones
+* Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming predeterminado a la cuenta en estado Detenido. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming debe estar en estado "Running" (En ejecución). 
 * El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
-* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos.  Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
-* El punto de conexión de streaming AMS establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta preparatoria como comodín "\*". Esto funciona bien con la mayoría de los reproductores, incluidos Azure Media Player, Roku y JW, entre otros. Sin embargo, algunos reproductores que aprovechan dashjs no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus dashjs no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación en cuanto a dashjs, si hospeda al cliente desde un solo dominio, Azure Media Services puede especificar ese dominio en el encabezado de respuesta preparatoria. Puede ponerse en contacto abriendo un vale de soporte a través de Azure Portal.
+* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos. Puede crear ContentKeyAuthorizationPolicy, especificar que se use una restricción de token, probarla y actualizar la directiva con la restricción abierta. Este proceso tarda aproximadamente unos 15 minutos antes de que la directiva cambie a su versión abierta.
+* Un punto de conexión de streaming de Media Services establece el valor del encabezado CORS "Access-Control-Allow-Origin" en la respuesta de la comprobación preliminar como el comodín "\*". Este valor funciona bien con la mayoría de reproductores, incluyendo Azure Media Player, Roku y JWPlayer, entre otros. Sin embargo, algunos reproductores que usan dash.js no funcionan porque, con el modo de las credenciales establecido en "include", el elemento XMLHttpRequest de sus archivos dash.js no permite el comodín "\*" como valor de "Access-Control-Allow-Origin". Como solución alternativa a esta limitación de los archivos dash.js, si hospeda al cliente desde un solo dominio, Media Services puede especificar ese dominio en el encabezado de respuesta de la comprobación preliminar. Para obtener ayuda, abra una incidencia de soporte técnico en Azure Portal.
 
-## <a name="how-to-configure-the-key-authorization-policy"></a>Procedimiento: configuración de la directiva de autorización de claves
+## <a name="configure-the-key-authorization-policy"></a>Configuración de la directiva de autorización de claves
 Para configurar la directiva de autorización de claves, seleccione la página **PROTECCIÓN DE CONTENIDO** .
 
-Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido puede tener restricciones de autorización **open**, **token** o **IP** (**IP** puede configurarse con REST o el SDK de .NET).
+Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido pueden tener restricciones de autorización open, token, o IP. (La opción de IP se puede configurar con REST o con el SDK de .NET).
 
 ### <a name="open-restriction"></a>Restricción open
-La restricción **open** significa que el sistema entrega la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas.
+La restricción open significa que el sistema entrega la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas.
 
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>Restricción de token
-Para elegir la directiva de token restringida, presione el botón **TOKEN** .
+Para elegir la directiva de token restringida, seleccione el botón **TOKEN**.
 
-La directiva con restricción **token** debe ir acompañada de un token emitido por un **Servicio de tokens seguros** (STS). Media Services admite tokens en formato **Token de web simple** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato **JSON Web Token** (JWT). Para obtener información, consulte [Autenticación de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de token de web simple ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y de token de web JSON (JWT). Para más información, consulte la sección de [autenticación de JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Media Services no proporciona **Servicios de tokens seguros**. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de los Media Services devolverá la clave de cifrado al cliente si el token es válido y las notificaciones del token coinciden con las configuradas para la clave de contenido. Para obtener más información, consulte [Uso de Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Tenga en cuenta que Media Services no proporciona STS. Puede crear un STS personalizado o usar Azure Access Control Service para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. Si el token es válido y las notificaciones del token coinciden con las que se han configurado en la clave de contenido, el servicio de entrega de claves de Media Services devuelve la clave de cifrado al cliente. Para más información, consulte [Uso de Azure Access Control Service para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
-Al configurar la directiva restringida por **token**, debe especificar los parámetros de **clave de comprobación** principal, **emisor** y **público**. La **clave de comprobación** principal contiene la clave con la que se ha firmado el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
+Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el STS que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
 ### <a name="playready"></a>PlayReady
-Al proteger su contenido con **PlayReady**, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la plantilla de licencia de PlayReady. De forma predeterminada, se establece la siguiente directiva:
+Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la plantilla de licencias PlayReady. De forma predeterminada, se establece la siguiente directiva:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices><ContentKey i:type="ContentEncryptionKeyFromHeader" /><LicenseType>Nonpersistent</LicenseType><PlayRight><AllowPassingVideoContentToUnknownOutput>Permitido</AllowPassingVideoContentToUnknownOutput></PlayRight></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>
+    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+          <LicenseTemplates>
+            <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+              <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+              <LicenseType>Nonpersistent</LicenseType>
+              <PlayRight>
+                <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+              </PlayRight>
+            </PlayReadyLicenseTemplate>
+          </LicenseTemplates>
+        </PlayReadyLicenseResponseTemplate>
 
-Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archivo XML diferente que se ajuste al esquema XML definido [aquí](media-services-playready-license-template-overview.md).
+Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archivo XML diferente que se ajuste al esquema XML definido en [Información general de plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md).
 
-## <a name="next-steps"></a>Pasos siguientes
-Consulte las rutas de aprendizaje de Media Services.
-
+## <a name="next-steps"></a>pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

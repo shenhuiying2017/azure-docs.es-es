@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -28,12 +28,20 @@ En este artículo se proporcionan los pasos necesarios para ayudarle a resolver 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>El agente de máquina virtual no se puede comunicar con Azure Backup
+
+> [!NOTE]
+> Si se produce este error en las copias de seguridad de su máquina virtual Linux de Azure a partir del 4 de enero de 2018, ejecute el siguiente comando en las máquinas virtuales afectadas y vuelva a intentar realizar las copias de seguridad.
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Causa 6: [Es posible que sea necesario realizar algún paso adicional para completar el registro en máquinas virtuales clásicas de Azure](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
@@ -65,6 +73,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Causa 6: [El servicio de copia de seguridad no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>No se admite la configuración de disco especificada
 
@@ -99,7 +108,7 @@ Para solucionar este problema, pruebe uno de los métodos siguientes:
 1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico.
 2. Para permitir el acceso a Internet desde el servidor proxy HTTP, agregue las reglas al grupo de seguridad de red, si dispone de uno.
 
-Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 En caso de que use Managed Disks, puede que necesite un puerto adicional (8443) que se abra en los firewalls.
 
@@ -115,7 +124,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 6. A partir de ese momento debería poder ver Windows Guest Agent en los servicios
 7. Pruebe a ejecutar una copia de seguridad ad hoc o a petición, para lo que debe hacer clic en "Realizar copia de seguridad ahora" en el portal.
 
-Compruebe también que la máquina virtual tiene **[instalado .NET 4.5 en el sistema](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
+Compruebe también que la máquina virtual tiene **[instalado .NET 4.5 en el sistema](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)
 
@@ -175,7 +184,7 @@ Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad
 
 Para desinstalar la extensión, haga lo siguiente:
 
-1. Vaya al [Portal de Azure](https://portal.azure.com/).
+1. Vaya a [Azure Portal](https://portal.azure.com/).
 2. Busque la máquina virtual que tiene problemas de copia de seguridad.
 3. Haga clic en **Configuración**.
 4. Haga clic en **Extensiones**.
@@ -183,4 +192,49 @@ Para desinstalar la extensión, haga lo siguiente:
 6. Hacer clic en **Desinstalar**.
 
 Este procedimiento hace que la extensión se vuelva a instalar durante la siguiente copia de seguridad.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Es posible que sea necesario realizar algún paso adicional para completar el registro en máquinas virtuales clásicas de Azure
+El agente en máquinas virtuales clásicas de Azure debe registrarse para establecer conexión con el servicio de copia de seguridad e iniciar la copia de seguridad
+
+#### <a name="solution"></a>Solución
+
+Después de instalar el agente invitado de la máquina virtual, inicie Azure PowerShell. <br>
+1. Inicie sesión en la cuenta de Azure mediante <br>
+       `Login-AzureAsAccount`<br>
+2. Compruebe si la propiedad ProvisionGuestAgent de la máquina virtual se establece en True con los siguientes comandos. <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Si la propiedad se establece en FALSE, use los comandos siguientes para establecerla en TRUE.<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. A continuación, ejecute el comando siguiente para actualizar la máquina virtual. <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Intente iniciar la copia de seguridad. <br>
+
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>El servicio de copia de seguridad no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos
+Este problema es propio de máquinas virtuales administradas en las que el usuario bloquea el grupo de recursos, de forma que el servicio de copia de seguridad no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores ya que hay un límite de 18 puntos de restauración que impone el back-end.
+
+#### <a name="solution"></a>Solución
+
+Para resolver el problema, use los pasos siguientes para quitar la colección de puntos de restauración: <br>
+ 
+1. Quite el bloqueo del grupo de recursos en el que reside la máquina virtual. 
+     
+2. Instale ARMClient con Chocolatey. <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Inicie sesión de ARMClient. <br>
+             `.\armclient.exe login`
+         
+4. Obtenga la colección de puntos de restauración correspondiente a la máquina virtual. <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Ejemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Elimine la colección de puntos de restauración. <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. La próxima copia de seguridad programada creará automáticamente la colección de puntos de restauración y nuevos puntos de restauración. 
+ 
+7. El problema volverá a aparecer si bloquea el grupo de recursos de nuevo, puesto que hay un límite de 18 puntos de restauración únicamente, después del cual las copias de seguridad empezarán a presentar errores 
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -69,7 +69,7 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 
 Este privilegio se expresa con los siguientes valores:
 
-* Gold: los trabajos de infraestructura se pueden pausar dos horas por cada UD. La durabilidad de Gold solo puede habilitarse en las SKU de la máquina virtual del nodo completo, como D15_V2, G5, etc.
+* Gold: los trabajos de infraestructura se pueden pausar dos horas por cada UD. La durabilidad Gold se puede habilitar solo en las SKU de máquina virtual de nodo completo, como L32s, GS5, G5, DS15_v2, D15_v2, etc. (en general, todos los tamaños de máquina virtual que aparecen en http://aka.ms/vmspecs y están marcados como "La instancia está aislada en el hardware dedicado a un solo cliente" en la nota, son máquinas virtuales de nodo completo).
 * Silver: los trabajos de infraestructura se pueden pausar 10 minutos por cada UD y están disponibles en todas las máquinas virtuales estándares de un solo núcleo y superiores.
 * Bronze: sin privilegios. Este es el valor predeterminado. Utilice solo este nivel de durabilidad en los tipos de nodos que ejecutan _exclusivamente_ cargas de trabajo sin estado. 
 
@@ -214,7 +214,7 @@ Para cargas de trabajo de producción
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de finalizar la planeación de capacidad y configurar un clúster, puede consultar lo siguiente:
 
 * [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)

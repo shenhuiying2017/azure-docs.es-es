@@ -3,7 +3,7 @@ title: "Actualizaciones de sistema operativo automáticas con conjuntos de escal
 description: "Obtenga información acerca de cómo actualizar automáticamente el sistema operativo en instancias de máquina virtual en un conjunto de escalado."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Actualizaciones de sistema operativo automáticas de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -39,10 +39,10 @@ La actualización automática del sistema operativo tiene las siguientes caracte
 ## <a name="preview-notes"></a>Notas de la versión preliminar 
 Mientras la versión se encuentre en estado preliminar, existen las siguientes limitaciones y restricciones:
 
-- Las actualizaciones del sistema operativo automáticas solo admiten [tres SKU de sistema operativo](#supported-os-images). No hay ningún contrato de nivel de servicio ni garantías. Se recomienda que no utilice las actualizaciones automáticas en cargas de trabajo críticas de producción mientras la versión se encuentre en estado preliminar.
+- Las actualizaciones automáticas del sistema operativo solo admiten [cuatro SKU de sistema operativo](#supported-os-images). No hay ningún contrato de nivel de servicio ni garantías. Se recomienda que no utilice las actualizaciones automáticas en cargas de trabajo críticas de producción mientras la versión se encuentre en estado preliminar.
 - La compatibilidad con conjuntos de escalado en clústeres de Service Fabric estará disponible próximamente.
 - El cifrado de disco de Azure (actualmente en versión preliminar) **no** es compatible actualmente con la actualización del sistema operativo automática del conjunto de escalado de máquinas virtuales.
-- La experiencia del portal estará disponible próximamente.
+- Una experiencia de portal estará disponible próximamente.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registro para usar la actualización automática del sistema operativo
@@ -78,9 +78,11 @@ Actualmente se admiten las siguientes SKU (se agregarán más):
     
 | Publicador               | Oferta         |  SKU               | Versión  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | más reciente   |
 | Microsoft Windows Server  | Windows Server | Centro de datos de 2012-R2 | más reciente   |
 | Microsoft Windows Server  | Windows Server | 2016-Datacenter    | más reciente   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | más reciente   |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter-Smalldisk | más reciente   |
+
 
 
 ## <a name="application-health"></a>Estado de la aplicación
@@ -90,6 +92,15 @@ Un conjunto de escalado puede configurarse opcionalmente con sondeos de estado d
 
 Si el conjunto de escalado está configurado para usar varios grupos de selección de ubicación, es necesario utilizar sondeos con una instancia de [Load Balancer estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
+### <a name="important-keep-credentials-up-to-date"></a>Importante: mantenga actualizadas las credenciales
+Si el conjunto de escala usa las credenciales para acceder a recursos externos, por ejemplo, si se configura una extensión de máquina virtual que usa un token SAS para la cuenta de almacenamiento, debe asegurarse de que las credenciales se mantengan actualizadas. Si las credenciales, incluidos los certificados y los tokens, han expirado, se producirá un error en la actualización y el primer lote de máquinas virtuales se quedará en estado de error.
+
+Los pasos recomendados para recuperar las máquinas virtuales y volver a habilitar la actualización automática del sistema operativo si se produce un error de autenticación de recursos son:
+
+* Volver a generar el token (o cualquier otra credencial) pasada en las extensiones.
+* Asegurarse de que cualquier credencial usada desde dentro de la máquina virtual para comunicarse con las entidades externas está actualizada.
+* Actualizar las extensiones en el modelo de conjunto de escala con los tokens nuevos.
+* Implementar el conjunto de escala actualizada, lo que actualizará todas las instancias de máquina virtual, incluyendo las que dieran error. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configuración de un sondeo de Load Balancer personalizado como sondeo de estado de aplicación en un conjunto de escalado
 Como práctica recomendada, cree un sondeo del equilibrador de carga explícitamente para el estado del conjunto de escalado. Puede utilizarse el mismo punto de conexión para un sondeo HTTP o un sondeo TCP existente, pero un sondeo de estado puede requerir un comportamiento diferente por parte de un sondeo de equilibrador de carga tradicional. Por ejemplo, un sondeo de equilibrador de carga tradicional puede devolver un estado incorrecto si la carga en la instancia es demasiado alta, mientras que puede no ser adecuado para determinar el estado de la instancia durante una actualización automática del sistema operativo. Configure el sondeo para que tenga una tasa de sondeo elevada de menos de dos minutos.
@@ -141,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 En el ejemplo siguiente se usa la CLI de Azure (2.0.20 o posterior) para configurar las actualizaciones automáticas del conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -161,11 +172,11 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 En el ejemplo siguiente se usa la CLI de Azure (2.0.20 o posterior) para comprobar el estado del conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 
-### <a name="rest-api"></a>API de REST
+### <a name="rest-api"></a>API DE REST
 En el ejemplo siguiente se usa la API de REST para comprobar el estado del conjunto de escalado denominado *myVMSS* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
@@ -223,5 +234,5 @@ Puede usar la plantilla siguiente para implementar un conjunto de escalado que u
 </a>
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más ejemplos sobre cómo usar las actualizaciones automáticas de sistema operativo con conjuntos de escalado, consulte el [repositorio de GitHub para las características en versión preliminar](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

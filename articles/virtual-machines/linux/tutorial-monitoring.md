@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -140,14 +140,14 @@ Hay disponibles métricas básicas del host, pero para ver métricas más pormen
     ![Ver métricas de diagnósticos](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 
-## <a name="view-vm-metrics"></a>Ver las métricas de la máquina virtual
+## <a name="view-vm-metrics"></a>Visualización de las métricas de la máquina virtual
 
 Las métricas de la máquina virtual se pueden ver de la misma manera que las de la máquina virtual host:
 
 1. En Azure Portal, haga clic en **Grupos de recursos**, seleccione **myResourceGroup** y, después, seleccione **myVM** en la lista de recursos.
 1. Para ver el rendimiento de la máquina virtual, haga clic en **Métricas** en la hoja de la máquina virtual y seleccione cualquiera de las métricas de diagnóstico en **Métricas disponibles**.
 
-    ![Ver las métricas de la máquina virtual](./media/tutorial-monitoring/monitor-vm-metrics.png)
+    ![Visualización de las métricas de la máquina virtual](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
 
 ## <a name="create-alerts"></a>Creación de alertas
@@ -190,7 +190,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 Haga clic en el banner para habilitar la solución. Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automatización](../../automation/automation-offering-get-started.md)
+* [Automation](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
 Se abre la pantalla **Habilitar la administración de actualizaciones**. Configure las opciones y haga clic en **Habilitar**.
@@ -200,7 +200,7 @@ Se abre la pantalla **Habilitar la administración de actualizaciones**. Configu
 La habilitación de la solución puede tardar hasta 15 minutos, período durante el cual no debe cerrar la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en el Administrador de paquetes en la máquina virtual se pasa a Log Analytics.
 Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
-### <a name="view-update-assessment"></a>Ver evaluación de la actualización
+### <a name="view-update-assessment"></a>Visualización de la evaluación de la actualización
 
 Una vez habilitada la solución **Update Management**, se muestra la pantalla **Administración de actualizaciones**. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
@@ -271,7 +271,7 @@ En la hoja Búsqueda de registros del portal de OMS, debería ver *myVM* como se
 
 ![Hoja OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha configurado, revisado y administrado las actualizaciones para una máquina virtual. Ha aprendido a:
 

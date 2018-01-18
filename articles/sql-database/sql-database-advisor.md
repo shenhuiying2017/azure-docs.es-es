@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 
@@ -36,7 +36,7 @@ Los índices creados mediante recomendaciones se marcan siempre como índices au
 
 Una vez aplicada la recomendación Crear índice, Azure SQL Database comparará el rendimiento de las consultas con el de línea de base. Si el nuevo índice aportó mejoras de rendimiento, la recomendación se marcará como correcta y el informe de impacto estará disponible. Si no aportó ventajas, se revertirá automáticamente. De esta forma, Azure SQL Database se asegura de que usar recomendaciones solo reporte mejoras para el rendimiento de la base de datos.
 
-Cualquier recomendación **Crear índice** tiene una directiva de rechazo que no permitirá aplicar la recomendación si la utilización de DTU de la base de datos o del grupo superó el 80 % en los 20 minutos anteriores o si el almacenamiento supera el 90 % de la utilización. En este caso, se pospondrá la recomendación.
+Cualquier recomendación **Crear índice** tiene una directiva de rechazo que no permitirá aplicar la recomendación si la utilización de recursos de una base de datos o de un grupo es elevada. La directiva de rechazo tiene en cuenta la CPU, la E/S de datos, la E/S de registros y el almacenamiento disponible. Si la CPU, la E/S de datos o la E/S de registros supera el 80 % en los últimos treinta minutos, la creación del índice se aplazará. Si almacenamiento disponible es inferior al 10 % después de crear el índice, la recomendación adoptará un estado de error. Si después de un par de días, el ajuste automático considera que el índice resultaría beneficioso, el proceso comenzará de nuevo. Este proceso se repetirá hasta que haya suficiente espacio disponible para crear un índice o hasta que el índice ya no se considere beneficioso.
 
 ## <a name="drop-index-recommendations"></a>Recomendaciones Quitar índice
 Además de detectar un índice que falta, Azure SQL Database analiza continuamente el rendimiento de los índices existentes. Si no se usa un índice, Azure SQL Database recomendará quitarlo. Se recomienda quitar un índice en dos casos:
@@ -78,7 +78,7 @@ La recomendación de solución de problema del esquema aparece cuando el servici
 | 2812 |No se pudo encontrar el procedimiento almacenado '*'. |
 | 8144 |La función o el procedimiento * tiene demasiados argumentos. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. SQL Database Advisor sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 
 
 * Vea [Ajuste automático de Azure SQL Database](sql-database-automatic-tuning.md) para realizar un ajuste automático de los índices de base de datos y consultar los planes de ejecución.

@@ -1,5 +1,5 @@
 ---
-title: "Descripción de la factura de Azure | Microsoft Docs"
+title: "Descripción de la factura de Azure"
 description: "Aprenda a leer y entender el uso y la factura de la suscripción de Azure"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -34,9 +34,8 @@ Para términos y descripciones detallados de su factura y el archivo de uso diar
 Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) (Administración de costos de Azure Portal).
 
 ## <a name="charges"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Si hay un cargo en la factura del que quiera tener más detalles, hay un par de opciones.
 
@@ -49,8 +48,8 @@ Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos s
  | Factura (PDF) | Uso detallado (CSV)|
  | --- | --- |
 |Ciclo de facturación | Período de facturación |
- |Nombre |Categoría de medidor |
- |Tipo |Subcategoría de medidor |
+ |NOMBRE |Categoría de medidor |
+ |type |Subcategoría de medidor |
  |Recurso |Nombre de medidor |
  |Region |Medidor de la región |
  |Consumida |Cantidad consumida |

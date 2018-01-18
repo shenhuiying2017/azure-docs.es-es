@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versión 2: Versión preliminar](copy-activity-fault-tolerance.md)
+> * [Versión 2: versión preliminar](copy-activity-fault-tolerance.md)
 
 La actividad de copia de Azure Data Factory ofrece dos maneras de tratar filas incompatibles cuando se copian datos entre almacenes de datos de origen y de receptor:
 
@@ -39,6 +39,9 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
 - **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor**. <br/><br/> Por ejemplo, copie los datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contiene tres columnas de tipo INT. Las filas del archivo CSV que contienen datos numéricos, como 123 456 789, se copian correctamente en el almacén de receptor. Pero las filas que contienen valores no numéricos, como 123 456 abc, se detectan como incompatibles y se omiten.
 - **Error de coincidencia en el número de columnas entre el origen y el receptor**. <br/><br/> Por ejemplo: copie los datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contiene seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más o menos de seis columnas se detectan como incompatibles y se omiten.
 - **Infracción de clave principal al escribir en una base de datos relacional**.<br/><br/> Por ejemplo: copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
+
+>[!NOTE]
+>Esta característica no se aplica cuando la actividad de copia se configura para invocar el mecanismo de carga de datos externos, incluido [PolyBase en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) o [Unload en Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Para cargar datos en SQL Data Warehouse mediante PolyBase, use la compatibilidad de tolerancia a errores nativa de PolyBase especificando "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia.
 
 ## <a name="configuration"></a>Configuración
 En el ejemplo siguiente se proporciona una definición JSON para configurar la omisión de las filas incompatibles en la actividad de copia:
@@ -62,12 +65,12 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 }
 ```
 
-Propiedad | Descripción | Valores permitidos | Obligatorio
+Propiedad | DESCRIPCIÓN | Valores permitidos | Requerido
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Especifica si se deben omitir las filas incompatibles durante la copia o no. | True<br/>False (valor predeterminado) | No
-redirectIncompatibleRowSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | No
-linkedServiceName | Servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para almacenar el registro que contiene las filas que se omiten. | Nombre de un servicio vinculado de tipo `AzureStorage` o `AzureDataLakeStore`, que hace referencia a la instancia que quiere usar para almacenar el archivo de registro. | No
-path | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso que quiere usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
+enableSkipIncompatibleRow | Especifica si se deben omitir las filas incompatibles durante la copia o no. | True<br/>False (valor predeterminado) | Sin 
+redirectIncompatibleRowSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | Sin 
+linkedServiceName | Servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para almacenar el registro que contiene las filas que se omiten. | Nombre de un servicio vinculado de tipo `AzureStorage` o `AzureDataLakeStore`, que hace referencia a la instancia que quiere usar para almacenar el archivo de registro. | Sin 
+path | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso que quiere usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin 
 
 ## <a name="monitor-skipped-rows"></a>Supervisar filas omitidas
 Una vez finalizada la ejecución de la actividad de copia, puede ver el número de filas omitidas en la salida de la actividad de copia:
@@ -96,7 +99,7 @@ data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an i
 data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)

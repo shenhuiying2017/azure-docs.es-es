@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/08/2018
 ms.author: denlee
-ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ba8a53f2018727cc4fa225b2d4ce14d9f1d7467
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos en tiempo real con el conector de Spark a Azure Cosmos DB
 
@@ -54,9 +54,9 @@ Versiones oficialmente compatibles:
 
 | Componente | Versión |
 |---------|-------|
-|Spark de Apache|2.0+|
-| Scala| 2.11|
-| SDK de Java para SQL de Azure Cosmos DB | 1.10.0 |
+|Spark de Apache|2.0.2, 2.1.0, 2.2.0|
+| Scala| 2.10, 2.11|
+| SDK de Java para SQL de Azure Cosmos DB | 1.14.0, 1.15.0 |
 
 Este artículo le ayuda a ejecutar algunos ejemplos sencillos con Python (a través de pyDocumentDB) y las interfaces de Scala.
 
@@ -181,21 +181,22 @@ También puede descargar las últimas versiones del archivo JAR de la carpeta de
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Inclusión del archivo JAR de Azure Cosmos DB Spark
 Antes de ejecutar ningún código, deberá incluir el archivo JAR de Azure Cosmos DB Spark.  Si va a usar **spark-shell**, puede incluirlo mediante la opción **--jars**.  
 
-```
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-with-dependencies.jar
+```bash
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0-uber.jar
 ```
 
 Si desea ejecutar el archivo JAR sin dependencias, use el siguiente código:
 
 ```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar,/$location/azure-documentdb-1.14.0.jar,/$location/azure-documentdb-rx-0.9.0-rc2.jar,/$location/json-20140107.jar,/$location/rxjava-1.3.0.jar,/$location/rxnetty-0.4.20.jar 
 ```
 
 Si usa un servicio de cuaderno como Azure HDInsight Jupyter Notebook en Azure HDInsight, puede usar los comandos **spark magic**:
 
 ```
 %%configure
-{ "jars": ["wasb:///example/jars/azure-documentdb-1.10.0.jar","wasb:///example/jars/azure-cosmosdb-spark-0.0.3.jar"],
+{ "name":"Spark-to-Cosmos_DB_Connector", 
+  "jars": ["wasb:///example/jars/1.0.0/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-1.14.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-rx-0.9.0-rc2.jar", "wasb:///example/jars/1.0.0/json-20140107.jar", "wasb:///example/jars/1.0.0/rxjava-1.3.0.jar", "wasb:///example/jars/1.0.0/rxnetty-0.4.20.jar"],
   "conf": {
     "spark.jars.excludes": "org.scala-lang:scala-reflect"
    }
@@ -207,7 +208,7 @@ El comando **jars** permite incluir los dos archivos JAR necesarios para **azure
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Conexión de Spark a Azure Cosmos DB mediante el conector
 Aunque el transporte de comunicación es un poco más complicado, ejecutar una consulta de Spark en Azure Cosmos DB mediante el conector es mucho más rápido.
 
-El fragmento de código siguiente muestra cómo usar el conector dentro de un contexto de Spark.
+El fragmento de código siguiente muestra cómo utilizar el conector en una sesión de Spark; consulte `azure-cosmosdb-spark` en el [repositorio de GitHub](https://github.com/Azure/azure-cosmosdb-spark) para obtener ejemplos de Python.
 
 ```
 // Import Necessary Libraries
@@ -218,7 +219,7 @@ import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.config.Config
 
 // Configure connection to your collection
-val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
+val baseConfig = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
 "preferredRegions" -> "Central US;East US2;",
@@ -226,7 +227,7 @@ val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.co
 "SamplingRatio" -> "1.0"))
 
 // Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(readConfig2)
+val coll = spark.sqlContext.read.cosmosDB(baseConfig)
 coll.createOrReplaceTempView("c")
 ```
 
@@ -255,7 +256,7 @@ df.show()
 
 La conexión de Spark a Azure Cosmos DB con el conector suele usarse en escenarios en que:
 
-* Quiere usar Scala y actualizarlo para incluir un contenedor de Python, tal y como se indicó en [Problema 3: Agregar contenedor de Python y ejemplos](https://github.com/Azure/azure-cosmosdb-spark/issues/3).
+* Puede que desee usar Python o Scala.
 * Tiene una gran cantidad de datos que se van a transferir entre Apache Spark y Azure Cosmos DB.
 
 Para darle una idea de la diferencia de rendimiento de consultas, vea la [wiki de ejecuciones de pruebas de consulta](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
@@ -348,7 +349,7 @@ order by percentile_approx(delay, 0.5)
 
 ![Gráfico de valores medios de retrasos de Spark](./media/spark-connector/median-delays-graph.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si aún no lo ha hecho, descargue el conector de Spark a Azure Cosmos DB del repositorio de GitHub [azure-documentdb-spark](https://github.com/Azure/azure-cosmosdb-spark) y explore los recursos adicionales del repositorio:
 

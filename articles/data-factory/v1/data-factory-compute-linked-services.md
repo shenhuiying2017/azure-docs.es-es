@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -49,8 +49,7 @@ HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop qu
 Después del 15 de diciembre de 2017:
 
 - Ya no podrá crear clústeres de la versión 3.3 (o versiones anteriores) de HDInsight basado en Linux mediante el servicio vinculado de HDInsight a petición en Azure Data Factory v1. 
-
-- Si no se especifica la [propiedad osType and/or Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) explícitamente en las definiciones JSON existentes de servicios vinculados de HDInsight a petición en Azure Data Factory v1, el valor predeterminado se cambiará de **Version=3.1, osType=Windows** a **Version=3.6, osType=Linux**.
+- Si no se especifican las [propiedades osType y/o Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) explícitamente en las definiciones JSON existentes de servicios vinculados de HDInsight a petición en Azure Data Factory v1, el valor predeterminado se cambiará de **Version=3.1, osType=Windows** a **Version=[última versión predeterminada de HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
 
 Después del 31 de julio de 2018:
 
@@ -100,17 +99,15 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Para utilizar un clúster de HDInsight basado en Windows, establezca **osType** en **windows** o, simplemente, no utilice la propiedad, porque su valor predeterminado es windows.  
 
 > [!IMPORTANT]
 > El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs que especificó en JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento. 
@@ -119,17 +116,17 @@ Para utilizar un clúster de HDInsight basado en Windows, establezca **osType** 
 >
 > 
 
-### <a name="properties"></a>Propiedades
-| Propiedad                     | Descripción                              | Obligatorio |
+### <a name="properties"></a>Properties (Propiedades)
+| Propiedad                     | DESCRIPCIÓN                              | Requerido |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
-| clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. | yes      |
+| Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
+| clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. | Sí      |
 | timeToLive                   | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se ejecuta otra actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se completa la ejecución de la actividad. Por el contrario, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. | Sí      |
-| versión                      | Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. | No       |
+| version                      | Versión del clúster de HDInsight, consulte las [versiones de HDInsight compatibles](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) para obtener las versiones de HDInsight que se permiten. Si no se especifica, usa la [versión predeterminada más reciente de HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Sin        |
 | linkedServiceName            | El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de Azure Storage.<p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store. </p> | Sí      |
-| additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. Estas cuentas de almacenamiento deben estar en la misma región que el clúster de HDInsight, que se crea en la misma región que la cuenta de almacenamiento especificada por linkedServiceName. | No       |
-| osType                       | Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux | No       |
-| hcatalogLinkedServiceName    | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará usando la base de datos SQL de Azure como metaalmacén. | No       |
+| additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. Estas cuentas de almacenamiento deben estar en la misma región que el clúster de HDInsight, que se crea en la misma región que la cuenta de almacenamiento especificada por linkedServiceName. | Sin        |
+| osType                       | Tipo de sistema operativo. Los valores permitidos son: Linux y Windows. Si no se especifica, Linux se utiliza de forma predeterminada.  <br/>Recomendamos usar clústeres de HDInsight basados en Linux, ya que a partir del 31 de julio de 2018 se retirará HDInsight de Windows. | Sin        |
+| hcatalogLinkedServiceName    | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará usando la base de datos SQL de Azure como metaalmacén. | Sin        |
 
 #### <a name="additionallinkedservicenames-json-example"></a>Ejemplo JSON de additionalLinkedServiceNames
 
@@ -143,16 +140,16 @@ Para utilizar un clúster de HDInsight basado en Windows, establezca **osType** 
 ### <a name="advanced-properties"></a>Propiedades avanzadas
 También puede especificar las siguientes propiedades para la configuración granular del clúster de HDInsight a petición.
 
-| Propiedad               | Descripción                              | Obligatorio |
+| Propiedad               | DESCRIPCIÓN                              | Requerido |
 | :--------------------- | :--------------------------------------- | :------- |
-| coreConfiguration      | Especifica los parámetros de configuración Core (como en core-site.xml) para crear el clúster de HDInsight. | No       |
-| hBaseConfiguration     | Especifica los parámetros de configuración HBase (como en hbase-site.xml) para el clúster de HDInsight. | No       |
-| hdfsConfiguration      | Especifica los parámetros de configuración HDFS (hdfs-site.xml) para el clúster de HDInsight. | No       |
-| hiveConfiguration      | Especifica los parámetros de configuración Hive (hive-site.xml) para el clúster de HDInsight. | No       |
-| mapReduceConfiguration | Especifica los parámetros de configuración MapReduce (mapred-site.xml) para el clúster de HDInsight. | No       |
-| oozieConfiguration     | Especifica los parámetros de configuración Oozie (oozie-site.xml) para el clúster de HDInsight. | No       |
-| stormConfiguration     | Especifica los parámetros de configuración Storm (storm-site.xml) para el clúster de HDInsight. | No       |
-| yarnConfiguration      | Especifica los parámetros de configuración Yarn (yarn-site.xml) para el clúster de HDInsight. | No       |
+| coreConfiguration      | Especifica los parámetros de configuración Core (como en core-site.xml) para crear el clúster de HDInsight. | Sin        |
+| hBaseConfiguration     | Especifica los parámetros de configuración HBase (como en hbase-site.xml) para el clúster de HDInsight. | Sin        |
+| hdfsConfiguration      | Especifica los parámetros de configuración HDFS (hdfs-site.xml) para el clúster de HDInsight. | Sin        |
+| hiveConfiguration      | Especifica los parámetros de configuración Hive (hive-site.xml) para el clúster de HDInsight. | Sin        |
+| mapReduceConfiguration | Especifica los parámetros de configuración MapReduce (mapred-site.xml) para el clúster de HDInsight. | Sin        |
+| oozieConfiguration     | Especifica los parámetros de configuración Oozie (oozie-site.xml) para el clúster de HDInsight. | Sin        |
+| stormConfiguration     | Especifica los parámetros de configuración Storm (storm-site.xml) para el clúster de HDInsight. | Sin        |
+| yarnConfiguration      | Especifica los parámetros de configuración Yarn (yarn-site.xml) para el clúster de HDInsight. | Sin        |
 
 #### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Ejemplo: configuración del clúster de HDInsight a petición con propiedades avanzadas
 
@@ -162,6 +159,8 @@ También puede especificar las siguientes propiedades para la configuración gra
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",
@@ -194,11 +193,11 @@ También puede especificar las siguientes propiedades para la configuración gra
 ### <a name="node-sizes"></a>Tamaño de nodo
 Puede especificar los tamaños de los nodos principal, de datos y de zookeeper con las siguientes propiedades: 
 
-| Propiedad          | Descripción                              | Obligatorio |
+| Propiedad          | DESCRIPCIÓN                              | Requerido |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3 Consulte la sección **Especificación de tamaños de nodos** para más información. | No       |
-| dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3 | No       |
-| zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Standard_D3 | No       |
+| headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3 Consulte la sección **Especificación de tamaños de nodos** para más información. | Sin        |
+| dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3 | Sin        |
+| zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Standard_D3 | Sin        |
 
 #### <a name="specifying-node-sizes"></a>Especificación de tamaños de nodo
 Consulte el artículo [Tamaños de máquinas virtuales](../../virtual-machines/linux/sizes.md) para conocer los valores de cadena que debe especificar para las propiedades mencionadas anteriormente. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario. 
@@ -249,12 +248,12 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 }
 ```
 
-### <a name="properties"></a>Propiedades
-| Propiedad          | Descripción                              | Obligatorio |
+### <a name="properties"></a>Properties (Propiedades)
+| Propiedad          | DESCRIPCIÓN                              | Requerido |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | La propiedad type se debe establecer en **HDInsight**. | Sí      |
+| Tipo              | La propiedad type se debe establecer en **HDInsight**. | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.        | Sí      |
-| nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
+| Nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
 | contraseña          | Especifique la contraseña para la cuenta de usuario.   | Sí      |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | Sí      |
 
@@ -297,10 +296,10 @@ Otra opción es proporcionar el punto de conexión batchUri tal como se muestra 
 "batchUri": "https://eastus.batch.azure.com",
 ```
 
-### <a name="properties"></a>Propiedades
-| Propiedad          | Descripción                              | Obligatorio |
+### <a name="properties"></a>Properties (Propiedades)
+| Propiedad          | DESCRIPCIÓN                              | Requerido |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
+| Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
 | accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
 | accessKey         | Clave de acceso de la cuenta de Azure Batch.  | Sí      |
 | poolName          | Nombre del grupo de máquinas virtuales.    | Sí      |
@@ -324,8 +323,8 @@ Un servicio vinculado de Azure Machine Learning se crea para registrar un punto 
 }
 ```
 
-### <a name="properties"></a>Propiedades
-| Propiedad   | Descripción                              | Obligatorio |
+### <a name="properties"></a>Properties (Propiedades)
+| Propiedad   | DESCRIPCIÓN                              | Requerido |
 | ---------- | ---------------------------------------- | -------- |
 | type       | La propiedad type se debe establecer en: **AzureML**. | Sí      |
 | mlEndpoint | La dirección URL de puntuación por lotes.                   | Sí      |
@@ -336,11 +335,11 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. Puede elegir entre la autenticación de la entidad de servicio y la autenticación de credenciales de usuario.
 
-| Propiedad                 | Descripción                              | Obligatorio                                 |
+| Propiedad                 | DESCRIPCIÓN                              | Requerido                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
-| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | No                                       |
+| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | Sin                                        |
 | **subscriptionId**       | Identificador de suscripción de Azure                    | No (si no se especifica, se usa la suscripción de Data Factory). |
 | **resourceGroupName**    | Nombre del grupo de recursos de Azure.                | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
@@ -352,7 +351,7 @@ Para usar la autenticación de la entidad de servicio, registre una entidad de a
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
-| Propiedad                | Descripción                              | Obligatorio |
+| Propiedad                | DESCRIPCIÓN                              | Requerido |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
@@ -380,7 +379,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 ### <a name="user-credential-authentication"></a>Autenticación de credenciales de usuario
 También puede utilizar la autenticación de credenciales de usuario para Data Lake Analytics mediante la especificación de las propiedades siguientes:
 
-| Propiedad          | Descripción                              | Obligatorio |
+| Propiedad          | DESCRIPCIÓN                              | Requerido |
 | :---------------- | :--------------------------------------- | :------- |
 | **authorization** | Haga clic en el botón **Autorizar** de Data Factory Editor y escriba sus credenciales, que asignan la dirección URL de autorización generada automáticamente a esta propiedad. | Sí      |
 | **sessionId**     | Id. de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar Data Factory Editor. | Sí      |

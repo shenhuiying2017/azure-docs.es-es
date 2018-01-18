@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
 Azure Functions se puede ejecutar de dos formas diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente capacidad de proceso cuando se ejecuta el código, se amplía horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por máquinas virtuales inactivas y no tiene que reservar capacidad de antemano. Este artículo se centra en el plan de consumo, un modelo de aplicación [sin servidor](https://azure.microsoft.com/overview/serverless-computing/). Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> El hospedaje de Linux solo está disponible en un plan de App Service.
+> El [hospedaje de Linux](functions-create-first-azure-function-azure-cli-linux.md) solo está disponible en un plan de App Service.
 
 Si todavía no está familiarizado con Azure Functions, vea la [Información general sobre Azure Functions](functions-overview.md).
 
@@ -46,7 +46,7 @@ En un plan App Service, puede escalar entre los niveles para asignar distintas c
 Cuando se usa un plan de consumo, las instancias del host de Azure Functions se agregan y quitan de forma dinámica según el número de eventos de entrada. Este plan se escala automáticamente y solo se le cobra por los recursos de proceso cuando se ejecutan las funciones. En un plan de consumo, una función puede ejecutarse durante un máximo de 10 minutos. 
 
 > [!NOTE]
-> El tiempo de espera predeterminado para las funciones en un plan de consumo es de cinco minutos. El valor se puede aumentar a 10 minutos para la aplicación de función si se cambia la propiedad `functionTimeout` en [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> El tiempo de espera predeterminado para las funciones en un plan de consumo es de cinco minutos. El valor se puede aumentar a 10 minutos para Function App si se cambia la propiedad `functionTimeout` en el archivo de proyecto [host.json](functions-host-json.md#functiontimeout).
 
 La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. La facturación es un agregado de todas las funciones dentro de la aplicación de función. Para más información, consulte la [página de precios de Azure Functions].
 
@@ -97,7 +97,7 @@ Al usar el plan de hospedaje de consumo, los archivos de código de función se 
 > [!NOTE]
 > Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que la aplicación de función se ejecute, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
 > - Hospede la aplicación de función en un plan de App Service con Siempre activado habilitado.
-> - Use otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, una suscripción de Event Grid o un mensaje de la cola que contenga el nombre del blob. Para obtener un ejemplo, consulte [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example) (Ejemplos de C# y JavaScript para los enlaces de entrada y salida de blob).
+> - Use otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, una suscripción de Event Grid o un mensaje de la cola que contenga el nombre del blob. Para ver un ejemplo, consulte los [ejemplos de enlace de entrada de blob](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 

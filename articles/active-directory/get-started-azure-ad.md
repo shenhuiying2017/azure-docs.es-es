@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introducción a Azure AD
 La administración de identidades moderna requiere confiabilidad escalable y coherente para garantizar la disponibilidad de las aplicaciones y servicios solo para los usuarios autenticados. Para admitir adecuadamente las necesidades de administración de identidad de los usuarios, el departamento de TI necesita una manera para proporcionar acceso a aplicaciones de software como servicio (SaaS) aprobadas y públicas, una manera de hospedar aplicaciones internas de línea de negocio e incluso formas de mejorar el desarrollo y uso de aplicaciones locales. Todos estos requisitos apuntan a la necesidad de una solución de administración de identidad basada en la nube.      
 
 Azure Active Directory (Azure AD) es el directorio basado en la nube de varios inquilinos y el servicio de administración de identidades de Microsoft. Azure AD combina servicios de directorio fundamentales, gobierno avanzado de la identidad y administración del acceso a las aplicaciones. El diseño multiempresa, distribuido geográficamente y de alta disponibilidad de Azure AD significa que puede confiar en él para sus necesidades empresariales más críticas.
 
-Azure AD incluye un conjunto completo de funcionalidades de administración de identidades, incluidas la posibilidad de sincronizar la información de los recursos locales, una marca de empresa personalizable, una administración de licencias simple y una administración de contraseñas incluso sin intervención del administrador.  Estas funcionalidades de configuración sencilla pueden ayudar a utilizar Azure AD para proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se cumplen los objetivos de cumplimiento normativo corporativos.
+Azure AD incluye un conjunto completo de funcionalidades de administración de identidades, incluidas la posibilidad de sincronizar la información de los recursos locales, una marca de empresa personalizable, una administración de licencias simple y una administración de contraseñas incluso sin intervención del administrador. Estas funcionalidades de sencilla implementación pueden ayudar a utilizar Azure AD para proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se alcanzan los objetivos de cumplimiento normativo corporativos.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -87,7 +87,7 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](active-directory-pas
 Revise las propiedades de SSPR habilitadas en **Azure Active Directory** > **Restablecimiento de contraseña** para asegurarse de que se han efectuado las asignaciones de grupo y usuario adecuadas. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
-[Página de producto de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## <a name="next-steps"></a>pasos siguientes
+[Página de servicio de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Página de información de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

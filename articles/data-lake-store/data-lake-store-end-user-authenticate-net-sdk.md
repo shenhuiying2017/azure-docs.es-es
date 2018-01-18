@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Autenticación de usuario final con Data Lake Store mediante el SDK de .NET
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
 ## <a name="prerequisites"></a>Requisitos previos
 * **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "nativa" de Azure Active Directory**. Debe haber completado los pasos descritos en [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -46,7 +46,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
    | --- | --- |
    | Categoría |Plantillas/Visual C#/Windows |
    | Plantilla |Aplicación de consola |
-   | Nombre |CreateADLApplication |
+   | NOMBRE |CreateADLApplication |
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
@@ -62,27 +62,32 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
         ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes NuGet**.
 
-6. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
+6. Abrir **Program.cs**
+7. Reemplace las instrucciones Using por las siguientes líneas:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación nativa de Azure AD (se enumera como requisito previo). Este fragmento de código le permite autenticar la aplicación **de manera interactiva** con Data Lake Store, lo que significa que se le pedirá que escriba sus credenciales de Azure.
 
 Para facilitar su uso, el siguiente fragmento de código emplea valores predeterminados para el identificador de cliente y un URI de redirección que son válidos con cualquier suscripción de Azure. En el siguiente fragmento de código, solo es necesario proporcionar el valor del identificador del inquilino. Puede recuperar el identificador del inquilino siguiendo las instrucciones proporcionadas en [Obtención del identificador de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Reemplace la función Main() por el siguiente contenido:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Para facilitar su uso, el siguiente fragmento de código emplea valores predeter
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Dos cosas que conviene saber acerca del fragmento de código anterior:
 
@@ -104,7 +110,7 @@ Dos cosas que conviene saber acerca del fragmento de código anterior:
 * Sin embargo, si desea utilizar su propio identificador de cliente de dominio y de aplicación de Azure AD, debe crear una aplicación nativa de Azure AD y, después, utilizar el identificador de inquilino de Azure AD, el identificador de cliente y el identificador URI de redirección para la aplicación que ha creado. Consulte [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) para obtener instrucciones.
 
   
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a usar la autenticación de usuario final para autenticarse en Azure Data Lake Store mediante el SDK de .NET. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de .NET con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)

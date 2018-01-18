@@ -1,6 +1,6 @@
 ---
-title: "Implementación de la puerta de enlace de fábrica conectada - Azure | Microsoft Docs"
-description: "Cómo implementar una puerta de enlace en Windows o Linux para habilitar la conectividad a la solución preconfigurada de fábrica conectada."
+title: "Implementación de la puerta de enlace de fábrica conectada (Azure) | Microsoft Docs"
+description: "Cómo implementar una puerta de enlace en Windows o Linux para permitir la conectividad a la solución preconfigurada de fábrica conectada."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -12,163 +12,173 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para la solución preconfigurada de fábrica conectada
 
-El software necesario para implementar una puerta de enlace para la solución preconfigurada de fábrica conectada tiene dos componentes:
+Para implementar una puerta de enlace de perímetro para la solución preconfigurada de *fábrica conectada*, se necesitan dos componentes de software:
 
-* El componente *OPC Proxy* establece una conexión a IoT Hub. El componente *OPC Proxy* espera los mensajes de comando y control desde el explorador de OPC integrado que se ejecuta en el portal de la solución de fábrica conectada.
-* El componente *Publisher OPC* se conecta a los servidores de agente de usuario de OPC locales existentes y reenvía sus mensajes de telemetría a IoT Hub.
+- *OPC Proxy* establece una conexión a la fábrica conectada. El componente OPC Proxy espera los mensajes de comando y control del explorador de OPC integrado que se ejecuta en el portal de la solución de fábrica conectada.
 
-Ambos componentes son de código abierto y están disponibles como código fuente en GitHub y como contenedores de Docker:
+- *OPC Publisher* conecta a los servidores locales existentes de agente de usuario de OPC y reenvía sus mensajes de telemetría a la fábrica conectada. Puede conectar un dispositivo clásico OPC mediante el [adaptador clásico de OPC para OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+
+Ambos componentes son de código abierto y están disponibles como código fuente en GitHub y como contenedores de Docker en DockerHub:
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [OPC Publisher][lnk-publisher-github] | [OPC Publisher][lnk-publisher-docker] |
-| [OPC Proxy][lnk-proxy-github] | [OPC Proxy][lnk-proxy-docker] |
+| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
-No se requiere ninguna dirección IP de acceso público ni marcadores en el firewall de la puerta de enlace para cualquiera de los componentes. Los componentes OPC Proxy y OPC Publisher utilizan solo los puertos de salida 443, 5671 y 8883.
+No se requiere ninguna dirección IP de acceso público ni puertos de entrada abiertos en el firewall de la puerta de enlace para ninguno de los componentes. Los componentes OPC Proxy y OPC Publisher solo usan el puerto de salida 443.
 
-Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace con Docker en [Windows](#windows-deployment) o [Linux](#linux-deployment). La puerta de enlace habilita la conectividad con la solución preconfigurada de fábrica conectada.
-
-> [!NOTE]
-> El software de puerta de enlace que se ejecuta en el contenedor de Docker es [Azure IoT Edge].
-
-## <a name="windows-deployment"></a>Implementación de Windows
+Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace de perímetro con Docker en Windows o Linux. La puerta de enlace permite la conectividad con la solución preconfigurada de fábrica conectada. Aunque también puede usar los componentes sin ella.
 
 > [!NOTE]
-> Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el [catálogo de dispositivos IoT de Azure] para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de fábrica conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace. Como alternativa, puede usar las instrucciones siguientes para establecer manualmente una de las puertas de enlace existentes.
+> Ambos componentes se pueden usar como módulos en [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
-### <a name="install-docker"></a>Instalación de Docker
+## <a name="choose-a-gateway-device"></a>Selección de un dispositivo de puerta de enlace
 
-Instale [Docker para Windows] en el dispositivo de puerta de enlace Windows. Durante la configuración de Windows Docker, seleccione una unidad en el equipo host para compartirla con Docker. En la captura de pantalla siguiente se muestra el uso compartido de la unidad D en el sistema Windows:
+Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el [catálogo de dispositivos de Azure IoT](https://catalog.azureiotsuite.com/?q=opc) para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de fábrica conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace.
 
-![Instalación de Docker][img-install-docker]
+Como alternativa, use las instrucciones siguientes para configurar manualmente un dispositivo de puerta de enlace existente.
 
-Luego, cree una carpeta llamada **docker** en la raíz de la unidad compartida.
-También puede realizar este paso después de instalar docker desde el menú **Configuración**.
+## <a name="install-and-configure-docker"></a>Instalación y configuración de Docker
 
-### <a name="configure-the-gateway"></a>Configuración de la puerta de enlace
+Instale [Docker para Windows](https://www.docker.com/docker-windows) en el dispositivo de puerta de enlace basado en Windows o use un administrador de paquetes para instalar Docker en el dispositivo de puerta de enlace basado en Linux.
 
-1. Necesita la cadena de conexión **iothubowner** de la implementación de fábrica conectada del Conjunto de aplicaciones de IoT de Azure para completar la implementación de la puerta de enlace. En [Azure Portal], vaya a IoT Hub en el grupo de recursos que se creó cuando implementó la solución de fábrica conectada. Haga clic en **Directivas de acceso compartido** para tener acceso a la cadena de conexión **iothubowner**:
+Durante la configuración de Docker para Windows, seleccione una unidad en la máquina host para compartir con Docker. En la captura de pantalla siguiente se muestra el uso compartido de la unidad **D** en el sistema Windows para permitir el acceso a la unidad host desde dentro de un contenedor Docker:
 
-    ![Búsqueda de la cadena de conexión IoT Hub][img-hub-connection]
-
-    Copie el valor **Connection string--primary key**.
-
-1. Configure la puerta de enlace de la instancia de IoT Hub mediante la ejecución de los dos módulos de puerta de enlace **una vez** desde un símbolo del sistema con:
-
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
-
-    * **&lt;ApplicationName&gt;** es el nombre del publicador de agente de usuario de OPC con el formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, si la red de fábrica se denomina **myfactorynetwork.com**, el valor de **ApplicationName** es **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
-
-    Use la ruta de acceso D:\\carpeta docker asignada (el argumento `-v`) más adelante para conservar los dos certificados X.509 que los módulos de la puerta de enlace utilizan.
-
-### <a name="run-the-gateway"></a>Ejecución de la puerta de enlace
-
-1. Use estos comandos para reiniciar la puerta de enlace:
-
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
-
-1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta D:\\docker contienen la clave privada. Limite el acceso a esta carpeta con las credenciales (habitualmente, **Administradores**) que se usan para ejecutar el contenedor Docker. Haga clic con el botón derecho en la carpeta D:\\docker, elija **Propiedades**, **Seguridad** y, luego, **Editar**. Conceda a los **administradores** el control total y quite a todos los demás:
-
-    ![Concesión de permisos para el recurso compartido Docker][img-docker-share]
-
-1. Compruebe la conectividad de la red. En un símbolo del sistema, escriba el comando `ping publisher.<your fully qualified domain name>` para hacer ping a la puerta de enlace. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta **Windows\\System32\\drivers\\etc**.
-
-1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto] y úselo.
-
-1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta **D:\\docker\\Rejected Certificates\\certs** a la carpeta **D:\\docker\\UA Applications\\certs** en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
-
-### <a name="add-your-opc-ua-servers"></a>Incorporación de los servidores OPC UA
-
-1. Vaya a la página **Connect your own OPC UA Server** (Conexión con su propio servidor OPC UA) en el portal de solución de fábrica conectada. Siga los mismos pasos de la sección anterior para establecer la confianza entre el portal de fábrica conectada y el servidor OPC UA. Este paso establece una confianza mutua de los certificados desde el portal de factoría conectada al servidor OPC UA y crea una conexión.
-
-1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta **D:\\docker**. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
-
-1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Factory Locations** (Ubicaciones de fábrica) del portal de fábrica conectada en **New Factory** (Nueva fábrica).
-
-## <a name="linux-deployment"></a>Implementación de Linux
+![Instalación de Docker para Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el [catálogo de dispositivos IoT de Azure] para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de fábrica conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace. Como alternativa, puede usar las instrucciones siguientes para establecer manualmente una de las puertas de enlace existentes.
+> También puede realizar este paso después de instalar Docker desde el cuadro de diálogo **Configuración**. Haga clic con el botón derecho en el icono de **Docker** en la bandeja del sistema de Windows y elija **Configuración**.
 
-[Instale Docker] en el dispositivo de puerta de enlace Linux.
+Si usa Linux, no es necesaria ninguna configuración adicional para permitir el acceso al sistema de archivos.
 
-### <a name="configure-the-gateway"></a>Configuración de la puerta de enlace
+En Windows, cree una carpeta en la unidad compartida con Docker; en Linux, cree una carpeta en el sistema de archivos raíz. En este tutorial se hace referencia a esta carpeta como `<SharedFolder>`.
 
-1. Necesita la cadena de conexión **iothubowner** de la implementación de fábrica conectada del Conjunto de aplicaciones de IoT de Azure para completar la implementación de la puerta de enlace. En [Azure Portal], vaya a IoT Hub en el grupo de recursos que se creó cuando implementó la solución de fábrica conectada. Haga clic en **Directivas de acceso compartido** para tener acceso a la cadena de conexión **iothubowner**:
+Cuando haga referencia a la carpeta `<SharedFolder>` en un comando de Docker, asegúrese de usar la sintaxis correcta correspondiente a su sistema operativo. A continuación se muestran dos ejemplos, uno para Windows y otro para Linux:
 
-    ![Búsqueda de la cadena de conexión IoT Hub][img-hub-connection]
+- Si usa la carpeta `D:\shared` en Windows como `<SharedFolder>`, la sintaxis de comandos de Docker será `//d/shared`.
 
-    Copie el valor **Connection string--primary key**.
+- Si usa la carpeta `/shared` en Linux como `<SharedFolder>`, la sintaxis de comandos de Docker será `/shared`.
 
-1. Configure la puerta de enlace de la instancia de IoT Hub mediante la ejecución de los dos módulos de puerta de enlace **una vez** desde un shell con:
+Para más información, consulte la referencia del motor de Docker [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) (Uso de volúmenes).
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+## <a name="configure-the-opc-components"></a>Configuración de los componentes OPC
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+Antes de instalar los componentes OPC, realice los pasos siguientes para preparar su entorno:
 
-    * **&lt;ApplicationName&gt;** es el nombre de la aplicación OPC UA que la puerta de enlace crea con formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
+1. Para realizar la implementación de la puerta de enlace, necesitará la cadena de conexión **iothubowner** de IoT Hub en la implementación de fábrica conectada. En [Azure Portal](http://portal.azure.com/), vaya a su instancia de IoT Hub en el grupo de recursos que creó cuando implementó la solución de fábrica conectada. Haga clic en **Directivas de acceso compartido** para tener acceso a la cadena de conexión **iothubowner**:
 
-    Use la carpeta **/shared** (el argumento `-v`) más adelante para conservar los dos certificados X.509 que los módulos de la puerta de enlace utilizan.
+    ![Búsqueda de la cadena de conexión IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
-### <a name="run-the-gateway"></a>Ejecución de la puerta de enlace
+    Copie el valor de **Cadena de conexión: clave principal**.
 
-1. Use estos comandos para reiniciar la puerta de enlace:
+1. Para permitir la comunicación entre contenedores de Docker, se necesita una red de puente definida por el usuario. Para crear una red de puente para los contenedores, ejecute los siguientes comandos en un símbolo del sistema:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
+    ```cmd/sh
+    docker network create -d bridge iot_edge
+    ```
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
+    Para comprobar que se ha creado la red de puente **iot_edge**, ejecute el siguiente comando:
 
-1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta **/shared** contienen la clave privada. Limite el acceso a esta carpeta con las credenciales que se usan para ejecutar el contenedor Docker. Para establecer los permisos solo para **raíz**, use el comando de shell `chmod` en la carpeta.
+    ```cmd/sh
+    docker network ls
+    ```
 
-1. Compruebe la conectividad de la red. En un shell, escriba el comando `ping publisher.<your fully qualified domain name>` para hacer ping a la puerta de enlace. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta **/etc**.
+    Su red de puente **iot_edge** se incluye en la lista de redes.
 
-1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto] y úselo.
+Para ejecutar OPC Publisher, ejecute el siguiente comando en un símbolo del sistema:
 
-1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta **/shared/Rejected Certificates/certs** a la carpeta **/shared/UA Applications/certs** en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
+```cmd/sh
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+```
 
-### <a name="add-your-opc-ua-servers"></a>Incorporación de los servidores OPC UA
+- En el [repositorio de GitHub de OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) y en la [referencia de ejecución de Docker](https://docs.docker.com/engine/reference/run/) se proporciona más información sobre:
 
-1. Vaya a la página **Connect your own OPC UA Server** (Conexión con su propio servidor OPC UA) en el portal de solución de fábrica conectada. Siga los mismos pasos de la sección anterior para establecer la confianza entre el portal de fábrica conectada y el servidor OPC UA. Este paso establece una confianza mutua de los certificados desde el portal de factoría conectada al servidor OPC UA y crea una conexión.
+  - Las opciones de línea de comandos de Docker especificadas delante del nombre de contenedor (`microsoft/iot-edge-opc-publisher:2.1.3`).
+  - El significado de los parámetros de línea de comandos de OPC Publisher especificados después del nombre de contenedor (`microsoft/iot-edge-opc-publisher:2.1.3`).
 
-1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta **/shared**. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
+- `<IoTHubOwnerConnectionString>` es la cadena de conexión de la directiva de acceso compartido **iothubowner** de Azure Portal. Esta cadena la copió en un paso anterior. Solo es necesaria la primera vez que se ejecuta OPC Publisher. En las ejecuciones posteriores se debe omitir porque supone un riesgo para la seguridad.
 
-1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Factory Locations** (Ubicaciones de fábrica) del portal de fábrica conectada en **New Factory** (Nueva fábrica).
+- La carpeta `<SharedFolder>` usada y su sintaxis se describen en la sección [Instalación y configuración de Docker](#install-and-configure-docker). OPC Publisher usa `<SharedFolder>` para leer el archivo de configuración de OPC, escribir el archivo de registro y permitir que estos archivos estén disponibles fuera del contenedor.
 
-## <a name="next-steps"></a>Pasos siguientes
+- OPC Publisher lee su configuración del archivo **publishednodes.json**, que se debe colocar en la carpeta `<SharedFolder>/docker`. En este archivo de configuración se definen los datos del nodo OPC UA en un servidor OPC UA dado al que debe suscribirse OPC Publisher.
 
-Para más información sobre la arquitectura de la solución preconfigurada de fábrica conectada, consulte el [tutorial de la solución preconfigurada de fábrica conectada][lnk-walkthrough].
+- Cada vez que el servidor OPC UA notifica a OPC Publisher un cambio de datos, el nuevo valor se envía a IoT Hub. En función de la configuración de procesamiento por lotes, OPC Publisher podría acumular primero los datos antes de enviarlos a IoT Hub en un lote.
 
-Aprenda sobre la [implementación de referencia de OPC Publisher](iot-suite-connected-factory-publisher.md).
+- La sintaxis completa del archivo **publishednodes.json** se describe en la página [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) en GitHub.
 
-[img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
-[img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
-[img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png
+    El fragmento de código siguiente muestra un ejemplo sencillo de un archivo **publishednodes.json**. En este ejemplo se muestra cómo publicar el valor de **CurrentTime** desde un servidor OPC UA con el nombre de host **win10pc**:
 
-[Docker para Windows]: https://www.docker.com/docker-windows
-[catálogo de dispositivos IoT de Azure]: https://catalog.azureiotsuite.com/?q=opc
-[Azure Portal]: http://portal.azure.com/
-[cliente OPC UA de código abierto]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
-[Instale Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[Azure IoT Edge]: https://github.com/Azure/iot-edge
+    ```json
+    [
+      {
+        "EndpointUrl": "opc.tcp://win10pc:48010",
+        "OpcNodes": [
+          {
+            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
+          }
+        ]
+      }
+    ]
+    ```
 
-[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
-[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
-[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
-[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy
+    En el archivo **publishednodes.json**, el servidor OPC UA se especifica mediante la dirección URL del punto de conexión. Si especifica el nombre de host con una etiqueta de nombre de host (como **win10pc**) como en el ejemplo anterior en lugar de una dirección IP, la resolución de direcciones de red en el contenedor debe poder resolver esta etiqueta de nombre de host en una dirección IP.
+
+- Docker no admite la resolución de nombres NetBIOS, solo la resolución de nombres DNS. Si no tiene un servidor DNS en la red, puede usar la solución alternativa que se muestra en el ejemplo anterior de línea de comandos. En el ejemplo anterior de línea de comandos se usa el parámetro `--add-host` para agregar una entrada en el archivo de hosts de contenedores. Esta entrada permite la búsqueda del nombre de host del valor de `<OpcServerHostname>` dado y resolver la dirección IP proporcionada `<IpAddressOfOpcServerHostname>`.
+
+- OPC UA usa certificados X.509 para la autenticación y el cifrado. Deberá colocar el certificado de OPC Publisher en el servidor OPC UA al que se va a conectar, para garantizar que se confía en OPC Publisher. El almacén de certificados de OPC Publisher está situado en la carpeta `<SharedFolder>/CertificateStores`. Puede encontrar el certificado de OPC Publisher en la carpeta `trusted/certs` de la carpeta `CertificateStores`.
+
+  Los pasos para configurar el servidor OPC UA dependen del dispositivo que use. Normalmente, estos pasos se documentan en el manual del usuario del servidor OPC UA.
+
+Para instalar OPC Proxy, ejecute el siguiente comando en un símbolo del sistema:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+```
+
+Solo debe ejecutar la instalación una vez en un sistema.
+
+Use el siguiente comando para ejecutar OPC Proxy:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+```
+
+OPC Proxy guarda la cadena de conexión durante la instalación. En las ejecuciones posteriores, se debe omitir la cadena de conexión ya que representa un riesgo para la seguridad.
+
+## <a name="enable-your-gateway"></a>Habilitación de la puerta de enlace
+
+Realice los pasos siguientes para habilitar la puerta de enlace de la solución preconfigurada de fábrica conectada:
+
+1. Cuando ambos componentes estén en ejecución, vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de fábrica conectada. Esta página solo está disponible para los administradores de la solución. Escriba la dirección URL del punto de conexión de publicador (opc.tcp://publisher:62222) y haga clic en **Conectar**.
+
+1. Establezca una relación de confianza entre el portal de fábrica conectada y OPC Publisher. Cuando vea una advertencia de certificado, haga clic en **Continuar**. A continuación, verá un error que indica que OPC Publisher no confía en el cliente web de UA. Para resolver este error, copie el certificado de **cliente web de UA** de la carpeta `<SharedFolder>/CertificateStores/rejected/certs` a la carpeta `<SharedFolder>/CertificateStores/trusted/certs` en la puerta de enlace. No necesita reiniciar la puerta de enlace.
+
+Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
+
+## <a name="add-your-own-opc-ua-servers"></a>Adición de los propios servidores OPC UA
+
+Para agregar sus propios servidores OPC UA a la solución preconfigurada de fábrica conectada, siga estos pasos:
+
+1. Vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de fábrica conectada. Siga los mismos pasos que en la sección anterior para establecer la confianza entre el portal de fábrica conectada y el servidor OPC UA.
+
+    ![Portal de solución](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Busque el árbol de nodos OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC que quiere enviar a la fábrica conectada y seleccione **Publicar**.
+
+1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Ubicaciones de factoría** del portal de fábrica conectada en **Nueva fábrica**.
+
+## <a name="next-steps"></a>pasos siguientes
+
+Para más información sobre la arquitectura de la solución preconfigurada de fábrica conectada, consulte este [tutorial](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+
+Aprenda sobre la [implementación de referencia de OPC Publisher](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

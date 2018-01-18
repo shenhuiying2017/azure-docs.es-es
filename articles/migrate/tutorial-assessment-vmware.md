@@ -1,24 +1,16 @@
 ---
 title: "Detección y evaluación de VM de VMware locales para la migración a Azure con Azure Migrate | Microsoft Docs"
 description: "Describe cómo detectar y evaluar VM de VMware locales para la migración a Azure, utilizando el servicio Azure Migrate."
-services: migration-planner
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a2521630-730f-4d8b-b298-e459abdced46
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: tutorial
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -52,10 +44,10 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 ## <a name="create-a-project"></a>Creación de un proyecto
 
 1. En Azure Portal, haga clic en **Crear un recurso**.
-2. Busque **Azure Migrate** y seleccione el servicio (**Azure Migrate (versión preliminar)** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
+2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate (versión preliminar)** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
-5. Especifique la región en la que se va a crear el proyecto y haga clic en **Crear**. Los metadatos recopilados a partir de VM locales se almacenarán en esta región. Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. para esta versión preliminar. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. 
+5. Especifique la ubicación en la que se va a crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. para esta versión preliminar. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -81,17 +73,18 @@ Compruebe que el archivo .OVA es seguro, antes de implementarlo.
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. El código hash generado debe coincidir con esta configuración.
     
-    Para la versión 1.0.8.38 de OVA
+    Para la versión 1.0.8.49 de OVA
     **Algoritmo** | **Valor del código hash**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7 
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
-    Para la versión 1.0.8.40 de OVA
+    Para la versión 1.0.8.40 de OVA:
+
     **Algoritmo** | **Valor del código hash**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -120,15 +113,20 @@ Importe el archivo descargado en el servidor vCenter Server.
     - Acepte los términos de licencia y lea la información de terceros.
     - El recopilador comprueba que la VM tenga acceso a Internet.
     - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación.
-    - El recopilador comprueba que el servicio del generador de perfiles de Windows se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
+
+    > [!NOTE]
+    > La dirección de proxy debe especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP.
+
+    - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
     - Descargue e instale VMware PowerCLI.
-. En **Detectar máquinas**, realice lo siguiente:
+
+5. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), haga lo siguiente:
     - Especifique el nombre (FQDN) o la dirección IP del servidor vCenter.
     - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de cuenta de solo lectura que utilizará el recopilador para detectar las VM en el servidor vCenter.
     - En **Ámbito del grupo**, seleccione un ámbito para la detección de VM. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1000 VM. 
-    - En **Tag category for grouping** (Categoría de etiqueta para agrupar), seleccione **Ninguna**.
-1. En **Select Project** (Seleccionar proyecto), especifique la clave y el identificador de proyecto de Azure Migrate que copió del portal. Si no los copió, abra Azure Portal desde la VM de recopilador. En la página **Introducción** del proyecto, haga clic en **Detectar máquinas** y copie los valores.  
-2. En **Complete Discovery** (Detección completada), supervise la detección y compruebe que los metadatos recopilados de las VM se encuentran dentro del ámbito. El recopilador proporciona un tiempo de detección aproximado.
+
+6. En **Specify migration project** (Especificar proyecto de migración), especifique la clave y el identificador de proyecto de Azure Migrate que copió del portal. Si no los copió, abra Azure Portal desde la VM de recopilador. En la página **Introducción** del proyecto, haga clic en **Detectar máquinas** y copie los valores.  
+7. En **View collection progress** (Ver progreso de recopilación), supervise la detección y compruebe que los metadatos recopilados de las máquinas virtuales se encuentran dentro del ámbito. El recopilador proporciona un tiempo de detección aproximado.
 
 > [!NOTE]
 > El recopilador solo admite "Inglés (Estados Unidos)" como el idioma del sistema operativo y el idioma de la interfaz del recopilador. Próximamente habrá compatibilidad con más idiomas.
@@ -175,7 +173,7 @@ Esta vista muestra el estado de preparación para cada máquina.
 Esta vista muestra el cálculo total y el costo de almacenamiento por ejecutar las máquinas virtuales en ejecución en Azure, además de los detalles de cada máquina. Las estimaciones de costos se calculan mediante las recomendaciones de tamaño basadas en el rendimiento para una máquina y sus discos y las propiedades de la evaluación. 
 
 > [!NOTE]
-> La estimación de costos que proporciona Azure Migrate es por ejecutar las máquinas virtuales locales como infraestructura de Azure como máquinas virtuales de infraestructura como servicio (IaaS) de Azure. No se tienen en cuenta los costos de cualquier plataforma como servicio (PaaS) o software como servicio (SaaS). 
+> La estimación de costos que proporciona Azure Migrate es por ejecutar las máquinas virtuales locales como infraestructura de Azure como máquinas virtuales de infraestructura como servicio (IaaS) de Azure. Azure Migrate no tiene en cuenta los costos de cualquier plataforma como servicio (PaaS) o software como servicio (SaaS). 
 
 Los costos mensuales estimados para el proceso y almacenamiento se agregan para todas las VM del grupo. 
 
@@ -185,8 +183,8 @@ Puede obtener un desglose para ver los detalles de una máquina específica.
 
 ![Costo de VM de evaluación](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-- [Obtenga información](how-to-scale-assessment.md) sobre cómo configurar una evaluación para un gran número de máquinas locales.
-- Obtenga información sobre cómo crear grupos de evaluación detallados mediante la [asignación de dependencias de máquina](how-to-create-group-machine-dependencies.md).
-- [Aprenda más](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.
+- [Aprenda](how-to-scale-assessment.md) a detectar y evaluar un entorno grande de VMware.
+- Aprenda a crear grupos de evaluación de confianza elevada mediante la [asignación de dependencias de máquina](how-to-create-group-machine-dependencies.md)
+- [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.

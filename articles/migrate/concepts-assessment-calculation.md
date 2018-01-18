@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -47,10 +47,11 @@ Las máquinas que quiera migrar a Azure deben cumplir las limitaciones y los req
 
 Cuando una máquina se marca como adecuada para Azure, Azure Migrate le asigna un tamaño de máquina virtual en Azure con los siguientes criterios:
 
-- **Comprobación de almacenamiento**: Azure Migrate trata de asignar todos los discos conectados a la máquina en un disco de Azure. Azure Migrate multiplica la E/S por segundo (IOPS) por el factor de confort. También multiplica el rendimiento (en MB/s) de cada disco por el factor de confort. De este modo, se obtiene el rendimiento y el IOPS de disco efectivo. En función de esto, Azure Migrate asigna el disco a un disco estándar o premium de Azure.
-    - Si el servicio no puede encontrar un disco con el rendimiento y el IOPS necesarios, marca la máquina como no adecuada para Azure.
-    - Si encuentra un conjunto de discos adecuados, Azure Migrate selecciona aquellos que admiten el método de redundancia de almacenamiento y la ubicación especificada en la configuración de evaluación.
-    - Si hay varios discos aptos, selecciona el que tiene el costo más bajo.
+- **Comprobación de almacenamiento**: Azure Migrate intenta asignar cada disco conectado a la máquina a un disco en Azure:
+    - Azure Migrate multiplica la E/S por segundo (IOPS) por el factor de confort. También multiplica el rendimiento (en MB/s) de cada disco por el factor de confort. De este modo, se obtiene el rendimiento y el IOPS de disco efectivo. En función de esto, Azure Migrate asigna el disco a un disco estándar o premium de Azure.
+      - Si el servicio no puede encontrar un disco con el rendimiento y el IOPS necesarios, marca la máquina como no adecuada para Azure.
+      - Si encuentra un conjunto de discos adecuados, Azure Migrate selecciona aquellos que admiten el método de redundancia de almacenamiento y la ubicación especificada en la configuración de evaluación.
+      - Si hay varios discos aptos, selecciona el que tiene el costo más bajo.
 - **Rendimiento de disco de almacenamiento**: [obtenga más información](../azure-subscription-service-limits.md#storage-limits) sobre los límites de Azure por disco y máquina virtual.
 - **Tipo de disco**: Azure Migrate solo admite discos administrados.
 - **Comprobación de la red**: Azure Migrate trata de encontrar una máquina virtual de Azure que pueda admitir el número de NIC de la máquina local.
@@ -73,6 +74,6 @@ Una vez completadas las recomendaciones de ajuste de tamaño, Azure Migrate calc
 Los costos se muestran en la moneda especificada en la configuración de evaluación. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Configuración de una evaluación para máquinas virtuales VMware locales](tutorial-assessment-vmware.md)

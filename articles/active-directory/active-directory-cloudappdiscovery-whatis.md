@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/05/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5875cf4cc0938607fa1ff6adf840d513d1fb85bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d0ad06fc7eec07f8e1e0ba47121b6eec01c87df
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="find-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Búsqueda de aplicaciones en la nube no administradas con Cloud App Discovery
 ## <a name="summary"></a>Resumen
 
-Cloud App Discovery es una característica de Azure Active Directory Premium que permite detectar aplicaciones en la nube no administradas usadas por las personas de su organización. En las empresas modernas, los departamentos de TI a menudo no son conscientes de todas las aplicaciones en la nube que usan los miembros de su organización para realizar su trabajo. Es fácil ver por qué a los administradores les podría preocupar el acceso no autorizado a datos corporativos, la posible pérdida de datos y otros riesgos de seguridad. Esta falta de conciencia puede hacer que un plan para tratar estos riesgos de seguridad parezca abrumador.
+Cloud App Discovery en Azure Active Directory ahora ofrece una experiencia mejorada de detección sin agente con la tecnología de Microsoft Cloud App Security. Para usar Cloud App Discovery, simplemente inicie sesión con sus credenciales de Azure AD Premium P1. Esta actualización está disponible sin costo adicional para todos los clientes de Azure AD Premium P1. Comience por el artículo [Configurar Cloud App Discovery en Azure AD](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started) y, a continuación, consulte [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/).
 
-> [!TIP] 
-> Eche un vistazo a las mejoras de Cloud App Discovery en Azure Active Directory (Azure AD), entre las que se encuentran la [integración con Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
-
+> [!IMPORTANT] 
+> La experiencia de Azure AD Cloud App Discovery con detección basada en agente será desactivada el 5 de marzo de 2018; después, los agentes se deshabilitarán y los datos se eliminarán. Tome acciones antes del 5 de marzo para comenzar a trabajar con la nueva experiencia y evitar la interrupción del servicio.  
+ 
 **Con Cloud App Discovery, puede:**
 
 * Encuentre las aplicaciones de nube que se están usando y mida ese uso por el número de usuarios, el volumen de tráfico o el número de solicitudes web a la aplicación.
@@ -44,7 +44,7 @@ Cloud App Discovery es una característica de Azure Active Directory Premium que
 ![Diagrama de Cloud App Discovery](./media/active-directory-cloudappdiscovery/cad01.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Consideraciones de seguridad y privacidad de Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)  
 * [Configuración del registro de Cloud App Discovery para servidores proxy con puertos personalizados](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 * [Registro de cambios del agente de Cloud App Discovery ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)

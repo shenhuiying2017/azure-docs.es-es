@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa8a053e6b3b6fcf6e026f2fd65942a943e12a08
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 945b985e69c14bb513477fc740652f13236d7518
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
 
@@ -84,7 +84,10 @@ Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de tra
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>¿Puedo crear una solución preconfigurada si tengo Microsoft Azure para DreamSpark?
 
-En este momento, no se puede crear una solución preconfigurada con una cuenta de [Microsoft Azure para DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99). Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en un par de minutos, lo que le permite crear una solución preconfigurada.
+> [!NOTE]
+> Microsoft Azure para DreamSpark ahora se conoce como Microsoft Imagine para estudiantes.
+
+En este momento, no se puede crear una solución preconfigurada con una cuenta de [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en un par de minutos, lo que le permite crear una solución preconfigurada.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>¿Puedo crear una solución preconfigurada si tengo alguna suscripción del Proveedor de soluciones en la nube (CSP)?
 
@@ -94,7 +97,7 @@ En este momento, no se puede crear una solución preconfigurada con una suscripc
 
 Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx) (Tutorial para la eliminación de inquilinos de Azure AD).
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Escalado de codificación con el SDK de .NET
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Información general
 > [!IMPORTANT]
-> Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md) .
+> Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [Introducción](media-services-scale-media-processing-overview.md).
 > 
 > 
 
@@ -54,19 +54,6 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
 ## <a name="opening-a-support-ticket"></a>Apertura de una incidencia de soporte técnico
 De manera predeterminada las cuentas de Media Services pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
-
-### <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
-Para abrir una incidencia de soporte técnico, haga lo siguiente:
-
-1. Haga clic en [Obtener soporte técnico](https://manage.windowsazure.com/?getsupport=true). Si no ha iniciado sesión, se le solicitará que especifique sus credenciales.
-2. Seleccione su suscripción.
-3. En el tipo de soporte, seleccione "Técnico".
-4. Haga clic en "Crear incidencia".
-5. Seleccione "Microsoft Azure Media Services" en la lista de productos que se muestran en la página siguiente.
-6. Seleccione un "Tipo de problema" que sea pertinente en relación con su problema.
-7. Haga clic en Continue.
-8. Siga las instrucciones que aparecen en la página siguiente y, a continuación, escriba los detalles de su problema.
-9. Haga clic en Submit para abrir la incidencia.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

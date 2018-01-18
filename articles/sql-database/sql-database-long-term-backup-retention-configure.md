@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configuración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 
 El almacén de Azure Recovery Services se puede configurar para almacenar copias de seguridad de Azure SQL Database y, después, recuperar una base de datos con las copias de seguridad que se conservan en el almacén mediante Azure Portal o PowerShell.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Las secciones siguientes muestran cómo usar Azure Portal para configurar el almacén de Azure Recovery Services, ver las copias de seguridad del almacén y restaurarlas del almacén.
 
@@ -82,6 +82,9 @@ Las secciones siguientes muestran cómo usar Azure Portal para configurar el alm
 12. En la página **Configurar**, especifique un nombre válido para la nueva directiva de retención, modifique la directiva de retención predeterminada como sea pertinente y haga clic en **Aceptar**.
 
    ![definir directiva de retención](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Los nombres de las directivas de retención no permiten algunos caracteres, incluidos los espacios.
 
 13. En la página **Long-term backup retention** (Retención de copia de seguridad a largo plazo) de la base de datos, haga clic en **Guardar** y luego en **Aceptar** para aplicar la directiva de retención de copia de seguridad a largo plazo a todas las bases de datos seleccionadas.
 
@@ -263,7 +266,7 @@ $restoredDb
 > [!NOTE]
 > Desde aquí, puede conectarse a la base de datos restaurada mediante SQL Server Management Studio para realizar las tareas necesarias, como extraer un bit de datos de la base de datos restaurada para copiarlo en la base de datos existente o para eliminar la base de datos existente y cambiar el nombre de la base de datos restaurada por el nombre de la base de datos existente. Consulte la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para aprender sobre las copias de seguridad automáticas generadas por el servicio, consulte [copias de seguridad automáticas](sql-database-automated-backups.md)
 - Para más información sobre la retención de copia de seguridad a largo plazo, consulte sobre la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).

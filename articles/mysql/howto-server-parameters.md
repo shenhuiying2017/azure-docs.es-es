@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -32,8 +32,7 @@ Azure Database para MySQL admite la configuración de algunos parámetros del se
 La lista de parámetros del servidor admitidos crece constantemente. Use la pestaña Parámetros del servidor en Azure Portal para obtener la definición y configurar parámetros del servidor basados en los requisitos de la aplicación. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Parámetros no configurables del servidor
-
-Los siguientes parámetros no son configurables ni están asociados a su [plan de tarifa](concepts-service-tiers.md). 
+El grupo de búferes de InnoDB y el número máximo de conexiones no son configurables y están vinculados a su [plan de tarifa](concepts-service-tiers.md). 
 
 | **Plan de tarifa** | **Grupo de búferes InnoDB (MB)** | **Conexiones máximas** |
 | :------------------------ | :-------- | :----------- |
@@ -44,7 +43,13 @@ Los siguientes parámetros no son configurables ni están asociados a su [plan d
 | 400 unidades de proceso estándar | 10240 | 800 | 
 | 800 unidades de proceso estándar | 20480 | 1600 |
 
-Todos los demás parámetros de servidor que no aparecen en la tabla anterior se establecen en sus valores predeterminados para las versiones [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) y [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Estos parámetros adicionales del servidor no son configurables en el sistema <br>
+ innodb_file_per_table en el plan Básico: OFF<br>
+ innodb_flush_log_at_trx_commit=1<br>
+ sync_binlog=1<br>
+ innodb_log_file_size=512 MB<br>
+ 
+Los demás parámetros de servidor que no aparecen aquí se establecen en sus valores predeterminados de MySQL integrado para las versiones [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) y [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md)

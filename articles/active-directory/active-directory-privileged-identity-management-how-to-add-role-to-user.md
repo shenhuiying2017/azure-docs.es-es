@@ -6,23 +6,21 @@ documentationcenter:
 author: billmath
 manager: mtillman
 editor: 
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 5a2150b67fb4926ac9bb04c74a281ba78692c5f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
-Con Azure Active Directory (AD), un administrador global (o un administrador de empresa) puede actualizar a los usuarios que están asignados **permanentemente** a roles en Azure AD. Para ello, se usan cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`. O bien, se puede utilizar el Portal de Azure clásico, como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles-azure-portal.md).
+Con Azure Active Directory (AD), un administrador global (o un administrador de empresa) puede actualizar a los usuarios que están asignados **permanentemente** a roles en Azure AD. Para ello, se usan cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`. O bien, se puede utilizar Azure Portal, como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
 
 La aplicación Privileged Identity Management de Azure AD permite también a los administradores de roles con privilegios realizar asignaciones de roles permanentes. Además, los administradores de rol con privilegios pueden hacer que los usuarios sean **aptos** para roles de administrador. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan.
 
@@ -63,6 +61,6 @@ Siga estos pasos para quitar a un usuario específico de un rol:
 
 Si no está seguro de si los usuarios necesitan aún sus asignaciones de roles, puede [iniciar una revisión de acceso del rol](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

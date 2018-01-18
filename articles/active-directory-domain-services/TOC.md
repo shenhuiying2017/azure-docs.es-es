@@ -15,7 +15,7 @@
 ## [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-dns.md)
 ## [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
 
-# Cómo
+# Procedimientos
 ## [Usar Azure AD Domain Services en suscripciones de Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Unirse a un dominio administrado
@@ -44,7 +44,12 @@
 ## Solución de problemas
 ### [Preguntas más frecuentes](active-directory-ds-faqs.md)
 ### [Guía de solución de problemas](active-directory-ds-troubleshooting.md)
+### [Alertas de solución de problemas](active-directory-ds-troubleshoot-alerts.md)
+#### [Corrección de una configuración dañada del grupo de seguridad de red](active-directory-ds-troubleshoot-nsg.md)
+#### [Restauración de las entidades de servicio que faltan](active-directory-ds-troubleshoot-service-principals.md)
+#### [Errores de LDAP seguro](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolución de errores de inquilinos que no coinciden](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

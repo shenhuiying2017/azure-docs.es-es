@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Uso de una identidad de servicio administrada de máquina virtual de Azure para obtener tokens 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] En este artículo se proporcionan diversos ejemplos de códigos y scripts para obtener tokens, así como instrucciones sobre temas importantes como el control de errores HTTP y la expiración de tokens.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+En este artículo se proporcionan diversos ejemplos de códigos y scripts para obtener tokens, así como instrucciones sobre temas importantes como el control de errores HTTP y la expiración de tokens.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,7 +60,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://localhost:50342/oauth2/token` | El punto de conexión de MSI, donde 50342 es el puerto predeterminado y es configurable. |
@@ -82,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | `access_token` | El token de acceso solicitado. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
 | `refresh_token` | No se utiliza por MSI. |
@@ -252,7 +253,7 @@ El punto de conexión de MSI señala los errores a través del campo de código 
 
 Si se produce un error, el cuerpo de respuesta HTTP correspondiente contiene los detalles del error en formato JSON:
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | error   | Identificador del error. |
 | error_description | Descripción detallada del error. **Las descripciones de error pueden cambiar en cualquier momento. No escriba código que cree ramas en función de los valores de la descripción del error.**|

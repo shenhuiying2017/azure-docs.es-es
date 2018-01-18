@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
 
@@ -62,7 +62,7 @@ La dirección URL se debe distribuir a todos los usuarios que iniciarán sesión
 
 Para llegar al panel de acceso, hay que autenticarse con una cuenta profesional o educativa en Azure AD. Un usuario se puede autenticar en Azure AD directamente. Además, si una organización configuró la federación mediante Servicios de federación de Active Directory (AD FS) u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
 
-Si un usuario tiene una suscripción para Azure u Office 365 y ha usado Azure Portal o una aplicación de Office 365, verá la lista de aplicaciones sin necesidad de volver a iniciar sesión. A los usuarios que no se han autenticado se les solicitará que inicien sesión utilizando el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización configuró la federación, bastará con escribir el nombre de usuario.
+Si un usuario tiene una suscripción para Azure u Office 365 y ha usado Azure Portal o una aplicación de Office 365, verá la lista de aplicaciones sin necesidad de volver a iniciar sesión. A los usuarios que no se han autenticado se les solicitará que inicien sesión con el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización configuró la federación, bastará con escribir el nombre de usuario.
 
 Después de la autenticación, los usuarios pueden interactuar con las aplicaciones que el administrador integró con el directorio. Para obtener información sobre cómo integrar las aplicaciones con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -70,7 +70,33 @@ Después de la autenticación, los usuarios pueden interactuar con las aplicacio
 
 Como mínimo, el panel de acceso requiere un explorador que admita JavaScript y que tenga CSS habilitado. Para que el usuario inicie sesión en aplicaciones mediante el inicio de sesión único (SSO) basado en contraseña, debe instalarse la extensión del panel de acceso en el explorador. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
 
-En estos momentos, la extensión del panel de acceso está disponible para los exploradores Internet Explorer 8 y versiones posteriores, Edge, Chrome y Firefox.
+La extensión del panel de acceso está actualmente disponible para:
+-   Edge en Windows 10 Anniversary Edition o posterior 
+
+-   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
+
+-   Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
+
+-   Internet Explorer 8, 9, 10, 11 en Windows 7 o posterior (compatibilidad limitada)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Extensión de inicio de sesión seguro de Mis aplicaciones
+La extensión es necesaria para que los usuarios inicien sesión con contraseña de inicio de sesión único. Una vez instalada, los usuarios también pueden habilitar características adicionales al iniciar sesión en la extensión, al hacer clic en **Iniciar sesión para comenzar**. 
+
+- Los usuarios pueden iniciar sesión en las aplicaciones al visitar su **dirección URL de inicio de sesión**. Cuando el usuario va a la dirección URL de inicio de sesión de la aplicación, la extensión lo detecta y proporciona la opción de iniciar sesión de allí.
+- Los usuarios también pueden iniciar cualquiera de sus aplicaciones desde el panel de acceso con la característica de **búsqueda rápida** de la extensión. 
+- La extensión también mostrará a los usuarios las tres últimas aplicaciones en las que iniciaron sesión en la sección **Usados recientemente**.
+
+> [!NOTE]
+> Hay características adicionales disponibles solo para Edge, Chrome y Firefox.
+>
+>
+
+Si está utilizando una dirección URL de Mis aplicaciones diferente de https://myapps.microsoft.com, debe seguir estos pasos para configurar la dirección URL predeterminada:
+1. Sin iniciar sesión en la extensión, **haga clic con el botón derecho** en el icono de la extensión.
+2. Haga clic en **Select My Apps URL**  (Seleccionar dirección URL de Mis aplicaciones) en el menú.
+3. **Seleccione** la dirección URL predeterminada.
+4. Haga clic en el icono de la extensión.
+5. Inicie sesión en la extensión seleccionando **Iniciar sesión para comenzar**.
 
 ## <a name="mobile-app-support"></a>Compatibilidad para aplicación móvil
 
@@ -176,7 +202,7 @@ Para configurar SSO en una aplicación, Azure Portal proporciona una tercera opc
 Por ejemplo, si hay una aplicación configurada para autenticar usuarios mediante AD FS 2.0, el administrador puede usar la opción **Inicio de sesión único existente** y crearle un vínculo en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante AD FS 2.0 o cualquier solución SSO existente que brinde la aplicación.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para ver una lista de todos los temas relacionados con la administración de aplicaciones, consulte [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md).
  

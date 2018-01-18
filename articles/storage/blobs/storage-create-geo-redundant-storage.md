@@ -4,25 +4,25 @@ description: "Use el almacenamiento con redundancia geográfica con acceso de le
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Logre alta disponibilidad de los datos de aplicación con Azure Storage
 
-Este tutorial es la primera parte de una serie. Este tutorial muestra cómo conseguir alta disponibilidad de los datos de aplicación en Azure. Cuando haya terminado, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera. RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación utiliza el patrón de [disyuntor](/azure/architecture/patterns/circuit-breaker.md) patrón para determinar a qué punto de conexión conectarse. La aplicación cambia al punto de conexión secundario cuando se simula un error.
+Este tutorial es la primera parte de una serie. Este tutorial muestra cómo conseguir alta disponibilidad de los datos de aplicación en Azure. Cuando haya terminado, tendrá una aplicación de consola básica . NET que carga un blob a una cuenta de almacenamiento con [redundancia geográfica y acceso de lectura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera. RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación utiliza el patrón de [disyuntor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) patrón para determinar a qué punto de conexión conectarse. La aplicación cambia al punto de conexión secundario cuando se simula un error.
 
 En la primera parte de la serie, se aprende a:
 
@@ -63,14 +63,14 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | Valor único para la cuenta de almacenamiento |
-   | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.  |
+   | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.|
    | **Tipo de cuenta** | Uso general | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
    |**Se requiere transferencia segura** | Disabled| No es necesario para este escenario. |
    |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-   |**Ubicación** | Este de EE. UU. | Elija una ubicación. |
+   |**Ubicación** | Este de EE. UU | Elija una ubicación. |
 
 ![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/figure1.png)
 
@@ -83,28 +83,40 @@ El proyecto de ejemplo contiene una aplicación de consola.
 
 ## <a name="set-the-connection-string"></a>Establecimiento de la cadena de conexión
 
-Abra la aplicación de consola *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* en Visual Studio.
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
 
-En el nodo **appSettings** del archivo **App.config**, reemplace el valor de _StorageConnectionString_ con la cadena de conexión de la cuenta de almacenamiento. Este valor se recupera al seleccionar **Claves de acceso** en **Configuración** en la cuenta de almacenamiento en Azure Portal. Copia la **cadena de conexión** de la clave principal o secundaria y péguela en el archivo **App.config**. Seleccione **Guardar** para guardar el archivo cuando haya terminado.
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![archivo App.config](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Ejecución de la aplicación de consola
 
-En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes de NuGet que falten (si se ha configurado), consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información. 
+En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes de NuGet que falten (si se ha configurado); consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información.
 
 Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
-En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Antes de la descarga, se define [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Antes de la descarga, se define [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
-El controlador de eventos `Operation_context_Retrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
+El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Controlador de eventos de solicitud completada
 
-El controlador de eventos `Operation_context_RequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después, establecerá [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) a `PrimaryThenSecondary` de nuevo y reintentará con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
+El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
@@ -148,7 +160,7 @@ private static void Operation_context_RequestCompleted(object sender, RequestEve
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En la primera parte de la serie, aprendió a lograr alta disponibilidad para una aplicación con las cuentas de RA-GRS, además de:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
@@ -44,7 +44,7 @@ La oferta de detección de anomalías incluye herramientas útiles para comenzar
 >
 
 ## <a name="api-deployment"></a>Implementación de la API
-Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Para ello, puede utilizar la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Puede hacerlo desde la [Galería de Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Escalado de la aplicación
 De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) en "Precios de API web de producción".
@@ -108,7 +108,7 @@ La API de puntuación se utiliza para ejecutar la detección de anomalías en da
 ### <a name="detectors"></a>Detectores
 La API de detección de anomalías admite detectores en tres categorías generales. En la siguiente tabla se pueden encontrar detalles sobre parámetros de entrada específicos y salidas para cada detector.
 
-| Categoría del detector | Detector | Description | Parámetros de entrada | Salidas |
+| Categoría del detector | Detector | DESCRIPCIÓN | Parámetros de entrada | Salidas |
 | --- | --- | --- | --- | --- |
 | Detectores de pico |Detector de TSpike |Detecta picos y DIP según lo lejos que estén los valores del primer y el tercer cuartil. |*tspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (predeterminado: 3); los valores más altos capturarán más valores extremos; por tanto, habrá menos sensibilidad. |TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario |
 | Detectores de pico | Detector de ZSpike |Detecta picos y DIP en función de lo lejos que estén los puntos de datos de la media. |*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (predeterminado: 3); los valores más altos capturarán más valores extremos; por tanto, habrá menos sensibilidad. |ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0' | |
@@ -118,7 +118,7 @@ La API de detección de anomalías admite detectores en tres categorías general
 ### <a name="parameters"></a>Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | Description | Configuración predeterminada | Tipo | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
 | detectors.spikesdips | Si se deben detectar solo subidas, solo bajadas, o ambos |Ambos |enumerated |Ambos, subidas, bajadas |Ambos |
@@ -131,7 +131,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 ### <a name="output"></a>Salida
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API. 
 
-| Salidas | Description |
+| Salidas | DESCRIPCIÓN |
 | --- | --- |
 | Hora |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | Datos |Valores de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
@@ -154,7 +154,7 @@ Los detectores en el punto de conexión de estacionalidad son similares a los de
 
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | Description | Configuración predeterminada | Tipo | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregación en segundos para agregar series temporales de entrada |0 (no se realiza ninguna agregación) |integer |0: omitir agregación, de lo contrario, > 0 |De 5 minutos a 1 día, dependiente de la serie temporal |
 | preprocess.aggregationFunc |Función que se usa para agregar datos al objeto AggregationInterval especificado |mean |enumerated |mean, sum, length |N/D |
@@ -174,7 +174,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 ### <a name="output"></a>Salida
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API. 
 
-| Salidas | Description |
+| Salidas | DESCRIPCIÓN |
 | --- | --- |
 | Hora |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | OriginalData |Valores de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |

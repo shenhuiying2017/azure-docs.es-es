@@ -2,7 +2,7 @@
 title: "Introducción a las API Graph de Azure Cosmos DB | Microsoft Docs"
 description: Aprenda a usar Azure Cosmos DB para almacenar, realizar consultas y recorrer grafos enormes con latencia baja mediante el lenguaje de consulta de grafos Gremlin de Apache TinkerPop.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 01/05/2017
+ms.author: lbosq
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introducción a las API Graph de Azure Cosmos DB
 
@@ -98,12 +98,12 @@ Azure Cosmos DB ofrece las siguientes funcionalidades diferenciadas en comparaci
 
 * Niveles de coherencia ajustables
 
- Seleccione entre cinco niveles de coherencia bien definidos para lograr un equilibrio óptimo entre coherencia y rendimiento. Para las consultas y las operaciones de lectura, Azure Cosmos DB ofrece cinco niveles de coherencia diferentes: segura, obsolescencia limitada, sesión, prefijo coherente y posible. Estos niveles de coherencia bien definidos y pormenorizados le permiten realizar equilibrios razonables entre la coherencia, la disponibilidad y la latencia. Obtenga más información en [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB](consistency-levels.md).
+ Seleccione entre cinco niveles de coherencia bien definidos para lograr un equilibrio óptimo entre coherencia y rendimiento. Para las consultas y las operaciones de lectura, Azure Cosmos DB ofrece cinco niveles de coherencia diferentes: segura, obsolescencia limitada, sesión, prefijo coherente y posible. Estos niveles de coherencia bien definidos y pormenorizados le permiten realizar equilibrios razonables entre la coherencia, la disponibilidad y la latencia. Encontrará más información en [Niveles de coherencia de datos optimizables en Azure Cosmos DB](consistency-levels.md).
 
 Además, Azure Cosmos DB puede usar varios modelos, como documento y gráfico, en los mismos contenedores o bases de datos. Puede usar una colección de documentos para almacenar los datos de gráfico en paralelo con los documentos. Puede usar las consultas SQL sobre JSON y las de Gremlin para consultar los mismos datos como un gráfico.
 
 ## <a name="get-started"></a>Introducción
-Puede usar la interfaz de línea de comandos (CLI) de Azure, Azure PowerShell o Azure Portal con compatibilidad con la API Graph para crear cuentas de Azure Cosmos DB. Después de crear las cuentas, Azure Portal proporciona un punto de conexión de servicio como `https://<youraccount>.graphs.azure.com`, que ofrece un front-end WebSocket para Gremlin. Puede configurar las herramientas compatibles con TinkerPop, como [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para que se conecten a este punto de conexión y compilar aplicaciones en Java, Node.js o cualquier controlador cliente de Gremlin.
+Puede usar la interfaz de línea de comandos (CLI) de Azure, Azure PowerShell o Azure Portal con compatibilidad con la API Graph para crear cuentas de Azure Cosmos DB. Después de crear las cuentas, Azure Portal proporciona un punto de conexión de servicio como `https://<youraccount>.gremlin.cosmosdb.azure.com`, que ofrece un front-end WebSocket para Gremlin. Puede configurar las herramientas compatibles con TinkerPop, como [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para que se conecten a este punto de conexión y compilar aplicaciones en Java, Node.js o cualquier controlador cliente de Gremlin.
 
 En la siguiente tabla se muestran los controladores Gremlin populares que puede usar en Azure Cosmos DB:
 
@@ -113,7 +113,7 @@ En la siguiente tabla se muestran los controladores Gremlin populares que puede 
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript en Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin Console](https://tinkerpop.apache.org/downloads.html) |[Documentación de TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB también proporciona una biblioteca de .NET con métodos de extensión de Gremlin basada en los [SDK de Azure Cosmos DB](documentdb-sdk-dotnet.md) a través de NuGet. Esta biblioteca proporciona un servidor Gremlin "en proceso" que se puede usar para conectarse directamente a las particiones de datos de DocumentDB.
+Azure Cosmos DB también proporciona una biblioteca de .NET con métodos de extensión de Gremlin basada en los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) a través de NuGet. Esta biblioteca proporciona un servidor Gremlin "en proceso" que se puede usar para conectarse directamente a las particiones de datos.
 
 | Descargar | Documentación |
 | --- | --- |
@@ -143,7 +143,7 @@ Estos son algunos escenarios donde se puede usar la compatibilidad con gráficos
 
  Con la red y las conexiones entre dispositivos IoT modeladas como un grafo, se puede conocer mejor el estado de los dispositivos y recursos. También se puede ver de qué manera los cambios en una parte de la red pueden afectar a otra.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para aprender más sobre la compatibilidad con grafos en Azure Cosmos DB:
 
 * Empiece con el [tutorial de gráficos en Azure Cosmos DB](create-graph-dotnet.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
 
@@ -35,6 +35,17 @@ Por ejemplo, supongamos que los dispositivos gemelos de IoT Hub tienen la siguie
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Esta consulta de agrupación devolverá un resultado similar al ejemplo siguient
         "status": "Error"
     }
 ]
+```
+
+Las consultas de proyección permiten a los desarrolladores devolver solo las propiedades que les interesen. Por ejemplo, para recuperar la hora de la última actividad de todos los dispositivos desconectados, use la consulta siguiente:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>Ejemplo de C#
@@ -466,16 +483,16 @@ Se admiten los siguientes operadores:
 | Lógicos |AND, OR, NOT |
 | De comparación |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Funciones
+### <a name="functions"></a>Functions
 Cuando se consultan gemelos y trabajos, la única función admitida es:
 
-| Función | Descripción |
+| Función | DESCRIPCIÓN |
 | -------- | ----------- |
 | IS_DEFINED(property) | Devuelve un valor booleano que indica si se ha asignado un valor a la propiedad (incluido `null`). |
 
 En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 
-| Función | Descripción |
+| Función | DESCRIPCIÓN |
 | -------- | ----------- |
 | ABS(x) | Devuelve el valor absoluto (positivo) de la expresión numérica especificada. |
 | EXP(x) | Devuelve el valor exponencial de la expresión numérica especificada (e^x). |
@@ -488,7 +505,7 @@ En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 
 En condiciones de rutas, se admiten las funciones de conversión y comprobación de tipos siguientes:
 
-| Función | Descripción |
+| Función | DESCRIPCIÓN |
 | -------- | ----------- |
 | AS_NUMBER | Convierte la cadena de entrada en un número. `noop` si la entrada es un número; `Undefined` si la cadena no representa un número.|
 | IS_ARRAY | Devuelve un valor booleano que indica si el tipo de la expresión especificada es una matriz. |
@@ -502,7 +519,7 @@ En condiciones de rutas, se admiten las funciones de conversión y comprobación
 
 En condiciones de rutas, se admiten las siguientes funciones de cadena:
 
-| Función | Descripción |
+| Función | DESCRIPCIÓN |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena. |
 | LENGTH(x) | Devuelve el número de caracteres de la expresión de cadena especificada.|
@@ -514,7 +531,7 @@ En condiciones de rutas, se admiten las siguientes funciones de cadena:
 | ENDS_WITH(x, y) | Devuelve un valor booleano que indica si la primera expresión de cadena finaliza con la segunda. |
 | CONTAINS(x,y) | Devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Aprenda a ejecutar consultas en sus aplicaciones mediante los [SDK IoT de Azure ][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

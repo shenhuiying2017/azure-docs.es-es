@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Cómo elegir algoritmos para Microsoft Azure Machine Learning
 La respuesta a la pregunta "¿qué algoritmo de aprendizaje automático debería usar?" siempre es "Depende". Depende del tamaño, la calidad y la naturaleza de los datos. Depende de qué desea hacer con la respuesta. Depende de cómo se hayan traducido los cálculos del algoritmo en instrucciones para el equipo que está usando. Y también depende del tiempo de que disponga. Ni siquiera los científicos con más experiencia en datos pueden determinar qué algoritmo funcionará mejor antes de probarlos.
@@ -42,7 +42,7 @@ Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente fo
 Otras, ninguna de ellas es la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas.
 Varios de los científicos de datos con los que hablé dijeron que la única forma de encontrar el mejor algoritmo es probarlos todos.
 
-Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Este es un ejemplo de la [Galería de Azure AI](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Comparación de clasificadores multiclase: reconocimiento de letras).
 
 > [!TIP]
 > Para descargar e imprimir un diagrama con información general de las funcionalidades de Machine Learning Studio, vea [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).

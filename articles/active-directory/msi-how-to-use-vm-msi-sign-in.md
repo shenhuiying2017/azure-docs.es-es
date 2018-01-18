@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 5e771026950652c7d9c8e817773915a5a4c4ab63
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI para el inicio de sesión mediante una entidad de servicio de MSI, así como instrucciones sobre temas importantes como el tratamiento de errores.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI para el inicio de sesión mediante una entidad de servicio de MSI, así como instrucciones sobre temas importantes como el tratamiento de errores.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 12/11/2017
 Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en este artículo, asegúrese de instalar la versión más reciente de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) o de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - En todo el script de ejemplo de este artículo se da por supuesto que el cliente de la línea de comandos se ejecuta en una máquina virtual con MSI habilitado. Use la característica "Conectar" de la máquina virtual de Azure Portal para conectarse a la máquina virtual de forma remota. Para más información sobre la habilitación de MSI en una máquina virtual, consulte [Configuración de Managed Service Identity (MSI) en una máquina virtual mediante Azure Portal](msi-qs-configure-portal-windows-vm.md) o uno de los artículos variantes (mediante PowerShell, la CLI, una plantilla o un SDK de Azure). 
+> - En todo el script de ejemplo de este artículo se da por supuesto que el cliente de la línea de comandos se ejecuta en una máquina virtual con MSI habilitado. Use la característica "Conectar" de la máquina virtual en Azure Portal para conectarse a la máquina virtual de forma remota. Para más información sobre la habilitación de MSI en una máquina virtual, consulte [Configuración de Managed Service Identity (MSI) en una máquina virtual mediante Azure Portal](msi-qs-configure-portal-windows-vm.md) o uno de los artículos variantes (mediante PowerShell, la CLI, una plantilla o un SDK de Azure). 
 > - Para evitar errores durante el acceso a los recursos, a la MSI de la máquina virtual se le debe dar al menos el acceso de "Lector" en el ámbito adecuado (la máquina virtual u otro superior) para permitir las operaciones de Azure Resource Manager en esta máquina. Consulte [Asignación de un acceso de Managed Service Identity (MSI) a un recurso mediante Azure Portal](msi-howto-assign-access-portal.md) para más detalles.
 
 ## <a name="overview"></a>Información general
@@ -83,7 +84,7 @@ El script siguiente muestra cómo:
 
 ## <a name="resource-ids-for-azure-services"></a>Identificadores de recurso para los servicios de Azure
 
-Consulte [Servicios de Azure que admiten la autenticación de Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) para ver una lista de recursos que admiten Azure AD y se han probado con MSI, y sus respectivos identificadores de recursos.
+Consulte [Servicios de Azure que admiten la autenticación de Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) para ver una lista de recursos que admite Azure AD y que se han probado con la identidad de servicio administrada, y sus respectivos identificadores de recurso.
 
 ## <a name="error-handling-guidance"></a>Instrucciones de control de errores 
 
@@ -97,7 +98,7 @@ Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure 
 - Vaya a la página **Configuración** y asegúrese de que "Identidad de servicio administrada" esté establecida en "Sí".
 - Vaya a la página **Extensiones** y asegúrese de que MSI se haya implementado correctamente.
 
-Si alguna de las opciones no es correcta, puede que tenga que volver a implementar la identidad de servicio administrada en el recurso nuevo o solucionar el error de implementación. Consulte [Configuración de una identidad de servicio administrada (MSI) en una máquina virtual con Azure Portal](msi-qs-configure-portal-windows-vm.md) si necesita ayuda con la configuración de la máquina virtual.
+Si alguna de las opciones no es correcta, puede que tenga que volver a implementar la identidad de servicio administrada en el recurso nuevo o solucionar el error de implementación. Consulte [Configuración de la identidad de servicio administrada (MSI) de máquina virtual con Azure Portal](msi-qs-configure-portal-windows-vm.md) si necesita ayuda con la configuración de la máquina virtual.
 
 ## <a name="related-content"></a>Contenido relacionado
 

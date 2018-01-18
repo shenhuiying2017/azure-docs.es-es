@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes: SSPR de Azure AD | Microsoft Docs"
+title: "Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña: Azure Active Directory"
 description: "Preguntas más frecuentes sobre autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 697b82c8197a9a7ff4c60ce6fa60e098396c2bca
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -245,7 +245,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
   >
 
-## <a name="password-writeback"></a>Escritura diferida de contraseñas
+## <a name="password-writeback"></a>escritura diferida de contraseñas
 
 * **P: ¿Cómo funciona la escritura diferida de contraseñas en segundo plano?**
 
@@ -283,7 +283,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
   >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)

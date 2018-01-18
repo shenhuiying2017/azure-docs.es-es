@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 > [!NOTE]
@@ -44,6 +44,9 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
 
     Por ejemplo: copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
+>[!NOTE]
+>Esta característica no se aplica cuando la actividad de copia se configura para invocar el mecanismo de carga de datos externos, incluido [PolyBase en Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) o [Unload en Amazon Redshift](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para cargar datos en SQL Data Warehouse mediante PolyBase, use la compatibilidad de tolerancia a errores nativa de PolyBase especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" en la actividad de copia.
+
 ## <a name="configuration"></a>Configuración
 En el ejemplo siguiente se proporciona una definición JSON para configurar la omisión de las filas incompatibles en la actividad de copia:
 
@@ -63,12 +66,12 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 }
 ```
 
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Habilite si lo desea la omisión de filas incompatibles durante la copia. | True<br/>False (valor predeterminado) | No |
-| **redirectIncompatibleRowSettings** | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | No |
-| **linkedServiceName** | El servicio vinculado de Azure Storage para almacenar el registro que contiene las filas que se omiten. | El nombre de un servicio vinculado de [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que hace referencia a la instancia de almacenamiento que desea usar para almacenar el archivo de registro. | No |
-| **path** | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso de Blob Storage que desee usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No |
+| **enableSkipIncompatibleRow** | Habilite si lo desea la omisión de filas incompatibles durante la copia. | True<br/>False (valor predeterminado) | Sin  |
+| **redirectIncompatibleRowSettings** | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | Sin  |
+| **linkedServiceName** | El servicio vinculado de Azure Storage para almacenar el registro que contiene las filas que se omiten. | El nombre de un servicio vinculado de [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que hace referencia a la instancia de almacenamiento que desea usar para almacenar el archivo de registro. | Sin  |
+| **path** | La ruta de acceso del archivo de registro que contiene las filas que se omiten. | Especifique la ruta de acceso de Blob Storage que desee usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin  |
 
 ## <a name="monitoring"></a>Supervisión
 Una vez que se completa la ejecución de la actividad de copia, puede ver el número de filas omitidas en la sección de supervisión:
@@ -83,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre la actividad de copia de Azure Data Factory, consulte [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).

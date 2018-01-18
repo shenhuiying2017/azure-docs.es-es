@@ -95,6 +95,9 @@
         - name: Flujo estructurado con Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: Flujo estructurado de Kafka a CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Flujo estructurado de Spark (DStream) con Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true

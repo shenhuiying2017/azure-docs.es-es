@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.  
@@ -31,7 +31,7 @@ Con la funcionalidad de propagación sin conexión de Azure Backup y Azure Impor
 La [actualización de agosto de 2016 de Azure Backup (y versiones posteriores)](http://go.microsoft.com/fwlink/?LinkID=229525) , incluye una *herramienta de preparación de discos de Azure*llamada AzureOfflineBackupDiskPrep que:
 
 * Le facilita la preparación de las unidades para la importación de Azure mediante la herramienta Azure Import/Export.
-* Crea automáticamente un trabajo de importación de Azure para el servicio Azure Import/Export en el [Portal de Azure clásico](https://manage.windowsazure.com) en lugar de crearlo manualmente con versiones anteriores de Azure Backup.
+* Crea automáticamente un trabajo de importación de Azure para el servicio Azure Import/Export en [Azure Portal](https://ms.portal.azure.com).
 
 Cuando finaliza la carga de los datos de copia de seguridad en Azure, el servicio Azure Backup copia los datos de copia de seguridad en el almacén de copia de seguridad y se programan las copias de seguridad incrementales.
 
@@ -46,7 +46,7 @@ Cuando finaliza la carga de los datos de copia de seguridad en Azure, el servici
   * Se ha creado un almacén de Azure Backup.
   * Se han descargado las credenciales del almacén.
   * Se ha instalado el agente de Azure Backup en Windows Server o en el cliente de Windows o en el servidor de System Center Data Protection Manager y el equipo está registrado con el almacén de Azure Backup.
-* [Descargue la configuración del archivo de publicación de Azure](https://manage.windowsazure.com/publishsettings) en el equipo desde el que piensa hacer copia de seguridad de los datos.
+* [Descargue la configuración del archivo de publicación de Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) en el equipo desde el que piensa hacer copia de seguridad de los datos.
 * Prepare una ubicación de ensayo que podría ser un recurso compartido de red o una unidad de disco adicional del equipo. La ubicación de ensayo es un almacenamiento transitorio y se utiliza temporalmente durante este flujo de trabajo. Asegúrese de que la ubicación de ensayo tiene suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Asegúrese de que está usando una unidad compatible. El servicio Import/Export solo admite unidades de disco duro internas SSD de 2,5 pulgadas o SATA II o III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
 * Habilite BitLocker en el equipo al que está conectado el sistema de escritura de la unidad SATA.
@@ -67,13 +67,13 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
     * **Ubicación de ensayo**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. Esta podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
     * **Nombre del trabajo de importación de Azure**: el nombre único mediante el cual los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados mediante discos a Azure.
-    * **Configuración de publicación de Azure**: es un archivo XML que contiene información sobre el perfil de suscripción. También contiene credenciales seguras asociadas a su suscripción. Puede [descargar el archivo](https://manage.windowsazure.com/publishsettings). Proporcione la ruta de acceso local al archivo de configuración de publicación.
+    * **Configuración de publicación de Azure**: es un archivo XML que contiene información sobre el perfil de suscripción. También contiene credenciales seguras asociadas a su suscripción. Puede [descargar el archivo](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Proporcione la ruta de acceso local al archivo de configuración de publicación.
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que planea iniciar el trabajo de importación de Azure. Si tiene varias suscripciones de Azure, use el identificador de la suscripción a la que quiere asociar el trabajo de importación.
-    * **Cuenta de Azure Storage**: la cuenta de almacenamiento de tipo clásico de la suscripción proporcionada, que se asociará al trabajo de importación de Azure.
-    * **Contenedor de Almacenamiento de Azure**: el nombre del blob de almacenamiento de destino de la cuenta de Almacenamiento de Azure donde se importan los datos de este trabajo.
+    * **Cuenta de Azure Storage**: la cuenta de almacenamiento de la suscripción de Azure asociada al trabajo de importación de Azure.
+    * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de este trabajo.
 
     > [!NOTE]
-    > Aunque haya registrado el servidor en un almacén de Azure Recovery Services de [Azure Portal](https://portal.azure.com) para sus copias de seguridad y no utilice una suscripción del proveedor de soluciones en la nube (CSP), puede crear una cuenta de almacenamiento de tipo clásico desde Azure Portal y usarla en el flujo de trabajo de copia de seguridad sin conexión.
+    > Aunque haya registrado el servidor en un almacén de Azure Recovery Services de [Azure Portal](https://portal.azure.com) para sus copias de seguridad y no utilice una suscripción del proveedor de soluciones en la nube (CSP), aún puede crear una cuenta de almacenamiento desde Azure Portal y usarla en el flujo de trabajo de copia de seguridad sin conexión.
     >
     >
 
@@ -106,7 +106,7 @@ La herramienta de preparación de discos de Azure está disponible en el directo
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
 
-    | Parámetro | Descripción |
+    | . | DESCRIPCIÓN |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso a la ubicación de ensayo especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión** . |
     | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso al archivo de **Configuración de publicación de Azure** especificado en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
@@ -123,7 +123,7 @@ La herramienta de preparación de discos de Azure está disponible en el directo
 
     La herramienta comienza a preparar entonces el disco con los datos de copia de seguridad. Puede que deba conectar discos adicionales si se lo pide la herramienta, si el disco proporcionado no tiene espacio suficiente para los datos de copia de seguridad. <br/>
 
-    Al final de la ejecución correcta de la herramienta, uno o varios discos que proporcionó estarán preparados para el envío a Azure. Además, se creará en el Portal de Azure clásico un trabajo de importación con el nombre que proporcionó durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** . Finalmente, la herramienta muestra la dirección de envío al centro de datos de Azure adonde es necesario enviar los discos, junto con el vínculo para encontrar el trabajo de importación en el Portal de Azure clásico.
+    Al final de la ejecución correcta de la herramienta, uno o varios discos que proporcionó estarán preparados para el envío a Azure. Además, se creará en Azure Portal un trabajo de importación con el nombre que proporcionó durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. Finalmente, la herramienta muestra la dirección de envío al centro de datos de Azure adonde es necesario enviar los discos, junto con el vínculo para encontrar el trabajo de importación en Azure Portal.
 
     ![Preparación de discos de Azure finalizada](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -161,7 +161,7 @@ Una vez completado el trabajo de importación, los datos de la copia de segurida
     >
     >
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | /j:<*ArchivoDiario*> |La ruta de acceso al archivo de diario. Cada unidad debe tener exactamente un archivo de diario. El archivo de diario no debe estar en la unidad de destino. La extensión de archivo de diario es .jrn y se crea como parte de la ejecución de este comando. |
 | /id:<*IdSesión*> |El identificador de sesión identifica una sesión de copia. Se utiliza para asegurar la recuperación precisa de una sesión de copia interrumpida. Los archivos que se copian en una sesión de copia se almacenan en un directorio con el mismo nombre que el identificador de sesión en la unidad de destino. |
@@ -181,7 +181,7 @@ Una vez completado el trabajo de importación, los datos de la copia de segurida
   ![Salida de PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Creación de un trabajo de importación en Azure Portal
-1. Vaya a su cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Importar/Exportar** y en **Crear trabajo de importación** en el panel de tareas.
+1. Vaya a su cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/), haga clic en **Import/Export** y en **Crear trabajo de importación** en el panel de tareas.
 
     ![Pestaña Importar/Exportar de Azure Portal](./media/backup-azure-backup-import-export/azureportal.png)
 
@@ -206,6 +206,6 @@ Una vez completado el trabajo de importación, los datos de la copia de segurida
 ### <a name="complete-the-workflow"></a>Finalización del flujo de trabajo
 Cuando los datos de la copia de seguridad inicial están disponibles en la cuenta de almacenamiento, el agente de Microsoft Azure Recovery Services copia el contenido de los datos de esta cuenta en el almacén de Backup o en el almacén de Recovery Services, según corresponda. En la siguiente copia de seguridad de programación, el agente de Azure Backup realiza la copia de seguridad incremental sobre la copia de seguridad inicial.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
 * Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.

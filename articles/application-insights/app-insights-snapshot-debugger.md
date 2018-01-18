@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 
@@ -62,8 +62,6 @@ Se admiten los siguientes entornos:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -77,8 +75,8 @@ Se admiten los siguientes entornos:
 
 1. [Habilite Application Insights en su aplicación web ASP.NET Core](app-insights-asp-net-core.md), si aún no lo ha hecho.
 
-> [!NOTE]
-> Procure que la aplicación haga referencia a la versión 2.1.1 (o una más reciente) del paquete Microsoft.ApplicationInsights.AspNetCore.
+    > [!NOTE]
+    > Procure que la aplicación haga referencia a la versión 2.1.1 (o una más reciente) del paquete Microsoft.ApplicationInsights.AspNetCore.
 
 2. Incluya el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación.
 
@@ -122,7 +120,7 @@ Se admiten los siguientes entornos:
    }
    ```
 
-4. Configure el recopilador de instantáneas mediante la adición de una sección de SnapshotCollectorConfiguration en appsettings.json. Por ejemplo:
+4. Configure el recopilador de instantáneas mediante la adición de una sección de SnapshotCollectorConfiguration en appsettings.json. Por ejemplo: 
 
    ```json
    {
@@ -174,8 +172,8 @@ Para conceder permiso, asigne el rol `Application Insights Snapshot Debugger` a 
 1. Haga clic en el botón Guardar para agregar el usuario al rol.
 
 
-[!IMPORTANT]
-    Las instantáneas pueden contener información personal y otra información confidencial en valores de variables y parámetros.
+> [!IMPORTANT]
+> Las instantáneas pueden contener información personal y otra información confidencial en valores de variables y parámetros.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Depuración de instantáneas en el portal de Application Insights
 
@@ -218,7 +216,7 @@ Para Azure Compute y otros tipos, asegúrese de que los archivos de símbolos es
 ### <a name="optimized-builds"></a>Compilaciones optimizadas
 En algunos casos, las variables locales no se pueden ver en las compilaciones de versión debido a las optimizaciones que se aplican durante el proceso de compilación.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Estas sugerencias le ayudarán a solucionar problemas con el depurador de instantáneas.
 
@@ -277,6 +275,41 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Para las aplicaciones que _no_ están hospedadas en App Service, los registros de usuario de carga están en la misma carpeta que los minivolcados: `%TEMP%\Dumps\<ikey>` (donde `<ikey>` es la clave de instrumentación).
 
+### <a name="troubleshooting-cloud-services"></a>Solución de problemas de Cloud Services
+Para los roles de Cloud Services, la carpeta temporal predeterminada puede ser demasiado pequeña para contener los archivos de minivolcado, dando lugar a pérdida de instantáneas.
+El espacio necesario depende del espacio de trabajo total de la aplicación y el número de instantáneas simultáneas.
+El espacio de trabajo de un rol web ASP.NET de 32 bits está normalmente entre 200 y 500 MB.
+Debe disponer del espacio necesario para al menos dos instantáneas simultáneas.
+Por ejemplo, si la aplicación usa 1 GB de espacio de trabajo total, debe asegurarse de que hay al menos 2 GB de espacio en disco para almacenar las instantáneas.
+Siga estos pasos para configurar el rol del servicio en la nube con un recurso local dedicado para las instantáneas.
+
+1. Agregue un nuevo recurso local a su servicio en la nube editando el archivo de definición (.csdf) del servicio en la nube. En el ejemplo siguiente se define un recurso llamado `SnapshotStore` con un tamaño de 5 GB.
+```xml
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Modifique el método `OnStart` del rol para agregar una variable de entorno que apunte al recurso local `SnapshotStore`.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Actualice el archivo ApplicationInsights.config del rol para reemplazar la ubicación de la carpeta temporal utilizada por `SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+  </TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar la búsqueda de Application Insights para buscar excepciones con instantáneas
 
 Cuando se crea una instantánea, la excepción iniciada se etiqueta con un identificador de instantánea. Cuando se notifica la telemetría de excepciones a Application Insights, ese identificador de instantánea se incluye como una propiedad personalizada. Mediante la hoja de búsqueda de Application Insights, puede buscar toda la telemetría con la propiedad personalizada `ai.snapshot.id`.
@@ -297,7 +330,7 @@ Para buscar un identificador de instantánea específico en los registros de usu
 
 Si sigue sin ver una excepción con ese identificador de instantánea, significa que la excepción de telemetría no se ha notificado a Application Insights. Esta situación puede ocurrir si se bloqueó la aplicación después de que tomó la instantánea, pero antes de notificar la telemetría de excepción. En este caso, compruebe los registros de App Service en `Diagnose and solve problems` para ver si hay reinicios inesperados o excepciones no controladas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Establezca puntos de ajuste en el código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) para obtener instantáneas sin tener que esperar una excepción.
 * En el artículo sobre cómo [diagnosticar excepciones en aplicaciones web](app-insights-asp-net-exceptions.md) se explica cómo hacer más visibles las excepciones en Application Insights. 

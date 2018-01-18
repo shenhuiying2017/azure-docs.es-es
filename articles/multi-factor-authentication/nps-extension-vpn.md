@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -171,8 +171,7 @@ Puede usar la opción de configuración estándar (basada en asistente) o la opc
 
 4. En la página **Especificar servidor VPN o de acceso telefónico**, haga clic en **Agregar**.
 
-5. En la ventana **Nuevo cliente RADIUS**, proporcione un nombre descriptivo, escriba el nombre para resolver o la dirección IP del servidor VPN y escriba una contraseña secreta compartida.  
-    Elija una contraseña secreta compartida larga y compleja. Anótela, porque la necesitará en esta sección.
+5. En la ventana **Nuevo cliente RADIUS**, proporcione un nombre descriptivo, escriba el nombre para resolver o la dirección IP del servidor VPN y escriba una contraseña secreta compartida. Elija una contraseña secreta compartida larga y compleja. Anótela, porque la necesitará en esta sección.
 
     ![Nuevo cliente RADIUS](./media/nps-extension-vpn/image5.png)
 
@@ -183,8 +182,7 @@ Puede usar la opción de configuración estándar (basada en asistente) o la opc
     > [!NOTE]
     > Si configura el protocolo de autenticación extensible (EAP), debe utilizar el protocolo de autenticación por desafío mutuo de Microsoft (CHAPv2) o el protocolo de autenticación extensible protegido (PEAP). No se admite ningún otro tipo de EAP.
  
-8. En la ventana **Especificar grupos de usuarios**, seleccione **Agregar** y después elija un grupo apropiado.  
-    Si no existe ningún grupo, deje la selección en blanco para conceder acceso a todos los usuarios.
+8. En la ventana **Especificar grupos de usuarios**, seleccione **Agregar** y después elija un grupo apropiado. Si no existe ningún grupo, deje la selección en blanco para conceder acceso a todos los usuarios.
 
     ![Ventana Especificar grupos de usuarios](./media/nps-extension-vpn/image7.png)
 
@@ -209,20 +207,17 @@ En esta sección se detalla la configuración creada con el asistente.
 
 1. En el Servidor de directivas de redes, en la consola NPS (Local), expanda **Clientes RADIUS** y seleccione **Clientes RADIUS**.
 
-2. En el panel de detalles, haga clic con el botón derecho en el cliente RADIUS que ha creado y después seleccione **Propiedades**.  
-    Las propiedades del cliente RADIUS (el servidor VPN) deben ser similares a las que se muestran a continuación:
+2. En el panel de detalles, haga clic con el botón derecho en el cliente RADIUS que ha creado y después seleccione **Propiedades**. Las propiedades del cliente RADIUS (el servidor VPN) deben ser similares a las que se muestran a continuación:
 
     ![Propiedades de VPN](./media/nps-extension-vpn/image11.png)
 
 3. Seleccione **Cancelar**.
 
-4. En el Servidor de directivas de redes, en la consola NPS (Local), expanda **Directivas** y después seleccione **Directivas de solicitud de conexión**.  
-    La directiva Conexiones VPN aparece tal como se muestra en la siguiente imagen:
+4. En el Servidor de directivas de redes, en la consola NPS (Local), expanda **Directivas** y después seleccione **Directivas de solicitud de conexión**. La directiva Conexiones VPN aparece tal como se muestra en la siguiente imagen:
 
     ![Solicitudes de conexión](./media/nps-extension-vpn/image12.png)
 
-5. En **Directivas**, seleccione **Directivas de red**.  
-    Debería ver una directiva de conexiones de red privada virtual (VPN), parecida a la directiva que aparece en la imagen siguiente:
+5. En **Directivas**, seleccione **Directivas de red**. Debería ver una directiva de conexiones de red privada virtual (VPN), parecida a la directiva que aparece en la imagen siguiente:
 
     ![Directivas de red](./media/nps-extension-vpn/image13.png)
 
@@ -305,7 +300,8 @@ En esta sección, confirmará que el cliente VPN se autentica y es autorizado po
 
     ![Ventana Propiedades de evento](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-guide"></a>Guía de solución de problemas
+## <a name="troubleshooting-radius"></a>Solución de problemas de RADIUS
+
 Se supone que la configuración de VPN funcionaba correctamente antes de configurar el servidor VPN para que utilice un servidor RADIUS centralizado para la autenticación y autorización. Si la configuración funcionaba, es probable que el problema se deba a una configuración incorrecta del servidor RADIUS o al uso de un nombre de usuario o contraseña no válidos. Por ejemplo, si usa el sufijo UPN alternativo en el nombre de usuario, el intento de inicio de sesión podría producir errores. Utilice el mismo nombre de cuenta para obtener los mejores resultados. 
 
 Para solucionar estos problemas, un lugar ideal para comenzar es examinar los registros de eventos de seguridad en el servidor RADIUS. Para ahorrar tiempo buscando eventos, puede utilizar la vista personalizada basada en roles Servidor de directivas de red y acceso en el Visor de eventos, como se muestra a continuación. El "identificador de evento 6273" indica eventos en los que el servidor NPS deniega el acceso a un usuario. 
@@ -313,96 +309,8 @@ Para solucionar estos problemas, un lugar ideal para comenzar es examinar los re
 ![Visor de eventos](./media/nps-extension-vpn/image22.png)
  
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
-Esta sección proporciona instrucciones para habilitar a los usuarios para MFA y para configurar las cuentas para la verificación en dos pasos. 
 
-### <a name="enable-multi-factor-authentication"></a>Habilitar Multi-Factor Authentication
-En esta sección, se habilitan cuentas de Azure AD para MFA. Use el Portal de Azure clásico para habilitar a los usuarios para MFA. 
-
-1. Vaya al sitio web de [Microsoft Azure](https://manage.windowsazure.com). 
-
-2. Inicie sesión como administrador.
-
-3. En el panel izquierdo, seleccione **Active Directory**.
-
-    ![Directorio predeterminado](./media/nps-extension-vpn/image23.png)
-
-4. En la columna **Nombre**, seleccione **Directorio predeterminado** (o en otro directorio, si procede).
-
-5. En la ventana **Directorio predeterminado**, seleccione **Configurar**.
-
-    ![Configuración del directorio predeterminado](./media/nps-extension-vpn/image24.png)
-
-6. En la ventana **Configurar**, en **Multi-Factor Authentication**, seleccione **Administrar configuración del servidor**.
-
-    ![Administración de la configuración de Multi-Factor Authentication](./media/nps-extension-vpn/image25.png)
- 
-7. En la ventana **Multi-Factor Authentication**, revise la configuración predeterminada del servicio y después seleccione la pestaña **Usuarios**. 
-
-    ![Pestaña Usuarios de Multi-Factor Authentication](./media/nps-extension-vpn/image26.png)
- 
-8. En la pestaña **Usuarios**, seleccione los usuarios que desea habilitar para MFA y después seleccione **Habilitar**.
-
-    ![Propiedades](./media/nps-extension-vpn/image27.png)
- 
-9. Cuando se le pida, seleccione **Habilitar Multi-Factor Auth**.
-
-    ![Habilitar Multi-Factor Authentication](./media/nps-extension-vpn/image28.png)
- 
-10. Seleccione **Cerrar**. 
-
-11. Actualice la página.  
-    El estado de Multi-Factor Authentication cambia a *Habilitado*.
-
-Para información sobre cómo habilitar usuarios para MFA, vea [Introducción a Azure Multi-Factor Authentication en la nube](multi-factor-authentication-get-started-cloud.md). 
-
-### <a name="configure-accounts-for-two-step-verification"></a>Configuración de cuentas para la verificación en dos pasos
-Una vez que una cuenta se ha habilitado para MFA, los usuarios no pueden iniciar sesión en los recursos controlados por la directiva MFA hasta que hayan configurado correctamente un dispositivo de confianza que se utilizará para el segundo factor de autenticación de la verificación en dos pasos.
-
-En esta sección, configurará un dispositivo de confianza para su uso con la verificación en dos pasos. Tiene varias opciones de dispositivo, incluidas las siguientes:
-
-* **Aplicación móvil**: instale la aplicación Microsoft Authenticator en un dispositivo Windows Phone, Android o iOS. Según las directivas de su organización, debe usar la aplicación de una de estas dos formas: 
-    * Recibir notificaciones para verificación (se envía una notificación al dispositivo).
-    * Usar un código de verificación (debe especificar un código de verificación que se actualiza cada 30 segundos). 
-
-* **Llamada al móvil o mensaje de texto**: puede recibir una llamada de teléfono automática o un mensaje de texto. Con la opción de la llamada de teléfono, debe responder a la llamada y presionar la tecla almohadilla (#) para autenticarse. Con la opción del mensaje de texto, puede responder al mensaje o escribir el código de verificación en la interfaz de inicio de sesión.
-
-* **Llamada de teléfono de la oficina**: este proceso es el mismo que el proceso descrito anteriormente para las llamadas de teléfono automáticas.
-
-Para configurar un dispositivo para usar la aplicación móvil para recibir una notificación push para la verificación, realice lo siguiente:
-
-1. Inicie sesión en [Microsoft Azure](https://aka.ms/mfasetup) o en cualquier otro sitio, como [Azure Portal](https://portal.azure.com), donde sea necesario autenticarse con las credenciales basadas en MFA.  
-    Se le pedirá que configure la cuenta para la verificación de seguridad adicional, como se muestra aquí:
-
-    ![Seguridad adicional](./media/nps-extension-vpn/image29.png)
-
-2. Seleccione **Configurar ahora**.
-
-3. En la ventana **Comprobación de seguridad adicional**, seleccione un tipo de contacto (**Teléfono de autenticación**, **Teléfono del trabajo** o **Aplicación móvil**), seleccione un país o una región y después seleccione un método. No seleccione **Ponerse en contacto conmigo** todavía.  
-    El método varía según el tipo de contacto. Por ejemplo, si elige **Aplicación móvil**, puede seleccionar si desea recibir notificaciones de verificación o usar un código de verificación. 
-
-    ![Ventana "Comprobación de seguridad adicional"](./media/nps-extension-vpn/image30.png)
-
-    En los pasos siguientes se supone que ha elegido **Aplicación móvil** como el tipo de contacto.
-
-4. Seleccione **Aplicación móvil**, seleccione **Recibir notificaciones para verificación** y después seleccione **Configurar**. 
-
-    ![Ventana "Comprobación de seguridad adicional"](./media/nps-extension-vpn/image31.png)
- 
-5. Si aún no lo ha hecho, instale la aplicación móvil Microsoft Authenticator en el dispositivo. 
-
-6. En la aplicación móvil, escanee el código de barras mostrado o escriba la información manualmente y después seleccione **Hecho**.
-
-    ![Configuración de la aplicación móvil Microsoft Authenticator](./media/nps-extension-vpn/image32.png)
-
-7. En la ventana **Comprobación de seguridad adicional**, seleccione **Ponerse en contacto conmigo** y responda a la notificación que se envía al dispositivo.
-
-8. En la ventana **Comprobación de seguridad adicional**, en **Paso 3: En el caso de que haya perdido el acceso a la aplicación móvil**, escriba un número de contacto al que llamar si pierde el acceso a la aplicación móvil y después seleccione **Siguiente**.
-
-    ![Ventana "Comprobación de seguridad adicional"](./media/nps-extension-vpn/image33.png)
- 
-9. En la ventana **Comprobación de seguridad adicional**, seleccione **Hecho**.
-
-El dispositivo está configurado ahora para proporcionar un segundo método de comprobación. Para obtener información sobre cómo configurar cuentas para la verificación en dos pasos, vea [Configuración de mi cuenta para la verificación en dos pasos](./end-user/multi-factor-authentication-end-user-first-time.md).
+Para ayuda en la configuración de los usuarios para Multi-Factor Authentication, consulte los artículos [Exigencia de verificación en dos pasos para un usuario o grupo](multi-factor-authentication-get-started-user-states.md) y [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalación y configuración de la extensión NPS
 
@@ -470,8 +378,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 2. En el símbolo del sistema de PowerShell, escriba **cd c:\Program Files\Microsoft\AzureMfa\Config** y presione ENTRAR.
 
-3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfsNpsExtnConfigSetup.ps1** y presione ENTRAR.  
-    El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
+3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfsNpsExtnConfigSetup.ps1** y presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
  
     ![PowerShell](./media/nps-extension-vpn/image38.png)
  
@@ -546,7 +453,7 @@ Para más opciones de solución de problemas, puede utilizar un analizador de pr
 
 Para más información, consulte [Integración de la infraestructura NPS existente con Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Obtener Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](multi-factor-authentication-get-started-server-rdg.md)

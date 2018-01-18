@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -28,6 +28,11 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 En este documento se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+> [!NOTE]  
+> No use la extensión de script personalizado para ejecutar Update-AzureRmVM con la misma máquina virtual como su parámetro, ya tendrá que hacerlo ella misma.  
+>   
+> 
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -79,11 +84,11 @@ El siguiente JSON muestra el esquema para la extensión de script personalizado.
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| Nombre | Valor / ejemplo |
+| NOMBRE | Valor / ejemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
-| type | extensions |
+| Tipo | extensions |
 | typeHandlerVersion | 1.9 |
 | fileUris (p. ej.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (p. ej.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
@@ -108,7 +113,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
@@ -131,7 +136,7 @@ donde `<n>` es un entero decimal que puede variar entre las ejecuciones de la ex
 
 Cuando se ejecute el comando `commandToExecute`, la extensión tendrá establecido este directorio (por ejemplo, `...\Downloads\2`) como directorio de trabajo actual. Esto permite el uso de rutas de acceso relativas para buscar los archivos descargados a través de la propiedad `fileURIs`. En la tabla siguiente se muestran algunos ejemplos.
 
-Dado que la ruta de acceso absoluta de descarga puede variar con el paso del tiempo, es mejor optar por rutas de acceso relativas de archivo o script en la cadena `commandToExecute`, siempre que sea posible. Por ejemplo:
+Dado que la ruta de acceso absoluta de descarga puede variar con el paso del tiempo, es mejor optar por rutas de acceso relativas de archivo o script en la cadena `commandToExecute`, siempre que sea posible. Por ejemplo: 
 ```json
     "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
 ```

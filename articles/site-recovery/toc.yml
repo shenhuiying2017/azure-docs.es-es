@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Matriz de compatibilidad de Azure a Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matriz de compatibilidad de local a Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Matriz de compatibilidad de VMware a Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Matriz de compatibilidad de Hyper-V a Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Matriz de compatibilidad de local a Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Matriz de compatibilidad de local a sitio secundario
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Recuperación ante desastres para cargas de trabajo
@@ -181,6 +183,8 @@
           items:
             - name: Entorno de origen para la replicación de VMware a Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Implementación del servidor de configuración de VMware y de los servidores físicos
+              href: how-to-deploy-configuration-server.md
             - name: Entorno de origen para la replicación de un dispositivo físico a Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Configuración del entorno de destino

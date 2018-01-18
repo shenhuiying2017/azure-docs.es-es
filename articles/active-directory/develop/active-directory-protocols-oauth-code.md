@@ -1,12 +1,11 @@
 ---
-title: "Descripción del flujo de código de autorización de OAuth 2.0 en Azure AD | Microsoft Docs"
+title: "Descripción del flujo de código de autorización de OAuth 2.0 en Azure AD"
 description: "En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory
 Azure Active Directory (Azure AD) utiliza el protocolo OAuth 2.0 para poder autorizar el acceso a aplicaciones y API web en su inquilino de Azure AD. En esta guía, que es independiente del lenguaje, describe cómo enviar y recibir mensajes HTTP sin usar ninguna de nuestras bibliotecas de código abierto.
@@ -34,7 +33,7 @@ A nivel general, el flujo de autorización completo de una aplicación tiene un 
 ![Flujo de código de autenticación de OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Solicitud de un código de autorización
-El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . En esta solicitud, el cliente indica los permisos que necesita obtener del usuario. Puede obtener los puntos de conexión de OAuth 2.0 desde la página de la aplicación del Portal de Azure clásico, en el botón **Ver extremos** del cajón inferior.
+El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . En esta solicitud, el cliente indica los permisos que necesita obtener del usuario. Puede obtener el punto de conexión de OAuth 2.0 para el inquilino seleccionando **Registros de aplicaciones > Puntos de conexión** en Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -48,14 +47,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| Parámetro |  | Description |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación.  Los valores permitidos son los identificadores de inquilino; por ejemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` para los tokens independientes del inquilino. |
 | client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Active Directory**, luego en el directorio, elija la aplicación y, finalmente, haga clic en **Configurar**. |
 | response_type |requerido |Debe incluir `code` para el flujo de código de autorización. |
 | redirect_uri |recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación.  Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL.  En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recomendado |Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación.  Puede ser `query` o `form_post`. |
-| state |recomendado |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Se utiliza normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](http://tools.ietf.org/html/rfc6749#section-10.12).  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
+| state |recomendado |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](http://tools.ietf.org/html/rfc6749#section-10.12).  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | resource |opcional |El URI del identificador de la aplicación de la API web (recurso seguro). Para buscar el URI del identificador de la aplicación de la API web, en Azure Portal, haga clic sucesivamente en **Active Directory**, en el directorio, en la aplicación y, finalmente, en **Configurar**. |
 | símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario.<p> Los valores válidos son: <p> *login*: se le solicitará al usuario que vuelva a autenticarse. <p> *consent*: se le ha concedido el consentimiento al usuario, pero debe actualizarse. Se le solicitará al usuario consentimiento. <p> *admin_consent*: se le solicitará al administrador que dé consentimiento en nombre de todos los usuarios de su organización. |
 | login_hint |opcional |Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación.  A menudo las aplicaciones usan este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
@@ -76,7 +75,7 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | admin_consent |El valor es True si un administrador ha dado su consentimiento a una solicitud de consentimiento. |
 | código |El código de autorización que solicitó la aplicación. La aplicación puede utilizar el código de autorización con el fin de solicitar un token de acceso para el recurso de destino. |
@@ -92,7 +91,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | error |Valor de código de error definido en la sección 5.2 del [marco de autorización de OAuth 2.0](http://tools.ietf.org/html/rfc6749). En la tabla siguiente se describen los códigos de error que devuelve Azure AD. |
 | error_description |Descripción más detallada del error. Este mensaje no está diseñado para que el usuario final lo comprenda sin problemas. |
@@ -101,7 +100,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de error correspondientes a errores de puntos de conexión de autorización
 En la tabla siguiente se describen los distintos códigos de error que pueden devolverse en el parámetro `error` de la respuesta de error.
 
-| Código de error | Description | Acción del cliente |
+| Código de error | DESCRIPCIÓN | Acción del cliente |
 | --- | --- | --- |
 | invalid_request |Error de protocolo, como un parámetro obligatorio que falta. |Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales. |
 | unauthorized_client |La aplicación cliente no puede solicitar un código de autorización. |Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
@@ -130,10 +129,10 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parámetro |  | Description |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación.  Los valores permitidos son los identificadores de inquilino; por ejemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` para los tokens independientes del inquilino. |
-| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en el Portal de Azure clásico. Haga clic en **Active Directory**, luego en el directorio, elija la aplicación y, finalmente, haga clic en **Configurar**. |
+| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. El identificador de aplicación se muestra en la configuración del registro de la aplicación.  |
 | grant_type |requerido |Debe ser `authorization_code` para el flujo de código de autorización. |
 | código |requerido |El elemento `authorization_code` que obtuvo en la sección anterior. |
 | redirect_uri |requerido |El mismo valor de `redirect_uri` que usó para obtener `authorization_code`. |
@@ -151,7 +150,7 @@ Una respuesta correcta podría tener el siguiente aspecto:
 
 ```
 {
-  "access_token": " eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ",
   "token_type": "Bearer",
   "expires_in": "3600",
   "expires_on": "1388444763",
@@ -163,9 +162,9 @@ Una respuesta correcta podría tener el siguiente aspecto:
 
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
-| access_token |El token de acceso solicitado. La aplicación puede utilizar este token para autenticar a los recursos protegidos, como una API web. |
+| access_token |El token de acceso solicitado como un JSON Web Token (JWT) firmado. La aplicación puede utilizar este token para autenticar a los recursos protegidos, como una API web. |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
@@ -203,7 +202,7 @@ Para más información sobre los tokens web JSON, consulte la [especificación d
 
 El parámetro `id_token` incluye los siguientes tipos de notificación:
 
-| Tipo de notificación | Descripción |
+| Tipo de notificación | DESCRIPCIÓN |
 | --- | --- |
 | aud |Se trata de la audiencia del token. Cuando se emite el token a una aplicación cliente, la audiencia es el identificador `client_id` del cliente. |
 | exp |Se trata de la fecha de expiración. La hora a la que expira el token. Para que el token sea válido, la fecha y hora actual debe ser menor o igual que el valor de `exp` . La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
@@ -237,7 +236,7 @@ Una respuesta de error de ejemplo podría tener este aspecto:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -249,7 +248,7 @@ Una respuesta de error de ejemplo podría tener este aspecto:
 #### <a name="http-status-codes"></a>Códigos de estado HTTP
 En la tabla siguiente se enumeran los códigos de estado HTTP que devuelve el punto de conexión de emisión de tokens. En algunos casos, con el código de error basta para describir la respuesta, pero, si hay errores, se debe analizar el documento JSON que la acompaña y examinar su código de error.
 
-| Código HTTP | Descripción |
+| Código HTTP | DESCRIPCIÓN |
 | --- | --- |
 | 400 |Código HTTP predeterminado. Se utiliza en la mayoría de los casos y suele originarse debido a una solicitud con formato incorrecto. Corrija el error y vuelva a enviar la solicitud. |
 | 401 |Error de autenticación. Por ejemplo, la solicitud no tiene el parámetro client_secret. |
@@ -257,7 +256,7 @@ En la tabla siguiente se enumeran los códigos de estado HTTP que devuelve el pu
 | 500 |Se ha producido un error interno en el servicio. Vuelva a intentarlo. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de error correspondientes a errores de puntos de conexión de token
-| Código de error | Description | Acción del cliente |
+| Código de error | DESCRIPCIÓN | Acción del cliente |
 | --- | --- | --- |
 | invalid_request |Error de protocolo, como un parámetro obligatorio que falta. |Corrija el error y vuelva a enviar la solicitud. |
 | invalid_grant |El código de autorización no es válido o ha expirado. |Trate de iniciar una nueva solicitud al punto de conexión `/authorize`. |
@@ -289,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>Parámetros de error
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | authorization_uri |URI (punto de conexión físico) del servidor de autorización. Este valor también se utiliza como clave de búsqueda con el fin de obtener más información del servidor a partir de un punto de conexión de detección. <p><p> El cliente debe validar que el servidor de autorización sea de confianza. Cuando el recurso está protegido por Azure AD, basta con comprobar que la dirección URL comienza con https://login.windows.net u otro nombre de host que Azure AD admita. Los recursos específicos del inquilino siempre deben devolver un URI de autorización exclusivo del inquilino. |
 | error |Valor de código de error definido en la sección 5.2 del [marco de autorización de OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
@@ -299,7 +298,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Códigos de error del esquema de portador
 La especificación RFC 6750 define los siguientes errores de los recursos que utilizan el encabezado WWW-Authenticate y el esquema de portador en la respuesta.
 
-| Código de estado HTTP | Código de error | Description | Acción del cliente |
+| Código de estado HTTP | Código de error | DESCRIPCIÓN | Acción del cliente |
 | --- | --- | --- | --- |
 | 400 |invalid_request |La solicitud no tiene el formato correcto. Por ejemplo, podría faltar un parámetro o se está utilizando el mismo parámetro dos veces. |Corrija el error y vuelva a tratar de realizar la solicitud. Este tipo de error solo debe producirse durante el desarrollo y detectarse en las pruebas iniciales. |
 | 401 |invalid_token |El token de acceso no es válido, falta o se ha revocado. El valor del parámetro error_description proporciona más información. |Solicite un nuevo token desde el servidor de autorización. Si el nuevo token no funciona, significa que se ha producido un error inesperado. Envíe un mensaje de error para el usuario y vuelva a intentarlo después de los retrasos aleatorios. |
@@ -342,7 +341,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | token_type |El tipo de token. El único valor admitido es **bearer**. |
 | expires_in |Duración restante del token en segundos. Un valor típico es 3600 (una hora). |
@@ -368,7 +367,7 @@ Una respuesta de error de ejemplo podría tener este aspecto:
 }
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |

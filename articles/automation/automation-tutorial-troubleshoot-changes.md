@@ -6,14 +6,14 @@ keywords: "cambio, seguimiento, automatización"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Desencadenar un evento
 > * Ver los cambios
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -158,7 +158,7 @@ Una vez habilitadas la solución Change Tracking e Inventario, puede ver los res
 
 Desde dentro de la máquina virtual, seleccione **Change Tracking** en **OPERACIONES**.
 
-![Creación de una alerta en el portal clásico de OMS](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Captura de pantalla que muestra la lista de cambios de la máquina virtual](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 El gráfico muestra los cambios que se han producido con el tiempo.
 Después de agregar una conexión del registro de actividad, el gráfico de líneas en la parte superior muestra los eventos del registro de actividad de Azure.

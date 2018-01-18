@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Creación de una API de RESTful de Node.js e implementación en una aplicación de API de Azure
 
 En esta guía de inicio rápido se muestra cómo crear una API de REST, escrita con Node.js [Express](http://expressjs.com/), mediante una definición [Swagger](http://swagger.io/) y cómo implementarla en Azure. Creará la aplicación mediante herramientas de línea de comandos, configurará los recursos con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e implementará la aplicación mediante Git.  Cuando haya terminado, tendrá una API de REST funcional de ejemplo que se ejecuta en Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Git](https://git-scm.com/)
 * [Node.js y NPM](https://nodejs.org/)
@@ -84,7 +84,7 @@ Cuando Swaggerize le solicite un nombre de proyecto, use *ContactList*.
 1. Copie la carpeta *lib* en la carpeta *ContactList* creada por `yo swaggerize` y, a continuación, cambie el directorio a *ContactList*.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,14 +246,22 @@ Implemente el código en la aplicación de API insertando confirmaciones desde e
     node_modules/
     ```
     Confirme que la carpeta `node_modules` está siendo ignorada con `git status`.
+    
+4. Agregue las líneas siguientes a `package.json`. El código generado por Swaggerize no especifica una versión para el motor de Node.js. Sin la especificación de la versión, Azure usa la versión predeterminada de `0.10.18`, que no es compatible con el código generado.
 
-4. Confirme los cambios en el repositorio.
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. Confirme los cambios en el repositorio.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>Prueba de la API en Azure
 

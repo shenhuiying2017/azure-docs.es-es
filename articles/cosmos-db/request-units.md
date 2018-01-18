@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificación de la capacidad de unidad de solicitud en Azure Cosmos DB
 Cuando comienza una nueva colección, tabla o grafo, especifica el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
-Azure Cosmos DB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 2.500 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 2.500 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](partition-data.md) al crear un contenedor, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar la colección, la tabla, el grafo y las solicitudes de manera uniforme. 
+Los contenedores de Azure Cosmos DB se pueden crear como fijos o ilimitados. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de mil RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar la colección, la tabla, el grafo y las solicitudes de manera uniforme. 
 
 > [!NOTE]
 > Una clave de partición es un límite lógico, no uno físico. Por lo tanto, no es necesario limitar el número de los valores de clave de partición distintos. De hecho, es mejor tener más valores distintos de clave de partición que tener menos, ya que Azure Cosmos DB dispondrá de más opciones de equilibrio de carga.
@@ -201,7 +201,7 @@ Con esto en mente, un método para calcular la cantidad de rendimiento reservado
 > 
 > 
 
-Por ejemplo:
+Por ejemplo: 
 
 1. Registre el cargo de la unidad de solicitud de creación (inserción) de un elemento típico. 
 2. Registre el cargo de la unidad de solicitud de lectura de un elemento típico.
@@ -210,7 +210,7 @@ Por ejemplo:
 5. Registre el cargo de unidad de solicitud de los scripts personalizados (procedimientos almacenados, desencadenadores y funciones definidas por el usuario) usados por la aplicación
 6. Calcule las unidades de solicitud necesarias según el número estimado de operaciones que se prevé ejecutar cada segundo.
 
-### <a id="GetLastRequestStatistics"></a>Uso del comando GetLastRequestStatistics de la API de MongoDB
+## <a id="GetLastRequestStatistics"></a>Uso del comando GetLastRequestStatistics de la API de MongoDB
 La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar la carga de solicitud de operaciones especificadas.
 
 Por ejemplo, en el shell de Mongo, ejecute la operación para la que desea comprobar la carga de solicitud.
@@ -348,7 +348,7 @@ Si tiene más de un cliente de manera acumulativa funcionando por encima de la t
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
 Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el back-end finalizará la solicitud de forma preferente con un código de error*16500*: *Demasiadas solicitudes*. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error *Demasiadas solicitudes*. Si recibe numerosos códigos de error *Demasiadas solicitudes*, puede plantearse agregar un comportamiento de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento reservado de la colección](set-throughput.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre el rendimiento con bases de datos de Azure Cosmos DB, explore estos recursos:
 
 * [Precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)

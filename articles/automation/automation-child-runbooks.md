@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 Un procedimiento recomendado en Azure Automation es escribir runbooks que sean reutilizables y modulares con una función independiente que puedan usar otros runbooks. Con frecuencia, un runbook primario llamará a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario y cada una tiene varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para los diferentes escenarios.
@@ -30,7 +30,7 @@ Al invocar un runbook en línea, este se ejecuta en el mismo trabajo que el runb
 
 Cuando se publica un runbook, cualquier runbook secundario al que llame deberá estar ya estar publicado. Esto es así porque Azure Automation crea una asociación con los runbooks secundarios cuando se compila un runbook. Si no, parecerá que el runbook primario se publica correctamente, pero generará una excepción cuando se inicie. Si esto sucediera, puede volver a publicar el runbook primario para que haga referencia correctamente a los runbooks secundarios. No es necesario que vuelva a publicar el runbook primario si cambia uno de los runbooks secundarios, porque ya se habrá creado la asociación.
 
-Los parámetros de un Runbook secundario en línea pueden ser de cualquier tipo de datos (incluidos los objetos complejos), y no hay ninguna [serialización JSON](automation-starting-a-runbook.md#runbook-parameters) como sucede cuando se inicia el Runbook mediante el Portal de administración de Azure o mediante el cmdlet Start-AzureRmAutomationRunbook cmdlet.
+Los parámetros de un runbook secundario llamado en línea pueden ser de cualquier tipo de datos (incluidos objetos complejos) y no hay ninguna [serialización JSON](automation-starting-a-runbook.md#runbook-parameters) como sucede cuando se inicia el runbook mediante Azure Portal o mediante el cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbook
 Qué tipos pueden llamarse entre sí:
@@ -83,9 +83,7 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 | Cuenta de Automation |El runbook primario solo puede usar el runbook secundario en la misma cuenta de automatización. |El runbook primario puede usar el runbook secundario desde cualquier cuenta de automatización de la misma suscripción de Azure, e incluso de otra suscripción si tiene una conexión a ella. |
 | Publicación |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario debe publicarse en cualquier momento antes de iniciar el runbook primario. |
 
-## <a name="next-steps"></a>Pasos siguientes
-* 
-            [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)
-* 
-            [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)
+* [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
 

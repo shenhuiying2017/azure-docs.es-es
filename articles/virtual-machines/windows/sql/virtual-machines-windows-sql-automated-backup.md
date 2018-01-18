@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 91aab896dd5f06c950ee0ed8f36cc6a953d91611
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 281aac8229c55cde1f36857a8f1042aa08f7e372
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automated Backup para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
 
@@ -64,11 +64,11 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 > [!NOTE]
 > Automated Backup se basa en la Extensión Agente de IaaS de SQL Server. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 
-| Configuración | Intervalo (valor predeterminado) | Descripción |
+| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Automated Backup** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita Automated Backup para una máquina virtual de Azure que ejecuta SQL Server 2014 Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener una copia de seguridad. |
@@ -88,7 +88,7 @@ En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad aut
 
 ![Configuración de Automated Backup de SQL en Azure Portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
-Para conocer el contexto, consulte el tema completo en [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+Para conocer el contexto, consulte el tema completo en [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Máquinas virtuales existentes
 
@@ -129,11 +129,14 @@ Si la extensión del agente IaaS de SQL Server está instalada, debe aparecer co
 Si no está instalada o no se ha podido aprovisionar, puede instalarla con el comando siguiente. Además del grupo de recursos y del nombre de VM, también debe especificar la región (**$region**) en que se encuentra dicha VM.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 ```
+
+> [!IMPORTANT]
+> Si la extensión todavía no está instalada, su instalación reiniciará el servicio de SQL Server.
 
 ### <a id="verifysettings"></a> Verificación de la configuración actual
 
@@ -266,7 +269,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Automated Backup configura Copia de seguridad administrada en Azure Virtual Machines. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 

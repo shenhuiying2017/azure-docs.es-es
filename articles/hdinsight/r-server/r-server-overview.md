@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introducción a las funcionalidades de R de código abierto de R Server en HDInsight
 
 Microsoft R Server está disponible como opción de implementación al crear clústeres de HDInsight en Azure. Esta nueva característica provee a los científicos de datos, estadísticos y programadores de R de acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 El tamaño de los clústeres se puede ajustar apropiadamente a los proyectos y las tareas en cuestión y luego desactivarse cuando ya no se requieran. Como forman parte de Azure HDInsight, estos clústeres incluyen soporte ininterrumpido de nivel empresarial, un Acuerdo de Nivel de Servicio con un tiempo de actividad del 99,9 % y la posibilidad de integrarse con otros componentes del ecosistema de Azure.
 
@@ -44,7 +46,7 @@ Tiene la opción de agregar acceso a los almacenes de Data Lake y Blob Storage a
 También se puede usar [Archivos de Azure](../../storage/files/storage-how-to-use-files-linux.md) como opción de almacenamiento para emplearse en el nodo perimetral. Gracias a Azure Files, podrá montar en el sistema de archivos Linux un recurso compartido de archivos creado en el servicio Azure Storage. Para más información sobre estas opciones de almacenamiento de datos de R Server en un clúster de HDInsight, consulte [Opciones de Azure Storage para R Server en HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Acceso a R Server en el clúster
-Puede conectarse a R Server en el nodo perimetral mediante un explorador. Se instala de forma predeterminada durante la creación del clúster. Para obtener más información, consulte [Introducción al uso de R Server en HDInsight](r-server-get-started.md).
+Puede conectarse a R Server en el nodo perimetral mediante un explorador. Se instala de forma predeterminada durante la creación del clúster. Para más información, consulte [Introducción al uso de R Server en HDInsight](r-server-get-started.md).
 
 También puede conectarse a R Server desde la línea de comandos mediante SSH/PuTTY para acceder a la consola de R. 
 
@@ -96,9 +98,9 @@ Otra opción de IDE completa consiste en instalar un IDE de escritorio y usarlo 
 Finalmente, puede acceder a la consola de R Server en el nodo perimetral escribiendo **R** en el símbolo del sistema de Linux una vez que se haya conectado a través de SSH o PuTY. Cuando utilice la interfaz de la consola, es conveniente ejecutar un editor de texto para desarrollar scripts de R en otra ventana y cortar y pegar las secciones del script en la consola de R según sea necesario.
 
 ## <a name="learn-about-pricing"></a>Más información sobre los precios
-Las tarifas asociadas a un clúster de HDInsight con R Server tienen una estructura similar a la de los clústeres de HDInsight estándar. Se basan en el tamaño de las máquinas virtuales subyacentes en los nodos de nombre, de datos y perimetral, con el extra de un aumento de la hora de núcleo. Para más información sobre los precios de HDInsight y la disponibilidad de una evaluación gratuita de 30 días, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Las tarifas asociadas a un clúster de HDInsight con R Server tienen una estructura similar a la de los clústeres de HDInsight estándar. Se basan en el tamaño de las máquinas virtuales subyacentes en los nodos de nombre, de datos y perimetral, con el extra de un aumento de la hora de núcleo. Para más información sobre los precios de HDInsight, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre cómo usar R Server con clústeres de HDInsight, consulte los temas siguientes:
 
 * [Introducción al uso de R Server en HDInsight (versión preliminar)](r-server-get-started.md)

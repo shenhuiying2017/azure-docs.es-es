@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -279,14 +279,14 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Categorías de datos de metadatos de instancia
 Las categorías de datos siguientes están disponibles a través del servicio de metadatos de instancia:
 
-Datos | Descripción | Versión de introducción 
+Datos | DESCRIPCIÓN | Versión de introducción 
 -----|-------------|-----------------------
 location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02 
-name | Nombre de la máquina virtual | 2017-04-02
+Nombre | Nombre de la máquina virtual | 2017-04-02
 offer | Ofrece información para la imagen de máquina virtual. Este valor solo está presente para las imágenes que se implementan desde la galería de imágenes de Azure. | 2017-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
 sku | SKU específica de la imagen de VM | 2017-04-02
-versión | Versión de la imagen de máquina virtual | 2017-04-02
+version | Versión de la imagen de máquina virtual | 2017-04-02
 osType | Linux o Windows | 2017-04-02
 platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
 platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
@@ -377,16 +377,19 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Idioma | Ejemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 1. Obtengo el error `400 Bad Request, Required metadata header not specified`. ¿Qué significa?
    * El servicio de metadatos de instancia requiere que el encabezado `Metadata: true` se transmita en la solicitud. Transmitir este encabezado en la llamada de REST permite tener acceso al servicio de metadatos de instancia. 
 2. ¿Por qué no recibo información de proceso de mi máquina virtual?
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Más información sobre la API [Scheduled Events](scheduled-events.md) **en versión preliminar pública** proporcionada por el servicio de metadatos de instancia.

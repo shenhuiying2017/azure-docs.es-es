@@ -1,6 +1,6 @@
 ---
 title: "Información general de plantillas de licencias de PlayReady de Media Services"
-description: "En este tema se ofrece información general sobre la plantilla de licencia de PlayReady que se usó para configurar las licencias de PlayReady."
+description: "En este tema se ofrece información general sobre la plantilla de licencia de PlayReady que se usa para configurar las licencias de PlayReady."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: b8d691d9a25847c4ab0b99d1fe5b889f314c404f
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2b21765c53c9f9f37efb71924f12a5135170f788
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="media-services-playready-license-template-overview"></a>Información general de plantillas de licencias de PlayReady de Media Services
-Azure Media Services proporciona un servicio para entregar licencias de Microsoft PlayReady. Cuando el reproductor del usuario final (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
+Azure Media Services proporciona un servicio para entregar licencias de PlayReady. Cuando el reproductor (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se usa para descifrar y reproducir el contenido especificado.
 
-Media Services también proporciona API que permiten configurar sus licencias de PlayReady. Las licencias contienen los derechos y restricciones que desea aplicar para el tiempo de ejecución de DRM de PlayReady cuando un usuario intenta reproducir contenido protegido.
+Media Services también proporciona las API que puede usar para configurar sus licencias de PlayReady. Las licencias contienen los derechos y restricciones que desea aplicar para el entorno de tiempo de ejecución de administración de derechos digitales (DRM) de PlayReady cuando un usuario intenta reproducir contenido protegido.
 A continuación se muestran algunos ejemplos de restricciones de licencia de PlayReady que puede especificar:
 
-* Fecha y hora desde la que la licencia es válida.
+* Fecha y hora desde las cuales la licencia es válida.
 * Fecha y hora cuando caduca la licencia. 
 * Para que la licencia se guarde en un almacenamiento persistente en el cliente. Las licencias permanentes se usan normalmente para permitir la reproducción sin conexión de contenido.
 * El nivel de seguridad mínimo que debe tener un reproductor para reproducir contenido. 
 * El nivel de protección de salida de los controles de salida para el contenido de audio y video. 
-* Para obtener más información, consulte la sección Controles de salida (3.5) en el documento [Reglas de cumplimiento normativo de PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
+* Para más información, consulte la sección Controles de salida (3.5) en el documento [Reglas de cumplimiento normativo de PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 > [!NOTE]
-> Actualmente, solo puede configurar el derecho de reproducción PlayRight de la licencia de PlayReady (este derecho es necesario). PlayRight da al cliente la capacidad de reproducir el contenido. PlayRight también permite configurar restricciones específicas para la reproducción. Para obtener más información, consulte [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Actualmente, solo puede configurar el derecho de reproducción PlayRight de la licencia de PlayReady. Este derecho es obligatorio. PlayRight da al cliente la capacidad de reproducir el contenido. También puede usar PlayRight para configurar restricciones específicas para la reproducción. Para obtener más información, consulte [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
 Para configurar licencias de PlayReady con Media Services, debe configurar la plantilla de licencias de PlayReady de Media Services. La plantilla se define en XML.
 
-En el ejemplo siguiente se muestra la plantilla más sencilla (y común) que configura una licencia básica de streaming. Con esta licencia, los clientes podrán reproducir contenido protegido con PlayReady.
+En el ejemplo siguiente se muestra la plantilla más sencilla (y común) que configura una licencia básica de streaming. Con esta licencia, los clientes pueden reproducir el contenido protegido con PlayReady.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -53,36 +53,34 @@ En el ejemplo siguiente se muestra la plantilla más sencilla (y común) que con
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-El código XML se ajusta al esquema XML de la plantilla de licencias de PlayReady definido en la sección de esquema XML de la plantilla de licencias de PlayReady.
+El código XML se ajusta al esquema XML de la plantilla de licencias de PlayReady definido en la sección "Esquema XML de la plantilla de licencias de PlayReady".
 
-Media Services también define un conjunto de clases de .NET que podría usarse para serializar y deserializar hacia y desde XML. Para ver una descripción de las clases principales, consulte las [Clases .NET de Media Services](media-services-playready-license-template-overview.md#classes) que se usan para configurar las plantillas de licencia.
+Media Services también define un conjunto de clases de .NET que se puede usar para serializar y deserializar hacia y desde XML. Para una descripción de las clases principales, consulte las [Clases .NET de Media Services](media-services-playready-license-template-overview.md#classes) que se usan para configurar las plantillas de licencia.
 
-Para ver un ejemplo completo que usa clases .NET para configurar la plantilla de licencia de PlayReady, consulte [Uso del cifrado dinámico de PlayReady y servicio de entrega de licencias](media-services-protect-with-playready-widevine.md).
+Para un ejemplo completo que usa clases .NET para configurar la plantilla de licencia de PlayReady, consulte [Uso del cifrado dinámico de PlayReady y servicio de entrega de licencias](media-services-protect-with-playready-widevine.md).
 
-## 
-            <a id="classes">
-            </a>Clases .NET de Media Services que se usan para configurar las plantillas de licencia
-Las siguientes son las clases principales de .NET se usan para configurar las plantillas de licencia de PlayReady de Media Services. Estas clases se asignan a los tipos definidos en [Esquema XML de plantilla de licencia de PlayReady](media-services-playready-license-template-overview.md#schema).
+## <a id="classes"></a>Clases .NET de Media Services que se usan para configurar las plantillas de licencia
+Las clases siguientes son las clases principales de .NET que se usan para configurar las plantillas de licencia de PlayReady de Media Services. Estas clases se asignan a los tipos definidos en [Esquema XML de plantilla de licencia de PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La clase [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) se usa para serializar y deserializar hacia y desde el código XML de la plantilla de licencia de Media Services.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) : esta clase representa la plantilla para la respuesta que se devuelve al usuario final. Contiene un campo para una cadena de datos personalizada entre el servidor de licencias y la aplicación (puede ser útil para la lógica de aplicación personalizada), así como una lista de una o más plantillas de licencia.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): esta clase representa la plantilla para la respuesta que se devuelve al usuario. Contiene un campo para una cadena de datos personalizada entre el servidor de licencias y la aplicación (puede ser útil para la lógica de aplicación personalizada). También contiene una lista de una o más plantillas de licencias.
 
-Esta es la clase de "nivel superior" en la jerarquía de plantillas. Lo que significa que la plantilla de respuesta incluye una lista de plantillas de licencia y las plantillas de licencia incluyen (directa o indirectamente) todas las demás clases que conforman los datos de la plantilla que se va a serializar.
+Como la clase de "nivel superior" en la jerarquía de plantillas, la plantilla de respuesta incluye una lista de plantillas de licencias. Las plantillas de licencias incluyen (de manera directa o indirecta) todas las demás clases que conforman los datos de plantilla que se van a serializar.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) : la clase representa una plantilla de licencia para crear licencias de PlayReady que se devuelven a los usuarios finales. Contiene los datos de la clave de contenido de la licencia y los derechos o restricciones que el tiempo de ejecución DRM de PlayReady debe aplicar cuando use la clave de contenido.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): esta clase representa una plantilla de licencia que se usa para crear licencias de PlayReady que se van a devolver a los usuarios. Contiene los datos de la clave de contenido en la licencia. También incluye los derechos o restricciones que debe aplicar el entorno de tiempo de ejecución DRM de PlayReady cuando se usa la clave de contenido.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) : esta clase representa el derecho PlayRight de una licencia de PlayReady. Concede al usuario la capacidad de reproducir contenido sujeto a las restricciones configuradas en la licencia y en el propio derecho PlayRight (para la directiva de reproducción específica). En lo referente a PlayRight, gran parte de la directiva tiene que ver con las restricciones de salida que controlan los tipos de salida sobre los que se puede reproducir el contenido y las restricciones que se deben aplicar cuando se usa una salida determinada. Por ejemplo, si DigitalVideoOnlyContentRestriction está habilitada, el tiempo de ejecución DRM solo permitirá que el vídeo se muestre mostrarse en salidas digitales (las salidas de vídeo analógicas no podrán pasar el contenido).
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): esta clase representa el derecho PlayRight de una licencia de PlayReady. Concede al usuario la capacidad de reproducir contenido sujeto a cualquier restricción configurada en la licencia y en el propio derecho PlayRight (para la directiva de reproducción específica). Gran parte de la directiva de un derecho PlayRight tiene que ver con las restricciones de salida que controlan los tipos de salidas sobre las que se pueden reproducir el contenido. También incluye las restricciones que se deben incluir cuando se usa una salida específica. Por ejemplo, si la opción DigitalVideoOnlyContentRestriction está habilitada, el entorno de tiempo de ejecución de DRM permite que el vídeo se muestre sobre las salidas digitales. (Las salidas de vídeo analógicas no pueden transmitir el contenido).
 
 > [!IMPORTANT]
-> Estos tipos de restricciones pueden ser eficaces, pero también pueden afectar a la experiencia del consumidor. Si las protecciones de salida son demasiado restrictivas, puede que el contenido no se reproduzca en algunos clientes. Para más información, consulte el documento [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) .
+> Estos tipos de restricciones pueden ser eficaces, pero también pueden afectar la experiencia del consumidor. Si las protecciones de salida son demasiado restrictivas, puede que el contenido no se reproduzca en algunos clientes. Para más información, consulte el documento [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
 > 
 > 
 
-Para ver un ejemplo de los niveles de protección que admite Silverlight, consulte: [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
+Para un ejemplo de los niveles de protección que admite Silverlight, consulte [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>Esquema XML de la plantilla de licencia de PlayReady
     <?xml version="1.0" encoding="utf-8"?>

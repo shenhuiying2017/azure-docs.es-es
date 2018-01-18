@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Creación de modelos de análisis de texto en Azure Machine Learning Studio
 Puede usar Azure Machine Learning para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
@@ -33,7 +33,7 @@ En un experimento de análisis de texto, normalmente debería:
 
 En este tutorial, aprenderá estos pasos a medida que se explique un modelo de análisis de opinión mediante el conjunto de datos de Amazon Book Reviews (consulte el trabajo de investigación, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” ("Biografías, Bollywoood, equipos de sonido y licuadoras") de John Blitzer, Mark Dredze y Fernando Pereira; Asociación de Lingüística Informática (ACL), 2007. Este conjunto de datos consta de las puntuaciones de revisión (1-2 o 4-5) y un texto de forma libre. El objetivo es predecir la puntuación de revisión: baja (1 - 2) o alta (4-5).
 
-Puede encontrar los experimentos descritos en este tutorial en la Galería de Cortana Intelligence:
+Puede encontrar los experimentos citados en este tutorial en la Galería de Azure AI:
 
 [Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

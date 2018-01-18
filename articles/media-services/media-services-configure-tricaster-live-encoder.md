@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eecb17b0e93e1717c5b79701c69e5263e73add9a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador NewTek TriCaster para enviar una transmisión por secuencias en directo de velocidad de bits única
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-En este tema se muestra cómo configurar el codificador en directo [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+En este artículo se muestra cómo configurar el codificador en directo [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la herramienta Explorador de Azure Media Services (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use Azure Portal para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -46,11 +46,11 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 
 ## <a name="tips"></a>Sugerencias
 * Siempre que sea posible, use una conexión a Internet por cable.
-* Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.
+* Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuye a mitigar el impacto de la congestión de la red.
 * Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
 ## <a name="create-a-channel"></a>Crear un canal
-1. En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
+1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -70,7 +70,7 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 Mientras se inicia el canal puede [configurar el codificador](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
-> Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
+> La facturación comienza tan pronto como el canal entra en un estado de preparado. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
@@ -129,20 +129,20 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 >
 >
 
-## <a name="test-playback"></a>Reproducción de pruebas
+## <a name="test-playback"></a>Prueba de reproducción
 Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Playback the Preview** (Reproducir la vista previa) y seleccione **with Azure Media Player** (con Azure Media Player).  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
 Si la transmisión aparece en el reproductor, entonces el codificador se configuró correctamente para conectarse a AMS.
 
-Si se recibe un error, se deberá restablecer el canal y ajustar la configuración del codificador. Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.  
+Si se recibe un error, se deberá restablecer el canal y ajustar la configuración del codificador. Para más información, consulte el artículo de [solución de problemas](media-services-troubleshooting-live-streaming.md).  
 
 ## <a name="create-a-program"></a>Creación de un programa
 1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Live** (Directo) de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Create New Program** (Crear programa).  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Dé nombre al programa y, si es necesario, ajuste el valor de **Duración de la ventana de archivo** (que de forma predeterminada es 4 horas). También puede especificar una ubicación de almacenamiento o dejar el valor predeterminado.  
+2. Dé nombre al programa y, si es necesario, ajuste el valor de **Archive Window Length** (Duración de la ventana de archivo), que de forma predeterminada es cuatro horas. También puede especificar una ubicación de almacenamiento o dejar el valor predeterminado.  
 3. Active la casilla **Iniciar el programa ahora** .
 4. Haga clic en **Crear programa**.  
 
@@ -155,7 +155,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.  
 
 ## <a name="troubleshooting"></a>solución de problemas
-Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
+Para más información, consulte el artículo de [solución de problemas](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Media Services.

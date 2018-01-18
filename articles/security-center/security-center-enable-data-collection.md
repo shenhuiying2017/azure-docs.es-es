@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Asimismo, copia los archivos de volcado de memoria en dicha área de trabajo.
@@ -79,7 +79,7 @@ Para seleccionar un área de trabajo existente de Log Analytics:
 Security Center puede reducir el volumen de eventos mientras mantiene suficientes eventos para la investigación, la auditoría y la detección de amenazas. Puede elegir la directiva de filtrado adecuada para sus suscripciones y áreas de trabajo de cuatro conjuntos de eventos que recopilará el agente.
 
 - **Todos los eventos**: Para los clientes que quieren asegurarse de que se recopilan todos los eventos. Este es el valor predeterminado.
-- **Común**: Se trata de un conjunto de eventos que satisfacen a la mayoría de los clientes y les permite efectuar una prueba de auditoría completa.
+- **Común**: Es un conjunto de eventos que satisfacen a la mayoría de los clientes y les permite efectuar un registro de auditoría completo.
 - **Mínimo**: Es un conjunto más pequeño de eventos para los clientes que quieren reducir el volumen de eventos.
 - **Ninguno**: Se deshabilita la recopilación de eventos de seguridad de los registros de seguridad y de AppLocker. Para los clientes que elijan esta opción, sus paneles de seguridad solo tendrán registros del Firewall de Windows y evaluaciones preventivas, como el antimalware, la línea base y las actualizaciones.
 
@@ -97,7 +97,22 @@ Los eventos que tienen un volumen muy bajo se han incluido en el conjunto Común
 
 A continuación se muestra un desglose completo de los identificadores de evento de seguridad y de AppLocker para cada conjunto:
 
-   ![Id. de evento][4]
+| Capa de datos | Indicadores de eventos recopilados |
+| --- | --- |
+| Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Común (valor predeterminado) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Si se usa un objeto de directiva de grupo (GPO), se recomienda habilitar el evento 4688 de creación de procesos de las directivas de auditoría y el campo *CommandLine* del evento 4688. Para más información acerca del evento 4688 de creación de procesos, consulte las [preguntas más frecuentes](security-center-faq.md#what-happens-when-data-collection-is-enabled) acerca de Security Center. Para más información acerca de estas directivas de auditoría, consulte [Recomendaciones de la directiva de auditoría](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Para elegir la directiva de filtrado:
 1. En la hoja **Security policy & settings** (Directiva de seguridad y configuración), seleccione la directiva de filtrado en **Eventos de seguridad**.
@@ -121,22 +136,21 @@ Puede deshabilitar en cualquier momento el aprovisionamiento automático de los 
 3. En la hoja **Directiva de seguridad: Recopilación de datos**, en **Incorporación**, seleccione **Desactivado** para deshabilitar el aprovisionamiento automático.
 4. Seleccione **Guardar**.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automático y una recopilación de datos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que le ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.
-* [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

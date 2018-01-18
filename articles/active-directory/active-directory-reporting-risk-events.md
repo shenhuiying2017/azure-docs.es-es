@@ -4,21 +4,21 @@ description: "En este tema se explica detalladamente qué son los eventos de rie
 services: active-directory
 keywords: azure active directory identity protection, seguridad, riesgo, nivel de riesgo, vulnerabilidad, directiva de seguridad
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
@@ -31,9 +31,13 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 - [Viaje imposible a ubicaciones inusuales](#impossible-travel-to-atypical-locations) 
 - [Inicios de sesión desde dispositivos infectados](#sign-ins-from-infected-devices) 
 - [Inicios de sesión desde direcciones IP con actividad sospechosa](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) (exclusivo de las ediciones **Azure Active Directory Premium P2**)
+- [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) 
+
 
 ![Evento de riesgo](./media/active-directory-reporting-risk-events/91.png)
+
+La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. Con la edición de Azure AD Premium P2, obtiene la información más detallada acerca de todas las detecciones subyacentes. Con la edición de Azure AD Premium P1, las detecciones que no están cubiertas por su licencia aparecen como el evento de riesgo **Inicio de sesión con riesgo adicional detectado**.
+
 
 En este tema se ofrece información general detallada de los eventos de riesgo y cómo puede usarlos para proteger las identidades de Azure AD.
 
@@ -137,7 +141,7 @@ Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar s
 Un viaje imposible suele ser un buen indicador de que un hacker logró iniciar sesión correctamente. Sin embargo, pueden producirse falsos positivos cuando un usuario viaja con un nuevo dispositivo o usa una VPN que normalmente no utilizan otros usuarios de la organización. Otra fuente de falsos positivos son las aplicaciones que pasan incorrectamente direcciones IP del servidor como IP de cliente, lo que puede dar la impresión de que los inicios de sesión tienen lugar desde el centro de datos en el que está hospedado el back-end de esa aplicación (a menudo son centros de datos de Microsoft, por lo que parece que los inicios de sesión tienen lugar en direcciones IP propiedad de Microsoft). Como resultado de estos falsos positivos, el nivel de riesgo de estos eventos de riesgo es **Medio**.
 
 > [!TIP]
-> Puede reducir la cantidad de falsos positivos informados para este tipo de evento de riesgo si configura [ubicaciones con nombre](active-directory-named-locations.md). 
+> Puede reducir la cantidad de falsos positivos notificados para este tipo de evento de riesgo si configura [ubicaciones con nombre](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Inicio de sesión desde ubicaciones desconocidas
 
@@ -158,7 +162,7 @@ Se recomienda ponerse en contacto con el usuario para comprobar si realmente ini
 
 
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Los eventos de riesgo son la base para proteger las identidades de Azure AD. Azure AD actualmente puede detectar seis eventos de riesgo: 
 

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -51,7 +51,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 6. Proporcione un **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción proporciona detalles sobre cómo esta asignación de directiva garantiza que todos los servidores SQL Server creados en este entorno tengan la versión 12.0.
 7. Cambie el plan de tarifa a **Standard** (Estándar) para asegurarse de que la directiva se aplique a los recursos existentes.
 
-   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página sobre [precios de Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página sobre [precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Seleccione una opción en **Scope** (Ámbito): la suscripción o el grupo de recursos que registró anteriormente. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 
@@ -73,12 +73,12 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
    - El nombre de la definición de directiva: *Require VM SKUs smaller than the G series* (Requerir SKU de máquina virtual inferiores a la serie G)
    - La descripción de para qué está diseñada la definición de directiva: esta definición de directiva exige que todas las máquinas virtuales creadas en este ámbito tengan SKU inferiores a la serie G para reducir el costo.
    - La suscripción en la que residirá la definición de directiva: en este caso, la definición de directiva residirá en **Advisor Analytics Capacity Dev**. Su lista de suscripción variará.
-   - Escriba el código de json con:
+   - Copie el siguiente código json y, a continuación, actualícelo según sus necesidades con:
       - Los parámetros de directiva.
       - Las reglas/condiciones de la directiva, en este caso: tamaño de SKU de máquina virtual igual a la serie G
       - El efecto de la directiva, en este caso: **Deny** (Denegar).
 
-    Este es el aspecto que debe tener el json
+    Este es el aspecto que debería tener el json. Pegue el código revisado en Azure Portal.
 
     ```json
 {
@@ -390,7 +390,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 2. Busque la nueva iniciativa o definición de directiva (o asignación) recién creada.
 3. Seleccione los puntos suspensivos al final de la definición o la asignación y seleccione **Delete Definition** (Eliminar definición) o **Delete Assignment** (Eliminar asignación).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha realizado satisfactoriamente lo siguiente:
 

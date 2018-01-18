@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 66e002b092e02f92a33c6e498b176331ebdc190f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problemas al instalar la extensión de explorador del Panel de acceso
 
@@ -32,14 +32,13 @@ El Panel de acceso requiere un explorador compatible con JavaScript y que tenga 
 
 Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
 
--   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
-
 -   Edge en Windows 10 Anniversary Edition o posterior 
 
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
 -   Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
+-   Internet Explorer 8, 9, 10, 11 en Windows 7 o posterior (compatibilidad limitada)
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
 Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
@@ -64,6 +63,31 @@ También puede descargar la extensión para Chrome y Edge desde los siguientes v
 
 -   [Extensión del Panel de acceso para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>¿Cómo uso Extensión de inicio de sesión seguro de mis aplicaciones?
+Cambie la dirección URL predeterminada de Mis aplicaciones para la extensión
+
+Si está utilizando una dirección URL de Mis aplicaciones diferente de https://myapps.microsoft.com, debe seguir estos pasos para configurar la dirección URL predeterminada:
+1. Sin iniciar sesión en la extensión, **haga clic con el botón derecho** en el icono de la extensión.
+2. Haga clic en **Select My Apps URL**  (Seleccionar dirección URL de Mis aplicaciones) en el menú.
+3. **Seleccione** la dirección URL predeterminada.
+4. Haga clic en el icono de la extensión.
+5. Inicie sesión en la extensión seleccionando **Iniciar sesión para comenzar**.
+
+Iniciar sesión directamente en una aplicación desde el explorador
+1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para empezar**.
+2. Vaya a la **dirección URL de inicio de sesión** de la aplicación en la que desea iniciar sesión; suele ser la dirección URL de la aplicación que muestra el formulario de inicio de sesión.
+3. La extensión debe cambiar el estado y le permite saber que hay una contraseña disponible; haga clic en el **icono de extensión** para iniciar sesión.
+
+Iniciar una aplicación desde la extensión
+1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para empezar**.
+2. Haga clic en el icono de extensión para abrir su **menú**.
+3. **Busque** una aplicación disponible en el portal Mis aplicaciones.
+4. Haga clic en la aplicación desde los **resultados de la búsqueda** para iniciarla.
+5. Las tres últimas aplicaciones iniciadas también se mostrarán en la lista de accesos directos **Usados recientemente**.
+
+> [!NOTE]
+> Estas opciones solo están disponibles para Edge, Chrome y Firefox.
+
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
 
 Puede configurar una directiva de grupo que le permita instalar de forma remota la extensión del Panel de acceso para Internet Explorer en las máquinas de los usuarios.
@@ -76,9 +100,12 @@ Los requisitos previos son:
 
 Siga el tutorial [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md) para obtener instrucciones paso a paso sobre cómo configurar la directiva de grupo e implementarla en los usuarios.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solución de problemas del Panel de acceso en Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Solución de problemas de la extensión Panel de acceso en Internet Explorer
 
 Siga la guía de [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) para acceder a la herramienta de diagnóstico, junto con instrucciones paso a paso sobre cómo configurar la extensión para IE.
+
+> [!NOTE]
+> Internet Explorer se encuentra en un periodo de compatibilidad limitada y ya no recibe las nuevas actualizaciones de software. Edge es el explorador recomendado.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Si después de seguir estos pasos el problema no se ha resuelto,
 
@@ -96,5 +123,5 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 -   Seguimientos de Fiddler
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)

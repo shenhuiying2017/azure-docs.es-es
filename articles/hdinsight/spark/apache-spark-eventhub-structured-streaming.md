@@ -4,7 +4,7 @@ description: "Compile un ejemplo de streaming de Apache Spark sobre cómo enviar
 keywords: apache spark streaming de, streaming de spark, ejemplo de spark, ejemplo de streaming de apache spark, ejemplo de azure event hub, ejemplo de spark
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Apache Spark Structured Streaming en HDInsight para procesar eventos desde Event Hubs
 
@@ -31,13 +31,13 @@ En este artículo, aprenderá a procesar telemetría en tiempo real mediante Spa
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
 * Un espacio de nombres de Azure Event Hubs. Consulte [Creación de un espacio de nombres de Azure Event Hubs](apache-spark-eventhub-streaming.md#create-an-azure-event-hub) para más información.
 
-* Kit de desarrollo de Oracle Java. Puede instalarlo desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de desarrollo de Oracle Java. Se puede instalar desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 * Apache Maven. Puede descargarla [aquí](https://maven.apache.org/download.cgi). Las instrucciones para instalar Maven están disponibles [aquí](https://maven.apache.org/install.html).
 
@@ -84,7 +84,7 @@ Llegados a este punto, el clúster de HDInsight debería estar listo. Si no es a
 
 5. La aplicación que va a compilar requiere el paquete Spark Streaming Event Hubs. Para ejecutar el shell de Spark para que recupere automáticamente esta dependencia de [Maven Central](https://search.maven.org), asegúrese de proporcionar el modificador packages con las coordenadas de Maven como se indica a continuación:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Una vez que el shell de Spark finalice la carga, debe ver lo siguiente:
 
@@ -92,10 +92,10 @@ Llegados a este punto, el clúster de HDInsight debería estar listo. Si no es a
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ Llegados a este punto, el clúster de HDInsight debería estar listo. Si no es a
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Si observa que el punto de conexión compatible con EventHub tiene el formato siguiente, la parte que pone `iothub-xxxxxxxxxx` es el nombre del espacio de nombres compatible con EventHub, y puede usarse para `eventhubs.namespace`. El campo `SharedAccessKeyName` puede usarse para `eventhubs.policyname`, y `SharedAccessKey` para `eventhubs.policykey`: 
 
-8. Pegue el fragmento de código modificado en el símbolo del sistema de scala> y pulse Entrar. Debería mostrarse una salida similar a esta:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Pegue el fragmento de código modificado en el símbolo del sistema de scala> y pulse Entrar. Debería mostrarse una salida similar a esta:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ Llegados a este punto, el clúster de HDInsight debería estar listo. Si no es a
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. A continuación, empiece a crear una consulta de Spark Structured Streaming y especifique el origen de la consulta. Pegue lo siguiente en el shell de Spark y pulse Entrar.
+10. A continuación, empiece a crear una consulta de Spark Structured Streaming y especifique el origen de la consulta. Pegue lo siguiente en el shell de Spark y pulse Entrar.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. Debería mostrarse una salida similar a esta:
+11. Debería mostrarse una salida similar a esta:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. A continuación, cree la consulta de forma que escriba su salida en la consola. Para ello, pegue lo siguiente en el shell de Spark y pulse Entrar.
+12. A continuación, cree la consulta de forma que escriba su salida en la consola. Para ello, pegue lo siguiente en el shell de Spark y pulse Entrar.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Debería observar que algunos lotes comienzan con un resultado similar al siguiente
+13. Debería observar que algunos lotes comienzan con un resultado similar al siguiente
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. Esto va seguido de los resultados de salida del procesamiento de cada microlote de eventos. 
+14. Esto va seguido de los resultados de salida del procesamiento de cada microlote de eventos. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ Llegados a este punto, el clúster de HDInsight debería estar listo. Si no es a
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. Cuando lleguen nuevos eventos del productor de eventos, se procesarán mediante esta consulta de Structured Streaming.
-15. Asegúrese de eliminar el clúster de HDInsight cuando haya terminado de ejecutar este ejemplo.
+15. Cuando lleguen nuevos eventos del productor de eventos, se procesarán mediante esta consulta de Structured Streaming.
+16. Asegúrese de eliminar el clúster de HDInsight cuando haya terminado de ejecutar este ejemplo.
 
 
 

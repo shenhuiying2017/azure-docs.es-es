@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure Machine Learning Studio
 La **hoja de referencia rápida de algoritmos de Microsoft Azure Machine Learning** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
@@ -53,7 +53,7 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learn
 
 * Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son reglas generales aproximadas. Algunas se pueden ignorar y otras se pueden infringir de forma fragante. Su finalidad es sugerir un punto de partida. No tema ejecutar una competición directa entre varios algoritmos en sus datos. Realmente no hay sustituto para comprender los principios de cada algoritmo y el sistema que generó los datos.
 
-* Cada algoritmo de aprendizaje automático tiene su propio estilo o *sesgo inductivo*. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Cada algoritmo de aprendizaje automático tiene su propio estilo o *sesgo inductivo*. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. Este es un ejemplo de la [Galería de Azure AI](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Comparación de clasificadores multiclase: reconocimiento de letras).
 
 * Existen tres categorías principales de aprendizaje automático: **aprendizaje supervisado**, **aprendizaje sin supervisar** y **aprendizaje de refuerzo**.
 

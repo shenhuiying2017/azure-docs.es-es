@@ -1,6 +1,6 @@
 ---
-title: "Corrección de vulnerabilidades del SO en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo."
+title: "Corrección de configuraciones de seguridad en Azure Security Center | Microsoft Docs"
+description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center **Corregir las configuraciones de seguridad**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corrección de vulnerabilidades del SO en Azure Security Center
-Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Azure Security Center recomienda que solucione las vulnerabilidades cuando la configuración del SO de la máquina virtual no coincida con las reglas de configuración recomendadas y recomienda la realización de cambios en la configuración para hacer frente a estas vulnerabilidades.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
+Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda que resuelva las vulnerabilidades cuando la configuración del SO no coincida con las reglas de configuración de seguridad recomendadas y recomienda la realización de cambios en la configuración para hacer frente a estas vulnerabilidades.
 
-> [!NOTE]
-> Para obtener más información sobre las configuraciones específicas que se están supervisando, [consulte la lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Para obtener más información sobre las configuraciones específicas que se están supervisando, [consulte la lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Para saber cómo personalizar las evaluaciones de configuración de seguridad, consulte [Customizing OS Security Configurations](security-center-customize-os-security-config.md) (Personalización de las configuraciones de seguridad del sistema operativo en Security Center).
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
-La corrección de vulnerabilidades del sistema operativo se presenta como una recomendación en Security Center. Esta recomendación se muestra en **Recomendaciones** y en **Proceso**.
+La corrección de los errores de coincidencia de las configuraciones de seguridad se presenta como una recomendación en Security Center. Esta recomendación se muestra en **Recomendaciones** y en **Proceso**.
 
-En este ejemplo, se examinará la recomendación **Corrección de vulnerabilidades del SO (de Microsoft)** en **Proceso**.
+En este ejemplo, se examinará la recomendación **Remediate security configurations** (Corregir las configuraciones de seguridad) que hay en **Compute**.
 1. Seleccione **Proceso** en el menú principal de Security Center.
 
-   ![Corrección de vulnerabilidades del SO][1]
+   ![Corrección de configuraciones de seguridad][1]
 
-2. En **Proceso**, seleccione **Corregir las vulnerabilidades del sistema operativo (por Microsoft)**. Se abre el panel **Error de coincidencia debido a vulnerabilidades del SO (de Microsoft)**.
+2. En **Compute**, seleccione **Remediate security configurations** (Corregir las configuraciones de seguridad). Se abre la página **Configuraciones de seguridad**.
 
-   ![Corrección de vulnerabilidades del SO][2]
+   ![Configuraciones de seguridad][2]
 
   En la parte superior del panel se muestra lo siguiente:
 
@@ -77,11 +74,11 @@ En este ejemplo, se examinará la recomendación **Corrección de vulnerabilidad
   - VALOR REAL: valor devuelto después de analizar la configuración del sistema operativo de la máquina virtual comparándola con la regla.
   - FUNCIONAMIENTO DE LA REGLA: cómo utiliza Azure Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual comparándola con la regla.
 
-4. Seleccione el icono **Buscar** de la cinta de opciones superior. La búsqueda de registros abre la lista de áreas de trabajo que contienen máquinas virtuales y equipos con la vulnerabilidad del sistema operativo seleccionada. Esta hoja de selección del área de trabajo solo aparece si la regla seleccionada se aplica a varias máquinas virtuales que están conectadas a diferentes áreas de trabajo.
+4. Seleccione el icono **Buscar** de la cinta de opciones superior. La búsqueda se abre con una lista de áreas de trabajo que contienen máquinas virtuales y equipos con el error de coincidencia de configuraciones de seguridad. Esta hoja de selección del área de trabajo solo aparece si la regla seleccionada se aplica a varias máquinas virtuales que están conectadas a diferentes áreas de trabajo.
 
   ![Lista de áreas de trabajo][4]
 
-5. Seleccione un área de trabajo. Una consulta de búsqueda de Log Analytics se abre mostrando las áreas de trabajo filtradas con la vulnerabilidad del sistema operativo.
+5. Seleccione un área de trabajo. Se abre una consulta de búsqueda de Log Analytics filtrada con el área de trabajo con el error de coincidencia de las configuraciones de seguridad.
 
   ![Área de trabajo con una vulnerabilidad del sistema operativo][5]
 
@@ -89,8 +86,10 @@ En este ejemplo, se examinará la recomendación **Corrección de vulnerabilidad
 
   ![Información filtrada para ese equipo][6]
 
-## <a name="next-steps"></a>Pasos siguientes
-En este artículo se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo. Puede revisar el conjunto de reglas de configuración [aquí](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/cce/index.cfm) para obtener más información.
+## <a name="next-steps"></a>pasos siguientes
+En este artículo se muestra cómo implementar la recomendación de Security Center de corregir las configuraciones de seguridad. Para saber cómo personalizar las evaluaciones de configuración de seguridad, consulte [Customizing OS Security Configurations](security-center-customize-os-security-config.md) (Personalización de las configuraciones de seguridad del sistema operativo en Security Center).
+
+Puede revisar el conjunto de reglas de configuración [aquí](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/cce/index.cfm) para obtener más información.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

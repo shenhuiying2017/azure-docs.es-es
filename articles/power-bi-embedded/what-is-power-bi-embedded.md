@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es Microsoft Power BI Embedded? | Microsoft Docs"
+title: "Información sobre Azure Power BI Embedded | Microsoft Docs"
 description: "Power BI Embedded se ha diseñado para simplificar la forma en que los ISV y desarrolladores usan las funcionalidades de Power BI, que los ayudan a agregar rápidamente sorprendentes objetos visuales, informes y paneles a sus aplicaciones."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Qué es Power BI Embedded
+# <a name="about-power-bi-embedded"></a>Información sobre Azure Power BI Embedded
 
 Power BI Embedded se ha diseñado para simplificar la forma en que los ISV y desarrolladores usan las funcionalidades de Power BI. Además, simplifica estas funcionalidades, ya que los ayudan a agregar rápidamente sorprendentes objetos visuales, informes y paneles a sus aplicaciones. De forma similar a las aplicaciones basadas en Microsoft Azure, utilizan servicios como Machine Learning e IoT. Gracias a la exploración de datos sencilla en sus aplicaciones, los ISV permiten que sus clientes tomen decisiones en contexto rápidas y fundamentadas.
 
@@ -52,7 +52,7 @@ Gracias a la API de REST, Power BI Embedded permite desarrollar en cualquier len
 * [Ideas de Power BI](https://ideas.powerbi.com): solicite y vote características.
 * [Reddit](https://www.reddit.com/r/PowerBI/): debata sobre Power BI.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte la [página de precios](https://azure.microsoft.com/pricing/details/power-bi-embedded/) para obtener información de los nodos de capacidad.
 

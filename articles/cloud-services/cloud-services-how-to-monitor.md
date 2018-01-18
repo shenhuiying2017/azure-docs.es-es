@@ -1,178 +1,98 @@
 ---
-title: "Supervisión de un servicio en la nube | Microsoft Docs"
-description: "Vea cómo supervisar servicios en la nube usando el Portal de Azure clásico."
+title: "Supervisión de un servicio en la nube de Azure | Microsoft Docs"
+description: "Se describe qué conlleva la supervisión de un servicio en la nube de Azure y cuáles son algunas de las opciones."
 services: cloud-services
 documentationcenter: 
 author: thraka
 manager: timlt
 editor: 
-ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
+ms.assetid: 
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2015
+ms.date: 12/22/2017
 ms.author: adegeo
-ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="how-to-monitor-cloud-services"></a>Supervisión de servicios en la nube
-[!INCLUDE [disclaimer](../../includes/disclaimer.md)]
+# <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
-Puede supervisar las métricas de rendimiento `key` de sus servicios en la nube en el Portal de Azure clásico. También es posible configurar el nivel de supervisión a mínimo o detallado para cada rol del servicio, así como personalizar la visualización de la supervisión. Los datos de la supervisión detallada se almacenan en una cuenta de almacenamiento, a la que puede obtener acceso fuera del portal. 
+Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión `Microsoft.Azure.Diagnostics` aplicada a un rol, este último puede recopilar puntos de datos adicionales. En este artículo se ofrece una introducción a Azure Diagnostics para Cloud Services.
 
-En el Portal de Azure clásico, puede configurar muchos parámetros de las visualizaciones de la supervisión. Puede elegir las métricas que desee supervisar en la lista de métricas, en la página **Supervisión**, así como las métricas que desea mostrar en los gráficos de métricas de la página **Supervisión** y del panel. 
+Con la supervisión básica, los datos del contador de rendimiento de las instancias de rol se muestrean y recopilan en intervalos de tres minutos. Los datos de la supervisión básica no se almacenan en la cuenta de almacenamiento y, por tanto, no tienen ningún costo adicional asociado.
 
-## <a name="concepts"></a>Conceptos
-De forma predeterminada, para un servicio en la nube nuevo, se proporciona la supervisión mínima con contadores de rendimiento recopilados del sistema operativo host para las instancias de los roles (máquinas virtuales). Las métricas mínimas se limitan a porcentaje de CPU, datos de entrada, datos de salida, rendimiento de lectura de disco y rendimiento de escritura de disco. Al configurar la supervisión detallada, puede recibir métricas adicionales en función de los datos de rendimiento de las máquinas virtuales (instancias de rol). Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones.
+Con la supervisión avanzada, las métricas adicionales se muestrean y recopilan en intervalos de cinco minutos, una hora y doce horas. Los datos agregados se almacenan en una cuenta de almacenamiento, en tablas, y se purgan después de diez días. La cuenta de almacenamiento utilizada se configura en función del rol; puede usar diferentes cuentas de almacenamiento para distintos roles. La configuración se realiza con una cadena de conexión en los archivos [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) y [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg).
 
-De forma predeterminada, los datos del contador de rendimiento de las instancias de los roles se muestrean y transfieren desde la instancia de rol en intervalos de 3 minutos. Al activar la supervisión detallada, los datos del contador de rendimiento se agregan para cada instancia de rol y entre las instancias de rol de cada rol en intervalos de 5 minutos, 1 hora y 12 horas. Los datos agregados se eliminan después de 10 días.
 
-Después de activar la supervisión detallada, los datos de supervisión agregados se almacenan en tablas en su cuenta de almacenamiento. Para activar la supervisión detallada de un rol, debe configurar una cadena de conexión de diagnósticos que lo vincule a la cuenta de almacenamiento. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes.
+## <a name="basic-monitoring"></a>Supervisión básica
 
-La habilitación de la supervisión detallada aumentará los costos de almacenamiento relacionados con el almacenamiento de datos, la transferencia de datos y las transacciones de almacenamiento. La supervisión mínima no requiere una cuenta de almacenamiento. Los datos de las métricas que se exponen a un nivel mínimo de supervisión no se almacenan en su cuenta de almacenamiento, incluso si configura la supervisión en un nivel detallado.
+Como se mencionó en la introducción, un servicio en la nube recopila automáticamente los datos de la supervisión básica de la máquina virtual del host. Estos datos incluyen el porcentaje de CPU, la entrada y salida de red y la escritura/lectura de disco. Los datos de supervisión recopilados se muestran automáticamente en las páginas de información general y métricas del servicio en la nube, en Azure Portal. 
 
-## <a name="how-to-configure-monitoring-for-cloud-services"></a>Configuración de la supervisión para los servicios en la nube
-Use los siguientes procedimientos para configurar la supervisión detallada o mínima en el Portal de Azure clásico. 
+La supervisión básica no requiere una cuenta de almacenamiento. 
 
-### <a name="before-you-begin"></a>Antes de empezar
-* Cree una cuenta de almacenamiento *clásico* para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para servicios en la nube](cloud-services-dotnet-diagnostics.md).
+![Iconos de supervisión básica de un servicio en la nube](media/cloud-services-how-to-monitor/basic-tiles.png)
 
-Asegúrese de que la cadena de conexión de diagnóstico está presente en la configuración de roles. No puede activar la supervisión detallada hasta que habilite Diagnósticos de Azure e incluya una cadena de conexión de diagnóstico en la configuración de roles.   
+## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-> [!NOTE]
-> Los proyectos destinados a Azure SDK 2.5 no incluían automáticamente la cadena de conexión de diagnóstico en la plantilla de proyecto. Para estos proyectos, deberá agregar manualmente la cadena de conexión de diagnóstico a la configuración de roles.
-> 
-> 
+La supervisión avanzada conlleva el uso de la extensión de Azure Diagnostics y, de forma opcional, del SDK de Application Insights en el rol que se desea supervisar. La extensión de Diagnostics usa un archivo de configuración (por rol) denominado **diagnostics.wadcfgx** para configurar las métricas de diagnóstico supervisadas. Los datos que la extensión de Azure Diagnostics recopila se almacenan en una cuenta de almacenamiento de Azure, que se configura en los archivos **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) y [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Esto significa que existe un costo adicional asociado con la supervisión avanzada.
 
-**Para agregar manualmente la cadena de conexión de diagnóstico a la configuración de roles**
+A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Diagnostics. Esta extensión puede recopilar los siguientes tipos de información:
 
-1. Abra el proyecto Servicio en la nube en Visual Studio.
-2. Haga doble clic en el **rol** para abrir el diseñador de roles y seleccione la pestaña **Configuración**.
-3. Busque un ajuste llamado **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
-4. Si esta ajuste no está presente, haga clic en el botón **Agregar ajuste** para agregarlo a la configuración y cambie el tipo del ajuste nuevo a **ConnectionString**
-5. Establezca el valor de la cadena de conexión haciendo clic en el botón **...** . Se abrirá un cuadro de diálogo en el que podrá seleccionar una cuenta de almacenamiento.
-   
-    ![Configuración de Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
+* Contadores de rendimiento personalizados
+* Registros de aplicación
+* Registros de eventos de Windows
+* Origen de eventos de .NET
+* Registros IIS
+* ETW basado en manifiesto
+* Volcados de memoria
+* Registros de errores personalizados
 
-### <a name="to-change-the-monitoring-level-to-verbose-or-minimal"></a>Para cambiar el nivel de supervisión a detallado o mínimo
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), abra la página **Configurar** de la implementación del servicio en la nube.
-2. En **Nivel**, haga clic en **Detallado** o **Mínimo**. 
-3. Haga clic en **Guardar**.
+Aunque todos estos datos se agregan a la cuenta de almacenamiento, el portal no ofrece una forma nativa de crear gráficos de los datos. Puede usar otro servicio, como Application Insights, para correlacionar y mostrar los datos.
 
-Después de activar la supervisión detallada, debería empezar a ver los datos de supervisión en el Portal de Azure clásico en menos de una hora.
+### <a name="use-application-insights"></a>Uso de Application Insights
 
-Los datos del contador de rendimiento y los datos de supervisión agregados se almacenan en la cuenta de almacenamiento, en tablas, en función del identificador de implementación de los roles. 
+Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción de enviar datos de diagnóstico a Application Insights. Puede crear el recurso de Application Insights en cualquier momento o enviar los datos a un recursos existente. Application Insights puede supervisar la disponibilidad, el rendimiento, los errores y el uso del servicio en la nube. Se pueden agregar gráficos personalizados a Application Insights, para poder ver los datos que más interesan. Los datos de instancias de rol pueden recopilarse con el SDK de Application Insights en el proyecto del servicio en la nube. Para más información sobre cómo integrar Application Insights, vea [Application Insights para Azure Cloud Services](../application-insights/app-insights-cloudservices.md).
 
-## <a name="how-to-receive-alerts-for-cloud-service-metrics"></a>Recepción de alertas de métricas de servicios en la nube
-Puede recibir alertas basadas en las métricas de supervisión de los servicios en la nube. En la página de **Servicios de administración** del Portal de Azure clásico, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento y otra configuración especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
 
-## <a name="how-to-add-metrics-to-the-metrics-table"></a>Adición de métricas a la tabla de métricas
-1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), abra la página **Supervisión** del servicio en la nube.
-   
-    La tabla de métricas muestra de forma predeterminada un subconjunto de las métricas disponibles. La ilustración muestra las métricas detalladas predeterminadas de un servicio en la nube, que están limitadas al contador de rendimiento Memoria/MBytes disponibles, con datos agregados en el nivel del rol. Use **Agregar métricas** para seleccionar las métricas agregadas y de nivel del rol adicionales que quiera supervisar en el Portal de Azure clásico.
-   
-    ![Visualización detallada](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
-2. Para agregar métricas a la tabla de métricas:
-   
-   1. Haga clic en **Agregar métricas** para abrir **Elegir métricas**, como se muestra a continuación.
-      
-       La primera métrica disponible se expande para mostrar las opciones que están disponibles. En cada métrica, la opción superior muestra los datos de supervisión agregados de todos los roles. Además, puede elegir los roles individuales de los que desee visualizar los datos.
-      
-       ![Agregar métricas](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
-   2. Para seleccionar las métricas que desea visualizar
-      
-      * Haga clic en la flecha abajo sobre la métrica para expandir las opciones de supervisión.
-      * Active la casilla de verificación de cada opción de supervisión que desee visualizar.
-        
-        Puede visualizar hasta 50 métricas en la tabla de métricas.
-        
-        > [!TIP]
-        > En la supervisión detallada, la lista de métricas puede contener muchas métricas. Para mostrar una barra de desplazamiento, desplace el mouse sobre el lado derecho del cuadro de diálogo. Para filtrar la lista, haga clic en el icono de búsqueda y escriba en texto en el cuadro de búsqueda como se muestra a continuación.
-        > 
-        > 
-        
-        ![Búsqueda de Agregar métricas](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
-3. Después de haber seleccionado las métricas, haga clic en la marca de verificación.
-   
-    Las métricas seleccionadas se agregan a la tabla de métricas como se muestra a continuación.
-   
-    ![supervisar métricas](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
-4. Para eliminar una métrica de la tabla de métricas, haga clic en la métrica para seleccionarla y, a continuación, haga clic en **Eliminar métrica**. ( **Eliminar métrica** solo se verá si se ha seleccionado una métrica).
 
-### <a name="to-add-custom-metrics-to-the-metrics-table"></a>Para agregar métricas personalizadas a la tabla de métricas
-El nivel de supervisión **Detallado** proporciona una lista de métricas predeterminadas que se pueden supervisar en el portal. Además de estas puede supervisar cualquier métrica personalizada o contador de rendimiento que haya definido la aplicación a través del portal.
+## <a name="add-advanced-monitoring"></a>Adición de la supervisión avanzada
 
-En los siguientes pasos se asume que ha activado el nivel de supervisión **Detallado** y que ha configurado la aplicación para que recopile y transfiera los contadores de rendimiento personalizados. 
+En primer lugar, si aún no tiene una cuenta de almacenamiento **clásica**, [cree una](../storage/common/storage-create-storage-account.md#create-a-storage-account). Asegúrese de que la cuenta de almacenamiento se crea con el **modelo de implementación clásica** especificado.
 
-Para mostrar los contadores de rendimiento personalizados en el portal, es preciso actualizar la configuración de wad-control-container:
+Después, vaya al recurso **Cuenta de almacenamiento (clásico)**. Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
 
-1. Abra el blob wad-control-container en una cuenta de almacenamiento de diagnósticos. Para ello, se pueden utilizar Visual Studio o cualquier otro explorador de almacenamiento.
-   
-    ![Explorador de servidores de Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
-2. Navegue por la ruta de acceso del blob usando el patrón **RoleName/DeploymentId y RoleInstance** para encontrar la configuración de la instancia de rol. 
-   
-    ![Explorador de almacenamiento de Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Descargue el archivo de configuración de la instancia de rol y actualícelo para que incluya cualquier contador de rendimiento personalizado. Por ejemplo para supervisar *Bytes de escritura en disco/s* para la *unidad C* agregue lo siguiente en el nodo **PerformanceCounters\Subscriptions**
-   
-    ```xml
-    <PerformanceCounterConfiguration>
-    <CounterSpecifier>\LogicalDisk(C:)\Disk Write Bytes/sec</CounterSpecifier>
-    <SampleRateInSeconds>180</SampleRateInSeconds>
-    </PerformanceCounterConfiguration>
-    ```
-4. Guarde los cambios y vuelva a cargar el archivo de configuración en la misma ubicación, sobrescribiendo el archivo existente en el blob.
-5. Alterne al modo Detallado de la configuración del Portal de Azure clásico. Si ya estaba en dicho modo, tendrá que alternar a Mínimo y volver a Detallado.
-6. El contador de rendimiento personalizado estará disponible en el cuadro de diálogo **Agregar métricas** . 
+Debe modificar dos archivos de configuración para habilitar el diagnóstico avanzado, **ServiceDefinition.csdef** y **ServiceConfiguration.cscfg**. Lo más probable es que tenga dos archivos de configuración **.cscfg**, uno denominado **ServiceConfiguration.cloud.cscfg**, para implementar en Azure, y otro llamado **ServiceConfiguration.local.cscfg**, que se usa para las implementaciones de depuración locales. Modifique los dos.
 
-## <a name="how-to-customize-the-metrics-chart"></a>Personalización del gráfico de métricas
-1. En la tabla de métricas, seleccione las métricas que desee mostrar en el gráfico de métricas (un máximo de 6). Para seleccionar una métrica, haga clic en la casilla de verificación del lado izquierdo. Para quitar una métrica del gráfico de métricas, desmarque la casilla de verificación en la tabla de métricas.
-   
-    A medida que seleccione métricas en la tabla de métricas, estas se agregarán al gráfico de métricas. En un modo de visualización reducido, una lista desplegable **n más** contiene los encabezados de las métricas que no caben en la pantalla.
-2. Para alternar entre los valores relativos de visualización (solo el valor final de cada métrica) y los valores absolutos (se muestra el eje Y), seleccione Relative o Absolute en la parte superior del gráfico.
-   
-    ![Relative o Absolute](./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
-3. Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, seleccione 1 hora, 24 horas o 7 días en la parte superior del gráfico.
-   
-    ![Periodo de la pantalla de supervisión](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
-   
-    En el panel del gráfico de métricas, el método de visualización de métricas es diferente. Hay un conjunto de métricas estándar disponible, y las métricas se agregan o se borran seleccionando el encabezado de la métrica.
+En el archivo **ServiceDefinition.csdef**, agregue una configuración nueva llamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada rol que usa el diagnóstico avanzado. Visual Studio agrega este valor al archivo al crear un proyecto. Si no existe, puede agregarlo ahora. 
 
-### <a name="to-customize-the-metrics-chart-on-the-dashboard"></a>Para personalizar el gráfico de métricas en el panel
-1. Abra el panel del servicio en la nube.
-2. Agregue o borre las métricas del gráfico:
-   
-   * Para mostrar una nueva métrica, active la casilla de verificación de la métrica en los encabezados del gráfico. En un modo de visualización reducido, haga clic en la flecha abajo junto a ***n*??metrics** para mostrar una métrica que el área del encabezado del gráfico no puede mostrar.
-   * Para eliminar una métrica que se muestra en el gráfico, desmarque la casilla de verificación en su encabezado.
-   
-3. Alterne entre las pantallas **Relativo** y **Absoluto**.
-4. Elija 1 hora, 24 horas o 7 días para visualizar los datos correspondientes.
-
-## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>Acceso a los datos de supervisión detallada fuera del Portal de Azure clásico
-Los datos de la supervisión detallada se almacenan en tablas en las cuentas de almacenamiento que ha especificado para cada rol. Para cada implementación de servicios en la nube, se crean seis tablas para el rol. Se crean dos tablas en cada intervalo (5 minutos, 1 hora y 12 horas). Una de estas tablas almacena los agregados a nivel de rol y, la otra, los agregados de las instancias de rol. 
-
-Los nombres de tabla tienen el siguiente formato:
-
-```
-WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
+```xml
+<ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="WorkerRoleWithSBQueue1" vmsize="Small">
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-donde:
+De esta forma se define una configuración nueva que debe agregarse a cada archivo **ServiceConfiguration.cscfg**. Abra y modifique cada archivo **.cscfg**. Agregue una configuración llamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Establezca el valor en la **Cadena de conexión principal** de la cuenta de almacenamiento clásica o en `UseDevelopmentStorage=true`, si desea usar el almacenamiento local en el equipo de desarrollo.
 
-* *deploymentID* es el GUID asignado a la implementación del servicio en la nube
-* *aggregation_interval* = 5M, 1H o 12H
-* agregados a nivel de rol = R
-* agregados de las instancias de rol = RI
+```xml
+<ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WorkerRoleWithSBQueue1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
 
-Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallados agregados en intervalos de 1 hora:
-
+<!-- or use the local development machine for storage
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+-->
 ```
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
-```
+## <a name="next-steps"></a>pasos siguientes
+
+- [Información sobre Application Insights con Cloud Services](../application-insights/app-insights-cloudservices.md)
+

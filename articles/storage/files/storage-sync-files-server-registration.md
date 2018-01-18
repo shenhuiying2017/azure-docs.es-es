@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Administración de servidores registrados con Azure File Sync (versión preliminar)
 Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -94,7 +94,7 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 Hay varios pasos que son necesarios para anular el registro de un servidor del servicio de sincronización de almacenamiento. A continuación se indica cómo anular el registro correctamente de un servidor.
 
 #### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperación de todos los datos con niveles
-Cuando la característica de niveles de nube está habilitada para un punto de conexión de servidor, los archivos se *apilan* a los recursos compartidos de Azure. De esta forma, los recursos compartidos de archivos locales funcionan como una caché, en lugar de como una copia completa del conjunto de datos, para realizar un uso eficiente del espacio del servidor de archivos. Sin embargo, si se quita un punto de conexión de servidor con archivos con niveles que aún se encuentran localmente en el servidor, esos archivos se volverán inaccesibles. Por tanto, si sigue queriendo acceder a los archivos, debe recuperar todos los archivos con niveles de Azure Files antes de continuar con la cancelación del registro. 
+Cuando la característica de niveles de nube está habilitada para un punto de conexión de servidor, los archivos se *apilan* a los recursos compartidos de Azure Files. De esta forma, los recursos compartidos de archivos locales funcionan como una caché, en lugar de como una copia completa del conjunto de datos, para realizar un uso eficiente del espacio del servidor de archivos. Sin embargo, si se quita un punto de conexión de servidor con archivos con niveles que aún se encuentran localmente en el servidor, esos archivos se volverán inaccesibles. Por tanto, si sigue queriendo acceder a los archivos, debe recuperar todos los archivos con niveles de Azure Files antes de continuar con la cancelación del registro. 
 
 Para ello, se puede usar el cmdlet de PowerShell, tal y como se muestra a continuación:
 
@@ -147,9 +147,9 @@ Puesto que Azure File Sync rara vez será el único servicio en ejecución en el
 > Si establece límites demasiado bajos, el rendimiento de la sincronización y la recuperación de Azure File Sync se verá afectado.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Establecimiento de límites de red de Azure File Sync
-Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets 'StorageSyncNetworkLimit'. 
+Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `StorageSyncNetworkLimit`. 
 
-Por ejemplo, puede crear un nuevo límite de red para asegurarse de que Azure File Sync no utilice más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 
+Por ejemplo, puede crear un nuevo límite del regulador de carga de trabajo para asegurarse de que Azure File Sync no utiliza más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

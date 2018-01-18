@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?
 Determinadas aplicaciones sin explorador, como el cliente de correo electrónico nativo de Apple que usa Exchange Active Sync, actualmente no admiten la autenticación multifactor. La autenticación multifactor se habilita por usuario. Esto significa que si un usuario se ha habilitado para la autenticación multifactor y está intentando utilizar aplicaciones sin explorador, no podrá hacerlo. Una contraseña de aplicación permite que pueda hacerlo. Si se exige la aplicación de Multi-Factor Authentication a través de directivas de acceso condicional y no a través de MFA por usuario, no podrá crear contraseñas de aplicación. Las aplicaciones que utilizan directivas de acceso condicional para controlar el acceso no necesitan contraseñas de aplicación.
@@ -55,30 +55,12 @@ Durante el inicio de sesión primero, se proporciona una contraseña de aplicaci
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Administración de contraseñas de aplicación en Azure Portal
 Si utiliza la verificación en dos pasos con Azure, le interesará crear contraseñas de aplicación a través de Azure Portal.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Creación de contraseñas de aplicación en el Portal de Azure
-1. Inicie sesión en el portal clásico de Azure.
-2. En la parte superior, haga clic con el botón derecho en su nombre de usuario y seleccione Comprobación de seguridad adicional.
-3. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
-4. Haga clic en **Crear**.
-5. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**
-6. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
-
-   ![Nube](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para eliminar contraseñas de aplicación en el Portal de Azure
-1. Inicie sesión en el portal clásico de Azure.
-2. En la parte superior, haga clic con el botón derecho en su nombre de usuario y seleccione Comprobación de seguridad adicional.
-3. En la parte superior, al lado de la comprobación de seguridad adicional, seleccione **contraseñas de aplicación.**
-4. Junto a la contraseña de la aplicación que desea eliminar, seleccione **Eliminar**.
-5. Para confirmar la eliminación, haga clic en **Sí**.
-6. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Administración de contraseñas de aplicación con el portal de MyApps.
 Si no está seguro de cómo usar la autenticación multifactor, siempre puede cambiar la configuración mediante el portal de Myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para crear una contraseña de aplicación mediante el portal de Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Creación de una contraseña de aplicación mediante el portal de MyApps
 1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Haga clic en su nombre en la parte superior derecha y elija **Perfil**.
 3. Seleccione **Comprobación de seguridad adicional**.
@@ -87,12 +69,12 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 4. Seleccione **contraseñas de aplicación**.
    ![Seleccionar contraseñas de aplicación: captura de pantalla](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 6. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**.
 7. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
    ![Crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar una contraseña de aplicación mediante el portal de Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Eliminación de una contraseña de aplicación mediante el portal de MyApps
 1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En la parte superior, seleccione el perfil.
 3. Seleccione **Comprobación de seguridad adicional**.
@@ -110,7 +92,7 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 6. Confirme que desea eliminar esa contraseña haciendo clic en **Sí**.
 7. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 

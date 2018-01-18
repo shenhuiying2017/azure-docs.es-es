@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de Data Science Virtual Machine de Windows en Azure
 Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Windows Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
@@ -174,7 +174,7 @@ Para ayudarle a crear paneles y visualizaciones excelentes, se instaló **Power 
 Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se proporciona en el escritorio de  Microsoft Data Science Virtual Machine.  
 
 ## <a name="important-directories-on-the-vm"></a>Directorios importantes en la máquina virtual
-| Elemento | Directorio |
+| item | Directorio |
 | --- | --- |
 | Configuraciones del servidor de notebooks de Jupyter |C:\ProgramData\jupyter |
 | Directorio principal de ejemplos de notebooks de Jupyter |c:\dsvm\notebooks |
@@ -200,5 +200,5 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Vaya a **C:\Archivos de programa\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admiten análisis de datos a escala empresarial.  
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [Proceso de ciencia de los datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visite la [galería de Azure Machine Learning](http://gallery.cortanaintelligence.com) para ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
+* Visite la [Galería de Azure AI](http://gallery.cortanaintelligence.com) para ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
 

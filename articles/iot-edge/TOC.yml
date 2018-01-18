@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Implementación de Azure Functions
       href: tutorial-deploy-function.md
+    - name: Creación de una implementación de IoT Edge mediante la extensión de IoT de la CLI de Azure 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Guías de procedimientos
   items:
     - name: Creación de puertas de enlace

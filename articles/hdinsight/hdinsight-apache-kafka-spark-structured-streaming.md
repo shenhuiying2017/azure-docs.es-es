@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 39734153a757d4665f2a15d3af244d2fab9ad9d7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Uso del flujo estructurado de Spark con Kafka en HDInsight
 
@@ -127,7 +127,7 @@ El código del ejemplo que se describe en este documento está disponible en [ht
 
 Siga estos pasos para cargar los cuadernos del proyecto en el clúster de Spark en HDInsight:
 
-1. En el explorador web, conéctese al cuaderno de Jupyter Notebook en el clúster de Spark. En la siguiente URL, reemplace `CLUSTERNAME` por el nombre del clúster de Kafka:
+1. En el explorador web, conéctese al cuaderno de Jupyter Notebook en el clúster de Spark. En la siguiente URL, reemplace `CLUSTERNAME` por el nombre del clúster de __Spark__:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
@@ -153,7 +153,7 @@ Cuando se hayan cargado los archivos, seleccione la entrada __Stream-Tweets-To_K
 
 En la página principal de Jupyter Notebook, seleccione la entrada __Spark-Structured-Streaming-From-Kafka.ipynb__. Siga los pasos descritos en el cuaderno para cargar tweets de Kafka mediante el flujo estructurado de Spark.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha aprendido a usar el flujo estructurado de Spark, consulte los siguientes documentos para obtener más información sobre cómo trabajar con Spark y Kafka:
 

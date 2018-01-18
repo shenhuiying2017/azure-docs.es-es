@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de Google + como un proveedor de identidades de OAuth2 mediante directivas personalizadas
 
@@ -81,7 +81,7 @@ Para usar Google+ como proveedor de identidades en Azure Active Directory (Azure
 
     ![Google+: Selección del tipo de aplicación](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Especifique un **nombre** para la aplicación, escriba `https://login.microsoftonline.com` en el campo **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Authorized redirect URIs** (URI de redirección autorizados). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). El valor de **{tenant}** distingue mayúsculas de minúsculas. Haga clic en **Crear**.
+13.  Especifique un **nombre** para la aplicación, escriba `https://login.microsoftonline.com` en el campo **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Authorized redirect URIs** (URI de redirección autorizados). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). El valor de **{tenant}** distingue mayúsculas de minúsculas. Haga clic en **Create**(Crear).
 
     ![Google+: Provisión de los orígenes y los URI de redirección autorizados de JavaScript](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
@@ -175,7 +175,7 @@ Se ha configurado el proveedor de identidades.  Sin embargo, no está disponible
 1.  Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
 2.  Busque el elemento `<UserJourneys>` y copie el contenido entero del nodo `<UserJourneys>`.
 3.  Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml) y busque el elemento `<UserJourneys>`. Si el elemento no existe, agréguelo.
-4.  Pegue el contenido entero del nodo `<UserJournesy>` que copió como secundario del elemento `<UserJourneys>`.
+4.  Pegue el contenido entero del nodo `<UserJourney>` que copió como secundario del elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Visualización del botón
 El elemento `<ClaimsProviderSelections>` define la lista de opciones de selección del proveedor de notificaciones y su orden.  El elemento `<ClaimsProviderSelection>` es análogo a un botón de proveedor de identidades de una página de registro o inicio de sesión. Si agrega un elemento `<ClaimsProviderSelection>` para la cuenta de Google+, se muestra un nuevo botón cuando un usuario llega a la página. Para agregar este elemento:
@@ -243,6 +243,14 @@ Puede que también desee agregar el proveedor de identidades de la cuenta de Goo
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Carga de la directiva en el inquilino
+1.  En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra la hoja **Azure AD B2C**.
+2.  Seleccione **Marco de experiencia de identidad**.
+3.  Abra la hoja **Todas las directivas**.
+4.  Seleccione **Cargar directiva**.
+5.  Active la casilla **Sobrescribir la directiva si existe**.
+6.  **Cargue** TrustFrameworkExtensions.xml y asegúrese de que no se produce ningún error en la validación.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Prueba de la directiva de edición de perfil personalizada mediante Ejecutar ahora
 

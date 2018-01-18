@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -53,7 +53,7 @@ La configuración que se puede descargar es solo un ejemplo; modifíquela como c
 ### <a name="prerequisites"></a>Requisitos previos
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
-* **Azure CLI**. [Instale el entorno de CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
+* **CLI de Azure** [Instale el entorno de CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: ejecute `sudo apt-get install wget`.
 * Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
 
@@ -127,13 +127,17 @@ Este conjunto de información de configuración contiene información confidenci
 }
 ```
 
-Nombre | Valor
+NOMBRE | Valor
 ---- | -----
 storageAccountName | Es el nombre de la cuenta de almacenamiento en la que la extensión escribe los datos.
 storageAccountEndPoint | (Opcional) es el punto de conexión que identifica la nube en la que existe la cuenta de almacenamiento. Si no hubiera configuración, LAD selecciona la nube pública de Azure (`https://core.windows.net`) de forma predeterminada. Para usar una cuenta de almacenamiento en Azure Alemania, Azure Government o Azure China, establezca este valor como corresponda.
 storageAccountSasToken | Es un [token de SAS de cuenta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para Blob services y Table services (`ss='bt'`) aplicable a contenedores y objetos (`srt='co'`), que otorga permisos, los crea, los enumera, los actualiza y los escribe (`sp='acluw'`). *No* incluya el signo de interrogación principal (?).
 mdsdHttpProxy | (Opcional) es información del proxy HTTP necesaria para habilitar la extensión para conectarse a la cuenta de almacenamiento y el punto de conexión especificados.
 sinksConfig | (Opcional) es información sobre destinos alternativos a los que pueden enviarse métricas y eventos. La información específica de cada receptor de datos admitido por la extensión se trata en las siguientes secciones.
+
+
+> [!NOTE]
+> Cuando implemente la extensión con una plantilla de implementación de Azure, la cuenta de almacenamiento y el token de SAS se debe crear por anticipado y, luego, pasarlo a la plantilla. No puede implementar una máquina virtual, una cuenta de almacenamiento ni configurar la extensión en una sola plantilla. Actualmente no es posible crear un token de SAS dentro de una plantilla.
 
 Es posible construir el token de SAS necesario de forma muy sencilla mediante Azure Portal.
 
@@ -165,8 +169,8 @@ En esta sección opcional se definen destinos adicionales a los que la extensió
 
 Elemento | Valor
 ------- | -----
-name | Una cadena usada para hacer referencia a este receptor en cualquier otra parte de la configuración de la extensión.
-type | Es el tipo de receptor que se va a definir. Determina los demás valores (si los hubiera) en instancias de este tipo.
+Nombre | Una cadena usada para hacer referencia a este receptor en cualquier otra parte de la configuración de la extensión.
+Tipo | Es el tipo de receptor que se va a definir. Determina los demás valores (si los hubiera) en instancias de este tipo.
 
 La versión 3.0 de la extensión Diagnostics de Linux admite dos tipos de receptores: de EventHub y Json BLOB.
 
@@ -267,7 +271,7 @@ sampleRateInSeconds | (Opcional) es el intervalo predeterminado entre la recopil
 
 Elemento | Valor
 ------- | -----
-resourceId | El identificador de recurso de Azure Resource Manager de la VM o del conjunto de escalado de máquinas virtuales al que pertenezca la VM. Esta configuración también debe especificarse en caso de usar cualquier receptor de Json BLOB en la configuración.
+ResourceId | El identificador de recurso de Azure Resource Manager de la VM o del conjunto de escalado de máquinas virtuales al que pertenezca la VM. Esta configuración también debe especificarse en caso de usar cualquier receptor de Json BLOB en la configuración.
 scheduledTransferPeriod | La frecuencia con la que se computarán métricas agregadas y se transferirán a Métricas de Azure, expresadas en forma de intervalo de tiempo ISO 8601. El período de transferencia mínimo es de 60 segundos, es decir, PT1M. Debe especificar al menos un elemento scheduledTransferPeriod.
 
 Se recopilan muestras de las métricas especificadas en la sección performanceCounters cada 15 segundos o a la frecuencia de muestreo definida para el contador de forma explícita. Si aparecen varias frecuencias de scheduledTransferPeriod (como en el ejemplo), cada agregación se computa de forma independiente.
@@ -308,7 +312,7 @@ Esta sección opcional controla la recopilación de métricas. Se agregan muestr
 Elemento | Valor
 ------- | -----
 sinks | (Opcional) es una lista separada por comas de nombres de receptores a los que LAD envía los resultados de las métricas agregadas. Todas las métricas agregadas se publican en cada receptor indicado. Consulte [sinksConfig](#sinksconfig). Ejemplo: `"EHsink1, myjsonsink"`.
-type | Identifica el proveedor real de la métrica.
+Tipo | Identifica el proveedor real de la métrica.
 class | Junto con "counter", identifica la métrica específica en el espacio de nombres del proveedor.
 counter | Junto con "class", identifica la métrica específica en el espacio de nombres del proveedor.
 counterSpecifier | Identifica la métrica específica en el espacio de nombres de Métricas de Azure.
@@ -699,7 +703,7 @@ Esta instantánea de una sesión del Explorador de Microsoft Azure Storage muest
 
 Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) pertinentes para obtener información sobre cómo consumir mensajes publicados en un punto de conexión de EventHubs.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Cree alertas de métricas de [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para las métricas que recopile.
 * Cree [gráficos de supervisión](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para las métricas.

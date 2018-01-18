@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configuración de la expiración de grupos de Office 365 (versión preliminar)
 
@@ -30,9 +30,7 @@ Ahora puede administrar el ciclo de vida de los grupos de Office 365 establecien
 -   Los propietarios del grupo o el administrador pueden restaurar, dentro de un plazo de 30 días, los grupos de Office 365 que se hayan eliminado
 
 > [!NOTE]
-> Configurar la expiración para los grupos de Office 365 requiere una licencia de Azure AD Premium o una licencia de Azure AD Basic EDU para todos los miembros de los grupos a los que se aplica la configuración de expiración.
-> 
-> Para los clientes con licencia Azure AD Basic EDU: para configurar esta directiva por primera vez, use los cmdlets de PowerShell de Azure Active Directory. Después de eso, puede actualizar los valores de expiración con PowerShell o el portal de Azure AD, con una cuenta que sea un administrador de cuenta de usuario o un administrador global en su inquilino de Azure AD.
+> Configurar la expiración para los grupos de Office 365 requiere una licencia de Azure AD Premium para todos los miembros de los grupos a los que se aplica la configuración de expiración.
 
 Para obtener información acerca de cómo descargar e instalar los cmdlets de PowerShell de Azure AD, consulte [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell para Graph - Versión preliminar pública 2.0.0.137).
 
@@ -73,7 +71,7 @@ Si el grupo que restaura contiene documentos, sitios de SharePoint u otros objet
 >   Por ejemplo, el grupo A se creó hace 400 días y el intervalo de expiración se ha establecido en 180 días. Cuando se aplica la configuración de expiración, el grupo A tiene 30 antes de que se elimine, salvo que el propietario lo renueve.
 > * Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos de Azure AD.
 
 * [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)

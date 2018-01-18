@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
 
@@ -30,9 +30,9 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
-## <a id="whatis"></a> ¿Qué es Ambari?
+## <a id="whatis"></a>¿Qué es Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para crear, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para administrar y supervisar los clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 La interfaz de usuario web de Ambari se proporciona de forma predeterminada con clústeres de HDInsight que usan el sistema operativo Linux.
 
@@ -246,6 +246,6 @@ Las operaciones de Ambari siguientes no son compatibles con HDInsight:
 
 * __Migración del servicio Recopilador de métricas__. Cuando se ve información en el servicio Recopilador de métricas, una de las acciones disponibles en el menú Acciones del servicio es la __migración del recopilador de métricas__. Esto no es compatible con HDInsight.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información sobre cómo usar la [API de REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.

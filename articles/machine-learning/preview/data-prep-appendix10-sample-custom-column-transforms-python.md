@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: e915c936af65bc9cac591d1fc011351b1720bb5b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Ejemplo de transformaciones de columna personalizada (Python) 
 El nombre de esta transformación en el menú es **Add Column (Script)** (Agregar columna [Script]).
@@ -54,6 +54,12 @@ Número de segundos transcurridos desde el tiempo Unix (suponiendo que Col1 ya s
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## <a name="hash-a-column-value-into-a-new-column"></a>Aplicación de un algoritmo hash de un valor de columna en una columna nueva
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

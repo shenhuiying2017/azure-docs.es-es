@@ -3,10 +3,9 @@ title: "Integración de aplicaciones con Azure Active Directory"
 description: "Cómo agregar, actualizar o eliminar una aplicación en Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integración de aplicaciones con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -35,7 +34,7 @@ Para más información sobre los dos objetos de Azure AD que representan una apl
 Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar los detalles de Azure AD sobre la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando un usuario está autenticado, el URI que identifica la aplicación y así sucesivamente.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Para registrar una aplicación nueva mediante Azure Portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
 
@@ -111,10 +110,10 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
 - Permisos delegados: la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador. 
 
   > [!NOTE]
-  > La adición de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino, tal y como se hacía en el portal de Azure clásico. Los usuarios todavía deben consentir manualmente los permisos delegados agregados en tiempo de ejecución, a menos que el administrador haga clic en el botón **Conceder permisos** en la sección **Permisos necesarios** de la página de la aplicación en Azure Portal. 
+  > La adición de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino. Los usuarios todavía deben consentir manualmente los permisos delegados agregados en tiempo de ejecución, a menos que el administrador haga clic en el botón **Conceder permisos** en la sección **Permisos necesarios** de la página de la aplicación en Azure Portal. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para agregar credenciales o permisos para tener acceso a las API web
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar.
 
@@ -124,7 +123,7 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
   - Haga clic en la sección **Claves** en la página **Configuración**.  
   - Agregue una descripción para la clave.
   - Seleccione uno o dos años de duración.
-  - Haga clic en **Guardar**. La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
+  - Haga clic en **Save**(Guardar). La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
 
   ![Actualización del registro de una aplicación: claves](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
 
@@ -154,7 +153,7 @@ En la siguiente sección se muestra cómo exponer ámbitos de acceso modificando
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>Agregar ámbitos de acceso a la aplicación de recursos
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar.
@@ -239,7 +238,7 @@ Si está escribiendo una aplicación que quiere poner a disposición de clientes
 
 Para dar a los usuarios externos acceso a la aplicación: 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación.
 4. En la página **Configuración**, haga clic en **Propiedades** y coloque el conmutador **Multiinquilino** en la posición **Sí**.
@@ -276,7 +275,7 @@ De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilita
 > Para más información sobre cómo editar el manifiesto de aplicación, asegúrese primero de revisar la sección anterior, [Configuración de una aplicación de recursos para exponer las API web](#configuring-a-resource-application-to-expose-web-apis).
 >
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación.
 4. Cambie a la página **Editar manifiesto**, haciendo clic en **Manifiesto** desde la página de registro de la aplicación. Se abre un editor de manifiestos basado en web que le permite **Editar** el manifiesto desde el portal. Busque y establezca el valor de "oauth2AllowImplicitFlow" en "true." De forma predeterminada, se establece en "false."
@@ -293,14 +292,14 @@ En esta sección se describe cómo eliminar el registro de una aplicación del i
 Las aplicaciones que su organización ha registrado aparecen en el filtro "Mis aplicaciones" en la página principal "Registros de aplicación" del inquilino. Se trata de las aplicaciones que ha registrado manualmente mediante Azure Portal o mediante programación a través de PowerShell o la API Graph. Más específicamente, se representan mediante un objeto Application y ServicePrincipal en el inquilino. Para obtener más información, vea [Objetos de aplicación y objetos de entidad de servicio](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para eliminar una aplicación de un solo inquilino del directorio
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación.
 4. En la página de registro principal de la aplicación, haga clic en **Eliminar**.
 5. Haga clic en **Sí** en el mensaje de confirmación.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Para eliminar una aplicación multiinquilino de su directorio particular
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación.
 4. Desde la página **Configuración**, elija **Propiedades** y coloque el conmutador **Multiinquilino** en la posición **No**, para cambiar primero la aplicación a un solo inquilino y, a continuación, haga clic en **Guardar**. Los objetos de la entidad de servicio de la aplicación permanecen en los inquilinos de todas las organizaciones que ya han dado su consentimiento.
@@ -312,7 +311,7 @@ Un subconjunto de las aplicaciones que se muestran en el filtro "Todas las aplic
 
 Para eliminar el acceso de una aplicación multiinquilino a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar su entidad de servicio. El administrador debe tener acceso de administrador global y puede usar a través de Azure Portal los [Cmdlets de PowerShell de Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para eliminar el acceso.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md).
 - Consulte [Directrices de personalización de marca para aplicaciones integradas](active-directory-branding-guidelines.md) para ver sugerencias de orientación visual para la aplicación.
 - Para más información sobre la relación entre los objetos de aplicación y de entidad de servicio para una aplicación, consulte [Objetos de aplicación y de entidad de servicio](active-directory-application-objects.md).

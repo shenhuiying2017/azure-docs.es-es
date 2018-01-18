@@ -1,12 +1,11 @@
 ---
-title: "Preguntas más frecuentes acerca de Azure AD B2C | Microsoft Docs"
-description: "Preguntas más frecuentes acerca de Azure Active Directory B2C"
+title: "Preguntas más frecuentes - Azure Active Directory B2C"
+description: "Preguntas más frecuentes (P+F) acerca de Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: preguntas más frecuentes (P+F) 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -64,9 +63,9 @@ Puede utilizar la [característica de personalización de marca de compañía](.
 
     ![Captura de pantalla de un correo electrónico de comprobación personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-La firma de correo electrónico contiene el nombre del inquilino B2C que proporcionó cuando lo creó por primera vez. Puede cambiar el nombre siguiendo estas instrucciones:
+La firma de correo electrónico contiene el nombre del inquilino de Azure AD B2C que proporcionó cuando lo creó por primera vez. Puede cambiar el nombre siguiendo estas instrucciones:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global.
 1. Abra la hoja **Azure Active Directory**.
 1. Haga clic en la pestaña **Propiedades**.
 1. Cambie el campo **Nombre**.
@@ -106,22 +105,22 @@ No, Azure AD B2C no admite el mismo conjunto de informes que Azure AD Premium. S
 Sí.  Obtenga información sobre la [personalización de lenguaje](active-directory-b2c-reference-language-customization.md), que se encuentra en versión preliminar pública.  Se ofrecen traducciones a 36 idiomas, y puede invalidar cualquier cadena para satisfacer sus necesidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>¿Puedo usar mis propias direcciones URL en las páginas de registro y de inicio que proporciona Azure AD B2C? Por ejemplo, ¿puedo cambiar las direcciones URL de login.microsoftonline.com a login.contoso.com?
-Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar el dominio en la pestaña **Dominios** del portal de Azure clásico no logra este objetivo.
+Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar el dominio en la pestaña **Dominios** de Azure Portal no logra este objetivo.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>¿Cómo puedo eliminar al inquilino de Azure AD B2C?
 Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 
 1. Siga estos pasos para [ir a la configuración de Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) en Azure Portal.
 1. Vaya a **Aplicaciones**, **Proveedores de identidades** y **Todas las directivas**, y elimine todas las entradas de cada una.
-1. Ahora, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de suscripciones. (Use la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
-1. Vaya a la extensión de Active Directory de la izquierda y haga clic en el inquilino B2C.
-1. Haga clic en la pestaña **Usuarios**.
-1. Seleccione cada usuario de uno en uno (excluya al administrador de suscripciones con el que inició sesión). Haga clic en la opción **Eliminar** de la parte inferior de la página y, después, haga clic en **SÍ** cuando se pida confirmación.
-1. Haga clic en la pestaña **Aplicaciones** .
-1. Seleccione **Aplicaciones que tiene mi compañía** en el campo de la lista desplegable **Mostrar** y haga clic en la marca de verificación.
-1. Una aplicación llamada "**b2c-extensions-app**". Haga clic en la opción **Eliminar** de la parte inferior de la página y, después, haga clic en **SÍ** cuando se pida confirmación.
-1. Vuelva a la extensión de Active Directory y seleccione el inquilino B2C.
-1. En la parte inferior de la página, haga clic en **Eliminar** . Siga las instrucciones en pantalla para completar el proceso.
+1. Ahora inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción. (Use la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
+1. Cambie al inquilino de Azure AD B2C que desea eliminar.
+2. Vaya al menú de Active Directory de la izquierda.
+3. Seleccione **Usuarios y grupos**.
+4. Seleccione cada usuario de uno en uno (excluya al administrador de suscripciones con el que inició sesión). Haga clic en la opción **Eliminar** de la parte inferior de la página y, después, haga clic en **SÍ** cuando se pida confirmación.
+5. Haga clic en **Registros de aplicaciones**.
+6. Seleccione la aplicación llamada **b2c-extensions-app**. Haga clic en **Eliminar** y, a continuación, en **SÍ** cuando se le solicite.
+7. Seleccione **Información general**.
+8. Haga clic en **Eliminar directorio**. Siga las instrucciones en pantalla para completar el proceso.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>¿Puedo obtener Azure AD B2C como parte de Enterprise Mobility Suite?
 No, Azure AD B2C es un servicio de Azure de pago por uso y no forma parte de Enterprise Mobility Suite.

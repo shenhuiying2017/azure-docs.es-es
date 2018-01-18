@@ -1,467 +1,338 @@
 ---
-title: Utilizar bibliotecas de clases de .NET con Azure Functions | Microsoft Docs
-description: "Obtenga información acerca de cómo crear bibliotecas de clases de .NET para su uso con Azure Functions"
+title: Referencia para desarrolladores de C# de Azure Functions
+description: "Cómo desarrollar funciones de Azure con C#."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
-ms.assetid: 9f5db0c2-a88e-4fa8-9b59-37a7096fc828
+keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6f6f89d62f1442198f80247cc5c433aa0c54030b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="using-net-class-libraries-with-azure-functions"></a>Utilizar bibliotecas de clases de .NET con Azure Functions
+# <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
-Además de los archivos de script, Azure Functions admite la publicación de una biblioteca de clases como la implementación para una o más funciones. Se recomienda utilizar [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-## <a name="prerequisites"></a>Requisitos previos 
+Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de C# en las bibliotecas de clases .NET.
 
-Este artículo tiene los siguientes requisitos previos:
+Azure Functions es compatible con C# y con los lenguajes de programación de scripts de C#. Si busca orientación sobre cómo [usar C# en Azure Portal](functions-create-function-app-portal.md), vea la [referencia para desarrolladores de scripts de C#](functions-reference-csharp.md).
 
-- [Visual Studio 2017 versión 15.3](https://www.visualstudio.com/vs/) o posterior.
-- Instalación de la carga de trabajo de **desarrollo de Azure**.
+En este artículo se supone que ya ha leído los siguientes artículos:
+
+* [Guía para desarrolladores de Azure Functions](functions-reference.md)
+* [Herramientas de Visual Studio 2017 de Azure Functions](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Proyecto de biblioteca de clases de Functions
 
-En Visual Studio, cree un nuevo proyecto de Azure Functions. La nueva plantilla de proyecto crea los archivos *host.json* y *local.settings.json*. Puede [personalizar la configuración en tiempo de ejecución de Azure Functions en host.json](functions-host-json.md). 
+En Visual Studio, la plantilla de proyecto de **Azure Functions** crea un proyecto de biblioteca de clases de C# que contiene los archivos siguientes:
 
-El archivo *local.settings.json* almacena la configuración de la aplicación, las cadenas de conexión y la configuración de Azure Functions Core Tools. Para más información acerca de su estructura, consulte [Codificar y probar Azure Functions localmente](functions-run-local.md#local-settings-file).
+* [host.json](functions-host-json.md): almacena los valores de configuración que afectan a todas las funciones del proyecto cuando se ejecuta localmente o en Azure.
+* [local.settings.json](functions-run-local.md#local-settings-file): almacena la configuración de la aplicación y las cadenas de conexión que se utilizan cuando se ejecuta localmente.
 
-### <a name="functionname-attribute"></a>Atributo FunctionName
+### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName y desencadenador
 
-El atributo [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) marca un método como punto de entrada de una función. Se debe utilizar exactamente con un desencadenador y 0 o más enlaces de entrada y salida.
-
-### <a name="conversion-to-functionjson"></a>Conversión a function.json
-
-Al crear un proyecto de Azure Functions, se crea un archivo *function.json* en el directorio de la función. El nombre del directorio es el mismo que el nombre de la función especificado por el atributo `[FunctionName]`. El archivo *function.json* contiene los desencadenadores y enlaces, y apunta al archivo de ensamblado del proyecto.
-
-Esta conversión la realiza el paquete de NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). El código fuente está disponible en el repositorio de GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
-
-## <a name="triggers-and-bindings"></a>Desencadenadores y enlaces 
-
-En la tabla siguiente se enumeran los desencadenadores y los enlaces que están disponibles en un proyecto de biblioteca de clases de Azure Functions. Todos los atributos están en el espacio de nombres `Microsoft.Azure.WebJobs`.
-
-| Enlace | Atributo | Paquete de NuGet |
-|------   | ------    | ------        |
-| [Desencadenador de almacenamiento de blobs, entrada, salida](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Almacenamiento de blobs] |
-| [Desencadenador de Cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
-| [Entrada y salida de Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
-| [Desencadenador y salida de Event Hubs](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
-| [Entrada y salida de archivos externos](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
-| [Desencadenador HTTP y webhook](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
-| [Entrada y salida de Mobile Apps](#mobile-apps) | [MobileTableAttribute] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
-| [Salida de Notification Hubs](#nh) | [NotificationHubAttribute] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
-| [Desencadenador y salida de Queue Storage](#queue) | [QueueAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [Salida de SendGrid](#sendgrid) | [SendGridAttribute] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
-| [Desencadenador y salida de Service Bus](#service-bus) | [ServiceBusAttribute], [ServiceBusAccountAttribute] | [Microsoft.Azure.WebJobs.ServiceBus]
-| [Entrada y salida de Table Storage](#table) | [TableAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [Desencadenador de temporizador](#timer) | [TimerTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions] | 
-| [Salida de Twilio](#twilio) | [TwilioSmsAttribute] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
-
-<a name="blob-storage"></a>
-
-### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Desencadenador y enlaces de entrada y salida de Blob Storage
-
-Azure Functions admite desencadenador y enlaces de entrada y salida para Azure Blob Storage. Para más información sobre las expresiones de enlace y los metadatos, consulte [Enlaces de Blob Storage de Azure Functions](functions-bindings-storage-blob.md).
-
-Un desencadenador de blob se define con el atributo `[BlobTrigger]`. Puede utilizar el atributo `[StorageAccount]` para definir el nombre del valor de aplicación que contiene la cadena de conexión con la cuenta de almacenamiento que se usa en una función completa o clase.
+En una biblioteca de clases, una función es un método estático con un atributo `FunctionName` y un atributo desencadenador, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
-[FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static class SimpleExample
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-La entrada y salida de blob se definen utilizando el atributo `[Blob]` junto con un parámetro `FileAccess` que indica lectura o escritura. En el ejemplo siguiente se usa un desencadenador de blob y un enlace de salida.
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```        
-
-<a name="cosmos-db"></a>
-
-### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Desencadenador y enlaces de entrada y salida de Cosmos DB
-
-Azure Functions admite desencadenadores y enlaces de entrada y salida para Cosmos DB. Para más información sobre las características del enlace de Cosmos DB, consulte [Enlaces de Cosmos DB de Azure Functions](functions-bindings-documentdb.md).
-
-Para desencadenar desde un documento de Cosmos DB, use el atributo `[CosmosDBTrigger]` en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. El siguiente ejemplo desencadena desde un determinado `database` y `collection`. El valor de `myCosmosDB` contiene la conexión a la instancia de Cosmos DB. 
-
-```csharp
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents, TraceWriter log)
-{
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-}
-```
-
-Para enlazar a un documento de Cosmos DB, use el atributo `[DocumentDB]` en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. El siguiente ejemplo tiene un desencadenador de cola y un enlace de salida de la API de DocumentDB.
-
-```csharp
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    document = new { Text = myQueueItem, id = Guid.NewGuid() };
-}
-
-```
-
-<a name="event-hub"></a>
-
-### <a name="event-hubs-trigger-and-output"></a>Desencadenador y salida de Event Hubs
-
-Azure Functions admite enlaces de desencadenador y salida para Event Hubs. Para más información, consulte [Enlaces de Event Hub de Azure Functions](functions-bindings-event-hubs.md).
-
-Los tipos `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` y `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` se definen en el paquete de NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-En el ejemplo siguiente se usa un desencadenador de Event Hub:
-
-```csharp
-[FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
-{
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-}
-```
-
-El siguiente ejemplo tiene una salida de Event Hub, utilizando el valor devuelto por el método como salida:
-
-```csharp
-[FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    return $"{DateTime.Now}";
-}
-```
-
-<a name="api-hub"></a>
-
-### <a name="external-file-input-and-output"></a>Entrada y salida de archivo externo
-
-Azure Functions admite enlaces de desencadenador, entrada y salida para archivos externos, como Google Drive, Dropbox y OneDrive. Para más información, consulte [Enlaces de archivos externos de Azure Functions](functions-bindings-external-file.md). Los atributos `[ExternalFileTrigger]` y `[ExternalFile]` se definen en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.ApiHub].
-
-En el ejemplo de C# siguiente se muestran enlaces de archivo externo de entrada y salida. El código copia el archivo de entrada en el archivo de salida.
-
-```csharp
-[StorageAccount("MyStorageConnection")]
-[FunctionName("ExternalFile")]
-[return: ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}-Copy", FileAccess.Write)]
-public static string Run([QueueTrigger("myqueue-items")] string myQueueItem, 
-    [ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}", FileAccess.Read)] string myInputFile, 
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    return myInputFile;
-}
-```
-
-<a name="http"></a>
-
-### <a name="http-and-webhooks"></a>HTTP y webhooks
-
-Use el atributo `HttpTrigger` para definir un desencadenador HTTP o un webhook. Este atributo se define en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.Http]. Puede personalizar el nivel de autorización, el tipo de webhook, la ruta y los métodos. En el ejemplo siguiente se define un desencadenador HTTP con autenticación anónima y tipo de webhook _genericJson_.
-
-```csharp
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a name="mobile-apps"></a>
-
-### <a name="mobile-apps-input-and-output"></a>Entrada y salida de Mobile Apps
-
-Azure Functions admite enlaces de entrada y salida para Mobile Apps. Para más información, consulte [Enlaces de Mobile Apps de Azure Functions](functions-bindings-mobile-apps.md). El atributo `[MobileTable]` se define en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps].
-
-En el siguiente ejemplo se muestra un enlace de salida de Mobile Apps:
-
-```csharp
-[FunctionName("MobileAppsOutput")]        
-[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
-public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, TraceWriter log)
-{
-    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
-}
-```
-
-<a name="nh"></a>
-
-### <a name="notification-hubs-output"></a>Salida de Notification Hubs
-
-Azure Functions admite un enlace de salida para Notification Hubs. Para más información, consulte [Enlace de salida de Notification Hub de Azure Functions](functions-bindings-notification-hubs.md). El atributo `[NotificationHub]` se define en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
-
-<a name="queue"></a>
-
-### <a name="queue-storage-trigger-and-output"></a>Desencadenador y salida de Queue Storage
-
-Azure Functions admite desencadenador y enlaces de salida para Azure Queues. Para más información, consulte [Enlaces de Queue Storage de Azure Functions](functions-bindings-storage-queue.md).
-
-En el ejemplo siguiente se muestra cómo usar el tipo de valor devuelto por la función con un enlace de salida de cola, usando el atributo `[Queue]`. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // HTTP trigger with queue output binding
-    [FunctionName("QueueOutput")]
-    [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
-    {
-        log.Info($"C# function processed: {input.Text}");
-        return input.Text;
-    }
-}
-
-```
-
-Para definir un desencadenador de cola, utilice el atributo `[QueueTrigger]`.
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // Queue trigger
     [FunctionName("QueueTrigger")]
-    [StorageAccount("AzureWebJobsStorage")]
-    public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
     }
-}
-
+} 
 ```
 
+El atributo `FunctionName` marca el método como punto de entrada de una función. El nombre debe ser único dentro de un proyecto.
 
-<a name="sendgrid"></a>
+El atributo desencadenador especifica el tipo de desencadenador y enlaza los datos de entrada a un parámetro del método. La función de ejemplo se desencadena mediante un mensaje de cola, y este último se pasa al método en el `myQueueItem` parámetro.
 
-### <a name="sendgrid-output"></a>Salida de SendGrid
+### <a name="additional-binding-attributes"></a>Atributos de enlace adicionales
 
-Azure Functions admite un enlace de salida de SendGrid para el envío de correo electrónico mediante programación. Para más información, consulte [Enlaces de SendGrid de Azure Functions](functions-bindings-sendgrid.md).
-
-El atributo `[SendGrid]` se define en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Un enlace de SendGrid requiere una configuración de la aplicación denominada `AzureWebJobsSendGridApiKey`, que contiene la clave de API de SendGrid. Este es el nombre de configuración predeterminado para la clave de API de SendGrid. Si necesita tener más de una clave o de SendGrid elija otro nombre de configuración, puede establecer dicho nombre mediante la propiedad `ApiKey` del atributo del enlace `SendGrid`, como en el ejemplo siguiente:
-
-    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
-
-El siguiente es un ejemplo del uso de un desencadenador de cola de Service Bus y un enlace de salida de SendGrid mediante `SendGridMessage`:
+Se pueden usar atributos de enlace de entrada y salida adicionales. En el ejemplo siguiente se modifica el ejemplo anterior mediante la adición de un enlace de la cola de salida. La función escribe el mensaje de la cola de entrada en un nuevo mensaje de cola de una cola distinta.
 
 ```csharp
-[FunctionName("SendEmail")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
-    [SendGrid] out SendGridMessage message)
+public static class SimpleExampleWithOutput
 {
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
-}
-
-public class OutgoingEmail
-{
-    public string To { get; set; }
-    public string From { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
-}
-```
-Tenga en cuenta que este ejemplo necesita la clave de API de SendGrid se almacene en una configuración de la aplicación llamada `AzureWebJobsSendGridApiKey`.
-
-<a name="service-bus"></a>
-
-### <a name="service-bus-trigger-and-output"></a>Desencadenador y salida de Service Bus
-
-Azure Functions admite enlaces de desencadenador y salida para colas y temas de Service Bus. Para más información sobre la configuración de enlaces, consulte [Enlaces de Service Bus de Azure Functions](functions-bindings-service-bus.md).
-
-Los atributos `[ServiceBusTrigger]` y `[ServiceBus]` se definen en el paquete de NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-A continuación se muestra un ejemplo de un desencadenador de cola de Service Bus:
-
-```csharp
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
-public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] string myQueueItem, TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-}
-```
-
-El siguiente es un ejemplo de un enlace de salida de Service Bus, utilizando el tipo de valor devuelto por el método como salida:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
-{
-    log.Info($"C# function processed: {input.Text}");
-    return input.Text;
-}
-```        
-
-<a name="table"></a>
-
-### <a name="table-storage-input-and-output"></a>Entrada y salida de Table Storage
-
-Azure Functions admite enlaces de entrada y salida para Table Storage de Azure. Para más información, consulte [Enlaces de Table Storage de Azure Functions](functions-bindings-storage-table.md).
-
-El siguiente ejemplo es una clase con dos funciones, mostrando los enlaces de entrada y salida de Table Storage. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public class TableStorage
-{
-    public class MyPoco
+    [FunctionName("CopyQueueMessage")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source")] string myQueueItem, 
+        [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+        TraceWriter log)
     {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableOutput")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
-    {
-        log.Info($"C# http trigger function processed: {input.Text}");
-        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
-    }
-
-    // use the metadata parameter "queueTrigger" to bind the queue payload
-    [FunctionName("TableInput")]
-    public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
-    {
-        log.Info($"C# function processed: {poco.Text}");
+        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        myQueueItemCopy = myQueueItem;
     }
 }
-
 ```
 
-<a name="timer"></a>
+### <a name="conversion-to-functionjson"></a>Conversión a function.json
 
-### <a name="timer-trigger"></a>Desencadenador de temporizador
+El proceso de compilación crea un archivo *function.json* en una carpeta de la función en la carpeta de compilación. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. 
 
-Azure Functions incluye un enlace a un desencadenador de temporizador que le permite ejecutar su código de función según una programación definida. Para más información sobre las características del enlace, consulte [Programar la ejecución de código con Azure Functions](functions-bindings-timer.md).
+El propósito de este archivo es proporcionar información al controlador de escala que se usará para [escalar decisiones en el plan de consumo](functions-scale.md#how-the-consumption-plan-works). Por esta razón, el archivo solo tiene información del desencadenador, no sobre los enlaces de entrada o salida.
 
-En el plan de Consumo, puede definir programaciones con una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Si utiliza un plan de App Service, también puede usar una cadena TimeSpan. 
+El archivo *function.json* generado incluye una propiedad `configurationSource` que indica el tiempo de ejecución para utilizar atributos de .NET para los enlaces, en lugar de la configuración de *function.json*. Este es un ejemplo:
 
-En el ejemplo siguiente se define un desencadenador del temporizador que se ejecuta cada cinco minutos:
-
-```csharp
-[FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+```json
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-}
-```
-
-<a name="twilio"></a>
-
-### <a name="twilio-output"></a>Salida de Twilio
-
-Azure Functions admite enlaces de salida de Twilio para permitir a sus funciones enviar mensajes de texto SMS. Para más información, consulte [Envío de mensajes SMS desde Azure Functions mediante el enlace de salida de Twilio](functions-bindings-twilio.md). 
-
-El atributo `[TwilioSms]` se define en el paquete [Microsoft.Azure.WebJobs.Extensions.Twilio].
-
-En el ejemplo de C# siguiente se utiliza un desencadenador de cola y un enlace de salida de Twilio:
-
-```csharp
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {order}");
-
-    var message = new SMSMessage()
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
+  "configurationSource": "attributes",
+  "bindings": [
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
-    };
-
-    return message;
+      "type": "queueTrigger",
+      "queueName": "%input-queue-name%",
+      "name": "myQueueItem"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApp1.dll",
+  "entryPoint": "FunctionApp1.QueueTrigger.Run"
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+El archivo *function.json* se genera mediante el paquete NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). El código fuente está disponible en el repositorio de GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+## <a name="supported-types-for-bindings"></a>Tipos compatibles para los enlaces
+
+Cada enlace tiene sus propios tipos compatibles; por ejemplo, un atributo desencadenador de blobs puede aplicarse a un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob.md#trigger---usage) se enumeran todos los tipos de parámetros compatibles. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
+
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="binding-to-method-return-value"></a>Enlace al valor devuelto del método
+
+Puede usar el valor devuelto de un método para un enlace de salida, como se muestra en el ejemplo siguiente:
+
+```csharp
+public static class ReturnValueOutputBinding
+{
+    [FunctionName("CopyQueueMessageUsingReturnValue")]
+    [return: Queue("myqueue-items-destination")]
+    public static string Run(
+        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+        return myQueueItem;
+    }
+}
+```
+
+## <a name="writing-multiple-output-values"></a>Escribir varios valores de salida
+
+Para escribir varios valores en un enlace de salida, use los tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Estos tipos son colecciones de solo escritura que se escriben en el enlace de salida cuando se completa el método.
+
+En este ejemplo se escriben varios mensajes en cola en la misma cola mediante `ICollector`:
+
+```csharp
+public static class ICollectorExample
+{
+    [FunctionName("CopyQueueMessageICollector")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
+        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+    }
+}
+```
+
+## <a name="logging"></a>Registro
+
+Para registrar la salida en sus registros de streaming en C#, incluya un argumento de tipo `TraceWriter`. Es recomendable que lo denomine `log`. Evite el uso de `Console.Write` en Azure Functions. 
+
+`TraceWriter` se define en el [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). El nivel de registro para `TraceWriter` se puede configurar en [host.json](functions-host-json.md).
+
+```csharp
+public static class SimpleExample
+{
+    [FunctionName("QueueTrigger")]
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+    }
+} 
+```
+
+> [!NOTE]
+> Para obtener información sobre un marco de trabajo de registro más reciente que puede usar en lugar de `TraceWriter`, consulte [Escribir registros en funciones de C#](functions-monitoring.md#write-logs-in-c-functions) en el artículo **Supervisión de Azure Functions**.
+
+## <a name="async"></a>Async
+
+Para convertir una función en asincrónica, use la palabra clave `async` y devuelva un objeto `Task`.
+
+```csharp
+public static class AsyncExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token,
+        TraceWriter log)
+    {
+        log.Info($"BlobCopy function processed.");
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="cancellation-tokens"></a>Tokens de cancelación
+
+Algunas operaciones requieren un cierre estable. Aunque siempre es mejor escribir código que pueda controlar los bloqueos, en los casos donde quiera controlar las solicitudes de cierre, defina un argumento con tipo [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  Se proporciona un `CancellationToken` para indicar que se desencadena un cierre del host.
+
+```csharp
+public static class CancellationTokenExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="environment-variables"></a>Variables de entorno
+
+Para obtener una variable de entorno o un valor de configuración de aplicación, use `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
+
+```csharp
+public static class EnvironmentVariablesExample
+{
+    [FunctionName("GetEnvironmentVariables")]
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    {
+        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    }
+
+    public static string GetEnvironmentVariable(string name)
+    {
+        return name + ": " +
+            System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+    }
+}
+```
+
+## <a name="binding-at-runtime"></a>Enlace en tiempo de ejecución
+
+En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de los atributos. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se pueden establecer enlaces compatibles de entrada y salida sobre la marcha en el código de función.
+
+Defina un enlace imperativo como se indica a continuación:
+
+- **No** incluya un atributo en la signatura de función para los enlaces imperativos deseados.
+- Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Utilice el siguiente patrón de C# para realizar el enlace de datos.
+
+  ```cs
+  using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+  {
+      ...
+  }
+  ```
+
+  `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es un tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con el enlace imperativo.
+
+### <a name="single-attribute-example"></a>Ejemplo de un único atributo
+
+El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#output) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
+
+```cs
+public static class IBinderExample
+{
+    [FunctionName("CreateBlobUsingBinder")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
+        IBinder binder,
+        TraceWriter log)
+    {
+        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
+                    $"samples-output/{myQueueItem}", FileAccess.Write)))
+        {
+            writer.Write("Hello World!");
+        };
+    }
+}
+```
+
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) es un tipo de enlace de salida admitido.
+
+### <a name="multiple-attribute-example"></a>Ejemplo de varios atributos
+
+En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo: 
+
+```cs
+public static class IBinderExampleMultipleAttributes
+{
+    [FunctionName("CreateBlobInDifferentStorageAccount")]
+    public async static Task RunAsync(
+            [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
+            Binder binder,
+            TraceWriter log)
+    {
+        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        var attributes = new Attribute[]
+        {
+        new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),
+        new StorageAccountAttribute("MyStorageAccount")
+        };
+        using (var writer = await binder.BindAsync<TextWriter>(attributes))
+        {
+            await writer.WriteAsync("Hello World!!");
+        }
+    }
+}
+```
+
+## <a name="triggers-and-bindings"></a>Desencadenadores y enlaces 
+
+En la tabla siguiente se enumeran los atributos desencadenadores y de enlace que están disponibles en un proyecto de biblioteca de clases de Azure Functions. Todos los atributos están en el espacio de nombres `Microsoft.Azure.WebJobs`.
+
+| Desencadenador | Entrada | Salida|
+|------   | ------    | ------  |
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
+| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
+| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
+| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
+| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Cola](functions-bindings-storage-queue.md#output---attributes) |
+| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [Service Bus](functions-bindings-service-bus.md#output---attributes) |
+| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
+| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
+| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
+| |[Table](functions-bindings-storage-table.md#input---attributes)| [Table](functions-bindings-storage-table.md#output---attributes)  | 
+| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
+| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
+| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)
+> [Más información sobre los desencadenadores y los enlaces](functions-triggers-bindings.md)
 
-<!-- NuGet packages --> 
-[Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.SendGrid]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.Http]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/1.0.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.BotFramework]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.BotFramework/1.0.15-beta
-[Microsoft.Azure.WebJobs.Extensions.ApiHub]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApiHub/1.0.0-beta4
-[Microsoft.Azure.WebJobs.Extensions.Twilio]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
-
-
-<!-- Links to source --> 
-[DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
-[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
-[EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
-[EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
-[MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
-[NotificationHubAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
-[ServiceBusAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
-[ServiceBusAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
-[QueueAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
-[StorageAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
-[BlobAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
-[TableAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
-[TwilioSmsAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
-[SendGridAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
-[HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
-[ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
-[TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+> [!div class="nextstepaction"]
+> [Más información sobre procedimientos recomendados para Azure Functions](functions-best-practices.md)

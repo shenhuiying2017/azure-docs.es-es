@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service utilizando el Administrador de tráfico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Para asociar el dominio personalizado a una aplicación web de Azure App Service
 Aunque los detalles de cada proveedor de dominio varían, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**) *al* nombre de dominio de Traffic Manager (**contoso.trafficmanager.net**) que se integra con la aplicación web.
    
 > [!NOTE]
-> Si un registro ya se está usando y necesita enlazar de forma preferente sus aplicaciones a él, puede crear otro registro CNAME. Por ejemplo, para enlazar de forma preferente **www.contoso.com** a su aplicación web, cree un registro CNAME de **awverify.www** a **contoso.trafficmanager.net**. Después, puede agregar "www.contoso.com" a la aplicación web sin cambiar el registro CNAME de "www". Para más información, consulte [Creación de registros DNS para una aplicación web en un dominio personalizado][CREATEDNS].
+> Si un registro ya se está usando y necesita enlazar de forma preventiva sus aplicaciones a él, puede crear otro registro CNAME. Por ejemplo, para enlazar de forma preferente **www.contoso.com** a su aplicación web, cree un registro CNAME de **awverify.www** a **contoso.trafficmanager.net**. Después, puede agregar "www.contoso.com" a la aplicación web sin cambiar el registro CNAME de "www". Para más información, consulte [Creación de registros DNS para una aplicación web en un dominio personalizado][CREATEDNS].
 > 
 > 
 
@@ -67,7 +67,7 @@ Una vez que haya terminado de agregar o modificar registros DNS en su proveedor 
 ## <a name="enable-traffic-manager"></a>Habilitación del Administrador de tráfico
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

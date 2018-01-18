@@ -1,6 +1,6 @@
 ---
-title: "Creación de programaciones complejas y periodicidad avanzada con Programador de Azure"
-description: "Creación de programaciones complejas y periodicidad avanzada con Programador de Azure"
+title: "Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler"
+description: "Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,29 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Creación de programaciones complejas y periodicidad avanzada con Programador de Azure
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler
 ## <a name="overview"></a>Información general
-En el corazón de un trabajo del Programador de Azure se encuentra la *programación*. La programación determina cuándo y cómo el Programador ejecuta el trabajo.
+En el corazón de un trabajo de Azure Scheduler se encuentra la *programación*. La programación determina cuándo y cómo Scheduler ejecuta el trabajo.
 
-Programador de Azure le permite especificar distintas programaciones periódicas y únicas para un trabajo. Las programaciones *únicas* se desencadenan una vez a una hora especificadas; en efecto, son programaciones *periódicas* que se ejecutan solo una vez. Las programaciones recurrentes se activan en una frecuencia predeterminada.
+Azure Scheduler le permite especificar distintas programaciones periódicas y únicas para un trabajo. Las programaciones *únicas* se desencadenan una vez a una hora especificadas; en efecto, son programaciones *periódicas* que se ejecutan solo una vez. Las programaciones recurrentes se activan en una frecuencia predeterminada.
 
-Con esta flexibilidad, Programador de Azure le permite admitir una amplia variedad de escenarios empresariales:
+Con esta flexibilidad, Azure Scheduler le permite admitir una amplia variedad de escenarios empresariales:
 
 * Limpieza de datos periódicos; por ejemplo, todos los días hay que eliminar todos los tweets de más de 3 meses.
 * Archivado; por ejemplo, cada mes hay que insertar el histórico de facturas en el servicio de copia de seguridad.
 * Solicitudes de datos externos; por ejemplo, cada 15 minutos hay que extraer un nuevo informe meteorológico de esquí de NOAA.
 * Procesamiento de imágenes; por ejemplo, todos los días laborables, fuera de las horas pico, hay que utilizar la informática en la nube para comprimir las imágenes cargadas durante ese día.
 
-En este artículo se describen ejemplos de trabajos que se pueden crear con Programador de Azure. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Scheduler](https://msdn.microsoft.com/library/mt629143.aspx), puede usar este mismo JSON para [crear un trabajo de Azure Scheduler](https://msdn.microsoft.com/library/mt629145.aspx).
+En este artículo se describen ejemplos de trabajos que se pueden crear con Azure Scheduler. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Scheduler](https://msdn.microsoft.com/library/mt629143.aspx), puede usar este mismo JSON para [crear un trabajo de Azure Scheduler](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
-Los numerosos ejemplos de este tema muestran la gran variedad de escenarios que admite Programador de Azure. En general, estos ejemplos muestran cómo crear programaciones para diversos patrones de comportamiento, incluidos los siguientes:
+Los numerosos ejemplos de este tema muestran la gran variedad de escenarios que admite Azure Scheduler. En general, estos ejemplos muestran cómo crear programaciones para diversos patrones de comportamiento, incluidos los siguientes:
 
 * Ejecutar una vez en una determinada fecha y hora
 * Ejecutar y repetir un número de veces explícitas
@@ -46,9 +46,9 @@ Los numerosos ejemplos de este tema muestran la gran variedad de escenarios que 
 * Ejecutar y repetir varias veces en un período; por ejemplo, el último viernes y lunes de cada mes, o a las 5:15 a.m. y a las 5:15 p.m. todos los días
 
 ## <a name="dates-and-datetimes"></a>Fechas y fecha/hora
-Las fechas en Programador de Azure siguen la [especificación ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) y solo incluyen la fecha.
+Las fechas en Azure Scheduler siguen la [especificación ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) y solo incluyen la fecha.
 
-Las referencias a fecha/hora en los trabajos de Programador de Azure siguen la [especificación ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) y solo incluyen las partes de fecha y de hora. Una fecha y hora que no especifica un desfase de hora UTC se supone que es una hora UTC.  
+Las referencias a fecha/hora en los trabajos de Azure Scheduler siguen la [especificación ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) y solo incluyen las partes de fecha y de hora. Una fecha y hora que no especifica un desfase de hora UTC se supone que es una hora UTC.  
 
 ## <a name="how-to-use-json-and-rest-api-for-creating-schedules"></a>Uso de JSON y API de REST para crear programaciones
 Para crear una programación simple mediante la [API de REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143), primero [registre su suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (el nombre del proveedor para Scheduler es *Microsoft.Scheduler*); después, [cree una colección de trabajos](https://msdn.microsoft.com/library/mt629159.aspx) y, finalmente, [cree un trabajo](https://msdn.microsoft.com/library/mt629145.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
@@ -59,7 +59,7 @@ Para crear una programación simple mediante la [API de REST de Azure Scheduler]
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Después de esta información general, tratemos cada uno de estos elementos de d
 
 | **Nombre JSON** | **Tipo de valor** | **¿Necesario?** | **Valor predeterminado** | **Valores válidos** | **Ejemplo** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |Cadena |No |None |Fechas-horas ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Objeto |No |None |Objeto de periodicidad |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |Cadena |Sí |None |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |No |1 |1 a 1000. |<code>"interval":10</code> |
-| ***endTime*** |Cadena |No |None |Valor de fecha y hora que representa un periodo de tiempo en el futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Number |No |None |>= 1 |<code>"count": 5</code> |
-| ***schedule*** |Objeto |No |None |Objeto de programación |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |string |Sin  |None |Fechas-horas ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |Objeto |Sin  |None |Objeto de periodicidad |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequency*** |string |Sí |None |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
+| ***interval*** |Number |Sí |None |1 a 1000. |<code>"interval":10</code> |
+| ***endTime*** |string |Sin  |None |Valor de fecha y hora que representa un periodo de tiempo en el futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |Number |Sin  |None |>= 1 |<code>"count": 5</code> |
+| ***schedule*** |Objeto |Sin  |None |Objeto de programación |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Profundización: *startTime*
 La siguiente tabla captura cómo *startTime* controla el modo en que se ejecuta un trabajo.
@@ -108,7 +108,7 @@ La siguiente tabla captura cómo *startTime* controla el modo en que se ejecuta 
 
 Veamos un ejemplo de lo que sucede cuando *startTime* se encuentra en el pasado, con *recurrence* pero sin *schedule*.  Suponga que la fecha y hora actual es 08-04-2015 13:00, *startTime* es 2015-04-07 14:00 y *recurrence* es de 2 días (definida con *frequency*: día e *interval*: 2.) Tenga en cuenta que *startTime* se encuentra en el pasado y se produce antes de la hora actual.
 
-En estas condiciones, la *primera ejecución* será el 2015-04-09 a las 14:00\.. El motor del Programador calcula las repeticiones de la ejecución desde la hora de inicio.  Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro.  En este caso, *startTime* es 2015-04-07 a las 2:00 p.m., así que la siguiente instancia es 2 días a partir de ese momento, que es el 2015-04-09 a las 2:00 p.m.
+En estas condiciones, la *primera ejecución* será el 2015-04-09 a las 14:00\.. El motor de Scheduler calcula las repeticiones de la ejecución desde la hora de inicio.  Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro.  En este caso, *startTime* es 2015-04-07 a las 2:00 p.m., así que la siguiente instancia es 2 días a partir de ese momento, que es el 2015-04-09 a las 2:00 p.m.
 
 Tenga en cuenta que la primera ejecución debería ser la misma incluso si startTime es 2015-04-05 14:00 o 2015-04-01 14:00. Después de la primera ejecución, las ejecuciones posteriores se calculan con la programación, por lo que se realizarían el 2015-04-11 a 2:00 p.m., a continuación el 2015-04-13 a las 2:00 p.m., después el+ 2015-04-15 a las 2:00 p.m., etc.
 
@@ -125,11 +125,11 @@ En la siguiente tabla se describen los elementos de *schedule* con detalle:
 
 | **Nombre JSON** | **Descripción** | **Valores válidos** |
 |:--- |:--- |:--- |
-| **minutes** |Minutos de la hora en la que se ejecuta el trabajo |<ul><li>Entero o</li><li>Matriz de enteros</li></ul> |
-| **hours** |Horas del día en las que se ejecuta el trabajo |<ul><li>Entero o</li><li>Matriz de enteros</li></ul> |
-| **weekDays** |Días de la semana en los que se ejecutará el trabajo Solo se puede especificar con una frecuencia semanal. |<ul><li>Lunes, martes, miércoles, jueves, viernes, sábado o domingo</li><li>Matriz de cualquiera de los valores anteriores (tamaño de la matriz máx. 7)</li></ul>*No* distingue mayúsculas de minúsculas |
+| **minutes** |Minutos de la hora en la que se ejecuta el trabajo |<ul><li>Matriz de enteros</li></ul> |
+| **hours** |Horas del día en las que se ejecuta el trabajo |<ul><li>Matriz de enteros</li></ul> |
+| **weekDays** |Días de la semana en los que se ejecutará el trabajo Solo se puede especificar con una frecuencia semanal. |<ul><li>Matriz de cualquiera de los valores siguientes (tamaño máximo de la matriz 7):<ul><li>"Monday"</li><li>"Tuesday"</li><li>"Wednesday"</li><li>"Thursday"</li><li>"Friday"</li><li>"Saturday"</li><li>"Sunday"</li></ul></li></ul>*No* distingue mayúsculas de minúsculas |
 | **monthlyOccurrences** |Determina los días del mes en los que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Matriz de objetos de monthlyOccurence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* es el día de la semana en el que se ejecutará el trabajo; por ejemplo, {Sunday} es cada domingo del mes. Necesario.</p><p>El valor de *occurrence* es la repetición del día durante el mes, por ejemplo, {domingo, -1} es el último domingo del mes. Opcional.</p> |
-| **monthDays** |Día del mes en el que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Cualquier valor < = -1 y > = -31.</li><li>Cualquier valor > = 1 y < = 31.</li><li>Una matriz de valores por encima</li></ul> |
+| **monthDays** |Día del mes en el que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Una matriz de los valores siguientes:</li><ul><li>Cualquier valor < = -1 y > = -31.</li><li>Cualquier valor > = 1 y < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Ejemplos: Programaciones de periodicidad
 A continuación de muestran unos ejemplos de programaciones de periodicidad, centrándose en el objeto de programación y sus subelementos.
@@ -138,7 +138,7 @@ Todas las programaciones siguientes asumen que el *intervalo* está establecido 
 
 | **Ejemplo** | **Descripción** |
 |:--- |:--- |
-| <code>{"hours":[5]}</code> |Se ejecuta a las 5 a.m. cada día. Programador de Azure hace corresponder cada valor en "horas" con cada valor de "minutos", uno por uno, para crear una lista de todas las veces en las que se va a ejecutar el trabajo. |
+| <code>{"hours":[5]}</code> |Se ejecuta a las 5 a.m. cada día. Azure Scheduler hace corresponder cada valor en "horas" con cada valor de "minutos", uno por uno, para crear una lista de todas las veces en las que se va a ejecutar el trabajo. |
 | <code>{"minutes":[15], "hours":[5]}</code> |Se ejecuta a las 5:15 a.m. cada día. |
 | <code>{"minutes":[15], "hours":[5,17]}</code> |Se ejecuta a las 5:15 a.m. y 5:15 p.m. todos los días. |
 | <code>{"minutes":[15,45], "hours":[5,17]}</code> |Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p.m. y a las 5:45 p.m. cada día. |
@@ -171,21 +171,21 @@ Todas las programaciones siguientes asumen que el *intervalo* está establecido 
 | <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p., y 5:45 p.m. el tercer miércoles de cada mes |
 
 ## <a name="see-also"></a>Otras referencias
- [¿Qué es Programador?](scheduler-intro.md)
+ [¿Qué es Scheduler?](scheduler-intro.md)
 
- [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
+ [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)
 
- [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+ [Introducción a Azure Scheduler en Azure Portal](scheduler-get-started-portal.md)
 
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+ [Planes y facturación en Azure Scheduler](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
+ [Referencia de API de REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
 
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+ [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
 
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+ [Alta disponibilidad y confiabilidad de Azure Scheduler](scheduler-high-availability-reliability.md)
 
- [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
+ [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)
 
- [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
+ [Autenticación de salida de Azure Scheduler](scheduler-outbound-authentication.md)
 

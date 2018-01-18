@@ -1,5 +1,5 @@
 ---
-title: "Los elementos del correo electrónico de invitación de colaboración B2B de Azure Active Directory | Microsoft Docs"
+title: "Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory | Microsoft Docs"
 description: "Plantilla de correo electrónico de invitación de colaboración B2B de Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Los elementos del correo electrónico de invitación de colaboración B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
 Los correos electrónicos de invitación son un componente fundamental para incorporar a los asociados como usuarios de colaboración B2B en Azure AD. Puede usarlos para aumentar la confianza del destinatario. Puede agregar legitimidad y prueba social al correo electrónico para asegurarse de que el destinatario se sienta cómodo al seleccionar el botón **Empezar** para aceptar la invitación. Esta confianza es clave para reducir la fricción en el uso compartido. Y puede que también quiera que el correo electrónico tenga un buen aspecto.
 
@@ -71,7 +69,7 @@ El pie de página contiene la marca de empresa de Microsoft y permite que el des
   ![Si el destinatario no necesita canjear la invitación.](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
@@ -82,7 +80,7 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
-* [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
+* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

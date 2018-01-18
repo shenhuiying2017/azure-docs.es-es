@@ -3,8 +3,8 @@ title: Comprender las conexiones salientes en Azure | Microsoft Docs
 description: "Este artículo explica cómo Azure habilita las máquinas virtuales para que se puedan comunicar con servicios de Internet públicos."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Comprender las conexiones salientes en Azure
 
@@ -46,7 +46,7 @@ Puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [R
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Máquina virtual de carga equilibrada sin ninguna dirección IP pública a nivel de instancia
 
-En este escenario, la máquina virtual forma parte de un grupo de Azure Load Balancer.  La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Equilibrador de carga debe configurarse con una regla que vincule el front-end de dirección IP pública con el grupo de back-end.  Si no lleva a cabo esta configuración, el comportamiento es tal y como se describe en la sección anterior para [Máquina virtual independiente con ninguna dirección IP pública a nivel de instancia](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+En este escenario, la máquina virtual forma parte de un grupo de Azure Load Balancer.  La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Load Balancer debe configurarse con una regla de equilibrador de carga que cree un vínculo entre el front-end de dirección IP pública y el grupo de back-end. Si no lleva a cabo esta configuración, el comportamiento es tal y como se describe en la sección anterior para [Máquina virtual independiente con ninguna dirección IP pública a nivel de instancia](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Cuando la máquina virtual de carga equilibrada crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP pública del front-end público de Load Balancer. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública de Load Balancer para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos de salida. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
 
