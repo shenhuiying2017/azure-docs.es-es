@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd0349361e3e1978072225c50cd671445183fc46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5ad9b01d3821b481fe3255c821e8674dcb26b322
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>No puede llegar ahí desde aquí en un dispositivo Windows
 
@@ -157,6 +157,6 @@ Si el dispositivo no está unido a un dominio y ejecuta Windows 8.1, para unirse
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 

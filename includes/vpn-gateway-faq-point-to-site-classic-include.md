@@ -14,7 +14,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>¿Puedo usar cualquier cliente de software VPN de punto a sitio que admita SSTP?
 
-No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente.
+Nº La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente.
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 

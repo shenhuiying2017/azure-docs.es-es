@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>¿Qué es el Conjunto de aplicaciones de IoT de Azure?
 
@@ -62,7 +62,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Supervisión remota](iot-suite-remote-monitoring-explore.md)  |Sí |Sí |Sí |-   |Sí |Sí |-   |
 | [Mantenimiento predictivo](iot-suite-predictive-overview.md)   |Sí |Sí |-   |-   |Sí |Sí |Sí |
-| [Factoría conectada](iot-suite-connected-factory-overview.md) |Sí |Sí |Sí |Sí |Sí |Sí |-   |
+| [Factoría conectada](iot-suite-connected-factory-overview.md) |Sí |- |- |Sí |Sí |Sí |-   |
 
 * *Ingesta de datos*: entrada de datos a escala en la nube.
 * *Identidad del dispositivo*: administre identidades de dispositivos únicas y controle el acceso de los dispositivos a la solución.
@@ -83,11 +83,11 @@ Al implementar una solución preconfigurada, el proceso de aprovisionamiento con
 | IoT Hub              | Sí                |                        | Sí               |
 | Event Hubs           |                    | Sí                    |                   |
 | Time Series Insights |                    |                        | Sí               |
-| Servicios de contenedor   | Sí                |                        | Sí               |
+| Servicios de contenedor   | Sí                |                        |                   |
 | Stream Analytics     |                    | Sí                    |                   |
 | Web Apps             | Sí                | Sí                    | Sí               |
-| Cosmos DB            | Sí                | Sí                    | Sí               |
-| Azure Tables         |                    | Sí                    | Sí               |
+| Cosmos DB            | Sí                | Sí                    |                    |
+| Azure Storage         |                    | Sí                    | Sí               |
 
 > [!NOTE]
 > Para más información sobre los recursos implementados en la solución preconfigurada de supervisión remota, consulte este [artículo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) en GitHub.

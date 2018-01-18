@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 639776ddebf59ce3ae7596240b6f17f0b490afdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33dc234d4d0ca3ec58e069a928a30bcd8ec41e6d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -107,7 +107,7 @@ El filtro **Categoría** le permite seleccionar uno de los filtros siguientes:
 - Account provisioning- Automated password rollover (Aprovisionamiento de cuentas: sustitución automática de contraseñas)
 - Invited users (Usuarios invitados)
 - MIM service (Servicio MIM)
-- Identity Protection
+- Protección de identidad
 - B2C
 
 El filtro **Tipo de recurso de actividad** le permite seleccionar uno de los filtros siguientes:
@@ -182,7 +182,7 @@ Puede filtrar aún más esta vista hasta simplemente **grupos** o simplemente **
 ![Registros de auditoría](./media/active-directory-reporting-activity-audit-logs/25.png "Registros de auditoría")
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información general sobre los informes, consulte [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 

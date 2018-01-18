@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 78e7b2ddb2c024770a779d097395d6f7a6484f44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66c53b84e1e820178083b3ae703e0a1feada187f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-reporting"></a>Informes de Azure Active Directory
 
@@ -102,7 +102,7 @@ El inquilino debe tener una licencia de Azure AD Premium asociada para acceder a
 Además de a través de la interfaz de usuario, los informes de Azure Active Directory también le proporcionan [acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md) a los datos de los informes. Los datos de estos informes pueden ser muy útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las API de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si desea obtener más información sobre los distintos tipos de informes en Azure Active Directory, consulte:
 

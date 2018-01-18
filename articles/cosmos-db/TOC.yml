@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Muestras
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -235,8 +235,6 @@
               items:
                 - name: Hoja de referencia rápida de gramática de SQL
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stackoverflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Vídeos
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Actualizaciones del servicio
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Preguntas más frecuentes
       href: faq.md
-    - name: Stackoverflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Coherencia de los datos explicada a través del béisbol
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
