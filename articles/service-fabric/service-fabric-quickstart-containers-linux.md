@@ -2,24 +2,24 @@
 title: "Creación de una aplicación contenedora de Azure Service Fabric en Linux | Microsoft Docs"
 description: "Cree la primera aplicación contenedora en Linux en Azure Service Fabric.  Cree una imagen de Docker con la aplicación, inserte la imagen en un registro de contenedor y compile e implemente una aplicación contenedora en Service Fabric."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implementación de una aplicación contenedora Linux de Azure Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -66,23 +66,34 @@ Para obtener información sobre cómo crear su propio clúster, vea [Creación d
 > El servicio front-end web está configurado para escuchar en el puerto 80 el tráfico entrante. Asegúrese de que dicho puerto está abierto en el clúster. Si está usando un Party Cluster, el puerto estará abierto.
 >
 
-### <a name="deploy-the-application-manifests"></a>Implementación de los manifiestos de aplicación 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Instalación de la interfaz de la línea de comandos de Service Fabric y conexión al clúster
 Instalación de la [CLI de Service Fabric (sfctl)](service-fabric-cli.md) en el entorno de la CLI
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Conéctese al clúster de Service Fabric en Azure mediante la CLI de Azure. El punto de conexión es el punto de conexión de administración del clúster, por ejemplo `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Implementación de la aplicación de Service Fabric 
+Las aplicaciones de contenedores Service Fabric pueden implementarse utilizando el paquete de aplicación de Service Fabric descrito o Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Implementación con el paquete de aplicación mediante Service Fabric
 Use el script de instalación proporcionado para copiar la definición de la aplicación de votación en el clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Implementación de la aplicación mediante Docker Compose
+Implemente e instale la aplicación en el clúster de Service Fabric mediante Docker Compose con el comando siguiente.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Abra un explorador y navegue hasta Service Fabric Explorer en http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - por ejemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expanda el nodo Applications para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
@@ -133,7 +144,7 @@ Para eliminar la instancia de aplicación del clúster y anular el registro del 
 ./uninstall.sh
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 > [!div class="checklist"]
 > * Implementar una aplicación contenedora de Linux en Azure

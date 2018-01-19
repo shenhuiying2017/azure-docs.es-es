@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -224,12 +224,7 @@ Un almacén de Recovery Services es una entidad de almacenamiento en línea en A
 Los almacenes de Backup, que se basan en Azure Service Management, fueron la primera versión del almacén. Los almacenes de Recovery Services, que agregan características del modelo de Azure Resource Manager, son la segunda versión del almacén. Consulte el [artículo de introducción al almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) para una descripción completa de las diferencias en cuanto a características. Los almacenes de Backup se siguen admitiendo, aunque ya no se pueda usar el portal para crearlos. Debe usar Azure Portal para administrar los almacenes de Backup.
 
 > [!IMPORTANT]
-> Puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del **30 de noviembre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/>
-El 30 de noviembre de 2017:
-- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
-- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
-
-
+> Puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> Después del 30 de noviembre de 2017, ya no podrá usar PowerShell para crear almacenes de Backup y los que queden se actualizarán automáticamente a almacenes de Recovery Services.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>¿Qué diferencias hay entre Azure Backup y Azure Site Recovery?
 Azure Backup y Azure Site Recovery tienen en común que ambos servicios realizan una copia de seguridad de los datos y pueden restaurar dichos datos. Sin embargo, estos servicios atienden a finalidades distintas para proporcionar recuperación ante desastres y continuidad empresarial en su organización. Use Azure Backup para proteger y restaurar datos en un nivel más pormenorizado. Por ejemplo, si una presentación en un equipo portátil resulta dañada, podría usar Azure Backup para restaurarla. Si desea replicar la configuración y los datos de una máquina virtual en otro centro de datos, utilice Azure Site Recovery.

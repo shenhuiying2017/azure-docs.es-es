@@ -4,13 +4,13 @@ description: "Proporciona información general acerca del servicio Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -66,7 +66,7 @@ Una evaluación le ayuda a identificar si las máquinas virtuales locales son id
 3.  Para conectarse a la máquina virtual, use la conexión de la consola en vCenter Server, especifique una nueva contraseña para la máquina virtual durante la conexión y, a continuación, ejecute el dispositivo recopilador en la máquina virtual para iniciar la detección.
 4.  El recopilador recoge metadatos de máquinas virtuales con los de PowerCLI de VMware. La detección se realiza sin agente y no instala nada en los hosts ni en las máquinas virtuales de VMware. Los metadatos recopilados incluyen información acerca de la máquina virtual (núcleos, memoria, discos, tamaños de disco y adaptadores de red). También recopila datos de rendimiento de las máquinas virtuales, incluyendo el uso de la CPU y de la memoria, el IOPS de disco, el rendimiento del disco (MBps) y la red de salida (MBps).
 5.  Los metadatos se insertan en el proyecto de Azure Migrate. Puede verlo en Azure Portal.
-6.  Para la evaluación, las máquinas virtuales detectadas se reúnen en grupos. Por ejemplo, se pueden agrupar las máquinas virtuales que ejecutan la misma aplicación. Puede agrupar las máquinas virtuales en el portal Azure Migrate o usar el etiquetado en vCenter Server. Además, puede usar la visualización de dependencias para ver las dependencias de una máquina específica o de todas las máquinas de un grupo, y refinar el grupo.
+6.  Para la evaluación, las máquinas virtuales detectadas se reúnen en grupos. Por ejemplo, se pueden agrupar las máquinas virtuales que ejecutan la misma aplicación. Para obtener un agrupamiento más preciso, puede usar la visualización de dependencias para ver las dependencias de una máquina específica o de todas las máquinas de un grupo, y refinar el grupo.
 7.  Una vez formado el grupo, se crea una evaluación para el grupo. 
 8.  Una vez finalizada la evaluación, se puede ver en el portal, o bien descargar en formato de Excel.
 

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Java y Azure Portal
 
@@ -129,13 +129,19 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. En Azure Portal, use el botón Copiar para copiar la clave principal y péguela sobre `$masterKey$` en `password: $masterKey$`.
+3. Cambio `graphs` a `gremlin.cosmosdb` en el valor `endpoint`. (Si creó su cuenta de base de datos de grafos antes del 20 de diciembre de 2017, no realice cambios en el valor del punto de conexión y continúe al siguiente paso).
+
+    El valor del punto de conexión debe tener el siguiente aspecto:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. En Azure Portal, use el botón Copiar para copiar la clave principal y péguela sobre `$masterKey$` en `password: $masterKey$`.
 
     La línea 4 de remote.yaml debe tener ahora un aspecto similar a 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Cambio de la línea 3 de remote.yaml de
+5. Cambio de la línea 3 de remote.yaml de
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Guarde el archivo remote.yaml.
+6. Guarde el archivo remote.yaml.
 
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 

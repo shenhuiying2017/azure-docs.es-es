@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Creación de máquinas virtuales Linux con Azure Portal
 
@@ -32,11 +32,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Necesita un par de claves SSH para completar este inicio rápido. Si ya tiene un par de claves SSH, puede omitir este paso.
 
-Desde un shell de Bash, ejecute este comando y siga las instrucciones en pantalla. La salida del comando incluye el nombre del archivo de clave pública. Copie el contenido del archivo de clave pública en el Portapapeles.
+Desde un shell de Bash, ejecute este comando y siga las instrucciones en pantalla. La salida del comando incluye el nombre del archivo de clave pública. Copie el contenido del archivo de clave pública (`cat ~/.ssh/id_rsa.pub`) en el Portapapeles. Si usa el subsistema de Windows para Linux, asegúrese de que no copia los caracteres de salto de línea de la salida. Tenga en cuenta el nombre del archivo de clave privada para su uso posterior.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Puede encontrar información más detallada sobre este proceso [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
 
@@ -102,21 +104,21 @@ Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. C
 2. Seleccione el **grupo de seguridad de red**. Los NSG pueden identificarse mediante la columna **Tipo**. 
 3. En el menú de la izquierda, en Configuración, haga clic en **Reglas de seguridad de entrada**.
 4. Haga clic en **Agregar**.
-5. En **Nombre**, escriba **http**. Asegúrese de que **Intervalo de puertos** esté establecido en 80 y **Acción** esté establecido en **Permitir**. 
-6. Haga clic en **Aceptar**.
+5. En **Nombre**, escriba **http**. Asegúrese de que **Intervalo de puertos de origen** está establecido en `*`, **Intervalo de puertos de destino** está establecido en *80* y **Acción** está establecida en  *Permitir*. 
+6. Haga clic en **OK**.
 
 
 ## <a name="view-the-nginx-welcome-page"></a>Visualización de la página de bienvenida de NGINX
 
 Con NGINX instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en las propiedades de la máquina virtual en Azure Portal.
 
-![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
+![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el
 
 ## <a name="linux-and-windows-containers"></a>Contenedores de Linux y Windows
 
-Con Azure Container Instances, puede programar los contenedores de Windows y Linux con la misma API. Simplemente hay que indicar el tipo de sistema operativo base y todo lo demás es idéntico.
+Con Azure Container Instances, puede programar los contenedores de Windows y Linux con la misma API. Simplemente especifique el tipo de sistema operativo al crear los [grupos de contenedor](container-instances-container-groups.md).
+
+Algunas características están restringidas actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Grupos con programación compartida
 

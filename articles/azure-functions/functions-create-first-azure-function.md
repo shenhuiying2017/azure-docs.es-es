@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 
@@ -52,21 +52,25 @@ Después, cree una función en la nueva Function App.
    
     ![Inicio rápido de funciones en Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Se crea una función en el lenguaje elegido mediante la plantilla para una función desencadenada por HTTP. Puede ejecutar la función nueva mediante el envío de una solicitud HTTP.
+Se crea una función en el lenguaje elegido mediante la plantilla para una función desencadenada por HTTP. En este tema se muestra una función de script de C# en el portal, pero puede crear una función en cualquier [lenguaje compatible](supported-languages.md). 
+
+Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
 
-1. En la nueva función, haga clic en **</> Get función URL** (</> Obtener URL de función), seleccione **default (Function key)** [predeterminada (tecla de función)] y, después, haga clic en **Copiar**. 
+1. En la nueva función, haga clic en **</> Obtener la dirección URL de la función** en la parte superior derecha, seleccione **default (Function key)** y, después, haga clic en **Copiar**. 
 
     ![Copiar la dirección URL de la función desde Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe la cadena de consulta `&name=<yourname>` a esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. A continuación, se muestra un ejemplo de la respuesta devuelta por la función en el navegador Edge:
+2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `&name=<yourname>` de la cadena de consulta al final de esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. Debería ver la respuesta devuelta por la función mostrada en el explorador.  
+
+    Lo siguiente es un ejemplo de la respuesta en el explorador Edge (otros exploradores pueden incluir XML mostrado):
 
     ![Respuesta de la función en el explorador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.   
 
-3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha hacia arriba que encontrará en la parte inferior de la pantalla para expandir **Registros**. 
+3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**. 
 
    ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -74,7 +78,7 @@ Se crea una función en el lenguaje elegido mediante la plantilla para una funci
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado una Function App con una función simple desencadenada por HTTP.  
 

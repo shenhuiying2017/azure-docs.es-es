@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 82cf5ba260e2b6a8f21b85034060e88bd0d445d3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guía de inicio rápido: ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
@@ -37,10 +37,10 @@ Configure la cuenta de Genomics con la siguiente información, como se muestra e
 
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
  |:-------------       |:-------------         |:----------            |
- |Nombre de cuenta         | MyGenomicsAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Reglas de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). |
+ |Nombre de cuenta         | MyGenomicsAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Reglas de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |La suscripción         | Nombre de la suscripción|Esta es la unidad de facturación para los servicios de Azure. Para más información sobre su suscripción, consulte el artículo [Suscripciones](https://account.azure.com/Subscriptions). |      
- |Grupos de recursos       | MyResourceGroup       |  Los grupos de recursos le permiten agrupar varios recursos de Azure (cuenta de almacenamiento o cuenta genómica, entre otros) en un único grupo para una administración sencilla. Para más información, consulte [Grupos de recursos] (https://docs.microsoft.com/es-es/azure/azure-resource-manager/resource-group-overview#resource-groups). Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). |
- |Ubicación                   | Oeste de EE. UU. 2                    |    El servicio está disponible en Oeste de EE. UU. 2, Europa Occidental y Sudeste Asiático. |
+ |Grupos de recursos       | MyResourceGroup       |  Los grupos de recursos le permiten agrupar varios recursos de Azure (cuenta de almacenamiento o cuenta genómica, entre otros) en un único grupo para una administración sencilla. Para más información, consulte [Grupos de recursos] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |La ubicación                   | Oeste de EE. UU. 2                    |    El servicio está disponible en Oeste de EE. UU. 2, Europa Occidental y Sudeste Asiático. |
 
 
 
@@ -105,7 +105,7 @@ msgen list -f “<full path where you saved the config file>”
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Creación de una cuenta de Microsoft Azure Storage 
 El servicio Microsoft Genomics espera que las entradas se almacenen como blobs en bloques en una cuenta de almacenamiento de Azure. También escribe archivos de salida como blobs en bloques en un contenedor especificado por el usuario en una cuenta de almacenamiento de Azure. Las entradas y salidas pueden residir en diferentes cuentas de almacenamiento.
-Si ya tiene los datos en una cuenta de almacenamiento de Azure, solo tiene que asegurarse de que se encuentran en la misma ubicación que la cuenta de Genomics. En caso contrario, se incurre en cargos de salida al ejecutar el servicio Genomics. Si aún no tiene una cuenta de Microsoft Azure Storage, necesita crear una y cargar sus datos. Puede encontrar más información sobre las cuentas de Azure Storage [aquí](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account), incluido qué es una cuenta de almacenamiento y qué servicios proporciona. Para crear una cuenta de Microsoft Azure Storage, vaya a [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
+Si ya tiene los datos en una cuenta de almacenamiento de Azure, solo tiene que asegurarse de que se encuentran en la misma ubicación que la cuenta de Genomics. En caso contrario, se incurre en cargos de salida al ejecutar el servicio Genomics. Si aún no tiene una cuenta de Microsoft Azure Storage, necesita crear una y cargar sus datos. Puede encontrar más información sobre las cuentas de Azure Storage [aquí](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), incluido qué es una cuenta de almacenamiento y qué servicios proporciona. Para crear una cuenta de Microsoft Azure Storage, vaya a [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
 ![Hoja de creación de almacenamiento](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Hoja de creación de almacenamiento")
 
@@ -114,16 +114,16 @@ Configure la cuenta de Storage con la siguiente información, como se muestra en
 
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
  |:-------------------------       |:-------------         |:----------            |
- |Nombre         | MyStorageAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Reglas de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). |
+ |NOMBRE         | MyStorageAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Reglas de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Modelo de implementación         | Resource Manager| Resource Manager es el modelo de implementación recomendado. Para más información, consulte [Descripción de la implementación de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model). |      
- |Tipo de cuenta       | Almacenamiento de blobs       |  El almacenamiento de blobs puede ser de dos a cinco veces más rápido que el uso general para cargas y descargas. |
- |Rendimiento                  | Standard                   | El valor predeterminado es Standard. Para obtener más detalles sobre las cuentas de almacenamiento Standard y Premium, consulte [Introducción a Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
+ |Tipo de cuenta       | Blob Storage       |  El almacenamiento de blobs puede ser de dos a cinco veces más rápido que el uso general para cargas y descargas. |
+ |Rendimiento                  | Estándar                   | El valor predeterminado es Standard. Para obtener más detalles sobre las cuentas de almacenamiento Standard y Premium, consulte [Introducción a Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
  |Replicación                  | Almacenamiento con redundancia local                  | El almacenamiento con redundancia local replica los datos en el centro de datos de la región en la que creó la cuenta de almacenamiento. Para más información, consulte [Replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy).    |
  |Se requiere transferencia segura                  | Disabled                 | ya que está deshabilitada de forma predeterminada. Para más información sobre la seguridad de transferencia de datos, consulte [Requerir transferencia segura en Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer).    |
  |Nivel de acceso                  | Acceso frecuente                   | Un acceso frecuente indica los objetos a los que se accederá con mayor frecuencia en la cuenta de almacenamiento.    |
  |La suscripción         | Su suscripción de Azure |Para más información acerca la suscripción, consulte [Suscripciones](https://account.azure.com/Subscriptions). |      
- |Grupos de recursos       | MyResourceGroup       |  Puede seleccionar el mismo grupo de recursos que la cuenta de Genomics. Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). |
- |Ubicación                  | Oeste de EE. UU. 2                  | Utilice la misma ubicación que la ubicación de su cuenta de Genomics para reducir los cargos de salida y la latencia. El servicio Genomics está disponible en Oeste de EE. UU.2, Oeste de EE. UU. 2, Europa Occidental y Sudeste Asiático.    |
+ |Grupos de recursos       | MyResourceGroup       |  Puede seleccionar el mismo grupo de recursos que la cuenta de Genomics. Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |La ubicación                  | Oeste de EE. UU. 2                  | Utilice la misma ubicación que la ubicación de su cuenta de Genomics para reducir los cargos de salida y la latencia. El servicio Genomics está disponible en Oeste de EE. UU.2, Oeste de EE. UU. 2, Europa Occidental y Sudeste Asiático.    |
  |Redes virtuales                | Disabled                   | ya que está deshabilitada de forma predeterminada. Para más información, consulte [Redes virtuales de Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).    |
 
 
@@ -173,5 +173,5 @@ msgen list -f c:\temp\config.txt
 Una vez completado el flujo de trabajo, puede ver los archivos de salida en la cuenta de Azure Storage, en el contenedor de salida que ha configurado. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, se van a cargar datos de entrada de ejemplo en Azure Storage y se va a enviar un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre otros tipos de archivo de entrada que pueden utilizarse con el servicio Microsoft Genomics, consulte las páginas siguientes: [Archivos FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Varios archivos FASTQ o BAM](quickstart-input-multiple.md) 

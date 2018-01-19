@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
-Obtenga información sobre cómo usar Azure Functions para crear una función que se ejecuta según la programación que usted defina.
+Aprenda a usar Azure Functions para crear una función [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) que se ejecute según la programación que se defina.
 
 ![Creación de una aplicación de función en Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -65,13 +65,13 @@ Después, cree una función en la nueva Function App.
     | **Name** | Valor predeterminado | Define el nombre de la función desencadenada por el temporizador. |
     | **[Programación](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que programa la función para que se ejecute cada minuto. |
 
-2. Haga clic en **Crear**. Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
+2. Haga clic en **Create**(Crear). Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
 
 3. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
 
     ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Ahora puede cambiar la programación de la función para que se ejecute con menos frecuencia, por ejemplo, una vez cada hora. 
+Ahora puede cambiar la programación de la función para que se ejecute una vez cada hora, en lugar de cada minuto. 
 
 ## <a name="update-the-timer-schedule"></a>Actualizar la programación del temporizador
 
@@ -87,7 +87,7 @@ Ahora tiene una función que se ejecuta una vez cada hora.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado una función que se ejecuta según una programación.
 
