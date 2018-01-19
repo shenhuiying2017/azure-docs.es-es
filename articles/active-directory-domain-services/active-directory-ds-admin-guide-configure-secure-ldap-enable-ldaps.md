@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 
@@ -110,13 +110,14 @@ En la siguiente tabla se muestra un NSG de ejemplo que puede configurar para blo
 <br>
 
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si tiene problemas para conectarse al dominio administrado mediante LDAP seguro, siga los pasos siguientes para la solución de problemas:
 * Asegúrese de que la cadena del emisor del certificado LDAP seguro es de confianza en el cliente. Puede optar por agregar la entidad de certificación raíz en el almacén de certificados raíz de confianza en el cliente para establecer la confianza.
 * Compruebe que el certificado LDAP seguro no está emitido por una entidad de certificación intermedia que no es de confianza de forma predeterminada en un equipo de Windows nuevo.
 * Compruebe que el cliente LDAP (por ejemplo, ldp.exe) se conecta al punto de conexión de LDAP seguro con un nombre DNS, no con la dirección IP.
 * Compruebe que el nombre DNS al que se conecta el cliente LDAP se resuelve como la dirección IP pública para LDAP seguro en el dominio administrado.
 * Compruebe que el certificado LDAP seguro para el dominio administrado tiene el nombre DNS en el atributo Sujeto o Nombres alternativos del sujeto.
+* Si se conecta a través de LDAP seguro a través de Internet, asegúrese de que la configuración del grupo de seguridad de red para la red virtual permite que llegue tráfico al puerto 636 desde Internet.
 
 Si sigue teniendo problemas para conectarse al dominio administrado mediante LDAP seguro, [póngase en contacto con el equipo del producto](active-directory-ds-contact-us.md) para obtener ayuda. Incluya la siguiente información para que podamos diagnosticar el problema mejor:
 * Una captura de pantalla de ldp.exe cundo establece la conexión y cuando genera un error.
@@ -126,7 +127,7 @@ Si sigue teniendo problemas para conectarse al dominio administrado mediante LDA
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
+* [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md)
 * [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

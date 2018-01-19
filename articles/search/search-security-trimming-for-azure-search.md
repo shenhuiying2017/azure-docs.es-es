@@ -1,6 +1,6 @@
 ---
-title: Recorte de seguridad con Azure Search
-description: Implemente el recorte de seguridad con el filtro de Azure Search.
+title: Filtros de seguridad para restringir los resultados en Azure Search | Microsoft Docs
+description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de usuario.
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Recorte de seguridad con Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de seguridad para restringir los resultados en Azure Search
 
-Puede aplicar filtros de seguridad en los resultados de la búsqueda para restringir el acceso a los documentos en función de la identidad del usuario. Esta experiencia de búsqueda requiere normalmente comparar la identidad de la persona que solicita la búsqueda en un campo que contiene los principios que tienen permisos para el documento. Cuando se encuentra una coincidencia, el usuario o la entidad (por ejemplo, un grupo o rol) tienen acceso a dicho documento.
+Puede aplicar filtros de seguridad para restringir los resultados de las búsquedas en Azure Search en función de la identidad del usuario. Esta experiencia de búsqueda requiere normalmente comparar la identidad de la persona que solicita la búsqueda en un campo que contiene los principios que tienen permisos para el documento. Cuando se encuentra una coincidencia, el usuario o la entidad (por ejemplo, un grupo o rol) tienen acceso a dicho documento.
 
 Una forma de conseguir el filtrado de seguridad es a través de una disyunción complicada de expresiones de igualdad: por ejemplo, `Id eq 'id1' or Id eq 'id2'`, y así sucesivamente. Este enfoque es propenso a errores, es difícil de mantener y, en los casos en que la lista contiene cientos o miles de valores, ralentiza muchos segundos el tiempo de respuesta de consulta. 
 
@@ -34,7 +34,7 @@ En este artículo se explica cómo realizar el filtrado de seguridad mediante lo
 >[!NOTE]
 > El proceso de recuperación de los identificadores de entidad de seguridad no se trata en este documento. Debe obtenerlo de su proveedor de servicio de identidad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este artículo se da por hecho que dispone de una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), el [servicio Azure Search](https://docs.microsoft.com/azure/search/search-create-service-portal) y el [Índice de Azure Search](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -155,3 +155,8 @@ Debería obtener los documentos en que `group_ids` contenga "group_id1" o "group
 
 Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Search. Puede usar esta función para pasar los identificadores de entidad de seguridad del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
  
+## <a name="see-also"></a>Otras referencias
+
++ [Recorte de seguridad en Azure Search con Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtros de Azure Search](search-filters.md)
++ [Control de acceso y seguridad de datos en las operaciones de Azure Search](search-security-overview.md)

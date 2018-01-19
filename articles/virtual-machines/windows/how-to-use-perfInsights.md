@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) es un script automatizado que recopila información de diagnóstico útil, ejecuta cargas de esfuerzo de E/S y proporciona un informe de análisis para ayudar a solucionar problemas de rendimiento de máquinas virtuales con Windows en Microsoft Azure. Esto puede ejecutarse en máquinas virtuales como un script independiente o directamente desde el portal instando la [extensión de máquina virtual de diagnóstico de rendimiento de Azure](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) es un script automatizado que recopila información de diagnóstico útil. También ejecuta cargas de esfuerzo de E/S y proporciona un informe tras un análisis que ayuda a solucionar problemas de rendimiento de las máquinas virtuales Windows en Azure. Se puede ejecutar en máquinas virtuales como script independiente o directamente desde el portal mediante la instalación de la [extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows](performance-diagnostics-vm-extension.md).
 
-Se recomienda ejecutar este script antes de abrir una incidencia de soporte técnico con Microsoft para problemas de rendimiento de la máquina virtual.
+Si las máquinas virtuales tienen problemas de rendimiento, ejecute este script antes de ponerse en contacto con el departamento de soporte técnico.
 
 ## <a name="supported-troubleshooting-scenarios"></a>Escenarios admitidos de solución de problemas
 
-PerfInsights puede recopilar y analizar varios tipos de información que se agrupan en escenarios únicos.
+PerfInsights puede recopilar y analizar varios tipos de información. En la siguientes secciones se tratan escenarios comunes.
 
 ### <a name="collect-basic-configuration"></a>Recopilación de la configuración básica 
 
-En este escenario se recopila la configuración de disco y otra información importante, incluidos los siguientes elementos:
+En este escenario se recopila la configuración de disco y otra información importante, lo que incluye:
 
 -   Registros de eventos
 
@@ -42,7 +42,7 @@ En este escenario se recopila la configuración de disco y otra información imp
 
 -   Lista de tareas para todas las aplicaciones que se ejecutan actualmente en el sistema
 
--   Archivo de información creado por msinfo32 para la máquina virtual (VM)
+-   Archivo de información creado por msinfo32 para la máquina virtual
 
 -   Opciones de configuración de base de datos de Microsoft SQL Server (si la máquina virtual se identifica como un servidor que ejecuta SQL Server)
 
@@ -59,27 +59,27 @@ Se trata de un conjunto de información pasiva que no debería afectar al sistem
 
 ### <a name="benchmarking"></a>Pruebas comparativas
 
-En este escenario se ejecuta el banco de pruebas de [diskspd](https://github.com/Microsoft/diskspd) (IOPS y MBPS) para todas las unidades que estén conectadas a la máquina virtual. 
+En este escenario se ejecuta el banco de pruebas [Diskspd](https://github.com/Microsoft/diskspd) (IOPS y MBPS) para todas las unidades conectadas a la máquina virtual. 
 
 > [!Note]
-> Este escenario puede afectar al sistema y no debe ejecutarse en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una carga de trabajo mayor que se deba a una prueba de seguimiento o un banco de pruebas podría afectar negativamente al rendimiento de la máquina virtual.
+> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una aumento de la carga de trabajo debido a un prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
 ### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas 
 
-En este escenario se ejecuta un seguimiento de [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) mediante el uso de los contadores que se especifican en el archivo Generalcounters.txt. Si la máquina virtual se identifica como un servidor que ejecuta SQL Server, ejecuta un seguimiento del contador de rendimiento mediante los contadores que se encuentran en el archivo Sqlcounters.txt. También se incluyen datos de diagnóstico de rendimiento.
+En este escenario se ejecuta un seguimiento de [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) mediante el uso de los contadores que se especifican en el archivo Generalcounters.txt. Si la máquina virtual se identifica como un servidor en el que se ejecuta SQL Server, ejecuta un seguimiento del contador de rendimiento. Para ello utiliza los contadores que se encuentran en el archivo Sqlcounters.txt e incluye datos de diagnóstico del rendimiento.
 
 ### <a name="slow-vm-analysis-and-benchmarking"></a>Análisis de máquinas virtuales lentas y pruebas comparativas
 
-En este escenario se ejecuta un seguimiento del [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) seguido de un banco de pruebas [diskspd](https://github.com/Microsoft/diskspd). 
+En este escenario se ejecuta el seguimiento de un [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) e, inmediatamente después, un banco de pruebas [Diskspd](https://github.com/Microsoft/diskspd). 
 
 > [!Note]
-> Este escenario puede afectar al sistema y no debe ejecutarse en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una carga de trabajo mayor que se deba a una prueba de seguimiento o un banco de pruebas podría afectar negativamente al rendimiento de la máquina virtual.
+> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una aumento de la carga de trabajo debido a un prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
 ### <a name="azure-files-analysis"></a>Análisis de Azure Files 
 
-En este escenario se ejecuta una captura especial del contador de rendimiento junto con un seguimiento de red. La captura incluye todos los contadores de "Recursos compartidos de cliente de SMB". Los siguientes son algunos contadores de rendimiento de recursos compartidos de cliente de SMB clave que forman parte de la captura:
+En este escenario se ejecuta una captura especial del contador de rendimiento junto con un seguimiento de red. Dicha captura incluye todos los contadores de recursos compartidos de cliente de Bloque de mensajes del servidor (SMB). Los siguientes son algunos contadores de rendimiento de recursos compartidos de cliente de SMB clave que forman parte de la captura:
 
 | **Tipo**     | **Contador de recursos compartidos de cliente de SMB** |
 |--------------|-------------------------------|
@@ -92,7 +92,7 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 | Tamaño de E/S      | Prom. de bytes/solicitud de datos       |
 |              | Prom. de bytes/lectura               |
 |              | Prom. de bytes/escritura              |
-| Rendimiento   | Bytes de datos por segundo                |
+| Throughput   | Bytes de datos por segundo                |
 |              | Bytes de lectura por segundo                |
 |              | Bytes de escritura por segundo               |
 | Longitud de la cola | Prom. Longitud de la cola de lectura        |
@@ -101,15 +101,15 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 
 ### <a name="custom-slow-vm-analysis"></a>Análisis personalizado de máquinas virtuales lentas 
 
-Al ejecutar un análisis personalizado de máquinas virtuales lentas, ejecutará todos los seguimientos (contador de rendimiento, xperf, red, storport) en paralelo, según cuántos seguimientos diferentes se seleccionen. Una vez completado el seguimiento, la herramienta ejecuta el banco de pruebas de diskspd, si está seleccionado. 
+Cuando ejecute un análisis personalizado de máquinas virtuales lentas, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Performance Counter, Xperf, Network y StorPort). Una vez completado el seguimiento, la herramienta ejecuta el banco de pruebas Diskspd, siempre que esté seleccionado. 
 
 > [!Note]
-> Este escenario puede afectar al sistema y no debe ejecutarse en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una carga de trabajo mayor que se deba a una prueba de seguimiento o un banco de pruebas podría afectar negativamente al rendimiento de la máquina virtual.
+> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una aumento de la carga de trabajo debido a un prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
 ## <a name="what-kind-of-information-is-collected-by-the-script"></a>¿Qué tipo de información recopila el script?
 
-Se recopila información sobre la máquina virtual de Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos, según el escenario de rendimiento que se use:
+Se recopila información acerca de la máquina virtual de Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos. Depende del escenario de rendimiento que se use. En la tabla siguiente se dan los detalles:
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -122,7 +122,7 @@ Se recopila información sobre la máquina virtual de Windows, la configuración
 | Contadores de confiabilidad de almacenamiento     | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Información de almacenamiento              | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Salida de fsutil                    | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
-| Información de controlador de filtro               | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
+| Información del controlador del filtro               | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Salida de netstat                   | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Network configuration (Configuración de red)            | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Configuración del firewall           | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
@@ -131,19 +131,19 @@ Se recopila información sobre la máquina virtual de Windows, la configuración
 | Seguimiento de contadores de rendimiento **     |                            |                                    |                          |                                |                      | Sí                  |
 | Seguimiento del contador de SMB **             |                            |                                    |                          |                                | Sí                  |                      |
 | Seguimiento del contador de SQL Server **      |                            |                                    |                          |                                |                      | Sí                  |
-| Seguimiento de XPerf                      |                            |                                    |                          |                                |                      | Sí                  |
+| Seguimiento de Xperf                      |                            |                                    |                          |                                |                      | Sí                  |
 | Seguimiento de StorPort                   |                            |                                    |                          |                                |                      | Sí                  |
 | Seguimiento de la red                    |                            |                                    |                          |                                | Sí                  | Sí                  |
-| Seguimiento del banco de pruebas de diskspd ***      |                            | Sí                                |                          | Sí                            |                      |                      |
+| Seguimiento del banco de pruebas Diskspd ***      |                            | Sí                                |                          | Sí                            |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Seguimientos de diagnóstico de rendimiento (*)
+### <a name="performance-diagnostics-trace-"></a>Seguimiento del diagnóstico de rendimiento (*)
 
 Se ejecuta un motor basado en reglas en segundo plano para recopilar datos y diagnosticar problemas de rendimiento en curso. Actualmente se admiten las reglas siguientes:
 
-- Regla de HighCpuUsage: detecta períodos de uso de CPU elevados y muestra los principales consumidores de uso de CPU durante esos períodos.
-- Regla de HighDiskUsage: detecta períodos de uso de disco elevados en discos físicos y muestra los principales consumidores de uso de disco durante esos períodos.
-- Regla de HighResolutionDiskMetric: muestra métricas de IOPS, rendimiento y latencia de E/S por 50 milisegundos para cada disco físico. Ayuda a identificar rápidamente los períodos de limitación de disco.
+- Regla de HighCpuUsage: detecta períodos de uso elevado de la CPU y muestra los principales consumidores de uso de la CPU durante dichos períodos.
+- Regla de HighDiskUsage: detecta períodos de uso elevado de los discos físicos y muestra los principales consumidores de uso de los discos en dichos períodos.
+- Regla de HighResolutionDiskMetric: muestra métricas de IOPS, rendimiento y latencia de E/S por 50 milisegundos de cada disco físico. Ayuda a identificar rápidamente los períodos de limitación de disco.
 - Regla de HighMemoryUsage: detecta períodos de uso de memoria elevados y muestra los principales consumidores de uso de memoria durante esos períodos.
 
 > [!NOTE] 
@@ -153,46 +153,46 @@ Se ejecuta un motor basado en reglas en segundo plano para recopilar datos y dia
 
 Recopila los siguientes contadores de rendimiento:
 
-- \Process, \Processor, \Memory, \Thread, \PhysicalDisk, \LogicalDisk
-- \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures, \Server\Pool Paged Failures
-- Contadores seleccionados bajo \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments,  \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, \Microsoft Winsock BSP
+- \Process, \Processor, \Memory, \Thread, \PhysicalDisk y \LogicalDisk
+- \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures y \Server\Pool Paged Failures
+- Varios contadores de \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments,  \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, \Microsoft Winsock BSP
 
 #### <a name="for-sql-server-instances"></a>Para instancias de SQL Server
-- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, \SQLServer:SQL Statistics\
+- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats y \SQLServer:SQL Statistics\
 - \SQLServer:Locks, \SQLServer:General, Statistics
 - \SQLServer:Access Methods
 
 #### <a name="for-azure-files"></a>Para Azure Files
 \Recursos compartidos de cliente de SMB
 
-### <a name="diskspd-benchmark-trace-"></a>Seguimiento del banco de pruebas de diskspd (***)
-Pruebas de carga de trabajo de E/S de diskspd [disco del sistema operativo (escritura) y unidades de grupo (lectura/escritura)]
+### <a name="diskspd-benchmark-trace-"></a>Seguimiento del banco de pruebas Diskspd (***)
+Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escritura) y unidades de grupo (lectura/escritura)]
 
-## <a name="run-the-perfinsights-on-your-vm"></a>Ejecutar PerfInsights en la máquina virtual
+## <a name="run-the-perfinsights-script-on-your-vm"></a>Ejecución del script PerfInsights en una máquina virtual
 
 ### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>¿Qué es necesario saber antes de ejecutar el script? 
 
-**Requisitos del script**
+#### <a name="script-requirements"></a>Requisitos del script
 
-1.  Este script se debe ejecutar en la máquina virtual que tiene el problema de rendimiento. 
+-  Este script se debe ejecutar en la máquina virtual que tiene el problema de rendimiento. 
 
-2.  Se admiten los sistemas operativos siguientes: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 y Windows 10.
+-  El script es compatible con los siguientes sistemas operativos: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016; Windows 8.1 y Windows 10.
 
-**Posibles problemas al ejecutar el script en máquinas virtuales de producción:**
+#### <a name="possible-problems-when-you-run-the-script-on-production-vms"></a>Posibles problemas al ejecutar el script en máquinas virtuales de producción
 
-1.  Cuando se usa cualquier escenario de pruebas comparativas o el escenario "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar XPerf o DiskSpd, el script podría afectar de manera negativa al rendimiento de la máquina virtual. No se recomienda ejecutar estos escenarios en un entorno de producción sin la supervisión de un ingeniero de CSS.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar Xperf o Diskspd, el script podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción.
 
-2.  Al usar los escenarios de pruebas comparativas o el escenario "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar DiskSpd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S en los discos probados.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfier con la carga de trabajo de E/S.
 
-3.  De forma predeterminada, el script usa la unidad de almacenamiento temporal para recopilar los datos. Si el seguimiento permanece habilitado durante más tiempo, es posible que la cantidad de datos que se recopilan sea relevante. Esto puede reducir la disponibilidad de espacio en el disco temporal, afectando por tanto a cualquier aplicación que se base en esta unidad.
+-  De forma predeterminada, el script usa la unidad de almacenamiento temporal para recopilar los datos. Si el seguimiento permanece habilitado durante más tiempo, es posible que la cantidad de datos que se recopilan sea relevante. Esto puede reducir la disponibilidad de espacio en el disco temporal, lo que puede afectar a las aplicaciones que usen esta unidad.
 
 ### <a name="how-do-i-run-perfinsights"></a>¿Cómo se puede ejecutar PerfInsights? 
 
-Puede ejecutar PerfInsights en una máquina virtual instalando la [extensión de máquina virtual de diagnóstico de rendimiento de Azure](performance-diagnostics-vm-extension.md) o ejecutarlo como un script independiente. 
+Para ejecutar PerfInsights en una máquina virtual es preciso instalar la [extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows](performance-diagnostics-vm-extension.md). Otra posibilidad es ejecutarlo como un script independiente. 
 
 **Instalación y ejecución de PerfInsights desde Azure Portal**
 
-PerfInsights se puede ejecutar ahora con una extensión de máquina virtual denominada "extensión de diagnóstico de rendimiento de Azure". Para obtener más información, vea [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension) (Instalación de la extensión de diagnóstico de rendimiento de Azure).  
+Para más información acerca de esta opción, consulte [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension) (Instalación de la extensión de diagnóstico de rendimiento de Azure).  
 
 **Ejecución del script de PerfInsights en el modo independiente**
 
@@ -201,13 +201,13 @@ Para ejecutar el script de PerfInsights, siga estos pasos:
 
 1. Descargue [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Desbloquee el archivo PerfInsights.zip. Para ello, haga clic con el botón derecho en el archivo PerfInsights.zip y seleccione **Propiedades**. En la pestaña **General**, seleccione **Desbloquear** y haga clic en **Aceptar**. De este modo se asegura de que el script se ejecuta sin advertencias de seguridad adicionales.  
+2. Desbloquee el archivo PerfInsights.zip. Para ello, haga clic con el botón derecho en el archivo PerfInsights.zip y seleccione **Propiedades**. En la pestaña **General**, seleccione **Desbloquear** y haga clic en **Aceptar**. Así se asegura de que el script se ejecuta sin advertencias de seguridad adicionales.  
 
-    ![Desbloquee el archivo ZIP.](media/how-to-use-perfInsights/unlock-file.png)
+    ![Captura de pantalla de las propiedades de PerfInsights con Desbloquear resaltado](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Expanda el archivo PerfInsights.zip comprimido en la unidad temporal (de forma predeterminada, normalmente es la unidad D). El archivo comprimido debe contener los siguientes archivos y carpetas:
+3.  Expanda el archivo PerfInsights.zip comprimido en una unidad temporal (de forma predeterminada, suele ser la unidad D). El archivo comprimido debe contener los siguientes archivos y carpetas:
 
-    ![archivos de la carpeta zip](media/how-to-use-perfInsights/file-folder.png)
+    ![Captura de pantalla de los archivos de la carpeta zip](media/how-to-use-perfInsights/file-folder.png)
 
 4.  Abra Windows PowerShell como administrador y, después, ejecute el script PerfInsights.ps1.
 
@@ -216,149 +216,134 @@ Para ejecutar el script de PerfInsights, siga estos pasos:
     Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
     ```
 
-    Es posible que tenga que escribir "y" si se le pide que confirme que quiere cambiar la directiva de ejecución.
+    Es posible que tenga que escribir "y" para confirmar que desea cambiar la directiva de ejecución.
 
-    En el cuadro de diálogo de declinación de responsabilidades, tendrá la opción de compartir información de diagnóstico con el Soporte técnico de Microsoft. Para continuar también debe dar su consentimiento para el contrato de licencia. Realice sus selecciones y, después, haga clic en **Ejecutar script**.
+    En el cuadro de diálogo **Notice and Consent** (Aviso y consentimiento), tiene la opción de compartir la información de diagnóstico con el Soporte técnico de Microsoft. Para continuar también debe dar su consentimiento para el contrato de licencia. Elija las opciones que desee y haga clic en **Run script** (Ejecutar script).
 
-    ![Cuadro de declinación de responsabilidades](media/how-to-use-perfInsights/disclaimer.png)
+    ![Captura de pantalla del cuadro de diálogo de aviso y consentimiento](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  Envíe el número de caso, si está disponible, al ejecutar el script (es para nuestras estadísticas). A continuación, haga clic en **Aceptar**.
+5.  Envíe el número de caso, si está disponible, al ejecutar el script. Después seleccione **Aceptar**.
     
-    ![escribir el Id. de soporte](media/how-to-use-perfInsights/enter-support-number.png)
+    ![Captura de pantalla del cuadro de diálogo del identificador de soporte técnico](media/how-to-use-perfInsights/enter-support-number.png)
 
-6.  Seleccione la unidad de almacenamiento temporal. El script puede detectar automáticamente la letra de unidad de la unidad. Si se produce algún problema en esta fase, es posible que se le pida que seleccione la unidad (la predeterminada es D). Los registros generados se almacenan aquí en la carpeta log\_collection. Después de escribir o aceptar la letra de unidad, haga clic en **Aceptar**.
+6.  Seleccione la unidad de almacenamiento temporal. El script puede detectar automáticamente la letra de la unidad. Si se produce algún problema en esta fase, es posible que se le pida que seleccione la unidad (la predeterminada es D). Los registros generados se almacenan aquí, en la carpeta log\_collection. Después de escribir o aceptar la letra de la unidad, haga clic en **Aceptar**.
 
-    ![especificar la unidad](media/how-to-use-perfInsights/enter-drive.png)
+    ![Captura de pantalla del cuadro de diálogo de la unidad temporal](media/how-to-use-perfInsights/enter-drive.png)
 
 7.  Seleccione un escenario de solución de problemas de la lista proporcionada.
 
-       ![Seleccionar escenarios de soporte técnico](media/how-to-use-perfInsights/select-scenarios.png)
+       ![Captura de pantalla de la lista de escenarios de solución de problemas](media/how-to-use-perfInsights/select-scenarios.png)
 
-8.  También puede ejecutar PerfInsights sin la interfaz de usuario.
-
-    El siguiente comando ejecuta el escenario de solución de problemas "Análisis de máquinas virtuales lentas" sin un mensaje de interfaz de usuario y sin capturar datos durante 30 segundos. Le pide que dé su consentimiento a la misma declinación de responsabilidades y términos de licencia que se mencionan en el paso 4.
+También puede ejecutar PerfInsights sin la interfaz de usuario. El siguiente comando ejecuta el escenario de solución de problemas "Análisis de máquinas virtuales lentas" sin interfaz de usuario. Le pide que dé su consentimiento a la misma declinación de responsabilidades y términos de licencia que se mencionan en el paso 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
-    Si quiere que PerfInsights se ejecute en modo silencioso, use el parámetro **-AcceptDisclaimerAndShareDiagnostics**. Por ejemplo, use el siguiente comando:
+Si quiere que PerfInsights se ejecute en modo silencioso, use el parámetro **-AcceptDisclaimerAndShareDiagnostics**. Por ejemplo, use el siguiente comando:
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
 
 ### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>¿Cómo se pueden solucionar los problemas mientras se ejecuta el script?
 
-Si el script finaliza de forma anómala, puede limpiar un estado incoherente si ejecuta el script junto con el modificador -Cleanup, como se indica a continuación:
+Si el script finaliza de forma anómala, para volver a un estado coherente ejecute el script junto con el modificador cleanup, como se indica a continuación:
 
     powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
 
 Si se produce algún problema durante la detección automática de la unidad temporal, es posible que se le pida que seleccione la unidad (la predeterminada es D).
 
-![especificar la unidad](media/how-to-use-perfInsights/enter-drive.png)
+![Captura de pantalla del cuadro de diálogo de la unidad temporal](media/how-to-use-perfInsights/enter-drive.png)
 
 El script desinstala las herramientas de utilidad y quita las carpetas temporales.
 
-### <a name="troubleshooting-other-script-issues"></a>Solución de problemas con otros scripts 
+### <a name="troubleshoot-other-script-issues"></a>Solución de problemas con el script 
 
-Si se produce algún problema al ejecutar el script, presione Ctrl+C para interrumpir la ejecución del script. Para quitar los objetos temporales, vea la sección "Realizar la limpieza después de una terminación anómala".
-
-Si el script sigue produciendo errores incluso después de varios intentos, se recomienda ejecutar el script en "modo de depuración" con el parámetro "-Debug" durante el inicio.
+Si se produce algún problema al ejecutar el script, presione Ctrl+C para interrumpirlo. Si el script sigue sin funcionar correctamente después de varios intentos, se recomienda ejecutar el script en modo de depuración, para lo que debe usar el parámetro "-Debug" en el inicio.
 
 Después de que se produzca el error, copie la salida completa de la consola de PowerShell y envíelo al agente de Soporte técnico de Microsoft que le está ayudando a solucionar el problema.
 
-### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>¿Cómo se ejecuta el script en modo de análisis personalizado de máquinas virtuales lentas?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>¿Cómo se ejecuta el script en modo "Análisis personalizado de máquinas virtuales lentas"?
 
-Al seleccionar el escenario **Análisis personalizado de máquinas virtuales lentas**, puede habilitar varios seguimientos en paralelo (use Mayús para realizar varias selecciones):
+Al seleccionar **Análisis personalizado de máquinas virtuales lentas**, puede habilitar varios seguimientos en paralelo (para seleccionarlos, use la tecla Mayús):
 
-![seleccionar escenarios](media/how-to-use-perfInsights/select-scenario.png)
+![Captura de pantalla de lista de escenarios](media/how-to-use-perfInsights/select-scenario.png)
 
-Cuando seleccione los escenarios Seguimiento del contador de rendimiento, Seguimiento de XPerf, Seguimiento de la red o Seguimiento de Storport, siga las instrucciones que aparecen en los cuadros de diálogo y trate de reproducir el problema de rendimiento lento después de iniciar los seguimientos.
+Cuando seleccione los escenarios Seguimiento de contadores de rendimiento, Seguimiento de Xperf, Seguimiento de la red o Seguimiento de Storport, siga las instrucciones que aparecen en los cuadros de diálogo siguientes. Intente reproducir el problema de un rendimiento lento después de iniciar los seguimientos.
 
-El siguiente cuadro de diálogo permite iniciar un seguimiento:
+Los seguimientos se inician en el siguiente cuadro de diálogo:
 
-![iniciar seguimiento](media/how-to-use-perfInsights/start-trace-message.png)
+![Captura de pantalla del cuadro de diálogo Start Performance Counter Trace (Iniciar Seguimiento de contadores de rendimiento)](media/how-to-use-perfInsights/start-trace-message.png)
 
 Para detener los seguimientos, tendrá que confirmar el comando en un segundo cuadro de diálogo.
 
-![detener seguimiento](media/how-to-use-perfInsights/stop-trace-message.png)
-![detener seguimiento](media/how-to-use-perfInsights/ok-trace-message.png)
+![Captura de pantalla del cuadro de diálogo Stopping Performance Counter Trace (Detención de Seguimiento de contadores de rendimiento)](media/how-to-use-perfInsights/stop-trace-message.png)
+![Captura de pantalla del cuadro de diálogo Stopping All traces (Detención de todos los seguimientos)](media/how-to-use-perfInsights/ok-trace-message.png)
 
-Cuando se completen las operaciones o seguimientos, se genera un nuevo archivo en D:\\log\_collection (o la unidad temporal) con el nombre **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip.** Puede enviar este archivo al agente del servicio de soporte técnico para el análisis.
+Cuando las operaciones o los seguimientos se completan, aparece un nuevo archivo en D:\\log\_collection (o la unidad temporal). El nombre del archivo es **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip.** Puede enviar este archivo al agente del servicio de soporte técnico para que lo analice.
 
-## <a name="review-the-diagnostics-report-created-by-perfinsights"></a>Revisar el informe de diagnóstico creado por PerfInsights
+## <a name="review-the-diagnostics-report"></a>Revisión del informe de diagnóstico
 
-En el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** generado por PerfInsights, encontrará un informe HTML que detalla las conclusiones de PerfInsights. Para revisar el informe, expanda el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** y después abra el archivo **PerfInsights Report.html**.
+En el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip**, puede encontrar un informe HTML que detalla las conclusiones de PerfInsights. Para revisar el informe, expanda el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** y después abra el archivo **PerfInsights Report.html**.
 
 Haga clic en la pestaña **Conclusiones**.
 
-![pestaña buscar](media/how-to-use-perfInsights/findingtab.png)
-![conclusiones](media/how-to-use-perfInsights/findings.PNG)
+![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/findingtab.png)
+![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/findings.PNG)
 
-**Notas**
+> [!NOTE] 
+> Las conclusiones clasificadas como críticas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como importantes representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como informativas son solo declaraciones informativas.
 
--   Las conclusiones clasificadas como críticas son problemas conocidos que pueden provocar problemas de rendimiento.
-
--   Las conclusiones clasificadas como importantes representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento.
-
--   Las conclusiones clasificadas como informativas son solo declaraciones informativas.
-
-Revise las recomendaciones y los vínculos relativos a todas las conclusiones críticas e importantes para obtener información más detallada sobre ellas y cómo pueden afectar al rendimiento, o sobre los procedimientos recomendados para realizar configuraciones optimizadas para el rendimiento.
+Revise las recomendaciones y los vínculos de todas las conclusiones críticas e importantes. Aprenda cómo pueden afectar al rendimiento, así como los procedimientos recomendados para las configuraciones con optimización del rendimiento.
 
 ### <a name="storage-tab"></a>Pestaña Almacenamiento
 
 La sección **Conclusiones** muestra diversas conclusiones y recomendaciones relacionadas con el almacenamiento.
 
-En las secciones **DiskMap** y **VolumeMap** se describe desde una perspectiva dual cómo se relacionan los volúmenes lógicos y los discos físicos entre sí.
+En las secciones **Disk Map** (Mapa de discos) y **Volume Map** (Mapa de volúmenes) se describe la relación que los volúmenes lógicos y los discos físicos tienen entre sí.
 
-En la perspectiva PhysicalDisk (DiskMap), se muestran en la tabla todos los volúmenes lógicos que se ejecutan en el disco. En el ejemplo siguiente, PhysicalDrive2 ejecuta dos volúmenes lógicos creados en varias particiones (J y H):
+En la perspectiva de los discos físicos (Disk Map), la tabla muestra todos los volúmenes lógicos que se ejecutan en el disco. En el ejemplo siguiente, **PhysicalDrive2** ejecuta dos volúmenes lógicos creados en varias particiones (J y H):
 
-![pestaña Datos](media/how-to-use-perfInsights/disktab.png)
+![Captura de la pestaña de discos](media/how-to-use-perfInsights/disktab.png)
 
-En la perspectiva Volumen (*VolumeMap*), se muestran en las tablas todos los discos físicos en cada volumen lógico. Observe que para los discos RAID y dinámicos, puede ejecutar un volumen lógico en varios discos físicos. En el ejemplo siguiente *C:\\montaje* es un punto de montaje configurado como *SpannedDisk* en los discos físicos \#2 y \#3:
+En la perspectiva de los volúmenes (Volume Map), las tablas muestran todos los discos físicos en cada volumen lógico. Observe que en el caso de los discos RAID y dinámicos, un volumen lógico se puede ejecutar en varios discos físicos. En el ejemplo siguiente *C:\\mount* es un punto de montaje configurado como *SpannedDisk* en los discos físicos 2 y 3:
 
-![pestaña Volumen](media/how-to-use-perfInsights/volumetab.png)
+![Captura de pantalla de la ficha de volúmenes](media/how-to-use-perfInsights/volumetab.png)
 
 ### <a name="sql-tab"></a>Pestaña SQL
 
-Si la máquina virtual de destino hospeda alguna instancia de SQL Server, verá una pestaña adicional en el informe con el nombre **SQL**:
+Si la máquina virtual de destino hospeda alguna instancia de SQL Server, en el informe verá una pestaña adicional denominada **SQL**:
 
-![ficha sql](media/how-to-use-perfInsights/sqltab.png)
+![Captura de pantalla de pestaña SQL](media/how-to-use-perfInsights/sqltab.png)
 
-En esta sección se incluye una pestaña "Conclusiones" y subpestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
+Esta sección contiene una pestaña **Findings** (Conclusiones) y pestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
 
-La pestaña "Conclusiones" contiene una lista de todos los problemas de rendimiento relacionados con SQL encontrados, junto con las recomendaciones.
+La pestaña **Conclusiones** contiene una lista de todos los problemas de rendimiento relacionados con SQL encontrados, junto con las recomendaciones.
 
-En el ejemplo siguiente, se muestra *PhysicalDrive0* (que ejecuta la unidad C) porque los archivos *modeldev* y *modellog* se encuentran en la unidad C y son de tipos diferentes (Archivo de datos y Registro de transacciones, respectivamente):
+En el ejemplo siguiente, se muestra **PhysicalDrive0** (que se ejecuta en la unidad C). En el ejemplo siguiente, los archivos **modeldev** y **modellog** se encuentran en la unidad C y son de tipos diferentes (archivo de datos y registro de transacciones, respectivamente).
 
-![loginfo](media/how-to-use-perfInsights/loginfo.png)
+![Captura de pantalla de información de registro](media/how-to-use-perfInsights/loginfo.png)
 
-Las pestañas específicas de la instancia de SQL Server contienen una sección general en la que se muestra información básica sobre la instancia seleccionada y secciones adicionales para información avanzada, incluidos los ajustes, configuraciones y opciones de usuario.
+Las pestañas de las instancias concretas de SQL Server contienen una sección general que muestra información básica acerca de la instancia seleccionada. También contienen secciones adicionales para información avanzada, lo que incluye los valores, las configuraciones y las opciones de usuario.
 
 ### <a name="diagnostic-tab"></a>Pestaña Diagnóstico
-La pestaña Diagnóstico contiene información acerca de los principales consumidores de CPU, disco y memoria en el cuadro de duración de la ejecución de PerfInsights. También puede encontrar otra información útil, como revisiones críticas que podría necesitar el sistema, lista de tareas y eventos importantes del sistema. 
+La pestaña **Diagnostic** (Diagnóstico) contiene información acerca de los mayores consumidores de CPU, disco y memoria mientras se ejecuta PerfInsights. También puede encontrar información acerca de las revisiones críticas que podría necesitar el sistema, la lista de tareas y los eventos importantes del sistema. 
 
 ## <a name="references-to-the-external-tools-used"></a>Referencias a las herramientas externas usadas
 
 ### <a name="diskspd"></a>Diskspd
 
-DISKSPD es un generador de cargas de almacenamiento y herramienta de prueba de rendimiento de los equipos de ingeniería de Windows y Windows Server e infraestructura de servidor de nube. Para más información, vea [Diskspd](https://github.com/Microsoft/diskspd).
+Diskspd es un generador de carga de almacenamiento y una herramienta de prueba de rendimiento de Microsoft. Para más información, consulte [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
-Xperf es una herramienta de línea de comandos para capturar seguimientos desde el kit de herramientas de rendimiento de Windows.
-
-Para más información, vea [Windows Performance Toolkit -Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf es una herramienta de línea de comandos para capturar seguimientos desde Windows Performance Toolkit. Para más información, consulte [Windows Performance Toolkit -Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="upload-diagnostics-logs-and-reports-to-microsoft-support-for-further-review"></a>Cargar registros e informes de diagnóstico a Soporte técnico de Microsoft para realizar una revisión adicional
+Puede cargar los registros e informes de diagnóstico en el Soporte técnico de Microsoft para que examinen con mayor profundidad. En el servicio de soporte técnico pueden solicitarle que transmita el resultado que genera PerfInsights para facilitarles el proceso de solución de los problemas.
 
-Cuando se trabaja con el personal de Soporte técnico de Microsoft, puede que le soliciten enviar la salida generada por PerfInsights para ayudarle en el proceso de solución de problemas.
+La siguiente captura de pantalla muestra un mensaje similar al que puede recibir:
 
-El agente de soporte técnico creará un área de trabajo DTM para usted y recibirá un mensaje de correo que incluye un vínculo al portal DTM (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) y un identificador de usuario único y una contraseña.
+![Captura de pantalla de mensaje de ejemplo del Soporte técnico de Microsoft](media/how-to-use-perfInsights/supportemail.png)
 
-Este mensaje se enviará desde **CTS Automated Diagnostics Services** (ctsadiag@microsoft.com).
+Siga las instrucciones del mensaje para acceder al área de trabajo de transferencia de archivos. Para mayor seguridad, tiene que cambiar la contraseña la primera vez que la use.
 
-![Ejemplo del mensaje](media/how-to-use-perfInsights/supportemail.png)
-
-Para mayor seguridad, tendrá que cambiar la contraseña la primera vez que la use.
-
-Después de iniciar sesión en DTM, encontrará un cuadro de diálogo para cargar el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** recopilado por PerfInsights.
+Después de iniciar sesión, encontrará un cuadro de diálogo para cargar el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** que recopiló PerfInsights.

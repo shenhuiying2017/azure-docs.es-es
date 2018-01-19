@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80b693420768d574b2371211298562ba35e7ed97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Uso de bases de datos SQL en Microsoft Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Use el adaptador del proveedor de recursos de SQL Server para exponer las bases de datos SQL como un servicio de [Azure Stack](azure-stack-poc.md). Después de instalar el proveedor de recursos y conectarse a una o varias instancias de SQL Server, usted y sus usuarios pueden crear:
 - Bases de datos para las aplicaciones nativas de la nube
@@ -47,7 +47,11 @@ Debe crear uno o varios servidores SQL, o proporcionar acceso a instancias exter
 
     a. En las instalaciones de Azure Stack Development Kit (ASDK), inicie sesión en el host físico.
 
-    b. En los sistemas de varios nodos, el host debe ser un sistema que pueda tener acceso al punto de conexión con privilegios.
+    b. En los sistemas de varios nodos, el host debe ser un sistema que pueda tener acceso al punto de conexión con privilegios. 
+    
+    >[!NOTE]
+    > El script se *debe* ejecutar en un sistema con Windows 10 o Windows Server 2016 con la versión más reciente del runtime de .NET instalada. De lo contrario la instalación puede generar errores. El host de ASDK cumple estos criterios.
+
 
 3. Descargue el binario del proveedor de recursos SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
 
@@ -56,16 +60,19 @@ Debe crear uno o varios servidores SQL, o proporcionar acceso a instancias exter
 
     | Compilación de Azure Stack | Instalador de SQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP, versión 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP, versión 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP, versión 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP, versión 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. El certificado raíz de Azure Stack se recupera desde el punto de conexión con privilegios. Para ASDK, como parte de este proceso se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
 
-    Si tiene que proporcionar su propio certificado, es necesario el siguiente certificado:
+    Si tiene que proporcionar su propio certificado, tendrá que colocar un archivo PFX en **DependencyFilesLocalPath** (véase más abajo) como se indica a continuación:
 
-    Un certificado comodín para \*.dbadapter.\<región\>.\<fqdn externo\>. Este certificado debe ser de confianza, como podría ser emitido por una entidad de certificación. Es decir, la cadena de confianza debe existir sin necesidad de certificados intermedios. Se puede usar un solo certificado de sitio con el nombre explícito de la máquina virtual [sqladapter] utilizado durante la instalación.
+    - Un certificado comodín para \*.dbadapter.\< región\>.\< fqdn externo\> o un certificado de un sitio único con un nombre común de sqladapter.dbadapter.\< región\>.\< fqdn externo\>
+    - Este certificado debe ser de confianza, como podría ser emitido por una entidad de certificación. Es decir, la cadena de confianza debe existir sin necesidad de certificados intermedios.
+    - En DependencyFilesLocalPath solo existe un archivo de certificado individual.
+    - El nombre de archivo no debe contener caracteres especiales.
 
 
 5. Abra una consola de PowerShell con privilegios elevados **nueva** (administrativos) y cambie al directorio al que extrajo los archivos. Use una nueva ventana para evitar problemas que puedan surgir de los módulos de PowerShell incorrectos que ya están cargados en el sistema.
@@ -133,18 +140,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parámetros de DeploySqlProvider.ps1
 Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o se produce un error en la validación de algún parámetro, se le pide que proporcione los requeridos.
 
-| Nombre de parámetro | Descripción | Comentario o valor predeterminado |
+| Nombre de parámetro | DESCRIPCIÓN | Comentario o valor predeterminado |
 | --- | --- | --- |
-| **CloudAdminCredential** | La credencial del administrador de nube, necesaria para el acceso al punto de conexión con privilegios. | _obligatorio_ |
-| **AzCredential** | Proporcione las credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _obligatorio_ |
-| **VMLocalCredential** | Defina las credenciales para la cuenta de administrador local de la máquina virtual del proveedor de recursos SQL. | _obligatorio_ |
-| **PrivilegedEndpoint** | Proporcione la dirección IP o el nombre DNS del punto de conexión con privilegios. |  _obligatorio_ |
+| **CloudAdminCredential** | La credencial del administrador de nube, necesaria para el acceso al punto de conexión con privilegios. | _requerido_ |
+| **AzCredential** | Proporcione las credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _requerido_ |
+| **VMLocalCredential** | Defina las credenciales para la cuenta de administrador local de la máquina virtual del proveedor de recursos SQL. | _requerido_ |
+| **PrivilegedEndpoint** | Proporcione la dirección IP o el nombre DNS del punto de conexión con privilegios. |  _requerido_ |
 | **DependencyFilesLocalPath** | El archivo PFX de certificados se debe colocar también en este directorio. | _opcional_ (_obligatorio_ para varios nodos) |
 | **DefaultSSLCertificatePassword** | La contraseña para el certificado .pfx | _requerido_ |
 | **MaxRetryCount** | Defina el número de veces que desea volver a intentar cada operación si se produce un error.| 2 |
 | **RetryDuration** | Defina el tiempo de expiración entre reintentos, en segundos. | 120 |
-| **Desinstalación** | Se quita el proveedor de recursos y todos los recursos asociados (vea las notas siguientes) | No |
-| **DebugMode** | Impide la limpieza automática en caso de error. | No |
+| **Desinstalación** | Se quita el proveedor de recursos y todos los recursos asociados (vea las notas siguientes) | Sin  |
+| **DebugMode** | Impide la limpieza automática en caso de error. | Sin  |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Comprobación de la implementación mediante Azure Stack Portal
@@ -158,6 +165,73 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
 2. Compruebe que la implementación se realizó correctamente. Busque **Grupos de recursos** &gt;, haga clic en el grupo de recursos **system.\<location\>.sqladapter** y compruebe que las cuatro implementaciones se realizaron correctamente.
 
       ![Comprobación de la implementación de RP de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Actualización del adaptador del proveedor de recursos de SQL (solo varios nodos, compilaciones 1710 y posteriores)
+Cada vez que se actualice la compilación de Azure Stack, se publicará un nuevo adaptador del proveedor de recursos de SQL. Aunque el adaptador existente puede seguir funcionando, es aconsejable actualizar a la compilación más reciente tan pronto como sea posible tras la actualización de Azure Stack. El proceso de actualización es muy similar al proceso de instalación que se ha descrito anteriormente. Se creará una nueva máquina virtual con el código RP más reciente y la configuración se migrará a esta nueva instancia, lo que incluye base de datos y la información del servidor de hospedaje, así como el registro DNS necesario.
+
+Use el script de UpdateSQLProvider.ps1 con los mismos argumentos que antes. Aquí también debe proporcionar el certificado.
+
+> [!NOTE]
+> La actualización solo se admite en sistemas de varios nodos.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>Parámetros de UpdateSQLProvider.ps1
+Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o se produce un error en la validación de algún parámetro, se le pide que proporcione los requeridos.
+
+| Nombre de parámetro | DESCRIPCIÓN | Comentario o valor predeterminado |
+| --- | --- | --- |
+| **CloudAdminCredential** | La credencial del administrador de nube, necesaria para el acceso al punto de conexión con privilegios. | _requerido_ |
+| **AzCredential** | Proporcione las credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _requerido_ |
+| **VMLocalCredential** | Defina las credenciales para la cuenta de administrador local de la máquina virtual del proveedor de recursos SQL. | _requerido_ |
+| **PrivilegedEndpoint** | Proporcione la dirección IP o el nombre DNS del punto de conexión con privilegios. |  _requerido_ |
+| **DependencyFilesLocalPath** | El archivo PFX de certificados se debe colocar también en este directorio. | _opcional_ (_obligatorio_ para varios nodos) |
+| **DefaultSSLCertificatePassword** | La contraseña para el certificado .pfx | _requerido_ |
+| **MaxRetryCount** | Defina el número de veces que desea volver a intentar cada operación si se produce un error.| 2 |
+| **RetryDuration** | Defina el tiempo de expiración entre reintentos, en segundos. | 120 |
+| **Desinstalación** | Se quita el proveedor de recursos y todos los recursos asociados (vea las notas siguientes) | Sin  |
+| **DebugMode** | Impide la limpieza automática en caso de error. | Sin  |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Quitar el adaptador del proveedor de recursos SQL
@@ -177,7 +251,7 @@ Para quitar el proveedor de recursos, es esencial quitar primero todas las depen
 6. Vuelva a ejecutar el script de implementación con el parámetro -Uninstall, los puntos de conexión de Azure Resource Manager, DirectoryTenantID y las credenciales para la cuenta de administrador del servicio.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Agregar servidores host](azure-stack-sql-resource-provider-hosting-servers.md) y [crear bases de datos](azure-stack-sql-resource-provider-databases.md).
 
