@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicar máquinas virtuales de Azure en otra región después de la migración a Azure mediante Azure Site Recovery
 
@@ -100,6 +100,6 @@ Use uno de los métodos siguientes para desinstalar Mobility Service de un equip
 Después de desinstalar Mobility Service, reinicie la máquina virtual antes de configurar la replicación en otra región de Azure.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Empiece a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](azure-to-azure-quickstart.md).
 - Obtenga más información en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).

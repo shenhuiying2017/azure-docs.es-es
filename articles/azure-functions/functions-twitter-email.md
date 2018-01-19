@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Conectar la aplicación lógica a la función.
 > * Enviar un correo electrónico en función de la respuesta de la función.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
@@ -51,7 +51,7 @@ Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de
 
 Cognitive Services APIs están disponibles en Azure como recursos individuales. Use la API Text Analytics para detectar la opinión de los tweets que se supervisan.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
@@ -62,7 +62,7 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | --- | --- | --- |
     | **Name** | MyCognitiveServicesAccnt | Elija un nombre de cuenta único. |
-    | **Ubicación** | Oeste de EE. UU. | Use la ubicación más cercana. |
+    | **Ubicación** | Oeste de EE. UU | Use la ubicación más cercana. |
     | **Plan de tarifa** | F0 | Comience con la tarifa más baja. Si se queda sin llamadas, aumente a un nivel superior.|
     | **Grupos de recursos** | myResourceGroup | Utilice el mismo grupo de recursos para todos los servicios de este tutorial.|
 
@@ -145,7 +145,7 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | Elija un nombre adecuado para la aplicación. |
     | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes. |
-    | **Ubicación** | Este de EE. UU. | Elija una ubicación cercana a usted. |    
+    | **Ubicación** | Este de EE. UU | Elija una ubicación cercana a usted. |    
 
 4. Seleccione **Anclar al panel** y haga clic en **Crear** para crear la aplicación lógica. 
 
@@ -165,7 +165,7 @@ En primer lugar, cree una conexión a la cuenta de Twitter. La aplicación lógi
 
     ![Configuración del conector de Twitter](media/functions-twitter-email/azure_tweet.png)
 
-    | Configuración      |  Valor sugerido   | Descripción                                        |
+    | Configuración      |  Valor sugerido   | DESCRIPCIÓN                                        |
     | ----------------- | ------------ | ------------- |
     | **Texto de búsqueda** | #Azure | Use un hashtag lo suficientemente popular como para generar nuevos tweets en el intervalo elegido. Si usa el nivel Gratis y el hashtag es demasiado popular, puede agotar rápidamente la cuota de transacciones de la API Cognitive Services. |
     | **Frecuencia** | Minuto | La unidad de frecuencia utilizada para el sondeo de Twitter.  |
@@ -228,13 +228,13 @@ La última parte del flujo de trabajo consiste en desencadenar el envío de un c
 
     ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/send_email.png)
 
-    | Configuración      |  Valor sugerido   | Descripción  |
+    | Configuración      |  Valor sugerido   | DESCRIPCIÓN  |
     | ----------------- | ------------ | ------------- |
     | **To** | Escriba su dirección de correo electrónico | La dirección de correo electrónico que recibe la notificación. |
     | **Asunto** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
     | **Cuerpo** | Texto de tweet, ubicación | Haga clic en los parámetros **Texto de tweet** y **Ubicación**. |
 
-5.  Haga clic en **Guardar**.
+5.  Haga clic en **Save**(Guardar).
 
 Ahora que el flujo de trabajo se ha completado, puede habilitar la aplicación lógica y comprobar la ejecución de la función.
 
@@ -271,9 +271,9 @@ Para deshabilitar la aplicación lógica, haga clic en **Información general** 
 
 ![Registros de la función](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un recurso de API de Cognitive Services.

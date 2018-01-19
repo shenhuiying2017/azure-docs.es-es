@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorización de usuarios para vistas de Ambari
 
@@ -141,7 +141,7 @@ Se ha asignado al usuario del dominio de Azure AD "hiveuser2" el rol *Cluster Us
 
 ![Usuario con rol de usuario del clúster](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Configuración de directivas de Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
 * [Administración de clústeres de HDInsight unidos a dominio](./domain-joined/apache-domain-joined-manage.md)

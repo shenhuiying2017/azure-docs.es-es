@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -314,7 +314,7 @@ Azure Virtual Machines es la solución para organizaciones que necesitan recurso
 
 En este artículo, trataremos los pasos a seguir para implementar aplicaciones de SAP en máquinas virtuales en Azure, incluidas las opciones de implementación alternativas y solución de problemas. Este artículo se basa en la información de [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide]. También complementa la documentación sobre la instalación de SAP y las notas de SAP, que son los recursos principales para la instalación e implementación de software de SAP.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Configurar una máquina virtual de Azure para la implementación de software de SAP conlleva varios pasos y recursos. Antes de empezar, asegúrese de que cumple los requisitos previos para instalar el software SAP en máquinas virtuales en Azure.
 
 ### <a name="local-computer"></a>Equipo local
@@ -414,7 +414,7 @@ El asistente le guiará a través de los parámetros que se requieren para crear
  * **Ubicación**: dónde se implementará la nueva máquina virtual. Si desea conectar la máquina virtual con la red local, asegúrese de seleccionar la ubicación de la red virtual que conecta Azure con su red local. Para más información, vea [Redes de Microsoft Azure][planning-guide-microsoft-azure-networking] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 2. **Tamaño**:
 
-     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con el Almacenamiento premium. Para más información, consulte [Almacenamiento: Microsoft Azure Storage y discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Premium Storage][planning-guide-azure-premium-storage] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
+     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información, consulte [Almacenamiento: Microsoft Azure Storage y discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Premium Storage][planning-guide-azure-premium-storage] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 
 3. **Configuración**:
   * **Storage**
@@ -546,7 +546,7 @@ El asistente le guiará a través de los parámetros que se requieren para crear
  * **Ubicación**: dónde se implementará la nueva máquina virtual. Si desea conectar la máquina virtual con la red local, asegúrese de seleccionar la ubicación de la red virtual que conecta Azure con su red local. Para más información, vea [Redes de Microsoft Azure][planning-guide-microsoft-azure-networking] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 2. **Tamaño**:
 
-     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con el Almacenamiento premium. Para más información, consulte [Almacenamiento: Microsoft Azure Storage y discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Premium Storage][planning-guide-azure-premium-storage] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
+     Lea la nota de SAP [1928533] para ver una lista de los tipos de máquinas virtuales que se admiten. Asegúrese de seleccionar el tipo de máquina virtual correcto si quiere usar Azure Premium Storage. No todos los tipos de VM son compatibles con Premium Storage. Para más información, consulte [Almacenamiento: Microsoft Azure Storage y discos de datos][planning-guide-storage-microsoft-azure-storage-and-data-disks] y [Azure Premium Storage][planning-guide-azure-premium-storage] en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide].
 
 3. **Configuración**:
   * **Storage**

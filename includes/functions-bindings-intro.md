@@ -1,4 +1,4 @@
-Esta es la información de referencia para desarrolladores de Funciones de Azure. Si está familiarizado con Funciones de Azure, comience con los siguientes recursos:
+Esta es la información de referencia para desarrolladores de Azure Functions. Si está familiarizado con Azure Functions, comience con los siguientes recursos:
 
 * [Creación de su primera función](../articles/azure-functions/functions-create-first-azure-function.md).
 * [Referencia para desarrolladores de Azure Functions](../articles/azure-functions/functions-reference.md).

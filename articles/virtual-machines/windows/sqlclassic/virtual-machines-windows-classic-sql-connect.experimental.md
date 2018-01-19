@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 En este tema se muestra cómo conectarse a su instancia de SQL Server que se ejecuta en una máquina virtual de Azure. En él se describen algunos [escenarios de conectividad generales](#connection-scenarios) y se proporcionan los [pasos detallados para configurar la conectividad de SQL Server en una máquina virtual de Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Si usa máquinas virtuales de Resource Manager, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../sql/virtual-machines-windows-sql-connect.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Si usa máquinas virtuales de Resource Manager, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Escenarios de conexión
 La forma en que un cliente se conecta a SQL Server que se ejecuta en una máquina virtual varía según la ubicación del cliente y la configuración del equipo y la red. Entre los escenarios se incluyen los siguientes:

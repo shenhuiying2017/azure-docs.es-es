@@ -1,5 +1,5 @@
 ---
-title: "Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB | Microsoft Docs"
+title: "Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB | Microsoft Docs"
 description: "Uso del proceso de ciencia de datos en equipos en un escenario completo con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)"
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/01/2017
 ---
-# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
+# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
 En este tutorial, se describe cómo usar el proceso de ciencia de datos en equipos en un escenario completo con un [clúster de Hadoop de Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir los datos de ejemplo de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Este usa Azure Machine Learning para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
 

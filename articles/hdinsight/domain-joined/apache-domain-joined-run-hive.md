@@ -17,15 +17,15 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar directivas de Hive en HDInsight unido a un dominio
 Aprenda a configurar las directivas de Apache Ranger para Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Un clúster de HDInsight unido a un dominio. Consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Un equipo con Office 2016, Office 2013 Professional Plus, Office 2013 Pro Plus, Excel 365 Standalone u Office 2010 Professional Plus.
 
@@ -82,7 +82,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 ## <a name="create-hive-odbc-data-source"></a>Creación de un origen de datos de Hive ODBC
 Las instrucciones se pueden encontrar en el artículo sobre la [creación de origen de datos ODBC en Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Propiedad  |Description |
+ | Propiedad  |DESCRIPCIÓN |
  | --- | --- |
  | Data Source Name | Asigne un nombre al origen de datos |
  | Host | Escriba &lt;NombreClústerHDInsight>.azurehdinsight.net. Por ejemplo, myHDICluster.azurehdinsight.net |
@@ -136,7 +136,7 @@ Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en 
 
     Cuando termine, verá dos columnas de datos importados.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para administrar un clúster de HDInsight unido a dominio, consulte [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a un dominio).
 * Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

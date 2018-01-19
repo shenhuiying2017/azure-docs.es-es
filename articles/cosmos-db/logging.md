@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Use este tutorial para empezar a trabajar con los registros de Azure Cosmos DB a
 * Operaciones en claves de cuenta, que incluye la creación, modificación o eliminación de estas claves.
 * Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para realizar este tutorial, necesitará los recursos siguientes:
 
 * Una cuenta existente de Azure Cosmos DB, una base de datos y un contenedor. Para obtener instrucciones sobre cómo crear estos recursos, consulte [Creación de una cuenta de base de datos mediante Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [Ejemplos de la CLI](cli-samples.md) o [Ejemplos de PowerShell](powershell-samples.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Azure Cosmos DB para Azure Functions
 
@@ -179,7 +179,7 @@ El desencadenador no indica si un documento se actualizó o se insertó; solo pr
 El enlace de entrada de Azure Cosmos DB recupera uno o varios documentos de Azure Cosmos DB y los pasa al parámetro de entrada de la función. Se puede determinar el identificador de documento o los parámetros de consulta según el desencadenador que invoca la función. 
 
 >[!NOTE]
-> No use enlaces de entrada o salida de Azure Cosmos DB si usa la API de MongoDB en una cuenta de Cosmos DB. Es posible que se dañen los datos.
+> No use enlaces de entrada o salida de Azure Cosmos DB si usa MongoDB API en una cuenta de Cosmos DB. Es posible que se dañen los datos.
 
 ## <a name="input---example-1"></a>Entrada: ejemplo 1
 
@@ -384,7 +384,7 @@ Estos son los datos de enlace del archivo *function.json*:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Estos son los datos de enlace del archivo *function.json*:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
