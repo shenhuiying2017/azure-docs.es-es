@@ -21,6 +21,8 @@
   items:
     - name: Preguntas frecuentes
       href: frequently-asked-questions-genomics.md
+    - name: Historial de lanzamiento de versiones
+      href: version-release-history-genomics.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Precios

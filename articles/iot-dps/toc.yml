@@ -77,6 +77,8 @@
       href: use-hsm-with-sdk.md
     - name: Control del acceso al servicio de aprovisionamiento
       href: how-to-control-access.md
+    - name: Uso de la CLI de Azure para administrar el servicio de aprovisionamiento de dispositivos
+      href: how-to-manage-dps-with-cli.md
 - name: Referencia
   items:
     - name: REST
