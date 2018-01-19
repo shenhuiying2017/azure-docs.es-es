@@ -1,14 +1,14 @@
 # Información general
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Primeros pasos
+# Introducción
 ## [Portal de Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [código de Visual Studio](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [CLI de Azure](data-lake-analytics-get-started-cli2.md)
 
-# Cómo
+# Procedimientos
 
 ## Administración con Data Lake Analytics
 ### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
@@ -60,4 +60,5 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
