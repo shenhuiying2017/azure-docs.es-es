@@ -4,7 +4,7 @@
       href: storage-files-introduction.md
     - name: 'Elección de blobs, archivos o discos de datos'
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: storage-files-faq.md
 - name: Introducción
   items:
@@ -66,9 +66,7 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurar cadenas de conexión
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Uso de la API de REST de Azure Storage
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Administrar
+    - name: administración
       items:
         - name: PowerShell para Azure Files
           href: storage-how-to-use-files-powershell.md

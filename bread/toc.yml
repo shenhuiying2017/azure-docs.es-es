@@ -190,7 +190,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Almacén de Data Lake
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: DevTest Lab
@@ -218,7 +218,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: HBase
+        - name: hbase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -347,7 +350,7 @@
     - name: Colecciones de áreas de trabajo de Power BI
       tocHref: /azure/power-bi-workspace-collections/
       topicHref: /azure/power-bi-workspace-collections/
-    - name: Redis Cache
+    - name: Caché en Redis
       tocHref: /azure/redis-cache/
       topicHref: /azure/redis-cache/
     - name: RemoteApp
@@ -368,10 +371,10 @@
     - name: Seguridad
       tocHref: /azure/security/
       topicHref: /azure/security/
-    - name: Centro de seguridad
+    - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
-    - name: Service Bus
+    - name: Azure Service Bus
       tocHref: /azure/service-bus/
       topicHref: /azure/service-bus/
     - name: Mensajería de Service Bus
@@ -423,7 +426,7 @@
     - name: Conjuntos de escalado de máquina virtual
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
-    - name: Máquinas virtuales
+    - name: Virtual Machines
       tocHref: /azure/virtual-machines/
       topicHref: /azure/virtual-machines/
       items:
