@@ -115,7 +115,7 @@ function showError(endpoint, error, errorDesc) {
 
 Después de que un usuario hace clic en el botón *"Call Microsoft Graph API"* (Llamar a la API de Microsoft Graph) por primera vez, el método `callGraphApi` llama a `loginRedirect` para iniciar la sesión del usuario. Este método hace que se redireccione al usuario al *punto de conexión de Microsoft Azure Active Directory v2* para pedir y validar las credenciales del usuario. Como resultado de un inicio de sesión correcto, se redirige al usuario a la página *index.html* original y se recibe un token, el que `msal.js` procesa, y se almacena en caché la información que contiene el token. Este token se conoce como el *token de identificador* y contiene información básica sobre el usuario, como su nombre. Si piensa utilizar los datos proporcionados por este token para algún propósito, debe asegurarse de que el servidor backend lo valide para garantizar que el token se emitió a un usuario válido para la aplicación.
 
-La instancia de SPA generada por esta guía no usa directamente el token de identificador: en su lugar, llama a `acquireTokenSilent` o a `acquireTokenRedirect` para adquirir un *token de acceso* que se usa para consultar la API de Microsoft Graph. Si necesita obtener un ejemplo que valide el token de identificador, eche un vistazo a [esta aplicación de ejemplo](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "ejemplo Github active-directory-javascript-singlepageapp-dotnet-webapi-v2") en GitHub (usa una ASP.NET WEB API para la validación del token).
+La instancia de SPA generada por esta guía no usa directamente el token de identificador: en su lugar, llama a `acquireTokenSilent` o a `acquireTokenRedirect` para adquirir un *token de acceso* que se usa para consultar Microsoft Graph API. Si necesita obtener un ejemplo que valide el token de identificador, eche un vistazo a [esta aplicación de ejemplo](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "ejemplo Github active-directory-javascript-singlepageapp-dotnet-webapi-v2") en GitHub (usa una ASP.NET WEB API para la validación del token).
 
 #### <a name="getting-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
@@ -136,7 +136,7 @@ El método ` acquireTokenSilent` controla la renovación y las adquisiciones de 
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Llamada a la API Graph de Microsoft con el token que acaba de obtener
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Llamada a Microsoft Graph API con el token que acaba de obtener
 
 Agregue el siguiente código al archivo `app.js`:
 

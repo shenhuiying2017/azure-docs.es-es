@@ -16,7 +16,7 @@ Esta guía se basa en un escenario en el que un explorador tiene acceso a un sit
 
 Esta guía utiliza las siguientes bibliotecas:
 
-|Biblioteca|Descripción|
+|Biblioteca|DESCRIPCIÓN|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite a una aplicación que use OpenIDConnect para la autenticación|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite a una aplicación que mantenga la sesión del usuario mediante cookies|
