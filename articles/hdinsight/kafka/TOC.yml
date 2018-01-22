@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Desarrollo
       items:
+        - name: Uso de Producer y Consumer API de Kafka
+          href: apache-kafka-producer-consumer-api.md
+        - name: Uso de Streams API de Kafka
+          href: apache-kafka-streams-api.md
         - name: Uso de nodos perimetrales vacíos
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

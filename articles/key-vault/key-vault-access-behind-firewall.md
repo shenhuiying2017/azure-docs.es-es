@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: mi aplicación cliente de Key Vault debe estar detrás de un firewall. ¿Qué puertos, hosts o direcciones IP debo abrir para habilitar el acceso a un almacén de claves?
@@ -38,8 +38,8 @@ Será preciso que las aplicaciones cliente de Key Vault accedan a los puntos de 
 
 | Tipo de entidad de seguridad | Punto de conexión:puerto |
 | --- | --- |
-| Usuario que utiliza cuenta Microsoft<br> (por ejemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login-us.microsoftonline.com:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443<br><br> y <br>login.live.com:443 |
-| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login-us.microsoftonline.com:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
+| Usuario que utiliza cuenta Microsoft<br> (por ejemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443<br><br> y <br>login.live.com:443 |
+| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
 | Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa, más Servicios de federación de Active Directory (AD FS) u otro punto de conexión federado (por ejemplo, user@contoso.com) |Todos los puntos de conexión de una cuenta profesional o educativa, más AD FS u otros puntos de conexión federados |
 
 Hay otros escenarios complejos posibles. Para más información, consulte [Escenarios de autenticación para Azure AD](/documentation/articles/active-directory-authentication-scenarios/), [Integración de aplicaciones con Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) y [Guía del desarrollador de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
@@ -62,6 +62,6 @@ Para todas las operaciones criptográficas y de administración de objetos (clav
 ## <a name="ip-address-ranges"></a>Intervalos de direcciones IP
 El servicio Key Vault utiliza otros recursos de Azure como la infraestructura de PaaS. Por consiguiente, no es posible proporcionar un intervalo específico de direcciones IP que los puntos de conexión del servicio Key Vault tendrán en un momento concreto. Si el firewall admite solo intervalos de direcciones IP, consulte el documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de IP de los centro de datos de Microsoft Azure). Para la autenticación y la identidad (Azure Active Directory), la aplicación debe poder conectarse a los puntos de conexión descritos en [Autenticación y direcciones de identidad](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

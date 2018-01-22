@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure
 
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|Especifique el tipo de virtualización (Hyper-V o VMware).|
 |-Directory|(Opcional) La convención de nomenclatura universal (UNC) o ruta de acceso del directorio local para almacenar los datos de la generación de perfiles que se han producido durante esta. Si no se especifica, se usará el directorio denominado "ProfiledData" en la ruta de acceso actual como directorio predeterminado.|
 |-Password|(Opcional) La contraseña para conectarse al host de Hyper-V. Si no se especifica ahora, se le pedirá más adelante durante la ejecución del comando.|
-|-StorageAccountName|(Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento.|
+|-StorageAccountName|(Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento. La cuenta de almacenamiento debe ser v1 de uso general o storageV2 (v2 de propósito general)|
 |-StorageAccountKey|(Opcional) La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > <Storage account name> > Configuración > Claves de acceso > Key1 (o clave de acceso principal para la cuenta de almacenamiento clásica).|
 |-Environment|(Opcional) Este es el entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de Azure de destino se corresponde con las nubes de Azure Gobierno de EE.UU. o Azure China.|
 
@@ -274,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughtput |
 |-Virtualization|Especifique el tipo de virtualización (Hyper-V o VMware).|
 |-Directory|(Opcional) La convención de nomenclatura universal (UNC) o la ruta de acceso del directorio local donde se almacenan los datos de la generación de perfiles (los archivos que se crean durante la generación de perfiles). Estos datos son necesarios para generar el informe. Si no se especifica un nombre, el directorio llamado "ProfiledData" de la ruta de acceso actual se usa como el directorio predeterminado.|
-| -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. |
+| -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. La cuenta de almacenamiento debe ser v1 de uso general o storageV2 (v2 de propósito general) |
 | -StorageAccountKey | La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > <*nombre de la cuenta de almacenamiento*> > Configuración > Claves de acceso > Key1.|
 | -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, separados por una barra diagonal inversa (\) por línea. El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<ul>Ejemplo: El archivo "VMList.txt" contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Opcional) Este es el entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de Azure de destino se corresponde con las nubes de Azure US Government o Azure China.|

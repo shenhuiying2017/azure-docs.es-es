@@ -51,7 +51,7 @@
       href: tutorial-secure-web-server.md
 - name: Muestras
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Migración a Premium Storage con Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Búsqueda de discos sin conectar
+          href: find-unattached-disks.md
         - name: Uso de File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Implementación de discos con plantilla
@@ -468,7 +470,7 @@
           href: error-messages.md
         - name: Acceso a la recuperación de máquinas virtuales
           items:
-            - name: CLI de Azure
+            - name: Azure CLI
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md

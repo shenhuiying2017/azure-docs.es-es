@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Migración a Premium Storage con Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Búsqueda de discos sin conectar
+          href: find-unattached-disks.md
         - name: Uso de File Storage
           href: mount-azure-file-storage.md
         - name: Implementación de discos con plantilla
@@ -420,7 +422,7 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs

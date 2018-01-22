@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de A
 Para obtener una lista de las diferencias entre las versiones 1 y 2 del servicio Data Factory, consulte [Compare with version 1](compare-versions.md) (Comparación de las versiones 1 y 2 de Azure Data Factory). 
 
 ## <a name="next-steps"></a>pasos siguientes
-Para saber cómo crear una factoría de datos, siga las instrucciones paso a paso en los inicios rápidos siguientes: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API de REST](quickstart-create-data-factory-rest-api.md) y Azure Portal. 
+Empezar a trabajar con la creación de una canalización de Data Factory mediante uno de los SDK o herramientas siguientes: 
+
+- [Interfaz de usuario de Data Factory en Azure Portal](quickstart-create-data-factory-portal.md)
+- [Herramienta Copiar datos de Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Plantilla de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+ 

@@ -44,6 +44,8 @@
         - name: Herramientas de VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Envío de trabajos desde Herramientas de R para Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Extensión de los clústeres
       items:
         - name: Personalización de clústeres con Bootstrap

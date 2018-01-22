@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Azure AD B2C | Microsoft Docs"
+title: "Aplicaciones móviles y web de administración de identidades en la nube con Azure AD B2C | Microsoft Docs"
 description: Desarrollo de aplicaciones orientadas al consumidor con Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: bd29d78fa38dc4b5713d018eceed56e6b93739b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 7881793ebce10b4f9fbc9c534d9d6fc0ebb38f0b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: céntrese en su aplicación y deje que nosotros nos encarguemos del registro y el inicio de sesión
 
@@ -30,7 +31,7 @@ Con una configuración mínima, Azure AD B2C permite que la aplicación autentiq
 * **Cuentas de empresa** (mediante protocolos estándar abiertos, OpenID Connect o SAML)
 * **Cuentas locales** (dirección de correo electrónico y contraseña, o nombre de usuario y contraseña)
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 En primer lugar, para obtener su propio inquilino, siga los pasos descritos en [Creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
 
@@ -63,7 +64,7 @@ Aprenda a usar determinadas características de Azure Active Directory B2C:
 * [Personalización de la apariencia de las páginas de registro, de inicio de sesión y de otras páginas orientadas al consumidor](active-directory-b2c-reference-ui-customization.md) a las que presta servicio Azure Active Directory B2C.
 * [Uso de la API Graph de Azure Active Directory para crear, leer, actualizar y eliminar consumidores mediante programación](active-directory-b2c-devquickstarts-graph-dotnet.md) en el directorio de Azure Active Directory B2C.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Estos vínculos son útiles para explorar el servicio en profundidad:
 

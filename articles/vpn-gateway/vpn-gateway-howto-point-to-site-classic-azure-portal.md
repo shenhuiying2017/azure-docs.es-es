@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado (clásica): Azure Portal
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación clásico desde Azure Portal. Esta configuración utiliza certificados para autenticar al cliente que se conecta. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [portal de Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -59,7 +59,7 @@ Para más información sobre las conexiones de punto a sitio, consulte [Pregunta
 Puede usar los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
 * **Nombre: VNet1**
-* **Espacio de direcciones: 192.168.0.0/16**<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para la red virtual.
+* **Espacio de direcciones: 192.168.0.0/16**<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para su red virtual, como se muestra en el diagrama.
 * **Nombre de subred: FrontEnd**
 * **Intervalo de direcciones de subred: 192.168.1.0/24**
 * **Suscripción:** si tiene más de una suscripción, compruebe que usa la correcta.
@@ -79,7 +79,7 @@ Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no l
 
 Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos. Para crear una red virtual mediante Azure Portal, siga estos pasos:
 
-1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
+1. Desde un explorador, vaya [Azure Portal](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **Nuevo**. En el campo **Buscar en el Marketplace**, escriba "Virtual Network". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
 
   ![Búsqueda de la página Red virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
@@ -103,7 +103,7 @@ Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a
 
 ### <a name="gateway"></a>Parte 2: Creación de una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico
 
-En este paso se crea una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico. En Azure Portal para el modelo de implementación clásica, la creación de la subred de puerta de enlace y de la puerta de enlace puede realizarse a través de las mismas páginas de configuración.
+En este paso se crea una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico. En Azure Portal para el modelo de implementación clásica, la creación de la subred de puerta de enlace y de la puerta de enlace puede realizarse a través de las mismas páginas de configuración. La subred de puerta de enlace se utiliza únicamente para los servicios de puerta de enlace. No implemente nunca nada directamente en la subred de puerta de enlace (por ejemplo, máquinas virtuales u otros servicios).
 
 1. En el portal, navegue a la red virtual para la que desea crear una puerta de enlace.
 2. En la página de la red virtual, en la página **Introducción**, en la sección de conexiones VPN, haga clic en **Puerta de enlace**.
@@ -112,25 +112,22 @@ En este paso se crea una subred de puerta de enlace y una puerta de enlace de en
 3. En la página **Nueva conexión VPN**, seleccione **De punto a sitio**.
 
   ![Tipo de conexión de punto a sitio](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. En **Espacio de direcciones del cliente**, agregue el intervalo de direcciones IP. Es el intervalo del que los clientes de VPN reciben una dirección IP al conectarse. Use un intervalo de direcciones IP privadas que no se superponga a la ubicación local desde la que se va a conectar ni a la red virtual a la que desea conectarse. Puede eliminar el intervalo automático y agregar el intervalo de direcciones IP privadas que desea utilizar.
+4. En **Espacio de direcciones del cliente**, agregue el intervalo de direcciones IP. Es el intervalo del que los clientes de VPN reciben una dirección IP al conectarse. Use un intervalo de direcciones IP privadas que no se superponga a la ubicación local desde la que se va a conectar ni a la red virtual a la que desea conectarse. Puede eliminar el intervalo automático y agregar el intervalo de direcciones IP privadas que desea utilizar. En este ejemplo se muestra el intervalo automático. Elimínelo para agregar los valores que desee.
 
   ![Espacio de direcciones del cliente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. Active la casilla **Crear puerta de enlace inmediatamente**.
-
-  ![Crear puerta de enlace inmediatamente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
+5. Active la casilla **Crear puerta de enlace inmediatamente**. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
   ![Haga clic en Configuración de puerta de enlace opcional](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. Haga clic en **Configurar los valores necesarios de la subred** para agregar la **subred de puerta de enlace**. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, se recomienda que cree una subred mayor que incluya más direcciones seleccionando al menos /28 o /27. Esto permitirá suficientes direcciones para dar cabida a posibles configuraciones adicionales que desee en el futuro. Cuando trabaje con subredes de la puerta de enlace, evite asociar un grupo de seguridad de red (NSG) a la subred de la puerta de enlace. La asociación de un grupo de seguridad de red a esta subred puede causar que la puerta de enlace de VPN deje de funcionar como cabría esperar.
+6. Haga clic en **Configurar los valores necesarios de la subred** para agregar la **subred de puerta de enlace**. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, se recomienda que cree una subred mayor que incluya más direcciones seleccionando al menos /28 o /27. Esto permitirá suficientes direcciones para dar cabida a posibles configuraciones adicionales que desee en el futuro. Cuando trabaje con subredes de la puerta de enlace, evite asociar un grupo de seguridad de red (NSG) a la subred de la puerta de enlace. La asociación de un grupo de seguridad de red a esta subred puede causar que la puerta de enlace de VPN deje de funcionar como cabría esperar.
 
   ![Agregue GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. Seleccione el **tamaño** de la puerta de enlace. El tamaño es la SKU de la puerta de enlace para la puerta de enlace de red virtual. En el portal, la SKU predeterminado es **Básica**. Para más información acerca de las SKU de puerta de enlace, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+7. Seleccione el **tamaño** de la puerta de enlace. El tamaño es la SKU de la puerta de enlace para la puerta de enlace de red virtual. En el portal, la SKU predeterminado es **Básica**. Para más información acerca de las SKU de puerta de enlace, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Tamaño de puerta de enlace](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. Seleccione el **tipo de enrutamiento** de su puerta de enlace. Las configuraciones P2S requieren un tipo de enrutamiento **dinámico**. Haga clic en **Aceptar** cuando haya terminado de configurar la página.
+8. Seleccione el **tipo de enrutamiento** de su puerta de enlace. Las configuraciones P2S requieren un tipo de enrutamiento **dinámico**. Haga clic en **Aceptar** cuando haya terminado de configurar la página.
 
   ![Configurar tipo de enrutamiento](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. En la página **Nueva conexión VPN**, haga clic en **Aceptar** en la parte inferior de la página para empezar a crear la puerta de enlace de red virtual. Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la SKU de puerta de enlace que seleccione.
+9. En la página **Nueva conexión VPN**, haga clic en **Aceptar** en la parte inferior de la página para empezar a crear la puerta de enlace de red virtual. Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la SKU de puerta de enlace que seleccione.
 
 ## <a name="generatecerts"></a>2. Creación de certificados
 
@@ -202,7 +199,7 @@ Si desea crear una conexión P2S desde un equipo cliente distinto del que usó p
 
 ### <a name="verifyvpnconnect"></a>Comprobación de la conexión VPN
 
-1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
+1. Para comprobar que la conexión VPN está activa, en el equipo cliente, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
 2. Vea los resultados. Observe que la dirección IP recibida es una de las direcciones en el intervalo de direcciones de conectividad de punto a sitio que especificó cuando creó la red virtual. Los resultados deben ser parecidos a los del ejemplo siguiente:
 
   ```
@@ -261,7 +258,7 @@ Puede revocar un certificado de cliente si agrega la huella digital a la lista d
 
 ## <a name="faq"></a>Preguntas más frecuentes sobre la conexión de punto a sitio
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/linux/azure-vm-network-overview.md).

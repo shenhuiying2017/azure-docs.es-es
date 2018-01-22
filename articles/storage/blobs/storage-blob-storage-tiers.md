@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente
 
@@ -113,7 +113,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Cambio del nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
@@ -125,7 +125,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Cambio del nivel de acceso de un blob en una cuenta de GPv2 o de Blob Storage
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
 
@@ -133,7 +133,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 5. Haga clic en Guardar en la parte superior de la hoja.
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 **¿Debo usar cuentas de Blob Storage o de GPv2 si quiero almacenar mis datos por niveles?**
 
@@ -151,7 +151,7 @@ Sí, puede cambiar el nivel de almacenamiento predeterminado mediante la definic
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 
-No. Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
+Nº Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
 
 **¿En qué regiones están disponibles los niveles de almacenamiento de acceso frecuente, esporádico y de archivo?**
 
@@ -187,9 +187,9 @@ Las herramientas de Azure Portal, PowerShell y la CLI, y las bibliotecas de clie
 
 El almacenamiento de datos, junto con otros límites, se establece en el nivel de cuenta y no por nivel de almacenamiento. Por lo tanto, puede decidir usar todo el límite en un nivel o entre los tres niveles. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y de Blob Storage
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y de Blob Storage
 
 [Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
 

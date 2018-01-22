@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Opciones de la cuenta de Azure Storage
 
@@ -31,7 +31,7 @@ Azure Storage ofrece tres opciones de cuenta distintas, con diferentes precios y
 * Las cuentas de **General Purpose v1 (GPv1)** proporcionan el uso de todos los servicios de Azure Storage, pero puede que no incluyan las características más recientes o los precios más bajos por GB. Por ejemplo, el almacenamiento de acceso esporádico o de archivo no se admite en GPv1.  Los precios de las transacciones son más bajos, por lo que las cargas de trabajo con actividad alta o velocidades de lectura elevadas pueden beneficiarse de este tipo de cuenta.
 
 ### <a name="changing-account-kind"></a>Cambio de la clase de cuenta
-Los usuarios pueden actualizar una cuenta de GPv1 o de Blob Storage a una cuenta de GPv2 en cualquier momento mediante el portal, la CLI o PowerShell. Este cambio no se puede revertir, y no se permite ningún otro cambio.
+Los usuarios pueden actualizar una cuenta GPv1 a una cuenta GPv2 en cualquier momento mediante el portal, la CLI o PowerShell. Este cambio no se puede revertir, y no se permite ningún otro cambio. La posibilidad de actualizar cuentas de Blob Storage a GPv2 estará disponible próximamente.
 
 ## <a name="general-purpose-v2"></a>General Purpose v2
 Las cuentas de **General Purpose v2 (GPv2)** son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blobs, Files, Queues y Tables. Con los blobs en bloques, puede elegir entre los niveles de almacenamiento de acceso esporádico y frecuente en el nivel de cuenta, o los niveles de acceso esporádico, frecuente y de archivo en el nivel de blob, según los patrones de acceso. Para optimizar los costos, almacene los datos a los que se accede con frecuencia, con poca frecuencia o casi nunca en los niveles de almacenamiento frecuente, esporádico y de archivo, respectivamente. Y muy importante, cualquier cuenta de GPv1 se puede actualizar a una cuenta de GPv2 en el portal, la CLI o PowerShell. Las cuentas de GPv2 admiten todas las API y las características admitidas en cuentas de Blob Storage y de GPv1, y comparten todas las excelentes características de durabilidad, disponibilidad, escalabilidad y rendimiento de esos tipos de cuenta.
@@ -96,7 +96,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 ### <a name="create-a-gpv2-storage-account-using-the-azure-portal"></a>Creación de una cuenta de almacenamiento de GPv2 mediante Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. En el menú del concentrador, seleccione **Nuevo** > **Datos y almacenamiento** > **Cuenta de almacenamiento**.
 
@@ -130,9 +130,9 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 11. Haga clic en **Crear** para crear la cuenta de almacenamiento.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Conversión de una cuenta de GPv1 o de Blob Storage a una cuenta de almacenamiento de GPv2 mediante Azure Portal
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Conversión de una cuenta GPv1 a una cuenta de almacenamiento GPv2 mediante Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
@@ -146,7 +146,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 ### <a name="change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal"></a>Cambio del nivel de almacenamiento de una cuenta de almacenamiento de GPv2 mediante Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
@@ -158,7 +158,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 ### <a name="change-the-storage-tier-of-a-blob-using-the-azure-portal"></a>Cambio del nivel de almacenamiento de un blob mediante Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
 
@@ -247,7 +247,7 @@ El costo de transferencia de datos de replicación geográfica para cuentas de B
 
 ## <a name="migrating-existing-data"></a>Migración de datos existentes
 
-Una cuenta de GPv1 o de Blob Storage se puede actualizar fácilmente a GPv2 sin ningún tiempo de inactividad o cambio de API, y sin necesidad de mover los datos. Esta es una de las principales ventajas de GPv2 frente a las cuentas de Blob Storage.
+Una cuenta GPv1 se puede actualizar fácilmente a GPv2 sin ningún tiempo de inactividad o cambio de API, y sin necesidad de mover los datos. Esta es una de las principales ventajas de GPv2 frente a las cuentas de Blob Storage.
 
 Sin embargo, si tiene que migrar a una cuenta de Blob Storage, puede usar las instrucciones siguientes.
 
@@ -276,25 +276,29 @@ Para más información, consulte [Introducción a Azure Blob Storage](../blobs/s
 > [!NOTE]
 > BLOB cifrado mediante el cifrado de cliente para almacenar metadatos relacionados con el cifrado almacenados con el blob. Es absolutamente crítico que cualquier mecanismo de copia se asegure de que los metadatos de blob, y especialmente los metadatos relacionados con el cifrado, se preserven. Si copia los blobs sin estos metadatos, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 **¿Siguen disponibles las cuentas de almacenamiento existentes?**
 
-Sí, las cuentas de almacenamiento existentes siguen estando disponibles y no se han cambiado sus precios ni sus funciones.  No tienen la capacidad de elegir una capa de almacenamiento y no tendrán funcionalidades de organización en capas en el futuro.
+Sí. Las cuentas de almacenamiento existentes (GPv1) siguen estando disponibles y no se han cambiado sus precios ni sus funciones.  Las cuentas GPv1 no ofrecen la posibilidad de elegir un nivel de almacenamiento y no tendrán funcionalidades de organización en niveles en el futuro.
 
 **¿Por qué y cuándo conviene empezar a usar cuentas de almacenamiento de GPv2?**
 
 Las cuentas de almacenamiento de GPv2 están especializadas en proporcionar los costos de almacenamiento más bajos por GB y los costos de acceso a los datos y transacciones más competitivos del sector. En adelante, las cuentas de almacenamiento de GPv2 son el método recomendado de almacenar blobs, dado que las futuras funcionalidades, como las notificaciones de cambios, se introducirán en función de este tipo de cuenta. Sin embargo, cada usuario debe decidir en qué momento desea realizar la actualización según sus requisitos empresariales.  Por ejemplo, puede elegir optimizar los patrones de transacciones antes de la actualización.
 
+No se admite bajar de nivel desde GPv2, así que tenga en cuenta todas las implicaciones relacionadas con los precios antes de actualizar sus cuentas a GPv2.
+
 **¿Puedo actualizar la cuenta de almacenamiento existente a una cuenta de almacenamiento de GPv2?**
 
-Sí. Las cuentas de GPv1 o de Blob Storage se pueden actualizar fácilmente a GPv2 en el portal.
+Sí. Las cuentas GPv1 pueden actualizarse fácilmente a GPv2 en el portal o con PowerShell o la CLI. Las cuentas de Blob Storage pueden actualizarse a GPv2 con PowerShell o la CLI. La posibilidad de actualizar una cuenta de Blob Storage a GPv2 en el portal estará disponible próximamente.
+
+No se admite bajar de nivel desde GPv2, así que tenga en cuenta todas las implicaciones relacionadas con los precios antes de actualizar sus cuentas a GPv2.
 
 **¿Se pueden almacenar objetos en dos capas de almacenamiento en la misma cuenta?**
 
 Sí. El atributo **access tier'** establecido en un nivel de cuenta es el nivel predeterminado que se aplica a todos los objetos de dicha cuenta sin un nivel establecido explícito. Sin embargo, el almacenamiento por niveles de blob permite establecer el nivel de acceso en el nivel de objeto, independientemente de cuál sea el valor del nivel de acceso en la cuenta. Los blobs de cualquiera de los tres niveles de almacenamiento (permanente, esporádico o archivo) pueden existir en la misma cuenta.
 
-**¿Puedo cambiar el nivel de almacenamiento de una cuenta de GPv2?**
+**¿Puedo cambiar el nivel de almacenamiento de una cuenta GPv2?**
 
 Si. Para cambiar el nivel de almacenamiento, establezca el atributo **access tier** de la cuenta de almacenamiento. El cambio del nivel de almacenamiento de la cuenta se aplica a todos los objetos almacenados en la cuenta que no tengan establecido un nivel explícito. El cambio del nivel de almacenamiento de frecuente a esporádico genera cargos de operaciones de escritura (por 10 000) (solo cuentas de GPv2), mientras que el cambio de esporádico a frecuente genera cargos de operaciones de lectura (por 10 000) y cargos de recuperación de datos (por GB) por la lectura de todos los datos de la cuenta.
 
@@ -310,17 +314,19 @@ Los blobs del nivel de almacenamiento esporádico tienen un Acuerdo de Nivel de 
 
 **¿Puedo almacenar blobs en páginas y discos de máquina virtual en cuentas de Blob Storage?**
 
-No. Las cuentas de Blob Storage solo admiten blobs en bloques y en anexos, no blobs en páginas. Los discos de máquina virtual de Azure están respaldados por blobs en páginas y, por tanto, no se pueden utilizar cuentas de Blob Storage para almacenar discos de máquina virtual. Sin embargo, es posible almacenar copias de seguridad de los discos de máquina virtual como blobs en bloques en una cuenta de Blob Storage. Esta es una de las razones para considerar el uso de GPv2 en lugar de cuentas de Blob Storage.
+Nº Las cuentas de Blob Storage solo admiten blobs en bloques y en anexos, no blobs en páginas. Los discos de máquina virtual de Azure están respaldados por blobs en páginas y, por tanto, no se pueden utilizar cuentas de Blob Storage para almacenar discos de máquina virtual. Sin embargo, es posible almacenar copias de seguridad de los discos de máquina virtual como blobs en bloques en una cuenta de Blob Storage. Esta es una de las razones para considerar el uso de GPv2 en lugar de cuentas de Blob Storage.
 
 **¿Debo cambiar las aplicaciones existentes para usar cuentas de almacenamiento de GPv2?**
 
 Las cuentas de almacenamiento de GPv2 son 100 % coherentes en cuanto a las API con las cuentas de almacenamiento de GPv1 y de Blob Storage. Si la aplicación usa blobs en bloques o blobs en anexos y el usuario utiliza la versión 2014-02-14 de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx), u otra versión superior, la aplicación debería funcionar. Si se utiliza una versión anterior del protocolo, es preciso actualizar la aplicación para que use la nueva versión, con el fin de poder trabajar sin problemas con ambos tipos de cuentas de almacenamiento. En general, siempre se recomienda utilizar la versión más reciente, independientemente del tipo de cuenta de almacenamiento que se use.
 
+Los precios de las transacciones y del ancho de banda de las cuentas GPv2 son por lo general más altos que los de GPv1. Por tanto, puede que sea necesario optimizar los patrones de transacción antes de realizar la actualización para que la factura total no experimente un incremento.
+
 **¿Hay un cambio en la experiencia del usuario?**
 
 Las cuentas de almacenamiento de GPv2 son muy parecidas a las cuentas de almacenamiento de GPv1 y admiten todas las características principales de Azure Storage, como alta durabilidad y disponibilidad, escalabilidad, rendimiento y seguridad. Aparte de las características y restricciones concretas de las cuentas de Blob Storage y sus niveles de almacenamiento que se han indicado anteriormente, todo lo demás permanece igual al actualizar a GPv2 o Blob Storage.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 ### <a name="evaluate-blob-storage-accounts"></a>Evaluación de las cuentas de Blob Storage
 

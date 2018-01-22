@@ -9,7 +9,7 @@
   items:
     - name: Creación de una cuenta de Automation
       href: automation-quickstart-create-account.md
-    - name: Creación de un runbook
+    - name: Crear un runbook
       href: automation-quickstart-create-runbook.md
     - name: Creación de una configuración de DSC
       href: automation-quickstart-dsc-configuration.md
@@ -25,7 +25,7 @@
       href: automation-tutorial-installed-software.md
     - name: Solución de los problemas de los cambios en una máquina virtual
       href: automation-tutorial-troubleshoot-changes.md
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Autenticación y seguridad
       items:
@@ -131,10 +131,10 @@
       items:
         - name: Galería de runbooks
           href: automation-runbook-gallery.md
+        - name: Inicio de un runbook desde alertas de Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Creación de máquinas virtuales de Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Corrección de alertas de máquinas virtuales de Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Inicio y detención de máquina virtual con etiquetas JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Eliminación de grupo de recursos
