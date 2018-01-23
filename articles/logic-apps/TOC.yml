@@ -33,9 +33,9 @@
           href: logic-apps-create-logic-apps-from-templates.md
         - name: Creación de plantillas personalizadas
           href: logic-apps-create-deploy-azure-resource-manager-templates.md
-        - name: 'Compilación de una aplicación lógica: VS'
+        - name: 'Compilación de una aplicación lógica: Visual Studio'
           href: logic-apps-deploy-from-vs.md
-        - name: 'Compilación de una aplicación sin servidor: VS'
+        - name: 'Compilación de una aplicación sin servidor: Visual Studio'
           href: logic-apps-serverless-get-started-vs.md
         - name: Migración desde BizTalk Services
           href: logic-apps-move-from-mabs.md
@@ -91,12 +91,67 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Solución de errores
           href: logic-apps-diagnosing-failures.md
-    - name: administración
+    - name: Desarrollo para escenarios de B2B
       items:
-        - name: 'Administración de aplicaciones lógicas: VS'
-          href: logic-apps-manage-from-vs.md
-        - name: Administración de cuentas de integración
-          href: logic-apps-enterprise-integration-accounts.md
+        - name: Creación de una cuenta de integración
+          href: logic-apps-enterprise-integration-create-integration-account.md
+        - name: Asociados comerciales
+          href: logic-apps-enterprise-integration-partners.md
+        - name: Contratos
+          href: logic-apps-enterprise-integration-agreements.md
+        - name: Metadatos de artefacto
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: Recepción de mensajes B2B
+          href: logic-apps-enterprise-integration-b2b.md
+        - name: Intercambio de mensajes AS2
+          href: logic-apps-enterprise-integration-as2.md
+          items:
+            - name: Codificación de AS2
+              href: logic-apps-enterprise-integration-as2-encode.md
+            - name: Descodificación de AS2
+              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: Intercambio de mensajes EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+          items:
+            - name: Codificación de EDIFACT
+              href: logic-apps-enterprise-integration-edifact-encode.md
+            - name: Descodificación de EDIFACT
+              href: logic-apps-enterprise-integration-edifact-decode.md
+            - name: Control de archivos EDIFACT con el segmento UNH2.5
+              href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+        - name: Intercambio de mensajes X12
+          href: logic-apps-enterprise-integration-x12.md
+          items:
+            - name: Codificación de X12
+              href: logic-apps-enterprise-integration-x12-encode.md
+            - name: Descodificación de X12
+              href: logic-apps-enterprise-integration-x12-decode.md
+        - name: Procesamiento por lotes y envío de mensajes EDI
+          href: logic-apps-scenario-edi-send-batch-messages.md
+        - name: Procesamiento de archivos planos
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: Procesamiento de XML
+          href: logic-apps-enterprise-integration-xml.md
+        - name: Validación de XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+        - name: Adición de esquemas para la validación XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Transformación de XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Incorporación de mapas para la transformación XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Adición de certificados de seguridad
+          href: logic-apps-enterprise-integration-certificates.md
+        - name: Solución de problemas B2B
+          href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+        - name: Creación de un plan de recuperación ante desastres
+          href: logic-apps-enterprise-integration-b2b-business-continuity.md
+    - name: Acceso a datos locales
+      items:
+        - name: Instalación de la puerta de enlace de datos
+          href: logic-apps-gateway-install.md
+        - name: Conectarse a datos locales
+          href: logic-apps-gateway-connection.md
     - name: 'Conectores: Temas detallados'
       items:
         - name: AS2
@@ -165,67 +220,12 @@
           href: logic-apps-enterprise-integration-x12.md
         - name: Validación XML
           href: logic-apps-enterprise-integration-xml-validation.md
-    - name: Desarrollo para escenarios de B2B
+    - name: administración
       items:
-        - name: Creación de una cuenta de integración
-          href: logic-apps-enterprise-integration-create-integration-account.md
-        - name: Asociados comerciales
-          href: logic-apps-enterprise-integration-partners.md
-        - name: Contratos
-          href: logic-apps-enterprise-integration-agreements.md
-        - name: Metadatos de artefacto
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: Recepción de mensajes B2B
-          href: logic-apps-enterprise-integration-b2b.md
-        - name: Intercambio de mensajes AS2
-          href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: Codificación de AS2
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: Descodificación de AS2
-              href: logic-apps-enterprise-integration-as2-decode.md
-        - name: Intercambio de mensajes EDIFACT
-          href: logic-apps-enterprise-integration-edifact.md
-          items:
-            - name: Codificación de EDIFACT
-              href: logic-apps-enterprise-integration-edifact-encode.md
-            - name: Descodificación de EDIFACT
-              href: logic-apps-enterprise-integration-edifact-decode.md
-            - name: Control de archivos EDIFACT con el segmento UNH2.5
-              href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Intercambio de mensajes X12
-          href: logic-apps-enterprise-integration-x12.md
-          items:
-            - name: Codificación de X12
-              href: logic-apps-enterprise-integration-x12-encode.md
-            - name: Descodificación de X12
-              href: logic-apps-enterprise-integration-x12-decode.md
-        - name: Procesamiento por lotes y envío de mensajes EDI
-          href: logic-apps-scenario-edi-send-batch-messages.md
-        - name: Procesamiento de archivos planos
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: Procesamiento de XML
-          href: logic-apps-enterprise-integration-xml.md
-        - name: Validación de XML
-          href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Adición de esquemas para la validación XML
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: Transformación de XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Incorporación de mapas para la transformación XML
-          href: logic-apps-enterprise-integration-maps.md
-        - name: Adición de certificados de seguridad
-          href: logic-apps-enterprise-integration-certificates.md
-        - name: Solución de problemas B2B
-          href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-        - name: Creación de un plan de recuperación ante desastres
-          href: logic-apps-enterprise-integration-b2b-business-continuity.md
-    - name: Acceso a datos locales
-      items:
-        - name: Instalación de la puerta de enlace de datos
-          href: logic-apps-gateway-install.md
-        - name: Conectarse a datos locales
-          href: logic-apps-gateway-connection.md
+        - name: 'Administración de aplicaciones lógicas: VS'
+          href: logic-apps-manage-from-vs.md
+        - name: Administración de cuentas de integración
+          href: logic-apps-enterprise-integration-accounts.md
     - name: Implementación
       items:
         - name: Creación de plantillas de implementación automatizada

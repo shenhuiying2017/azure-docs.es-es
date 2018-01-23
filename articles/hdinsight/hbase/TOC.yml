@@ -39,6 +39,9 @@
         - name: Crear aplicaciones .NET para HDInsight de autenticación no interactiva
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: Apache Phoenix en HDInsight
+          href: ../hdinsight-phoenix-in-hdinsight.md
+          maintainContext: true
         - name: Uso de Phoenix y SQLLine
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Uso del SDK de REST del servidor de consultas de Phoenix

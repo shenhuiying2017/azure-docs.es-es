@@ -51,7 +51,7 @@
       href: tutorial-secure-web-server.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -330,6 +330,8 @@
           items:
             - name: MySQL
               href: mysql-install.md
+            - name: MySQL en SUSE
+              href: mysql-on-opensuse.md
             - name: MongoDB
               href: install-mongodb.md
             - name: PostgreSQL
@@ -476,7 +478,7 @@
               href: troubleshoot-recovery-disks-portal.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azureps-cmdlets-docs

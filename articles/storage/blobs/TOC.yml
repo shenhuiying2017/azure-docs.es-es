@@ -234,6 +234,8 @@
           href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: AzCopy en Linux
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Montaje de Blob Storage como sistema de archivos en Linux
+          href: storage-how-to-mount-container-linux.md
         - name: Uso del servicio Import/Export
           href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uso de la herramienta Import/Export
@@ -319,7 +321,7 @@
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/storage
     - name: .NET
       items:

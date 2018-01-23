@@ -95,13 +95,13 @@
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
         - name: Azure Portal
           href: howto-restore-server-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-restore-server-cli.md
     - name: Migración de una base de datos
       items:
@@ -125,13 +125,13 @@
       items:
         - name: Azure Portal
           href: howto-server-parameters.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Acceso a registros de servidor
       items:
         - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-configure-server-logs-in-cli.md
     - name: Supervisión
       items:

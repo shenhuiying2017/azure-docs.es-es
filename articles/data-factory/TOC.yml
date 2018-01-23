@@ -64,6 +64,8 @@
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copia desde varias tablas
           items:
+            - name: Interfaz de usuario (UI)
+              href: tutorial-incremental-copy-multiple-tables-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Uso de la característica de control de cambios

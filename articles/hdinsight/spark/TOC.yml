@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Uso con Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Creación de una canalización de aprendizaje automático de Spark
+          href: apache-spark-creating-ml-pipelines.md
     - name: Análisis de macrodatos
       items:
         - name: Uso de Spark para leer y escribir datos de HBase

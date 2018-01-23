@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminación de un almacén
           href: delete-vault.md
-    - name: Solución de problemas
+    - name: Supervisión y solución de problemas
       items:
         - name: Problemas de replicación de Azure a Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemas de conmutación por error a Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Recopilación de registros y solución de problemas del entorno local
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Supervisión de Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Referencia
   items:
     - name: Azure PowerShell
