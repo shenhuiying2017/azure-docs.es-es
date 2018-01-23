@@ -28,13 +28,13 @@
 ### [Control de acceso basado en rol (versión preliminar)](service-bus-role-based-access-control.md)
 ### [Mensajería premium](service-bus-premium-messaging.md)
 ### [Comparación de colas de Azure con colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Compilación de una aplicación de Service Bus de niveles múltiples](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimización del rendimiento](service-bus-performance-improvements.md)
 ### [Recuperación ante desastres y replicación geográfica](service-bus-geo-dr.md)
 ### [Mensajería asincrónica y alta disponibilidad](service-bus-async-messaging.md)
 ### [Control de interrupciones y desastres](service-bus-outages-disasters.md)
 
 ## Desarrollo
+### [Compilación de una aplicación de Service Bus de niveles múltiples](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Administración de mensajes
 #### [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md)
 #### [Mensajes, cargas y serialización](service-bus-messages-payloads.md)

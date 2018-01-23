@@ -16,5 +16,4 @@
 8. De nuevo en la hoja **Agregar conexión de datos**, haga clic en **Cadena de conexión**, escriba los valores de inicio de sesión y contraseña para la base de datos y haga clic en **Aceptar**. Espere unos minutos para que se implemente la base de datos correctamente antes de continuar.
 
 <!-- URLs. -->
-
-            [Azure Portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -341,7 +341,7 @@
         - name: Administración de claves y coherencia
           href: manage-account.md
         - name: Explorador de Azure Storage
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Seguridad
           items:
             - name: Cifrado en reposo

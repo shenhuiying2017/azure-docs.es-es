@@ -157,7 +157,7 @@ Es el método recomendado para incorporar Automation seleccionando la oferta de 
 
 2. Haga clic en **Nuevo**.<br><br> ![Seleccione la opción Nuevo en Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Busque **Automation** y, a continuación, en los resultados de la búsqueda seleccione **Automation and Control***.<br><br> ![Busque y seleccione Automation and Control en Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Busque **Automation** y, a continuación, en los resultados de la búsqueda seleccione **Automation and Control**.<br><br> ![Busque y seleccione Automation and Control en Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Después de leer la descripción de la oferta, haga clic en **Crear**.  
 
