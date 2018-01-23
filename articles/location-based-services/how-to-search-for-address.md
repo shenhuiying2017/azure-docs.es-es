@@ -6,18 +6,18 @@ keywords: No agregue o edite palabras clave sin consultar su campo SEO.
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Cómo buscar una dirección mediante el servicio de búsqueda Azure Location Based Services (versión preliminar)
 El servicio de búsqueda es un conjunto de RESTful de API diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud/longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por las API del servicio de búsqueda se pueden usar como parámetros en otros servicios Azure Location Based Services como las API de ruta y flujo de tráfico.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Instale la [aplicación Postman](https://www.getpostman.com/apps).
 
 Una cuenta y una clave de suscripción de Azure Location Based Services. Para obtener información sobre cómo crear una cuenta y recuperar una clave de suscripción, consulte [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md) (Cómo administrar la cuenta y las claves de Azure Location Based Services). 
@@ -38,13 +38,13 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado 'maxF
 
     ![Búsqueda aproximada ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | Parámetro | Valor sugerido |
+    | . | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorización | Sin autenticación |
 
-    El atributo **json** de la ruta de acceso URL determina el formato de respuesta. Usa json en todo este artículo para una fácil utilización y legibilidad. Puede encontrar los formatos de respuesta disponibles en la definición **Get Search Fuzzy** (Obtener búsqueda aproximada) de la [referencia de API funcional de Location Based Services] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    El atributo **json** de la ruta de acceso URL determina el formato de respuesta. Usa json en todo este artículo para una fácil utilización y legibilidad. Puede encontrar los formatos de respuesta disponibles en la definición **Get Search Fuzzy** (Obtener búsqueda aproximada) de la [referencia de API funcional de Location Based Services] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
 
@@ -90,7 +90,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
 
     ![Búsqueda de direcciones ](./media/how-to-search-for-address/address_search_url.png)
     
-    | Parámetro | Valor sugerido |
+    | . | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/json? |
@@ -130,7 +130,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     
     ![Dirección URL de Búsqueda de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
-    | Parámetro | Valor sugerido |
+    | . | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/reverse/json? |
@@ -156,7 +156,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     |-----|------------|
     | número | true |
 
-    Si el parámetro de consulta [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) se envía con la solicitud, la respuesta puede incluir el lado de la calle (izquierda o derecha) y también una posición de desplazamiento para ese número.
+    Si el parámetro de consulta [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) se envía con la solicitud, la respuesta puede incluir el lado de la calle (izquierda o derecha) y también una posición de desplazamiento para ese número.
     
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -164,7 +164,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     |-----|------------|
     | spatialKeys | true |
 
-    Cuando se establece el parámetro de consulta [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta contiene información importante geoespacial propietaria para una ubicación especificada.
+    Cuando se establece el parámetro de consulta [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta contiene información importante geoespacial propietaria para una ubicación especificada.
 
 6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -172,7 +172,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     |-----|------------|
     | returnSpeedLimit | true |
     
-    Cuando se establece el parámetro de consulta [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve el límite de velocidad publicado.
+    Cuando se establece el parámetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve el límite de velocidad publicado.
 
 7. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -180,7 +180,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     |-----|------------|
     | returnRoadUse | true |
 
-    Cuando se establece el parámetro de consulta [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve la matriz de uso de carretera para códigos geográficos a nivel de calle.
+    Cuando se establece el parámetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve la matriz de uso de carretera para códigos geográficos a nivel de calle.
 
 8. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -188,7 +188,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     |-----|------------|
     | roadUse | true |
 
-    Puede restringir la consulta de código geográfico inversa a un tipo específico de uso de carretera mediante el parámetro de consulta [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Puede restringir la consulta de código geográfico inversa a un tipo específico de uso de carretera mediante el parámetro de consulta [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Buscar la calle transversal mediante la búsqueda de calles transversales de direcciones inversa
 
@@ -198,7 +198,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     
     ![Búsqueda de calles transversales de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
-    | Parámetro | Valor sugerido |
+    | . | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
@@ -214,5 +214,5 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
 
-## <a name="next-steps"></a>Pasos siguientes
-- Explore la documentación de la API [Azure Location Based Serices Search service](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) (Servicio de búsqueda Azure Location Based Services) 
+## <a name="next-steps"></a>pasos siguientes
+- Explore la documentación de la API [Azure Location Based Serices Search service](https://docs.microsoft.com/rest/api/location-based-services/search) (Servicio de búsqueda Azure Location Based Services) 

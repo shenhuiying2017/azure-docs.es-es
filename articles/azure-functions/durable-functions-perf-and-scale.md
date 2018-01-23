@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -59,13 +59,13 @@ Como puede ver, todas las máquinas virtuales compiten por los mensajes de la co
 Las instancias de orquestación se distribuyen entre las instancias de cola de control mediante la ejecución de una función hash interna con el identificador de instancia de orquestación. Los identificadores de instancia se generan automática y aleatoriamente de forma predeterminada, lo cual garantiza que las instancias están equilibradas entre todas las colas de control disponibles. A día de hoy, el número predeterminado de particiones de la cola de control admitido es **4**.
 
 > [!NOTE]
-> Actualmente no se puede configurar el número de particiones Azure Functions. [Se está realizando el seguimiento del trabajo para admitir esta opción de configuración](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Actualmente no se puede configurar el número de particiones de cola de control en Azure Functions. [Se está realizando el seguimiento del trabajo para admitir esta opción de configuración](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 En general, se han diseñado las funciones de orquestador para que sean ligeras, por lo que no necesitan gran cantidad de capacidad de computación. Por esta razón, no es necesario crear un gran número de particiones de cola de control para obtener un rendimiento excelente. En su lugar, la mayor parte del trabajo pesado se realiza en las funciones de la actividad sin estado, las cuales se pueden escalar en horizontal infinitamente.
 
 ## <a name="auto-scale"></a>Escalado automático
 
-Al igual que todas las instancias de Azure Functions que se ejecutan en el plan de consumo, Durable Functions admite el escalado automático a través del [controlador de escala de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). El controlador de escala supervisa la longitud de la cola de elementos de trabajo y de las colas de control, y agrega o quita recursos de máquina virtual en consecuencia. Si la longitud de las colas de control aumenta con el tiempo, el controlador de escala continúa agregando instancias hasta que se alcance el recuento de particiones de la cola de control. Si la longitud de la cola de elementos de trabajo aumenta con el tiempo, el controlador de escala continúa agregando recursos de máquina virtual hasta que se iguale la carga, independientemente del recuento de particiones de la cola de control.
+Al igual que todas las instancias de Azure Functions que se ejecutan en el plan de consumo, Durable Functions admite el escalado automático a través del [controlador de escala de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). El controlador de escala supervisa la longitud de la cola de elementos de trabajo y de las colas de control, y agrega o quita instancias de máquina virtual en consecuencia. Si la longitud de las colas de control aumenta con el tiempo, el controlador de escala continúa agregando instancias de máquina virtual hasta que se alcance el recuento de particiones de la cola de control. Si la longitud de la cola de elementos de trabajo aumenta con el tiempo, el controlador de escala continúa agregando instancias de máquina virtual hasta que se iguale la carga, independientemente del recuento de particiones de la cola de control.
 
 ## <a name="thread-usage"></a>Uso de subprocesos
 
@@ -73,7 +73,7 @@ Las funciones de orquestador se ejecutan en un solo subproceso. Esto es necesari
 
 Las funciones de actividad tienen el mismo comportamiento que las funciones normales desencadenadas por colas. Esto significa que puede realizar operaciones de E/S, ejecutar operaciones de uso intensivo de CPU y utilizar varios subprocesos con seguridad. Dado que los desencadenadores de actividad no tienen estado, se escalan horizontalmente a un número ilimitado de máquinas virtuales sin problema.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Instalación de la extensión Durable Functions y ejemplos](durable-functions-install.md)

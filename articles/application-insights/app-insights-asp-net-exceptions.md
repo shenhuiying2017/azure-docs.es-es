@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.
@@ -301,7 +301,7 @@ Podría agregar este atributo invalidado a controladores específicos o agregarl
 
 [Ejemplo](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Hay un número de casos que los filtros de excepciones no pueden procesar. Por ejemplo:
+Hay un número de casos que los filtros de excepciones no pueden procesar. Por ejemplo: 
 
 * Excepciones iniciadas por constructores del controlador.
 * Excepciones iniciadas por controladores de mensajes.
@@ -440,7 +440,7 @@ Esto es diferente del recuento de "Excepciones" calculado por el portal de Appli
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Supervisar REST, SQL y otras llamadas a las dependencias](app-insights-asp-net-dependencies.md)
 * [Supervisar los tiempos de carga de página, las excepciones del explorador y las llamadas AJAX](app-insights-javascript.md)
 * [Supervisar los contadores de rendimiento](app-insights-performance-counters.md)

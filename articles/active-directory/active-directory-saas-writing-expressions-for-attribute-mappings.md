@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar asignaciones de expresiones 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -26,8 +26,8 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
 * Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  <br>
-  *NombreDeFunción (&lt;&lt; argumento 1 &gt;&gt;, &lt;<argument N>&gt;)*
-* Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno(FunciónDos(&lt;<argument1>&gt;))*
+  *NombreDeFunción (<<argumento 1>>,<<argument N>>)*
+* Es posible anidar funciones dentro de otras. Por ejemplo:  <br> *FunciónUno(FunciónDos(&lt;<argument1>&gt;))*
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
@@ -36,7 +36,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Company name: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
-[Append](#append)&nbsp;&nbsp;&nbsp;&nbsp;[FormatDateTime](#formatdatetime)&nbsp;&nbsp;&nbsp;&nbsp;[Join](#join)&nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp;[Not](#not)&nbsp;&nbsp;&nbsp;&nbsp;[Sustituya](#replace)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces)&nbsp;&nbsp;&nbsp;&nbsp;[Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -46,10 +46,10 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen |
-| **suffix** |Obligatorio |Cadena |La cadena que se va a anexar al final del valor de origen. |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **suffix** |Obligatorio |string |La cadena que se va a anexar al final del valor de origen. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -59,14 +59,14 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** |Obligatorio |Cadena |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obligatorio |Cadena |Formato de la fecha de salida. |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
+| **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obligatorio |string |Formato de la fecha de salida. |
 
 - - -
-### <a name="join"></a>Join
+### <a name="join"></a>Unión
 **Función:**<br> Join(separator, source1, source2, …)
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
@@ -75,10 +75,10 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **separator** |Obligatorio |Cadena |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **origen1  … origenN ** |Obligatorio, número variable de veces |Cadena |Valores de cadena que se van a agrupar. |
+| **separator** |Obligatorio |string |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
+| **origen1  … origenN ** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -88,21 +88,21 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo. |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
 | **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
 - - -
-### <a name="not"></a>Not
+### <a name="not"></a>not
 **Función:**<br> Not(source)
 
 **Descripción:**<br> Invierte el valor booleano de **source**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
@@ -129,15 +129,27 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
-| **oldValue** |Opcional |Cadena |Valor que se va a reemplazar en **source** o **template**. |
-| **regexPattern** |Opcional |Cadena |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
-| **regexGroupName** |Opcional |Cadena |Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
-| **replacementValue** |Opcional |Cadena |Nuevo valor para  reemplazar uno anterior. |
-| **replacementAttributeName** |Opcional |Cadena |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
-| **template** |Opcional |Cadena |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
+| **oldValue** |Opcional |string |Valor que se va a reemplazar en **source** o **template**. |
+| **regexPattern** |Opcional |string |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
+| **regexGroupName** |Opcional |string |Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
+| **replacementValue** |Opcional |string |Nuevo valor para  reemplazar uno anterior. |
+| **replacementAttributeName** |Opcional |string |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
+| **template** |Opcional |string |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Función:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Descripción:**<br> Devuelve una única función appRoleAssignment de la lista de todas las funciones appRoleAssignments asignadas a un usuario para una aplicación determinada. Esta función es necesaria para convertir el objeto appRoleAssignments en una cadena de nombre de rol único. Tenga en cuenta que el procedimiento recomendado consiste en asegurarse de que solo una función appRoleAssignment esté asignada a un usuario a la vez. Si se asignan varios roles, la cadena del rol devuelta podría no ser predecible.
+
+**Parámetros:**<br> 
+
+| NOMBRE | Obligatorio/Repetición | type | Notas |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Obligatorio |string |Objeto **[appRoleAssignments]**. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -147,9 +159,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |**de origen** que se actualiza. |
+| **de origen** |Obligatorio |string |**de origen** que se actualiza. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -159,12 +171,12 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Nombre | Obligatorio/Repetición | Tipo | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |Cadena |**Source** que se actualiza. |
-| **defaultValue** |Opcional |Cadena |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-| **key** |Obligatorio |Cadena |**Key** con que se compara el valor de **source**. |
-| **value** |Obligatorio |Cadena |Valor de reemplazo para el **source** que coincide con la clave. |
+| **de origen** |Obligatorio |string |**Source** que se actualiza. |
+| **defaultValue** |Opcional |string |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
+| **key** |Obligatorio |string |**Key** con que se compara el valor de **source**. |
+| **value** |Obligatorio |string |Valor de reemplazo para el **source** que coincide con la clave. |
 
 ## <a name="examples"></a>Ejemplos
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido

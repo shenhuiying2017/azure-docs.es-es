@@ -4,7 +4,7 @@ description: "En este artículo se muestran todas las versiones de Azure AD Conn
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
-
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
 
 Lista de temas relacionados:
+
 
 
 Tema. |  Detalles
 --------- | --------- |
 Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Estado: 12 de diciembre de 2017
+
+>[!NOTE]
+>Esta es una revisión relacionada con la seguridad para Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Se ha agregado un mejora a Azure AD Connect versión 1.1.654.0 (y posteriores) para garantizar que los cambios de permisos recomendados que se describen en la sección [Bloquear el acceso a la cuenta de AD DS](#lock) se aplican automáticamente cuando Azure AD Connect crea la cuenta de AD DS. 
+
+- Al instalar Azure AD Connect, el administrador de instalación puede proporcionar una cuenta de AD DS existente o dejar que Azure AD Connect cree la cuenta automáticamente. Los cambios de permisos se aplican automáticamente a la cuenta de AD DS que crea Azure AD Connect durante la instalación. No se aplican a la cuenta de AD DS existente proporcionada por el administrador de instalación.
+- Para los clientes que han actualizado desde una versión anterior de Azure AD Connect a 1.1.654.0 (o posterior), los cambios de permisos no se aplicarán con carácter retroactivo a las cuentas de AD DS existentes creadas antes de la actualización. Solo se aplicarán a las cuentas de AD DS nuevas creadas después de la actualización. Esto se produce cuando se agregan nuevos bosques de AD para sincronizarlos con Azure AD.
+
+>[!NOTE]
+>Esta versión solo quita la vulnerabilidad para las nuevas instalaciones de Azure AD Connect donde la cuenta de servicio se crea mediante el proceso de instalación. Para las instalaciones existentes o en los casos en que proporciona la cuenta usted mismo, debe asegurarse de que esta vulnerabilidad no existe.
+
+#### <a name="lock"></a> Bloquear el acceso a la cuenta de AD DS
+Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguientes cambios de permisos en las instancias de AD locales:  
+
+*   Deshabilite la herencia en el objeto especificado.
+*   Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF. Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
+*   Asigne estos permisos específicos:
+
+type     | NOMBRE                          | Access               | Se aplica a
+---------|-------------------------------|----------------------|--------------|
+PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
+PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |
+PERMITIR    | Administradores de dominio                 | Control total         | Este objeto  |
+PERMITIR    | Administradores                | Control total         | Este objeto  |
+PERMITIR    | Enterprise Domain Controllers | Contenido de la lista        | Este objeto  |
+PERMITIR    | Enterprise Domain Controllers | Lectura de todas las propiedades  | Este objeto  |
+PERMITIR    | Enterprise Domain Controllers | Permisos de lectura     | Este objeto  |
+PERMITIR    | Usuarios autenticados           | Contenido de la lista        | Este objeto  |
+PERMITIR    | Usuarios autenticados           | Lectura de todas las propiedades  | Este objeto  |
+PERMITIR    | Usuarios autenticados           | Permisos de lectura     | Este objeto  |
+
+Para reforzar la configuración de la cuenta de AD DS, puede ejecutar [este script de PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). El script de PowerShell asignará los permisos mencionados anteriormente a la cuenta de AD DS.
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script de PowerShell para reforzar una cuenta de servicio existente
+
+Para usar el script de PowerShell para aplicar esta configuración a una cuenta de AD DS existente (tanto si la proporciona la organización como si la crea una instalación anterior de Azure AD Connect), descargue el script desde el vínculo proporcionado anteriormente.
+
+##### <a name="usage"></a>Uso:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = cuenta de Active Directory cuyos permisos se deben reforzar.
+
+**$Credential** = credencial de administrador que tiene los privilegios necesarios para restringir los permisos de la cuenta $ObjectDN. Por lo general, suele ser el administrador de organización o de dominio. Use el nombre de dominio completo de la cuenta de administrador para evitar errores de búsqueda de cuenta. Ejemplo: contoso.com\admin.
+
+>[!NOTE] 
+>$credential.NombreDeUsuario debe tener el formato FQDN\nombreDeUsuario. Ejemplo: contoso.com\admin. 
+
+##### <a name="example"></a>Ejemplo:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>¿Se usó esta vulnerabilidad para obtener acceso no autorizado?
+
+Para ver si esta vulnerabilidad se usó para poner en peligro su configuración de Azure AD Connect, debe comprobar la última fecha de restablecimiento de contraseña de la cuenta de servicio.  Si la marca de tiempo es inesperada, se debe llevar a cabo una investigación más extensa para ese evento de restablecimiento de contraseña mediante el registro de eventos.
+
+Para obtener más información, vea [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318).
 
 ## <a name="116490"></a>1.1.649.0
 Estado: 27 de octubre de 2017
@@ -852,5 +919,5 @@ Fecha de publicación: septiembre de 2014
 
 **Versión inicial de Azure AD Sync.**
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

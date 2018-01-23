@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Supervisión de Azure Container Service (AKS)
 
 La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al ejecutar un clúster de producción, a escala, con varias aplicaciones.
 
-En este tutorial, puede configurar la supervisión del clúster de AKS mediante la [solución Containers para Log Analytics](../log-analytics/log-analytics-containers.md).
+En este tutorial, puede configurar la supervisión del clúster de AKS mediante la [solución Containers para Log Analytics][log-analytics-containers].
 
 En este tutorial, la séptima parte de ocho, se tratan las siguientes tareas:
 
@@ -32,7 +32,7 @@ En este tutorial, la séptima parte de ocho, se tratan las siguientes tareas:
 
 En los tutoriales anteriores se empaquetaba una aplicación en imágenes de contenedor, se cargaban estas imágenes en Azure Container Registry y se creó un clúster de Kubernetes.
 
-Si no ha realizado estos pasos, pero desea continuar, vuelva al tutorial [Create container images to be used with Azure Container Service](./tutorial-kubernetes-prepare-app.md) (Creación de las imágenes de contenedor que se usan con Azure Container Service).
+Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Configurar la solución de supervisión
 
@@ -58,7 +58,7 @@ Para recuperar estos valores, seleccione **Área de trabajo de OMS** en el menú
 
 ## <a name="configure-monitoring-agents"></a>Configurar los agentes de supervisión
 
-El siguiente archivo de manifiesto de Kubernetes se puede usar para configurar los agentes de supervisión de contenedores en un clúster de Kubernetes. Crea un recurso [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) de Kubernetes, que ejecuta un solo pod en cada nodo del clúster.
+El siguiente archivo de manifiesto de Kubernetes se puede usar para configurar los agentes de supervisión de contenedores en un clúster de Kubernetes. Crea un recurso [DaemonSet][kubernetes-daemonset] de Kubernetes, que ejecuta un solo pod en cada nodo del clúster.
 
 Guarde el siguiente texto en un archivo denominado `oms-daemonset.yaml` y reemplace los valores de marcador de posición de `WSID` y `KEY` con la clave y el id. de área de trabajo de Log Analytics.
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 Cree el recurso DaemonSet con el siguiente comando:
@@ -151,11 +156,11 @@ Una vez que se ejecutan los agentes, OMS tarda varios minutos en ingerir y proce
 
 En Azure Portal, seleccione el área de trabajo de Log Analytics que se ha anclado al panel del portal. Haga clic en el icono **Solución de supervisión de contenedores**. Aquí encontrará información sobre el clúster de AKS y los contenedores del clúster.
 
-![Panel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![panel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Consulte la [documentación de Azure Log Analytics](../log-analytics/index.yml) para obtener una guía detallada para consultar y analizar los datos de supervisión.
+Consulte la [documentación de Azure Log Analytics][log-analytics-docs] para obtener una guía detallada para consultar y analizar los datos de supervisión.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, se ha supervisado el clúster de Kubernetes con OMS. Estas son las tareas que se han tratado:
 
@@ -167,4 +172,14 @@ En este tutorial, se ha supervisado el clúster de Kubernetes con OMS. Estas son
 Vaya al siguiente tutorial para aprender a actualizar Kubernetes a una nueva versión.
 
 > [!div class="nextstepaction"]
-> [Actualización de Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Actualización de Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

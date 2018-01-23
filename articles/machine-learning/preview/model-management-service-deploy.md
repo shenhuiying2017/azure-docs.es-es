@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementación de un modelo de Machine Learning como un servicio web
 
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -86,9 +87,9 @@ El archivo debe incluir dos funciones: init y run.
 
 Agregue el siguiente código en la parte superior del archivo score.py para habilitar la funcionalidad de recopilación de datos que le ayuda a recopilar datos de entrada y de predicción del modelo
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Consulte la sección sobre la [recopilación de datos de modelo](how-to-use-model-data-collection.md) para obtener más información sobre cómo usar esta característica.
 
@@ -185,5 +186,5 @@ En el ejemplo siguiente se llama a un servicio web Iris de ejemplo:
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha probado el servicio web para que se ejecute localmente, se puede implementar en un clúster para su uso a gran escala. Para más información sobre cómo configurar un clúster para la implementación del servicio web, consulte [Model Management configuration](deployment-setup-configuration.md) (Configuración de Administración de modelos). 

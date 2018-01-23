@@ -15,34 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
-De forma predeterminada, todos los datos de Azure Cosmos DB se indexan. Aunque muchos clientes prefieren dejar que Azure Cosmos DB controle automáticamente todos los aspectos de la indexación, Azure Cosmos DB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en Azure Cosmos DB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en Azure Cosmos DB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.  
+De forma predeterminada, todos los datos de Azure Cosmos DB se indexan. Aunque muchos clientes prefieren dejar que Azure Cosmos DB controle automáticamente todos los aspectos de la indexación, puede especificar una *directiva de indexación* personalizada para las colecciones durante la creación en Azure Cosmos DB. Las directivas de indexación de Azure Cosmos DB son más flexibles y eficaces que los índices secundarios que se ofrecen en otras plataformas de base de datos. En Azure Cosmos DB, puede diseñar y definir la forma del índice sin renunciar a la flexibilidad del esquema. 
 
-En este artículo, echamos un vistazo más detenido a las directivas de indexación de Azure Cosmos DB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas. 
+Para entender cómo funciona la indexación en Azure Cosmos DB, es importante comprender que, al administrar la directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de las consultas del índice.  
+
+En este artículo, echamos un vistazo más detenido a las directivas de indexación de Azure Cosmos DB, la personalización de la directiva de indexación, y las ventajas y desventajas asociadas. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 * ¿Cómo puedo reemplazar las propiedades para incluirlas o excluirlas de la indexación?
 * ¿Cómo puedo configurar el índice para las actualizaciones finales?
-* ¿Cómo puedo configurar la indexación para realizar consultas Order By o intervalo?
+* ¿Cómo puedo configurar la indexación para realizar consultas por ORDER BY o por rango?
 * ¿Cómo se pueden realizar cambios en la directiva de indexación de una colección?
 * ¿Cómo se puede comparar el almacenamiento y el rendimiento de diferentes directivas de indexación?
 
-## <a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
-Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta y coherencia de las consultas, reemplazando la directiva de indexación predeterminada en una colección de Azure Cosmos DB y configurando los aspectos siguientes.
+## Personalización de la directiva de indexación de una colección <a id="CustomizingIndexingPolicy"></a>  
+Para personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta, y coherencia de las consultas, puede reemplazar la directiva de indexación predeterminada en una colección de Azure Cosmos DB. Puede configurar los aspectos siguientes:
 
-* **Inclusión y exclusión de documentos y rutas de acceso del índice y al índice**. Los desarrolladores pueden elegir que se incluyan o excluyan determinados documentos en el índice en el momento de insertarlos o reemplazarlos en la colección. Los desarrolladores también pueden elegir incluir o excluir determinadas propiedades JSON, lo que también se conoce como rutas de acceso (incluidos patrones de caracteres comodín) para indexarlas en documentos que se incluyen en un índice.
-* **Configuración de distintos tipos de índice**. Para cada una de las rutas de acceso incluidas, los desarrolladores también pueden especificar el tipo de índice necesario para una colección en función de sus datos y la carga de trabajo de consultas esperada, así como de la "precisión" numérica y de cadena para cada ruta de acceso.
-* **Configuración de modos de actualización del índice**. Azure Cosmos DB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de Azure Cosmos DB: Coherente, Diferida y Ninguna. 
+* **Incluir o excluir documentos y rutas de acceso a y desde el índice**. Puede excluir o incluir documentos específicos en el índice al insertarlos o reemplazarlos en la colección. Asimismo, puede incluir o excluir propiedades JSON específicas, también denominadas *rutas de acceso*, que se vayan a indexar en documentos incluidos en un índice. Las rutas de acceso incluyen patrones de caracteres comodín.
+* **Configurar distintos tipos de índice**. Para cada ruta de acceso incluida, puede especificar el tipo de índice que la ruta de acceso requiere para una colección. Puede especificar el tipo de índice en función de los datos de la ruta de acceso, la carga de trabajo de consultas prevista y la "precisión" numérica o de las cadenas.
+* **Configurar los modos de actualización del índice**. Azure Cosmos DB admite tres modos de indexación: Coherente, Diferida y Ninguna. Puede configurar los modos de indexación a través de la directiva de indexación en una colección de Azure Cosmos DB. 
 
-En el siguiente fragmento de código de .NET se muestra cómo establecer una directiva de indexación personalizada durante la creación de una colección. A continuación establecemos la directiva con el índice de intervalo para las cadenas y números en la precisión máxima. Esta directiva nos permite ejecutar consultas Order By en cadenas.
+En el siguiente fragmento de código de Microsoft .NET se muestra cómo establecer una directiva de indexación personalizada durante la creación de una colección. En este ejemplo, establecemos la directiva con el índice de rango para las cadenas y los números en la precisión máxima. Esta directiva se puede usar para ejecutar consultas por ORDER BY en cadenas.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -53,53 +55,61 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
 
 
 > [!NOTE]
-> El esquema JSON de la directiva de indexación ha cambiado con el lanzamiento de la API de REST versión 2015-06-03 para admitir índices de intervalo en cadenas. El SDK de .NET 1.2.0 y los SDK de Java, Python y Node.js 1.1.0 admiten el nuevo esquema de directiva. Los SDK anteriores usan la API de REST versión 2015-04-08 y admiten el esquema anterior de la directiva de indexación.
+> El esquema JSON de la directiva de indexación cambió con el lanzamiento de la API de REST versión 2015-06-03. Con esa versión, el esquema JSON de la directiva de indexación admite los índices de rango en cadenas. El SDK de .NET 1.2.0 y los SDK de Java, Python y Node.js 1.1.0 admiten el nuevo esquema de directiva. Las versiones anteriores del SDK utilizan la API de REST versión 2015-04-08. Admiten el esquema anterior de la directiva de indexación.
 > 
-> De forma predeterminada, Azure Cosmos DB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.  
+> De forma predeterminada, Azure Cosmos DB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash. Indexa todas las propiedades numéricas de los documentos de forma coherente con un índice de rango.  
 > 
 > 
 
-### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalización de la directiva de indexación mediante el portal
+### <a name="customize-the-indexing-policy-in-the-portal"></a>Personalización de la directiva de indexación en el portal
 
-Puede cambiar la directiva de indexación de una colección mediante Azure Portal. Abra su cuenta de Azure Cosmos DB en Azure Portal, seleccione la colección, en el menú de navegación izquierdo, haga clic en **Configuración** y, a continuación, haga clic en **Directiva de indexación**. En la hoja **Directiva de indexación**, cambie la directiva de indexación y, a continuación, haga clic en **Aceptar** para guardar los cambios. 
+Puede cambiar la directiva de indexación de una colección en Azure Portal: 
 
-### <a id="indexing-modes"></a>Modos de indexación de bases de datos
+1. En el portal, vaya a la cuenta de Azure Cosmos DB y, a continuación, seleccione su colección. 
+2. En el menú de navegación izquierdo, seleccione **Configuración** y, a continuación, elija **Directiva de indexación**. 
+3. En **Directiva de indexación**, cambie su directiva de indexación y, a continuación, seleccione **Aceptar**. 
+
+### Modos de indexación de bases de datos <a id="indexing-modes"></a>  
 Azure Cosmos DB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de Azure Cosmos DB: Coherente, Diferida y Ninguna.
 
-**Coherente**: si la directiva de la colección de Azure Cosmos DB se designa como "coherente", las consultas realizadas en una colección Azure Cosmos DB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, alta, de uso vinculado, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de Azure Cosmos DB).  La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
+**Coherente**: si la directiva de la colección de Azure Cosmos DB es Coherente, las consultas realizadas en una colección de Azure Cosmos DB determinada siguen el mismo nivel de coherencia que el especificado para las lecturas de punto (es decir, alta, de uso vinculado, sesión o eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (inserción, reemplazo, actualización y eliminación de un documento en una colección de Azure Cosmos DB).
 
-**Diferido**: el índice se actualiza de forma asincrónica cuando una colección Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos, es posible que el modo de indexación "diferido" sea el adecuado. Observe que podría obtener resultados incoherentes puesto que los datos se ingieren e indexan lentamente. Esto significa que no se garantiza que las consultas de recuento o los resultados de consultas específicas sean correctos ni repetibles hasta que se indexen los datos. El índice normalmente está en el modo de puesta al día. Indexación diferida de WRT: un cambio de TTL genera que el índice se elimine y se vuelva a crear, por lo que esta actividad puede producir resultados inesperados. La mayoría de los clientes debe usar la indexación coherente.
+La indexación Coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
 
-**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. Esto se suele usar si Azure Cosmos DB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
+**Diferida**: el índice se actualiza de forma asincrónica cuando una colección de Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes del usuario. El modo de indexación Diferida puede resultar idóneo para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran la ingesta de documentos. Observe que podría obtener resultados incoherentes debido a la ingesta y la indexación lentas de los datos. Esto significa que sus consultas COUNT o los resultados de consultas específicas podrían no ser coherentes o repetirse en un momento dado. 
+
+El índice suele estar en el modo de puesta al día con datos ingeridos. Con la indexación Diferida, los cambios en el período de vida (TTL) hacen que el índice se elimine y se vuelva a crear. Esto provoca incoherencias entre COUNT y los resultados de las consultas durante un período de tiempo. Por este motivo, la mayoría de las cuentas de Azure Cosmos DB deben usar el modo de indexación Coherente.
+
+**Ninguna**: una colección marcada con el modo de indexación Ninguna no tiene ningún índice asociado. Se suele usar si Azure Cosmos DB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
 
 > [!NOTE]
-> La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren "id" o "vinculación automática".
+> La configuración de la directiva de indexación en Ninguna tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren un identificador o la vinculación automática.
 > 
 > 
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente y Diferida) que se configure para la colección y el nivel de coherencia especificado para la solicitud de consulta. Esto se aplica a las consultas realizadas con cualquier interfaz: API de REST, SDK o desde procedimientos almacenados y desencadenadores. 
 
-|Coherencia|Modo de indexación: coherente|Modo de indexación: diferido|
+|Coherencia|Modo de indexación: Coherente|Modo de indexación: diferido|
 |---|---|---|
 |Alta|Alta|Ocasional|
-|De obsolescencia entrelazada|De obsolescencia entrelazada|Ocasional|
+|Uso vinculado|Uso vinculado|Ocasional|
 |Sesión|Sesión|Ocasional|
 |Ocasional|Ocasional|Ocasional|
 
-Azure Cosmos DB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguna. Será posible seguir ejecutando consultas como exámenes a través del encabezado `x-ms-documentdb-enable-scan` explícito en la API de REST o la opción `EnableScanInQuery`  mediante el SDK de .NET. Algunas funciones de consulta, como ORDER BY, no se admiten como exámenes con `EnableScanInQuery`.
+Azure Cosmos DB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguna. Las consultas se pueden seguir ejecutando como exámenes a través del encabezado **x-ms-documentdb-enable-scan** en la API de REST o con la opción de solicitud **EnableScanInQuery** mediante el SDK de .NET. Algunas características de consulta, como ORDER BY, no se admiten como exámenes con **EnableScanInQuery**.
 
-La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica EnableScanInQuery.
+La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica **EnableScanInQuery**.
 
 |Coherencia|Modo de indexación: coherente|Modo de indexación: diferido|Modo de indexación: ninguno|
 |---|---|---|---|
 |Alta|Alta|Ocasional|Alta|
-|De obsolescencia entrelazada|De obsolescencia entrelazada|Ocasional|De obsolescencia entrelazada|
+|Uso vinculado|Uso vinculado|Ocasional|Uso vinculado|
 |Sesión|Sesión|Ocasional|Sesión|
 |Ocasional|Ocasional|Ocasional|Ocasional|
 
-El siguiente ejemplo de código muestra cómo crear una colección de Azure Cosmos DB mediante el SDK de .NET con indexación coherente en todas las inserciones de documentos.
+El siguiente ejemplo de código muestra cómo crear una colección de Azure Cosmos DB mediante el SDK de .NET con indexación Coherente en todas las inserciones de documentos.
 
-     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // Default collection creates a Hash index for all string fields and a Range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
@@ -110,29 +120,29 @@ El siguiente ejemplo de código muestra cómo crear una colección de Azure Cosm
 
 
 ### <a name="index-paths"></a>Rutas de acceso del índice
-Azure Cosmos DB modela los documentos JSON y el índice en forma de árbol, y permite ajustarse a las directivas para las rutas de acceso dentro del árbol. En los documentos, puede elegir qué rutas de acceso se deben incluir o excluir del índice. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
+Azure Cosmos DB modela los documentos JSON y el índice como árboles. Puede ajustar las rutas de acceso a las directivas en el árbol. En los documentos, puede elegir las rutas de acceso que quiere incluir o excluir de la indexación. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
 
-Las rutas de acceso de índice comienzan con la raíz (/) y suelen terminar con el operador comodín ?, que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
+Las rutas de acceso de índice comienzan con la raíz (/) y suelen terminar con el operador de comodín ?, lo que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
 
-Las rutas de acceso del índice también pueden usar el operador comodín * para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
+Las rutas de acceso del índice también pueden usar el operador comodín \* para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
-| path                | Descripción/caso de uso                                                                                                                                                                                                                                                                                         |
+| Ruta de acceso                | Descripción/caso de uso                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Ruta de acceso predeterminada de la recopilación. Recursiva. Se aplica a la totalidad del árbol de documentos.                                                                                                                                                                                                                                   |
-| /prop/?             | Ruta de acceso de índice necesaria para atender las consultas como la siguiente (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/?             | Ruta de acceso de índice necesaria para atender consultas como la siguiente (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
 | /"prop"/*             | Ruta de acceso del índice para todas las rutas de acceso situadas en la etiqueta especificada. Funciona con las siguientes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de valores escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[]/subprop/? | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | Ruta de acceso de índice necesaria para atender consultas (con las de tipo hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /prop/subprop/?     | Ruta de acceso de índice necesaria para atender consultas (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
-> Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/". 
+> Al establecer las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento, que se indica mediante la ruta de acceso especial "/*". 
 > 
 > 
 
-En el ejemplo siguiente se configura una ruta de acceso específica con indexación de intervalo y un valor de precisión personalizado de 20 bytes:
+En el ejemplo siguiente se configura una ruta de acceso específica con indexación de rango y un valor de precisión personalizado de 20 bytes:
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
@@ -157,24 +167,24 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipos de datos de índice, variantes y precisiones
-Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echemos un vistazo a las opciones que podemos usar para configurar la directiva de indexación en una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
+Dispone de varias opciones para configurar la directiva de indexación de una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
-* Tipo de datos: **Cadena**, **Número** o **Punto**, **Polígono** o **LineString** (solo puede contener una entrada por tipo de datos y ruta de acceso).
-* Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
-* Precisión: para el índice de hash esto varía de 1 a 8, tanto para cadenas como para números (valor predeterminado: 3). Para el índice de intervalo, este valor puede ser -1 (precisión mínima) y, para valores numéricos o de cadena, variar entre 1 y 100 (precisión máxima).
+* **Tipo de datos**: Cadena, Número, Punto, Polígono o LineString (solo puede contener una entrada por tipo de datos y ruta de acceso).
+* **Variante de índice**: Hash (consultas de igualdad), Rango (consultas de igualdad, por rango o por ORDER BY) o Espacial (consultas espaciales).
+* **Precisión**: para el índice de hash, varía de 1 a 8, tanto para cadenas como para números. El valor predeterminado es 3. Para un índice de rango, este valor puede ser -1 (precisión máxima). Puede variar entre 1 y 100 (precisión máxima) para valores numéricos o de cadena.
 
 #### <a name="index-kind"></a>Tipo de índice
-Azure Cosmos DB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
+Azure Cosmos DB admite los tipos de índice Hash y Rango para cada ruta de acceso que pueda configurar para los tipos de dato Cadena, Número o ambos.
 
 * **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes. El tipo de datos puede ser Cadena o Número.
-* **Intervalo** admite consultas de igualdad, consultas de intervalo (con &gt;, &lt;, &gt;=, &lt;=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1). El tipo de datos puede ser Cadena o Número.
+* **Rango** admite consultas de igualdad, consultas por rango (con >, <, >=, <=, !=) y consultas por ORDER BY eficientes. De forma predeterminada, las consultas por ORDER BY también requieren una precisión de índice máxima (-1). El tipo de datos puede ser Cadena o Número.
 
 Azure Cosmos DB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto, Polígono o LineString. El valor en la ruta especificada debe ser un fragmento de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Espacial** admite consultas espaciales eficaces (internas y a distancia). El tipo de datos puede ser Punto, Polígono o LineString.
 
 > [!NOTE]
-> Azure Cosmos DB admite la indexación automática de puntos, polígonos y LineString.
+> Azure Cosmos DB admite la indexación automática de los tipos de datos Punto, Polígono y LineString.
 > 
 > 
 
@@ -186,35 +196,35 @@ Estos son las variantes de índice admitidas, con ejemplos de consultas que se p
 | Intervalo      | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
 | Espacial     | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
-De forma predeterminada, se devuelve un error para las consultas con operadores de intervalo como > = si no hay ningún índice de intervalo (de ninguna precisión) para indicar que podría ser necesario realizar un examen para atender la consulta. Las consultas de intervalo se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API de REST o con la opción de solicitud EnableScanInQuery mediante el SDK de .NET. Si hay otros filtros en la consulta en los que Azure Cosmos DB pueda usar el índice para realizar el filtrado, no se devolverá ningún error.
+De forma predeterminada, se devuelve un error para las consultas con operadores de rango como >= si no hay ningún índice de rango (de ninguna precisión) para indicar que podría ser necesario realizar un examen para atender la consulta. Las consultas por rango se pueden realizar sin un índice de rango mediante el encabezado **x-ms-documentdb-enable-scan** en la API de REST o con la opción de solicitud **EnableScanInQuery** mediante el SDK de .NET. Si hay otros filtros en la consulta en los que Azure Cosmos DB puede usar el índice para realizar el filtrado, no se devuelve ningún error.
 
-Se aplican las mismas reglas para las consultas espaciales. De forma predeterminada, se devuelve un error para las consultas espaciales si no hay ningún índice espacial y no hay ningún otro filtro que pueda obtenerse del índice. Se pueden realizar como un análisis mediante x-ms-documentdb-enable-examen/EnableScanInQuery.
+Se aplican las mismas reglas para las consultas espaciales. De forma predeterminada, se devuelve un error para las consultas espaciales si no hay ningún índice espacial y no hay ningún otro filtro que pueda obtenerse del índice. Se pueden realizar como un examen mediante **x-ms-documentdb-enable-scan** o **EnableScanInQuery**.
 
 #### <a name="index-precision"></a>Índice de precisión
-La precisión de índice permite lograr un equilibrio entre la sobrecarga de almacenamiento de índices y el rendimiento de las consultas. Para los números, se recomienda usar la configuración de precisión predeterminada de -1 (“máxima”). Puesto que los números son 8 bytes en JSON, esto es equivalente a una configuración de 8 bytes. La selección de un valor inferior para la precisión, como 1-7, significa que los valores de algunos intervalos se asignan a la misma entrada de índice. Por lo tanto, se reducirá el espacio de almacenamiento del índice, pero la ejecución de la consulta podría tener que procesar más documentos y, por tanto, consumir más rendimiento, es decir, solicitar unidades.
+La precisión de índice se puede usar para lograr el equilibrio entre la sobrecarga de almacenamiento de índices y el rendimiento de las consultas. Para los números, se recomienda usar la configuración de precisión predeterminada de -1 (máxima). Puesto que los números son 8 bytes en JSON, equivale a una configuración de 8 bytes. La selección de un valor inferior para la precisión (p. ej., de 1 a 7) significa que los valores de algunos rangos se asignan a la misma entrada de índice. Por lo tanto, se reduce el espacio de almacenamiento del índice, pero la ejecución de la consulta podría tener que procesar más documentos. Por lo tanto, consume más rendimiento en las unidades de solicitud.
 
-La configuración de la precisión del índice tiene una aplicación más práctica con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de intervalo de cadena, así como a la cantidad de espacio de almacenamiento del índice requerido. Los índices de intervalo de cadena pueden configurarse con 1-100 o -1 (“máxima”). Si desea realizar consultas por Order By en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
+La configuración de la precisión del índice tiene una aplicación más práctica con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de rango de cadena. También puede influir en la cantidad de espacio de almacenamiento del índice necesario. Los índices de rango de cadena pueden configurarse con 1 a 100 o -1 (máximo). Si desea realizar consultas por ORDER BY en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
 
-Los índices espaciales siempre usan la precisión de índice predeterminada para todos los puntos (puntos, LineString y polígonos) y no puede invalidarse. 
+Los índices espaciales siempre usan la precisión de índice predeterminada para todos los tipos (Punto, LineString y Polígono). La precisión de índice predeterminada de los índices espaciales no se puede invalidar. 
 
-En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices de intervalo en una recopilación mediante el SDK de .NET. 
+En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices de rango en una colección mediante el SDK de .NET. 
 
 **Creación de una colección con una precisión de índice personalizada**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
 
-    // Override the default policy for Strings to range indexing and "max" (-1) precision
+    // Override the default policy for strings to Range indexing and "max" (-1) precision
     rangeDefault.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [!NOTE]
-> Azure Cosmos DB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de intervalo en la ruta de acceso consultada con la precisión máxima. 
+> Azure Cosmos DB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de rango en la ruta de acceso consultada con la precisión máxima. 
 > 
 > 
 
-De forma similar las rutas de acceso se pueden excluir completamente de la indexación. En el ejemplo siguiente se muestra cómo excluir una sección completa de los documentos (lo que se conoce también como subárbol) de la indexación usando el comodín "*".
+Del mismo modo, puede excluir por completo las rutas de acceso de la indexación. En el ejemplo siguiente se muestra cómo excluir una sección completa de los documentos (un *subárbol*) de la indexación mediante el operador de comodín \*.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -224,57 +234,54 @@ De forma similar las rutas de acceso se pueden excluir completamente de la index
 
 
 
-## <a name="opting-in-and-opting-out-of-indexing"></a>Opción de suscribirse o no a la indexación
-Puede elegir si desea que la recopilación de todos los documentos se indexe automáticamente. De forma predeterminada, todos los documentos se indexan automáticamente, pero puede desactivarla. Cuando se desactiva la indexación, solo se puede tener acceso a documentos a través de sus propios vínculos o mediante consultas con Id.
+## <a name="opt-in-and-opt-out-of-indexing"></a>Participar y no participar en la indexación
+Puede elegir si desea que la recopilación de todos los documentos se indexe automáticamente. De forma predeterminada, todos los documentos se indexan automáticamente, pero puede desactivar la indexación automática. Cuando se desactiva la indexación, solo se puede acceder a los documentos a través de sus propios vínculos o mediante su identificador.
 
-Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva solo algunos documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
+Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
 
-Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para la API de DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+En el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
+    // exclude (or include) a document in indexing,
     // use the RequestOptions.IndexingDirective property.
     client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modifying-the-indexing-policy-of-a-collection"></a>Modificación de la directiva de indexación de una colección
-Azure Cosmos DB le permite realizar cambios sobre la marcha en la directiva de indexación de una colección. Un cambio en la directiva de indexación en una colección de Azure Cosmos DB puede dar lugar a un cambio en la forma del índice, que incluye las rutas de acceso que se pueden indexar, su precisión, así como el modelo de coherencia del propio índice. Por lo tanto, un cambio en la directiva de indexación, requiere efectivamente una transformación del índice original en uno nuevo. 
+## <a name="modify-the-indexing-policy-of-a-collection"></a>Modificación de la directiva de indexación de una colección
+En Azure Cosmos DB, puede realizar cambios sobre la marcha en la directiva de indexación de una colección. Un cambio en la directiva de indexación de una colección de Azure Cosmos DB puede conducir a un cambio en la forma del índice. El cambio afecta a las rutas de acceso que se pueden indexar, a su precisión y al modelo de coherencia del propio índice. Un cambio en la directiva de indexación requiere efectivamente una transformación del índice original en uno nuevo. 
 
 **Transformaciones de índice en línea**
 
 ![Cómo funciona la indexación: transformaciones de índice en línea de Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-Las transformaciones de índice se realizan en línea, lo que significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva **sin afectar a la disponibilidad de escritura ni al rendimiento aprovisionado** de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. Esto significa que no hay ninguna degradación del rendimiento ni tiempo de inactividad en las aplicaciones al realizar un cambio de directiva de indexación.
+Las transformaciones de índice se realizan en línea. Esto significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva *sin que ello afecte a la disponibilidad de escritura ni al rendimiento aprovisionado* de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. No se produce ninguna degradación del rendimiento ni ningún tiempo de inactividad en las aplicaciones al realizar un cambio de directiva de indexación.
 
 Sin embargo, durante el tiempo en que la transformación de índice está en curso, las consultas son coherentes finalmente, con independencia de la configuración del modo de indexación (Coherente o Diferida). Esto se aplica a las consultas realizadas con todas las interfaces: API de REST, SDK o desde procedimientos almacenados y desencadenadores. Al igual que con la indexación Diferida, la transformación de índice se realiza asincrónicamente en segundo plano en las réplicas mediante los recursos de reserva disponibles para una réplica determinada. 
 
-Las transformaciones de índice también se llevan a cabo **in-situ** (en el sitio), es decir, Azure Cosmos DB no mantiene dos copias del índice e intercambia el índice antiguo con el nuevo. Esto significa que no se requiere ni se usa espacio adicional en disco en las colecciones mientras se realizan transformaciones de índice.
+Las transformaciones de índice también se realizan in situ. Azure Cosmos DB no mantiene dos copias del índice e intercambia el índice antiguo por el nuevo. Esto significa que no se requiere ni se usa espacio en disco adicional en las colecciones mientras se realizan transformaciones de índice.
 
-Cuando se cambia la directiva de indexación, la forma en que se aplican los cambios para moverse del índice antiguo al nuevo dependen principalmente de las configuraciones de modo de indexación más que de los demás valores, por ejemplo, rutas de acceso incluidas/excluidas, variantes de índice y precisiones. Si la directiva antigua y la nueva usan indexación coherente, Azure Cosmos DB realiza una transformación de índice en línea. No se puede aplicar otro cambio de directiva de indexación con el modo de indexación coherente mientras la transformación está en curso.
+Cuando se cambia la directiva de indexación, se aplican los cambios para pasar del índice antiguo al nuevo en base, principalmente, a las configuraciones de modo de indexación. Las configuraciones de modo de indexación desempeñan un rol más importante que otros valores, como las rutas de acceso incluidas y excluidas, los tipos de índice y las precisiones. 
 
-Sin embargo, puede moverse al modo de indexación Diferida o Ninguna mientras una transformación está en curso. 
+Si la directiva antigua y la nueva usan la indexación Coherente, Azure Cosmos DB realiza una transformación de índice en línea. No se puede aplicar otro cambio de directiva de indexación con el modo de indexación Coherente mientras la transformación está en curso. Sin embargo, puede cambiar al modo de indexación Diferida o Ninguna mientras una transformación está en curso: 
 
-* Cuando se mueve a Diferida, el cambio de la directiva de indexación tiene efecto inmediato y Azure Cosmos DB inicia asincrónicamente la recreación el índice. 
-* Cuando se mueve a Ninguna, el índice se quita con efecto inmediato. El movimiento a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta. 
+* Si cambia a Diferida, el cambio de directiva de indexación surte efecto de inmediato. Azure Cosmos DB comienza a crear nuevamente el índice de forma asincrónica. 
+* Si cambia a Ninguna, el índice se elimina inmediatamente. El cambio a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta. 
 
-Si usa el SDK de .NET, puede iniciar un cambio de directiva de indexación con el nuevo método **ReplaceDocumentCollectionAsync** y realizar el seguimiento del progreso porcentual de transformación del índice con la propiedad de respuesta **IndexTransformationProgress** desde una llamada a **ReadDocumentCollectionAsync**. Otros SDK y la API de REST admiten métodos y propiedades equivalentes para realizar cambios de la directiva de indización.
-
-El siguiente fragmento de código muestra cómo modificar la directiva de indexación de una colección pasando del modo Coherente al modo Diferida.
+El siguiente fragmento de código muestra cómo modificar la directiva de indexación de una colección pasando del modo Coherente al modo Diferida. Si usa el SDK. de NET, puede iniciar un cambio de la directiva de indexación mediante el nuevo método **ReplaceDocumentCollectionAsync**.
 
 **Modificación de directiva de indexación de Coherente a Diferida**
 
-    // Switch to lazy indexing.
+    // Switch to Lazy indexing mode.
     Console.WriteLine("Changing from Default to Lazy IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-Puede comprobar el progreso de una transformación de índice mediante una llamada a ReadDocumentCollectionAsync, por ejemplo, como se muestra a continuación.
-
 **Seguimiento del progreso de transformación de índice**
+
+Puede realizar un seguimiento del progreso porcentual de la transformación de índice en un índice Coherente mediante la propiedad de respuesta **IndexTransformationProgress** con una llamada a **ReadDocumentCollectionAsync**. Otros SDK y la API de REST admiten métodos y propiedades equivalentes para realizar cambios de directiva de indexación. Puede comprobar el progreso de una transformación de índice en un índice Coherente mediante una llamada a **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -289,11 +296,16 @@ Puede comprobar el progreso de una transformación de índice mediante una llama
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
 
-Puede quitar el índice de una colección moviendo al modo de indexación Ninguna. Esto puede ser una herramienta operativa útil si quiere cancelar una transformación en curso y comenzar inmediatamente una nueva.
+> [!NOTE]
+> * La propiedad **IndexTransformationProgress** solo es aplicable cuando se realiza la transformación a un índice Coherente. Use la propiedad **ResourceResponse.LazyIndexingProgress** para realizar el seguimiento de las transformaciones en un índice Diferido.
+> * Las propiedades **IndexTransformationProgress** y **LazyIndexingProgress** se rellenan solo para una colección sin particiones, es decir, una colección que se crea sin una clave de partición.
+>
+
+Puede quitar el índice de una colección moviendo al modo de indexación Ninguna. Puede ser una herramienta operativa útil si quiere cancelar una transformación en curso y comenzar inmediatamente una nueva.
 
 **Eliminación del índice de una colección**
 
-    // Switch to lazy indexing.
+    // Switch to Lazy indexing mode.
     Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
@@ -302,22 +314,22 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 
 ¿Cuando realizaría cambios de directiva de indexación en las colecciones de Azure Cosmos DB? Los siguientes son los casos de uso más comunes:
 
-* Servicio de resultados coherentes durante el funcionamiento normal, pero reversión a la indexación diferida durante importaciones de conjuntos masivos de datos
-* Inicio con nuevas características de indexación en las colecciones de Azure Cosmos DB actuales, por ejemplo, consultas geoespaciales que requieren el tipo de índice espacial, u Order By y por rango de cadenas que requieren la variante de índice de intervalo de cadena recién presentada
-* Selección manual de las propiedades que se van a indexar y cambiarlas con el tiempo
-* Optimización de la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado
+* Servicio de resultados coherentes durante el funcionamiento normal, pero reversión al modo de indexación Diferida durante las importaciones de conjuntos masivos de datos.
+* Empezar a usar nuevas características de indexación en sus colecciones actuales de Azure Cosmos DB. Por ejemplo, puede usar consultas geoespaciales, que requieren el tipo de índice espacial, o bien consultas por ORDER BY o por rango de cadena, que requieren el tipo de índice por rango de cadena.
+* Seleccionar manualmente las propiedades que se van a indexar y cambiarlas con el tiempo.
+* Optimizar la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado.
 
 > [!NOTE]
-> Para modificar la directiva de indexación con ReplaceDocumentCollectionAsync, necesita la versión >= 1.3.0 de .NET SDK
+> Para modificar la directiva de indexación con **ReplaceDocumentCollectionAsync**, debe usar la versión 1.3.0 o una versión posterior del SDK de .NET.
 > 
-> Para que la transformación del índice se complete correctamente, debe asegurarse de que haya suficiente espacio libre de almacenamiento disponible en la colección. Si la colección alcanza su cuota de almacenamiento, se pausará la transformación del índice. La transformación del índice se reanudará automáticamente una vez que haya espacio de almacenamiento disponible, por ejemplo, si elimina algunos documentos.
+> Para que la transformación del índice se complete correctamente, asegúrese de que haya suficiente espacio libre de almacenamiento disponible en la colección. Si la colección alcanza su cuota de almacenamiento, se pausa la transformación del índice. La transformación del índice se reanuda automáticamente cuando hay espacio de almacenamiento disponible, por ejemplo, si elimina algunos documentos.
 > 
 > 
 
 ## <a name="performance-tuning"></a>Optimización del rendimiento
-Las API de DocumentDB proporcionan información acerca de las métricas de rendimiento, como el almacenamiento de índice usado y el costo del rendimiento (unidades de solicitud) para cada operación. Esta información puede usarse para comparar varias directivas de indexación y para optimizar el rendimiento.
+Las API de SQL proporcionan información acerca de las métricas de rendimiento, como el almacenamiento de índice usado y el costo del rendimiento (unidades de solicitud) para cada operación. Esta información puede usarse para comparar varias directivas de indexación y para optimizar el rendimiento.
 
-Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
+Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud **HEAD** o **GET** en el recurso de la colección. A continuación, inspeccione los encabezados **x-ms-request-quota** y **x-ms-request-usage**. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -325,7 +337,7 @@ Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute un
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Para medir la sobrecarga de la indexación en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado x-ms-request-charge (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) del SDK de .NET) para medir el número de unidades de solicitudes usadas por estas operaciones.
+Para medir la sobrecarga de la indexación en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado **x-ms-request-charge** (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET) para medir el número de unidades de solicitud que usan estas operaciones.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
@@ -349,35 +361,17 @@ Se incorporó un cambio en el esquema de la directiva de indexación el 7 de jul
 
 Se han implementado los siguientes cambios en la especificación de JSON:
 
-* La directiva de indexación admite índices de intervalo para las cadenas
-* Cada ruta de acceso puede tener varias definiciones de índice, una para cada tipo de datos
-* La precisión de la indexación admite 1-8 para números, 1-100 para las cadenas y -1 (precisión máxima)
-* Los segmentos de rutas de acceso no requieren comillas dobles para escapar de cada ruta de acceso. Por ejemplo, ¿puede agregar una ruta de acceso para /title/? en lugar de /"title"/?
-* La ruta de acceso raíz que representa "todas las rutas de acceso" se puede representar como /* (además de /)
+* La directiva de indexación admite índices de rango para las cadenas.
+* Cada ruta de acceso puede tener varias definiciones de índice. Puede tener una para cada tipo de datos.
+* La precisión de la indexación admite de 1 a 8 para números, de 1 a 100 para cadenas y -1 (precisión máxima).
+* Los segmentos de rutas de acceso no requieren comillas dobles para escapar de cada ruta de acceso. Por ejemplo, puede agregar una ruta de acceso para **/title/?** en lugar de **/"title"/?**.
+* La ruta de acceso raíz que representa "todas las rutas de acceso" se puede representar como **/\*** (además de **/**).
 
-Si tiene código que aprovisiona colecciones con una directiva de indexación personalizada escrita con la versión 1.1.0 del SDK de .NET o anteriores, será necesario cambiar el código de la aplicación para controlar estos cambios para pasar al SDK versión 1.2.0. Si no tiene código que configure la directiva de indexación o va a continuar usando una versión anterior del SDK, no se requerirá ningún cambio.
+Si tiene código que aprovisiona colecciones con una directiva de indexación personalizada escrita con la versión 1.1.0 del SDK de .NET o una versión anterior, debe cambiar el código de la aplicación para controlar estos cambios para pasar al SDK versión 1.2.0. Si no tiene código que configure la directiva de indexación o tiene previsto continuar usando una versión anterior del SDK, no es necesario ningún cambio.
 
-Para ver una comparación práctica, presentamos una directiva de indexación personalizada de ejemplo escrita con la API de REST versión 2015-06-03, así como la versión anterior, 08-04-2015.
+Para obtener una comparación práctica, se incluye a continuación un ejemplo de una directiva de indexación personalizada escrita con la API de REST versión 2015-06-03, seguida de la misma directiva de indexación escrita con la API de REST anterior de la versión 2015-04-08.
 
-**JSON de directiva de indexación anterior**
-
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-       "IncludedPaths":[
-          {
-             "IndexType":"Hash",
-             "Path":"/",
-             "NumericPrecision":7,
-             "StringPrecision":3
-          }
-       ],
-       "ExcludedPaths":[
-          "/\"nonIndexedContent\"/*"
-       ]
-    }
-
-**JSON de directiva de indexación actual**
+**JSON de directiva de indexación actual (API de REST versión 2015-06-03)**
 
     {
        "automatic":true,
@@ -406,10 +400,30 @@ Para ver una comparación práctica, presentamos una directiva de indexación pe
        ]
     }
 
-## <a name="next-steps"></a>Pasos siguientes
-Siga los vínculos que aparecen a continuación para obtener ejemplos de administración de directivas de índice y para obtener más información acerca del lenguaje de consulta de Azure Cosmos DB.
 
-1. [Ejemplos de código de administración de índices de la API .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Operaciones de recopilación de la API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Consulta con SQL](documentdb-sql-query.md)
+**JSON de directiva de indexación anterior (API de REST versión 2015-04-08)**
+
+    {
+       "automatic":true,
+       "indexingMode":"Consistent",
+       "IncludedPaths":[
+          {
+             "IndexType":"Hash",
+             "Path":"/",
+             "NumericPrecision":7,
+             "StringPrecision":3
+          }
+       ],
+       "ExcludedPaths":[
+          "/\"nonIndexedContent\"/*"
+       ]
+    }
+
+
+## <a name="next-steps"></a>pasos siguientes
+Para obtener ejemplos de administración de directivas de índice y más información acerca del lenguaje de consulta de Azure Cosmos DB, visite los vínculos siguientes (pueden estar en inglés):
+
+* [Ejemplos de código de administración de índices de .NET de SQL API](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+* [Operaciones de colección de REST de SQL API](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+* [Consulta con SQL](sql-api-sql-query.md)
 

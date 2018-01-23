@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Actualización de Azure Stack 1711
 
@@ -35,7 +35,7 @@ El número de compilación de la actualización de Azure Stack 1711 es **171201.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 En primer lugar, debe instalar la actualización de Azure Stack [1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) antes de aplicar esta actualización.
 
@@ -51,6 +51,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 - Los usuarios ahora pueden activar automáticamente las máquinas virtuales Windows
 - Se agregó un cmdlet de PowerShell de punto de conexión con privilegios para recuperar las claves de recuperación de BitLocker para la retención
 - Compatibilidad para actualizar las imágenes sin conexión cuando se actualiza la infraestructura
+- Habilitar la copia de seguridad de infraestructura con el servicio Habilitar copia de seguridad
 
 #### <a name="fixes"></a>Correcciones
 
@@ -123,6 +124,7 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 - Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
 - No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
 - Es posible que los operadores de Azure Stack no puedan implementar, eliminar o modificar las redes virtuales o los grupos de seguridad de red. Este problema se ve principalmente en los intentos de actualización posteriores del mismo paquete. Esto se debe a un problema de empaquetado con una actualización que esté investigándose.
+- El equilibrio de carga interno (ILB) maneja incorrectamente las direcciones MAC de máquinas virtuales de back-end, lo que interrumpe las instancias de Linux.
  
 #### <a name="sqlmysql"></a>SQL/MySQL
 - Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
@@ -137,6 +139,17 @@ En entornos implementados de Servicios de federación de Active Directory (AD FS
 
 > [!IMPORTANT]
 > Aunque la cuenta **azurestack\cloudadmin** es la propietaria de la suscripción de proveedor predeterminada en entornos implementados de ADFS, no tiene permisos para RDP en el host. Siga usando la cuenta **azurestack\azurestackadmin** o la cuenta de administrador local para iniciar sesión en el host, acceder a él y administrarlo según sea necesario.
+
+#### <a name="infrastructure-backup-sevice"></a>Servicio de copia de seguridad de infraestructura
+<!-- 1974890-->
+
+- **No se admiten copias de seguridad de versiones anteriores a 1711 para la recuperación en la nube.**  
+  Las copias de seguridad de versiones anteriores a 1711 no son compatibles con la recuperación en la nube. Debe actualizar primero a la versión 1711 y habilitar las copias de seguridad. Si ya tiene habilitadas las copias de seguridad, asegúrese de realizar una copia de seguridad después de actualizar a la versión 1711. Las copias de seguridad de versiones anteriores a 1711 deben eliminarse.
+
+- **La habilitación de la copia de seguridad de infraestructura en ASDK se realiza solo con fines de prueba.**  
+  Las copias de seguridad de infraestructura pueden utilizarse para restaurar soluciones de varios nodos. Puede habilitar la copia de seguridad de infraestructura en ASDK, pero no existe ninguna manera de probar la recuperación.
+
+Para obtener más información, consulte [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md) (Copia de seguridad y recuperación de datos de Azure Stack con el servicio de copia de seguridad de infraestructura).
 
 ## <a name="download-the-update"></a>Descarga de la actualización
 

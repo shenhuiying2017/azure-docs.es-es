@@ -1,28 +1,28 @@
 ---
-title: "Referencia técnica del acceso condicional de Azure Active Directory | Microsoft Docs"
-description: "Aprenda a usar los controles del acceso condicional en Azure Active Directory. Especifique las condiciones para autenticar a los usuarios y controlar el acceso a la aplicación. Cuando se cumplen las condiciones especificadas, los usuarios se autentican y se concede acceso a la aplicación."
+title: "Referencia de configuración del acceso condicional de Azure Active Directory | Microsoft Docs"
+description: "Obtenga una visión general de la configuración admitida en una directiva de acceso condicional de Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
-Puede usar el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para ajustar el modo en que los usuarios autorizados pueden tener acceso a sus recursos.   
+Puede usar el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para controlar el modo en que los usuarios autorizados pueden acceder a sus recursos.   
 
 En este artículo se proporciona información de soporte técnico para las siguientes opciones de configuración de una directiva de acceso condicional: 
 
@@ -35,6 +35,7 @@ En este artículo se proporciona información de soporte técnico para las sigui
 - Requisito de aplicación cliente aprobado
 
 
+Si no es la información que está buscando, deje un comentario al final de este artículo.
 
 ## <a name="cloud-apps-assignments"></a>Asignaciones de aplicaciones de nube
 
@@ -57,7 +58,7 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa)
+- Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa y Project Online)
 
 - Microsoft Power BI 
 
@@ -198,7 +199,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 
 
-**Comentarios**
+**Comentarios:**
 
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 
@@ -211,7 +212,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
     - Sustituye la opción **Aplicaciones móviles y clientes de escritorio** de la [condición de aplicaciones cliente](#supported-mobile-apps-and-desktop-clients) si está seleccionada.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para ver una introducción al acceso condicional, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Si está listo para configurar las directivas de acceso condicional de su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -41,14 +41,14 @@ De forma predeterminada, un desencadenador HTTP responde a la solicitud con un c
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#trigger---c-example)
-* [Script de C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#webhook---c-example)
-* [Script de C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Script de C# (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que envía una respuesta HTTP 200 para responder a una solicitud JSON genérica.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía una respuesta HTTP 200 a una solicitud JSON genérica.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Puede establecer el nivel de autorización y los métodos HTTP permitidos en los parámetros del constructor de atributo. Además, existen propiedades para la plantilla de ruta y el tipo de webhook. Para más información sobre estos valores, consulte [Desencadenador: configuración](#trigger---configuration). A continuación, se muestra un atributo `HttpTrigger` en una signatura de método:
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Para un ejemplo completo, consulte [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
+Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `HttpTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 | **type** | N/D| Requerida: se debe establecer en `httpTrigger`. |
 | **dirección** | N/D| Requerida: se debe establecer en `in`. |
 | **name** | N/D| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. |
-| **authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>: no se requiere ninguna clave de API.</li><li><code>function</code>: se requiere una clave de API específica de la función. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>: se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>: no se requiere ninguna clave de API.</li><li><code>function</code>: se requiere una clave de API específica de la función. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>: se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
 | **methods** |**Métodos** | Una matriz de los métodos HTTP a los que responde la función. Si no se especifica, la función responde a todos los métodos HTTP. Consulte cómo [personalizar el punto de conexión HTTP](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Define la plantilla de ruta y controla las direcciones URL de solicitud a las que responde la función. El valor predeterminado es `<functionname>` si no se proporciona ninguno. Para más información, consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configura el desencadenador HTTP para que actúe como un receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para el proveedor especificado. No establezca la propiedad `methods` si establece esta propiedad. El tipo de webhook puede ser uno de los valores siguientes:<ul><li><code>genericJson</code>: un punto de conexión de webhook de uso general sin lógica para un proveedor concreto. Este valor restringe las solicitudes a solo aquellas que usan HTTP POST y con el tipo de contenido `application/json`.</li><li><code>github</code>&mdash;La función responde a [webhooks de GitHub](https://developer.github.com/webhooks/). No use la propiedad _authLevel_ con webhooks de GitHub. Para más información, consulte la sección sobre webhooks de GitHub que aparece más adelante en este artículo.</li><li><code>slack</code>&mdash;La función responde a [webhooks de Slack](https://api.slack.com/outgoing-webhooks). No use la propiedad _authLevel_ con webhooks de Slack. Para más información, consulte la sección sobre webhooks de Slack que aparece más adelante en este artículo.</li></ul>|
@@ -539,7 +540,7 @@ Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. E
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En el caso de C# precompilado, no hay propiedades de configuración de enlace específicas de la salida. Para enviar una respuesta HTTP, haga que el tipo de valor devuelto de la función sea `HttpResponseMessage` o `Task<HttpResponseMessage>`.
+En el caso de las bibliotecas de clases de C#, no hay propiedades de configuración de enlace específicas de la salida. Para enviar una respuesta HTTP, haga que el tipo de valor devuelto de la función sea `HttpResponseMessage` o `Task<HttpResponseMessage>`.
 
 Para otros lenguajes, un enlace de salida HTTP en la matriz `bindings` de function.json, como se muestra en el ejemplo siguiente:
 
@@ -553,7 +554,7 @@ Para otros lenguajes, un enlace de salida HTTP en la matriz `bindings` de functi
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json*.
 
-|Propiedad  |Descripción  |
+|Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 | **type** |Se debe establecer en `http`. |
 | **dirección** | Se debe establecer en `out`. |
@@ -563,7 +564,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Puede usar el parámetro de salida para responder al autor de la llamada HTTP o de webhook. También puede usar los patrones de respuesta estándar del lenguaje. Para respuestas de ejemplo, consulte el [ejemplo de desencadenador](#trigger---example) y el [ejemplo de webhook](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

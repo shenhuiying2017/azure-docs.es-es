@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -42,6 +42,9 @@ Si la instalación produce error, revise el archivo installer.log para determina
 
 > [!Note]  
 > Se producirá un error en la instalación del agente si utiliza Microsoft Update y no se está ejecutando el servicio Windows Update.
+
+<a id="agent-installation-websitename-failure"></a>**Error de instalación del agente: "El agente de sincronización de Azure Storage finalizó antes de tiempo"**  
+Este problema puede producirse si se cambia el nombre predeterminado del sitio web de IIS. Para solucionar este problema, cambie el nombre del sitio web predeterminado de IIS por "Default Web Site" y vuelva a intentar la instalación. El problema se solucionará en una actualización futura del agente. 
 
 <a id="server-registration-missing"></a>**El servidor no aparece en los servidores registrados de Azure Portal**  
 Si un servidor no aparece en los **servidores registrados** de un servicio de sincronización de almacenamiento:
@@ -102,10 +105,11 @@ Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:
     * **Asignación de roles** debe tener permisos de **lectura** y **escritura**.
     * **Definición de roles** debe tener permisos de **lectura** y **escritura**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Se produce el error "MgmtInternalError" al eliminar el punto de conexión de nube**  
-Este problema puede producirse si el recurso compartido de archivos de Azure o la cuenta de almacenamiento se han eliminado antes de eliminar el punto de conexión de nube. El problema se solucionará en una futura actualización. En ese momento, podrá eliminar un punto de conexión de nube después de eliminar la cuenta de almacenamiento o el recurso compartido de archivos de Azure.
+<a id="server-endpoint-createjobfailed"></a>**Error de creación del punto de punto de conexión de servidor: "MgmtServerJobFailed" (código de Error: -2134375898)**                                                                                                                           
+Este problema se produce si la ruta de acceso del punto de conexión de servidor se encuentra en el volumen del sistema y los niveles de la nube están habilitados. Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
 
-Mientras tanto, para evitar que esto se produzca, elimine el punto de conexión de nube antes de eliminar el recurso compartido de archivos de Azure o la cuenta de almacenamiento.
+<a id="server-endpoint-deletejobexpired"></a>**Error del punto de conexión de servidor: "MgmtServerJobExpired"**                
+Este problema se produce si el servidor está sin conexión o no tiene conectividad de red. Si el servidor ya no está disponible, anule el registro del servidor en el portal, lo que eliminará los puntos de conexión de servidor. Para eliminar los puntos de conexión de servidor, siga los pasos que se describen en [Anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Si creé un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o el portal, ¿cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  

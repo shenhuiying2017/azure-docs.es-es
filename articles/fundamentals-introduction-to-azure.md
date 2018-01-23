@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introducción a Microsoft Azure
 Microsoft Azure es la plataforma de aplicaciones de Microsoft para la nube pública.  El objetivo de este artículo es proporcionarle los cimientos para entender los conceptos básicos de Azure, incluso si no sabe nada de la informática en la nube.
 
 **Cómo leer este artículo**
 
-Azure está en crecimiento constante, por ello es fácil sentirse abrumado.  Comience con los servicios básicos, que aparecen primero en este artículo y, luego continúe con los servicios adicionales. Esto no quiere decir que no se puedan utilizar únicamente los servicios adicionales; no obstante, los servicios básicos conforman el núcleo de una aplicación que se ejecuta en Azure.
+Azure está en crecimiento constante, por ello es fácil sentirse abrumado.  Comience con los servicios básicos, que aparecen primero en este artículo y, luego continúe con los servicios adicionales. No significa que no pueda usar solo los servicios adicionales por sí mismos. No obstante, los servicios básicos constituyen el núcleo de una aplicación que se ejecuta en Azure.
 
 **Envíenos sus comentarios**
 
 Sus comentarios son importantes. Este artículo debería proporcionarle una eficaz visión global de Azure. De no ser así, háganoslo saber por medio de la sección de comentarios que se encuentra en la parte inferior de la página. Detalle que es aquello que esperaba encontrar y cómo podemos mejorar el artículo.  
 
 ## <a name="the-components-of-azure"></a>Los componentes de Azure
-Azure agrupa los servicios en categorías en el Portal de administración y en varios elementos visuales de ayuda como la [infografía sobre qué es Azure](https://azure.microsoft.com/documentation/infographics/azure/) . El Portal de administración es lo que se utiliza para administrar la mayoría de servicios en Azure (pero no todos).
+Azure agrupa los servicios en categorías en Azure Portal y en varios elementos visuales de ayuda como la [infografía de Microsoft Azure](https://azure.microsoft.com/documentation/infographics/azure/). [Azure Portal](http://portal.azure.com) es lo que se usa para administrar servicios en Azure.
 
-En este artículo se usará **otra organización** para hablar de los servicios basados en una función similar y para llamar a subservicios importantes que forman parte de otros más grandes.  
+En este artículo se usa **otra organización** para hablar de los servicios basados en una función similar y para llamar a subservicios importantes que forman parte de otros más grandes.  
 
 ![Componentes de Azure](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Ilustración: Azure proporciona servicios de aplicaciones accesibles desde Internet que se ejecutan en centros de datos de Azure.*
 
-## <a name="management-portal"></a>Portal de administración
-Azure cuenta con una interfaz web denominada [Portal de administración](http://manage.windowsazure.com) que permite a los administradores tener acceso a la mayoría de características de Azure (pero no a todas) y administrarlas.  Microsoft normalmente publica el portal de la IU más reciente en beta antes de retirar uno antiguo. La más reciente se llama ["Portal de vista previa de Azure"](https://portal.azure.com/).
-
-Normalmente hay un largo periodo de solapamiento en el que los dos portales están activos. Aunque los servicios fundamentales aparecerán en los dos portales, es posible que no toda la funcionalidad esté disponible en ambos. Puede que los servicios más recientes aparezcan primero en el portal más nuevo y que la funcionalidad y los servicios más antiguos existan solo en el anterior.  Lo que tiene que tener en cuenta es que, si no encuentra algo en el portal más antiguo, debe comprobar el más reciente (y viceversa).
+## <a name="azure-portal"></a>Azure Portal
+Azure cuenta con una interfaz web denominada [Azure Portal](http://portal.azure.com) que permite a los administradores acceder a las características y a los servicios de Azure y administrarlos.  
 
 ## <a name="compute"></a>Proceso
 Una de las funciones más básicas de una plataforma de nube es la ejecución de aplicaciones. Cada uno de los modelos de proceso de Azure desempeña su propio rol.
@@ -66,7 +64,7 @@ Este enfoque bastante general de la informática en nube se puede utilizar para 
 **Escenarios de máquina virtual**
 
 1. **Desarrollo y pruebas** : puede usarlos para crear una plataforma de desarrollo y prueba económica que puede apagar cuando haya terminado de usarla. O también, podría crear y ejecutar aplicaciones que utilicen los lenguajes y las bibliotecas que prefiera. Esas aplicaciones pueden utilizar cualquiera de las opciones de administración de datos que proporciona Azure, y también puede elegir usar SQL Server u otro DBMS que se ejecute en una o varias máquinas virtuales.
-2. **Trasladar aplicaciones a Azure (levantar y mover)** : "levantar y mover" recibe este nombre porque es como si trasladara una aplicación usando una carretilla elevadora para mover objetos de gran tamaño.  "Levanta" el VHD desde su centro de datos local y lo "mueve" a Azure para ejecutarlo ahí.  Normalmente tendrá que efectuar algunas operaciones para quitar las dependencias de otros sistemas. Si hay muchas, quizá le convenga más utilizar la tercera opción.  
+2. **Trasladar aplicaciones a Azure (levantar y mover)** : "levantar y mover" recibe este nombre porque es como si trasladara una aplicación usando una carretilla elevadora para mover objetos de gran tamaño.  "Levanta" el VHD desde su centro de datos local y lo "mueve" a Azure para ejecutarlo ahí.  Normalmente tiene que efectuar algunas operaciones para quitar las dependencias de otros sistemas. Si hay muchas, quizá le convenga más utilizar la tercera opción.  
 3. **Ampliar el centro de datos** : use máquinas virtuales de Azure como extensión de su centro de datos local, ejecutando SharePoint u otras aplicaciones. Para permitir esto, es posible crear dominios de Windows en la nube ejecutando Active Directory en las VM de Azure. Puede usar Azure Virtual Network (que se menciona más adelante) para conectar su red local con su red de Azure.
 
 ### <a name="web-apps"></a>Web Apps
@@ -75,7 +73,7 @@ Este enfoque bastante general de la informática en nube se puede utilizar para 
 
 Una de las cosas más importantes que se hacen en la nube es ejecutar sitios y aplicaciones web. Azure Virtual Machines le permite hacer esto, pero le deja la responsabilidad de administrar una o varias VM y los sistemas operativos subyacentes. Los roles web de servicios en la nube pueden hacerlo, pero su implementación y mantenimiento conlleva también trabajo administrativo.  ¿Y si lo que desea es un sitio web donde sea otro quien se encargue del trabajo administrativo?
 
-Esto es exactamente lo que proporciona Web Apps. Este modelo de proceso ofrece un entorno web administrado utilizando el Portal de administración de Azure y las API. Puede mover una aplicación de sitio web existente a Azure Web Apps sin cambios, o puede crear una directamente en la nube. Cuando un sitio web está en ejecución, puede agregar o quitar instancias de forma dinámica y recurrir a Azure Web Apps para equilibrar las solicitudes de carga entre ellas. Aplicaciones web de Azure ofrece tanto una opción compartida, en la que el sitio web se ejecuta en una máquina virtual con otros sitios, como una opción estándar, que permite que un sitio se ejecute en su propia VM. La opción estándar también le permite aumentar el tamaño (potencia informática) de las instancias, si es necesario.
+Esto es exactamente lo que proporciona Web Apps. Este modelo de proceso ofrece un entorno web administrado mediante Azure Portal y las API. Puede mover una aplicación de sitio web existente a Azure Web Apps sin cambios, o puede crear una directamente en la nube. Cuando un sitio web está en ejecución, puede agregar o quitar instancias de forma dinámica y recurrir a Azure Web Apps para equilibrar las solicitudes de carga entre ellas. Aplicaciones web de Azure ofrece tanto una opción compartida, en la que el sitio web se ejecuta en una máquina virtual con otros sitios, como una opción estándar, que permite que un sitio se ejecute en su propia VM. La opción estándar también le permite aumentar el tamaño (capacidad de computación) de las instancias.
 
 Para el desarrollo, Web Apps es compatible con .NET, PHP, Node.js, Java y Python, junto con SQL Database y Azure Database for MySQL para el almacenamiento relacional. También ofrece compatibilidad integrada con varias aplicaciones conocidas, como WordPress, Joomla y Drupal. El objetivo es proporcionar una plataforma de bajo coste, escalable y enormemente útil para la creación de sitios y aplicaciones web en la nube pública.
 
@@ -87,9 +85,9 @@ Web Apps va a resultar útil para corporaciones, desarrolladores y agencias de d
 ![Servicio en la nube de Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Ilustración: Azure Cloud Services ofrece un lugar para ejecutar código personalizado de alta escalabilidad en un entorno de Plataforma como servicio (PaaS).*
 
-Supongamos que desea crear una aplicación en la nube que pueda admitir varios usuarios de manera simultánea, que no requiera mucha administración y que siempre esté disponible. Podría ser, por ejemplo, un proveedor de software consolidado que ha decidido embarcarse en el Software como servicio (SaaS) mediante la creación de una de sus aplicaciones en la nube. O bien, podría ser un principiante que desea crear una aplicación de consumidor que espera que crezca rápido. Si fuera a crear sobre Azure, ¿qué modelo de ejecución debería usar?
+Supongamos que desea crear una aplicación en la nube que pueda admitir varios usuarios de manera simultánea, que no requiera mucha administración y que siempre esté disponible. Podría ser, por ejemplo, un proveedor de software consolidado que ha decidido embarcarse en el Software como servicio (SaaS) mediante la creación de una de sus aplicaciones en la nube. O bien, podría ser un principiante que crea una aplicación de consumidor que espera que crezca rápido. Si fuera a crear sobre Azure, ¿qué modelo de ejecución debería usar?
 
-Azure Web Apps le permite crear esta clase de aplicación web, pero existen algunas limitaciones. No dispone de acceso administrativo, por ejemplo. Esto significa que no puede instalar software arbitrario. Azure Virtual Machines le proporciona mucha flexibilidad, incluso acceso administrativo, y puede usarlo desde luego para crear una aplicación muy escalable. Sin embargo, tendrá que gestionar muchos aspectos de confiabilidad y administración por sí mismo. Lo que desea es una opción que le otorgue el control que necesita, pero que además gestione la mayoría del trabajo relacionado con dichos aspectos.
+Azure Web Apps le permite crear esta clase de aplicación web, pero existen algunas limitaciones. No dispone de acceso administrativo, por ejemplo. Esto significa que no puede instalar software arbitrario. Azure Virtual Machines ofrece mucha flexibilidad e incluye acceso administrativo. Se puede usar para crear una aplicación muy escalable. No obstante, tiene que controlar muchos aspectos de confiabilidad y administración usted mismo. Lo que desea es una opción que le otorgue el control que necesita, pero que además gestione la mayoría del trabajo relacionado con dichos aspectos.
 
 Pues esto es exactamente lo que proporciona Azure Cloud Services. Esta tecnología está diseñada expresamente para permitir aplicaciones escalables, confiables y de bajo coste administrativo, y es un ejemplo de lo que comúnmente se denomina plataforma como servicio (PaaS). Para utilizarla, debe crear una aplicación mediante la tecnología que elija, por ejemplo C#, Java, PHP, Python, Node.js o alguna otra. A continuación, el código se ejecuta en máquinas virtuales (conocidas como instancias) que ejecutan una versión de Windows Server.
 
@@ -204,14 +202,14 @@ La configuración de una conexión ExpressRoute requiere más tiempo y planifica
 
 Para obtener más información sobre ExpressRoute, consulte [Información general técnica sobre ExpressRoute](expressroute/expressroute-introduction.md).
 
-### <a name="traffic-manager"></a>Administrador de tráfico
+### <a name="traffic-manager"></a>Traffic Manager
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)   
 
 *Ilustración: el Administrador de tráfico de Azure permite enrutar el tráfico global a su servicio en función de reglas inteligentes.*
 
 Si su aplicación de Azure se va a ejecutar en varios centros de datos, puede utilizar el Administrador de tráfico de Azure para enrutar las solicitudes de los usuarios de forma inteligente entre instancias de la aplicación. También puede enrutar tráfico a servicios que no se ejecuten en Azure siempre y cuando se pueda obtener acceso a ellos desde Internet.  
 
-Una aplicación de Azure con usuarios en una única parte del mundo podría ejecutarse en un solo centro de datos de Azure. Sin embargo, una aplicación con usuarios repartidos por todo el mundo es más probable que se ejecute en varios centros de datos, quizás incluso en todos ellos. En este segundo caso, se enfrenta a un problema: ¿cómo dirigir a los usuarios de forma inteligente a las instancias de la aplicación? La mayor parte del tiempo, deseará que cada usuario tenga acceso al centro de datos más próximo, dado que de este modo obtendrá el mejor tiempo de respuesta. ¿Pero qué sucede si esa instancia de la aplicación experimenta sobrecarga o no está disponible? En ese caso, sería mejor dirigir la solicitud automáticamente a otro centro de datos. Pues esto es exactamente lo que hace el Administrador de tráfico de Azure.
+Una aplicación de Azure con usuarios en una única parte del mundo podría ejecutarse en un solo centro de datos de Azure. Sin embargo, una aplicación con usuarios repartidos por todo el mundo es más probable que se ejecute en varios centros de datos, quizás incluso en todos ellos. En este segundo caso, se enfrenta a un problema: ¿cómo dirigir a los usuarios de forma inteligente a las instancias de la aplicación? La mayor parte del tiempo, es probable que quiera que cada usuario acceda al centro de datos más próximo, dado que de este modo obtendrá el mejor tiempo de respuesta. ¿Pero qué sucede si esa instancia de la aplicación experimenta sobrecarga o no está disponible? En ese caso, sería mejor dirigir su solicitud automáticamente a otro centro de datos. Pues esto es exactamente lo que hace el Administrador de tráfico de Azure.
 
 El propietario de la aplicación define las reglas que especifican cómo se deben dirigir las solicitudes de los usuarios a los centros de datos y, luego, confía en el Administrador de tráfico para hacer cumplir esas reglas. Por ejemplo, los usuarios se dirigirían normalmente al centro de datos de Azure más próximo, pero se les enviaría a otro cuando el tiempo de respuesta de su centro de datos predeterminado superase el tiempo de respuesta de otros centros de datos. En el caso de aplicaciones distribuidas globalmente con muchos usuarios, contar con un servicio integrado para solucionar problemas como estos resulta muy útil.
 
@@ -234,7 +232,7 @@ Para evitar confusiones: no ofrece una versión hospedada o basada en web de Vis
 
 Sí incluye un sistema de control de código fuente denominado Team Foundation Service, que ofrece un control de las versiones y el seguimiento de elementos de trabajo.  Aún así, puede utilizar Git para el control de versiones si lo prefiere. Y puede variar el sistema de control de código fuente utilizado por proyecto. Puede crear proyectos de equipo privados sin límite a los que se puede obtener acceso desde cualquier parte del mundo.  
 
-Visual Studio Team Services ofrece un servicio para prueba de carga. Puede ejecutar pruebas de carga creadas en Visual Studio en máquinas virtuales en la nube. Especifique el número total de usuarios con los que quiere llevar a cabo la prueba de carga y Visual Studio Team Services determinará automáticamente cuántos agentes se necesitan, pondrá a punto las máquinas virtuales requeridas y ejecutará las pruebas de carga. Si está suscrito a MSDN, podrá disfrutar de miles de minutos de usuario gratuitos para prueba de carga al mes.
+Visual Studio Team Services ofrece un servicio para prueba de carga. Puede ejecutar pruebas de carga creadas en Visual Studio en máquinas virtuales en la nube. Especifique el número total de usuarios con los que quiere llevar a cabo la prueba de carga y Visual Studio Team Services determinará automáticamente cuántos agentes se necesitan, pondrá a punto las máquinas virtuales necesarias y ejecutará las pruebas de carga. Si está suscrito a MSDN, podrá disfrutar de miles de minutos de usuario gratuitos para prueba de carga al mes.
 
 Visual Studio Team Services ofrece también compatibilidad con el desarrollo ágil gracias a características como compilaciones de integración continua, paneles kanban y salas para equipos virtuales.
 
@@ -249,7 +247,7 @@ No obstante, las organizaciones que tengan ya un sistema local pueden probar nue
 
 *Ilustración: Application Insights supervisa el seguimiento del rendimiento y el uso de su aplicación web o para dispositivo activa.*
 
-Cuando ha publicado su aplicación, tanto si se ejecuta en dispositivos móviles, escritorios o exploradores web, Application Insights indica qué tal funciona y lo que los usuarios hacen con ella. De esta manera, podrá mantener un recuento de bloqueos y respuestas lentas, le avisará si las cifras cruzan umbrales inaceptables y le ayudará a diagnosticar los posibles problemas.
+Cuando ha publicado su aplicación, tanto si se ejecuta en dispositivos móviles, escritorios o exploradores web, Application Insights indica qué tal funciona y lo que los usuarios hacen con ella. Mantiene un recuento de bloqueos y respuestas lentas, le avisa si las cifras cruzan umbrales inaceptables y le ayuda a diagnosticar posibles problemas.
 
 Al desarrollar una nueva característica, considere medir su éxito con los usuarios. Al analizar los patrones de uso, comprenderá lo que funciona mejor para sus clientes y mejorará su aplicación en cada ciclo de desarrollo.
 
@@ -270,8 +268,7 @@ A nadie le gusta malgastar el tiempo haciendo los mismos procesos manuales una y
 
 Automation utiliza "runbooks", que a su vez utiliza flujos de trabajo de Windows PowerShell (en lugar de simplemente PowerShell) a nivel más profundo. Los runbooks están diseñado para ejecutarse sin interacción del usuario. Los flujos de trabajo de PowerShell permiten guardar el estado de un script en puntos de control a lo largo del proceso. De este modo, si se produce un error, no tiene que iniciar un script desde el principio, sino que puede hacerlo desde el último punto de control. Esto le ahorra mucho trabajo intentando que el script controle todos los posibles errores.
 
-
-            **Escenarios de automatización**
+**Escenarios de automatización**
 
 Azure Automation es un buena opción para automatizar las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia de Azure.
 
@@ -282,9 +279,9 @@ Azure API Management facilita a las organizaciones la publicación de API a soci
 
 **Escenarios de API Management**
 
-Imagine que su empresa tiene un conjunto de dispositivos que necesitan devolver la llamada a un servicio central para obtener datos (por ejemplo, una empresa de transporte que tenga dispositivos en todos los camiones que están en carretera).  Seguro que la empresa querrá poner en marcha un sistema que le permita realizar un seguimiento de sus propios camiones a fin de predecir y actualizar las horas de entrega. Es posible conocer cuántos camiones tiene y planificar en consonancia.  Cada camión necesitará un dispositivo que devuelva la llamada a una ubicación central con su posicionamiento y datos de velocidad, y quizá más información.
+Imagine que su empresa tiene un conjunto de dispositivos que necesitan devolver la llamada a un servicio central para obtener datos (por ejemplo, una empresa de transporte que tenga dispositivos en todos los camiones que están en carretera).  Seguro que la empresa quiere poner en marcha un sistema que le permita realizar un seguimiento de sus propios camiones a fin de predecir y actualizar las horas de entrega. Es posible conocer cuántos camiones tiene y planificar en consonancia.  Cada camión necesita un dispositivo que devuelva la llamada a una ubicación central con su posicionamiento y datos de velocidad, y quizá más información.
 
-Un cliente de la empresa de transportes probablemente se beneficiará también del hecho de conocer estos datos de posicionamiento.  El cliente podría utilizarlo para conocer la distancia que tienen que recorrer los productos, dónde se quedan retenidos y cuánto pagan a lo largo de determinadas rutas (si se combina esta información con lo que se pagó por el envío). Si la empresa de transporte agrega ya estos datos, muchos clientes pagarían por disponer de ellos.  Pero entonces la empresa de transporte tendría que encontrar una forma de hacer llegar la información a los clientes. Una vez que los clientes tuvieran acceso a ella, perdería el control sobre la frecuencia con que se consultan esos datos. Tendría que proporcionar reglas acerca de quién podría tener acceso a qué datos. Todas esas reglas tendrían que compilarse en su API externa. Es ahí donde API Management puede resultar útil.  
+Un cliente de la empresa de transportes probablemente se beneficiará también del hecho de conocer estos datos de posicionamiento.  El cliente podría utilizarlo para conocer la distancia que tienen que recorrer los productos, dónde se quedan retenidos y cuánto pagan a lo largo de determinadas rutas (si se combina esta información con lo que se pagó por el envío). Si la empresa de transporte agrega ya estos datos, muchos clientes pagarían por disponer de ellos.  Pero entonces la empresa de transporte tendría que encontrar una forma de hacer llegar la información a los clientes. Una vez que los clientes tuvieran acceso a ella, perdería el control sobre la frecuencia con que se consultan esos datos. Tendrían que proporcionar reglas acerca de quién puede acceder a qué datos. Todas esas reglas tendrían que compilarse en su API externa. Es ahí donde API Management puede resultar útil.  
 
 ## <a name="identity-and-access"></a>Identidad y acceso
 El trabajo con identidades forma parte de la mayoría de las aplicaciones. Por ejemplo, saber quién es un usuario permite que una aplicación decida cómo debe interactuar con ese usuario. Azure ofrece servicios para ayudar a realizar un seguimiento de la identidad así como integrarla con almacenes de identidad que ya esté utilizando.
@@ -338,8 +335,7 @@ Dado que Azure ya admite la escala masiva, puede controlar el tráfico a medida 
 ### <a name="notification-hubs"></a>Notification Hubs
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)  
 
-
-            *Figura: Notification Hubs ofrece una funcionalidad que habitualmente requieren las aplicaciones que interactúan con dispositivos móviles.*
+*Figura: Notification Hubs ofrece una funcionalidad que habitualmente requieren las aplicaciones que interactúan con dispositivos móviles.*
 
 Aunque puede escribir código para crear notificaciones en Azure Mobile Apps, Notification Hubs está optimizado para difundir millones de notificaciones push en pocos minutos.  No tiene que precuparse por detalles como el operador de telefonía móvil o el fabricante del dispositivo. Puede dirigirse a individuos o millones de usuarios con una sola llamada de API.
 
@@ -352,7 +348,7 @@ Puede enviar noticias de última hora, eventos deportivos y notificaciones sobre
 ## <a name="back-up"></a>Copia de seguridad
 Todas las empresas necesitan hacer copias de seguridad de los datos y restaurarlos. Puede utilizar Azure para hacer copias de seguridad de su aplicación y restaurarla tanto en la nube como en un entorno local. Azure ofrece diferentes opciones para ayudar en función del tipo de copia de seguridad.
 
-### <a name="site-recovery"></a>Recuperación de sitios
+### <a name="site-recovery"></a>Site Recovery
 Azure Site Recovery (anteriormente Hyper-V Recovery Manager) puede ayudarle a proteger aplicaciones importantes mediante la coordinación de la replicación y la recuperación entre sitios. Site Recovery proporciona una funcionalidad para proteger las aplicaciones basadas en Hyper-v, VMWare o SAN en su propio sitio secundario, en el sitio del anfitrión o en Azure y evitar los gastos y la complejidad de crear y administrar su propia ubicación secundaria. Azure cifra datos y comunicaciones y tiene la opción de habilitar también el cifrado de los datos en reposo.
 
 Supervisa el estado de sus servicios continuamente y ayuda a automatizar la recuperación ordenada de servicios en caso de que se produzca una interrupción del sitio en el centro de datos principal. Se pueden sacar las máquinas virtuales de manera orquestada para ayudar a restaurar el servicio rápidamente, incluso para cargas de trabajo complejas de varios niveles.
@@ -370,7 +366,7 @@ Los datos están más seguros porque las copias de seguridad se cifran antes de 
 
 **Escenarios de Azure Backup**
 
-Si ya utiliza Windows Server o System Center, Copia de seguridad de Azure es la solución natural para hacer una copia de seguridad del sistema de archivos de servidores, máquinas virtuales y bases de datos de SQL Server.  Funciona con archivos cifrados, dispersos y comprimidos. Existen algunas limitaciones; para conocerlas, [consulte primero los requisitos previos de Azure Backup](http://technet.microsoft.com/library/dn296608.aspx).
+Si ya utiliza Windows Server o System Center, Azure Backup es una solución natural para realizar una copia de seguridad del sistema de archivos de servidores, máquinas virtuales y bases de datos de SQL Server.  Funciona con archivos cifrados, dispersos y comprimidos. Existen algunas limitaciones; para conocerlas, [consulte primero los requisitos previos de Azure Backup](http://technet.microsoft.com/library/dn296608.aspx).
 
 ## <a name="messaging-and-integration"></a>Mensajería e integración
 Con independencia de lo que esté haciendo, con frecuencia el código necesita interactuar con otro código.  En algunos casos, todo lo que hace falta es mensajería básica en cola. En otros, se requieren interacciones más complejas. Azure ofrece algunas formas diferentes de resolver estos problemas. La ilustración 5 muestra las opciones.
@@ -382,7 +378,7 @@ Con independencia de lo que esté haciendo, con frecuencia el código necesita i
 
 Su concepto es sencillo: una aplicación coloca un mensaje en una cola y al final otra aplicación lee ese mensaje. Si su aplicación solo necesita este sencillo servicio, las colas de Azure podrían ser la mejor opción.
 
-Debido a la manera en que ha crecido Azure con el tiempo, las colas de Azure Storage y las colas de Service Bus ofrecen servicios de cola similares. Los motivos que pueden llevarle a utilizar uno u otro se explican en el documento bastante técnico sobre [comparación y diferencia de las colas de Service Bus y Azure](http://msdn.microsoft.com/library/azure/hh767287.aspx).  En la mayoría de escenarios, cualquiera de los dos funcionará.
+Debido a la manera en que ha crecido Azure con el tiempo, las colas de Azure Storage y las colas de Service Bus ofrecen servicios de cola similares. Los motivos que pueden llevarle a utilizar uno u otro se explican en el documento bastante técnico sobre [comparación y diferencia de las colas de Service Bus y Azure](http://msdn.microsoft.com/library/azure/hh767287.aspx).  En la mayoría de los escenarios, cualquiera de los dos funcionará.
 
 **Escenarios de Colas**
 
@@ -396,7 +392,7 @@ Estructurar una aplicación de esta forma permite el procesamiento asincrónico,
 
 Puede utilizar este mismo modelo entre muchas partes diferentes de su aplicación incluso aunque no utilicen roles web y de trabajo.  Le permite escalar o reducir verticalmente las partes en cualquier lado de la cola según requieran la demanda y el tiempo de procesado.
 
-### <a name="service-bus"></a>Service Bus
+### <a name="service-bus"></a>Azure Service Bus
 Tanto si se ejecutan en la nube, en el centro de datos, en un dispositivo móvil o en cualquier otra parte, las aplicaciones necesitan interactuar. El objetivo de Azure Service Bus es permitir el intercambio de datos entre aplicaciones que se ejecutan prácticamente en cualquier parte.
 
 Además de las colas descritas antes (una a una), Service Bus ofrece también otros métodos de comunicación.
@@ -426,7 +422,7 @@ Si está con alguna configuración en la que hay muchos mensajes que son importa
 ![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Ilustración: BizTalk Services ofrece la posibilidad de transformar formatos de mensajes XML en la nube.*
 
-En ocasiones requiere conectar sistemas que se comunican mediante diferentes formatos de mensajería. Es habitual en las empresas contar con diferentes esquemas de bases de datos y formatos de mensajería XML, incluso si hay un estándar común disponible. En lugar de escribir mucho código personalizado, puede utilizar BizTalk Server en un sistema local para integrar varios sistemas.  Azure BizTalk Services ofrece el mismo tipo de servicio, pero en la nube. Puede pagar solo por lo que utiliza y no preocuparse por la escalación como haría en el entorno local.
+En ocasiones, necesita conectar sistemas que se comunican mediante diferentes formatos de mensajería. Es habitual en las empresas contar con diferentes esquemas de bases de datos y formatos de mensajería XML, incluso si hay un estándar común disponible. En lugar de escribir mucho código personalizado, puede utilizar BizTalk Server en un sistema local para integrar varios sistemas.  Azure BizTalk Services ofrece el mismo tipo de servicio, pero en la nube. Puede pagar solo por lo que utiliza y no preocuparse por la escalación como haría en el entorno local.
 
 **Escenarios de BizTalk Services**
 
@@ -436,17 +432,14 @@ Normalmente, las interacciones de negocio a negocio (B2B) requieren este tipo de
 Azure ofrece asistencia para los servicios que no necesitan ejecutarse todo el tiempo.  
 
 ### <a name="scheduler"></a>Scheduler
-
-            ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
-
-            *Ilustración: Azure Scheduler ofrece un método para la programación de trabajos en un momento específico y con una duración concreta.*
+![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
+*Ilustración: Azure Scheduler ofrece un método para la programación de trabajos en un momento específico y con una duración concreta.*
 
 A veces, las aplicaciones necesitan ejecutarse solo en un momento determinado. En Azure, puede ahorrar dinero con este tipo de aplicación en lugar de permitir que una aplicación se esté ejecutando constantemente a la espera de datos que procesar. Azure Scheduler le permite programar en qué momento debe ejecutarse una aplicación en función de un intervalo de tiempo o calendario. Es confiable y verificará que un proceso se ejecuta incluso si existen errores de red, equipo o centro de datos. Use la API de REST de Scheduler para administrar estas acciones.
 
 Cuando se produce una alarma programada, Scheduler envía mensajes HTTP o HTTPS a un extremo específico o puede colocar un mensaje en una Cola de almacenamiento.  Por tanto, es necesario que se preocupe por que su aplicación tenga un extremo accesible o supervise una cola de almacenamiento. Una vez que tenga el mensaje, puede realizar la acción para la que esté programada.
 
-
-            **Escenarios de Scheduler**
+**Escenarios de Scheduler**
 
 * Acciones de aplicación periódicas: por ejemplo, un servicio puede obtener periódicamente datos desde Twitter y recopilarlos en una fuente regular.
 * Mantenimiento diario: procesamiento o eliminación de registros, realización de copias de seguridad y otras tareas de programación a intervalos.
@@ -466,7 +459,7 @@ Tener acceso a los datos almacenados en alguno de los servicios de administraci�
 
 Una aplicación de Cloud Services puede almacenar datos en esta caché y, luego, recuperarlos directamente sin necesidad de obtener acceso a almacenamiento persistente. La caché se puede mantener dentro de las VM de su aplicación o la pueden proporcionar las VM dedicadas exclusivamente al almacenamiento en caché. En uno u otro caso, la caché se puede distribuir, y expandirse los datos que contiene entre varias VM de un centro de datos de Azure.
 
-Azure cuenta con varias tecnologías diferentes de caché que han cambiado con el tiempo. Si seguimos el orden en que se presentaron, encontramos la caché compartida, la caché en rol, la caché administrada y la caché en Redis. La caché compartida es una tecnología antigua y se debería tratar de evitar la creación de nuevas implementaciones con ella. La caché administrada presenta las mismas características que la caché en rol, pero como servicio administrado fuera del Portal de administración de Azure. La caché de Redis se encuentra actualmente en su versión de vista previa. La implementación en Redis es la que tiene el número mayor de características y está recomendada para escribir nuevo código en caché.
+Azure cuenta con varias tecnologías diferentes de caché que han cambiado con el tiempo. Si seguimos el orden en que se presentaron, encontramos la caché compartida, la caché en rol, la caché administrada y la caché en Redis. La caché compartida es una tecnología antigua y se debería tratar de evitar la creación de nuevas implementaciones con ella. Managed Cache Service presenta las mismas características que In-Role Cache, pero como servicio administrado fuera de Azure Portal. La implementación en Redis es la que tiene el número mayor de características y está recomendada para escribir nuevo código en caché.
 
 **Escenarios de Caché de Azure**
 
@@ -508,8 +501,7 @@ Asimismo, Azure ofrece a socios y desarrolladores de aplicaciones de Big Compute
 
 ## <a name="media"></a>Multimedia
 ![Azure Media Services](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png)   
- 
-            **Ilustración: Media Services es una plataforma para aplicaciones que proporcionan vídeo y otro contenido multimedia a clientes de todo el mundo.**
+ **Ilustración: Media Services es una plataforma para aplicaciones que proporcionan vídeo y otro contenido multimedia a clientes de todo el mundo.**
 
 Gran parte del tráfico de Internet actual lo constituye el vídeo, y ese porcentaje será incluso mayor en el futuro. Pero proporcionar vídeo en la Web no es tan sencillo. Depende de muchas variables, como el algoritmo de codificación y la resolución de pantalla del monitor del usuario. El vídeo también suele experimentar una demanda a ráfagas, como los picos del sábado por la noche cuando cientos de personas desean ver una película en Internet.
 
@@ -521,7 +513,7 @@ Como muestra la ilustración, Media Services ofrece un conjunto de componentes p
 
 Las aplicaciones que utilizan esta plataforma se pueden ejecutar en Azure o en cualquier otra plataforma. Por ejemplo, una aplicación de escritorio para una productora de vídeo podría permitir que sus usuarios descargaran vídeo de Media Services para luego procesarlo de varias formas. De manera alternativa, un servicio de administración de contenido basado en la nube que se ejecuta en Azure podría confiar en Media Services para procesar y distribuir vídeo. Con independencia de dónde se ejecute y para qué sirva, cada aplicación elige los componentes que necesita utilizar, y obtiene acceso a ellos a través de interfaces de RESTful.
 
-Para distribuir lo que produce, una aplicación puede utilizar CDN de Azure, otro CDN, o simplemente enviar bits directamente a los usuarios. Sea cual sea la forma en que llegue allí, el vídeo creado usando Media Services se puede consumir a través de varios sistemas cliente, como Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash y Silverlight. El objetivo es facilitar la creación de aplicaciones multimedia modernas.
+Para distribuir lo que produce, una aplicación puede utilizar CDN de Azure, otro CDN, o simplemente enviar bits directamente a los usuarios. No obstante, cuando llegue allí, el vídeo creado usando Media Services se puede consumir a través de varios sistemas cliente, como Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash y Silverlight. El objetivo es facilitar la creación de aplicaciones multimedia modernas.
 
 **Referencias**
 
@@ -533,13 +525,13 @@ El surgimiento del software como servicio está transformando el modo en que cre
 ![Comercio de Azure](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Ilustración: Azure Marketplace y la Tienda de Azure le permiten buscar y comprar aplicaciones y conjuntos de datos comerciales de Azure y usarlos como parte de las aplicaciones de Azure.**
 
-La diferencia entre los dos es que Marketplace se encuentra fuera del Portal de administración de Azure, mientras que a la Tienda se puede tener acceso desde el portal. Los clientes potenciales pueden buscar para encontrar aplicaciones de Azure que satisfagan sus necesidades. Los clientes también pueden buscar en cualquiera de ellos conjuntos de datos comerciales, como datos demográficos, datos financieros, datos geográficos y muchos más. Y, si encuentran algo que les guste, pueden tener acceso a ello desde el proveedor, directamente a través de las ubicaciones web de Marketplace o de la Tienda o, en algunos casos, desde el Portal de administración. Las aplicaciones pueden utilizar también la API de Bing Search a través de Marketplace, que les proporciona acceso a los resultados de las búsquedas web.
+La diferencia entre los dos es que Marketplace se encuentra fuera de Azure Portal, mientras que se puede acceder a Microsoft Store desde el portal. Los clientes potenciales pueden buscar para encontrar aplicaciones de Azure que satisfagan sus necesidades. Los clientes también pueden buscar en cualquiera de ellos conjuntos de datos comerciales, como datos demográficos, datos financieros, datos geográficos y muchos más. Cuando encuentran algo que les gusta, pueden acceder a ello desde el proveedor, directamente a través de las ubicaciones web de Marketplace o de Microsoft Store o, en algunos casos, desde Azure Portal. Las aplicaciones pueden utilizar también la API de Bing Search a través de Marketplace, que les proporciona acceso a los resultados de las búsquedas web.
 
 **Escenarios de Comercio**
 
 SendGrid es una aplicación de la Tienda Azure que le permite enviar correo electrónico. Ofrece funcionalidad adicional como estadísticas y entrega confiable.  Puede comprar esta aplicación y los servicios relacionados en vez de tratar de crear usted mismo una infraestructura de este tipo.  
 
 ## <a name="getting-started"></a>Introducción
-Ahora que ha captado la idea general, el siguiente paso es programar su primera aplicación de Azure. Elija su lenguaje, [obtenga el SDK adecuado](/downloads/)y ¡a por ello!. La informática en nube es el nuevo estándar, comience ya.
+Ahora que ha captado la idea general, el siguiente paso es programar su primera aplicación de Azure. Elija su lenguaje, [obtenga el SDK adecuado](https://azure.microsoft.com/en-us/downloads/)y ¡a por ello!. La informática en nube es el nuevo estándar, comience ya.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

@@ -4,7 +4,7 @@ description: "En este tema se describen los roles integrados para el control de 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
 El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
@@ -28,7 +28,7 @@ El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes r
 ## <a name="roles-in-azure"></a>Roles de Azure
 En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** de dicho rol. La propiedad **actions** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
 
-La acción define qué tipo de operaciones puede realizar en un tipo de recurso determinado. Por ejemplo:
+La acción define qué tipo de operaciones puede realizar en un tipo de recurso determinado. Por ejemplo: 
 - **Escribir** le permite realizar operaciones PUT, POST, PATCH y DELETE.
 - **Leer** le permite realizar operaciones GET.
 
@@ -38,13 +38,13 @@ Este artículo solo trata los distintos roles que existen actualmente. Sin embar
 > Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Utilice el cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para ver todos los roles actuales. Puede profundizar en un rol específico mediante `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions`, según corresponda. Use [AzureRmProviderOperation Get](/powershell/module/azurerm.resources/get-azurermprovideroperation) para ver las operaciones de proveedores de recursos de Azure.
 
 
-| Nombre de rol | Description |
+| Nombre de rol | DESCRIPCIÓN |
 | --- | --- |
 | [Colaborador de servicio de administración de API](#api-management-service-contributor) |Puede administrar el servicio API Management y las API |
 | [Rol del operador del servicio API Management](#api-management-service-operator-role) | Puede administrar el servicio API Management, pero no las propias API |
 | [Rol de lector del servicio API Management](#api-management-service-reader-role) | Acceso de solo lectura a las API y el servicio API Management |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) |Puede administrar los componentes de Application Insights |
-| [Operador de automatización](#automation-operator) |Puede iniciar, detener, suspender y reanudar trabajos |
+| [Operador de Automation](#automation-operator) |Puede iniciar, detener, suspender y reanudar trabajos |
 | [Colaborador de copias de seguridad](#backup-contributor) | Puede administrar copias de seguridad en el almacén de Recovery Services |
 | [Operador de copias de seguridad](#backup-operator) | Puede administrar copias de seguridad, excepto su eliminación, en el almacén de Recovery Services |
 | [Lector de copias de seguridad](#backup-reader) | Puede ver todos los servicios de administración de copias de seguridad  |
@@ -55,7 +55,7 @@ Este artículo solo trata los distintos roles que existen actualmente. Sin embar
 | [Colaborador de Factoría de datos](#data-factory-contributor) |Puede crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 | [Usuario de DevTest Labs](#devtest-labs-user) |Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
 | [Colaborador de zona DNS](#dns-zone-contributor) |Puede administrar registros y zonas DNS |
-| [Colaborador de la cuenta de Azure Cosmos DB](#documentdb-account-contributor) |Puede administrar cuentas de Azure Cosmos DB |
+| [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) |Puede administrar cuentas de Azure Cosmos DB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) |Puede administrar cuentas de Sistemas inteligentes |
 | Colaborador de aplicación lógica | Puede administrar todos los aspectos de una aplicación lógica, pero no crear una nueva. |
 | Operador de aplicación lógica |Puede iniciar y detener los flujos de trabajo definidos en una aplicación lógica. |
@@ -67,7 +67,7 @@ Este artículo solo trata los distintos roles que existen actualmente. Sin embar
 | [Lector](#reader) |Puede ver todo el contenido, pero no puede realizar cambios |
 | [Colaborador de la memoria caché de Redis](#redis-cache-contributor) |Puede administrar memorias caché en Redis |
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) |Puede administrar las colecciones de trabajo de Programador |
-| [Colaborador del servicio de búsqueda](#search-service-contributor) |Puede administrar los servicios de búsqueda |
+| [Colaborador del servicio Search](#search-service-contributor) |Puede administrar los servicios de búsqueda |
 | [Administrador de seguridad](#security-manager) |Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
 | [Colaborador de Site Recovery](#site-recovery-contributor) | Puede administrar Site Recovery en el almacén de Recovery Services |
 | [Operador de Site Recovery](#site-recovery-operator) | Puede administrar operaciones de conmutación por error y conmutación por recuperación de Site Recovery en el almacén de Recovery Services |
@@ -149,7 +149,7 @@ Puede administrar los componentes de Application Insights
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### <a name="automation-operator"></a>Operador de automatización
+### <a name="automation-operator"></a>Operador de Automation
 Puede iniciar, detener, suspender y reanudar trabajos
 
 | **Acciones** |  |
@@ -371,13 +371,13 @@ Puede administrar registros y zonas DNS.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/\* |Crear y administrar vales de soporte técnico |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Colaborador de la cuenta de Azure Cosmos DB
-Puede administrar cuentas de Azure Cosmos DB
+### <a name="documentdb-account-contributor"></a>Colaborador de cuenta de DocumentDB
+Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB.
 
 | **Acciones** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
-| Microsoft.DocumentDb/databaseAccounts/* |Crear y administrar cuentas de DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Crear y administrar cuentas de Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
@@ -481,7 +481,7 @@ Puede administrar memorias caché en Redis
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
 ### <a name="scheduler-job-collections-contributor"></a>Colaborador de colecciones de trabajos de Scheduler
-Puede administrar las colecciones de trabajo de Programador
+Puede administrar las colecciones de trabajo de Scheduler
 
 | **Acciones** |  |
 | --- | --- |
@@ -703,7 +703,7 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 
 | **Acciones** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Leer autorización |
+| Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
 | Microsoft.Insights/alertRules/* |Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
@@ -867,8 +867,8 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Web/serverFarms/read |Leer las granjas de servidores |
 | Microsoft.Web/sites/* |Crear y administrar sitios web (la creación de sitios también requiere permisos de escritura para el plan de App Service asociado) |
 
-## <a name="see-also"></a>Consulte también
-* [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
+## <a name="see-also"></a>Otras referencias
+* [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 * [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
 * [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
