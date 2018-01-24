@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso del punto de conexión con privilegios en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
-Como operador de Azure Stack, debe usar las API del portal de administrador, PowerShell o Azure Resource Manager en la mayor parte de las tareas de administración diarias. Sin embargo, con algunas operaciones menos comunes, deberá usar el *punto de conexión con privilegios*. El punto de conexión es una consola remota de PowerShell preconfigurada que proporciona las funcionalidades suficientes para ayudarle a realizar las tareas necesarias. El punto de conexión aprovecha PowerShell JEA (Just Enough Administration) para exponer únicamente un conjunto restringido de cmdlets. Para acceder al punto de conexión con privilegios e invocar el conjunto restringido de cmdlets, se usa una cuenta sin privilegios. No se necesita una cuenta de administrador. Para mayor seguridad, no se permite scripting.
+Como operador de Azure Stack, debe usar las API del portal de administrador, PowerShell o Azure Resource Manager en la mayor parte de las tareas de administración diarias. Sin embargo, con algunas operaciones menos comunes, deberá usar el *punto de conexión con privilegios* (PEP). El punto de conexión es una consola remota de PowerShell preconfigurada que proporciona las funcionalidades suficientes para ayudarle a realizar las tareas necesarias. El punto de conexión aprovecha PowerShell JEA (Just Enough Administration) para exponer únicamente un conjunto restringido de cmdlets. Para acceder al punto de conexión con privilegios e invocar el conjunto restringido de cmdlets, se usa una cuenta sin privilegios. No se necesita una cuenta de administrador. Para mayor seguridad, no se permite scripting.
 
 Puede usar el punto de conexión con privilegios para realizar tareas como las siguientes:
 
@@ -98,6 +98,7 @@ Es recomendable que se conecte al punto de conexión con privilegios solo desde 
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 
@@ -122,7 +123,7 @@ Para cerrar la sesión del punto de conexión:
 
 Después de que los archivos de registro de transcripción se transfieren correctamente al recurso compartido de archivos, se eliminan automáticamente del punto de conexión con privilegios. Si cierra la sesión de punto de conexión con privilegios mediante los cmdlets `Exit-PSSession` o `Exit`, o simplemente cierra la consola de PowerShell, los archivos de transcripción no se transfieren a un recurso compartido de archivos. Permanecen en el punto de conexión con privilegios. La próxima vez que ejecute `Close-PrivilegedEndpoint` e incluya un recurso compartido de archivos, también se transferirán los registros de transcripción de la sesión anterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md)
 
 

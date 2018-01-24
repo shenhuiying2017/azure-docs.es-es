@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure AD B2C
 
@@ -58,7 +58,7 @@ En la pantalla de creación de recursos, seleccione **Vincular un inquilino de A
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Creación de un recurso de Azure AD B2C la suscripción de Azure
 
-En el cuadro de diálogo de creación de recursos, seleccione un inquilino de Azure AD B2C en la lista desplegable. Verá todos los inquilinos de los que es administrador global y los que ya no están vinculados a una suscripción.
+En el cuadro de diálogo de creación de recursos, seleccione un inquilino de Azure AD B2C de la lista desplegable. Verá todos los inquilinos de los que es administrador global y los que ya no están vinculados a una suscripción.
 
 Se preseleccionará el nombre del recurso de Azure AD B2C para que coincida con el nombre de dominio del inquilino de Azure AD B2C.
 
@@ -68,7 +68,7 @@ Seleccione un grupo de recursos y una ubicación del grupo de recursos. Aquí la
 
 ![Crear recurso de B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Administración de los recursos del inquilino de Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Administración de los recursos del inquilino de Azure AD B2C
 
 Una vez que el recurso de Azure AD B2C se haya creado correctamente en la suscripción de Azure, debería ver un nuevo recurso del tipo "inquilino de B2C" agregado junto con los otros recursos de Azure.
 
@@ -91,7 +91,7 @@ Actualmente, un inquilino de Azure AD B2C **no se puede** vincular a las suscrip
 
 Un usuario puede haber establecido una restricción regional para la creación de recursos de Azure. Esta restricción puede impedir la creación de un recurso de Azure AD B2C. Para mitigar esto, la restricción debe ser menos exigente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Una vez que se han completados estos pasos en todos los inquilinos de Azure AD B2C, la suscripción de Azure se factura según los detalles del Contrato Enterprise o de Azure Direct.
 

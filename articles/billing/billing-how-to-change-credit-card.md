@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito o débito para Azure
 
@@ -77,7 +77,7 @@ Si la tarjeta de crédito está asociada a otras suscripciones activas de Micros
 
 Una vez que la suscripción está deshabilitada o se cancela, esperamos 90 días antes de eliminarla permanentemente. Mantenemos su método de pago en el archivo durante el período de retención por si desea reactivar la suscripción. Después de eso, la suscripción se elimina por completo.
 
-Si tiene que quitar la tarjeta de crédito o débito antes de que finalice el período de retención de 90 días, [póngase en contacto con el soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si tiene que quitar la tarjeta de crédito o débito antes de que finalice el período de retención de 90 días, [vuelva a activar la suscripción](billing-subscription-become-disable.md). Si no puede reactivarla, [póngase en contacto con el soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>¿Por qué sigo recibiendo un mensaje similar a "Su sesión de inicio de sesión ha expirado. Haga clic aquí para volver a iniciar sesión"?
 
@@ -96,6 +96,10 @@ Si desea [pagar con factura](billing-how-to-pay-by-invoice.md), envíe el pago a
 ### <a name="how-do-i-make-a-one-time-payment"></a>¿Cómo se puede realizar un pago único?
 
 Por desgracia, Azure actualmente no admite los pagos únicos para las tarjetas de crédito o débito. 
+
+### <a name="how-do-i-change-the-tax-id"></a>¿Cómo se cambia el número de identificación tributaria?
+
+Para agregar o actualizar el número de identificación tributaria, visite [**Perfil** en el Centro de cuentas de Azure](https://account.azure.com/Profile) y seleccione **Registro fiscal**. Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

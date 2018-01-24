@@ -4,7 +4,7 @@ description: "Aprenda a proteger el servidor web NGINX con certificados SSL en u
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Protección de un servidor web con certificados SSL en una máquina virtual Linux en Azure
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -33,7 +33,7 @@ Para proteger los servidores web, se puede utilizar un certificado Capa de socke
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).  
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la versión 2.0.22 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Información general
@@ -83,7 +83,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Creación de una configuración de cloud-init para proteger NGINX
 [cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
-Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar la adición del certificado a la máquina virtual y configurar el servidor web, utilice cloud-init. En este ejemplo, se instala y configura el servidor web NGINX. Puede usar el mismo proceso para instalar y configurar Apache. 
+Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar la adición del certificado a la máquina virtual y configurar el servidor web, utilice cloud-init. En este ejemplo, instalará y configurará el servidor web NGINX. Puede usar el mismo proceso para instalar y configurar Apache. 
 
 Cree un archivo denominado *cloud-init-web-server.txt* y pegue la siguiente configuración:
 
@@ -145,7 +145,7 @@ A continuación, se muestra el sitio de NGINX protegido, como en el ejemplo sigu
 ![Ver el sitio de NGINX seguro en funcionamiento](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, protegió un servidor web NGINX con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
 

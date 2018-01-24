@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos
 
@@ -27,10 +27,10 @@ Cuando haya una aplicación o un script que necesite acceder a recursos, puede c
 * Asignar permisos a la identidad de la aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
 * Usar un certificado para la autenticación al ejecutar un script desatendido.
 
-En este tema se explica cómo usar [Azure PowerShell](/powershell/azure/overview) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
+En este artículo se explica cómo usar [Azure PowerShell](/powershell/azure/overview) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
 
 ## <a name="required-permissions"></a>Permisos necesarios
-Para completar este tema, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Azure Active Directory y asignar la entidad de servicio a un rol. 
+Para completar este artículo, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Azure Active Directory y asignar la entidad de servicio a un rol. 
 
 El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte el [artículo que explica cómo comprobar el permiso requerido](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -44,7 +44,7 @@ Ahora, vaya a la sección para la autenticación con:
 
 Para configurar una entidad de servicio, puede utilizar:
 
-| Comando | Descripción |
+| Get-Help | DESCRIPCIÓN |
 | ------- | ----------- | 
 | [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Crea una entidad de servicio de Azure Active Directory |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Asigna el rol de RBAC especificado a la entidad de seguridad especificada en el ámbito especificado. |
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Para agregar una contraseña, use:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Para agregar un valor de certificado, cree un certificado autofirmado, como se muestra en este tema. A continuación, use:
+Para agregar un valor de certificado, cree un certificado autofirmado, como se muestra en este artículo. A continuación, use:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -421,7 +422,7 @@ Para información sobre el inicio de sesión como en la aplicación a través de
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](../active-directory/active-directory-application-objects.md). 
 * Para más información sobre la autenticación de Azure Active Directory, consulte [Escenarios de autenticación para Azure AD](../active-directory/active-directory-authentication-scenarios.md).

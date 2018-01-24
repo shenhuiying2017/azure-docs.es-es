@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -32,7 +32,7 @@ El [servicio Azure Relay](relay-what-is-it.md) facilita sus aplicaciones híbrid
 Un [espacio de nombres](relay-create-namespace-portal.md) es un contenedor de ámbito que puede usar para hacer referencia a recursos de Relay dentro de la aplicación. Debe crear un espacio de nombres para utilizar Relay. Este es uno de los primeros pasos en la introducción.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>¿Qué ha ocurrido con el servicio Service Bus Relay?
-El servicio anteriormente llamado Service Bus Relay se conoce ahora como WCF Relay. Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
+El servicio anteriormente llamado Service Bus Relay se conoce ahora como [WCF Relay](relay-wcf-dotnet-get-started.md). Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
 
 ## <a name="pricing"></a>Precios
 Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede consultar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios de Azure. Para más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview].
@@ -76,17 +76,17 @@ El envío de un mensaje a Service Bus Relay se trata como un envío "completo a 
 Las retransmisiones que se abren mediante el enlace WCF **netTCPRelay** tratan los mensajes no como mensajes individuales, sino como un flujo de datos que fluye a través del sistema. Cuando se usa este enlace, solo el remitente y el agente de escucha tienen visibilidad sobre la trama de los mensajes individuales enviados y recibidos. Para las retransmisiones que usan el enlace **netTCPRelay**, todos los datos se tratan como un flujo para el cálculo de los mensajes facturables. En este caso, Service Bus calcula la cantidad total de datos enviados o recibidos a través de cada retransmisión individual en una base de 5 minutos. A continuación, divide la cantidad total de datos entre 64 KB para determinar el número de mensajes facturables para dicha retransmisión durante ese período de tiempo.
 
 ## <a name="quotas"></a>Cuotas
-| Nombre de cuota | Scope | Tipo | Comportamiento cuando se supera | Valor |
+| Nombre de cuota | Scope | type | Comportamiento cuando se supera | Valor |
 | --- | --- | --- | --- | --- |
-| Agentes de escucha simultáneos en una retransmisión |Entidad |estático |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
-| Agentes de escucha simultáneos |Todo el sistema |estático |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |2.000 |
-| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Todo el sistema |estático |- |5.000 |
-| Puntos de conexión de retransmisión por espacio de nombres de servicio |Todo el sistema |estático |- |10.000 |
+| Agentes de escucha simultáneos en una retransmisión |Entidad |estática |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
+| Agentes de escucha simultáneos |Todo el sistema |estática |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |2.000 |
+| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Todo el sistema |estática |- |5.000 |
+| Puntos de conexión de retransmisión por espacio de nombres de servicio |Todo el sistema |estática |- |10.000 |
 | Tamaño de mensaje de las retransmisiones [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) y [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Todo el sistema |estático |Los mensajes entrantes que superen estas cuotas se rechazarán y el código que realizó la llamada recibe una excepción. |64 KB |
-| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) y [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Todo el sistema |estático |- |Ilimitado |
+| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) y [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Todo el sistema |estática |- |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>¿Tiene Relay cuotas de uso?
-De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Somos conscientes de que en ocasiones sus necesidades pueden superar estos límites. Puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. Para el Bus de servicio, las cuotas de uso agregado son las siguientes:
+De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Somos conscientes de que en ocasiones sus necesidades pueden superar estos límites. Puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. Para Service Bus, las cuotas de uso agregado son las siguientes:
 
 * 5 millardos de mensajes
 * 2 millones de horas de retransmisión
@@ -120,7 +120,7 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>¿Cuáles son algunas de las excepciones generadas por las API de Azure Relay y sus acciones sugeridas?
 Para obtener una descripción de excepciones comunes y las acciones sugeridas que puede realizar, consulte [Excepciones de Azure Relay][Relay exceptions].
 
@@ -130,7 +130,7 @@ Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
 Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas de autorizados de DNS.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a Node](relay-hybrid-connections-node-get-started.md)

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
 
@@ -28,9 +28,9 @@ Obtenga información sobre cómo usar Herramientas de Azure Data Lake para Visua
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Las Herramientas de Azure Data Lake para Visual Studio son compatibles con Windows, Linux y MacOS.  
+Herramientas de Azure Data Lake para VSCode es compatible con Windows, Linux y MacOS.  
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
@@ -116,6 +116,16 @@ Después de enviar un trabajo de U-SQL, los registros de envío aparecen en la v
 
 Para habilitar la salida de los detalles del trabajo, establezca **jobInformationOutputPath** en el archivo **vscode for u-sql_settings.json**.
  
+**Set Git Ignore**
+
+1. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos. 
+2. Escriba **ADL: Set Git Ignore**.
+
+    - Si el archivo **.gitIgnore** no está en la carpeta de trabajo de VSCode, se creará un archivo llamado **.gitIgnor** en la carpeta. De forma predeterminada, se agregarán al archivo cuatro elementos (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache** y **obj**). Si es necesario, puede realizar otros cambios.
+    - Si ya hay un archivo **.gitIgnore** en la carpeta de trabajo de VSCode, la herramienta agregará cuatro elementos (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache** y **obj**) al archivo **.gitIgnore** si se encuentran en el archivo.
+
+  ![Archivo de configuración de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Uso del archivo de código subyacente de Python, R y CSharp
 Herramientas de Azure Data Lake admite varios códigos personalizados. Consulte las instrucciones en [Desarrollo de trabajos U-SQL con Python, R y CSharp para Azure Data Lake Analytics en VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
@@ -193,17 +203,19 @@ Para poder compilar y ejecutar scripts de U-SQL en Data Lake Analytics, debe con
 **Para conectarse a Azure**
 
 1.  Seleccione Ctrl+Mayús+P para abrir la paleta de comandos. 
-2.  Escriba **ADL: Login**. La información de inicio de sesión aparece en el panel **Salida**.
+2.  Escriba **ADL: Login**. La información de inicio de sesión aparece en la parte superior.
 
     ![Herramientas de Data Lake para Visual Studio Code: paleta de comandos](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Herramientas de Data Lake para Visual Studio Code: información de inicio de sesión del dispositivo](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Seleccione Ctrl y haga clic en la dirección URL de inicio de sesión: https://aka.ms/devicelogin para abrir la página web de inicio de sesión. Escriba el código **G567LX42V** en el cuadro de texto y, luego, seleccione **Continuar**.
+3.  Haga clic en **Copy & Open** (Copiar y abrir) para abrir la página web https://aka.ms/devicelogin. Pegue el código **G567LX42V** en el cuadro de texto y seleccione **Continuar**.
 
    ![Código de inicio de sesión pegado de Herramientas de Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Siga las instrucciones para iniciar sesión desde la página web. Cuando se conecte, el nombre de la cuenta de Azure aparecerá en la barra de estado que se encuentra en la esquina inferior izquierda de la ventana **VS Code**. 
 
     > [!NOTE] 
-    > Si la cuenta tiene habilitada la autenticación de dos pasos, se recomienda usar la autenticación por teléfono en lugar de usar un PIN.
+    >- Herramientas de Data Lake iniciará sesión automáticamente si se inició una sesión con anterioridad que aún no se ha cerrado.
+    >- Si la cuenta tiene habilitada la autenticación de dos pasos, se recomienda usar la autenticación por teléfono en lugar de usar un PIN.
+
 
 Para cerrar la sesión, escriba el comando **ADL: Logout**.
 
@@ -324,15 +336,38 @@ El estado se muestra en la parte inferior de la barra de estado cuando se comple
    ![Comprobación del estado de almacenamiento de Herramientas de Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Integración del Explorador de VSCode con Azure Data Lake
-1. Después de iniciar sesión, verá que todas las cuentas de Azure se muestran en el panel izquierdo del **Explorador de DataLake**. Expanda una base de datos; puede ver los **esquemas**, las **tablas**, los **ensamblados**, etc., en el nodo.
+
+**Integración de Azure** 
+
+- Antes de iniciar sesión en Azure, siempre puede expandir el **EXPLORADOR DE DATA LAKE** y hacer clic en **Iniciar sesión en Azure**. Después de iniciar sesión, verá que todas suscripciones de la cuenta de Azure aparecen en el panel izquierdo del **EXPLORADOR DE DATA LAKE**. 
+
+   ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. Puede ejecutar el comando **Registrar ensamblado** haciendo clic con el botón derecho en el nodo **Ensamblados**.
+**Navegación por los metadatos de ADLA** 
+
+- Expanda la suscripción de Azure, donde podrá navegar por la base de datos U-SQL y consultar la información de **Esquemas**, **Credenciales**, **Ensamblados**, **Tabla**, **Índice**, etc. en el nodo Bases de datos U-SQL.
+
+**Administración de entidades de metadatos de ADLA**
+
+- Expanda **Bases de datos U-SQL**. Puede crear una base de datos, un esquema, una tabla, distintos tipos de tablas, un índice y estadísticas haciendo clic con el botón derecho en el menú contextual **Script to Create** (Script para crear) situado bajo el nodo correspondiente. Cuando se abra la página del script, modifíquelo en función de sus necesidades y envíe el trabajo haciendo clic con el botón derecho en el menú contextual **ADL: Submit Job** (ADL: Enviar trabajo). Cuando haya terminado con el proceso de creación, haga clic en el menú contextual **Actualizar** para mostrar el nuevo elemento creado. También puede eliminar el elemento haciendo clic con el botón derecho en el menú contextual **Eliminar**.
+
+   ![El Explorador de Data Lake crea un nuevo elemento de menú](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![El Explorador de Data Lake crea un nuevo script de elemento](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**Registro de ensamblados de ADLA**
+
+ - Puede registrar el ensamblado en la base de datos correspondiente con la opción **Registrar ensamblado** haciendo clic con el botón derecho en el nodo **Ensamblados**.
 
     ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. Vaya a **Cuenta de almacenamiento**; puede cargar o descargar el archivo haciendo clic con el botón derecho en la carpeta o el archivo. También puede **obtener la vista previa** de un archivo, **descargar**, **copiar la ruta de acceso relativa**, **copiar la ruta de acceso completa** desde el menú contextual.
+**Integración de ADLS** 
+
+ - Vaya a **Cuenta de almacenamiento**, donde podrá utilizar las opciones **Vista previa**, **Descargar**, **Eliminar**, **Copiar ruta de acceso relativa** y **Copiar ruta de acceso completa** que encontrará en el menú contextual del nodo del archivo. También puede utilizar las opciones **Actualizar**, **Cargar**, **Cargar carpeta** y **Eliminar** haciendo clic en el menú contextual del nodo de la carpeta.
+
+   ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -377,7 +412,7 @@ Herramientas de Data Lake para VS Code es compatible con las características si
 
     ![Aspectos destacados de la sintaxis de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Desarrollo de trabajos U-SQL con Python, R y CSharp para Azure Data Lake Analytics en VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Ejecución y depuración locales de U-SQL con Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Tutorial: Introducción a Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)

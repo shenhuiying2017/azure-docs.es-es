@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
 
-El archivo de configuración se denomina `ApplicationInsights.config` o `ApplicationInsights.xml`, dependiendo del tipo de la aplicación. Se agrega automáticamente al proyecto cuando se [instalan la mayoría de las versiones del SDK][start]. También se agrega a una aplicación web con el [Monitor de estado en un servidor IIS][redfield] o al seleccionar la [extensión de Application Insights para un sitio web o una máquina virtual de Azure](app-insights-azure-web-apps.md).
+El archivo de configuración se denomina `ApplicationInsights.config` o `ApplicationInsights.xml`, dependiendo del tipo de la aplicación. Se agrega automáticamente al proyecto cuando se [instalan la mayoría de las versiones del SDK][start]. También se agrega a una aplicación web con el [Monitor de estado en un servidor IIS][redfield] o cuando selecciona la [extensión de Application Insights para un sitio web o una máquina virtual de Azure](app-insights-azure-web-apps.md).
 
 No hay un archivo equivalente para controlar el [SDK en una página web][client].
 
@@ -125,7 +125,6 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 * `SyntheticTelemetryInitializer` o `SyntheticUserAgentTelemetryInitializer` actualizan las propiedades de los contextos `User`, `Session` y `Operation` de todos los elementos de telemetría de los que se realiza un seguimiento al tratar una solicitud de un origen sintético, como una prueba de disponibilidad o un bot de motor de búsqueda. De forma predeterminada, [Explorador de métricas](app-insights-metrics-explorer.md) no muestra telemetría sintética.
 
     Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
-* `UserAgentTelemetryInitializer` actualiza la propiedad `UserAgent` del contexto `User` de todos los elementos de telemetría según el encabezado HTTP `User-Agent` de la solicitud.
 * `UserTelemetryInitializer` actualiza las propiedades `Id` y `AcquisitionDate` del contexto `User` para todos los elementos de telemetría con valores extraídos de la cookie `ai_user` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
 * `WebTestTelemetryInitializer` establece el identificador de usuario, el identificador de sesión y las propiedades de origen sintético de las solicitudes HTTP que proceden de [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md).
   Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
@@ -262,7 +261,7 @@ Si solo desea enviar un conjunto específico de eventos a un recurso diferente, 
 
 Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application Insights][new].
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información acerca de la API][api].
 
 <!--Link references-->

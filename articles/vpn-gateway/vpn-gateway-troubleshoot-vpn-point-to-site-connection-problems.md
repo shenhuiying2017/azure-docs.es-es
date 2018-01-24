@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: conexión de punto a sitio de Azure
 
@@ -199,7 +199,7 @@ Al intentar descargar el paquete de configuración del cliente de VPN, aparece e
 
 Este error puede deberse a un problema de red temporal. Vuelva a intentar descargar el paquete VPN pasados unos minutos.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Actualización de puerta de enlace de la VPN de Azure: todos los clientes de punto a sitio no se pueden conectar
+## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Actualización de Azure VPN Gateway: todos los clientes de punto a sitio no se pueden conectar
 
 ### <a name="cause"></a>Causa
 
@@ -263,3 +263,52 @@ Se quita la conexión VPN de punto a sitio y luego se vuelve a instalar el clien
 ### <a name="solution"></a>Solución
 
 Para resolver el problema, elimine los archivos de configuración antiguos del cliente de VPN de **C:\Usuarios\Nombre de usuario\AppData\Roaming\Microsoft\Network\Connections** y luego vuelva a ejecutar el instalador del cliente de VPN.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>El cliente VPN de punto a sitio no puede resolver el FQDN de los recursos en el dominio local
+
+### <a name="symptom"></a>Síntoma
+
+Cuando el cliente se conecta a Azure con una conexión VPN de punto a sitio, no puede resolver el FQND de los recursos del dominio local.
+
+### <a name="cause"></a>Causa
+
+El cliente VPN de punto a sitio usa servidores de Azure DNS configurados en la red virtual de Azure. Los servidores de Azure DNS tienen prioridad sobre los servidores DNS locales que están configurados en el cliente, por lo que todas las consultas DNS se envían a los servidores DNS de Azure. Si los servidores de Azure DNS no tienen los registros de los recursos locales, se produce un error en la consulta.
+
+### <a name="solution"></a>Solución
+
+Para solucionar el problema, asegúrese de que los servidores de Azure DNS usados en la red virtual de Azure pueden resolver los registros DNS de los recursos locales. Para ello, puede usar los reenviadores DNS o condicionales. Para más información, vea [Resolución de nombres mediante su propio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Se establece la conexión VPN de punto a sitio, pero aún no se puede conectar a los recursos de Azure 
+
+### <a name="cause"></a>Causa
+
+Este problema puede producirse si el cliente VPN no obtiene las rutas de la instancia de Azure VPN Gateway.
+
+### <a name="solution"></a>Solución
+
+Para solucionar este problema, [restablezca la instancia de Azure VPN Gateway](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: "La función de revocación no pudo comprobar la revocación debido a que el servidor de revocación estaba sin conexión (Error 0x80092013)"
+
+### <a name="causes"></a>Causas
+Este mensaje de error se produce si el cliente no puede acceder a http://crl3.digicert.com/ssca-sha2-g1.crl y http://crl4.digicert.com/ssca-sha2-g1.cr.  La comprobación de revocación requiere acceso a estos dos sitios.  Este problema se produce normalmente en el cliente que tiene el servidor proxy configurado. En algunos entornos, si las solicitudes no pasan a través del servidor proxy, estas se deniegan en el firewall perimetral.
+
+### <a name="solution"></a>Solución
+
+Compruebe la configuración del servidor proxy y asegúrese de que el cliente puede acceder a http://crl3.digicert.com/ssca-sha2-g1.crl y http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Error del cliente VPN: Se impidió la conexión debido a una directiva configurada en el servidor RAS/VPN (Error 812)
+
+### <a name="cause"></a>Causa
+
+Este error se produce si el servidor RADIUS utilizado para autenticar el cliente VPN tiene una configuración incorrecta. 
+
+### <a name="solution"></a>Solución
+
+Asegúrese de que el servidor RADIUS está configurado correctamente. Para más información, vea [Integración de la autenticación RADIUS con Servidor Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Error 405" al descargar el certificado raíz de VPN Gateway
+
+### <a name="cause"></a>Causa
+
+No se instaló el certificado raíz. El certificado raíz está instalado en el almacén de **certificados de confianza** del cliente.

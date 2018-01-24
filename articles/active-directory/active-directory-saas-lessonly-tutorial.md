@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68ada2da62958948dbf232b5f83f69d7942b9c10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: Integración de Azure Active Directory con Lesson.ly
 
@@ -31,7 +31,7 @@ Integrar Lesson.ly con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Lesson.ly, se necesitan los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Lesson.ly desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de Lesson.ly en Azure AD, es preciso agregar Les
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Lesson.ly**.
 
@@ -142,7 +142,8 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
     | ---------------  | ----------------|
     | urn:oid:2.5.4.42 |user.givenname |
     | urn:oid:2.5.4.4  |user.surname |
-    | urn:oid:0.9.2342.19200300.1001.3 |user.mail |
+    | urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
 
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
@@ -198,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-lessonly-test-user"></a>Creación de un usuario de prueba de Lesson.ly
 
@@ -217,7 +218,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 
 **Para asignar Britta Simon a Lesson.ly, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

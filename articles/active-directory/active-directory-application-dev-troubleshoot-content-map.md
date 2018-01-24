@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 5c750dbf99714609cc07b818a6a28e91a22e1e36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98510670063fbd856cbc438b59613adce84742bd
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Solución de problemas de desarrollo de aplicaciones de Azure Active Directory
 Los siguientes vínculos le llevarán a un mapa de contenido que le ayudará a resolver algunos de los problemas más comunes en el desarrollo de aplicaciones con el **Registro de aplicaciones** en Azure Active Directory.

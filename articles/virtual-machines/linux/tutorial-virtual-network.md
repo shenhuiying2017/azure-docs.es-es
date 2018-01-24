@@ -1,5 +1,5 @@
 ---
-title: "Azure Virtual Networks y máquinas virtuales de Linux | Microsoft Docs"
+title: "Azure Virtual Network y máquinas virtuales Linux | Microsoft Docs"
 description: "Tutorial: Administración de Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Administrar Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure
 
@@ -149,13 +149,15 @@ az vm create \
 
 ## <a name="secure-network-traffic"></a>Protegen el tráfico de red.
 
-Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a redes virtuales de Azure (VNet). Los NSG se pueden asociar a subredes o a interfaces de red individuales. Cuando un NSG está asociado a una interfaz de red, se aplica solo a la máquina virtual asociada. Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred. 
+Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a Azure Virtual Network (VNet). Los NSG se pueden asociar a subredes o a interfaces de red individuales. Cuando un NSG está asociado a una interfaz de red, se aplica solo a la máquina virtual asociada. Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred. 
 
 ### <a name="network-security-group-rules"></a>Reglas del grupo de seguridad de red
 
 Las reglas de NSG definen puertos de redes a través de los que se permite o deniega el tráfico. Las reglas pueden incluir intervalos de direcciones IP de origen y destino para que el tráfico se controle entre sistemas o subredes específicos. Las reglas de NSG también incluyen una prioridad (entre 1 y 4096). Las reglas se evalúan por orden de prioridad. Una regla con una prioridad de 100 se evalúa antes que una regla con prioridad de 200.
 
 Todos los grupos de seguridad de red contienen un conjunto de reglas predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree.
+
+Las reglas predeterminadas para los grupos de seguridad de red son:
 
 - **Red virtual:** el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida.
 - **Internet:** se permite el tráfico saliente pero se bloquea el entrante.
@@ -289,7 +291,7 @@ La máquina virtual de back-end solo es accesible en los puertos *22* y *3306* d
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha creado y protegido redes de Azure cuando están relacionadas con máquinas virtuales. Ha aprendido a:
 

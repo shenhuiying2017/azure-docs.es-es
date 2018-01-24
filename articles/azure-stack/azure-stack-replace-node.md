@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Reemplazar un nodo de la unidad de escalado en un sistema integrado de Azure Stack
 
@@ -51,6 +51,10 @@ Si abre la alerta "Scale unit node is offline" (Nodo de la unidad de escalado de
 Los pasos siguientes se proporcionan como una descripción general del proceso de reemplazo del nodo de la unidad de escalado. Consulte la documentación de FRU del proveedor de hardware OEM para obtener pasos detallados y específicos para su sistema. No siga estos pasos sin consultar la documentación proporcionada por su OEM.
 
 1. Use la acción [Purgar](azure-stack-node-actions.md#scale-unit-node-actions) para poner el nodo de la unidad de escalado en el modo de mantenimiento. Es posible que esta acción no sea necesaria en función de la condición física del hardware.
+
+   > [!NOTE]
+   > En cualquier caso, solo se puede purgar y apagar un nodo al mismo tiempo sin que se interrumpan los Espacios de almacenamiento directo (SSD).
+
 2. Si el nodo aún está encendido, use la acción [Apagar](azure-stack-node-actions.md#scale-unit-node-actions). Es posible que esta acción no sea necesaria en función de la condición física del hardware.
  
    > [!NOTE]
@@ -61,7 +65,7 @@ Los pasos siguientes se proporcionan como una descripción general del proceso d
 3. Use el punto de conexión privilegiado para [comprobar el estado de la reparación del disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Con las nuevas unidades de datos, un trabajo de reparación del almacenamiento completo puede tardar varias horas, según la carga del sistema y el espacio consumido.
 4. Una vez finalizada la acción de reparación, confirme que todas las alertas activas se cerraron automáticamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para información sobre cómo reemplazar un disco físico intercambiable directamente, consulte [Reemplazar un disco físico en Azure Stack](azure-stack-replace-disk.md). 
 - Para obtener información acerca de cómo reemplazar un componente de hardware no intercambiable en caliente, consulte [Replace a hardware component](azure-stack-replace-component.md) (Reemplazar un componente de hardware). 

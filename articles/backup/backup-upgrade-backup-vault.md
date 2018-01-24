@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Almacén de Backup actualizado al almacén de Recovery Services
 En este artículo se proporciona información general sobre Recovery Services, preguntas frecuentes sobre la actualización del almacén existente de Backup al almacén de Recovery Services y los pasos que se deben realizar con posterioridad a la actualización. Un almacén de Recovery Services es el equivalente de Azure Resource Manager de un almacén de Backup que aloja los datos de copia de seguridad. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo, tanto de Azure como locales.
@@ -68,16 +68,16 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **¿Afecta el plan de actualización a mis copias de seguridad en curso?**</br>
-No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
+Nº Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 **¿Qué supone esta actualización para las herramientas existentes?**</br>
-Debe actualizar la automatización o las herramientas existentes para asegurarse de que el modelo de Resource Manager sigue funcionando después de la actualización. Consulte las guías de referencia de los cmdlets de PowerShell para más información sobre el [modelo de implementación de Service Manager](backup-client-automation-classic.md) y el [modelo de implementación de Resource Manager](backup-client-automation.md).
+Debe actualizar la automatización o las herramientas existentes para asegurarse de que el modelo de Resource Manager sigue funcionando después de la actualización. Consulte las guías de referencia de los cmdlets de PowerShell para más información sobre el [modelo de implementación de Resource Manager](backup-client-automation.md).
 
 **¿Puedo revertir la actualización?**</br>
-No. No se admite la reversión una vez actualizados correctamente los recursos.
+Nº No se admite la reversión una vez actualizados correctamente los recursos.
 
 **¿Puedo ver mi almacén clásico después de la actualización?**</br>
-No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
+Nº No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
 
 **¿Por qué no puedo ver los servidores protegidos por el agente de MARS en mi almacén actualizado?**</br>
 Para ver todos los servidores protegidos por el agente de MARS en su almacén, debe instalar el agente de MARS más reciente. Puede descargar la versión más reciente del agente [aquí]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
@@ -99,7 +99,7 @@ La supervisión de copias de seguridad (agente de MARS e IaaS) es una caracterí
 **¿Cómo se informa de un problema?**</br>
 Si se produce un error en cualquier parte de la actualización del almacén, tenga en cuenta el identificador de la operación que figura en el error. Soporte técnico de Microsoft trabajará proactivamente para resolver el problema. Puede conectar con el soporte técnico o enviarnos un correo electrónico a rsvaultupgrade@service.microsoft.com con su identificador de suscripción, el nombre del almacén y el identificador de la operación. Intentaremos resolver el problema lo antes posible. No vuelva a intentar la operación a menos que Microsoft se lo indique explícitamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Use los artículos siguientes para realizar estos pasos:</br>
 [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>

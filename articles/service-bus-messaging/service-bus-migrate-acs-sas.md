@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
-Históricamente, las aplicaciones de Service Bus tenían la posibilidad de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
+Las aplicaciones de Service Bus tenían la posibilidad anteriormente de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio del servicio de recopilación de auditorías (ACS) de [Azure Active Directory](/azure/active-directory/), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
 
 Hace tiempo que el modelo de autorización ACS se sustituyó por la [autorización de SAS](service-bus-authentication-and-authorization.md) como modelo preferido y en toda la documentación, instrucciones y ejemplos de hoy día se usa SAS única y exclusivamente. Es más, ya no se pueden crear espacios de nombres de Service Bus que se emparejen con ACS.
 
@@ -59,11 +59,11 @@ Esta configuración nueva y adicional de SAS se puede establecer localmente en c
 
 Las reglas de SAS no están diseñadas para ser cuentas, pero se denominan claves de firma asociadas a derechos. Por tanto, los escenarios en los que la aplicación crea varias identidades de servicio y les concede derechos de acceso para varias entidades o el espacio de nombres completo siguen requiriendo un intermediario que emita tokens. [Póngase en contacto con el soporte técnico](https://azure.microsoft.com/support/options/) si necesita instrucciones relativas a este tipo intermediario.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la autenticación de Service Bus, vea los siguientes temas:
 
-* [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md)
+* [Autenticación y autorización de Service Bus](service-bus-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](service-bus-sas.md)
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 

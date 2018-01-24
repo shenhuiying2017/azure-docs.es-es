@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -68,7 +68,7 @@ A continuación se muestra el flujo de datos genérico y el resumen de los pasos
 * Debe **usar la puerta de enlace** incluso cuando el almacén de datos esté en la nube, en una **VM de IaaS de Azure**.
 
 ## <a name="installation"></a>Instalación
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 * Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. En estos momentos, no se admite la instalación de Data Management Gateway en un controlador de dominio.
 * Es necesario .NET Framework 4.5.1 o posterior. Si está instalando la puerta de enlace en una máquina con Windows 7, instale .NET Framework 4.5 o posterior. Consulte [Requisitos de sistema de .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) para más información.
 * La **configuración** recomendada de la máquina de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
@@ -137,7 +137,7 @@ Existen dos firewalls que tiene que tener en cuenta: el **firewall corporativo**
 
 En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
-| Nombres de dominio | Puertos | Descripción |
+| Nombres de dominio | Puertos | DESCRIPCIÓN |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
 | *.core.windows.net |443 |Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)|
@@ -323,6 +323,9 @@ En la página Configuración puede hacer las siguientes acciones:
 * **estado** del punto de conexión
 * El **certificado SSL** de visualización se utiliza para establecer la comunicación SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.  
 
+### <a name="remote-access-from-intranet"></a>Acceso remoto desde la intranet  
+Esta funcionalidad estará disponible en el futuro. En las próximas actualizaciones (v3.4 o posterior), podrá habilitar o deshabilitar cada una de las conectividades remota que actualmente tienen lugar a través del puerto 8050 (consulte la sección anterior) y utilizar al mismo tiempo PowerShell o la aplicación Administrador de credenciales para cifrar las credenciales. 
+
 ### <a name="diagnostics-page"></a>Página Diagnóstico
 En la página Diagnóstico puede realizar las siguientes acciones:
 
@@ -341,7 +344,7 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 1. En Azure Portal, vaya a la página principal de la factoría de datos y haga clic en el icono **Servicios vinculados**. 
 
-    ![Página principal de Factoría de datos](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+    ![Página principal Factoría de datos](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
 2. Seleccione la **puerta de enlace** en la página **Servicios vinculados**.
 
     ![Página Servicios vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
@@ -354,10 +357,10 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:  
 
-Propiedad de supervisión | Descripción
+Propiedad de supervisión | DESCRIPCIÓN
 :------------------ | :---------- 
-Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).    
-Estado | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
+NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).    
+Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
 Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
@@ -370,7 +373,7 @@ En esta página, verá que algunos valores de configuración tienen más sentido
 ### <a name="gateway-status"></a>Estado de la puerta de enlace
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
 
-Estado  | Comentarios/Escenarios
+Status  | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -381,7 +384,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace. 
 
-Estado | Comentarios
+Status | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea
@@ -537,5 +540,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) . El objetivo es crear una canalización que utilice la puerta de enlace para mover los datos de una base de datos de SQL Server local a un blob de Azure.  

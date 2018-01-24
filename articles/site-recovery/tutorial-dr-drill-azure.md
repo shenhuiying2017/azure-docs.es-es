@@ -2,31 +2,25 @@
 title: "Ejecutar una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs"
 description: "Obtener información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: ddd17921-68f4-41c7-ba4c-b767d36f1733
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
-ms.openlocfilehash: 15e4487217ec21bb33380422640cb19dfcbcee39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de la exploración en profundidad de una recuperación ante desastres en Azure
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres
+ en Azure
 
-En este tutorial se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos. En este tutorial, aprenderá a:
+En este tutorial se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres para una máquina local en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar una red aislada para la conmutación por error de prueba
-> * Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
+> * Preparación para la conexión a la máquina virtual de Azure después de una conmutación por error
 > * Ejecutar una conmutación por error de prueba para una sola máquina
 
 Este es el cuarto tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores.
@@ -42,6 +36,10 @@ Antes de ejecutar una conmutación por error de prueba, compruebe las propiedade
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
 3. En **Proceso y red**, puede modificar el nombre de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la configuración de discos administrados.
+   
+      >[!NOTE]
+      La conmutación por recuperación en máquinas Hyper-V locales desde máquinas virtuales de Azure con discos administrados no se admite actualmente. Solo debe usar la opción de discos administrados para la conmutación por error si planea migrar máquinas virtuales locales a Azure, sin realizar una conmutación por recuperación.
+   
 4. Puede ver y modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 5. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
@@ -56,21 +54,17 @@ Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
 Ejecute la conmutación por error de prueba de la manera siguiente:
 
 1. En **Configuración** > **Elementos replicados**, haga clic en la VM > **+Probar conmutación por error**.
-
-2. Seleccione un punto de recuperación para usarlo en la conmutación por error:
-    - **Procesado más recientemente**: conmuta por error la VM en el último punto de recuperación procesado por Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se empleó tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
-    - **Más reciente coherente con la aplicación**: esta opción conmuta por error todas las VM en el punto de recuperación más reciente coherente con la aplicación. Se muestra la marca de tiempo.
-    - **Personalizado**: seleccione un punto de recuperación.
+2. Seleccione el punto de recuperación **Procesado más recientemente** para este tutorial. Se realiza una conmutación por error de la máquina virtual al último punto en el tiempo disponible. Se muestra la marca de tiempo. Con esta opción, no se empleó tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
 3. En **Probar conmutación por error**, seleccione la red de Azure de destino a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
 4. Haga clic en **Aceptar** para iniciar la conmutación por error. Para realizar el seguimiento del progreso, haga clic en la máquina virtual para abrir sus propiedades. También puede hacer clic en el trabajo **Conmutación por error de prueba** en el nombre del almacén > **Configuración** > **Trabajos** >
    **Trabajos de Site Recovery**.
 5. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Compruebe que la VM tiene el tamaño adecuado, que está conectada a la red correspondiente y que se está ejecutando.
 6. Ahora debería poder conectarse a la VM replicada en Azure.
-7. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, haga clic en **Limpiar conmutación por error de prueba** en el plan de recuperación. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
+7. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, haga clic en **Limpieza de conmutación por error de prueba** en la máquina virtual. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](tutorial-vmware-to-azure-failover-failback.md).

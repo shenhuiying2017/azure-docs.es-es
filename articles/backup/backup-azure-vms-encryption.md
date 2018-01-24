@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
@@ -37,7 +37,7 @@ Este artículo trata sobre los pasos para realizar la copia de seguridad y resta
    | **Máquinas virtuales no administradas**  | Sí | Sí  |
    | **Máquinas virtuales administradas**  | Sí | Sí  |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Las máquinas virtuales se cifran mediante [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
 * Se ha creado un almacén de Recovery Services y la replicación del almacenamiento se ha establecido siguiendo los pasos que se indican en la [preparación del entorno para la copia de seguridad](backup-azure-arm-vms-prepare.md).
@@ -52,7 +52,7 @@ Utilice los pasos siguientes para establecer un objetivo de copia de seguridad, 
 
    a. En la lista de recursos, escriba **Recovery Services**.
 
-   b. Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
+   b. Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
       ![Almacén de Recovery Services](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
@@ -77,11 +77,17 @@ Utilice los pasos siguientes para establecer un objetivo de copia de seguridad, 
 6. Elija las máquinas virtuales cifradas que se asociarán con la directiva especificada y seleccione **Aceptar**.
 
       ![Selección de las máquinas virtuales cifradas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. Esta página muestra un mensaje sobre los almacenes de claves asociados a las máquinas virtuales cifradas seleccionadas. El servicio Backup necesita acceso de solo lectura a las claves y los secretos del almacén de claves. Estos permisos los usa para hacer copia de seguridad de ellos, junto con la de las máquinas virtuales asociadas. *Debe conceder permisos al servicio Backup para acceder al almacén de claves para que las copias de seguridad funcionen*. Puede proporcionar estos permisos siguiendo los [pasos mencionados en la siguiente sección](#provide-permissions-to-azure-backup).
+7. Esta página muestra un mensaje sobre los almacenes de claves asociados a las máquinas virtuales cifradas seleccionadas. El servicio Backup necesita acceso de solo lectura a las claves y los secretos del almacén de claves. Estos permisos los usa para hacer copia de seguridad de ellos, junto con la de las máquinas virtuales asociadas.<br>
+Si es un **usuario miembro**, el proceso Habilitar copia de seguridad no tendrá problema acceder al almacén de claves y hacer copias de seguridad de las máquinas virtuales cifradas sin que se requiera la intervención del usuario.
 
-      ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      Ahora que ha definido toda la configuración del almacén, haga clic en **Habilitar Backup** en la parte inferior de la página. **Habilitar Backup** permite implementar la directiva en el almacén y en las máquinas virtuales.
+   En el caso de los **usuarios invitados**, es necesario conceder permisos al servicio Backup para que pueda acceder al almacén de claves y puedan realizarse copias de seguridad. Para proporcionar estos permisos, siga los [pasos que se indican en la siguiente sección](#provide-permissions-to-backup).
+
+   ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    Ahora que ha definido toda la configuración del almacén, haga clic en **Habilitar Backup** en la parte inferior de la página. **Habilitar Backup** permite implementar la directiva en el almacén y en las máquinas virtuales.
+  
 8. La siguiente fase de la preparación es instalar el agente de máquina virtual o comprobar que esté instalado. Para ello, siga los pasos que se indican en la [preparación de su entorno para la copia de seguridad](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Desencadenamiento de un trabajo de copia de seguridad
@@ -136,6 +142,6 @@ Para restaurar una máquina virtual cifrada, primero restaure los discos; para e
 | Operación | Detalles del error | Resolución |
 | --- | --- | --- |
 |Backup | Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. | Es necesario proporcionar estos permisos a Backup mediante los [pasos de la sección anterior](#provide-permissions-to-azure-backup). También puede seguir los pasos de PowerShell que se describen en la sección "Habilitar protección" de la documentación de PowerShell en [Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md#back-up-azure-vms). |  
-| Restauración |No se puede restaurar esta máquina virtual cifrada porque no existe el almacén de claves asociado con esta máquina virtual. |Cree un almacén de claves mediante los pasos descritos en [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
-| Restauración |No se puede restaurar esta máquina virtual cifrada porque la clave y el secreto asociados con ella no existen. |Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
-| Restauración |El servicio Backup no tiene autorización para acceder a los recursos de su suscripción. |Como se ha mencionado anteriormente, restaure primero los discos según los pasos descritos en la sección "Restauración de discos de copia de seguridad" de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Después, use PowerShell para [crear una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+| Restore |No se puede restaurar esta máquina virtual cifrada porque no existe el almacén de claves asociado con esta máquina virtual. |Cree un almacén de claves mediante los pasos descritos en [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
+| Restore |No se puede restaurar esta máquina virtual cifrada porque la clave y el secreto asociados con ella no existen. |Consulte [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md) para restaurar la clave y el secreto si estos no existen. |
+| Restore |El servicio Backup no tiene autorización para acceder a los recursos de su suscripción. |Como se ha mencionado anteriormente, restaure primero los discos según los pasos descritos en la sección "Restauración de discos de copia de seguridad" de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Después, use PowerShell para [crear una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

@@ -1,6 +1,6 @@
 ---
 title: "Integración de una cuenta de una instancia de Azure Storage con la red CDN de Azure | Microsoft Docs"
-description: "Aprenda a usar la red de entrega de contenido (CDN) de Azure para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Almacenamiento de Azure."
+description: "Aprenda a usar Azure Content Delivery Network (CDN) para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Azure Storage."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integración de una cuenta de una instancia de Azure Storage con la red CDN de Azure
 CDN puede habilitarse para almacenar el contenido de la caché en Almacenamiento de Azure. Ofrece a los desarrolladores una solución global de entrega de contenido con alto ancho de banda; para ello, almacena en memoria caché los blobs y los contenidos estáticos de las instancias de proceso en nodos físicos ubicados en Estados Unidos, Europa, Asia, Australia y Sudamérica.
 
 ## <a name="step-1-create-a-storage-account"></a>Paso 1: Creación de una cuenta de almacenamiento
-Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio de almacenamiento de Azure: servicios BLOB, servicios Cola y servicios Tabla. Para más información, consulte [Introducción al Almacenamiento de Microsoft Azure](../storage/common/storage-introduction.md).
+Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio Azure Storage: servicios Blob service, Queue service y Table service. Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción correspondiente.
 
 > [!NOTE]
-> Hay varios métodos que puede usar para crear una cuenta de almacenamiento, incluido el Portal de Azure y Powershell.  Para este tutorial, usaremos el Portal de Azure.  
+> Hay varios métodos que puede usar para crear una cuenta de almacenamiento, incluido Azure Portal y Powershell.  Para este tutorial, usaremos Azure Portal.  
 > 
 > 
 
 **Para crear una cuenta de almacenamiento para una suscripción de Azure**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la esquina superior izquierda, seleccione **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Datos + Almacenamiento** y haga clic en **Cuenta de almacenamiento**.
     
     Aparece la hoja **Crear cuenta de almacenamiento** .   
@@ -55,7 +55,7 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 5. Seleccione la **Suscripción** con la que se usará la cuenta de almacenamiento.
 6. Seleccione o cree un **grupo de recursos**.  Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Seleccione la ubicación para la cuenta de almacenamiento.
-8. Haga clic en **Crear**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
+8. Haga clic en **Create**(Crear). El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>Paso 2: Habilitación de la red CDN para la cuenta de almacenamiento
 
@@ -82,7 +82,7 @@ Con la integración más reciente, ahora puede habilitar la red CDN para la cuen
     ![cdn storage new endpoint][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> También puede ir a la extensión de CDN de Azure para habilitar la red CDN. [Tutorial](#Tutorial-cdn-create-profile).
+> También puede ir a la extensión CDN de Azure para habilitar la red CDN. [Tutorial](#Tutorial-cdn-create-profile).
 > 
 > 
 
@@ -105,7 +105,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 > 
 
 ## <a name="step-5-remove-content-from-the-cdn"></a>Paso 5: Eliminación de su contenido de la red CDN
-Si no desea seguir almacenando un objeto en la memoria caché de la Red de entrega de contenido de Azure (CDN), puede realizar uno de los siguientes pasos:
+Si no desea seguir almacenando un objeto en la memoria caché de Azure Content Delivery Network (CDN), puede realizar uno de los siguientes pasos:
 
 * Puede crear un contenedor privado en vez de público. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/blobs/storage-manage-access-to-resources.md) para más información.
 * Puede deshabilitar o eliminar el punto de conexión de la red CDN con el Portal de administración.

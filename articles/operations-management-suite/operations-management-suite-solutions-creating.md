@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Diseño y compilación de una solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
@@ -37,7 +37,7 @@ La estrategia básica consiste en iniciar la solución de administración median
 ## <a name="design-your-solution"></a>Diseño de la solución
 El modelo más común para una solución de administración se muestra en el diagrama siguiente.  Los distintos componentes en este modelo se describen a continuación.
 
-![Información general de la solución OMS](media/operations-management-suite-solutions/solution-overview.png)
+![Información general de la solución OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Orígenes de datos
@@ -80,7 +80,7 @@ Una vez haya finalizado y probado la solución, puede ponerla a disposición de 
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga información acerca de cómo [crear un archivo de solución](operations-management-suite-solutions-solution-file.md) para la solución de administración.
 * Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.

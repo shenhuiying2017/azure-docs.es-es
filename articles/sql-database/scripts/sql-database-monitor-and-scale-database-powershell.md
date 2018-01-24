@@ -14,13 +14,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 123e6c4f0f4fdde46199d80fdbc2db9c78f69f5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Uso de PowerShell para supervisar y escalar una sola base de datos SQL
 
@@ -31,6 +31,9 @@ Este ejemplo de script de PowerShell supervisa las métricas de rendimiento de u
 ## <a name="sample-script"></a>Script de ejemplo
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Use [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) para obtener el estado de las operaciones de base de datos y utilice [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) para cancelar una operación de actualización en la base de datos.
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -44,7 +47,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. |
@@ -54,7 +57,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

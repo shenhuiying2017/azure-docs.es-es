@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Información de la instancia de Azure IoT Edge en tiempo de ejecución y su arquitectura (versión preliminar)
 
@@ -93,20 +93,28 @@ Cada elemento del diccionario de módulos contiene información específica de u
    * En ejecución
    * Unhealthy (Incorrecto)
    * Con error
-   * Stopped
+   * Detenido
 * **restartPolicy**: cómo el agente de Edge reinicia un módulo. Los valores posibles son:
    * Never: el agente de Edge nunca reinicia el módulo.
    * onFailure: si se bloquea el módulo, el agente de Edge lo reinicia. Si el módulo se cierra sin problemas, el agente de Edge no lo reinicia.
    * Unhealthy: si el módulo se bloquea o se consideran incorrecto, el agente de Edge lo reinicia.
    * Always: si el módulo se bloquea, se considera incorrecto o se apaga, el agente de Edge lo reinicia. 
-   
+
+El agente de IoT Edge envía la respuesta en tiempo de ejecución a IoT Hub. A continuación, se ofrece una lista de las posibles respuestas:
+  * 200 - CORRECTO
+  * 400 - La configuración de implementación tiene un formato incorrecto o no es válida.
+  * 417 - El dispositivo no tiene un conjunto de configuración de implementación.
+  * 412 - La versión del esquema de la configuración de implementación no es válida.
+  * 406 - El dispositivo perimetral está sin conexión o no envía informes de estado.
+  * 500 - Error en el tiempo de ejecución de Edge.
+
 ### <a name="security"></a>Seguridad
 
 El agente de IoT Edge desempeña un papel fundamental en la seguridad de un dispositivo IoT Edge. Por ejemplo, realiza acciones como comprobar la imagen de un módulo antes de iniciarlo. Estas características se agregarán según la disponibilidad general de las características de la versión 2. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Información de los módulos de Azure IoT Edge][módulos]
 

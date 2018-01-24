@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -44,7 +44,7 @@ Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeñ
 
 Si no usa Durable Functions ni Logic Apps para integrar varias funciones, se recomienda usar colas de almacenamiento para la comunicación entre estas.  La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar. 
 
-Los mensajes individuales de una cola de almacenamiento tienen un límite de tamaño de 64 KB. Si tiene que pasar mensajes más grandes entre funciones, se podría usar una cola de Azure Service Bus para admitir tamaños de mensaje de hasta 256 KB.
+Los mensajes individuales de una cola de almacenamiento tienen un límite de tamaño de 64 KB. Si tiene que pasar mensajes más grandes entre funciones, se podría usar una cola de Azure Service Bus para admitir tamaños de mensaje de hasta 256 KB en el nivel Estándar y hasta 1 MB en el nivel Premium.
 
 Temas de Service Bus son útiles si necesita filtrado de mensajes antes del procesamiento.
 
@@ -115,7 +115,7 @@ La configuración de los archivos de los hosts se aplica a todas las funciones d
 
 Se pueden encontrar otras opciones de configuración de host [en el documento de configuración de host](functions-host-json.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 Como Azure Functions usa Azure App Service, también debe conocer las guías de App Service.

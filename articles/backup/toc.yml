@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Copia de seguridad de máquinas virtuales cifradas
               href: backup-azure-vms-encryption.md
+            - name: Habilitar copia de seguridad de máquinas virtuales durante la creación de estas
+              href: backup-during-vm-creation.md
         - name: Administración y supervisión de máquinas virtuales
           items:
             - name: Administración de copias de seguridad de máquina virtual de Azure en Azure Portal

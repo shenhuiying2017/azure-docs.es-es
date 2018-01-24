@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solución de problemas cuando no hay datos: Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Falta parte de mi telemetría
@@ -30,6 +30,7 @@ ms.lasthandoff: 11/01/2017
 *He instalado mi aplicación en el servidor web y ahora no veo ninguna telemetría procedente de ella. Funcionaba correctamente en mi equipo de desarrollo.*
 
 * Probablemente sea un problema de firewall. [Configure excepciones de firewall para que Application Insights envíe datos](app-insights-ip-addresses.md).
+* Es posible que falten algunos requisitos previos en el servidor IIS: Extensibilidad de .NET 4.5 y ASP.NET 4.5.
 
 *He [instalado el monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
 
@@ -176,8 +177,8 @@ Se puede deshabilitar, pero no se recomienda. El muestreo está diseñado para q
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Datos geográficos incorrectos en la telemetría de usuario
 La ciudad, región y dimensiones del país proceden de las direcciones IP y no siempre son precisas.
 
-## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Excepción "Método no encontrado" en la ejecución en Servicios en la nube de Azure
-¿Ha realizado la compilación para .NET 4.6? 4.6 no se admite automáticamente en los roles de Servicios en la nube de Azure. [Instale 4.6 en cada rol](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de ejecutar la aplicación.
+## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Excepción "Método no encontrado" en la ejecución en Azure Cloud Services
+¿Ha realizado la compilación para .NET 4.6? 4.6 no se admite automáticamente en los roles de Azure Cloud Service. [Instale 4.6 en cada rol](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de ejecutar la aplicación.
 
 ## <a name="still-not-working"></a>Sigue sin funcionar...
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

@@ -11,29 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
-Las sesiones de Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Para realizar una garantía FIFO en Service Bus, debe usar sesiones. Service Bus no prescribe sobre la naturaleza de la relación entre los mensajes, y tampoco define un modelo en particular para determinar dónde comienza o termina una secuencia de mensajes.
+Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Para realizar una garantía FIFO en Service Bus, use sesiones. Service Bus no prescribe sobre la naturaleza de la relación entre los mensajes, y tampoco define un modelo en particular para determinar dónde comienza o termina una secuencia de mensajes.
 
-Cualquier remitente puede crear una sesión al enviar mensajes en un tema o una cola si se establece la propiedad de agente [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) en algún identificador definido por la aplicación que sea único para la sesión. En el nivel de protocolo AMQP 1.0, este valor se asigna a la propiedad *group-id*.
+Cualquier remitente puede crear una sesión al enviar mensajes en un tema o una cola si se establece la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) en algún identificador definido por la aplicación que sea único para la sesión. En el nivel de protocolo AMQP 1.0, este valor se asigna a la propiedad *group-id*.
 
 En las colas o suscripciones basadas en sesiones, las sesiones existen cuando hay al menos un mensaje en [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) de la sesión. Una vez que una sesión existe, no hay ningún tiempo o API definidos para que la sesión expire o desaparezca. En teoría, se puede recibir un mensaje para una sesión hoy, el mensaje siguiente en un momento del año y, si el valor de **SessionId** coincide, la sesión es la misma desde la perspectiva de Service Bus.
 
-Por lo general, sin embargo, una aplicación tiene una noción clara de dónde comienza o termina un conjunto de mensajes relacionados; pero Service Bus no establece ninguna regla específica.
+Por lo general, sin embargo, una aplicación tiene una noción clara de dónde comienza o termina un conjunto de mensajes relacionados. Service Bus no establece ninguna regla específica.
 
-Un ejemplo de cómo delinear una secuencia para transferir un archivo es establecer la propiedad **Label** del primer mensaje en **start**, de los mensajes intermedios en **content** y del último mensaje en **end**. La posición relativa de los mensajes de contenido se puede calcular como la diferencia de *SequenceNumber* del mensaje actual a partir del valor *SequenceNumber* del mensaje de **inicio**.
+Un ejemplo de cómo delinear una secuencia para transferir un archivo es establecer la propiedad **Label** del primer mensaje en **start**, de los mensajes intermedios en **content** y del último mensaje en **end**. La posición relativa de los mensajes de contenido se puede calcular como la diferencia de *SequenceNumber* del mensaje actual a partir del valor **SequenceNumber** del mensaje de *inicio*.
 
 La característica de sesión de Service Bus permite una operación de recepción específica, en forma de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) en las API de Java y C#. Para habilitar la característica, se establece la propiedad [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) de la cola o la suscripción mediante Azure Resource Manager o la marca del portal. Esto es necesario antes de intentar usar las operaciones de API relacionadas.
 
-En el portal, la marca se establece con la casilla siguiente:
+En el portal, establezca la marca con la casilla siguiente:
 
 ![][2]
 
@@ -45,17 +45,17 @@ Las sesiones proporcionan la demultiplexación simultánea de flujos de mensajes
 
 ![][1]
 
-El cliente que acepta la sesión crea un receptor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession). De forma imperativa, el cliente llama a [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. En el modelo de devolución de llamada reactivo, se registra un controlador de sesión, tal y como se describe más adelante.
+El cliente que acepta la sesión crea un receptor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession). El cliente llama a [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. En el modelo de devolución de llamada reactivo, se registra un controlador de sesión, tal y como se describe más adelante.
 
-Cuando [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) se acepta y mientras tiene lugar en el cliente, ese cliente mantiene un bloqueo exclusivo sobre todos los mensajes con ese valor de [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) de la sesión, que existe en la cola o la suscripción y también sobre todos los mensajes con ese valor de **SessionId** que sigan llegando mientras tiene lugar la sesión.
+Cuando el objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) se acepta y mientras tiene lugar en el cliente, ese cliente mantiene un bloqueo exclusivo sobre todos los mensajes con ese valor de [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) de la sesión, que existe en la cola o la suscripción y también sobre todos los mensajes con ese valor de **SessionId** que sigan llegando mientras tiene lugar la sesión.
 
-El bloqueo se libera cuando se llama a **Close** o **CloseAsync**, o cuando el bloqueo expira en caso de que la aplicación sea incapaz de hacerlo. El bloqueo de sesión debe tratarse como un bloqueo exclusivo en un archivo, lo que significa que la aplicación debería cerrar la sesión en cuanto ya no lo necesite o no espere ningún otro mensaje.
+El bloqueo se libera cuando se llama a **Close** o **CloseAsync**, o cuando el bloqueo expira en caso de que la aplicación sea incapaz de llevar a cabo la operación de cerrado. El bloqueo de sesión debe tratarse como un bloqueo exclusivo en un archivo, lo que significa que la aplicación debería cerrar la sesión en cuanto ya no lo necesite o no espere ningún otro mensaje.
 
 Cuando varios receptores simultáneos se extraen de la cola, los mensajes que pertenecen a una sesión determinada se envían al receptor específico que actualmente mantiene el bloqueo en esa sesión. Con esa operación, una secuencia de mensajes intercalados que reside en una cola o suscripción se demultiplexa limpiamente en receptores diferentes, y esos receptores también pueden encontrarse en distintas máquinas cliente, puesto que la administración del bloqueo tiene lugar en el servidor, dentro de Service Bus.
 
 Una cola, sin embargo, sigue siendo una cola: no hay acceso aleatorio. Si varios receptores simultáneos esperan para aceptar sesiones específicas o esperan mensajes de sesiones específicas y hay un mensaje en la parte superior de una cola que pertenece a una sesión que ningún receptor todavía ha reclamado, las entregas se mantienen hasta que un receptor de la sesión reclame esa sesión.
 
-La ilustración anterior muestra tres receptores de sesión simultáneos, los cuales deben tomar todos activamente los mensajes de la cola para que cada receptor avance. La sesión anterior con *SessionId*= 4 no tiene ningún cliente propietario activo, lo que significa que no se entregan mensajes a nadie hasta que un receptor de sesión propietario creado recientemente tome ese mensaje.
+La ilustración anterior muestra tres receptores de sesión simultáneos, los cuales deben tomar todos activamente los mensajes de la cola para que cada receptor avance. La sesión anterior con `SessionId` = 4 no tiene ningún cliente propietario activo, lo que significa que no se entregan mensajes a nadie hasta que un receptor de sesión propietario creado recientemente tome ese mensaje.
 
 Si bien esta situación puede parecer restrictiva, un único proceso de receptor puede controlar muchas sesiones simultáneas a la vez de forma fácil, en especial cuando se escriben con código estrictamente asincrónico; apañárselas con varias docenas de sesiones simultáneas es en realidad automático con el modelo de devolución de llamada.
 
@@ -77,9 +77,9 @@ Todas las sesiones existentes de una cola o suscripción se pueden enumerar con 
 
 El estado de sesión mantenido en una cola o en que una suscripción se tiene en cuenta en la cuota de almacenamiento de esa entidad. Cuando la aplicación se termina con una sesión, se recomienda por lo tanto que dicha aplicación limpie su estado retenido para evitar costos de administración externos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-- [Un ejemplo completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) de enviar y recibir mensajes basados en sesión de colas de Service Bus mediante la biblioteca .NET Standard.
+- [Un ejemplo completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) de enviar y recibir mensajes basados en sesión de colas de Service Bus mediante la biblioteca .NET Standard.
 - [Un ejemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) que usa el cliente de .NET Framework para controlar los mensajes basados en la sesión. 
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2fccf7cae61f4d8862640b89d39f9d4480362429
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concesión de acceso para administrar Azure AD Privileged Identity Management
 El administrador global que habilita Privileged Identity Management (PIM) de Azure AD para una organización, obtiene automáticamente asignaciones de roles y acceso a PIM. Nadie más obtiene acceso de escritura de forma predeterminada, ni siquiera otros administradores globales. Otros administradores globales, administradores de seguridad y lectores de seguridad tienen acceso de solo lectura a PIM de Azure AD. Para proporcionar acceso a PIM, el primer usuario puede asignar a otros el rol **Administrador de rol con privilegios** . Esta asignación se debe realizar desde dentro de PIM y no se puede cambiar mediante PowerShell u otros portales.
@@ -54,7 +54,7 @@ Antes de eliminar a alguien del rol de administrador de roles con privilegios, a
 4. Haga clic en **Sí** para quitar el usuario del rol.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -30,7 +30,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en una re
 > * Configuración del acceso de salida para las máquinas virtuales
 > * Habilitación de la replicación para una máquina virtual
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -123,16 +123,16 @@ Más información sobre [roles integrados del control de acceso basado en rol de
 Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscripción y el servicio en la nube/grupo de recursos.
 
 1. En **Máquinas virtuales**, seleccione las máquinas virtuales que quiere replicar.
-2. Haga clic en **Aceptar**.
+2. Haga clic en **OK**.
 
 ### <a name="configure-replication-settings"></a>Configuración de las opciones de replicación
 
 Site Recovery crea la configuración predeterminada y la directiva de replicación para la región de destino. Puede cambiar la configuración para ajustarla a sus requisitos.
 
-1. Haga clic en **Configuración** para ver la configuración de destino.
-2. Para invalidar la configuración de destino de forma predeterminada, haga clic en **Personalizar**. 
+1. Haga clic en **Configuración** para ver la configuración de destino y de replicación.
+2. Para invalidar la configuración de destino predeterminada, haga clic en **Personalizar** junto a **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad**.
 
-![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Ubicación de destino**: la región de destino que se usa para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
@@ -148,11 +148,23 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 - **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". Solo puede agregar conjuntos de disponibilidad si las máquinas virtuales forman parte de un conjunto en la región de origen.
 
+Para invalidar la configuración de directiva de replicación predeterminada, haga clic en **Personalizar** junto a **Directiva de replicación**.  
+
 - **Nombre de la directiva de replicación**: Nombre de la directiva.
 
 - **Retención del punto de recuperación**: de forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
 
 - **Frecuencia de instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada cuatro horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
+
+- **Grupo de replicación**: si la aplicación necesita coherencia de múltiples máquinas virtuales entre varias máquinas virtuales, puede crear un grupo de replicación para estas máquinas virtuales. De forma predeterminada, las máquinas virtuales seleccionadas no forman parte de ningún grupo de replicación.
+
+  Haga clic en **Personalizar** junto a **Directiva de replicación** y seleccione **Sí** para la coherencia entre varias máquinas virtuales y que estas formen parte de un grupo de replicación. Puede crear un grupo de replicación nuevo o utilizar uno existente. Seleccione las máquinas virtuales que van a formar parte del grupo de replicación y haga clic en **Aceptar**.
+
+> [!IMPORTANT]
+  Todas las máquinas de un grupo de replicación tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas.
+
+> [!IMPORTANT]
+  Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. Asegúrese de que no haya ninguna aplicación de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004. Si desea que las máquinas virtuales de Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según las instrucciones de la versión específica de Linux.
 
 ### <a name="track-replication-status"></a>Seguimiento del estado de replicación
 
@@ -162,7 +174,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 3. En **Configuración** > **Elementos replicados**, puede ver el estado de las máquinas virtuales y el progreso inicial de la replicación. Haga clic en la máquina virtual para ir a los detalles de su configuración.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. El paso siguiente es probar la configuración.
 

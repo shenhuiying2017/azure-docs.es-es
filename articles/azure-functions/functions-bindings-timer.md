@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -33,14 +33,14 @@ En este artículo se explica cómo usar desencadenadores de temporizador en Azur
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#trigger---c-example)
-* [Script de C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>Ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que se ejecuta cada cinco minutos:
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que se ejecuta cada cinco minutos:
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 El constructor del atributo toma una expresión CRON, tal como se muestra en el ejemplo siguiente:
 
@@ -150,13 +150,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Puede especificar un `TimeSpan` en lugar de una expresión CRON si la aplicación de función se ejecuta en un plan de App Service (no en un plan de consumo).
 
-Para un ejemplo completo, vea el [ejemplo de C# precompilado](#c-example).
+Para obtener un ejemplo completo, consulte [Ejemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `TimerTrigger`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `TimerTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -251,7 +251,7 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 El desencadenador de temporizador admite varias instancias de escalado horizontal. Una sola instancia de una función de temporizador determinada se ejecuta en todas las instancias.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ir a una guía de inicio rápido que use un desencadenador de temporizador](functions-create-scheduled-function.md)

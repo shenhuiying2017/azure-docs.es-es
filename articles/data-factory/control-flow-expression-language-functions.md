@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-functions-variables.md)
-> * [Versión 2: Versión preliminar](control-flow-expression-language-functions.md)
+> * [Versión 2: versión preliminar](control-flow-expression-language-functions.md)
 
 En este artículo se proporciona información detallada sobre las expresiones y las funciones compatibles con Azure Data Factory (versión 2). 
 
 ## <a name="introduction"></a>Introducción
-Los valores JSON de la definición pueden ser literales o expresiones que se evalúan en tiempo de ejecución. Por ejemplo:  
+Los valores JSON de la definición pueden ser literales o expresiones que se evalúan en tiempo de ejecución. Por ejemplo:   
   
 ```json
 "name": "value"
@@ -36,8 +36,9 @@ Los valores JSON de la definición pueden ser literales o expresiones que se eva
  o  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [Funciones y variables en Data Factory V1](v1/data-factory-functions-variables.md).
@@ -53,20 +54,96 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"@@"|Se devuelve una cadena de 1 carácter que contiene "@".|  
 |" @"|Se devuelve una cadena de 2 caracteres que contienen " @".|  
   
- Las expresiones también pueden aparecer dentro de las cadenas mediante una característica llamada *interpolación de cadenas*, donde las expresiones se ajustan en `@{ ... }`. Por ejemplo: `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ Las expresiones también pueden aparecer dentro de las cadenas mediante una característica llamada *interpolación de cadenas*, donde las expresiones se ajustan en `@{ ... }`. Por ejemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Con la interpolación de cadena, el resultado siempre es una cadena. Imagínese que he definido `myNumber` como `42` y `myString` como ༖༗:  
+ Con la interpolación de cadena, el resultado siempre es una cadena. Supongamos que se ha definido `myNumber` como `42` y `myString` como `foo`:  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
-|"@parameters("myString")"|Devuelve `foo` como una cadena.|  
-|"@{parameters("myString")}"|Devuelve `foo` como una cadena.|  
-|"@parameters("myNumber")"|Devuelve `42` como un *número*.|  
-|"@{parameters("myNumber")}"|Devuelve `42` como una *cadena*.|  
-|"Answer is: @{parameters("myNumber")}"|Devuelve la cadena `Answer is: 42`.|  
-|"@concat("Answer is: ", string(parameters("myNumber")))"|Devuelve la cadena `Answer is: 42`.|  
-|"Answer is: @@{parameters("myNumber")}"|Devuelve la cadena `Answer is: @{parameters('myNumber')}`.|  
+|"@pipeline().parameters.myString"| Devuelve `foo` como una cadena.|  
+|"@{pipeline().parameters.myString}"| Devuelve `foo` como una cadena.|  
+|"@pipeline().parameters.myNumber"| Devuelve `42` como un *número*.|  
+|"@{pipeline().parameters.myNumber}"| Devuelve `42` como una *cadena*.|  
+|"Answer is: @{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: 42`.|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
   
+### <a name="examples"></a>Ejemplos
+
+#### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
+En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su valor se usa para establecer un valor para la propiedad **folderPath** mediante el uso de las siguientes expresiones: `@{dataset().path}`. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>Una canalización con un parámetro
+En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y **outputPath**. El valor de **path** para el conjunto de datos del blob con parámetros se establece mediante el uso de los valores de estos parámetros. La sintaxis utilizada aquí es: `pipeline().parameters.parametername`. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
 ## <a name="functions"></a>Functions  
  Puede llamar a funciones dentro de expresiones. En las siguientes secciones se proporciona información sobre las funciones que se pueden usar en una expresión.  
@@ -74,9 +151,9 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 ## <a name="string-functions"></a>Funciones de cadena  
  Las siguientes funciones solo se aplican a las cadenas. También puede usar una serie de funciones de colección en las cadenas.  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
-|concat|Combina cualquier número de cadenas. Por ejemplo, si parameter1 es `foo,`, la siguiente expresión devolvería `somevalue-foo-somevalue`: `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Número de parámetro**: 1 ... *n*<br /><br /> **Nombre**: cadena *n*<br /><br /> **Descripción**: necesaria. Las cadenas para combinar en una sola cadena.|  
+|concat|Combina cualquier número de cadenas. Por ejemplo, si parameter1 es `foo,`, la siguiente expresión devolvería `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Número de parámetro**: 1 ... *n*<br /><br /> **Nombre**: cadena *n*<br /><br /> **Descripción**: necesaria. Las cadenas para combinar en una sola cadena.|  
 |substring|Devuelve un subconjunto de caracteres de una cadena. Por ejemplo, la siguiente expresión:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> devuelve:<br /><br /> `foo`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena desde la que se toma la subcadena.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: índice de inicio<br /><br /> **Descripción**: necesaria. El índice de donde comienza la subcadena en el parámetro 1.<br /><br /> **Número de parámetro**: 3<br /><br /> **Nombre**: longitud<br /><br /> **Descripción**: necesaria. Longitud de la subcadena.|  
 |replace|Reemplaza una cadena con una cadena determinada. Por ejemplo, la expresión:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> devuelve:<br /><br /> `the new string`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria.  Si el parámetro 2 se encuentra en el parámetro 1, la cadena que se busca en el parámetro 2 y se actualiza con el parámetro 3.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: cadena antigua<br /><br /> **Descripción**: necesaria. La cadena que se reemplazará por el parámetro 3 cuando se encuentra una coincidencia en el parámetro 1.<br /><br /> **Número de parámetro**: 3<br /><br /> **Nombre**: cadena nueva<br /><br /> **Descripción**: necesaria. La cadena que se usa para reemplazar la cadena en el parámetro 2, cuando se encuentra una coincidencia en el parámetro 1.|  
 |GUID| Genera una cadena única global (también conocida como GUID). Por ejemplo, se podría generar la siguiente salida `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: formato<br /><br /> **Descripción**: opcional. Un especificador de formato único que indica [cómo dar formato al valor de este GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). El parámetro de formato puede ser "N", "D", "B", "P" o "X". Si no se proporciona el formato, se utiliza "D".|  
@@ -92,7 +169,7 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 ## <a name="collection-functions"></a>Funciones de colección  
  Estas funciones operan sobre colecciones como matrices, cadenas y, a veces, diccionarios.  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
 |contains|Devuelve true si el diccionario contiene una clave, la lista contiene un valor o la cadena contiene una subcadena. Por ejemplo, la siguiente expresión devuelve `true:``contains('abacaba','aca')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: dentro de la colección<br /><br /> **Descripción**: necesaria. La colección en donde buscar.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto de búsqueda<br /><br /> **Descripción**: necesaria. El objeto que se va a buscar **dentro de la colección**.|  
 |length|Devuelve el número de elementos de una matriz o cadena. Por ejemplo, la siguiente expresión devuelve `3`: `length('abc')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: colección<br /><br /> **Descripción**: necesaria. Colección de la que se obtendrá la longitud.|  
@@ -107,9 +184,9 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 ## <a name="logical-functions"></a>Funciones lógicas  
  Estas funciones son útiles en las condiciones y se pueden usar para evaluar cualquier tipo de lógica.  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
-|equals|Devuelve true si dos valores son iguales. Por ejemplo, si parameter1 es foo, la siguiente expresión devolvería `true`: `equals(parameters('parameter1'), 'foo')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: necesaria. El objeto que se va a comparar con el **objeto 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: necesaria. El objeto que se va a comparar con el **objeto 1**.|  
+|equals|Devuelve true si dos valores son iguales. Por ejemplo, si parameter1 es foo, la siguiente expresión devolvería `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: necesaria. El objeto que se va a comparar con el **objeto 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: necesaria. El objeto que se va a comparar con el **objeto 1**.|  
 |less|Devuelve true si el primer argumento es inferior al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `true`: `less(10,100)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es inferior al **objeto 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es superior al **objeto 1**.|  
 |lessOrEquals|Devuelve true si el primer argumento es inferior o igual al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `true`: `lessOrEquals(10,10)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es inferior o igual al **objeto 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es superior o igual al **objeto 1**.|  
 |greater|Devuelve true si el primer argumento es superior al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `false`: `greater(10,10)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es superior al **objeto 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: necesaria. El objeto que se va a comprobar si es inferior al **objeto 1**.|  
@@ -134,14 +211,14 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
   
 -   dictionaries  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
 |int|Convierte el parámetro en un entero. Por ejemplo, la siguiente expresión devuelve 100 como un número, en lugar de una cadena: `int('100')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un entero.|  
-|cadena|Convierte el parámetro en una cadena. Por ejemplo, la siguiente expresión devuelve `'10'`: `string(10)`. También puede convertir un objeto en una cadena. Por ejemplo, si el parámetro **foo** es un objeto con una propiedad `bar : baz` se devolvería `{"bar" : "baz"}` `string(parameters('foo'))`.<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en una cadena.|  
+|cadena|Convierte el parámetro en una cadena. Por ejemplo, la siguiente expresión devuelve `'10'`: `string(10)`. También puede convertir un objeto en una cadena. Por ejemplo, si el parámetro **foo** es un objeto con una propiedad `bar : baz` se devolvería `{"bar" : "baz"}` `string(pipeline().parameters.foo)`.<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en una cadena.|  
 |json|Convierte el parámetro en un valor de tipo JSON. Es lo contrario de string(). Por ejemplo, la siguiente expresión devuelve `[1,2,3]` como una matriz, en lugar de una cadena:<br /><br /> `parse('[1,2,3]')`<br /><br /> Del mismo modo, puede convertir una cadena en un objeto. Por ejemplo, `json('{"bar" : "baz"}')` devuelve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que se convierte en un valor de tipo nativo.<br /><br /> La función json también es compatible con la entrada XML. Por ejemplo, el valor del parámetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> se convierte en el siguiente JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convierte el argumento del parámetro en un número de punto flotante. Por ejemplo, la siguiente expresión devuelve `10.333`: `float('10.333')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un número de punto flotante.|  
 |booleano|Convierte el parámetro en un booleano. Por ejemplo, la siguiente expresión devuelve `false`: `bool(0)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un booleano.|  
-|coalesce|Devuelve el primer objeto no null en los argumentos pasados. Nota: Una cadena vacía no es null. Por ejemplo, si no se definen los parámetros 1 y 2, se devolverá `fallback`: `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **Número de parámetro**: 1 ... *n*<br /><br /> **Nombre**: objeto*n*<br /><br /> **Descripción**: necesaria. Los objetos que deben comprobar si hay valores `null`.|  
+|coalesce|Devuelve el primer objeto no null en los argumentos pasados. Nota: Una cadena vacía no es null. Por ejemplo, si no se definen los parámetros 1 y 2, se devolverá `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parámetro**: 1 ... *n*<br /><br /> **Nombre**: objeto*n*<br /><br /> **Descripción**: necesaria. Los objetos que deben comprobar si hay valores `null`.|  
 |base64|Devuelve la representación de base64 de la cadena de entrada. Por ejemplo, la siguiente expresión devuelve `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena 1<br /><br /> **Descripción**: necesaria. Cadena que se va a codificar en representación base64.|  
 |base64ToBinary|Devuelve una representación binaria de una cadena codificada en base64. Por ejemplo, la siguiente expresión devuelve la representación binaria de alguna cadena: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. Cadena codificada en base64|  
 |base64ToString|Devuelve una representación de cadena de una cadena codificada en base64. Por ejemplo, la siguiente expresión devuelve alguna cadena: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. Cadena codificada en base64|  
@@ -157,14 +234,14 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |uriComponentToBinary|Devuelve una representación binaria de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve una representación binaria de `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br />**Descripción**: necesaria. Cadena codificada en URI.|  
 |uriComponentToString|Devuelve una representación de cadena de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: cadena<br /><br />**Descripción**: necesaria. Cadena codificada en URI.|  
 |xml|Devuelve una representación XML del valor. Por ejemplo, la siguiente expresión devuelve un contenido xml representado por `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. La función xml también es compatible con la entrada de objeto JSON. Por ejemplo, el parámetro `{ "abc": "xyz" }` se convierte en contenido XML: `\<abc>xyz\</abc>`.<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: valor<br /><br />**Descripción**: necesaria. El valor que se va a convertir en XML.|  
-|xpath|Devuelve una matriz de nodos XML que coinciden con la expresión xpath de un valor que se evalúa como la expresión xpath.<br /><br />  **Ejemplo 1**<br /><br /> Supone que el valor del parámetro "p1" es una representación de cadena del siguiente XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Este código: `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> devolvería<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mientras que<br /><br /> 2. Este código: `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> devolvería<br /><br /> `13`<br /><br /> <br /><br /> **Ejemplo 2**<br /><br /> Dato el contenido XML siguiente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Este código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> o<br /><br /> 2. Este código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> devuelve<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> y<br /><br /> 3. Este código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> devuelve<br /><br /> ``bar``<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: Xml<br /><br />**Descripción**: necesaria. El código XML en el que se va a evaluar la expresión XPath.<br /><br /> **Número de parámetro**: 2<br /><br />**Nombre**: XPath<br /><br />**Descripción**: necesaria. La expresión XPath que se va a evaluar.|  
+|xpath|Devuelve una matriz de nodos XML que coinciden con la expresión xpath de un valor que se evalúa como la expresión xpath.<br /><br />  **Ejemplo 1**<br /><br /> Supone que el valor del parámetro "p1" es una representación de cadena del siguiente XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Este código: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> devolvería<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mientras que<br /><br /> 2. Este código: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> devolvería<br /><br /> `13`<br /><br /> <br /><br /> **Ejemplo 2**<br /><br /> Dato el contenido XML siguiente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Este código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> o<br /><br /> 2. Este código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> devuelve<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> y<br /><br /> 3. Este código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> devuelve<br /><br /> ``bar``<br /><br /> **Número de parámetro**: 1<br /><br />**Nombre**: Xml<br /><br />**Descripción**: necesaria. El código XML en el que se va a evaluar la expresión XPath.<br /><br /> **Número de parámetro**: 2<br /><br />**Nombre**: XPath<br /><br />**Descripción**: necesaria. La expresión XPath que se va a evaluar.|  
 |array|Convierte el parámetro en una matriz.  Por ejemplo, la siguiente expresión devuelve `["abc"]`: `array('abc')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en una matriz.|
 |createArray|Crea una matriz a partir de los parámetros.  Por ejemplo, la siguiente expresión devuelve `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Número de parámetro**: 1 ... n<br /><br /> **Nombre**: Cualquier n<br /><br /> **Descripción**: necesaria. Los valores que se van a combinar en una matriz.|
 
 ## <a name="math-functions"></a>Funciones matemáticas  
  Estas funciones pueden utilizarse para ambos tipos de números: **enteros** y **flotantes**.  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
 |agregar|Devuelve el resultado de la suma de los dos números. Por ejemplo, esta función devuelve `20.333`: `add(10,10.333)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: sumando 1<br /><br /> **Descripción**: necesaria. El número para agregar a **sumando 2**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: sumando 2<br /><br /> **Descripción**: necesaria. El número para agregar a **sumando 1**.|  
 |sub|Devuelve el resultado de la resta de los dos números. Por ejemplo, esta función devuelve `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: minuendo<br /><br /> **Descripción**: necesaria. El número que se resta del **sustraendo**.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: sustraendo<br /><br /> **Descripción**: necesaria. El número que se va a quitar del **minuendo**.|  
@@ -178,7 +255,7 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
   
 ## <a name="date-functions"></a>Funciones de fecha  
   
-|Nombre de función|Descripción|  
+|Nombre de función|DESCRIPCIÓN|  
 |-------------------|-----------------|  
 |utcnow|Devuelve la marca de tiempo actual como una cadena. Por ejemplo: `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: formato<br /><br /> **Descripción**: opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
 |addseconds|Agrega un número entero de segundos a una marca de tiempo de cadena que se pasa. El número de segundos puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: marca de tiempo<br /><br /> **Descripción**: necesaria. Una cadena que contiene la hora.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: segundos<br /><br /> **Descripción**: necesaria. El número de segundos que se agregan. Podría ser negativo para restar los segundos.<br /><br /> **Número de parámetro**: 3<br /><br /> **Nombre**: formato<br /><br /> **Descripción**: opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
@@ -187,5 +264,5 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |adddays|Agrega un número entero de días a una marca de tiempo de cadena que se pasa. El número de días puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-02-23T13:27:36Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -20)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: marca de tiempo<br /><br /> **Descripción**: necesaria. Una cadena que contiene la hora.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: días<br /><br /> **Descripción**: necesaria. El número de días que se van a agregar. Podría ser negativo para restar los días.<br /><br /> **Número de parámetro**: 3<br /><br /> **Nombre**: formato<br /><br /> **Descripción**: opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
 |formatDateTime|Devuelve una cadena en formato de fecha. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: fecha<br /><br /> **Descripción**: necesaria. Una cadena que contiene la fecha.<br /><br /> **Número de parámetro**: 2<br /><br /> **Nombre**: formato<br /><br /> **Descripción**: opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener una lista de las variables del sistema que se pueden usar en las expresiones, vea [Variables del sistema](control-flow-system-variables.md).

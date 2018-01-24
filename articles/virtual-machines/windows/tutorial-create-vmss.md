@@ -4,7 +4,7 @@ description: "Creación e implementación de una aplicación de alta disponibili
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
@@ -32,7 +32,7 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 > * Aumentar o disminuir el número de instancias en un conjunto de escalado
 > * Crear reglas de escalado automático
 
-Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para realizar este tutorial es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *5*:
+A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *3*:
 
 ```powershell
 # Get current scale set
@@ -226,7 +226,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -236,7 +236,7 @@ Se tarda unos minutos en actualizar el número especificado de instancias en el 
 
 
 ### <a name="configure-autoscale-rules"></a>Configuración de reglas de escalado automático
-En lugar de escalar manualmente el número de instancias en el conjunto de escalado, defina reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de 5 minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de 5 minutos, las instancias se reducen horizontalmente en una instancia:
+En lugar de escalar manualmente el número de instancias en el conjunto de escalado, defina reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de cinco minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de cinco minutos, las instancias se reducen horizontalmente en una instancia:
 
 ```powershell
 # Define your scale set information
@@ -245,7 +245,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -258,7 +258,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -291,7 +291,7 @@ Add-AzureRmAutoscaleSetting `
 Para más información de diseño sobre el uso del escalado automático, consulte los [procedimientos recomendados de escalado automático](/azure/architecture/best-practices/auto-scaling).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
 > [!div class="checklist"]

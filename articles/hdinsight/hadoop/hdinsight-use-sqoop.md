@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Uso de Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemp
   
   | Campo | Tipo de datos |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |cadena |
+  | querytime |cadena |
+  | market |cadena |
+  | deviceplatform |cadena |
+  | devicemake |cadena |
+  | devicemodel |cadena |
+  | state |cadena |
+  | country |cadena |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -94,7 +94,7 @@ Si prefiere usar Azure PowerShell para crear el clúster y SQL Database; consult
      
         Los siguientes valores están codificados de forma rígida en la sección de variables:
         
-        |Nombre|Valor|
+        |NOMBRE|Valor|
         |----|-----|
         | Nombre de la cuenta de almacenamiento predeterminada | &lt;ClusterName>store |
         | Nombre del servidor de base de datos SQL de Azure | &lt;ClusterName>dbserver |
@@ -161,7 +161,7 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 * Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o SQL Database Azure no es compatible actualmente con las inserciones masivas.
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Hive con HDInsight](../hdinsight-use-hive.md)
@@ -221,7 +221,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    > Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
    > 
    > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **HDInsight de Azure 3.1:**consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
+   > * **Azure HDInsight:**consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
    > * **SQL Server 2014**: configurado para permitir la autenticación y la ejecución del paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
    > 
    > 

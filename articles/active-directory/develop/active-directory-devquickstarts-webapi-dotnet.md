@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Ayuda para proteger una API web con tokens portadores de Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Introducción a la API web de .NET de Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Si va a crear una aplicación que proporciona acceso a recursos protegidos, debe saber cómo proteger dichos recursos frente a accesos injustificados.
@@ -43,13 +43,13 @@ Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureA
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Paso 1: Registro de una aplicación con Azure AD
 Para proteger su aplicación, primero debe crear una aplicación en el inquilino y proporcionar a Azure AD algunos elementos de información clave.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD donde desea registrar la aplicación.
 
 3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
 
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 
 5. Siga las indicaciones y cree una nueva **aplicación web y/o API web**.
   * **Nombre** describe la aplicación a los usuarios. Escriba **Servicio de lista de tareas pendientes**.
@@ -147,7 +147,7 @@ Para poder ver el servicio de lista de tareas pendientes en acción, debe config
   * `ida:ClientId` es el id. de aplicación que copió de Azure Portal.
   * `todo:TodoListResourceId` es el URI de id. de aplicación de la aplicación del servicio de lista de tareas pendientes que escribió en Azure Portal.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Por último, limpie, compile y ejecute cada proyecto. Si aún no lo ha hecho, ahora es el momento de crear un nuevo usuario en su inquilino con un dominio *.onmicrosoft.com. Inicie sesión en el cliente de lista de tareas pendientes con ese usuario y agregue algunas tareas a la lista de tareas pendientes del usuario.
 
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) está disponible el ejemplo finalizado (sin sus valores de configuración). Ahora puede continuar con más escenarios de identidad.

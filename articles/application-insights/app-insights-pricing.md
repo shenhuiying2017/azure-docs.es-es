@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
@@ -176,7 +176,7 @@ Puede escribir un script para establecer el plan de precios con la administraci�
 ## <a name="limits-summary"></a>Resumen de límites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Muestreo](app-insights-sampling.md)
 

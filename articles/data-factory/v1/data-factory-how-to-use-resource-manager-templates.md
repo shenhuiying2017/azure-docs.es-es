@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
 > [!NOTE]
@@ -231,7 +231,7 @@ Consulte [Definición de canalizaciones](data-factory-create-pipelines.md#pipeli
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametrización de la plantilla de Data Factory
-Para obtener los procedimientos recomendados sobre parametrización, consulte el artículo [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters). Por lo general, se debe minimizar el uso de parámetros, especialmente si se pueden utilizar variables en su lugar. Solo proporcione parámetros en los escenarios siguientes:
+Para obtener los procedimientos recomendados sobre parametrización, consulte [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Por lo general, se debe minimizar el uso de parámetros, especialmente si se pueden utilizar variables en su lugar. Solo proporcione parámetros en los escenarios siguientes:
 
 * La configuración varía según el entorno (por ejemplo: desarrollo, prueba y producción)
 * Secretos (por ejemplo, las contraseñas)

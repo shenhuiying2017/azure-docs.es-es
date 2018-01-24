@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crear y administrar una máquina virtual con Windows que tiene varias NIC
 En Azure, las máquinas virtuales (VM) pueden tener varias tarjetas de interfaz de red virtual (NIC) conectadas a ellas. Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se describe cómo crear una máquina virtual con varias NIC conectadas. También obtendrá información sobre cómo agregar o quitar NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Asegúrese de que tiene la [versión de Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
@@ -233,7 +233,61 @@ También puede usar `copyIndex()` para anexar un número a un nombre de recurso.
 
 Puede leer un ejemplo completo de [cómo crear varias NIC mediante plantillas de Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="configure-guest-os-for-multiple-nics"></a>Configuración del sistema operativo invitado para varias NIC
+
+Azure asigna una puerta de enlace predeterminada a la primera interfaz de red (principal) conectada a la máquina virtual. Azure no asigna una puerta de enlace predeterminada a las interfaces de red adicionales (secundarias) conectadas a una máquina virtual. Por lo tanto, de manera predeterminada, no es posible comunicarse con recursos externos a la subred en la que se encuentra una interfaz de red secundaria. Sin embargo, las interfaces de red secundarias pueden comunicarse con recursos externos a su subred, aunque los pasos necesarios para habilitar la comunicación son diferentes para los distintos sistemas operativos.
+
+1. Desde un símbolo del sistema de Windows, ejecute el comando `route print`. Este comando devuelve una salida similar a la siguiente para una máquina virtual con dos interfaces de red conectadas:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    En este ejemplo, **Microsoft Hyper-V Network Adapter #4** (interfaz 7) es la interfaz de red secundaria que no tiene una puerta de enlace predeterminada asignada.
+
+2. Desde un símbolo del sistema, ejecute el comando `ipconfig` para ver la dirección IP asignada a la interfaz de red secundaria. En este ejemplo, la dirección IP 192.168.2.4 está asignada a la interfaz 7. No se devuelve ninguna dirección de puerta de enlace predeterminada para la interfaz de red secundaria.
+
+3. Para que todo el tráfico destinado a direcciones que están fuera de la subred de la interfaz de red secundaria se enrute a la puerta de enlace de la subred, ejecute el siguiente comando:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    La dirección de la puerta de enlace para la subred es la primera dirección IP (terminada en .1) del intervalo de direcciones definido para la subred. Si no quiere enrutar todo el tráfico fuera de la subred, puede agregar rutas individuales a destinos específicos en su lugar. Por ejemplo, si solo quiere enrutar el tráfico de la interfaz de red secundaria a la red 192.168.3.0, escriba el comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Para confirmar la comunicación correcta con un recurso en la red 192.168.3.0, por ejemplo, escriba el siguiente comando para hacer ping a 192.168.3.4 mediante la interfaz 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Puede que necesite abrir ICMP a través del firewall de Windows del dispositivo en el que está haciendo ping con el siguiente comando:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Para confirmar que la ruta agregada está en la tabla de rutas, escriba el comando `route print`, que devuelve una salida similar al texto siguiente:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    La ruta que se muestra con *192.168.1.1* debajo de **Puerta de enlace** es la ruta que aparece de manera predeterminada para la interfaz de red principal. La ruta con *192.168.2.1* debajo de **Puerta de enlace** es la ruta agregada.
+
+## <a name="next-steps"></a>pasos siguientes
 Revise [Tamaños de máquina virtual con Windows](sizes.md) cuando esté intentando crear una máquina virtual que tiene varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 
 
 

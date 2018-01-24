@@ -1,24 +1,16 @@
 ---
-title: "Revisión de la arquitectura para la replicación de Hyper-V en Azure con Azure Site Recovery | Microsoft Docs"
+title: "Arquitectura de replicación de Hyper-V en Azure con Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se proporciona información general sobre los componentes y la arquitectura usados al replicar máquinas virtuales de Hyper-V locales (sin VMM) en Azure con el servicio Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Arquitectura de replicación de Hyper-V en Azure
 
@@ -42,7 +34,7 @@ La tabla y el gráfico siguientes proporcionan una visión general de los compon
 
 **Arquitectura de Hyper-V a Azure (sin VMM)**
 
-![Arquitectura](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Architecture](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
@@ -147,8 +139,9 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Revise la matriz de compatibilidad Siga el tutorial para habilitar la replicación de Hyper-V en Azure.
-Realice una conmutación por error y una conmutación por recuperación.
+
+Siga [este tutorial](tutorial-prepare-azure.md) para empezar con la replicación de Hyper-V en Azure.
+
 

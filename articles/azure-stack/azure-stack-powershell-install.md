@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalación de PowerShell para Azure Stack  
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Los módulos de Azure PowerShell compatibles con Azure Stack se requieren para trabajar con Azure Stack. En esta guía, se le explican los pasos necesarios para instalar PowerShell para Azure Stack. Puede seguir los pasos descritos en este artículo ya sea desde Azure Stack Development Kit o desde un cliente externo basado en Windows, si se conecta a través de VPN.
 
@@ -49,7 +49,7 @@ Antes de instalar la versión requerida, asegúrese de desinstalar los módulos 
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Inicie sesión en el kit de desarrollo o en un cliente externo basado en Windows, si va a establecer una conexión VPN. Elimine todas las carpetas que empiecen con "Azure" de las carpetas `C:\Program Files (x86)\WindowsPowerShell\Modules` y `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules`. Al eliminar estas carpetas, se quitan los módulos de PowerShell existentes de los ámbitos de usuario "AzureStackAdmin" y "global". 
+* Inicie sesión en el kit de desarrollo o en un cliente externo basado en Windows, si va a establecer una conexión VPN. Elimine todas las carpetas que empiecen con "Azure" de las carpetas `C:\Program Files\WindowsPowerShell\Modules` y `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules`. Al eliminar estas carpetas, se quitan los módulos de PowerShell existentes de los ámbitos de usuario "AzureStackAdmin" y "global". 
 
 En las secciones siguientes se describen los pasos necesarios para instalar PowerShell para Azure Stack. PowerShell puede instalarse en Azure Stack que opere en un escenario conectado, parcialmente conectado o sin conexión. 
 
@@ -126,7 +126,6 @@ En un escenario sin conexión, primero debe descargar los módulos de PowerShell
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 
@@ -134,7 +133,7 @@ En un escenario sin conexión, primero debe descargar los módulos de PowerShell
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Descarga de herramientas de Azure Stack desde GitHub](azure-stack-powershell-download.md)
 * [Configuración del entorno de PowerShell del usuario de Azure Stack](user/azure-stack-powershell-configure-user.md)  

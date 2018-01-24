@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -131,6 +131,20 @@ Si no ve la máquina virtual de Azure para seleccionarla cuando habilita la repl
 
 Puede usar el artículo sobre cómo [quitar el script de configuración de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) y quitar la configuración de Site Recovery obsoleta en la máquina virtual de Azure. Después de quitar la configuración obsoleta, verá la máquina virtual cuando habilite la replicación.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>El estado de aprovisionamiento de la máquina virtual no es válido (código de error 150019)
 
-## <a name="next-steps"></a>Pasos siguientes
+Para habilitar la replicación en la máquina virtual, el estado de aprovisionamiento debe ser **Correcto**. Puede comprobar el estado de la máquina virtual con los pasos siguientes.
+
+1.  Seleccione el **Explorador de recursos** de **todos los servicios** en Azure Portal.
+2.  Expanda la lista **Suscripciones** y seleccione su suscripción.
+3.  Expanda la lista **ResourceGroups** y seleccione el grupo de recursos de la máquina virtual.
+4.  Expanda la lista **Recursos** lista y seleccione la máquina virtual.
+5.  Compruebe el campo **provisioningState** en la vista Instancia de lado derecho.
+
+### <a name="fix-the-problem"></a>Corrección del problema
+
+- Si **provisioningState** es **Error**, póngase en contacto con soporte técnico con detalles para solucionar el problema.
+- Si **provisioningState** es **Actualizando**, puede que se esté implementando otra extensión. Compruebe si hay operaciones en curso en la máquina virtual, espere a que finalicen y reintente el trabajo **Habilitar replicación** para la recuperación del sitio que presenta el error.
+
+## <a name="next-steps"></a>pasos siguientes
 [Replicación de máquinas virtuales de Azure](azure-to-azure-quickstart.md)

@@ -4,7 +4,7 @@ description: Cifrado de discos virtuales en una VM de Linux para mejorar la segu
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Cifrado de discos virtuales en una VM de Linux
-Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, se pueden cifrar los discos virtuales en Azure. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se detalla cómo cifrar los discos virtuales en una VM de Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para mejorar la seguridad y el cumplimiento de la máquina virtual (VM), se pueden cifrar los discos virtuales y la propia máquina vrtual. Las máquinas virtuales se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se detalla cómo cifrar los discos virtuales en una VM de Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para cifrar discos virtuales en la máquina virtual. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](#overview-of-disk-encryption).
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 Cree una instancia de Azure Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilite Key Vault para usarlo con el cifrado de discos. Especifique un nombre de Key Vault único para *keyvault_name* de la siguiente manera:
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ Cree una clave criptográfica en la instancia de Key Vault con [az keyvault key 
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Cree una entidad de servicio mediante Azure Active Directory con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). La entidad de servicio administra la autenticación y el intercambio de claves criptográficas desde Key Vault. En el ejemplo siguiente se leen los valores de la contraseña y el id. de la entidad de servicio para usarlos en comandos posteriores:
+Cree una entidad de servicio mediante Azure Active Directory con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). La entidad de servicio administra la autenticación y el intercambio de claves criptográficas desde Key Vault. En el ejemplo siguiente se leen los valores de la contraseña y el identificador de la entidad de servicio para usarlos en comandos posteriores:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Cree una máquina virtual con [az vm create](/cli/azure/vm#create) y conecte un disco de datos de 5 GB. Solo ciertas imágenes de Marketplace admiten el cifrado de discos. En el ejemplo siguiente se crea una VM llamada `myVM` mediante una imagen de **CentOS 7.2n**:
+Cree una máquina virtual con [az vm create](/cli/azure/vm#create) y conecte un disco de datos de 5 GB. Solo ciertas imágenes de Marketplace admiten el cifrado de discos. En el ejemplo siguiente se crea una máquina virtual llamada *myVM* mediante una imagen de *CentOS 7.2n*:
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-Use SSH para tener acceso a la máquina virtual con el valor de `publicIpAddress` que se muestra en la salida del comando anterior. Cree una partición y un sistema de archivos y, luego, monte el disco de datos. Para más información, consulte la sección sobre cómo [conectarse a una máquina virtual de Linux para montar el disco nuevo](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Cierre la sesión de SSH.
+Use SSH para tener acceso a la máquina virtual con el valor de *publicIpAddress* que se muestra en la salida del comando anterior. Cree una partición y un sistema de archivos y, luego, monte el disco de datos. Para más información, consulte la sección sobre cómo [conectarse a una máquina virtual de Linux para montar el disco nuevo](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Cierre la sesión de SSH.
 
-Cifre la máquina virtual con [az vm encryption enable](/cli/azure/vm/encryption#enable). En el ejemplo siguiente se usan las variables `$sp_id` y `$sp_password` del comando `ad sp create-for-rbac` anterior:
+Cifre la máquina virtual con [az vm encryption enable](/cli/azure/vm/encryption#enable). En el ejemplo siguiente se usan las variables *$sp_id* y *$sp_password* del comando `ad sp create-for-rbac` anterior:
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ El estado aparece como **EncryptionInProgress**. Espere hasta que el estado del 
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-El proceso de cifrado de disco finaliza durante el proceso de arranque, por lo que debe esperar unos minutos antes de comprobar nuevamente el estado de cifrado con **az vm encryption show**:
+El proceso de cifrado de disco finaliza durante el proceso de arranque, por lo que debe esperar unos minutos antes de comprobar nuevamente el estado de cifrado con [az vm encryption show](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 El estado ahora debería indicar que tanto el disco del SO como el disco de datos están **cifrados**.
+
 
 ## <a name="overview-of-disk-encryption"></a>Introducción al cifrado de discos
 Los discos virtuales en máquinas virtuales Linux se cifran en reposo mediante [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). El cifrado de los discos virtuales en Azure no conlleva ningún cargo. Las claves criptográficas se almacenan en Azure Key Vault con protección de software, o puede importar o generar las claves en módulos de seguridad de hardware (HSM) certificados conforme a las normas FIPS 140-2 de nivel 2. Estas claves criptográficas se pueden controlar y se puede auditar su uso. Las claves criptográficas se usan para cifrar y descifrar los discos virtuales conectados a la máquina virtual. Como las máquinas virtuales se encienden y se apagan, una entidad de servicio de Azure Active Directory proporciona un mecanismos seguro para la emisión de estas claves criptográficas.
@@ -142,15 +143,19 @@ El cifrado de discos utiliza los siguientes componentes adicionales:
 Requisitos y escenarios admitidos para el cifrado de discos:
 
 * Las siguientes SKU de servidor Linux: Ubuntu, CentOS, SUSE y SUSE Linux Enterprise Server (SLES), y Red Hat Enterprise Linux.
-* Todos los recursos (por ejemplo: almacén de Key Vault, cuenta de almacenamiento, máquina virtual, etc.) deben pertenecer a la misma región y suscripción de Azure.
-* Máquinas virtuales estándar de las series A, D, DS, G y GS.
+* Todos los recursos (por ejemplo: Key Vault, cuenta de Storage, máquina virtual, etc.) deben pertenecer a la misma región y suscripción de Azure.
+* Máquinas virtuales estándar de las series A, D, DS, G, GS, etc.
+* Actualización de las claves criptográficas en una máquina virtual Linux ya cifrada.
 
 El cifrado del disco no se admite actualmente en los siguientes escenarios:
 
 * Máquina s virtuales de nivel básico
 * Máquinas virtuales creadas con el modelo de implementación clásica.
 * Deshabilitado del cifrado de disco de sistema operativo en máquinas virtuales Linux.
-* Actualización de las claves criptográficas en una máquina virtual Linux ya cifrada.
+* Uso de imágenes personalizadas de Linux.
+
+Para más información sobre los escenarios admitidos y las limitaciones, consulte [Azure Disk Encryption para máquinas virtuales IaaS](../../security/azure-security-disk-encryption.md).
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>Creación de Azure Key Vault y claves
 Necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myKey* y *myVM*.
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 El almacén de Azure Key Vault que contiene las claves criptográficas y los recursos de proceso asociados, como el almacenamiento y la propia máquina virtual, debe residir en la misma región. Cree una instancia de Azure Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilite Key Vault para usarlo con el cifrado de discos. Especifique un nombre de Key Vault único para *keyvault_name* de la siguiente manera:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -175,7 +180,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Puede almacenar las claves criptográficas mediante software o protección del modelo de seguridad de hardware (HSM). Para usar HSM se necesita un almacén premium de Key Vault. La creación de un almacén premium de Key Vault conlleva un coste, frente al almacén estándar de Key Vault, que almacena las claves protegidas por software. Para crear un almacén de Key Vault premium, en el paso anterior, agregue `--sku Premium` al comando. En el ejemplo siguiente se usa claves protegidas por software ya que hemos creado un almacén de Key Vault estándar.
+Puede almacenar las claves criptográficas mediante software o protección del modelo de seguridad de hardware (HSM). Para usar HSM se necesita un almacén premium de Key Vault. La creación de un almacén premium de Key Vault conlleva un coste, frente al almacén estándar de Key Vault, que almacena las claves protegidas por software. Para crear un almacén de Key Vault premium, en el paso anterior, agregue `--sku Premium` al comando. En el ejemplo siguiente se usan claves protegidas mediante software ya que se ha creado una instancia de Key Vault estándar.
 
 En ambos modelos de protección, la plataforma Windows Azure debe tener acceso para solicitar las claves criptográficas cuando la máquina virtual arranca para descifrar los discos virtuales. Cree una clave criptográfica en la instancia de Key Vault con [az keyvault key create](/cli/azure/keyvault/key#create). En el ejemplo siguiente se crea una clave llamada *myKey*:
 
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-Para cifrar realmente algunos discos virtuales, vamos a crear una máquina virtual y agregar un disco de datos. Cree una máquina virtual con [az vm create](/cli/azure/vm#create) para cifrar y conecte un disco de datos de 5 GB. Solo ciertas imágenes de Marketplace admiten el cifrado de discos. En el ejemplo siguiente se crea una máquina virtual llamada *myVM* mediante una imagen de **CentOS 7.2n**:
+Cree una máquina virtual con [az vm create](/cli/azure/vm#create) para cifrar y conecte un disco de datos de 5 GB. Solo ciertas imágenes de Marketplace admiten el cifrado de discos. En el ejemplo siguiente se crea una máquina virtual llamada *myVM* mediante una imagen de *CentOS 7.2n*:
 
 ```azurecli
 az vm create \
@@ -217,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-Use SSH para tener acceso a la máquina virtual con el valor de `publicIpAddress` que se muestra en la salida del comando anterior. Cree una partición y un sistema de archivos y, luego, monte el disco de datos. Para más información, consulte la sección sobre cómo [conectarse a una máquina virtual de Linux para montar el disco nuevo](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Cierre la sesión de SSH.
+Use SSH para tener acceso a la máquina virtual con el valor de *publicIpAddress* que se muestra en la salida del comando anterior. Cree una partición y un sistema de archivos y, luego, monte el disco de datos. Para más información, consulte la sección sobre cómo [conectarse a una máquina virtual de Linux para montar el disco nuevo](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Cierre la sesión de SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Cifrado de máquina virtual
@@ -228,7 +233,7 @@ Para cifrar los discos virtuales, reúna todos los componentes anteriores:
 3. Especifique las claves criptográficas que se utilizarán para el cifrado y descifrado.
 4. Especifique si desea cifrar el disco del sistema operativo, los discos de datos o todos.
 
-Cifre la máquina virtual con [az vm encryption enable](/cli/azure/vm/encryption#enable). En el ejemplo siguiente se usan las variables `$sp_id` y `$sp_password` del comando `ad sp create-for-rbac` anterior:
+Cifre la máquina virtual con [az vm encryption enable](/cli/azure/vm/encryption#enable). En el ejemplo siguiente se usan las variables *$sp_id* y *$sp_password* del comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) anterior:
 
 ```azurecli
 az vm encryption enable \
@@ -278,7 +283,7 @@ Una vez cifrados los discos de datos, más adelante podrá agregar más discos v
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Vuelva a ejecutar el comando para cifrar los discos virtuales como sigue:
+Vuelva a ejecutar el comando para cifrar los discos virtuales de la manera siguiente:
 
 ```azurecli
 az vm encryption enable \
@@ -292,6 +297,6 @@ az vm encryption enable \
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información acerca de cómo administrar Azure Key Vault, incluido cómo eliminar claves criptográficas y almacenes, consulte [Administración de Key Vault mediante CLI](../../key-vault/key-vault-manage-with-cli2.md).
 * Para obtener más información acerca del cifrado de discos, por ejemplo, cómo preparar una máquina virtual personalizada cifrada para cargar en Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

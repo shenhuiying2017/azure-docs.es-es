@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar Azure Load Balancer para cre
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Cómo equilibrar la carga de máquinas virtuales de Windows en Azure para crear una aplicación de alta disponibilidad
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Crear un equilibrador de carga
-Cree una dirección IP de front-end con [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). En el ejemplo siguiente se crea una dirección IP de front-end denominada *myFrontEndPool*: 
+Cree un grupo de direcciones IP de front-end con [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). En el ejemplo siguiente se crea un grupo de direcciones IP de front-end llamado *myFrontEndPool* y se asocia la dirección *myPublicIP*: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Cree un grupo de direcciones de back-end con [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). En el siguiente ejemplo se crea un grupo de direcciones de back-end denominado *myBackEndPool*:
+Cree un grupo de direcciones de back-end con [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). En el resto de los pasos las máquinas virtuales se conectan a este grupo back-end. En el siguiente ejemplo se crea un grupo de direcciones de back-end denominado *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Ahora, cree el equilibrador de carga con [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). En el ejemplo siguiente se crea un equilibrador de carga denominado *myLoadBalancer* utilizando la dirección *myPublicIP*:
+Ahora, cree el equilibrador de carga con [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* mediante los grupos de direcciones IP de front-end y back-end creados en los pasos anteriores:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
 
 En el ejemplo siguiente se crea un sondeo de TCP. También se pueden crear sondeos HTTP personalizados para comprobaciones de estado más específicas. Al usar un sondeo HTTP personalizado, debe crear la página de comprobación de estado, por ejemplo *healthcheck.aspx*. El sondeo debe devolver una respuesta **HTTP 200 OK** para que el equilibrador de carga mantenga el host en rotación.
 
-Para crear un sondeo de estado TCP, se usa [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). En el ejemplo siguiente se crea un sondeo de estado denominado *myHealthProbe* que supervisa cada máquina virtual:
+Para crear un sondeo de estado TCP, se usa [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). En el ejemplo siguiente se crea un sondeo de estado llamado *myHealthProbe* que supervisa cada máquina virtual en el puerto *TCP* *80*:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Actualice el equilibrador de carga con [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Para aplicar el sondeo de estado, actualice el equilibrador de carga con [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Para asegurarse de que solo las máquinas virtuales correctas reciban tráfico, también hay que definir el sondeo de estado que se va usar.
 
-Cree una regla del equilibrador de carga con [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). En el ejemplo siguiente se crea una regla del equilibrador de carga denominada *myLoadBalancerRule* y se equilibra el tráfico en el puerto *80*:
+Cree una regla del equilibrador de carga con [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). En el ejemplo siguiente se crea una regla del equilibrador de carga llamada *myLoadBalancerRule* y se equilibra el tráfico en el puerto *TCP* *80*:
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
@@ -339,7 +339,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha creado un equilibrador de carga y conectó máquinas virtuales a él. Ha aprendido a:
 

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -20,9 +20,18 @@ Azure Event Grid permite crear fácilmente aplicaciones con arquitecturas basada
 
 Puede usar filtros para enrutar eventos específicos a distintos puntos de conexión, multidifusión a varios puntos de conexión y asegurarse de que los eventos se entregan de forma confiable. Event Grid también tiene compatibilidad integrada para eventos personalizados y de terceros.
 
-En la versión preliminar, Event Grid admite las ubicaciones **westus2** y **westcentralus**. Se agregarán otras regiones.
+Actualmente, Event Grid admite las siguientes regiones:
 
-Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
+* Central EE. UU:
+*   Este de EE. UU
+*   Este de EE. UU. 2
+*   Centro occidental de EE.UU.
+*   Oeste de EE. UU
+*   Oeste de EE. UU. 2
+
+Se agregarán otras regiones.
+
+Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). La siguiente imagen muestra cómo se conectan los publicadores y los controladores en Event Grid, pero no proporciona una lista completa de las opciones admitidas.
 
 ![Modelo funcional de Event Grid](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Este artículo ofrece información general sobre Azure Event Grid. Para comenzar
 
 Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
 
-* Grupos de recursos (operaciones de administración)
 * Suscripciones de Azure (operaciones de administración)
-* Event Hubs
-* Storage Blob
 * Temas personalizados
+* Event Hubs
+* Grupos de recursos (operaciones de administración)
+* Storage Blob
 
 Otros servicios de Azure se agregarán este año.
 
@@ -42,11 +51,12 @@ Otros servicios de Azure se agregarán este año.
 
 Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
 
-* Azure Functions
-* Logic Apps
 * Azure Automation
-* WebHooks
+* Azure Functions
+* Event Hubs
+* Logic Apps
 * Microsoft Flow
+* WebHooks
 
 Otros servicios de Azure se agregarán este año.
 
@@ -105,7 +115,7 @@ Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se
 
 Event Grid tiene un costo de 0,60 $ por cada millón de operaciones (0,30 $ durante la versión preliminar) y las primeras 100.000 operaciones al mes son gratuitas. Estas operaciones se definen como eventos de entrada, coincidencia avanzada, intentos de entrega y llamadas de administración.  Puede encontrar más detalles en la [página de precios](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Enrutamiento de los eventos de Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Permite responder a los eventos de Storage Blob mediante Event Grid.

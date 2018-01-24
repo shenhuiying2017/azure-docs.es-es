@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparación para la copia de seguridad de cargas de trabajo en Azure Backup Server
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en
 
 | Sistema operativo | Plataforma | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 y SP más recientes |64 bits |Standard, Datacenter, Essentials (MABS v2 y versiones posteriores) |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 y SP más recientes |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 y SP más recientes |64 bits |Standard, Workgroup |
@@ -79,7 +80,7 @@ Tanto si envía datos de copia de seguridad a Azure como si los mantiene localme
 
 Para crear un almacén de Servicios de recuperación:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Recovery Services**.
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
@@ -96,7 +97,7 @@ Para crear un almacén de Servicios de recuperación:
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo hay varias opciones si la cuenta de su organización está asociada a más de una suscripción de Azure.
 6. Haga clic en **Grupo de recursos** para ver la lista de grupos de recursos disponibles o haga clic en **Nuevo** para crear uno. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén.
-8. Haga clic en **Crear**. La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal.
+8. Haga clic en **Create**(Crear). La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal.
    Una vez creado el almacén, se abre en el portal.
 
 ### <a name="set-storage-replication"></a>Configuración de la replicación de almacenamiento
@@ -113,7 +114,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 ## <a name="3-software-package"></a>3. Paquete de software
 ### <a name="downloading-the-software-package"></a>Descarga del paquete de software
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Si ya tiene abierto un almacén de Recovery Services, vaya al paso 3. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú del centro, haga clic en **Examinar**.
 
    * En la lista de recursos, escriba **Recovery Services**.
@@ -218,7 +219,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
     ![Requisitos previos de Azure Backup Server2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Una vez que se complete correctamente el registro de Microsoft Azure Backup Server, el asistente para instalación global prosigue con la instalación y configuración de los componentes de SQL Server y de Microsoft Azure Backup Server. Tras completarse la instalación de los componentes de SQL Server, se instalan los componentes de Azure Backup Server.
 
-    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Servidor de Azure Backup](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 Cuando el paso de instalación haya finalizado, se habrán creado también los iconos de escritorio del producto. Haga doble clic en el icono para iniciar el producto.
 
@@ -226,7 +227,7 @@ Cuando el paso de instalación haya finalizado, se habrán creado también los i
 La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de los discos, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://technet.microsoft.com/library/hh758075.aspx).
 
 > [!NOTE]
-> Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura de Azure Backup Server actual, el almacén de Azure Backup contiene la *segunda* copia de los datos, mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
+> Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura actual de Azure Backup Server, el almacén de Azure Backup contiene la *segunda* copia de los datos, mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
 >
 >
 
@@ -240,11 +241,11 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 | Estado de conectividad | Suscripción de Azure | Copia de seguridad en Azure | Copia de seguridad en disco | Restauración desde Azure | Restauración desde disco |
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Active |Permitida |Permitida |Permitida |Permitida |
-| Conectado |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Conectado |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
-| Pérdida de conectividad > 15 días |Active |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
+| Conectado |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Conectado |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
+| Pérdida de conectividad > 15 días |Active |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 Si tiene un firewall o un proxy que impide el acceso a Azure, deberá permitir primero las siguientes direcciones de dominio en el perfil del firewall/proxy:
@@ -263,11 +264,11 @@ Es posible llevar una suscripción de Azure desde un estado *Expirado* o *Desapr
 * Una suscripción con estado *Desaprovisionado* pierde la funcionalidad durante el período en que está desaprovisionada. Al pasar a *Activo*, se reactiva la funcionalidad del producto de copia de seguridad y restauración. Los datos de copia de seguridad del disco local también pueden recuperarse en caso de que se haya mantenido con un período de retención lo suficientemente amplio. No obstante, los datos de copia de seguridad de Azure se pierden irremediablemente una vez que la suscripción pasa al estado *Desaprovisionado* .
 * Una suscripción con estado *Expirado* solo pierde la funcionalidad hasta que pase de nuevo al estado *Activo*. Las copias de seguridad programadas para el período en el que la suscripción tenía el estado *Expirado* no se ejecutarán.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si el servidor de Microsoft Azure Backup produce un error durante la fase de instalación (o copia de seguridad o restauración), consulte este [documento de códigos de error](https://support.microsoft.com/kb/3041338) para más información.
 También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre la [preparación del entorno para DPM](https://technet.microsoft.com/library/hh758176.aspx) , visite el sitio de Microsoft TechNet. También contiene información sobre las configuraciones admitidas en las que se puede implementar y usar Azure Backup Server.
 
 Puede usar estos artículos para mejorar la comprensión sobre la protección de cargas de trabajo mediante el servidor Microsoft Azure Backup Server.

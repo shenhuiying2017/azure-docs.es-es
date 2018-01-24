@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -35,8 +35,8 @@ Use el enlace de entrada de Azure Table Storage para leer una tabla de una cuent
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado: leer una entidad](#input---c-example-1)
-* [C# precompilado: leer varias entidades](#input---c-example-2)
+* [C#: leer una entidad](#input---c-example-1)
+* [C#: leer varias entidades](#input---c-example-2)
 * [Script de C#: leer una entidad](#input---c-script-example-1)
 * [Script de C#: leer varias entidades](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Vea el ejemplo específico del lenguaje:
 
 ### <a name="input---c-example-1"></a>Entrada: ejemplo 1 de C#
 
-En el ejemplo siguiente se muestra código de [C# precompilado](functions-dotnet-class-library.md) que lee una única fila de la tabla. 
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee una única fila de la tabla. 
 
 El valor "{queueTrigger}" de clave de fila indica que la clave de fila procede de la cadena del mensaje en la cola.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Entrada: ejemplo 2 de C#
 
-En el ejemplo siguiente se muestra código de [C# precompilado](functions-dotnet-class-library.md) que lee varias filas de la tabla. Tenga en cuenta que la clase `MyPoco` deriva de `TableEntity`.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee varias filas de la tabla. Tenga en cuenta que la clase `MyPoco` deriva de `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada: atributos
  
-Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use los siguientes atributos para configurar un enlace de entrada de la tabla:
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un enlace de entrada de la tabla:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use 
   }
   ```
 
-  Para obtener un ejemplo completo, vea [Entrada: ejemplo de C# precompilado](#input---c-example).
+  Para obtener un ejemplo completo, consulte [Entrada: ejemplo de C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -346,7 +346,7 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que establece en el archivo *function.json* y el atributo `Table`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `table`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal. |
@@ -389,14 +389,14 @@ Use un enlace de salida de Azure Table Storage para escribir entidades en una ta
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#output---c-example)
-* [Script de C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script de C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
-En el ejemplo siguiente se muestra código de [C# precompilado](functions-dotnet-class-library.md) que usa un desencadenador HTTP para escribir una única fila de la tabla. 
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que usa un desencadenador HTTP para escribir una única fila de la tabla. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 El constructor del atributo toma el nombre de la tabla. Se puede usar en un parámetro `out` o en el valor devuelto de la función, como se muestra en el ejemplo siguiente:
 
@@ -597,15 +597,15 @@ public static MyPoco TableOutput(
 }
 ```
 
-Para obtener un ejemplo completo, vea [Salida: ejemplo de C# precompilado](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
-Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Entrada: atributos](#input---attributes-for-precompiled-c).
+Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Entrada: atributos](#input---attributes).
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `Table`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Table`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `table`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el enlace en Azure Portal. |
@@ -635,7 +635,7 @@ El enlace de salida de Table Storage admite los siguientes escenarios:
 
   En las funciones de JavaScript, obtenga acceso a la salida de tabla mediante `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

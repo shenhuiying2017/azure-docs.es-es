@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bases de datos MySQL en Microsoft Azure Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/18/2017
 
 Puede implementar un proveedor de recursos MySQL en Azure Stack. Después de implementar el proveedor de recursos, puede crear servidores y bases de datos MySQL mediante plantillas de implementación de Azure Resource Manager y proporcionar las bases de datos MySQL como servicio. Las bases de datos MySQL, que son comunes en los sitios web, admiten muchas plataformas de sitio web. Por ejemplo, después de implementar el proveedor de recursos, puede crear sitios web de WordPress desde el complemento de plataforma como servicio (PaaS) Azure Web Apps para Azure Stack.
 
-Para implementar el proveedor de MySQL en un sistema que no tiene acceso a Internet, puede copiar el archivo [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) a un recurso compartido local. A continuación, proporcione ese nombre de recurso compartido cuando se le solicite. También debe instalar los módulos PowerShell de Azure y Azure Stack.
+Para implementar el proveedor de MySQL en un sistema que no tiene acceso a Internet, puede copiar el archivo [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) a un recurso compartido local. A continuación, proporcione ese nombre de recurso compartido cuando se le solicite. También debe instalar los módulos PowerShell de Azure y Azure Stack.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Arquitectura de adaptador del proveedor de recursos MySQL Server
@@ -71,9 +71,9 @@ Esta cuenta del sistema debe tener los siguientes privilegios:
 
     | Compilación de Azure Stack | Instalador de MySQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP, versión 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 o 1.0.180106.1 (varios nodos) | [MySQL RP, versión 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP, versión 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP, versión 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP, versión 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  El certificado raíz de Azure Stack se recupera desde el punto de conexión con privilegios. Para ASDK, como parte de este proceso se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
 
@@ -164,7 +164,7 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
 | **AzCredential** | Proporcione las credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _requerido_ |
 | **VMLocalCredential** | Defina las credenciales para la cuenta de administrador local de la máquina virtual del proveedor de recursos MySQL. | _requerido_ |
 | **PrivilegedEndpoint** | Proporcione la dirección IP o el nombre DNS del punto de conexión con privilegios. |  _requerido_ |
-| **DependencyFilesLocalPath** | Ruta de acceso a un recurso compartido local que contiene [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Si se proporciona uno, el archivo de certificados debe colocarse también en este directorio. | _opcional_ (_obligatorio_ para varios nodos) |
+| **DependencyFilesLocalPath** | Ruta de acceso a un recurso compartido local que contiene [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Si se proporciona uno, el archivo de certificados debe colocarse también en este directorio. | _opcional_ (_obligatorio_ para varios nodos) |
 | **DefaultSSLCertificatePassword** | La contraseña para el certificado .pfx | _requerido_ |
 | **MaxRetryCount** | Defina el número de veces que desea volver a intentar cada operación si se produce un error.| 2 |
 | **RetryDuration** | Defina el tiempo de expiración entre reintentos, en segundos. | 120 |

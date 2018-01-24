@@ -12,23 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
-Este artículo resume algunas de las principales API de cliente de .NET Framework de Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de centros de eventos mediante la creación, actualización y eliminación de entidades.
 
-Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET de Service Bus](/dotnet/api/microsoft.servicebus.messaging) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
+Este artículo resume algunas de las principales API de cliente de .NET Framework de Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de Event Hubs mediante la creación, actualización y eliminación de entidades.
+
+Los [escenarios de supervisión](event-hubs-metrics-azure-monitor.md) abarcan la administración y el entorno de tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET de Service Bus](/dotnet/api/microsoft.servicebus.messaging) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>API de administración
-Para realizar las siguientes operaciones de administración debe tener permisos de **administración** en el espacio de nombres de Centros de eventos:
+
+Para realizar las siguientes operaciones de administración debe tener permisos de **administración** en el espacio de nombres de Event Hubs:
 
 ### <a name="create"></a>Crear
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,6 +40,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### <a name="update"></a>Actualizar
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,18 +53,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### <a name="delete"></a>Eliminar
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>API de tiempo de ejecución
 ### <a name="create-publisher"></a>Crear publicador
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### <a name="publish-message"></a>Publicar mensaje
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,6 +86,7 @@ await client.SendAsync(data);
 ```
 
 ### <a name="create-consumer"></a>Crear consumidor
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,6 +105,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### <a name="consume-message"></a>Consumir mensaje
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,6 +118,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>API de host del procesador de eventos
+
 Estas API ofrecen resistencia a los procesos de trabajo que pueden dejar de estar disponibles, distribuyendo particiones entre trabajos disponibles.
 
 ```csharp
@@ -168,10 +178,10 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información acerca de los escenarios de los centros de eventos, visite estos vínculos:
+## <a name="next-steps"></a>pasos siguientes
+Para obtener más información acerca de los escenarios de Event Hubs, visite estos vínculos:
 
-* [¿Qué es Centros de eventos de Azure?](event-hubs-what-is-event-hubs.md)
+* [¿Qué es Azure Event Hubs?](event-hubs-what-is-event-hubs.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 
 A continuación se incluyen referencias de API de .NET:

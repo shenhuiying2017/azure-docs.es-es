@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo usar el escalado automático 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
-ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e822d83dd3bafabfea60ad50224c87df226bdc6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 
@@ -31,7 +31,7 @@ Las métricas de host son más sencillas y más confiables. No requieren configu
 
 La plantilla de conjunto de escalado mínimo viable se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), y la plantilla para implementar el conjunto de escalado de Linux con escalado automático basado en métricas de invitado se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Vamos a examinar la diferencia usada para crear esta plantilla (`git diff minimum-viable-scale-set existing-vnet`) paso a paso:
 
-Primero, vamos agregar parámetros para `storageAccountName` y `storageAccountSasToken`. El agente de Diagnostics almacenará los datos de las métricas en una [tabla](../cosmos-db/table-storage-how-to-use-dotnet.md), en esta cuenta de almacenamiento. A partir de la versión 3.0 del agente de Diagnostics para Linux ya no admite el uso de una clave de acceso de almacenamiento. Se debe usar un [token de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Primero, se van a agregar parámetros para `storageAccountName` y `storageAccountSasToken`. El agente de Diagnostics almacena los datos de las métricas en una [tabla](../cosmos-db/table-storage-how-to-use-dotnet.md), en esta cuenta de almacenamiento. A partir de la versión 3.0 del agente de Diagnostics para Linux ya no admite el uso de una clave de acceso de almacenamiento. En su lugar, use un [token de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -47,7 +47,7 @@ Primero, vamos agregar parámetros para `storageAccountName` y `storageAccountSa
    },
 ```
 
-A continuación, se modifica el conjunto de escalado `extensionProfile` para incluir la extensión Diagnostics. En esta configuración, especificamos el identificador de recurso del conjunto de escalado del que se recopilarán las métricas, así como la cuenta de almacenamiento y el token de SAS que se usará para almacenar las métricas. También se especifica con qué frecuencia se agregan las métricas (en este caso, cada minuto) y las métricas para las que desea realizar un seguimiento (en este caso, porcentaje de memoria usado). Para más información sobre esta configuración y las métricas, aparte del porcentaje de memoria usado, consulte [esta documentación](../virtual-machines/linux/diagnostic-extension.md).
+A continuación, modifique el conjunto de escalado `extensionProfile` para incluir la extensión Diagnostics. En esta configuración, se especifica el identificador de recurso del conjunto de escalado del que se recopilarán las métricas, así como la cuenta de almacenamiento y el token de SAS que se usará para almacenarlas. Especifique con qué frecuencia se agregan las métricas (en este caso, cada minuto) y las métricas para las que desea realizar un seguimiento (en este caso, porcentaje de memoria usado). Para más información sobre esta configuración y las métricas, aparte del porcentaje de memoria usado, consulte [esta documentación](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -110,7 +110,7 @@ A continuación, se modifica el conjunto de escalado `extensionProfile` para inc
        }
 ```
 
-Por último, se agrega un recurso `autoscaleSettings` para configurar el escalado automático en función de estas métricas. Este recurso tiene una cláusula `dependsOn` que hace referencia al conjunto de escalado para asegurarse de que el conjunto de escalado existe antes de intentar realizar el escalado automático. Si se elige una métrica diferente para el escalado automático, se utilizaría el valor de `counterSpecifier` de la configuración de la extensión Diagnostics como valor de `metricName` en la configuración del escalado automático. Para más información sobre la configuración de escalado automático, consulte los [procedimientos recomendados de escalado automático](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) y la [documentación de referencia de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Por último, agregue un recurso `autoscaleSettings` para configurar el escalado automático en función de estas métricas. Este recurso tiene una cláusula `dependsOn` que hace referencia al conjunto de escalado para asegurarse de que el conjunto de escalado existe antes de intentar realizar el escalado automático. Si se elige una métrica diferente para el escalado automático, se utilizaría el valor de `counterSpecifier` de la configuración de la extensión Diagnostics como valor de `metricName` en la configuración del escalado automático. Para más información sobre la configuración de escalado automático, consulte los [procedimientos recomendados de escalado automático](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) y la [documentación de referencia de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },
@@ -186,6 +186,6 @@ Por último, se agrega un recurso `autoscaleSettings` para configurar el escalad
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

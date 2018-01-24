@@ -1,6 +1,6 @@
 ---
 title: "Recopilación y análisis de contadores de rendimiento en Azure Log Analytics | Microsoft Docs"
-description: "Log Analytics recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en el repositorio de OMS y se indica cómo analizarlos en el portal de OMS."
+description: "Log Analytics recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Orígenes de datos de rendimiento de Windows y Linux en Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Log Analytics puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
 
-![Contadores de rendimiento](media/log-analytics-data-sources-performance-counters/overview.png)
+![contadores de rendimiento](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
-Configure contadores de rendimiento en el portal de OMS desde el [menú Datos de la configuración de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
+Los contadores de rendimiento se configuran en el [menú Datos en Configuración de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-La primera vez que se configuran los contadores de rendimiento de Windows o Linux para un área de trabajo de OMS nueva, se proporciona la opción de crear rápidamente varios contadores comunes.  Se muestran todos con una casilla junto a cada uno.  Asegúrese de que están marcados todos los contadores que desea crear inicialmente y, luego, haga clic en **Add the selected performance counters**(Agregar los contadores de rendimiento seleccionados).
+La primera vez que se configuran los contadores de rendimiento de Windows o Linux para un área de trabajo de Log Analytics nueva, se ofrece la opción de crear rápidamente varios contadores comunes.  Se muestran todos con una casilla junto a cada uno.  Asegúrese de que están marcados todos los contadores que desea crear inicialmente y, luego, haga clic en **Add the selected performance counters**(Agregar los contadores de rendimiento seleccionados).
 
 Para los contadores de rendimiento de Windows, puede elegir una instancia específica para cada contador de rendimiento. Para los contadores de rendimiento de Linux, la instancia de cada contador que elija se aplica a todos los contadores secundarios del contador primario. La siguiente tabla muestra las instancias comunes disponibles para los contadores de rendimiento de Windows y de Linux.
 
-| Nombre de instancia | Descripción |
+| Nombre de instancia | DESCRIPCIÓN |
 | --- | --- |
 | \_Total |Total de todas las instancias |
 | \* |Todas las instancias |
@@ -65,7 +65,7 @@ Siga este procedimiento para agregar un nuevo contador de rendimiento de Linux p
 5. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuración de contadores de rendimiento de Linux en el archivo de configuración
-En lugar de configurar los contadores de rendimiento de Linux mediante el portal de OMS, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento que se recopilan se controlan según la configuración que aparece en **/etc/opt/microsoft/omsagent/\<identificador de área de trabajo\>/conf/omsagent.conf**.
+En lugar de configurar los contadores de rendimiento de Linux mediante Azure Portal, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento que se recopilan se controlan según la configuración que aparece en **/etc/opt/microsoft/omsagent/\<identificador de área de trabajo\>/conf/omsagent.conf**.
 
 Cada objeto, o categoría, de métricas de rendimiento para recopilar debe definirse en el archivo de configuración como un solo elemento `<source>` . La sintaxis sigue el modelo siguiente.
 
@@ -80,7 +80,7 @@ Cada objeto, o categoría, de métricas de rendimiento para recopilar debe defin
 
 Los parámetros de este elemento se describen en la tabla siguiente.
 
-| Parámetros | Descripción |
+| Parámetros | DESCRIPCIÓN |
 |:--|:--|
 | object\_name | Nombre de objeto de la colección. |
 | instance\_regex |  Una *expresión regular* que define las instancias que desea recopilar. El valor: `.*` especifica todas las instancias. Para recopilar métricas de procesador solamente de la instancia \_Total, puede especificar `_Total`. Para recopilar métricas de procesamiento solamente de las instancias rond o sshd, puede especificar: `(crond\|sshd)`. |
@@ -182,12 +182,12 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
     </source>
 
 ## <a name="data-collection"></a>Colección de datos
-Log Analytics recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de búsqueda de registro durante el tiempo especificado por la suscripción de OMS.
+Log Analytics recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de búsqueda de registro durante el tiempo especificado por la suscripción.
 
 ## <a name="performance-record-properties"></a>Propiedades de registros de rendimiento
 Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las que aparecen en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | CounterName |Nombre del contador de rendimiento. |
@@ -206,7 +206,7 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 ## <a name="log-searches-with-performance-records"></a>Búsquedas de registros con registros de rendimiento
 La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperan registros de rendimiento.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 |:--- |:--- |
 | Perf |Todos los datos de rendimiento |
 | Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |
@@ -220,15 +220,10 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |
 | Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Todos los datos de rendimiento del objeto de rendimiento de la base de datos para la base de datos maestra (master) de la instancia de SQL Server con nombre INST2.  
 
-## <a name="viewing-performance-data"></a>Visualización de datos de rendimiento
-Cuando se ejecuta una búsqueda de registros de los datos de rendimiento, de forma predeterminada se muestra la vista **Lista**.  Para ver los datos en forma de gráfico, haga clic en **Métricas**.  Para una vista gráfica detallada, haga clic en **+** junto a un contador.  
-
-![Vista Métricas contraída](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Para agregar datos de rendimiento en una búsqueda de registro, consulte [On-demand metric aggregation and visualization in OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/) (Agregación de métricas a petición y visualización en OMS).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+
+## <a name="next-steps"></a>pasos siguientes
 * [Recopilación de contadores de rendimiento desde aplicaciones de Linux](log-analytics-data-sources-linux-applications.md), lo que incluye MySQL y Apache HTTP Server.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 * Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.

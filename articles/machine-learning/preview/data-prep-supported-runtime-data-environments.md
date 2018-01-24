@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz compatible para esta versión 
 Cuando el código está carga datos con orígenes de datos de Azure Machine Learning, o mediante preparación de datos de Azure Machine Learning, obteniendo una trama de datos de Pandas o de Spark, se admiten las siguientes combinaciones de entornos de proceso experimentales y de ubicaciones de datos:
@@ -37,4 +37,4 @@ Actualmente, Azure Data Lake Store no es compatible con ningún destino de proce
 
 **Usa el controlador Maven JDBC para SQL Server 6.2.1. Debe asegurarse de que este paquete (o uno compatible) esté incluido en el archivo spark_dependencies.yml del entorno de proceso.
 
-***Admite Azure SQL Database, Azure SQL Data Warehouse o SQL Server, siempre y cuando se pueda obtener acceso a la base de datos desde el entorno de proceso. 
+***Admite Azure SQL Database o SQL Server, siempre y cuando se pueda obtener acceso a la base de datos desde el entorno de proceso. 

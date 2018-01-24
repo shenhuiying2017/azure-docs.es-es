@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Ejecución de tareas en contenedores en Azure Container Instances
 
@@ -20,13 +20,13 @@ La facilidad y rapidez con que se implementan contenedores convierten a Azure Co
 
 Gracias a una directiva de reinicio configurable, puede especificar que los contenedores se detengan cuando sus procesos se hayan completado. Dado que las instancias de contenedor se facturan por segundo, solo se le cobra por los recursos de proceso usados mientras el contenedor que ejecuta su tarea está en funcionamiento.
 
-En los ejemplos presentados en este artículo se usa la CLI de Azure. Debe tener [instalada localmente](/cli/azure/install-azure-cli) la CLI de Azure, versión 2.0.21 o superior, o usar la CLI de [Azure Cloud Shell](../cloud-shell/overview.md).
+En los ejemplos presentados en este artículo se usa la CLI de Azure. Debe tener [instalada localmente][azure-cli-install] la CLI de Azure 2.0.21 o posterior o usar la CLI de [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Directiva de reinicio de contenedor
 
 Cuando se crea un contenedor en Azure Container Instances, se puede especificar una de tres configuraciones de directiva de reinicio.
 
-| Directiva de reinicio   | Descripción |
+| Directiva de reinicio   | DESCRIPCIÓN |
 | ---------------- | :---------- |
 | `Always` | Siempre se reinician los contenedores del grupo de contenedores. Este es el valor de configuración **predeterminado** aplicado cuando no se especifica ninguna directiva de reinicio durante la creación del contenedor. |
 | `Never` | Nunca se reinician los contenedores del grupo de contenedores. Los contenedores se ejecutan al menos una vez. |
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Ejemplo de ejecución hasta terminación
 
-Para ver la directiva de reinicio en acción, cree una instancia de contenedor a partir de la imagen [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) y especifique la directiva de reinicio `OnFailure`. Este contenedor de ejemplo ejecuta un script de Python que, de forma predeterminada, analiza el texto de la obra [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, escribe las 10 palabras más comunes en STDOUT y, a continuación, se cierra.
+Para ver la directiva de reinicio en acción, cree una instancia de contenedor a partir de la imagen [microsoft/aci-wordcount][aci-wordcount-image] y especifique la directiva de reinicio `OnFailure`. Este contenedor de ejemplo ejecuta un script de Python que, de forma predeterminada, analiza el texto de la obra [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, escribe las 10 palabras más comunes en STDOUT y, a continuación, se cierra.
 
 Ejecute el contenedor de ejemplo con el siguiente comando [az container create][az-container-create]:
 
@@ -162,13 +162,17 @@ Salida:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 ### <a name="persist-task-output"></a>Conservar la salida de la tarea
 
 Para más información acerca de cómo conservar la salida de los contenedores que se ejecutan hasta completarse, consulte [Montaje de un recurso compartido de archivos de Azure en Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

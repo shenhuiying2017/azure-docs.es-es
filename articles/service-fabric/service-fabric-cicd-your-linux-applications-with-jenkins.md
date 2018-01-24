@@ -14,24 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
 
 ## <a name="general-prerequisites"></a>Requisitos previos generales
 - Git debe estar instalado localmente. La versión adecuada de Git se puede instalar desde [la página de descargas de la Git](https://git-scm.com/downloads), en función de su sistema operativo. Si no conoce Git, encontrará más información al respecto en la [documentación de Git](https://git-scm.com/docs).
-- Tener a mano el complemento de Jenkins para Service Fabric. Puede descargarlo de las [descargas de Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Si usa el explorador Edge, cambie el nombre de la extensión del archivo descargado de .zip a .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configuración de Jenkins en un clúster de Service Fabric
 
 Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo configurarlo dentro de un clúster mientras se usa una cuenta de Azure Storage para guardar el estado de la instancia de contenedor.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 1. Tenga preparado un clúster Linux de Service Fabric. En los clústeres de Service Fabric creados desde Azure Portal ya está Docker instalado. Si el clúster se ejecuta localmente, para comprobar si Docker está instalado, use el comando ``docker info``. Si no está instalado, instálelo con los siguientes comandos:
 
   ```sh
@@ -118,7 +117,7 @@ ssh user@PublicIPorFQDN -p [port]
 
 Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo se configura fuera de un clúster.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Debe tener instalado Docker. Los siguientes comandos se pueden usar para instalar Docker desde el terminal:
 
   ```sh
@@ -129,8 +128,8 @@ Debe tener instalado Docker. Los siguientes comandos se pueden usar para instala
 Ahora, cuando ejecute ``docker info`` en el terminal, verá en la salida que el servicio Docker se está ejecutando.
 
 ### <a name="steps"></a>Pasos
-  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull rapatchi/jenkins:v9``
-  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull rapatchi/jenkins:v10`` Esta imagen lleva preinstalado el complemento Jenkins de Servic Fabric.
+  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Obtenga el identificador de la instancia de la imagen de contenedor. Puede enumerar todos los contenedores de Docker con el comando ``docker ps –a``.
   4. Inicie sesión en el portal de Jenkins, para lo que debe seguir estos pasos:
 
@@ -151,11 +150,6 @@ Ahora, cuando ejecute ``docker info`` en el terminal, verá en la salida que el 
 
 Asegúrese de que el clúster o el equipo donde se hospeda la imagen del contenedor de Jenkins o tienen una dirección IP pública. Esto permite a la instancia de Jenkins recibir notificaciones de GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Instalación del complemento de Jenkins para Service Fabric desde el portal
-
-1. Vaya a ``http://PublicIPorFQDN:8081``.
-2. En el panel de Jenkins, seleccione **Manage Jenkins** >  (Administrar Jenkins) **Manage Plugins** >  (Administrar complementos) **Advanced** (Configuración avanzada).
-Aquí puede cargar un complemento. Seleccione **Choose file** (Elegir archivo) y luego seleccione el archivo **serviceFabric.hpi**, que descargó en los requisitos previos o descárguelo [aquí](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Al seleccionar **Upload** (Cargar), Jenkins instala automáticamente el complemento. Permita un reinicio si se solicita.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Creación y configuración de trabajos de Jenkins
 
@@ -207,7 +201,7 @@ Aquí puede cargar un complemento. Seleccione **Choose file** (Elegir archivo) y
       > Este clúster puede ser el mismo que el que hospeda la aplicación del contenedor de Jenkins, en caso de que se vaya a usar Service Fabric para implementar la imagen del contenedor de Jenkins.
       >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 GitHub y Jenkins ya están configurados. Considere la posibilidad de realizar algún cambio ejemplo de cambio en el proyecto ``MyActor`` del ejemplo de repositorio, https://github.com/sayantancs/SFJenkins. Inserte los cambios en una rama ``master`` remota (o en cualquier rama que ha configurado para trabajar con ella). Esto desencadena el trabajo de Jenkins, ``MyJob``, que ha configurado. Captura los cambios de GitHub, los compila e implementa la aplicación en el punto de conexión del clúster que especificó en las acciones posteriores a la compilación.  
 
   <!-- Images -->

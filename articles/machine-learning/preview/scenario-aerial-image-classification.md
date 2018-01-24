@@ -3,16 +3,18 @@ title: "Clasificación de imágenes aéreas | Microsoft Docs"
 description: "Proporciona instrucciones para un escenario real de clasificación de imágenes aéreas"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.workload: data-services
+ms.date: 12/13/2017
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Clasificación de imágenes aéreas
 
@@ -44,15 +46,15 @@ En este ejemplo, los datos de imágenes y los modelos previamente entrenados se 
 
 ![Esquema del escenario real de clasificación de imágenes aéreas](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Las [instrucciones paso a paso](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) comienzan por la guía en la creación y preparación de una cuenta de Azure storage y un clúster de Spark, incluida la transferencia de datos y la instalación de dependencias. A continuación, describe cómo iniciar trabajos de entrenamiento y comparar el rendimiento de los modelos resultantes. Por último, describe cómo aplicar el modelo elegido a un gran conjunto de imágenes en el clúster de Spark y analizar los resultados de la predicción localmente.
+Estas instrucciones paso a paso comienzan por la guía en la creación y preparación de una cuenta de Azure Storage y un clúster de Spark, incluida la transferencia de datos y la instalación de dependencias. A continuación, describe cómo iniciar trabajos de entrenamiento y comparar el rendimiento de los modelos resultantes. Por último, describe cómo aplicar el modelo elegido a un gran conjunto de imágenes en el clúster de Spark y analizar los resultados de la predicción localmente.
 
 
 ## <a name="set-up-the-execution-environment"></a>Configuración del entorno de ejecución
 
 Las instrucciones siguientes le guían a través del proceso de configuración del entorno de ejecución de este ejemplo.
 
-### <a name="prerequisites"></a>Requisitos previos
-- Una [cuenta de Azure](https://azure.microsoft.com/en-us/free/) (hay disponibles versiones gratuitas de prueba)
+### <a name="prerequisites"></a>requisitos previos
+- Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba)
     - Creará un clúster de Spark de HDInsight con 40 nodos de trabajo (168 núcleos en total). Asegúrese de que su cuenta tiene suficientes núcleos disponibles revisando la pestaña "Uso y cuotas" de la suscripción en Azure Portal.
        - Si tiene menos núcleos disponibles, puede modificar la plantilla del clúster de HDInsight para reducir el número de nodos de trabajo aprovisionados. Se proporcionan instrucciones para esto en la sección "Creación del clúster de Spark de HDInsight ".
     - En este ejemplo se crea un clúster de entrenamiento de Batch AI con dos VM NC6 (1 GPU, 6 vCPU). Asegúrese de que su cuenta tiene suficientes núcleos disponibles en la región Este de EE. UU. revisando la pestaña "Uso y cuotas" de la suscripción en Azure Portal.
@@ -68,7 +70,7 @@ Las instrucciones siguientes le guían a través del proceso de configuración d
     - Registre el identificador de cliente, el secreto y el identificador de inquilino de la aplicación de Azure Active Directory que va a crear. Más adelante en este tutorial usará esas credenciales.
     - En el momento de redactar este documento, Azure Machine Learning Workbench y Azure Batch AI usan bifurcaciones independientes de la CLI de Azure 2.0. Para mayor claridad, nos referimos a la versión de Workbench de la CLI como "la CLI publicada a partir de Azure Machine Learning Workbench" y la versión de disponibilidad general (que incluye Batch AI) como "la CLI de Azure 2.0".
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), una utilidad gratuita para coordinar la transferencia de archivos entre cuentas de Azure Storage
-    - Compruebe que la carpeta que contiene el ejecutable AzCopy está en la variable de entorno PATH del sistema. (Las instrucciones sobre cómo modificar variables de entorno están disponibles [aquí](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)).
+    - Compruebe que la carpeta que contiene el ejecutable AzCopy está en la variable de entorno PATH del sistema. (Las instrucciones sobre cómo modificar variables de entorno están disponibles [aquí](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)).
 - Un cliente de SSH; se recomienda [PuTTY](http://www.putty.org/).
 
 Este ejemplo se ha probado en un equipo con Windows 10; debería ser capaz de ejecutarlo desde cualquier equipo Windows, incluidas las instancias de Azure Data Science Virtual Machine. La CLI de Azure 2.0 se instaló desde un archivo MSI según [estas instrucciones](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Pueden ser necesarias modificaciones menores (por ejemplo, cambios en rutas de acceso) cuando se ejecuta este ejemplo en macOS.
@@ -157,14 +159,14 @@ Ahora se creará la cuenta de almacenamiento que hospeda los archivos de proyect
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    La transferencia de archivos puede tardar hasta 20 minutos. Mientras espera, puede continuar con la siguiente sección. Puede que deba abrir otra interfaz de la línea de comandos mediante Workbench y volver a definir ahí las variables temporales.
+    La transferencia de archivos puede tardar una hora aproximadamente. Mientras espera, puede continuar con la siguiente sección: puede que deba abrir otra interfaz de la línea de comandos mediante Workbench y volver a definir ahí las variables temporales.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Creación del clúster de HDInsight Spark
 
 El método recomendado para crear un clúster de HDInsight es usar la plantilla de Resource Manager del clúster de HDInsight Spark incluida en la subcarpeta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" de este proyecto.
 
 1. La plantilla del clúster de HDInsight Spark es el archivo "template.json" de la subcarpeta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" de este proyecto. De forma predeterminada, la plantilla crea un clúster de Spark con 40 nodos de trabajo. Si debe ajustar ese número, abra la plantilla en el editor de texto que prefiera y reemplace todas las instancias de "40" por el número de nodos de trabajo de su elección.
-    - Puede encontrar errores de memoria insuficiente si el número de nodos de trabajo que elija es pequeño. Para hacer frente a los errores de memoria, puede ejecutar los scripts de entrenamiento y operacionalización en un subconjunto de los datos disponibles como se describe más adelante en este documento.
+    - Puede encontrar errores de memoria insuficiente posteriormente si el número de nodos de trabajo que elige es más pequeño. Para hacer frente a los errores de memoria, puede ejecutar los scripts de entrenamiento y operacionalización en un subconjunto de los datos disponibles como se describe más adelante en este documento.
 2. Elija un nombre único y una contraseña para el clúster de HDInsight y escríbalos donde se ha indicado en el siguiente comando. Luego cree el clúster emitiendo los comandos:
 
     ```
@@ -248,12 +250,10 @@ Si lo desea, puede confirmar que se ha realizado la transferencia de datos segú
 
 #### <a name="create-a-batch-ai-cluster"></a>Creación de un clúster de Batch AI
 
-1. Emita los siguientes comandos para crear el clúster:
+1. Emita el siguiente comando para crear el clúster:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Use el siguiente comando para comprobar el estado de aprovisionamiento del clúster:
@@ -304,7 +304,7 @@ Una vez completada la creación del clúster de HDInsight, registre el clúster 
 1.  Emita el siguiente comando desde la interfaz de la línea del comandos de Azure Machine Learning:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Este comando agrega dos archivos, `myhdi.runconfig` y `myhdi.compute`, a la carpeta `aml_config` de su proyecto.
@@ -418,7 +418,7 @@ Cuando se haya completado el ejemplo, se recomienda que elimine todos los recurs
 
 Azure Machine Learning Workbench ayuda a los científicos de datos a implementar fácilmente su código en destinos de proceso remotos. En este ejemplo, el código de entrenamiento de MMLSpark local se implementó para la ejecución remota en un clúster de HDInsight, y un script local inició un trabajo de aprendizaje en un clúster de GPU de Azure Batch AI. La característica de historial de ejecución de Azure Machine Learning Workbench ha permitido realizar el seguimiento del rendimiento de varios modelos y ha ayudado a identificar el modelo más exacto. La característica de cuadernos de Jupyter de Workbench ha ayudado a visualizar las predicciones de nuestros modelos en un entorno gráfico interactivo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para profundizar más en este ejemplo:
 - En la característica de historial de ejecución de Machine Learning Workbench, haga clic en los símbolos de engranaje para seleccionar qué gráficos y métricas se van a mostrar.
 - Examine los scripts de ejemplo de las instrucciones mediante la llamada a `run_logger`. Compruebe que comprende cómo se registra cada métrica.

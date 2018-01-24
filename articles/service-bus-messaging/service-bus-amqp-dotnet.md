@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
-## <a name="downloading-the-service-bus-sdk"></a>Descargar el SDK del bus de servicio
+La compatibilidad con AMQP 1.0 está disponible en el paquete de Service Bus versión 2.1 o posterior. Asegúrese de tener la versión más reciente descargando los bits de Service Bus desde [NuGet][NuGet].
 
-La compatibilidad con AMQP 1.0 está disponible en el SDK de Service Bus versión 2.1 o posterior. Asegúrese de tener la versión más reciente descargando los bits de Service Bus desde [NuGet][NuGet].
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>Configuración de aplicaciones .NET para usar AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>Configuración de aplicaciones .NET para usar AMQP 1.0
 
 De manera predeterminada, la biblioteca de clientes .NET de Service Bus se comunica con el servicio de Service Bus utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión de Service Bus tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación permanece invariable al utilizar AMQP 1.0.
 
@@ -34,7 +32,7 @@ La versión actual incluye unas cuantas funciones de la API que no son compatibl
 
 ### <a name="configuration-using-appconfig"></a>Configuración mediante App.config
 
-Es recomendable que las aplicaciones utilicen el archivo de configuración App.config para almacenar la configuración. En el caso de las aplicaciones de Service Bus, puede usar App.config para almacenar la cadena de conexión de Service Bus. A continuación se muestra un archivo App.config de ejemplo:
+Es recomendable que las aplicaciones utilicen el archivo de configuración App.config para guardar las opciones de configuración. En el caso de las aplicaciones de Service Bus, puede usar App.config para almacenar la cadena de conexión de Service Bus. A continuación se muestra un archivo App.config de ejemplo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -77,10 +75,10 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | double |double |Valor de AMQP |
 | decimal |decimal128 |Valor de AMQP |
 | char |char |Valor de AMQP |
-| DateTime |timestamp |Valor de AMQP |
+| Datetime |timestamp |Valor de AMQP |
 | Guid |uuid |Valor de AMQP |
 | byte[] |binary |Valor de AMQP |
-| string |string |Valor de AMQP |
+| cadena |cadena |Valor de AMQP |
 | System.Collections.IList |list |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Array |array |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Collections.IDictionary |map |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. Nota: solo se admiten claves de cadena. |
@@ -93,8 +91,8 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | Tipo .NET | Mapped AMQP Described Type | Notas |
 | --- | --- | --- |
 | Identificador URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
-| Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
+| timespan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
 ## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Características no admitidas, restricciones y diferencias de comportamiento
 
@@ -109,7 +107,7 @@ También hay algunas pequeñas diferencias en el comportamiento de la API de .NE
 * `MessageReceiver.Receive(TimeSpan.Zero)` se implementa como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * La finalización de mensajes mediante tokens de bloqueo solo puede realizarse por los receptores del mensaje que reciben inicialmente los mensajes.
 
-## <a name="controlling-amqp-protocol-settings"></a>Control de la configuración del protocolo AMQP
+## <a name="control-amqp-protocol-settings"></a>Control de la configuración del protocolo AMQP
 
 Las [API de .NET](/dotnet/api/) exponen varias opciones para controlar el comportamiento del protocolo AMQP:
 
@@ -118,13 +116,12 @@ Las [API de .NET](/dotnet/api/) exponen varias opciones para controlar el compor
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: si las transferencias se pueden definir por lotes, este valor determina el retraso máximo de las disposiciones de envío. Heredado por remitentes/receptores de forma predeterminada. El remitente/receptor individual puede invalidar el valor predeterminado, que es de 20 milisegundos.
 * **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controla si las conexiones de AMQP se establecen a través de una conexión SSL. El valor predeterminado es **true**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 * [Información general sobre AMQP para Service Bus]
 * [Guía del protocolo AMQP 1.0]
-* [AMQP de Service Bus para Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ Las [API de .NET](/dotnet/api/) exponen varias opciones para controlar el compor
 [Azure portal]: https://portal.azure.com
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
 [Guía del protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+

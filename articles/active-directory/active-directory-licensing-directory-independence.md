@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 9ddb5f7e6c5dbeb742002dfcdfb981fae699130b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00f382546a0e5f1e9da9dc90777dcf9622ec94
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Información de cómo interactúan varios inquilinos de Azure Active Directory
 
@@ -50,5 +50,5 @@ Para agregar un inquilino de Azure AD en Azure Portal, inicie sesión en [Azure 
 > A diferencia de otros recursos de Azure, los inquilinos no son recursos secundarios de una suscripción a Azure. Si su suscripción a Azure se cancela o expira, aún podrá tener acceso a los datos de su inquilino mediante Azure PowerShell, Azure Graph API o el Centro de administración de Office 365. También puede [asociar otra suscripción al inquilino](active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para una amplia visión general de los problemas de licencias de Azure AD y los procedimientos recomendados, consulte [¿Qué es la licencia de inquilinos de Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)

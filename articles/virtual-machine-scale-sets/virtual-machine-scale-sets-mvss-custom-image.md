@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo agregar una imagen personalizada 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Incorporación de una imagen personalizada a una plantilla de un conjunto de escalado de Azure
 
@@ -27,13 +27,13 @@ Este artículo le enseña cómo modificar la [plantilla de conjunto de escalado 
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
-Nuestra plantilla de conjunto de escalado mínimo viable se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), y nuestra plantilla para implementar el conjunto de escalado a partir de una imagen personalizada se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Vamos a examinar la diferencia usada para crear esta plantilla (`git diff minimum-viable-scale-set custom-image`) paso a paso:
+La plantilla de conjunto de escalado mínimo viable se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), y la plantilla para implementar el conjunto de escalado a partir de una imagen personalizada se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Vamos a examinar la diferencia usada para crear esta plantilla (`git diff minimum-viable-scale-set custom-image`) paso a paso:
 
 ### <a name="creating-a-managed-disk-image"></a>Creación de una imagen de disco administrado
 
 Si ya tiene una imagen de disco administrado personalizada (un recurso del tipo `Microsoft.Compute/images`), puede omitir esta sección.
 
-En primer lugar, se agrega un parámetro `sourceImageVhdUri`, que es el identificador URI del blob generalizado de Azure Storage que contiene la imagen personalizada desde la que se va a realizar la implementación.
+En primer lugar, agregue un parámetro `sourceImageVhdUri`, que es el identificador URI del blob generalizado de Azure Storage que contiene la imagen personalizada desde la que se va a realizar la implementación.
 
 
 ```diff
@@ -51,7 +51,7 @@ En primer lugar, se agrega un parámetro `sourceImageVhdUri`, que es el identifi
    "variables": {},
 ```
 
-A continuación, se agrega un recurso de tipo `Microsoft.Compute/images`, que es la imagen de disco administrado basada en el blob generalizado ubicado en el URI `sourceImageVhdUri`. Esta imagen debe estar en la misma región que el conjunto de escalado que la utilice. En las propiedades de la imagen, se especifica el tipo de sistema operativo, la ubicación del blob (desde el parámetro `sourceImageVhdUri`) y el tipo de cuenta de almacenamiento:
+A continuación, agregue un recurso de tipo `Microsoft.Compute/images`, que es la imagen de disco administrado basada en el blob generalizado ubicado en el URI `sourceImageVhdUri`. Esta imagen debe estar en la misma región que el conjunto de escalado que la utilice. En las propiedades de la imagen, especifique el tipo de sistema operativo, la ubicación del blob (desde el parámetro `sourceImageVhdUri`) y el tipo de cuenta de almacenamiento:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ A continuación, se agrega un recurso de tipo `Microsoft.Compute/images`, que es
 
 ```
 
-En el recurso del conjunto de escalado, se agrega una cláusula `dependsOn` que hace referencia a la imagen personalizada para garantizar que la imagen se crea antes de que el conjunto de escalado se intente implementar desde ella:
+En el recurso del conjunto de escalado, agregue una cláusula `dependsOn` que haga referencia a la imagen personalizada para garantizar que la imagen se crea antes de que el conjunto de escalado se intente implementar desde ella:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ En el recurso del conjunto de escalado, se agrega una cláusula `dependsOn` que 
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Cambio en las propiedades del conjunto de escalado para usar la imagen de disco administrado
 
-En el `imageReference` del conjunto de escalado `storageProfile`, en lugar de especificar el publicador, oferta, sku y versión de una imagen de la plataforma, especificamos el `id` del recurso `Microsoft.Compute/images`:
+En `imageReference` del conjunto de escalado `storageProfile`, en lugar de especificar el publicador, la oferta, la SKU y la versión de una imagen de la plataforma, especifique el `id` del recurso `Microsoft.Compute/images`:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ En el `imageReference` del conjunto de escalado `storageProfile`, en lugar de es
            "osProfile": {
 ```
 
-En este ejemplo, se usa la función `resourceId` para obtener el identificador de recurso de la imagen que se creó en la misma plantilla. Si ha creado la imagen de disco administrado con antelación, deberá proporcionar el identificador de esa imagen en su lugar. Este identificador debe tener el formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+En este ejemplo, use la función `resourceId` para obtener el identificador de recurso de la imagen que se creó en la misma plantilla. Si ha creado la imagen de disco administrado con antelación, deberá proporcionar el identificador de esa imagen en su lugar. Este identificador debe tener el formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

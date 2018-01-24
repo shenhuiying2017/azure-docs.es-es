@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Información general sobre Durable Functions (versión preliminar)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -235,7 +235,7 @@ En segundo plano, las extensiones de Durable Functions se crean a partir de [Dur
 
 La funciones del orquestador mantienen de forma confiable su estado de ejecución usando un patrón de diseño en la nube, conocido como [origen de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). En lugar de almacenar directamente el estado *actual* de una orquestación, la extensión durable utiliza un almacén de solo anexar para registrar la *serie completa de acciones* realizada por la orquestación de función. Esto tiene muchas ventajas, como mejorar el rendimiento, la escalabilidad y la capacidad de respuesta en comparación con el "volcado" del estado de tiempo de ejecución completo. Otras ventajas incluyen proporcionar coherencia ocasional para los datos transaccionales y mantener el historial y los seguimientos de auditoría completa. Los mismos seguimientos de auditoría habilitan acciones de compensación confiables.
 
-El uso de origen de eventos por esta extensión es transparente. En un segundo plano, el operador `await` en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al *historial de ejecución* de la instancia de orquestación. El historial se guarda en un almacenamiento durable. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria. Su facturación se detiene si usa el Plan de consumo de Azure Functions.  Cuando hay más trabajo, la función se reinicia y se reconstruye su estado.
+El uso de origen de eventos por esta extensión es transparente. En un segundo plano, el operador `await` en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al *historial de ejecución* de la instancia de orquestación. El historial se guarda en una tabla de almacenamiento. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria. Su facturación se detiene si usa el Plan de consumo de Azure Functions.  Cuando hay más trabajo, la función se reinicia y se reconstruye su estado.
 
 Una vez que una función de orquestación recibe más trabajo para realizar (por ejemplo, se recibe un mensaje de respuesta o expira un temporizador durable), el orquestador se reactiva y vuelve a ejecutar toda la función desde el principio con el fin de recompliar el estado local. Si durante esta reproducción el código intenta llamar a una función (o realizar cualquier otro trabajo asincrónico), Durable Task Framework consulta con el *historial de ejecución* de la orquestación actual. Si encuentra que la función de actividad ya se ha ejecutado y ofrece un resultado, reproduce el resultado de esa función y el código del orquestador continúa ejecutándose. Esto sigue ocurriendo hasta que el código de función llega a un punto en donde finaliza o tiene programado nuevo trabajo asincrónico.
 
@@ -249,7 +249,7 @@ Actualmente C# es el único lenguaje admitido para Durable Functions. Esto inclu
 
 ## <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
 
-La extensión de Durable Functions emite automáticamente datos de seguimiento estructurado a [Application Insights](functions-monitoring.md) cuando se configura la aplicación de función con una clave de Application Insights. Estos datos de seguimiento se pueden utilizar para supervisar el comportamiento y el progreso de las orquestaciones.
+La extensión de Durable Functions emite automáticamente datos de seguimiento estructurado a [Application Insights](functions-monitoring.md) cuando se configura la aplicación de función con una clave de instrumentación de Application Insights. Estos datos de seguimiento se pueden utilizar para supervisar el comportamiento y el progreso de las orquestaciones.
 
 Este es un ejemplo del aspecto de los eventos de seguimiento de Durable Functions en el portal de Application Insights con [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
@@ -278,7 +278,7 @@ Table Storage se utiliza para almacenar el historial de ejecución para las cuen
 
 En general, todos los problemas conocidos deben encontrarse en la lista de [problemas en GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si le surge algún problema y no lo encuentra en GitHub, abra un nuevo problema e incluya una descripción detallada del mismo. Incluso si simplemente desea formular una pregunta, no dude en abrir un problema de GitHub y etiquetarlo como una pregunta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Seguir leyendo la documentación sobre Durable Functions](durable-functions-bindings.md)

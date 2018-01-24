@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Administración de discos de Azure con PowerShell
 
@@ -47,7 +47,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Tipo | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
+| type | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -62,7 +62,7 @@ Se pueden agregar discos de datos adicionales para instalar aplicaciones y almac
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| Tipo | Tamaño de VM | Discos de datos máximos por máquina virtual |
+| type | Tamaño de VM | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 32 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 32 |
@@ -81,7 +81,7 @@ Standard Storage está respaldado por unidades de disco duro y ofrece un almacen
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y FS. Los discos Premium incluyen tres tipos (P10, P20, P30, P40 y P50); el tamaño del disco determina el tipo de disco. Al seleccionar el tamaño de un disco, el valor se redondea al siguiente tipo. Por ejemplo, si el tamaño es inferior a 128 GB, el tipo de disco será P10; si oscila entre 129 GB y 512 GB, será P20; para 512 GB, será P30; para 2 TB, será P40; y para 4 TB, será P50. 
+Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y FS. Los discos Premium incluyen cinco tipos (P10, P20, P30, P40 y P50); el tamaño del disco determina el tipo de disco. Al seleccionar el tamaño de un disco, el valor se redondea al siguiente tipo. Por ejemplo, si el tamaño es inferior a 128 GB, el tipo de disco será P10; si oscila entre 129 GB y 512 GB, será P20; para 512 GB, será P30; para 2 TB, será P40; y para 4 TB, será P50. 
 
 ### <a name="premium-disk-performance"></a>Rendimiento del disco Premium
 
@@ -142,7 +142,7 @@ New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -43,7 +43,7 @@ Por ejemplo, supongamos que comienza con la instalación y las suposiciones sigu
 1. 10 particiones.
 1. 1000 eventos distribuidos uniformemente en todas las particiones = > 100 mensajes en cada partición.
 
-Cuando se habilita la función por primera vez, solo hay 1 instancia de la función. Vamos a llamar a esta instancia de función Function_0. Function_0 tendrá 1 EPH que administra para obtener una concesión en las 10 particiones. Comenzará a leer eventos de las particiones 0-9. Desde este punto en adelante, se producirá una de las siguientes acciones:
+Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a esta instancia de función Function_0. Function_0 tendrá 1 EPH que administra para obtener una concesión en las 10 particiones. Comenzará a leer eventos de las particiones 0-9. Desde este punto en adelante, se producirá una de las siguientes acciones:
 
 * **Solo se necesita 1 función**: Function_0 puede procesar todos los 1000 antes de que la lógica de escalado de Azure Functions se inicie. Por lo tanto, se procesan todos los mensajes de 1000 mediante Function_0.
 
@@ -59,14 +59,14 @@ Si todas las ejecuciones de funciones se realizan sin errores, se agregan puntos
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#trigger---c-example)
-* [Script de C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
-En el ejemplo siguiente se muestra un código [C# precompilado](functions-dotnet-class-library.md) que registra el cuerpo del mensaje del desencadenador del centro de eventos.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que registra el cuerpo del mensaje del desencadenador del centro de eventos.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 El constructor del atributo toma el nombre del centro de eventos, el nombre del grupo de consumidores y el nombre de una configuración de aplicación que contenga la cadena de conexión. Para obtener más información sobre estas configuraciones, vea la sección [Configuración de desencadenador](#trigger---configuration). Este es un ejemplo de atributo `EventHubTriggerAttribute`:
 
@@ -211,13 +211,13 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para un ejemplo completo, consulte [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
+Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `EventHubTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `eventHubTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -242,14 +242,14 @@ Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. De
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#output---c-example)
-* [Script de C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script de C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que escribe un mensaje en un centro de eventos usando el valor devuelto del método como resultado:
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que escribe un mensaje en un centro de eventos usando el valor devuelto del método como resultado:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 El constructor del atributo toma el nombre del centro de eventos y el nombre de una configuración de aplicación que contenga la cadena de conexión. Para obtener más información sobre estas configuraciones, vea [Salida: configuración](#output---configuration). Este es un ejemplo de atributo `EventHub`:
 
@@ -384,13 +384,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Para un ejemplo completo, consulte [Salida: ejemplo de C# precompilado](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `EventHub`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `EventHub`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "eventHub". |
 |**dirección** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
@@ -406,7 +406,7 @@ En C# y scripts de C#, envíe mensajes mediante un parámetro de método, como `
 
 En JavaScript, puede obtener acceso al evento de salida usando `context.bindings.<name>`. `<name>` es el valor especificado en la propiedad `name` de *function.json*.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

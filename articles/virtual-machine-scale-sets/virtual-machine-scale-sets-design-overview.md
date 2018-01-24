@@ -5,7 +5,7 @@ keywords: "máquina virtual Linux,conjuntos de escalado de máquina virtual"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
-Este tema analiza consideraciones de diseño para conjuntos de escalado de máquinas virtuales. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
+En este artículo se analizan consideraciones de diseño de Virtual Machine Scale Sets. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>¿Cuándo se usan conjuntos de escalado en lugar de máquinas virtuales?
-Por lo general, los conjuntos de escala son útiles para implementar infraestructura altamente disponible donde un conjunto de máquinas tiene una configuración similar. Sin embargo, algunas características solo están disponibles en los conjuntos de escalado, mientras que otras características solo están disponibles en las máquinas virtuales. Con el fin de tomar una decisión fundamentada sobre cuándo usar cada tecnología, primero debemos examinar algunas de las características más usadas que se encuentran en los conjuntos de escalado, pero no en las máquinas virtuales:
+Por lo general, los conjuntos de escala son útiles para implementar infraestructura altamente disponible donde un conjunto de máquinas tiene una configuración similar. Sin embargo, algunas características solo están disponibles en los conjuntos de escalado, mientras que otras características solo están disponibles en las máquinas virtuales. Con el fin de tomar una decisión fundamentada sobre cuándo usar cada tecnología, primero debe examinar algunas de las características más usadas que se encuentran en los conjuntos de escalado, pero no en las máquinas virtuales:
 
 ### <a name="scale-set-specific-features"></a>Características específicas de los conjuntos de escalado
 
-- Una vez que especifique la configuración del conjunto de escalado, puede simplemente actualizar la propiedad de "capacidad" para implementar más máquinas virtuales en paralelo. Esto es mucho más simple que escribir un script para organizar la implementación de muchas máquinas virtuales individuales en paralelo.
+- Una vez que especifique la configuración del conjunto de escalado, puede actualizar la propiedad de "capacidad" para implementar más máquinas virtuales en paralelo. Esto es mucho más simple que escribir un script para organizar la implementación de muchas máquinas virtuales individuales en paralelo.
 - Puede [usar el escalado automático de Azure para escalar automáticamente un conjunto de escalado](./virtual-machine-scale-sets-autoscale-overview.md), pero no máquinas virtuales individuales.
 - Puede [restablecer la imagen inicial de máquinas virtuales del conjunto de escalado](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), pero [no las máquinas virtuales individuales](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - También puede [sobreaprovisionar](./virtual-machine-scale-sets-design-overview.md) máquinas virtuales del conjunto de escalado para lograr una mejor confiabilidad y tiempos de implementación más rápidos. No puede hacer esto con máquinas virtuales individuales a menos que escriba el código personalizado para hacerlo.
@@ -38,14 +38,14 @@ Por lo general, los conjuntos de escala son útiles para implementar infraestruc
 
 ### <a name="vm-specific-features"></a>Características específicas de máquinas virtuales
 
-Por otro lado, algunas características solo están disponibles en las máquinas virtuales (al menos por el momento):
+Algunas características solo están disponibles actualmente en las máquinas virtuales:
 
 - Puede conectar discos de datos a máquinas virtuales individuales específicas, pero los discos de datos conectados están configurados para todas las máquinas virtuales en un conjunto de escalado.
 - Puede conectar discos de datos no vacíos a máquinas virtuales individuales, pero no máquinas virtuales de un conjunto de escalado.
 - Puede crear una instantánea de una máquina virtual individual, pero no una máquina virtual en un conjunto de escalado.
 - Puede capturar una imagen desde una máquina virtual individual, pero no desde una máquina virtual en un conjunto de escalado.
 - Puede migrar una máquina virtual individual desde discos nativos a discos administrados, pero no puede hacerlo para máquinas virtuales de un conjunto de escalado.
-- Puede asignar direcciones IP públicas IPv6 a NIC de máquinas virtuales individuales, pero no puede hacerlo para máquinas virtuales de un conjunto de escalado. Tenga en cuenta que puede asignar direcciones IP públicas IPv6 a equilibradores de carga delante de máquinas virtuales individuales o de máquinas virtuales de conjunto de escalado.
+- Puede asignar direcciones IP públicas IPv6 a NIC de máquinas virtuales individuales, pero no puede hacerlo para máquinas virtuales de un conjunto de escalado. Puede asignar direcciones IP públicas IPv6 a equilibradores de carga delante de máquinas virtuales individuales o de máquinas virtuales de conjunto de escalado.
 
 ## <a name="storage"></a>Storage
 
@@ -68,7 +68,7 @@ Aunque el aprovisionamiento en exceso mejora las tasas de éxito de aprovisionam
 
 Si el conjunto de escalado usa almacenamiento administrado por el usuario y se desactiva el aprovisionamiento en exceso, puede tener más de 20 VM por cuenta de almacenamiento. Sin embargo, no se recomienda que supere las 40 para mantener un buen rendimiento de E/S. 
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 Un conjunto de escalado basado en una imagen de Marketplace (que también se conoce como una imagen de plataforma) y configurado para usar Azure Managed Disks admite una capacidad de hasta 1000 VM. Si configura el conjunto de escalado para que admita más de 100 VM, no todos los escenarios funcionan del mismo modo (por ejemplo, el equilibro de carga). Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). 
 
 Un conjunto de escalado configurado con cuentas de almacenamiento administradas por el usuario actualmente tiene un límite de 100 VM (y se recomiendan 5 cuentas de almacenamiento para esta escala).

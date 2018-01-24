@@ -14,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 5913c8ec1b62fc38161e553dc2364c793951e047
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Uso de la CLI para supervisar y escalar una instancia de SQL Database
 
@@ -30,11 +30,14 @@ Este ejemplo de script de la CLI de Azure escala una sola instancia de Azure SQL
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) para obtener una lista de las operaciones realizadas en la base de datos y utilice [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) para cancelar una operación de actualización en la base de datos.
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -48,7 +51,7 @@ az group delete --name myResourceGroup
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Crea un servidor lógico que hospeda una base de datos. |
@@ -57,7 +60,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 

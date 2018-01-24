@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -149,10 +149,13 @@ Para deshabilitar TTL completamente en una colección y detener el proceso en se
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interacción del período de vida (TTL) y el índice
-La adición o modificación del TTL supone un cambio en un índice subyacente. Cuando no hay ningún TTL y se proporciona un valor de TTL válido, se produce una operación de reindexación. Para que el índice sea coherente, el usuario no verá ningún cambio en el estado del índice. En el caso de un índice diferido, el índice siempre se actualiza primero y con este cambio en el TTL, se vuelve a crear desde cero. El efecto en este último caso es que las consultas realizadas durante la regeneración del índice no devolverán resultados correctos o completos. No cambie el TTL en índices diferidos si necesita un recuento exacto de los datos, dado que el modo de indexación propiamente dicho es diferido.  Lo ideal es elegir siempre un índice coherente. 
+Agregar o cambiar la configuración del TTL en una colección cambia el índice subyacente. Al cambiar TTL de desactivado a activado, la colección se vuelve a indexar. Al realizar cambios en la directiva de indexación cuando el modo de indexación es coherente, los usuarios no observarán cambios en el índice. Cuando el modo de indexación se establece en diferido, el índice siempre se pone al día y, si se cambia el valor de TTL, el índice se vuelve a crear desde cero. Al cambiar el valor de TTL con el modo del índice establecido en diferido, las consultas realizadas durante la regeneración del índice no devuelvan resultados correctos ni completados.
 
-## <a name="faq"></a>P+F
+Si necesita la devolución de datos exactos, no cambie el valor de TTL con el modo de indexación establecido en diferido. Lo ideal es elegir un índice coherente para garantizar coherencia en los resultados de consulta. 
+
+## <a name="faq"></a>Preguntas más frecuentes
 **¿Cuánto me costará el TTL?**
 
 Establecer un TTL en un documento no tiene ningún costo adicional.
@@ -173,6 +176,6 @@ TTL se aplica a todo el documento. Si quiere que solo una parte de un documento 
 
 Sí. La colección necesita tener el [conjunto de directiva de indexación](indexing-policies.md) establecido en diferido o coherente. Si se intenta establecer DefaultTTL en una colección con la indexación definida como ninguna, se producirá un error, puesto que está intentando desactivar la indexación en una colección que tiene un valor de DefaultTTL ya establecido.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre Azure Cosmos DB, consulte la página de [*documentación*](https://azure.microsoft.com/documentation/services/cosmos-db/) del servicio.
 

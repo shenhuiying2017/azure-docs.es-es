@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análisis de tendencias en Visual Studio
 La herramienta Tendencias de Application Insights muestra cómo los eventos de telemetría importantes de la aplicación web cambian a lo largo del tiempo, lo que ayuda a identificar rápidamente los problemas y las anomalías. Al vincularle a información de diagnóstico más detallada, Tendencias puede ayudarle a mejorar el rendimiento de la aplicación, realizar un seguimiento de las causas de las excepciones y revelar información de los eventos personalizados.
@@ -57,7 +57,7 @@ Tendencias de Application Insights crea una visualización de la serie temporal 
 
 Utilice los controles de la parte superior de la ventana para ajustar los tipos de telemetría que ve. En primer lugar, elija los tipos de telemetría en los que está interesado:
 
-* **Tipo de telemetría** : solicitudes del servidor, excepciones, dependencias o eventos personalizados.
+* **Tipo de telemetría**: solicitudes del servidor, excepciones, dependencias o eventos personalizados.
 * **Intervalo de tiempo** : en cualquier momento entre los últimos 30 minutos y los últimos tres días.
 * **Agrupar por** : tipo excepción, identificador del problema, país o región, etc.
 

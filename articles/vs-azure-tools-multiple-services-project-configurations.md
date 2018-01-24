@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configuración de su proyecto de Azure en Visual Studio para usar varias configuraciones de servicio
 
@@ -77,7 +77,7 @@ Para cadenas de conexión nuevas o existentes, seleccione **...*** a la derecha 
 
 1. En **Conectar mediante**, elija la opción **Su suscripción** para seleccionar una cuenta de almacenamiento de una suscripción. Después, Visual Studio obtiene las credenciales de la cuenta de almacenamiento automáticamente del archivo `.publishsettings`.
 1. Si selecciona **Credenciales escritas manualmente**, puede especificar el nombre de la cuenta y la clave directamente con la información de Azure Portal. Para copiar la clave de la cuenta: a. Vaya a la cuenta de almacenamiento en Azure Portal y seleccione **Administrar claves**.
-    2. En la página **Administrar claves de acceso**, seleccione el texto de la clave de acceso principal y presione las teclas CTRL+C para copiarla.
+    2. Para copiar la clave de cuenta, vaya a la cuenta de almacenamiento en Azure Portal, seleccione **Configuración > Claves de acceso** y use el botón Copiar para copiar la clave de acceso principal en el Portapapeles.
 1. Seleccione una de las opciones de conexión. En **Especificar extremos personalizados** se le pide que especifique direcciones URL específicas para los blobs, las tablas y las colas. Los puntos de conexión personalizados permiten usar [dominios personalizados](storage/blobs/storage-custom-domain-name.md) y controlar el acceso con mayor precisión. Consulte [Configuración de las cadenas de conexión de Azure Storage](./storage/common/storage-configure-connection-string.md).
 1. Seleccione **Aceptar** y, después, **Archivo > Guardar**, para actualizar la configuración con la nueva cadena de conexión.
 

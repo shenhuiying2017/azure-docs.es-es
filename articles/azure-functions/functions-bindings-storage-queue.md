@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -35,13 +35,13 @@ Use el desencadenador de cola para iniciar una función cuando se reciba un nuev
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#trigger---c-example)
-* [Script de C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script de C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
-En el ejemplo siguiente se muestra código [C# precompilado](functions-dotnet-class-library.md) que sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de blob en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
+En el ejemplo siguiente se muestra un enlace de desencadenador de blobs en un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
 Este es el archivo *function.json*:
 
@@ -153,7 +153,7 @@ En la sección acerca del [uso](#trigger---usage) se explica `myQueueItem`, que 
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
  
-Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de cola:
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de cola:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use 
   }
   ```
  
-  Para obtener un ejemplo completo, vea [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
+  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -211,7 +211,7 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `QueueTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D| Se debe establecer en `queueTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección**| N/D | Solo en el archivo *function.json*. Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -236,7 +236,7 @@ En JavaScript, use `context.bindings.<name>` para tener acceso a la carga del el
 
 El desencadenador de cola proporciona varias propiedades de metadatos. Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Los valores tienen la misma semántica que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propiedad|Escriba|Descripción|
+|Propiedad|type|DESCRIPCIÓN|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga de cola (si hay una cadena válida). Si la cola envía la carga como una cadena, `QueueTrigger` tiene el mismo valor que la variable denominada por la propiedad `name` en *function.json*.|
 |`DequeueCount`|`int`|Es el número de veces que se ha quitado de la cola este mensaje.|
@@ -266,13 +266,13 @@ Use el enlace de salida de Azure Queue Storage para escribir mensajes en una col
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#output---c-example)
-* [Script de C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script de C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
-En el ejemplo siguiente se muestra código de [C# precompilado](functions-dotnet-class-library.md) que crea un mensaje de cola para cada una de las solicitudes HTTP que se reciben.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que crea un mensaje de cola para cada una de las solicitudes HTTP que se reciben.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Salida: ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de blob en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función crea un elemento de cola con una carga POCO para cada una de las solicitudes HTTP recibidas.
+En el ejemplo siguiente se muestra un enlace de desencadenador de blobs en un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función crea un elemento de cola con una carga POCO para cada una de las solicitudes HTTP recibidas.
 
 Este es el archivo *function.json*:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Salida: atributos
  
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 El atributo se aplica a un parámetro `out` o al valor de retorno de la función. El constructor del atributo toma el nombre de la cola, tal como se muestra en el ejemplo siguiente:
 
@@ -418,22 +418,22 @@ Puede establecer la propiedad `Connection` para especificar la cuenta de almacen
 
 ```csharp
 [FunctionName("QueueOutput")]
-[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 {
     ...
 }
 ```
 
-Para obtener un ejemplo completo, vea [Salida: ejemplo de C# precompilado](#output---c-example).
+Para un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
-Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Desencadenador: atributos](#trigger---attributes-for-precompiled-c).
+Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Desencadenador: atributos](#trigger---attribute).
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `Queue`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `Queue`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `queue`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -459,7 +459,7 @@ En C# y script de C#, escriba varios mensajes de cola mediante uno de los siguie
 
 En las funciones de JavaScript, use `context.bindings.<name>` para tener acceso al mensaje de cola de salida. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ir a un inicio rápido que use un desencadenador de Queue Storage](functions-create-storage-queue-triggered-function.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
 
@@ -74,7 +74,7 @@ Vea [ejemplos de directivas](policy-samples.md) para obtener más código de eje
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Directivas de Appliy especificadas en distintos ámbitos
+### <a name="apply-policies-specified-at-different-scopes"></a>Aplicación de las directivas especificadas en distintos ámbitos
 
 Si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa API en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base. 
 
@@ -119,7 +119,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 

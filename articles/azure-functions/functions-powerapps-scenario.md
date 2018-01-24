@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Llamada a una función desde PowerApps
 La plataforma [PowerApps](https://powerapps.microsoft.com) está diseñada para que expertos empresariales creen aplicaciones sin código de aplicación tradicional. Los desarrolladores profesionales pueden usar Azure Functions para ampliar las capacidades de PowerApps, evitándoles los detalles técnicos a los compiladores de aplicaciones de PowerApps.
@@ -42,37 +42,11 @@ En este tema, aprenderá cómo:
 > * Agregar controles para llamar a la función y mostrar los datos.
 > * Ejecutar la aplicación para determinar si una reparación es rentable.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Una [cuenta de PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) activa con las mismas credenciales de inicio de sesión que su cuenta de Azure. 
-+ Excel, dado que va a usar Excel como origen de datos de la aplicación.
++ Excel y el [archivo de Excel de ejemplo](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que va a utilizar como origen de datos para la aplicación.
 + Complete el tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md) (Creación de una definición de OpenAPI para una función).
-
-
-## <a name="prepare-sample-data-in-excel"></a>Preparar datos de ejemplo en Excel
-Para comenzar, prepare los datos de ejemplo que usará en la aplicación. Copie la siguiente tabla en Excel. 
-
-| Título      | Latitud  | Longitud  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbina 1  | 47,438401 | -121,383767 | 23/2/2017       | 2850      | Sí             | 6               | Este es el segundo problema de este mes.       |
-| Turbina 4  | 47,433385 | -121,383767 | 8/5/2017        | 5400      | Sí             | 6               |                                            |
-| Turbina 33 | 47,428229 | -121,404641 | 20/6/2017       | 2800      |                 |                 |                                            |
-| Turbina 34 | 47,463637 | -121,358824 | 19/2/2017       | 2800      | Sí             | 7               |                                            |
-| Turbina 46 | 47,471993 | -121,298949 | 2/3/2017        | 1200      |                 |                 |                                            |
-| Turbina 47 | 47,484059 | -121,311171 | 2/8/2016        | 3350      |                 |                 |                                            |
-| Turbina 55 | 47,438403 | -121,383767 | 2/10/2016       | 2400      | Sí             | 40               | Tenemos algunas piezas para esta. |
-
-1. En Excel, seleccione los datos y, en la pestaña **Inicio**, haga clic en **Dar formato como tabla**.
-
-    ![Dar formato como tabla](media/functions-powerapps-scenario/format-table.png)
-
-1. Seleccione un estilo y haga clic en **Aceptar**.
-
-1. Con la tabla seleccionada, en la pestaña **Diseño**, escriba `Turbines` en **Nombre de tabla**.
-
-    ![Nombre de tabla](media/functions-powerapps-scenario/table-name.png)
-
-1. Guarde el libro de Excel.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ La API personalizada (también conocida como conector personalizado) está dispo
 ## <a name="create-an-app-and-add-data-sources"></a>Crear una aplicación y agregar orígenes de datos
 Ahora está listo para crear la aplicación en PowerApps y agregar los datos de Excel y la API personalizada como orígenes de datos de la aplicación.
 
-1. En [web.powerapps.com](https://web.powerapps.com), en el panel izquierdo, haga clic en **Nueva aplicación**.
+1. En [web.powerapps.com](https://web.powerapps.com), elija **Iniciar desde cero** > ![Icono de aplicación para teléfono](media/functions-powerapps-scenario/icon-phone-app.png) (teléfono) > **Crear esta aplicación**.
 
-1. En **Aplicación vacía**, haga clic en **Diseño de teléfono**.
+    ![Iniciar desde cero - aplicación de teléfono](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Crear aplicación de tableta](media/functions-powerapps-scenario/create-phone-app.png)
-
-    La aplicación se abre en PowerApps Studio para web. En la siguiente imagen, se muestran las distintas partes de PowerApps Studio. Esta imagen es de la aplicación finalizada; verá una pantalla en blanco al principio en el panel central.
+    La aplicación se abre en PowerApps Studio para web. En la siguiente imagen, se muestran las distintas partes de PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) Barra de navegación izquierda**, en la que ve una vista jerárquica de todos los controles de cada pantalla
+    **(A) Barra de navegación izquierda**, en la que se ve una vista jerárquica de todos los controles de cada pantalla
 
-    **(2) Panel central**, que muestra la pantalla en que está trabajando
+    **(B) Panel central**, que muestra la pantalla en la que está trabajando
 
-    **(3) Panel derecho**, donde se establecen opciones como orígenes de datos y diseño
+    **(C) Panel derecho**, donde se establecen opciones como los orígenes de datos y el diseño
 
-    **(4) Propiedades** (lista desplegable), donde se seleccionan las propiedades a las que se aplican las fórmulas
+    **(D) Propiedades**, lista desplegable donde se seleccionan las propiedades a las que se aplican las fórmulas
 
-    **(5) Barra de fórmulas**, donde se agregan fórmulas (como en Excel) que definen el comportamiento de la aplicación
+    **(E) Barra de fórmulas**, donde se agregan fórmulas (como en Excel) que definen el comportamiento de la aplicación
     
-    **(6) Cinta**, donde se pueden agregar controles y personalizar elementos de diseño
+    **(F) Cinta**, donde se pueden agregar controles y personalizar elementos de diseño
 
 1. Agregue el archivo de Excel como origen de datos.
 
-    1. En el panel derecho, en la pestaña **Datos**, haga clic en **Agregar origen de datos**.
+    Los datos que va a importar tienen el siguiente aspecto:
 
-        ![Agregar origen de datos](media/functions-powerapps-scenario/add-data-source.png)
+    ![Datos de Excel para importar](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Haga clic en **Agregar datos estáticos a la aplicación**.
+    1. En el lienzo de la aplicación, elija **conectar a datos**.
+
+    1. En el panel **Datos** haga clic en **Agregar datos estáticos a la aplicación**.
 
         ![Agregar origen de datos](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ Ahora está listo para crear la aplicación en PowerApps y agregar los datos de 
 
         ![Agregar origen de datos](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. Agregue la API personalizada como origen de datos.
 
-    1. En la pestaña **Datos**, haga clic en **Agregar origen de datos**.
+    1. En el panel **Datos**, haga clic en **Agregar origen de datos**.
 
     1. Haga clic en **Turbine Repair** (Reparación de turbinas).
 
@@ -156,17 +131,21 @@ Ahora que los orígenes de datos están disponibles en la aplicación, agregue u
 
     ![Cambiar el título y cambiar el tamaño de la galería](media/functions-powerapps-scenario/gallery-title.png)
 
-1. Con la galería seleccionada, en el panel derecho, en la pestaña **Datos**, cambie el origen de datos de **CustomGallerySample** a **Turbines** (Turbinas).
+1. Con la galería seleccionada, en el panel derecho, en **Propiedades**, haga clic en **CustomGallerySample**.
 
     ![Cambiar origen de datos](media/functions-powerapps-scenario/change-data-source.png)
 
+1. En el panel **Datos**, seleccione **Turbinas** en la lista.
+
+    ![Selección de origen de datos](media/functions-powerapps-scenario/select-data-source.png)
+
     El conjunto de datos no contiene ninguna imagen, así que cambie el diseño para que se ajuste mejor a los datos. 
 
-1. Todavía en el panel derecho, cambie **Diseño** por **Título, subtítulo y cuerpo**.
+1. Todavía en el panel **Datos**, cambie **Diseño** por **Título, subtítulo y cuerpo**.
 
     ![Cambiar el diseño de la galería](media/functions-powerapps-scenario/change-layout.png)
 
-1. Como último paso en el panel derecho, cambie los campos que se muestran en la galería.
+1. Como último paso en el panel **Datos**, cambie los campos que se muestran en la galería.
 
     ![Cambiar los campos de la galería](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Ahora que los orígenes de datos están disponibles en la aplicación, agregue u
 1. No necesita la pantalla original en la aplicación. En el panel izquierdo, mantenga el puntero sobre **Screen1**, haga clic en **. . .** y **Eliminar**.
 
     ![Eliminar pantalla](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Haga clic en **Archivo**y dele un nombre a la aplicación. Haga clic en **Guardar** en el menú izquierdo y, a continuación, haga clic en **Guardar** en la esquina inferior derecha.
 
 Hay muchas otras características de formato que realizaría normalmente en una aplicación de producción, pero pasaremos a la parte importante de este escenario: llamar a la función.
 
@@ -237,7 +218,7 @@ Tiene una aplicación completa. Ahora es el momento de ejecutarla y ver las llam
 
 1. Pruebe las demás turbinas para ver qué devuelve la función cada vez.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tema, ha aprendido cómo:
 
 > [!div class="checklist"]

@@ -11,28 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Agregar servidores de hospedaje para su uso por el adaptador de SQL
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Puede usar instancias SQL en las máquinas virtuales dentro de su instancia de [Azure Stack](azure-stack-poc.md), o una instancia fuera de su entorno de Azure Stack, siempre que el proveedor de recursos se pueda conectar a ella. Los requisitos generales son:
 
 * La instancia de SQL debe estar dedicada para ser usada por las cargas de trabajo de usuario y RP. No puede utilizar una instancia de SQL que esté siendo utilizada por otro consumidor, incluido App Services.
 * El adaptador de RP no está unido al dominio y solo se puede conectar mediante la autenticación de SQL.
 * Debe configurar una cuenta con los privilegios adecuados para que la use el RP.
-* El tráfico de red desde el RP a SQL usa el puerto 1433 y no se puede cambiar.
 * El RP y los usuarios, como Web Apps, utilizan la red del usuario, por lo que se requiere conectividad a la instancia SQL en esta red. Este requisito normalmente significa que la dirección IP para las instancias de SQL debe estar en una red pública.
 * La administración de las instancias de SQL y sus hosts depende de usted; el RP no realiza la aplicación de revisiones, la copia de seguridad, la rotación de credenciales, etcétera.
 * Las SKU pueden utilizarse para crear clases diferentes de capacidades SQL, tales como el rendimiento, la funcionalidad Always On, etcétera.
-
 
 
 Varias imágenes de la máquina virtual IaaS de SQL están disponibles a través de la característica Administración de Marketplace. Asegúrese de descargar siempre la versión más reciente de la extensión IaaS de SQL antes de implementar una máquina virtual mediante un elemento de Marketplace. Las imágenes de SQL son las mismas que las máquinas virtuales de SQL disponibles en Azure. Para las máquinas virtuales de SQL creadas a partir de estas imágenes, la extensión de IaaS y las correspondientes mejoras del portal proporcionan características como las funcionalidades de copia de seguridad y de revisión automática.
@@ -73,6 +71,8 @@ Para agregar un servidor de hospedaje independiente que ya se haya aprovisionado
 
   ![Nuevo servidor de hospedaje](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Opcionalmente, puede incluir un nombre de instancia y puede proporcionar un número de puerto si la instancia no está asignada al puerto predeterminado 1433.
+
   > [!NOTE]
   > Siempre y cuando el usuario y el administrador en Azure Resource Manager puedan acceder a la instancia de SQL, esta puede ponerse bajo el control del proveedor de recursos. La instancia de SQL __debe__ asignarse exclusivamente al RP.
 
@@ -86,10 +86,10 @@ Para agregar un servidor de hospedaje independiente que ya se haya aprovisionado
 
     Por ejemplo:
 
-    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-Las SKU pueden tardar hasta una hora en estar visibles en el portal. No puede crear una base de datos hasta que se cree totalmente la SKU.
+> Las SKU pueden tardar hasta una hora en estar visibles en el portal. Los usuarios no pueden crear una base de datos hasta que se cree totalmente la SKU.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Agregar capacidad a través de grupos de disponibilidad SQL Always On
 La configuración de instancias de SQL Always On requiere pasos adicionales e implica al menos tres máquinas virtuales (o máquinas físicas).
@@ -126,7 +126,7 @@ Para agregar servidores de hospedaje SQL Always On, siga estos pasos:
     La hoja **SQL Hosting Servers** (Servidores de hospedaje SQL) es donde puede conectar el proveedor de recursos del servidor SQL a instancias reales de SQL Server que actúan como back-end del proveedor de recursos.
 
 
-3. Rellene el formulario con los detalles de conexión de su instancia de SQL Server, asegurándose de usar la dirección IPv4 o el nombre de dominio completo del agente Always On. Proporcione la información de cuenta para la cuenta configurada con los privilegios de administrador del sistema.
+3. Rellene el formulario con los detalles de conexión de su instancia de SQL Server, asegurándose de usar la dirección IPv4 o el nombre de dominio completo del agente de escucha Always On (y el número de puerto opcional). Proporcione la información de cuenta para la cuenta configurada con los privilegios de administrador del sistema.
 
 4. Active esta casilla para habilitar la compatibilidad con instancias de grupo de disponibilidad SQL Always On.
 
@@ -137,7 +137,7 @@ Para agregar servidores de hospedaje SQL Always On, siga estos pasos:
 
 ## <a name="making-sql-databases-available-to-users"></a>Bases de datos SQL a disposición de los usuarios
 
-Cree planes y ofertas para poner las bases de datos SQL a disposición de los usuarios. Agregue el servicio Microsoft.SqlAdapter al plan y una cuota existente, o cree una nueva. Si crea una cuota, puede especificar la capacidad permitida para el usuario.
+Cree planes y ofertas para poner las bases de datos SQL a disposición de los usuarios. Agregue el servicio Microsoft.SqlAdapter al plan y agregue una cuota existente o cree una nueva. Si crea una cuota, puede especificar la capacidad permitida para el usuario.
 
 ![Crear planes y ofertas para incluir las bases de datos](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 
@@ -163,6 +163,6 @@ Para modificar la configuración, haga clic en **Examinar** &gt; **RECURSOS ADMI
 ![Actualización de la contraseña de administrador](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Agregar bases de datos](azure-stack-sql-resource-provider-databases.md)

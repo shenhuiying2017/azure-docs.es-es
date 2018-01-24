@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Creación de una máquina virtual básica en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales (VM) en Azure al igual que podría hacerlo con cualquier otro recurso. En este artículo se muestra cómo crear una VM básica con Ansible. También puede obtener información sobre cómo [crear un entorno de máquina virtual completo con Ansible](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para administrar recursos de Azure con Ansible, necesita lo siguiente:
 
 - Los módulos de Ansible y SDK de Python de Azure instalados en el sistema de host.
@@ -37,7 +37,7 @@ Para administrar recursos de Azure con Ansible, necesita lo siguiente:
 
 
 ## <a name="create-supporting-azure-resources"></a>Creación de recursos de Azure de apoyo
-En este ejemplo crearemos un runbook que implementa una máquina virtual en una infraestructura existente. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/vm#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En este ejemplo, creará un runbook que implementa una máquina virtual en una infraestructura existente. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/vm#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Creación y ejecución de guía de Ansible
-Cree una guía de Ansible llamada **azure_create_vm.yml** y pegue el siguiente contenido. En este ejemplo se crea una única VM y se configuran las credenciales de Secure Shell. Especifique los datos de su propia clave pública en el par *key_data* de la siguiente forma:
+Cree una guía de Ansible llamada *azure_create_vm.yml* y pegue el siguiente contenido. En este ejemplo se crea una única VM y se configuran las credenciales de Secure Shell. Especifique los datos completos de su propia clave pública en el par *key_data* de la siguiente forma:
 
 ```yaml
 - name: Create Azure VM
@@ -102,5 +102,5 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este ejemplo se crea una VM en un grupo de recursos existente con una red virtual ya implementada. Para ver un ejemplo más detallado de cómo usar Ansible para crear recursos de apoyo, como una red virtual y reglas del grupo de seguridad de red, consulte [Creación de un entorno de máquina virtual completo con Ansible](ansible-create-complete-vm.md).

@@ -1,6 +1,6 @@
 ---
 title: Copia o traslado de datos a Azure Storage con AzCopy en Windows| Microsoft Docs
-description: "Use la utilidad AzCopy en Windows para mover o copiar datos hacia o desde contenido de archivos, blobs y tablas. Copie datos a Almacenamiento de Azure desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Almacenamiento de Azure."
+description: "Use la utilidad AzCopy en Windows para mover o copiar datos hacia o desde contenido de archivos, blobs y tablas. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferencia de datos con AzCopy en Windows
-AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs, Archivos y Almacenamiento de tablas de Microsoft Azure, mediante sencillos comandos con un rendimiento óptimo. También puede copiar datos de un objeto a otro dentro de la cuenta de almacenamiento o entre cuentas de almacenamiento.
+AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs de Microsoft Azure, File Storage y Table Storage con sencillos comandos diseñados para ofrecer un rendimiento óptimo. Puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento.  
 
 Hay dos versiones de AzCopy que puede descargar. AzCopy en Windows está integrado en .NET Framework y ofrece opciones de línea de comandos de estilo Windows. [AzCopy en Linux](storage-use-azcopy-linux.md) está integrado en .NET Core Framework que tiene como destino plataformas Linux y ofrece opciones de línea de comandos de estilo POSIX. Este artículo trata sobre AzCopy en Windows.
 
@@ -349,7 +349,7 @@ Cuando copia un archivo de un blob a un recurso compartido de archivos, se reali
 
 ### <a name="synchronously-copy-files"></a>Copia sincrónica de archivos
 
-Puede especificar la opción `/SyncCopy` para copiar datos de forma sincrónica del Almacenamiento de archivos al Almacenamiento de archivos, del Almacenamiento de archivos al Almacenamiento de blobs y del Almacenamiento de blobs al Almacenamiento de archivos; para ello, AzCopy descarga los datos de origen en la memoria local y los carga de nuevo al destino. Se aplica el costo de salida estándar.
+Puede especificar la opción `/SyncCopy` para copiar datos de forma sincrónica de File Storage a File Storage, de File Storage a Blob Storage y de Blob Storage a File Storage; para ello, AzCopy descarga los datos de origen en la memoria local y los carga de nuevo al destino. Se aplica el costo de salida estándar.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -642,7 +642,7 @@ Si el origen especificado es un recurso compartido de archivos de Azure, debe es
 
 AzCopy utiliza la coincidencia entre mayúsculas y minúsculas cuando /Soure es un contenedor de blob o el directorio virtual de blob y utiliza la falta de coincidencia entre mayúsculas y minúsculas en todos los demás casos.
 
-El patrón de archivo predeterminado que se usa cuando no se especifica ninguno es *.* para una ubicación del sistema de archivos, o un prefijo vacío para una ubicación de Almacenamiento de Azure. No se admite la especificación de varios patrones de archivos.
+El patrón de archivo predeterminado que se usa cuando no se especifica ninguno es *.* para una ubicación del sistema de archivos, o un prefijo vacío para una ubicación de Azure Storage. No se admite la especificación de varios patrones de archivos.
 
 **Aplicable a:** blobs, archivos
 
@@ -694,7 +694,7 @@ Especifica si el blob de destino es un blob en bloques, un blob en páginas o un
 
 Calcula un hash MD5 para datos descargados y comprueba que el hash MD5 almacenado en la propiedad Content-MD5 del blob o archivo coincide con el hash calculado. La comprobación MD5 se desactiva de forma predeterminada, por lo que debe especificar esta opción para realizar dicha comprobación cuando se descargan datos.
 
-Tenga en cuenta que Almacenamiento de Azure no garantiza que el hash MD5 almacenado para el blob o archivo esté actualizado. El cliente será el responsable de actualizar el MD5 siempre que el blob o el archivo se modifique.
+Tenga en cuenta que Azure Storage no garantiza que el hash MD5 almacenado para el blob o archivo esté actualizado. El cliente será el responsable de actualizar el MD5 siempre que el blob o el archivo se modifique.
 
 AzCopy siempre establece la propiedad Content-MD5 para un blob o archivo de Azure después de cargarlo en el servicio.  
 
@@ -907,9 +907,9 @@ Esta opción es necesaria durante la operación de importación para localizar l
 
 ### <a name="synccopy"></a>/SyncCopy
 
-Indica si se van a copiar archivos o blobs entre dos extremos de Almacenamiento de Azure de forma sincrónica.
+Indica si se van a copiar archivos o blobs entre dos extremos de Azure Storage de forma sincrónica.
 
-De forma predeterminada, AzCopy usa la copia asincrónica del servidor. Especifique esta opción para hacer una copia sincrónica, que se descarga blobs o archivos en la memoria local y, a continuación, los carga en el Almacenamiento de Azure.
+De forma predeterminada, AzCopy usa la copia asincrónica del servidor. Especifique esta opción para hacer una copia sincrónica, que se descarga blobs o archivos en la memoria local y, a continuación, los carga en Azure Storage.
 
 Puede usar esta opción al copiar archivos dentro del almacenamiento de blobs o el almacenamiento de archivos o del almacenamiento de blobs al almacenamiento de archivos o viceversa.
 
@@ -967,20 +967,20 @@ Respecto de la propiedad "AzureStorageUseV1MD5":
 
 Los algoritmos compatibles con FIPS están deshabilitados de manera predeterminada en Windows. Puede cambiar esta configuración de directiva en su máquina. En la ventana Ejecutar (Windows+R), escriba secpol.msc para abrir la ventana **Directiva de seguridad local**. En la ventana **Configuración de seguridad**, vaya a **Configuración de seguridad** > **Directivas locales** > **Opciones de seguridad**. Ubique la directiva **System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing** (Criptografía de sistema: usar algoritmos compatibles con FIPS para cifrado, hash y firma). Haga doble clic en la directiva para ver el valor en la columna **Configuración de seguridad**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 
-### <a name="azure-storage-documentation"></a>Documentación de Almacenamiento de Azure:
-* [Introducción a Almacenamiento de Azure](../storage-introduction.md)
+### <a name="azure-storage-documentation"></a>Documentación de Azure Storage:
+* [Introducción a Azure Storage](../storage-introduction.md)
 * [Uso del almacenamiento de blobs de .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Uso del almacenamiento de archivos de .NET](../storage-dotnet-how-to-use-files.md)
 * [Uso del almacenamiento de tablas de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account.md)
 * [Transferencia de datos con AzCopy en Linux](storage-use-azcopy-linux.md)
 
-### <a name="azure-storage-blog-posts"></a>Publicaciones en blobs de Almacenamiento de Azure
-* [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Almacenamiento de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+### <a name="azure-storage-blog-posts"></a>Publicaciones en blobs de Azure Storage
+* [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Azure Storage](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introducción a la copia sincrónica y el tipo de contenido personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Presentación de la disponibilidad general de AzCopy 3.0 y de la versión de vista previa de AzCopy 4.0 compatible con tablas y archivos](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Optimizada para escenarios de copia a gran escala](http://go.microsoft.com/fwlink/?LinkId=507682)

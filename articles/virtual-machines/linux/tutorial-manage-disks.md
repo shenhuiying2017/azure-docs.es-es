@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
@@ -50,7 +50,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Tipo | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
+| type | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -65,7 +65,7 @@ Se pueden agregar discos de datos adicionales para instalar aplicaciones y almac
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| Tipo | Tamaño de VM | Discos de datos máximos por máquina virtual |
+| type | Tamaño de VM | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 32 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 32 |
@@ -283,7 +283,7 @@ Use el comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 

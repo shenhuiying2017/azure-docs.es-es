@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
-Obtenga información acerca de cómo habilitar y deshabilitar la protección contra denegación de servicio (DDoS) distribuido y usar la telemetría para mitigar un ataque DDoS con Protección contra DDoS de Azure estándar Protección contra DDoS de Azure estándar protege los recursos de Azure, como las máquinas virtuales, los equilibradores de carga y las puertas de enlace de aplicaciones que disponen de una [dirección IP pública](virtual-network-public-ip-address.md) de Azure asignada. Para más información sobre el estándar de protección contra DDoS y sus funcionalidades, vea [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md). 
+Obtenga información acerca de cómo habilitar y deshabilitar la protección contra denegación de servicio (DDoS) distribuido y usar la telemetría para mitigar un ataque DDoS con Protección contra DDoS de Azure estándar. Protección contra DDoS de Azure estándar protege los recursos de Azure, como las máquinas virtuales, los equilibradores de carga y las puertas de enlace de aplicaciones que disponen de una [dirección IP pública](virtual-network-public-ip-address.md) de Azure asignada. Para más información sobre el estándar de protección contra DDoS y sus funcionalidades, vea [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md). 
 
 >[!IMPORTANT]
 >El servicio Protección contra DDoS de Azure estándar (Protección contra DDoS) se encuentra actualmente en la versión preliminar. El servicio Protección contra DDoS es compatible con un número limitado de recursos de Azure y está disponible solo en un determinado número de regiones. Para obtener una lista de regiones disponibles, vea [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md). Necesita [registrarse en el servicio](http://aka.ms/ddosprotection) durante la versión preliminar limitada para habilitar Protección contra DDoS para su suscripción. Después de registrarse, el equipo de DDoS de Azure se pondrá en contacto con usted para guiarle en el proceso de habilitación. 
@@ -31,21 +31,21 @@ Obtenga información acerca de cómo habilitar y deshabilitar la protección con
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Habilitación de Protección contra DDoS estándar en una red virtual nueva
 
 1. Inicie sesión en Azure Portal: http://portal.azure.com/. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-2. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 3. Haga clic en **Redes** y seleccione **Red virtual**.
-4. Cree una red virtual con la configuración elegida. Para más información sobre cómo crear redes virtuales en Azure, vea [Creación de una red virtual con varias subredes](virtual-networks-create-vnet-arm-pportal.md). En *Protección contra DDoS*, haga clic en **Habilitado** y luego haga clic en **Crear**.
+4. Cree una red virtual con la configuración elegida. Para más información sobre cómo crear redes virtuales en Azure, vea [Creación de una red virtual con varias subredes](virtual-networks-create-vnet-arm-pportal.md). En **Protección contra DDoS**, haga clic en **Habilitado** y luego haga clic en **Crear**. Si no ve **Protección contra DDoS**, una causa probable es que su suscripción no esté registrada para disponer de la característica. Debe realizar el [registro](http://aka.ms/ddosprotection) y recibir una notificación de que la característica está habilitada para su suscripción para que **Protección contra DDoS** aparezca.
 
     ![Creación de una red virtual](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Al seleccionar una región, elija una región admitida en la lista de [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md).
+    > Al seleccionar una región, elija una región admitida en la lista de [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md). Si no selecciona una región admitida, se produce un error en la creación de la red virtual.
 
     Una advertencia indica que se cobrarán cargos por habilitar Protección contra DDoS. En la versión preliminar no se cobra ningún cargo por habilitar Protección contra DDoS. Los cargos se generan en disponibilidad general. Recibirá un aviso de 30 días antes de empezar a cobrar los cargos y ofrecer la disponibilidad general.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Habilitación de Protección contra DDoS estándar en una red virtual existente 
 
 1. Haga clic en **Redes virtuales** en el menú de Azure Portal y después seleccione la red virtual.
-2. Haga clic en **Protección contra DDoS**, elija **Habilitado** en la pantalla *Protección contra DDoS* y luego haga clic en **Guardar**. 
+2. Haga clic en **Protección contra DDoS**, elija **Habilitado** en la pantalla *Protección contra DDoS* y luego haga clic en **Guardar**. Si no ve **Protección contra DDoS**, una causa probable es que su suscripción no esté registrada para disponer de la característica. Debe realizar el [registro](http://aka.ms/ddosprotection) y recibir una notificación de que la característica está habilitada para su suscripción para que **Protección contra DDoS** aparezca. 
 
     > [!WARNING]
     > La red virtual debe estar en una región admitida. Para obtener una lista de regiones admitidas, vea [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md).
@@ -99,7 +99,7 @@ Los nombres de las métricas presentan distintos tipos de paquetes y bytes frent
 - **Nombre de etiqueta de reenviados (por ejemplo: paquetes de entrada reenviados por DDoS)**: el número de paquetes reenviados por el sistema DDoS a la dirección IP virtual de destino (tráfico que no se filtró).
 - **Sin nombre de etiqueta (por ejemplo, paquetes de entrada por DDoS):** el número total de paquetes que han llegado al sistema de limpieza (representa la suma de los paquetes quitados y los reenviados).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Más información sobre los registros de Diagnósticos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Análisis de registros desde Azure Storage con Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

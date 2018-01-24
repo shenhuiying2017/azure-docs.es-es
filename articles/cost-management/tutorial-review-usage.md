@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>Revisión del uso y los costos
 
@@ -29,7 +29,7 @@ Azure Cost Management de Cloudyn muestra el uso y los costos para que pueda real
 
 ## <a name="open-the-cloudyn-portal"></a>Abrir el portal de Cloudyn
 
-Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o navegue a https://app.cloudyn.com e inicie sesión.
+Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com e inicie sesión.
 
 ## <a name="track-usage-and-cost-trends"></a>Realizar un seguimiento de las tendencias de uso y costos
 
@@ -88,9 +88,9 @@ Use la pestaña **Programación** para enviarse un correo electrónico del infor
 También puede elegir la métrica del umbral de porcentaje frente a presupuesto para crear alertas. Si usa esa métrica, puede emplear porcentajes de presupuesto en lugar de valores de divisa.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Realizar un seguimiento de las tendencias de uso y costos

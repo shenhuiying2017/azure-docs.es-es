@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ El agente de máquina virtual de Azure y las extensiones asociadas forman parte 
 
 Este artículo presenta la extensión de configuración de estado deseado (DSC) de PowerShell para las máquinas virtuales de Azure como parte del SDK de Azure PowerShell. Puede usar cmdlets nuevos para cargar y aplicar una configuración de DSC de PowerShell en una máquina virtual de Azure habilitada con la extensión DSC de PowerShell. La extensión DSC de PowerShell llama a DSC de PowerShell para aplicar la configuración de DSC recibida en la máquina virtual. Esta funcionalidad también está disponible a través del Portal de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 **Máquina local** Para interactuar con la extensión de máquina virtual de Azure, será necesario usar Azure Portal o el SDK de Azure PowerShell. 
 
 **Agente invitado** Es preciso que la máquina virtual de Azure afectada por la configuración del DSC tenga un SO que admita Windows Management Framework (WMF) 4.0 o 5.0. La lista completa de las versiones compatibles del SO puede encontrarse en [Release history for the Azure DSC Extension](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/)(Historial de versiones de la extensión DSC de Azure).
@@ -37,11 +37,9 @@ Este artículo presenta la extensión de configuración de estado deseado (DSC) 
 ## <a name="terms-and-concepts"></a>Términos y conceptos
 Esta guía presupone que está familiarizado con los conceptos siguientes:
 
-Configuración: un documento de configuración de DSC. 
-
-Nodo: un destino para una configuración de DSC. En este documento, "nodo" siempre hace referencia a una máquina virtual de Azure.
-
-Datos de configuración: un archivo .psd1 que contiene datos del entorno de una configuración
+* **Configuración**: un documento de configuración de DSC. 
+* **Nodo**: un destino para una configuración de DSC. En este documento, "nodo" siempre hace referencia a una máquina virtual de Azure.
+* **Datos de configuración**: un archivo .psd1 que contiene datos del entorno de una configuración.
 
 ## <a name="architectural-overview"></a>Información general acerca de la arquitectura
 La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. La extensión DSC espera un archivo .zip que contiene al menos un documento de configuración y un conjunto de parámetros proporcionados a través del SDK de Azure PowerShell o del Portal de Azure.
@@ -146,9 +144,11 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Registro
 Los registros se colocan en:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[número de versión]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
 Examine la [plantilla de Azure Resource Manager para la extensión de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

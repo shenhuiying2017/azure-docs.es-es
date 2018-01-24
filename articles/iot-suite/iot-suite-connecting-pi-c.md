@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Conexión del dispositivo Raspberry Pi a la solución preconfigurada de supervisión remota (C)
 
@@ -47,9 +47,11 @@ Necesita el cliente SSH en su máquina de escritorio para poder acceder de forma
 
 ### <a name="required-raspberry-pi-software"></a>Software necesario de Raspberry Pi
 
+En este artículo se supone que instaló la versión más reciente del [sistema operativo Raspbian OS en un dispositivo Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para compilar una aplicación C que se conecta a la solución preconfigurada:
 
-1. Conecte con su dispositivo Raspberry Pi mediante `ssh`. Para obtener más información, consulte [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) en el [sitio web de Raspberry Pi](https://www.raspberrypi.org/).
+1. Conecte con su dispositivo Raspberry Pi mediante **ssh**. Para obtener más información, consulte [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) en el [sitio web de Raspberry Pi](https://www.raspberrypi.org/).
 
 1. Use el siguiente comando para actualizar Raspberry Pi:
 
@@ -60,31 +62,27 @@ Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para co
 1. Use el siguiente comando para agregar las herramientas de desarrollo y bibliotecas necesarias a su dispositivo Raspberry Pi:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Utilice los comandos siguientes para instalar las bibliotecas de cliente de IoT Hub:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Clone el analizador Parson JSON para su dispositivo Raspberry Pi utilizando los comandos siguientes:
+1. Use los comandos siguientes para descargar, compilar e instalar las bibliotecas de cliente de IoT Hub en el dispositivo Raspberry Pi:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Creación de un proyecto
 
-Realice los pasos siguientes con la conexión `ssh` al dispositivo Raspberry Pi:
+Complete los pasos siguientes con la conexión **ssh** al dispositivo Raspberry Pi:
 
-1. Cree una carpeta denominada `remote_monitoring` en la carpeta particular en el dispositivo Raspberry Pi. Vaya a esta carpeta en la línea de comandos:
+1. Cree una carpeta denominada `remote_monitoring` en la carpeta particular en el dispositivo Raspberry Pi. Vaya a esta carpeta en el shell:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Realice los pasos siguientes con la conexión `ssh` al dispositivo Raspberry Pi:
     cd remote_monitoring
     ```
 
-1. Cree los cuatro archivos `main.c`, `remote_monitoring.c`, `remote_monitoring.h` y `CMakeLists.txt` en la carpeta `remote_monitoring`.
+1. Cree los cuatro archivos **main.c**, **remote_monitoring.c**, **remote_monitoring.h** y **CMakeLists.txt** en la carpeta `remote_monitoring`.
 
-1. Cree la carpeta denominada `parson` en la carpeta `remote_monitoring`.
-
-1. Copie los archivos `parson.c` y `parson.h` desde una copia local del repositorio Parson en la carpeta `remote_monitoring/parson`.
-
-1. En un editor de texto, abra el archivo `remote_monitoring.c`. En el dispositivo Raspberry Pi, puede usar el editor de texto `nano` o `vi`. Agregue las instrucciones siguientes `#include` :
+1. En un editor de texto, abra el archivo **remote_monitoring.c**. En el dispositivo Raspberry Pi, puede usar el editor de texto **nano** o **vi**. Agregue las instrucciones siguientes `#include` :
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Realice los pasos siguientes con la conexión `ssh` al dispositivo Raspberry Pi:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Guarde el archivo **remote_monitoring.c** y salga del editor.
+
 ## <a name="add-code-to-run-the-app"></a>Incorporación de código para ejecutar la aplicación
 
-En un editor de texto, abra el archivo `remote_monitoring.h`. Agregue el siguiente código:
+En un editor de texto, abra el archivo **remote_monitoring.h**. Agregue el siguiente código:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-En un editor de texto, abra el archivo `main.c`. Agregue el siguiente código:
+Guarde el archivo **remote_monitoring.h** y salga del editor.
+
+En un editor de texto, abra el archivo **main.c** . Agregue el siguiente código:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Guarde el archivo **main.c** y salga del editor.
 
 ## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
@@ -158,18 +158,16 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
         m
     )
     ```
+
+1. Guarde el archivo **CMakeLists.txt** y salga del editor.
 
 1. En la carpeta `remote_monitoring`, cree otra carpeta para almacenar los archivos *make* que CMake genera. A continuación, ejecute los comandos **cmake** y **make**, como se indica a continuación:
 

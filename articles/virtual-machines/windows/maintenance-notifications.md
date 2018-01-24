@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Windows
 
@@ -56,9 +56,7 @@ Las instrucciones siguientes le deberían ayudar a decidir si debe utilizar esta
 
 El mantenimiento de autoservicio no se recomienda para implementaciones que usen **conjuntos de disponibilidad**, ya que éstas son configuraciones de alta disponibilidad, en las que en un momento dado solo resulta afectado un dominio de actualización. 
     - Deje que Azure desencadene el mantenimiento, pero tenga en cuenta que el orden de los dominios de actualización afectados no siempre es secuencial y que hay una pausa de 30 minutos entre los dominios de actualización.
-    - Si una pérdida temporal de una parte de su capacidad (1/recuento de dominio de actualización) supone un problema, se puede compensar fácilmente mediante la asignación de más instancias durante el período de mantenimiento. 
-
-**No** utilice el mantenimiento de autoservicio en los escenarios siguientes: 
+    - Si una pérdida temporal de una parte de su capacidad (1/recuento de dominio de actualización) supone un problema, se puede compensar con facilidad mediante la asignación de más instancias durante el período de mantenimiento. **No** utilice el mantenimiento de autoservicio en los escenarios siguientes: 
     - Si apaga las máquinas virtuales con frecuencia, ya sea manualmente, mediante DevTest Labs, con el apagado automático o de forma programada, pudo revertir el estado de mantenimiento y, por tanto, provocar mayor tiempo de inactividad.
     - En las máquinas virtuales de corta duración que sepa que se van a eliminar antes del final del mantenimiento. 
     - En el caso de las cargas de trabajo con un estado grande almacenadas en el disco local (efímero) en el que se desea realizar el mantenimiento tras la actualización. 
@@ -88,13 +86,13 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 Las siguientes propiedades se devuelven en MaintenanceRedeployStatus: 
-| Valor | Descripción   |
+| Valor | DESCRIPCIÓN   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento ||
 | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
 | PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
-| MaintenanceWindowStartTime            | El comienzo de la ventana de mantenimiento programado en la que puede iniciar el mantenimiento en la máquina virtual ||
-| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que puede iniciar el mantenimiento en la máquina virtual ||
+| MaintenanceWindowStartTime            | El comienzo del mantenimiento programado en que Azure inicia el mantenimiento de la máquina virtual ||
+| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento de la máquina virtual ||
 | LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -157,7 +156,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 
 **P: ¿Por qué hay que reiniciar las máquinas virtuales ahora?**
@@ -184,7 +183,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: ¿Cuánto tiempo tardará en reiniciar mi máquina virtual?**
 
-**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos. Tenga en cuenta que si usa Cloud Services (roles de trabajo o web), conjuntos de escalado de máquinas virtuales o conjuntos de disponibilidad, se le proporcionarán 30 minutos entre cada grupo de máquinas virtuales (UD). 
+**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos durante la ventana de mantenimiento de autoservicio. En los reinicios ejecutados por Azure durante la ventana de mantenimiento programado, el reinicio suele tardar unos veinticinco minutos. Tenga en cuenta que, si usa Cloud Services (roles de trabajo o web), Virtual Machine Scale Sets o conjuntos de disponibilidad, se le proporcionarán treinta minutos entre cada grupo de máquinas virtuales (UD) durante la ventana de mantenimiento programado. 
 
 **P: ¿Cómo es en el caso de Cloud Services (roles de trabajo o web), Service Fabric y conjuntos de escalado de máquinas virtuales?**
 
@@ -215,6 +214,6 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 **R:** Si ha hecho clic para actualizar varias instancias múltiples de un conjunto de disponibilidad muy rápidamente, Azure colocará dichas solicitudes en cola y empezará a actualizar las máquinas virtuales de un solo dominio de una actualización (UD), después de otro, y así hasta completar todos. Sin embargo, dado que podría haber una pausa entre los dominios de actualización, podría parecer que la actualización tarda más tiempo. Si la cola de actualización tarda más de 60 minutos, algunas instancias mostrarán el estado **omitida** aunque se hayan actualizado correctamente. Para evitar este estado incorrecto, actualice los conjuntos de su disponibilidad, para lo que debe hacer clic solo en una instancia de un conjunto de disponibilidad y esperar a la actualización de dicha máquina virtual se complete antes de hacer clic en la siguiente máquina virtual de otro dominio de actualización.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información acerca de cómo puede registrarse para eventos de mantenimiento desde la máquina virtual con [Eventos programados](scheduled-events.md).

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las aplicaciones web de Java con Azure AD | Microsoft Docs"
+title: "Introducción a la aplicación web de Java de Azure AD | Microsoft Docs"
 description: "Cree una aplicación web de Java que permita a los usuarios iniciar sesión con una cuenta profesional o académica."
 services: active-directory
 documentationcenter: java
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de aplicación web de Java con Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Introducción a las aplicaciones web de Java de Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) facilita la externalización de la administración de identidad de las aplicaciones web al proporcionar un inicio y cierre de sesión únicos con unas cuantas líneas de código. Puede iniciar y cerrar la sesión de los usuarios en aplicaciones web de Java mediante la implementación de Microsoft de la biblioteca de autenticación para Java controlada por la comunidad de Azure Active Directory (ADAL4J).
@@ -42,10 +42,10 @@ Cuando esté listo, siga los procedimientos que se describen en las nueve seccio
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Paso 1: Registro de la nueva aplicación en Azure AD
 Para configurar la aplicación para autenticar a los usuarios, primero regístrela mediante estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en el nombre de su cuenta. En la lista **Directorio** lista, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones para crear una **Aplicación web o API web**.
   * **Nombre**: describe la aplicación a los usuarios.
   * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación. La dirección URL predeterminada del esqueleto es http://localhost:8080/adal4jsample/.
@@ -1713,7 +1713,7 @@ Ahora tendrá un archivo adal4jsample.war en el directorio /targets. Puede imple
 > Es muy fácil implementar un archivo .war con los servidores Tomcat más recientes. Vaya a http://localhost:8080/manager/ y siga las instrucciones para cargar el archivo adal4jsample.war. Se implementará automáticamente con el punto de conexión correcto.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora tiene una aplicación de Java en funcionamiento que puede autenticar a los usuarios, realizar llamadas seguras a las API web mediante OAuth 2.0 y obtener información básica sobre los usuarios. Si aún no ha rellenado el inquilino con usuarios, ahora es el momento de hacerlo.
 
 Como referencia adicional, puede obtener el ejemplo completo (sin los valores de configuración) de cualquiera de estas dos maneras:

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
 
-## <a id="assets"></a>Activos y almacenamiento
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Recursos y almacenamiento
 ### <a name="assets"></a>Recursos
 Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden utilizar en los flujos de trabajo de codificación y streaming en Media Services.
 
@@ -71,7 +71,7 @@ Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los 
 > 
 > 
 
-### <a id="locators"></a>Localizadores
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
 
 Media Services admite dos tipos de localizadores: los localizadores OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargar elementos  multimedia de manera progresiva, y los localizadores SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde Azure Storage. 
@@ -127,7 +127,7 @@ Cada programa (evento) está asociado a un recurso. Para publicar el programa, d
 
 Un canal es compatible con hasta tres programas en ejecución simultánea, por lo que puede crear varios archivos del mismo flujo entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
 
-Para más información, consulte:
+Para obtener más información, consulte 
 
 * [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
@@ -156,10 +156,10 @@ Para más información, consulte los siguientes artículos.
 - [Protección con PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
-### <a id="dynamic_packaging"></a>Empaquetado dinámico
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetado dinámico
 Cuando se trabaja con Media Services, es aconsejable codificar los archivos intermedios en una conjunto MP4 de velocidad de bits adaptable y, a continuación, convertir el conjunto en el formato deseado con el [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-### <a name="streaming-endpoint"></a>punto de conexión de streaming
+### <a name="streaming-endpoint"></a>extremo de streaming
 Un StreamingEndpoint representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproductor de cliente o a una instancia de Content Delivery Network (CDN) para su posterior distribución (Azure Media Services ahora proporciona la integración de Azure CDN). La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. 
 
 El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Los puntos de conexión de streaming estándar ofrecen la flexibilidad de entregar el contenido a prácticamente todos los dispositivos a través de empaquetado dinámico en HLS, MPEG-DASH y Smooth Streaming, así como cifrado dinámico para Microsoft PlayReady, Google Widevine, Apple Fairplay y AES128.  También se adaptan a tamaños de audiencias desde muy pequeñas a muy grandes con miles de personas visualizando simultáneamente a través de la integración de la red CDN de Azure. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajustan a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda, se recomienda asignar unidades de escalado (conocidas también como unidades de streaming premium).
@@ -186,7 +186,7 @@ La descarga progresiva le permite comenzar a reproducir archivos multimedia ante
 >[!NOTE]
 >Debe descifrar los recursos cifrados si desea que estén disponibles para la descarga progresiva.
 
-Para proporcionar direcciones URL de descarga progresiva a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso. Luego debe anexar el nombre del archivo MP4. Por ejemplo:
+Para proporcionar direcciones URL de descarga progresiva a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso. Luego debe anexar el nombre del archivo MP4. Por ejemplo: 
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para aprovisionar a los usuarios automáticamente
 
 El objetivo de este tutorial es mostrar los pasos que debe realizar en Salesforce y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Salesforce.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -89,19 +89,21 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 10. Copie el token, vaya a la ventana de Azure AD y péguelo en el campo **Token secreto**.
 
-11. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Salesforce.
+11. Si la instancia de Salesforce está en la nube de administración pública de Salesforce, es obligatorio especificar un valor en **URL de inquilino**. De lo contrario, este valor es opcional. Escriba la dirección URL de inquilino con el formato https://your-instance.my.salesforce.com, donde "your-instance" debe reemplazarse por el nombre de la instancia de Salesforce.
 
-12. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
+12. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Salesforce.
 
-13. Haga clic en **Guardar**.  
+13. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
+
+14. Haga clic en **Guardar**.  
     
-14.  En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con Salesforce).
+15.  En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con Salesforce).
 
-15. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizarán entre Azure AD y Salesforce. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de Salesforce con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+16. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizarán entre Azure AD y Salesforce. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de Salesforce con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-16. Para habilitar el servicio de aprovisionamiento de Azure AD para Salesforce, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
+17. Para habilitar el servicio de aprovisionamiento de Azure AD para Salesforce, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
 
-17. Haga clic en **Guardar**.
+18. Haga clic en **Guardar**.
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Salesforce en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los informes de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Salesforce.
 

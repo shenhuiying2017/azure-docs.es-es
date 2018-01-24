@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 Una instancia de Integration Runtime autohospedado puede ejecutar las actividades de copia entre almacenes de datos en la nube y un almacén de datos en una red privada y distribuir las actividades de transformación entre recursos de proceso en una instancia de Azure Virtual Network o una red local. Integration Runtime autohospedado debe instalarse en un equipo local o en una máquina virtual dentro de una red privada.  
 
@@ -66,7 +66,7 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 - Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice **ExpressRoute**. Use el entorno Integration Runtime autohospedado para establecer la conectividad entre el servicio y el origen de datos.
 - Debe utilizar el entorno Integration Runtime autohospedado incluso si el almacén de datos está en la nube en una **máquina virtual IaaS de Azure**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Las versiones de **sistema operativo** compatibles son Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. No se admite la instalación del entorno Integration Runtime autohospedado en un **controlador de dominio**.
 - Es necesario **.NET Framework 4.6.1 o posterior**. Si está instalando el entorno Integration Runtime autohospedado en una máquina con Windows 7, instale .NET Framework 4.6.1 o posterior. Consulte [Requisitos de sistema de .NET Framework](/dotnet/framework/get-started/system-requirements) para más información.
@@ -110,7 +110,20 @@ Un entorno Integration Runtime autohospedado puede asociarse a varias máquinas 
 Para asociar varios nodos, basta con instalar el software Integration Runtime autohospedado desde el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y registrarlo con las claves de autenticación obtenidas con el cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, como se describe en el [Tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> No es necesario crear un nuevo entorno Integration Runtime autohospedado para asociar cada nodo.
+> No es necesario crear un nuevo entorno Integration Runtime autohospedado para asociar cada nodo. Puede instalar el entorno de ejecución de integración autohospedado en otra máquina y registrarlo con la misma clave de autenticación. 
+
+> [!NOTE]
+> Antes de agregar otro nodo para **High Availability and Scalability**, asegúrese de que la opción **"Remote access to intranet"** (Acceso remoto a la intranet) está **habilitada** en el primer nodo (Microsoft Integration Runtime Configuration Manager -> Configuración -> Remote access to intranet [Acceso remoto a la intranet]). 
+
+### <a name="tlsssl-certificate-requirements"></a>Requisitos del certificado TLS/SSL
+Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos de Integration Runtime:
+
+- El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda que utilice certificados emitidos por una entidad de certificación pública (CA).
+- Todos los nodos del entorno de ejecución de integración deben confiar en este certificado.
+- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar ***.domain.contoso.com** como nombre del firmante del certificado.
+- No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
+- Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
+- El certificado que usa claves CNG no es compatible. Doesrted no admite certificados que utilizan claves CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Notificaciones/iconos de la bandeja del sistema
 Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja del sistema, verá detalles sobre el estado del entorno Integration Runtime autohospedado.
@@ -124,7 +137,7 @@ Existen dos firewalls que tiene que tener en cuenta: el **firewall corporativo**
 
 En el **firewall corporativo**, debe configurar los siguientes dominios y puertos de salida:
 
-Nombres de dominio | Puertos | Descripción
+Nombres de dominio | Puertos | DESCRIPCIÓN
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Usado para la comunicación con el back-end del servicio de movimiento de datos
 *.core.windows.net | 443 | Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)
@@ -225,17 +238,23 @@ Si se producen errores como los siguientes, es probable que se deban a una confi
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Apertura del puerto 8060 para el cifrado de credenciales
-En la aplicación **Setting Credentials** (Establecer credenciales) (actualmente no admitida) se usa el puerto de entrada 8060 para retransmitir las credenciales al entorno Integration Runtime autohospedado al configurar un servicio vinculado local en Azure Portal. Durante la instalación del entorno Integration Runtime autohospedado, de forma predeterminada, la instalación del entorno Integration Runtime autohospedado lo abre en la máquina del entorno Integration Runtime autohospedado.
+### <a name="enable-remote-access-from-intranet"></a>Activación del acceso remoto desde la intranet  
+Si utiliza **PowerShell** o la aplicación **Administrador de credenciales** para cifrar credenciales desde otra máquina (de la red) diferente de la que tiene instalado el entorno de ejecución de integración autohospedado, la opción **"Remote Access from Intranet"** (Acceso remoto desde la intranet) debería estar habilitada. Si ejecuta **PowerShell** o la aplicación **Administrador de credenciales** para cifrar credenciales desde la misma máquina en la que está instalado el entorno de ejecución de integración autohospedado, es posible que la opción **"Remote Access from Intranet"** (Acceso remoto desde la intranet) no esté habilitada.
 
-Si usa un firewall de terceros, puede abrir manualmente el puerto 8050. Si se presenta un problema de firewall durante la instalación del entorno Integration Runtime autohospedado, puede probar a usar el comando siguiente para instalarlo sin configurar el firewall.
+La opción "Remote Access from Intranet" (Acceso remoto desde la intranet) debe estar **habilitada** antes de agregar otro nodo para **High Availability and Scalability**.  
+
+Durante la instalación del entorno de ejecución de integración autohospedado (versión 3.3.xxxx.x en adelante), de forma predeterminada, el entorno de ejecución de integración autohospedado deshabilita la opción **"Remote Access from Intranet"** (Acceso remoto desde la intranet) en la máquina de dicho entorno.
+
+Si usa un firewall de terceros, puede abrir manualmente el puerto 8060 (o el puerto configurado por el usuario). Si se presenta un problema de firewall durante la instalación del entorno Integration Runtime autohospedado, puede probar a usar el comando siguiente para instalarlo sin configurar el firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> La aplicación **Administrador de credenciales** aún no está disponible para cifrar credenciales en ADFv2. Esta compatibilidad se agregará más adelante.  
 
 Si decide no abrir el puerto 8060 en la máquina del entorno Integration Runtime autohospedado, use otros mecanismos que no sean la aplicación de **Configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell New-AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consulte la sección Configuración de credenciales y seguridad para obtener más información sobre cómo configurar las credenciales del almacén de datos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea el tutorial siguiente para obtener instrucciones detalladas: [Tutorial: copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md) (Tutorial: copia de datos locales en la nube).

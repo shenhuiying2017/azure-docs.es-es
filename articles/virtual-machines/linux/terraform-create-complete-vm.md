@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: aa0c762d883b5860d7ac088cc143fb7e9e9028b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 13390c2db203332433e7e3c39c8d9ed5f688448c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creación de una infraestructura completa de máquina virtual Linux en Azure con Terraform
 
@@ -132,7 +132,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>Creación de una tarjeta de interfaz de red virtual
-Las tarjetas de interfaz de red (NIC) virtuales conectan la VM a una red virtual determinada, una dirección IP pública y un grupo de seguridad de red. Con la siguiente sección de una guía de Ansible se crea una NIC virtual llamada *myNIC* que se conecta a los recursos de red virtual que se hayan creado:
+Las tarjetas de interfaz de red (NIC) virtuales conectan la VM a una red virtual determinada, una dirección IP pública y un grupo de seguridad de red. Con la siguiente sección de una plantilla de Terraform se crea un NIC virtual llamado *myNIC* que se conecta a los recursos de red virtual que se hayan creado:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -468,5 +468,5 @@ Después, puede acceder mediante SSH a la VM:
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ha creado una infraestructura básica en Azure mediante Terraform. Para escenarios más complejos, incluidos ejemplos sobre cómo usar equilibradores de carga y conjuntos de escalado de máquinas virtuales, consulte los diversos [ejemplos de Terraform para Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para una lista actualizada de los proveedores admitidos de Azure, consulte la [documentación de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).

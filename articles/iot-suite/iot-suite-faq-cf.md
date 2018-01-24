@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Preguntas más frecuentes sobre la solución preconfigurada de fábrica conectada a Conjunto de aplicaciones de IoT
 
@@ -82,7 +82,7 @@ Si ha implementado la solución de www.azureiotsuite.com, no puede iniciar sesi�
 1. Para comprobar qué contenedores están activos, ejecute: `docker ps`.
 1. Para detener todos los contenedores de simulación, ejecute: `./stopsimulation`.
 1. Para iniciar todos los contenedores de simulación:
-    * Exporte una variable de shell con el nombre **IOTHUB_CONNECTIONSTRING**. Utilice el valor de la configuración **IotHubOwnerConnectionString** en el archivo `<name of your deployment>.config.user`. Por ejemplo:
+    * Exporte una variable de shell con el nombre **IOTHUB_CONNECTIONSTRING**. Utilice el valor de la configuración **IotHubOwnerConnectionString** en el archivo `<name of your deployment>.config.user`. Por ejemplo: 
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -144,7 +144,65 @@ Inspeccione los datos enviados por uno de los dispositivos del editor:
 
 Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. Como primer paso de análisis debe analizar los archivos de registro de los componentes de la simulación. Consulte [¿Cómo se pueden obtener datos de registro de los componentes de simulación?](#how-can-i-get-log-data-from-the-simulation-components) Ahora, pruebe a detener e iniciar la simulación, y, si todavía no hay datos enviados, actualice completamente la simulación. Consulte [¿Cómo se actualiza la simulación en la máquina virtual?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>¿Cómo se habilita un mapa interactivo en una solución de factoría conectada?
+
+Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise. Si tiene un plan de Bing Maps API for Enterprise al implementar la solución de factoría conectada desde www.azureiotsuite.com, el mapa interactivo se habilita automáticamente.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>¿Cómo se crea una cuenta de Bing Maps API for Enterprise?
+
+Puede obtener un plan de *Bing Maps API for Enterprise de nivel 1 de transacciones internas* gratis. Sin embargo, solo puede añadir dos de estos planes a una suscripción de Azure. Si no dispone de una cuenta de Bing Maps API for Enterprise, cree una en Azure Portal haciendo clic en **+ Crear un recurso**. A continuación, busque **Bing Maps API for Enterprise** y siga las indicaciones para crearla.
+
+![Clave de Bing](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Obtención de la QueryKey de Bing Maps API for Enterprise
+
+Una vez creado el plan de Bing Maps API for Enterprise, añada un recurso de Bing Maps for Enterprise al grupo de recursos de la solución de factoría conectada en Azure Portal.
+
+1. En Azure Portal, vaya al grupo de recursos donde está el plan de Bing Maps API for Enterprise.
+
+1. Haga clic en **Toda la configuración** y después en **Administración de claves**.
+
+1. Verá dos claves: **MasterKey** y **QueryKey**. Copie el valor de **QueryKey**.
+
+1. Para que el script `build.ps1` seleccione la clave, establezca la variable de entorno `$env:MapApiQueryKey` del entorno de PowerShell en la **QueryKey** de su plan. A continuación, el script de compilación añadirá automáticamente el valor a la configuración de App Service.
+
+1. Ejecute una implementación local o en la nube mediante el script `build.ps1`.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>¿Cómo se habilita el mapa interactivo al depurar localmente?
+
+Para habilitar el mapa interactivo al depurar localmente, establezca el valor del ajuste `MapApiQueryKey` en los archivos `local.user.config` y `<yourdeploymentname>.user.config` en la raíz de la implementación en el valor de la **QueryKey** que ha copiado anteriormente.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>¿Cómo puedo usar una imagen distinta en la página principal de mi panel?
+
+Para cambiar la imagen estática que se muestra en la página principal del panel, sustituya la imagen `WebApp\Content\img\world.jpg`. A continuación, recompile y vuelva a implementar WebApp.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>¿Cómo se puede usar un dispositivo que no sea de OPC UA con la factoría conectada?
+
+Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la factoría conectada:
+
+1. [Configure una nueva estación en la topología de la factoría conectada](iot-suite-connected-factory-configure.md) en el archivo `ContosoTopologyDescription.json`.
+
+1. Introduzca los datos de telemetría en un formato JSON compatible en la factoría conectada:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. El formato de `<timestamp>` es: `2017-12-08T19:24:51.886753Z`
+
+1. Reinicie la instancia de App Service de factoría conectada.
+
+### <a name="next-steps"></a>pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 

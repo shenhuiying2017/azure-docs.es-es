@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -36,14 +36,14 @@ Utilice el desencadenador de Service Bus para responder a mensajes de una cola o
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#trigger---c-example)
-* [Script de C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que registra un mensaje de cola de Service Bus.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que registra un mensaje de cola de Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de Service Bus:
+Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un desencadenador de Service Bus:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ Para las funciones de [C# precompilado](functions-dotnet-class-library.md), use 
   }
   ```
 
-  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
+  Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -205,7 +205,7 @@ La cuenta de Service Bus que se debe usar se determina en el orden siguiente:
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `ServiceBusTrigger`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBusTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -250,14 +250,14 @@ Use el enlace de salida de Azure Service Bus para enviar mensajes de cola o tema
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#output---c-example)
-* [Script de C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script de C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que envía un mensaje de cola de Service Bus:
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía un mensaje de cola de Service Bus:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 El constructor del atributo toma el nombre de la cola o del tema y la suscripción. También puede especificar los derechos de acceso de la conexión. En la sección [Salida: configuración](#output---configuration) se explica cómo elegir la configuración de derechos de acceso. Este es un ejemplo que muestra el atributo aplicado al valor devuelto de la función:
 
@@ -435,15 +435,15 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Para un ejemplo completo, consulte [Salida: ejemplo de C# precompilado](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
-Puede usar el atributo `ServiceBusAccount` para especificar la cuenta de Service Bus en el nivel de clase, método o parámetro.  Para obtener más información, consulte [Desencadenador: atributos](#trigger---attributes-for-precompiled-c).
+Puede usar el atributo `ServiceBusAccount` para especificar la cuenta de Service Bus en el nivel de clase, método o parámetro.  Para obtener más información, consulte [Desencadenador: atributos](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `ServiceBus`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `ServiceBus`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBus". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
@@ -469,7 +469,7 @@ Para crear varios mensajes en una función de C# o script de C#, puede utilizar 
 
 En JavaScript, puede obtener acceso a la cola o al tema mediante el uso de `context.bindings.<name>`. `<name>` es el valor especificado en la propiedad `name` de *function.json*. Puede asignar una cadena, una matriz de bytes o un objeto de JavaScript (deserializado en JSON) a `context.binding.<name>`.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

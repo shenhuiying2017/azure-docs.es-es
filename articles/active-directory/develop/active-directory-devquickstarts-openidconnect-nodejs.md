@@ -1,5 +1,5 @@
 ---
-title: "Introducción al inicio de sesión y cierre de sesión en Azure AD mediante Node.js | Microsoft Docs"
+title: "Introducción a la aplicación web de Node.js de Azure AD | Microsoft Docs"
 description: "Aprenda a crear una aplicación web MVC Express de Node.js que se integre con Azure AD para el inicio de sesión."
 services: active-directory
 documentationcenter: nodejs
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de aplicación web de Node.js con Azure AD
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Introducción a la aplicación web de Node.js de Azure AD
 Aquí usamos Passport para:
 
 * Iniciar la sesión del usuario en la aplicación con Azure Active Directory (Azure AD).
@@ -44,7 +44,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 La aplicación completa se ofrece también al final de este tutorial.
 
 ## <a name="step-1-register-an-app"></a>Paso 1: Registro de una aplicación
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. En el menú que aparece en la parte superior de la página, seleccione su cuenta. En la lista **Directorio** lista, elija el inquilino de Active Directory donde desea registrar la aplicación.
 
@@ -402,7 +402,7 @@ Ahora `app.js` se habrá completado. Solo es preciso agregar las rutas y vistas 
     </html>
     ```
 
-##<a name="next-steps"></a>Pasos siguientes
+##<a name="next-steps"></a>pasos siguientes
 Por último, compile y ejecute su aplicación. Ejecute `node app.js` y luego vaya a `http://localhost:3000`.
 
 Inicie sesión con una cuenta de Microsoft personal o con una cuenta profesional o educativa, y observe cómo se refleja la identidad del usuario en la lista /account. Ahora dispone de una aplicación web que está protegida mediante protocolos estándar del sector que pueden autenticar a los usuarios tanto con sus cuentas personales como con sus cuentas profesionales o educativas.

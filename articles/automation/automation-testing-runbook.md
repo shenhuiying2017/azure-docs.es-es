@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Prueba de un runbook en Azure Automation
 Cuando se prueba un runbook, se ejecuta la [versión de borrador](automation-creating-importing-runbook.md#publishing-a-runbook) y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero los flujos de [salida](automation-runbook-output-and-messages.md#output-stream) y los de [error y advertencia](automation-runbook-output-and-messages.md#message-streams) se muestran en el panel de salida de la prueba. Los mensajes del [flujo detallado](automation-runbook-output-and-messages.md#message-streams) solo se muestran en el panel de salida si la [variable $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) está establecida en Continue.
@@ -41,6 +41,6 @@ Puede trabajar con cualquier [tipo de Runbook](automation-runbook-types.md) en e
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre cómo crear o importar un runbook, consulte [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 * Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
-* Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
-* Para obtener más información sobre cómo configurar runbooks para devolver los errores y mensajes de estado, incluidas las prácticas recomendadas, consulte [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
+* Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
+* Para más información sobre cómo configurar runbooks para devolver los errores y mensajes de estado, incluidas las prácticas recomendadas, consulte [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
 

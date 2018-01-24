@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: eceeccc0d6225613fdd75a92b894290665168fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integración de Azure AD con una aplicación Apache Cordova
+# <a name="azure-ad-cordova-getting-started"></a>Introducción a Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ Para realizar dichas mejoras, necesitará:
 3. Agregue código para usar el token para hacer consultas a la API Graph y mostrar los resultados.
 4. Crear el proyecto de implementación de Cordova con todas las plataformas a las que desee dirigirse, agregar el complemento de la ADAL de Cordova y probar la solución en emuladores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar este tutorial, necesita:
 
 * Un inquilino de Azure AD que disponga de una cuenta con derechos de desarrollo de aplicaciones.
@@ -86,10 +86,10 @@ Este paso es opcional. Este tutorial proporciona valores configurados previament
 
 Azure AD emite tokens solo a aplicaciones conocidas. Para poder usar Azure AD desde su aplicación, deberá crear una entrada para él en el inquilino. Para registrar una nueva aplicación en el inquilino:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD donde desea registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones y cree una **Aplicación de cliente nativo**. (Aunque las aplicaciones Cordova están basadas en HTML, aquí estamos creando una aplicación cliente nativa. La opción **Aplicación cliente nativo** debe estar seleccionada o la aplicación no funcionará).
   * **Nombre** describe la aplicación a los usuarios.
   * **URI de redirección** es el identificador URI que se usa para devolver tokens a su aplicación. Escriba **http://MyDirectorySearcherApp**.
@@ -285,7 +285,7 @@ Los pasos concretos para ejecutar la aplicación varían según la plataforma.
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient) está disponible el ejemplo finalizado (sin sus valores de configuración).
 
 Ahora puede pasar a escenarios más avanzados (y, por lo tanto, más interesantes). Quizá quiera intentar: [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

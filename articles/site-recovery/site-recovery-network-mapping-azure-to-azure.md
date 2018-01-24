@@ -4,7 +4,7 @@ description: "Azure Site Recovery coordina la replicación, la conmutación por 
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: gauravd
+manager: rochakm
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: manayar
-ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: bf3d557c77e3cb6ade6f1bb3773c807f9c8b43f6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Asignación de red entre dos regiones de Azure
 
 
 En este artículo se explica cómo asignar redes virtuales de Azure de dos regiones de Azure entre sí. La asignación de red garantiza que al crear la máquina virtual replicada en la región de Azure de destino, se cree en la red virtual asignada a una red virtual de la máquina virtual de origen.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de asignar redes, asegúrese de haber creado [redes virtuales de Azure](../virtual-network/virtual-networks-overview.md) en las regiones de Azure de origen y destino.
 
 ## <a name="map-networks"></a>Asignar redes
@@ -42,13 +42,14 @@ Seleccione la red de origen y de destino y luego haga clic en Aceptar para crear
 ![Asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Haga lo mismo para crear una asignación de red de Asia Suroriental a Asia Oriental.  
+Repita el proceso anterior para crear una asignación de red de Asia Suroriental a Asia Oriental.
+
 ![Asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Asignación de red al habilitar la replicación
 
-Si la asignación de red no se hace al replicar una máquina virtual por primera vez desde una región de Azure en otra, puede elegir la red de destino como parte del mismo proceso. Site Recovery crea asignaciones de red desde la región de origen a la región de destino y desde la región de destino a la región de origen en función de esta selección.   
+Si la asignación de red no se ha hecho al replicar una máquina virtual por primera vez desde una región de Azure en otra, puede elegir la red de destino como parte del mismo proceso. Site Recovery crea asignaciones de red desde la región de origen a la región de destino y desde la región de destino a la región de origen en función de esta selección.   
 
 ![Asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -70,7 +71,7 @@ Si la asignación de red ya se ha hecho, no puede cambiar la red virtual de dest
 
 
 ## <a name="subnet-selection"></a>Selección de subred
-La subred de la máquina virtual de destino se selecciona en función del nombre de la subred de la máquina virtual de origen. Si hay una subred con el mismo nombre que el de la máquina virtual de origen disponible en la red de destino, se selecciona esa para la máquina virtual de destino. Si no hay ninguna subred con el mismo nombre en la red de destino, se elige la primera red en orden alfabético como subred de destino. Puede modificar esta subred si va a la configuración de Proceso y red de la máquina virtual.
+La subred de la máquina virtual de destino se selecciona en función del nombre de la subred de la máquina virtual de origen. Si hay una subred con el mismo nombre que el de la máquina virtual de origen disponible en la red de destino, se selecciona esa subred para la máquina virtual de destino. Si no hay ninguna subred con el mismo nombre en la red de destino, se elige la primera red en orden alfabético como subred de destino. Puede modificar esta subred si va a la configuración de Proceso y red de la máquina virtual.
 
 ![Modificar la subred](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -87,14 +88,14 @@ Si la interfaz de red de la máquina virtual de origen usa la IP estática, la i
 
 #### <a name="same-address-space"></a>Mismo espacio de direcciones
 
-Si la subred de origen y la de destino tienen el mismo espacio de direcciones, la dirección IP de destino se establece igual que la dirección IP de la interfaz de red de la máquina virtual de origen. Si la misma dirección IP no está disponible, alguna otra dirección IP disponible se establece como dirección IP de destino.
+Si la subred de origen y la de destino tienen el mismo espacio de direcciones, la dirección IP de la interfaz de red de la máquina virtual de origen se establece como dirección IP de destino. Si la misma dirección IP no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
 
 #### <a name="different-address-space"></a>Distinto espacio de direcciones
 
-Si la subred de origen y la de destino tienen distintos espacios de direcciones, la dirección IP de destino se establece como cualquier dirección IP disponible en la subred de destino.
+Si la subred de origen y la de destino tienen distintos espacios de direcciones, la siguiente dirección IP disponible en la subred de destino se establece como la dirección IP de destino.
 
 Puede modificar la dirección IP de destino en cada interfaz de red si va a la configuración de Proceso y red de la máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-- Más información sobre [Networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md) (Instrucciones de redes para la replicación de máquinas virtuales de Azure).
+Más información sobre [Networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md) (Instrucciones de redes para la replicación de máquinas virtuales de Azure).

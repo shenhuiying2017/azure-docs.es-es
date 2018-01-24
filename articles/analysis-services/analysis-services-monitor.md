@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>Supervisión de las métricas del servidor
 
@@ -38,10 +38,11 @@ Para realizar diagnósticos más detallados, hacer un seguimiento del rendimient
 
     ![Gráfico de Monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Métricas del servidor
 Utilice esta tabla para determinar qué métricas son más adecuadas para su escenario de supervisión. Las métricas deben utilizar la misma unidad para poder aparecer en el mismo gráfico.
 
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Longitud de cola de trabajos de grupo de comandos|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de comandos.|
 |CurrentConnections|Conexión: conexiones actuales|Recuento|Media|Número actual de conexiones de cliente establecidas.|
@@ -87,7 +88,7 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |TotalConnectionFailures|Número total de errores de conexión|Recuento|Media|Número total de intentos de conexión con error.|
 |TotalConnectionRequests|Número total de solicitudes de conexión|Recuento|Media|Número total de solicitudes de conexión. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Métricas de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx)

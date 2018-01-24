@@ -1,6 +1,6 @@
 ---
 title: "Excepciones de Azure Relay y cómo resolverlas | Microsoft Docs"
-description: Obtener una lista de excepciones de Azure Relay y las acciones sugeridas que puede seguir para ayudar a resolverlas.
+description: Lista de excepciones de Azure Relay y las acciones sugeridas que puede seguir para ayudar a resolverlas.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Excepciones de Azure Relay
 
@@ -50,7 +50,7 @@ En la tabla siguiente se enumeran los tipos de excepción de mensajería y sus c
 | [Tiempo de espera](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |El servidor no respondió a la operación solicitada en el tiempo especificado que está controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Puede que el servidor haya completado la operación solicitada. Esto se puede producir debido a un retraso de red o a otros retrasos de infraestructura. |Compruebe la coherencia del estado del sistema y vuelva a intentarlo si es necesario. Consulte [TimeoutException](#timeoutexception). |El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
 | [Operación no válida](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |La operación del usuario solicitada no está permitida en el servidor o servicio. Consulte el mensaje de excepción para obtener detalles. |Compruebe el código y la documentación. Asegúrese de que la operación solicitada sea válida. |El reintento no le será de ayuda. |
 | [Operación cancelada](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Se realiza un intento para invocar una operación en un objeto que ya se ha cerrado, anulado o eliminado. En raras ocasiones, la transacción de ambiente ya se ha eliminado. |Compruebe el código y asegúrese de que no invoca operaciones de un objeto desechado. |El reintento no le será de ayuda. |
-| [Acceso no autorizado](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |El objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) no pudo adquirir un token, el token no es válido o no contiene las notificaciones necesarias para realizar la operación. |Asegúrese de que el proveedor de tokens se haya creado con los valores correctos. Compruebe la configuración del Servicio de control de acceso. |El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
+| [Acceso no autorizado](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |El objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) no pudo adquirir un token, el token no es válido o no contiene las notificaciones necesarias para realizar la operación. |Asegúrese de que el proveedor de tokens se haya creado con los valores correctos. Compruebe la configuración de Access Control Service. |El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
 | [Excepción de argumento](https://msdn.microsoft.com/library/system.argumentexception.aspx),<br /> [Argumento Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx),<br />[Argumento fuera del intervalo](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Se ha producido una o varias de las siguientes situaciones:<br />Uno o varios de los argumentos proporcionados para el método no son válidos.<br /> El identificador URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contiene uno o más segmentos de ruta de acceso.<br />El esquema de URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) no es válido. <br />El valor de la propiedad es mayor de 32 KB. |Compruebe el código de llamada y asegúrese de que los argumentos sean correctos. |El reintento no le será de ayuda. |
 | [Servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |El servicio no puede procesar la solicitud en este momento. |El cliente puede esperar durante un período de tiempo y volver a intentar realizar la operación. |El cliente puede reintentar después de un intervalo específico. Si el reintento genera otra excepción, compruebe el comportamiento de reintento de esa excepción. |
 | [Cuota superada](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |La entidad de mensajería alcanzó su tamaño máximo permitido. |Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. Consulte [QuotaExceededException](#quotaexceededexception). |El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
@@ -89,7 +89,7 @@ Hay dos causas comunes de este error:
 
     En ocasiones, el servicio Relay podría experimentar retrasos en el procesamiento de solicitudes. Esto puede ocurrir, por ejemplo, durante los períodos de mucho tráfico. Si esto ocurre, vuelva a intentar la operación después de un retraso hasta que la operación sea correcta. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Preguntas frecuentes sobre Azure Relay](relay-faq.md)
 * [Crear un espacio de nombres de Relay](relay-create-namespace-portal.md)
 * [Introducción a Azure Relay y .NET](relay-hybrid-connections-dotnet-get-started.md)

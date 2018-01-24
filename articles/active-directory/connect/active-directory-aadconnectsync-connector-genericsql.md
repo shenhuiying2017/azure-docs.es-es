@@ -3,8 +3,8 @@ title: "Conector SQL genérico | Microsoft Docs"
 description: "En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
 En este artículo se describe el conector de SQL genérico. El artículo se aplica a los siguientes productos:
@@ -38,12 +38,12 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 
 | Característica | Soporte técnico |
 | --- | --- |
-| Origen de datos conectado |El conector es compatible con todos los controladores ODBC de 64 bits. Se ha probado con los siguientes elementos:  <li>Microsoft SQL Server y SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 y 11g</li><li>MySQL 5.x</li> |
+| Origen de datos conectado |El conector es compatible con todos los controladores ODBC de 64 bits. Se ha probado con los siguientes:  <li>Microsoft SQL Server y SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 y 11g</li><li>MySQL 5.x</li> |
 | Escenarios |<li>Administración del ciclo de vida de objetos</li><li>Administración de contraseñas</li> |
 | Operaciones |<li>Importación completa e importación diferencial, exportación</li><li>Para la exportación: agregar, eliminar, actualizar y reemplazar</li><li>Establecer contraseña, cambiar contraseña</li> |
 | Esquema |<li>Detección dinámica de objetos y atributos</li> |
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
 * Microsoft .NET 4.5.2 Framework o posterior
@@ -231,7 +231,11 @@ El conector de SQL genérico admite la importación completa y diferencial media
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabla/Vista**  
-Para importar los atributos multivalor de un objeto, debe proporcionar el nombre de tabla/vista separado por comas en **Nombre de tabla/vistas multivalor** y las condiciones de combinación correspondientes en **Condición de combinación** con la tabla principal.
+Para importar los atributos multivalor de un objeto, debe proporcionar el nombre de tabla/vista en **Name of Multi-Valued table/views** (Nombre de tabla/vistas multivalor) y las condiciones de combinación correspondientes en **Condición de combinación** con la tabla principal. Si hay más de una tabla multivalor en el origen de datos, puede usar la unión a una única vista.
+
+>[!IMPORTANT]
+El agente de administración de SQL genérico solo puede funcionar con una tabla multivalor. No coloque en Name of Multi-Valued table/views (Nombre de tabla/vistas multivalor) más de un nombre de tabla. Es la limitación de SQL genérico.
+
 
 Ejemplo: Desea importar el objeto Employee y todos sus atributos multivalor. Hay dos tablas con el nombre Employee (tabla principal) y Department (multivalor).
 Haga lo siguiente:
@@ -304,5 +308,5 @@ Si elige la opción Consulta SQL, la exportación requiere tres consultas difere
 * **Consulta de eliminación**: esta consulta se ejecuta si se trata de cualquier objeto que llega al conector para su eliminación en la tabla correspondiente.
 * Atributo seleccionado en el esquema usado como valor de parámetro para la consulta, por ejemplo `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

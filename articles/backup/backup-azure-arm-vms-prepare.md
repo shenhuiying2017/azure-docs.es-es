@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 686cc45f219a10259c1b5cc0f0793c4ee392ee74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal;trinadhk;sogup;
+ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
-En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan Azure Portal.  
+En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure.  
 
 El servicio Azure Backup dispone de dos tipos de almacenes para proteger las máquinas virtuales: almacenes de Backup y almacenes de Recovery Services. Los almacenes de Backup ayudan a proteger las máquinas virtuales implementadas mediante el modelo de implementación clásica. Los almacenes de Recovery Services ayudan a proteger *tanto las máquinas virtuales implementadas con el modelo clásico como las implementadas mediante Resource Manager*. Si desea proteger las máquinas virtuales implementadas mediante Resource Manager, debe usar un almacén de Recovery Services.
 
@@ -63,6 +63,7 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.
+* A partir de ahora, ya no se admiten la copia de seguridad ni la restauración de máquinas virtuales con ACL de almacenamiento. La copia de seguridad de máquinas virtuales no está admitida si se ha habilitado el almacenamiento en la característica de VNET que permite que las cuentas de almacenamiento solo sean accesibles desde determinadas redes virtuales o subredes y direcciones IP.
 * Puede realizar copias de seguridad de máquinas virtuales en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones admitidas). Si la región que busca no se admite, no aparecerá en la lista desplegable durante la creación del almacén.
 * La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Para más información, consulte [Restauración de máquinas virtuales de controlador de dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean a través del flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -88,7 +89,7 @@ Para crear un almacén de Recovery Services:
     Se abre el panel **Almacenes de Recovery Services**. En él se le solicita que rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
     ![Panel "Almacenes de Recovery Services"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure y tener entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
+4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. y tener entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
 5. Seleccione **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que va a utilizar, use la predeterminada (o sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a varias suscripciones de Azure.
 6. Seleccione **Grupo de recursos** para ver la lista de grupos de recursos disponibles, o bien seleccione **Nuevo** para crear uno. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén *debe* estar en la misma región que las máquinas virtuales que desea proteger.
@@ -102,7 +103,7 @@ Para crear un almacén de Recovery Services:
 
     ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-Ahora que ha creado el almacén, aprenda a configurar la replicación del almacenamiento.
+Ahora que ha creado el almacén, aprenda a configurar la replicación de almacenamiento.
 
 ## <a name="set-storage-replication"></a>Configuración de la replicación del almacenamiento
 La opción de replicación del almacenamiento permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si esta es su copia de seguridad principal, elija el almacenamiento con redundancia geográfica. Elija un almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera.
@@ -192,7 +193,7 @@ Si tiene problemas para realizar una copia de seguridad de la máquina virtual d
 | Actualizar el agente de máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. *No es aconsejable* actualizar el agente de máquina virtual Linux directamente desde GitHub.<br><br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validar la instalación del agente de máquina virtual |1. Vaya a la carpeta C:\WindowsAzure\Packages de la máquina virtual de Azure. <br><br>2. Busque el archivo WaAppAgent.exe. <br><br>3. Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo **Versión del producto**, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
-### <a name="backup-extension"></a>Extensión de copia de seguridad
+### <a name="backup-extension"></a>Extensión de Backup
 Después de que el agente de máquina virtual se instale en la máquina virtual, el servicio Azure Backup instala la extensión de copia de seguridad en el agente de máquina virtual. El servicio Backup actualiza la extensión de copia de seguridad y le aplica revisiones en un proceso que transcurre de forma fluida.
 
 El servicio Backup instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Azure Backup sigue realizando la copia de seguridad de la máquina virtual aunque esté apagada y la extensión no se haya podido instalar. Esto se conoce como *máquina virtual sin conexión*. En este caso, el punto de recuperación será *coherente frente a bloqueos*.
@@ -309,7 +310,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que desea que se incluya, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha preparado el entorno para realizar la copia de seguridad de la máquina virtual, el siguiente paso lógico es crear una copia de seguridad. El artículo de planeamiento ofrece información más detallada sobre la realización de copias de seguridad de máquinas virtuales.
 
 * [Copia de seguridad de máquinas virtuales](backup-azure-arm-vms.md)

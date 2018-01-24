@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger una base de datos en SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ En este artículo se describen los fundamentos de la protección de una base de 
 ## <a name="connection-security"></a>Seguridad de conexión
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista de permitidos. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible.  Para obtener acceso a Azure SQL Data Warehouse desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433.  Para obtener más información, consulte [Firewall de Azure SQL Database][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule] y [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista de permitidos. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible.  Para obtener acceso a Azure SQL Data Warehouse desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433.  Para más información, consulte [Firewall de Azure SQL Database][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 Las conexiones a su instancia de SQL Data Warehouse se cifran de forma predeterminada.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 La cuenta de administrador de servidor con la que se está conectando forma parte de db_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación.
 
-Existen varias formas de limitar aún más lo que los usuarios pueden hacer con Azure SQL Database:
+Existen varias formas de limitar aún más lo que los usuarios pueden hacer con Azure SQL Data Warehouse:
 
-* Los [permisos][Permissions] granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos. Use los permisos granulares para tener el máximo control y conceder los permisos mínimos necesarios. El sistema de permisos granulares es complicado y requerirá un estudio para usarlo de forma eficaz.
+* Los [permisos][Permissions] pormenorizados permiten controlar qué operaciones se pueden realizar en columnas individuales, tablas, vistas, esquemas, procedimientos y otros objetos de la base de datos. Use los permisos granulares para tener el máximo control y conceder los permisos mínimos necesarios. El sistema de permisos granulares es complicado y requerirá un estudio para usarlo de forma eficaz.
 * Los [roles de base de datos][Database roles] que no sean db_datareader y db_datawriter se pueden usar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces. Los roles d base de datos fijos integrados proporcionan una manera fácil de conceder permisos, pero pueden dar lugar a la concesión de más permisos que son necesarios.
 * Los [procedimientos almacenados][Stored procedures] puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
+
+A continuación se muestra un ejemplo de cómo conceder acceso de lectura a un esquema definido por el usuario.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 La administración de bases de datos y servidores lógicos desde Azure Portal o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en roles en Azure Portal][Role-based access control in Azure Portal].
 
@@ -86,7 +92,7 @@ El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a prote
 
 Puede cifrar la base de datos mediante [Azure Portal][Encryption with Portal] o [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con diferentes protocolos, consulte [Conexión a SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

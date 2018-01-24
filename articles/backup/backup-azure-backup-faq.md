@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
-En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para examinar rápidamente las secciones de este artículo, use los vínculos de la derecha que aparecen debajo de **En este artículo**.
 
@@ -30,7 +30,7 @@ Para examinar rápidamente las secciones de este artículo, use los vínculos de
 ## <a name="recovery-services-vault"></a>Almacén de Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>¿Hay algún límite del número de almacenes que se pueden crear en cada suscripción de Azure? <br/>
-Sí. A partir de septiembre de 2016, puede crear 25 almacenes de Recovery Services o de copia de seguridad por suscripción. Se pueden crear hasta 25 almacenes de Recovery Services por cada región admitida de Azure Backup por suscripción. Si necesita más almacenes, cree otra suscripción.
+Sí. A partir de septiembre de 2016, puede crear 25 almacenes de Recovery Services por suscripción. Se pueden crear hasta 25 almacenes de Recovery Services por cada región admitida de Azure Backup por suscripción. Si necesita más almacenes, cree otra suscripción.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>¿Hay algún límite en el número de servidores o máquinas que se pueden registrar en cada almacén? <br/>
 Sí, se pueden registrar un máximo de 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 200 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree otro almacén.
@@ -39,21 +39,13 @@ Sí, se pueden registrar un máximo de 50 máquinas por almacén. Para las máqu
 Los servidores registrados en el mismo almacén podrán recuperar los datos cuya copia de seguridad hayan realizado otros servidores *que usen la misma frase de contraseña*. Si tiene servidores cuyos datos de copia de seguridad desee aislar de otros servidores de la organización, utilice una frase de contraseña específica para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>¿Puedo "migrar" mi almacén o datos de copia de seguridad de una suscripción a otra? <br/>
-No. El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción una vez que se crea.
+Nº El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción una vez que se crea.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Se admiten aún los almacenes de Backup (modo clásico)? <br/>
-Todos los almacenes de Backup existentes en el [portal clásico](https://manage.windowsazure.com) siguen siendo compatibles. Sin embargo, ya no podrá usar el portal clásico para implementar nuevos almacenes de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services. Si intenta crear un almacén de Backup en el portal clásico, se le redirigirá a [Azure Portal](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Son todavía compatibles los almacenes de Backup? <br/>
+Los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Copia de seguridad a un almacén de Recovery Services? <br/>
-Sí, ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén de Backup. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services?
-Los puntos de recuperación de máquinas virtuales clásicas en un almacén de Backup no migran automáticamente a un almacén de Recovery Services cuando se mueve la máquina virtual del modo clásico al modo de Resource Manager. Siga estos pasos para transferir las copias de seguridad de máquinas virtuales:
-
-1. En el almacén de Backup, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. Haga clic en [Detener protección](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
-2. Elimine la extensión de instantánea o copia de seguridad de la máquina virtual.
-3. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
-4. Cree un almacén de Recovery Services y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Para más información sobre la copia de seguridad de una máquina virtual en un almacén de Recovery Services, consulte el artículo [Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
+Todos los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente.
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 Se puede encontrar una lista detallada de preguntas en las [P+F sobre la copia de seguridad de archivos y carpetas de Azure](backup-azure-file-folder-backup-faq.md).
@@ -73,7 +65,7 @@ Sí. Se puede usar Azure Backup Server para realizar una copia de seguridad de V
 Sí.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>¿Puedo registrar mi servidor DPM en varios almacenes? <br/>
-No. Un servidor DPM o MABS solo se puede registrar en un único almacén.
+Nº Un servidor DPM o MABS solo se puede registrar en un único almacén.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>¿Qué versión de System Center Data Protection Manager se admite? <br/>
 Se recomienda que instale el agente de Azure Backup [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo (UR) de actualizaciones para System Center Data Protection Manager (DPM). A partir de agosto de 2016, el paquete acumulativo de actualizaciones 11 es la actualización más reciente.
@@ -92,7 +84,7 @@ Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, 
 Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de copia de seguridad se pueden ejecutar un máximo de tres veces al día. Sin embargo, en System Center DPM, los trabajos de copia de seguridad se pueden ejecutar un máximo de dos veces al día. Por último, en las máquinas virtuales de IaaS solo se puede ejecutar un trabajo de copia de seguridad al día. Puede usar la directiva de programación para estaciones de trabajo de Windows o Windows Server para especificar programaciones diarias o semanales. Mediante System Center DPM, puede especificar programaciones diarias, semanales, mensuales y anuales.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos de los que he hecho copia de seguridad?<br/>
- Todos los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup o SCDPM o desde Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
+ Todos los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup o SCDPM o de Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de Recovery Services se reduce entre un 30 % y un 40 %.
 
 ## <a name="what-can-i-back-up"></a>¿De qué puedo hacer copia de seguridad?
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>¿Qué sistemas operativos admite Azure Backup? <br/>
@@ -150,7 +142,7 @@ No, tanto DPM como Windows Server o el cliente Windows tienen directivas de rete
 Sí, la estructura de retención de Azure Backup permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>¿Puedo programar una copia de seguridad a las 6 p.m. y establecer las directivas de retención a una hora diferente?<br/>
-No. Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. En la siguiente ilustración, la directiva de retención se ha especificado para las copias de seguridad de las 12 a.m. y las 6 p.m. <br/>
+Nº Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. En la siguiente ilustración, la directiva de retención se ha especificado para las copias de seguridad de las 12 a.m. y las 6 p.m. <br/>
 
 ![Programación de copia de seguridad y retención](./media/backup-azure-backup-faq/Schedule.png)
 <br/>

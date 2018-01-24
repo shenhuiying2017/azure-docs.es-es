@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Tienda Windows de Azure AD | Microsoft Docs"
+title: "Introducción a la Plataforma universal de Windows de Azure AD (UWP/XAML) | Microsoft Docs"
 description: "Cree aplicaciones de la Tienda Windows que se integren con Azure AD para el inicio de sesión y la llamada a las API protegidas por Azure AD mediante OAuth."
 services: active-directory
 documentationcenter: windows
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f76324e4415dcc300a0c2e21a89d30301c17ebab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>Integración de Azure AD con aplicación de la Tienda Windows
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Introducción a la Plataforma Universal de Windows de Azure AD (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 > [!NOTE]
-> Los proyectos de Windows Store 8.1 y de la versión anterior no son compatibles con Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Los proyectos de Windows Store 8.1 y de la versión anterior no son compatibles con Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Si va a desarrollar aplicaciones para la Tienda Windows, Azure Active Directory (Azure AD) simplifica la autenticación de los usuarios con sus cuentas de Active Directory. Mediante la integración con Azure AD, una aplicación puede consumir de forma segura cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
 
@@ -46,10 +46,10 @@ Cuando esté listo, siga los procedimientos que se describen en las tres seccion
 ## <a name="step-1-register-the-directorysearcher-app"></a>Paso 1: Registro de la aplicación DirectorySearcher
 Para permitir que la aplicación obtenga tokens, primero debe registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API de Azure AD Graph: Este es el procedimiento:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. A continuación, en la lista **Directorio**, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones y cree una **aplicación de cliente nativa**.
   * **Nombre**: describe la aplicación a los usuarios.
   * El **URI de redirección** es una combinación de esquema y cadena que usará Azure AD para devolver respuestas de tokens. Por ahora, escriba un valor de marcador de posición (por ejemplo, **http://DirectorySearcher**). Este valor lo remplazará más adelante.

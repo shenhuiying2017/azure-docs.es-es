@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creación de la interfaz de usuario de Azure Portal para una aplicación administrada
 En este documento se presentan los conceptos principales del archivo createUiDefinition.json. Azure Portal usa este archivo para generar la interfaz de usuario para crear una aplicación administrada.
@@ -38,7 +38,7 @@ En este documento se presentan los conceptos principales del archivo createUiDef
 CreateUiDefinition siempre contiene tres propiedades: 
 
 * handler
-* versión
+* version
 * parameters
 
 Para las aplicaciones administradas, handler siempre debería ser `Microsoft.Compute.MultiVm`, y la versión más reciente admitida es `0.1.2-preview`.
@@ -58,15 +58,27 @@ La propiedad steps puede contener cero o más pasos adicionales que se mostrará
 ## <a name="outputs"></a>Salidas
 Azure Portal usa la propiedad `outputs` para asignar elementos de `basics` y `steps` a los parámetros de la plantilla de implementación de Azure Resource Manager. Las claves de este diccionario son los nombres de los parámetros de plantilla, y los valores son propiedades de los objetos de salida de los elementos a los que se hace referencia.
 
+Para definir el nombre del recurso de la aplicación administrada, debe incluir un valor llamado `applicationResourceName` en la propiedad outputs. Si no establece este valor, la aplicación asigna un GUID al nombre. Puede incluir un cuadro de texto en la interfaz de usuario que requiera un nombre de usuario.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
 ## <a name="functions"></a>Functions
 CreateUiDefinition proporciona funciones similares a las funciones de plantilla de Azure Resource Manager (tanto en sintaxis como en funcionalidad) para trabajar con las entradas y salidas de los elementos, así como características como los condicionales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 El propio archivo createUiDefinition.json tiene un esquema simple. Su profundidad real procede de todos los elementos y funciones que admite. Dichos elementos se describen con más detalle en:
 
 - [Elementos](create-uidefinition-elements.md)
 - [Funciones](create-uidefinition-functions.md)
 
-Aquí encontrará un esquema JSON actual para CreateUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Aquí encontrará un esquema JSON actual para CreateUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Las versiones posteriores estarán disponibles en la misma ubicación. Reemplace la parte `0.1.2-preview` de la dirección URL y el valor de `version` por el identificador de versión que va a utilizar. Los identificadores de versión actualmente admitidos son `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview` y `0.1.2-preview`.
+Para un archivo de interfaz de usuario de ejemplo, vea [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

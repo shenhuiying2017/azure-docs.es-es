@@ -1,24 +1,16 @@
 ---
-title: "Revisión de la arquitectura para la replicación de un servidor físico en Azure | Microsoft Docs"
+title: "Servidor físico para la replicación de la arquitectura en Azure con Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se proporciona información general de los componentes y la arquitectura que se usan al replicar servidores físicos locales en Azure con el servicio Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Arquitectura de replicación de un servidor físico en Azure
 
@@ -63,22 +55,18 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
 Una vez que la replicación está configurada y que se ejecutó una exploración de la recuperación ante desastres (conmutación por error de prueba) para comprobar que todo funciona según lo previsto, puede ejecutar la conmutación por error y la conmutación por recuperación según sea necesario. Observe lo siguiente:
 
 - No se admite la conmutación por error planeada.
-- Debe conmutar por recuperación a una máquina virtual de VMware local. Esto significa que necesita una infraestructura de VMware local, incluso si está replicando servidores físicos locales a Azure.
-
-
-1. La conmutación por error se realiza en una sola máquina, o bien se crean planes de recuperación para realizar la conmutación por error en varias máquinas a la vez.
-2. Cuando se ejecuta una conmutación por error, se crean máquinas virtuales de Azure a partir de los datos replicados en Azure Storage.
-3. Después de desencadenar la conmutación por error inicial, debe confirmarla para que se inicie. Para ello, acceda a la carga de trabajo desde la máquina virtual de Azure.
-
-Cuando el sitio local principal esté disponible de nuevo, podrá realizar una conmutación por recuperación.
-
-1. Debe configurar una infraestructura de conmutación por recuperación, que incluya:
+- Debe conmutar por recuperación a una máquina virtual de VMware local. Esto significa que necesita una infraestructura de VMware local, aunque replique servidores físicos locales en Azure.
+- La conmutación por error se realiza en una sola máquina, o bien se crean planes de recuperación para realizar la conmutación por error en varias máquinas a la vez.
+- Cuando se ejecuta una conmutación por error, se crean máquinas virtuales de Azure a partir de los datos replicados en Azure Storage.
+- Después de desencadenar la conmutación por error inicial, debe confirmarla para que se inicie. Para ello, acceda a la carga de trabajo desde la máquina virtual de Azure.
+- Cuando el sitio local principal esté disponible de nuevo, podrá realizar una conmutación por recuperación.
+- Debe configurar una infraestructura de conmutación por recuperación, que incluya:
     - **Servidor de procesos temporal en Azure**: para realizar una conmutación por error desde Azure, configure una máquina virtual de Azure que actúe como servidor de procesos para controlar la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
     - **Conexión VPN**: para la conmutación por recuperación, necesita una conexión VPN (o Azure ExpressRoute) desde la red de Azure al sitio local.
     - **Servidor de destino maestro independiente**: de manera predeterminada, el servidor de destino maestro que se instaló con el servidor de configuración, en la máquina virtual de VMware, controla la conmutación por recuperación. Sin embargo, si necesita la conmutación por recuperación en grandes volúmenes de tráfico, debe configurar un servidor de destino maestro local independiente para este propósito.
     - **Directiva de conmutación por recuperación**: para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta directiva se creó automáticamente cuando creó la directiva de replicación desde el entorno local a Azure.
     - **Infraestructura de VMware**: se necesita una infraestructura de VMware para conmutación por recuperación. No se puede realizar la conmutación por recuperación a un servidor físico.
-2. Una vez instalados los componentes, la conmutación por recuperación se produce en tres fases:
+- Una vez instalados los componentes, la conmutación por recuperación se produce en tres fases:
     - Fase 1: Vuelva a proteger las máquinas virtuales de modo que realicen la replicación desde Azure de vuelta a las máquinas virtuales VMware locales.
     - Fase 2: Ejecute una conmutación por error en el sitio local.
     - Fase 3: .Una vez que las cargas de trabajo realizaron la conmutación por recuperación, vuelve a habilitar la replicación.
@@ -88,7 +76,6 @@ Cuando el sitio local principal esté disponible de nuevo, podrá realizar una c
 ![Conmutación por recuperación](./media/concepts-physical-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Revise la matriz de compatibilidad Siga el tutorial para habilitar la replicación de VMware en Azure.
-Realice una conmutación por error y una conmutación por recuperación.
+Siga [este tutorial](tutorial-physical-to-azure.md) para habilitar la replicación del servidor físico en Azure.

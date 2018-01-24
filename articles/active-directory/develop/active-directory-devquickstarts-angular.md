@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f2bf857d2618a8cfe7094c7f3124be20db3ff39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Ayuda para proteger aplicaciones de una sola página AngularJS mediante Azure AD
+# <a name="azure-ad-angularjs-getting-started"></a>Introducción a AngularJS de Azure AD
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -46,7 +46,7 @@ Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureA
 ## <a name="step-1-register-the-directorysearcher-application"></a>Paso 1: Registro de la aplicación DirectorySearcher
 Para habilitar la aplicación a fin de autenticar a los usuarios y obtener tokens, primero debe registrarla en el inquilino de Azure AD:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Si inició sesión en varios directorios, debe asegurarse de que está viendo el directorio correcto. Para ello, en la barra superior, haga clic en su cuenta. En la lista **Directorio** lista, elija el inquilino de Azure AD donde desea registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel izquierdo y luego seleccione **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
@@ -77,7 +77,7 @@ Comience agregando adal.js al proyecto TodoSPA mediante la Consola del Administr
     ```
 
 ### <a name="configure-the-back-end-server"></a>Configuración del servidor back-end
-Para que la API de tareas pendientes del back-end de la aplicación de una sola página acepte tokens del explorador, el back-end necesita información de configuración acerca del registro de la aplicación. En el proyecto TodoSPA, abra `web.config`. Reemplace los valores de los elementos de la sección `<appSettings>` para que reflejen los valores usados en Azure Portal. El código hará referencia a estos valores siempre que use ADAL.
+Para que la API de tareas pendientes del back-end de la aplicación de una sola página acepte tokens del explorador, el back-end necesita información de configuración acerca del registro de la aplicación. En el proyecto TodoSPA, abra `web.config`. Reemplace los valores de los elementos de la sección `<appSettings>` para que reflejen los valores usados en Azure Portal. El código hará referencia a estos valores cada vez que use ADAL.
   * `ida:Tenant` es el dominio del inquilino de Azure AD, por ejemplo, contoso.onmicrosoft.com.
   * `ida:Audience` es el identificador de cliente de la aplicación que copió del portal.
 
@@ -156,7 +156,7 @@ Adal.js facilita la incorporación de características comunes de identidad en l
 
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip) está disponible el ejemplo finalizado (sin sus valores de configuración).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora puede pasar a otros escenarios. Puede intentar [llamar a una API web CORS desde una aplicación de una sola página](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

@@ -1,19 +1,35 @@
 
-## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
-Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
-1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
-2.  Escriba el nombre de la aplicación y su correo electrónico.
-3.  Asegúrese de que está activada la opción de configuración paso a paso.
-4.  Siga las instrucciones para obtener el identificador de aplicación y péguelo en el código.
+## <a name="register-your-application"></a>Registrar su aplicación
+Puede registrar la aplicación de dos maneras.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Adición de la información de registro de la aplicación a la solución (avanzado)
-Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
-1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
-2. Escriba el nombre de la aplicación y su correo electrónico. 
-3. Asegúrese de que está desactivada la opción de configuración paso a paso.
-4. Haga clic en `Add Platform`, a continuación, seleccione `Native Application` y haga clic en Guardar.
-5. Copie el GUID en Id. de aplicación, vuelva a Visual Studio, abra `App.xaml.cs` y reemplace `your_client_id_here` por el identificador de aplicación que acaba de registrar:
+### <a name="option-1-express-mode"></a>Opción 1: Modo rápido
+Puede registrar rápidamente la aplicación mediante estos pasos:
+1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
 
-```csharp
-private static string ClientId = "your_application_id_here";
-```
+2. Seleccione **Agregar una aplicación**.
+
+3. En el cuadro**Application Name** (Nombre de la aplicación) escriba el nombre de su aplicación.
+
+4. Asegúrese de que la casilla **Guided Setup** (Instalación guiada) esté activada y, luego, seleccione **Create** (Crear).
+
+5. Siga las instrucciones para obtener el identificador de aplicación y péguelo en el código.
+
+### <a name="option-2-advanced-mode"></a>Opción 2: Modo avanzado
+Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
+1. Si aún no ha registrado la aplicación, vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
+
+2. Seleccione **Agregar una aplicación**.
+
+3. En el cuadro**Application Name** (Nombre de la aplicación) escriba el nombre de su aplicación. 
+
+4. Asegúrese de que la casilla **Guided Setup** (Instalación guiada) esté desactivada y, luego, seleccione **Create** (Crear).
+
+5. Seleccione **Add Platform** (Agregar plataforma), seleccione **Native Application** (Aplicación nativa) y, luego, seleccione **Save** (Guardar).
+
+6. En el cuadro **Application ID** (Id. de aplicación), copie el GUID.
+
+7. Vaya a Visual Studio, abra el archivo *App.xaml.cs* y, luego, reemplace `your_client_id_here` por el identificador de aplicación que acaba de registrar y copiar.
+
+    ```csharp
+    private static string ClientId = "your_application_id_here";
+    ```

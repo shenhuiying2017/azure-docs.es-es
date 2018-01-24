@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -70,40 +70,7 @@ Para restaurar archivos o carpetas desde el punto de restauración, vaya a la m�
 
    En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" para conectar con el punto de recuperación. Si los componentes no existen en el equipo donde se ejecuta el script, este solicita permiso para instalarlos. Otorgue el consentimiento para instalar los componentes necesarios.  
          
-   Puede ejecutar el script en cualquier máquina que tenga el mismo sistema operativo (o uno compatible) que la máquina virtual de la que se realiza la copia de seguridad. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#compatible-os) para ver cuáles son. Si la máquina virtual de Azure protegida usa espacios de almacenamiento de Windows (para máquinas virtuales Windows de Azure) o matrices LVM/RAID (para máquinas virtuales Linux), no puede ejecutar el archivo ejecutable o script en la misma máquina virtual. En su lugar, ejecútelo en otra máquina que tenga un sistema operativo compatible.
-
-### <a name="compatible-os"></a>Sistemas operativos compatibles
-
-#### <a name="for-windows"></a>Para Windows
-
-En la siguiente tabla se muestra la compatibilidad entre los sistemas operativos de servidor y equipo. Al recuperar archivos, no podrá restaurar archivos a una versión anterior o posterior del sistema operativo. Por ejemplo, no puede restaurar un archivo de una máquina virtual con Windows Server 2016 a una con Windows Server 2012 o un equipo con Windows 8. Puede restaurar archivos de una máquina virtual al mismo sistema operativo de servidor o a uno de cliente compatible.   
-
-|Sistema operativo de servidor | Sistema operativo de cliente compatible  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Para Linux
-
-En Linux, el sistema operativo del equipo usado para restaurar archivos debe admitir el sistema de archivos de la máquina virtual protegida. Al seleccionar un equipo para ejecutar el script, asegúrese de que este tiene un sistema operativo compatible y utiliza una de las versiones de la tabla siguiente:
-
-|SO Linux | Versiones  |
-| --------------- | ---- |
-| Ubuntu | 12.04 y posterior |
-| CentOS | 6.5 y posterior  |
-| RHEL | 6.7 y posterior |
-| Debian | 7 y posterior |
-| Oracle Linux | 6.4 y posterior |
-
-El script también requiere los componentes Python y Bash para realizar la ejecución y la conexión al punto de recuperación con seguridad.
-
-|Componente | Versión  |
-| --------------- | ---- |
-| Bash | 4 y posterior |
-| Python | 2.6.6 y posterior  |
-
+   Puede ejecutar el script en cualquier máquina que tenga el mismo sistema operativo (o uno compatible) que la máquina virtual de la que se realiza la copia de seguridad. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#system-requirements) para ver cuáles son. Si la máquina virtual de Azure protegida usa espacios de almacenamiento de Windows (para máquinas virtuales Windows de Azure) o matrices LVM/RAID (para máquinas virtuales Linux), no puede ejecutar el archivo ejecutable o script en la misma máquina virtual. En su lugar, ejecútelo en otra máquina que tenga un sistema operativo compatible.
 
 ### <a name="identifying-volumes"></a>Identificación de volúmenes
 
@@ -193,7 +160,42 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Si el disco RAID tiene otra LVM configurada, utilice el procedimiento anterior para las particiones de LVM, pero con el nombre de volumen en lugar del nombre de disco RAID.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="system-requirements"></a>Requisitos del sistema
+
+### <a name="for-windows"></a>Para Windows
+
+En la siguiente tabla se muestra la compatibilidad entre los sistemas operativos de servidor y equipo. Al recuperar archivos, no podrá restaurar archivos a una versión anterior o posterior del sistema operativo. Por ejemplo, no puede restaurar un archivo de una máquina virtual Windows Server 2016 a una Windows Server 2012 o un equipo con Windows 8. Puede restaurar archivos de una máquina virtual al mismo sistema operativo de servidor o a uno de cliente compatible.   
+
+|Sistema operativo de servidor | Sistema operativo de cliente compatible  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Para Linux
+
+En Linux, el sistema operativo del equipo usado para restaurar archivos debe admitir el sistema de archivos de la máquina virtual protegida. Al seleccionar un equipo para ejecutar el script, asegúrese de que este tiene un sistema operativo compatible y utiliza una de las versiones de la tabla siguiente:
+
+|SO Linux | Versiones  |
+| --------------- | ---- |
+| Ubuntu | 12.04 y posterior |
+| CentOS | 6.5 y posterior  |
+| RHEL | 6.7 y posterior |
+| Debian | 7 y posterior |
+| Oracle Linux | 6.4 y posterior |
+| SLES | 12 y posterior |
+| openSUSE | 42.2 y posterior |
+
+El script también requiere los componentes Python y Bash para realizar la ejecución y la conexión al punto de recuperación con seguridad.
+
+|Componente | Versión  |
+| --------------- | ---- |
+| Bash | 4 y posterior |
+| Python | 2.6.6 y posterior  |
+| TLS | Se debe admitir 1.2  |
+
+## <a name="troubleshooting"></a>solución de problemas
 
 Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, compruebe la siguiente tabla para obtener más información.
 

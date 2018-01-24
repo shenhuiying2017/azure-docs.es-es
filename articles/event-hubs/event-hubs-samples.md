@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Ejemplos de Event Hubs 
 
@@ -53,7 +53,7 @@ Estos ejemplos muestran otras características de Azure Event Hubs que tienen co
 
 El ejemplo de [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) muestra cómo notificar a los usuarios sobre los datos recibidos de los sensores o de otros sistemas.
 
-### <a name="get-started-with-event-hubs"></a>Introducción a los Centros de eventos 
+### <a name="get-started-with-event-hubs"></a>Introducción a Event Hubs 
 
 El ejemplo de [Event Hubs Getting Started](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) (Introducción a Event Hubs) muestra las funcionalidades básicas de Event Hubs, como la creación de un centro de eventos, el envío de eventos a un centro de eventos y el consumo de eventos mediante el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
 
@@ -69,7 +69,7 @@ El ejemplo de [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dot
 
 El ejemplo de [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) (Importación de datos desde la web) muestra cómo extraer datos de fuentes públicas (como la información de tráfico del Departamento de transporte) e insertarlos en un centro de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si desea conocer más información sobre las versiones de .NET Framework, visite los vínculos siguientes:
 

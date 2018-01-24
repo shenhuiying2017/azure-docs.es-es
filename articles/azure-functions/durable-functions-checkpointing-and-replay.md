@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Puntos de control y reproducción en Durable Functions (Azure Functions)
 
@@ -63,7 +63,7 @@ Una vez completado el punto de control, la función de orquestador se puede quit
 
 Tras la finalización, el historial de la función mostrada anteriormente tiene un aspecto similar al siguiente Azure Table Storage (abreviado con fines ilustrativos):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nombre             | Resultado                                                    | Estado | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOMBRE             | Resultado                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ Notas sobre los valores de las columnas:
     * **TaskScheduled**: se programó una función de actividad. El nombre de la función de actividad se captura en la columna `Name`.
     * **TaskCompleted**: función de actividad completada. El resultado de la función está en la columna `Result`.
     * **TimerCreated**: se ha creado un temporizador durable. La columna `FireAt` contiene la hora UTC programada a la que expira el temporizador.
-    * **TimerFired**: ha caducado un temporizador durable.
+    * **TimerFired**: se ha desencadenado un temporizador durable.
     * **EventRaised**: se envió un evento externo a la instancia de orquestación. La columna `Name` captura el nombre del evento y `Input`, la carga del evento.
     * **OrchestratorCompleted**: función de orquestador esperada.
     * **ContinueAsNew**: la función de orquestador se ha completado y se ha reiniciado con el nuevo estado. La columna `Result` contiene el valor, que se utiliza como entrada en la instancia reiniciada.
@@ -98,7 +98,7 @@ Notas sobre los valores de las columnas:
 * **Marca de tiempo**: marca de tiempo UTC del evento del historial.
 * **Nombre**: nombre de la aplicación de función invocada.
 * **Entrada**: entrada de la función con formato JSON.
-* **Salida**: resultado de la función, valor devuelto.
+* **Salida**: resultado de la función; es decir, el valor devuelto.
 
 > [!WARNING]
 > Aunque es útil como herramienta de depuración, no confíe en esta tabla. Puede cambiar con el progreso de la extensión Durable Functions.
@@ -141,7 +141,7 @@ El comportamiento de ejecución descrito aquí le ayudará a entender por qué e
 
 Si desea más información acerca de cómo Durable Task Framework ejecuta funciones de orquestador, lo mejor es consultar el [código fuente de la instancia de Durable Task en GitHub](https://github.com/Azure/durabletask). En concreto, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) y [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Información acerca de la administración de instancias](durable-functions-instance-management.md)

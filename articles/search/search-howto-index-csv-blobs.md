@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs CSV con el indexador de blobs de Azure Search
 De forma predeterminada, el [indexador de blobs de Azure Search](search-howto-indexing-azure-blob-storage.md) analiza los blobs de texto delimitados como un único fragmento de texto. Sin embargo, con blobs que contienen datos CSV, a menudo se desea tratar cada línea del blob como un documento independiente. Por ejemplo, dado el siguiente texto delimitado: 
@@ -52,7 +52,12 @@ Si el blob no contienen una línea de encabezado inicial, los encabezados deben 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Actualmente, solo se admite la codificación UTF-8. Además, solo se admite el carácter de coma `','` como delimitador. Si necesita compatibilidad con otras codificaciones o delimitadores, háganoslo saber en [nuestro sitio web de UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Puede personalizar el carácter delimitador mediante la configuración de `delimitedTextDelimiter`. Por ejemplo: 
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> Actualmente, solo se admite la codificación UTF-8. Si necesita compatibilidad con otras codificaciones, háganoslo saber en [nuestro sitio web de UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Cuando se utiliza el modo de análisis de texto delimitado, Azure Search supone que todos los blobs del origen de datos serán CSV. Si necesita admitir una mezcla de blobs CSV y que no son CSV en el mismo origen de datos, háganoslo saber en [nuestro sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).

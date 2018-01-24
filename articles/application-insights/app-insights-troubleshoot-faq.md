@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: peguntas más frecuentes
 
@@ -102,7 +102,7 @@ Una aplicación de escritorio que puede usar en el servidor web de IIS para ayud
 De las aplicaciones web de servidor:
 
 * Solicitudes HTTP
-* [Dependencias](app-insights-asp-net-dependencies.md). Llamadas a: bases de datos SQL; llamadas HTTP a servicios externos; Cosmos DB de Azure, tabla, almacenamiento de blobs y colas. 
+* [Dependencias](app-insights-asp-net-dependencies.md). Llamadas a: instancias de SQL Database; llamadas HTTP a servicios externos; Cosmos DB de Azure, tabla, almacenamiento de blobs y colas. 
 * [Excepciones](app-insights-asp-net-exceptions.md) y seguimientos de pila.
 * [Contadores de rendimiento](app-insights-performance-counters.md): si usa el [Monitor de estado](app-insights-monitor-performance-live-website-now.md), [supervisión de Azure](app-insights-azure-web-apps.md) o el [escritor de collectd de Application Insights](app-insights-java-collectd.md).
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md) que puede crear mediante código.
@@ -242,7 +242,7 @@ Esto no depende de dónde se encuentre hospedado su recurso de Application Insig
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>¿Puedo enviar telemetría al portal de Application Insights?
 
-Recomendamos que use nuestros SDK y que utilice la API del SDK (app-insights-api-custom-events-metrics.md). Hay variantes del SDK para distintas [plataformas](app-insights-platforms.md). Estos SDK controlan el almacenamiento en búfer, la compresión, la limitación, los reintentos, etc. Sin embargo, el [esquema de ingesta](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) y el [protocolo de punto de conexión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) son públicos.
+Se recomienda usar nuestros SDK y la [API de SDK](app-insights-api-custom-events-metrics.md). Hay variantes del SDK para distintas [plataformas](app-insights-platforms.md). Estos SDK controlan el almacenamiento en búfer, la compresión, la limitación, los reintentos, etc. Sin embargo, el [esquema de ingesta](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) y el [protocolo de punto de conexión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) son públicos.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>¿Puedo supervisar un servidor web de una intranet?
 

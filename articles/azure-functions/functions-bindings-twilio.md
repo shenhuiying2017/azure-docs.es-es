@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Enlace de Twilio para Azure Functions
 
@@ -32,13 +32,13 @@ En este artículo se explica cómo enviar mensajes de texto mediante los enlaces
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#c-example)
-* [Script de C#](#c-script-example)
+* [C#](#c-example)
+* [Script de C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que envía un mensaje de texto cuando se desencadena mediante un mensaje de cola.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía un mensaje de texto cuando se desencadena mediante un mensaje de cola.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
 Para información sobre las propiedades de atributo que puede configurar, consulte [Configuración](#configuration). A continuación, se muestra un ejemplo del atributo `TwilioSms` en una signatura de método:
 
@@ -213,13 +213,13 @@ public static SMSMessage Run(
 }
  ```
 
-Para un ejemplo completo, consulte el [ejemplo de C# precompilado](#c-example).
+Para obtener un ejemplo completo, consulte [Ejemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `TwilioSms`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `TwilioSms`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type**|| Se debe establecer en `twilioSms`.|
 |**dirección**|| Se debe establecer en `out`.|
@@ -232,7 +232,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

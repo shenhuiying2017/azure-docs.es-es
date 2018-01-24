@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: diseño de tablas escalables y eficientes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -86,7 +86,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </tr>
 <tr>
 <td>Marketing</td>
-<td>Departamento</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -204,12 +204,12 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 | *Nombre de la columna* | *Tipo de datos* |
 | --- | --- |
-| **PartitionKey** (nombre de departamento) |String |
-| **RowKey** (Identificación de empleado) |String |
-| **Nombre** |String |
-| **Apellidos** |String |
+| **PartitionKey** (nombre de departamento) |string |
+| **RowKey** (Identificación de empleado) |string |
+| **Nombre** |string |
+| **Apellidos** |string |
 | **Edad** |Entero |
-| **EmailAddress** |Cadena |
+| **EmailAddress** |string |
 
 En la sección [Descripción general de Table service](#overview) se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -251,8 +251,8 @@ Table service indexará automáticamente las entidades mediante los valores **Pa
 Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan estos tipos de requisitos y describen las formas de solucionar el hecho de que Table service no proporciona índices secundarios:  
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
-* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern) : almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
-* [Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
+* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
+* [Patrón de entidades de índice](#index-entities-pattern) : mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordenación de los datos de Table service
 Table service devuelve entidades ordenadas en orden ascendente según **PartitionKey** y, a continuación, por **RowKey**. Estas claves son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**.  
@@ -282,7 +282,7 @@ El otro factor clave que afecta a su elección de claves para optimizar las modi
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan la administración de coherencia:  
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
-* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern) : almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
+* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
 * [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) : habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
 * [Patrón de entidades de índice](#index-entities-pattern) : mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 * [Patrón de desnormalización](#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  
@@ -651,7 +651,7 @@ En una base de datos relacional, normalmente normaliza datos para eliminar datos
 ![][16]
 
 #### <a name="solution"></a>Solución
-En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:  
+En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:   
 
 ![][17]
 

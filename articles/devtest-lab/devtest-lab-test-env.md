@@ -3,7 +3,7 @@ title: "Usar Azure DevTest Labs para entornos de prueba de máquina virtual y Pa
 description: "Aprenda a usar Azure DevTest Labs para escenarios de entornos de prueba de máquina virtual y PaaS."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: d4e2c334-643a-40c9-9051-625b8f39fc86
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: dc54b1638fbea577f383ead47b83d29e677cd78f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usar Azure DevTest Labs para entornos de prueba de máquina virtual y PaaS
 
@@ -43,7 +43,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure](devtest-lab-create-lab.md) |Aprenderá a crear un laboratorio en Azure DevTest Labs en Azure Portal. |
 2. **Creación de máquinas virtuales en cuestión de minutos mediante imágenes listas para usar de Marketplace e imágenes personalizadas** 
@@ -54,7 +54,7 @@ En este artículo obtendrá información sobre varias características de Azure 
   
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a incluir imágenes de Azure Marketplace en una lista de permitidos y haga que estén disponibles para su selección solo las imágenes que quiera para los evaluadores.|
    | [Creación de una imagen personalizada](devtest-lab-create-template.md) |Cree una imagen personalizada instalando previamente el software que necesita para que los evaluadores puedan crear rápidamente una máquina virtual con la imagen personalizada.|
@@ -66,7 +66,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Administración de fórmulas de DevTest Labs para crear máquinas virtuales](devtest-lab-manage-formulas.md) |Aprenda cómo crear una fórmula en el laboratorio seleccionando una imagen, un tamaño de máquina virtual (una combinación de CPU y RAM) y una red virtual.|
 
@@ -78,7 +78,7 @@ En este artículo obtendrá información sobre varias características de Azure 
 
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Obtenga información sobre cómo puede implementar varias máquinas virtuales en un estado coherente para el entorno de prueba.|
 
@@ -94,7 +94,7 @@ En este artículo obtendrá información sobre varias características de Azure 
 
    Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md) |Cree sus propios artefactos personalizados para las máquinas virtuales de su laboratorio.|
    | [Agregar un repositorio de Git para almacenar artefactos personalizados y plantillas de Azure Resource Manager para su uso en Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Aprenda a almacenar los artefactos personalizados en su propio repositorio privado de Git.|
@@ -109,7 +109,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md) |Controle los costos mediante el establecimiento de directivas en el laboratorio. |
    | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar la prueba.|
@@ -122,7 +122,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Configuración de una red virtual en Azure DevTest Labs](devtest-lab-configure-vnet.md) |Aprenda a configurar una red virtual en Azure DevTest Labs mediante Azure Portal.|
 
@@ -132,7 +132,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Incorporación de un evaluador a un laboratorio de Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use Azure Portal para agregar evaluadores al laboratorio.|
    | [Incorporación de evaluadores al laboratorio mediante un script de PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell para automatizar la incorporación de evaluadores al laboratorio. |
@@ -144,7 +144,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
-   | Tarea | Conocimientos que adquirirá |
+   | Task | Conocimientos que adquirirá |
    | --- | --- |
    | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 

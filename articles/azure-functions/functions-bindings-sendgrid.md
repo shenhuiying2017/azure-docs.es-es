@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -28,13 +28,13 @@ En este artículo se explica cómo enviar correos electrónicos mediante los enl
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# precompilado](#c-example)
-* [Script de C#](#c-script-example)
+* [C#](#c-example)
+* [Script de C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que usa un desencadenador de cola de Service Bus y un enlace de salida de SendGrid.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que usa un desencadenador de cola de Service Bus y un enlace de salida de SendGrid.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Atributos
 
-Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Para información sobre las propiedades de atributo que puede configurar, consulte [Configuración](#configuration). A continuación, se muestra un ejemplo del atributo `SendGrid` en una signatura de método:
 
@@ -169,13 +169,13 @@ public static void Run(
 }
 ```
 
-Para un ejemplo completo, consulte el [ejemplo de C# precompilado](#c-example).
+Para obtener un ejemplo completo, consulte [Ejemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `SendGrid`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `SendGrid`.
 
-|Propiedad de function.json | Propiedad de atributo |Descripción|
+|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type**|| Requerida: se debe establecer en `sendGrid`.|
 |**dirección**|| Requerida: se debe establecer en `out`.|
@@ -188,7 +188,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

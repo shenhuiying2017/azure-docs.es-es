@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio
 
@@ -29,7 +29,7 @@ Para aprovechar los servicios de hospedaje y la escalabilidad de Azure, puede mi
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Migración de un proyecto a Cloud Services
 
-1. Haga clic con el botón derecho en el proyecto de aplicación web y seleccione **Convertir > Convertir en un proyecto de servicio en la nube de Microsoft Azure**. (Este comando no aparece si ya tiene un proyecto de rol web en la solución).
+1. Haga clic con el botón derecho en el proyecto de aplicación web y seleccione **Convertir > Convertir en un proyecto de servicio en la nube de Microsoft Azure**. (Tenga en cuenta que este comando no aparece si ya tiene un proyecto de rol web en la solución).
 1. Visual Studio crea un proyecto de servicio en la nube en la solución que contiene el rol web necesario. El nombre de este proyecto es el mismo que el proyecto de aplicación más el sufijo `.Azure`.
 1. Visual Studio también establece la propiedad **Copia local**en true para todos los ensamblados necesarios para MVC 2, MVC 3, MVC 4 y las aplicaciones empresariales de Silverlight. Esta propiedad agrega estos ensamblados al paquete de servicio empleado para la implementación.
 
@@ -124,7 +124,7 @@ Las aplicaciones que se pueden migrar y publicar en Cloud Services deben usar un
 | WCF | Aplicación de servicio de flujo de trabajo WCF |
 | Flujo de trabajo | Aplicación de servicio de flujo de trabajo WCF |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
 - [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md)

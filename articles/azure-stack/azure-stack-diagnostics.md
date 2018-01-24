@@ -7,18 +7,18 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
  
 Azure Stack es una gran colección de componentes que funcionan juntos e interactúan entre sí. Todos estos componentes generan sus propios registros únicos. Esto puede dificultar el diagnóstico de problemas, especialmente en el caso de errores procedentes de varios componentes de Azure Stack que interactúan. 
 
@@ -29,11 +29,11 @@ Nuestras herramientas de diagnóstico ayudan a asegurar que el mecanismo de reco
  
 ## <a name="trace-collector"></a>Recopilador de seguimiento
  
-El recopilador de seguimiento está habilitado de forma predeterminada y se ejecuta continuamente en segundo plano para recopilar el todos los registros de Seguimiento de eventos para Windows (ETW) de los servicios de componentes de Azure Stack. Los registros de ETW se almacenan en un recurso compartido local común con un límite de antigüedad de cinco días. Una vez que se alcanza este límite, se eliminan los archivos más antiguos cuando se crean nuevos. El tamaño máximo predeterminado permitido para cada archivo es de 200 MB. Se realiza una comprobación de tamaño de forma periódica (cada dos minutos) y si el archivo actual es > = 200 MB, se guarda y se genera otro. También hay un límite de 8 GB en el tamaño total del archivo generado por cada sesión de eventos. 
+El recopilador de seguimiento está habilitado de forma predeterminada y se ejecuta continuamente en segundo plano para recopilar el todos los registros de Seguimiento de eventos para Windows (ETW) de los servicios de componentes de Azure Stack. Los registros de ETW se almacenan en un recurso compartido local común con un límite de antigüedad de cinco días. Una vez que se alcanza este límite, se eliminan los archivos más antiguos cuando se crean nuevos. El tamaño máximo predeterminado permitido para cada archivo es de 200 MB. Se realiza una comprobación de tamaño cada dos minutos y si el archivo actual es > = 200 MB, se guarda y se genera otro. También hay un límite de 8 GB en el tamaño total del archivo generado por cada sesión de eventos. 
 
 ## <a name="log-collection-tool"></a>Herramienta de recopilación de registros
  
-El cmdlet de PowerShell **Get-AzureStackLog** se puede utilizar para recopilar registros de todos los componentes en un entorno de Azure Stack. Los guarda en archivos ZIP en una ubicación definida por el usuario. Si nuestro equipo de soporte técnico necesita los registros para ayudarle a solucionar un problema, puede pedirle que ejecute esta herramienta.
+El cmdlet de PowerShell **Get-AzureStackLog** se puede utilizar para recopilar registros de todos los componentes en un entorno de Azure Stack. Los guarda en archivos ZIP en una ubicación definida por el usuario. Si el equipo de soporte técnico de Azure Stack necesita los registros para ayudarle a solucionar un problema, puede que le pidan que ejecute esta herramienta.
 
 > [!CAUTION]
 > Estos archivos de registro pueden contener información de identificación personal (PII). Tenga esto en cuenta antes de publicar los archivos de registro.
@@ -138,9 +138,9 @@ if($s)
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Recopilación de registros mediante una interfaz gráfica de usuario
 En lugar de proporcionar los parámetros necesarios para el cmdlet Get-AzureStackLog para recuperar registros de Azure Stack, también puede aprovechar las herramientas de Azure Stack de código abierto disponibles ubicadas en el repositorio de herramientas de GitHub de Azure Stack principal en http://aka.ms/AzureStackTools.
 
-El script de PowerShell **ERCS_AzureStackLogs.ps1** se almacena en el repositorio de herramientas de GitHub y se actualiza con frecuencia. Iniciado desde una sesión de PowerShell administrativa, el script se conecta al punto de conexión con privilegios y ejecuta Get-AzureStackLog con los parámetros proporcionados. Si no se proporcionan parámetros, la acción predeterminada del script será solicitar parámetros a través de una interfaz gráfica de usuario.
+El script de PowerShell **ERCS_AzureStackLogs.ps1** se almacena en el repositorio de herramientas de GitHub y se actualiza con frecuencia. Para asegurarse de que tiene la versión más reciente disponible, debe descargarlo directamente de http://aka.ms/ERCS. Iniciado desde una sesión de PowerShell administrativa, el script se conecta al punto de conexión con privilegios y ejecuta Get-AzureStackLog con los parámetros proporcionados. Si no se proporcionan parámetros, la acción predeterminada del script es solicitar parámetros a través de una interfaz gráfica de usuario.
 
-Para más información sobre el script de PowerShell ERCS_AzureStackLogs.ps1 script puede ver [un vídeo corto](https://www.youtube.com/watch?v=Utt7pLsXEBc) o consultar el [archivo léame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) del script ubicado en el repositorio de herramientas de GitHub de Azure Stacks. 
+Para más información acerca del script de PowerShell ERCS_AzureStackLogs.ps1 script puede ver [un vídeo corto](https://www.youtube.com/watch?v=Utt7pLsXEBc) o consultar el [archivo léame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) del script ubicado en el repositorio de herramientas de GitHub de Azure Stack. 
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 
@@ -157,5 +157,5 @@ Para más información sobre el script de PowerShell ERCS_AzureStackLogs.ps1 scr
 > [!NOTE]
 > Se aplican límites en el tamaño y la antigüedad para los registros recopilados, ya que resulta esencial para garantizar un uso eficaz del espacio de almacenamiento y para asegurarse de que este no recibe demasiados registros. Sin embargo, cuando se diagnostica un problema, a veces se necesitan registros que podrían no existir ya debido a estos límites. Por lo tanto, se **recomienda encarecidamente** descargar los registros en un espacio de almacenamiento externo (una cuenta de almacenamiento de Azure, un dispositivo de almacenamiento local adicional, etc.) cada entre 8 a 12 horas y conservarlos allí de 1 a 3 meses, en función de los requisitos. Asegúrese también de que la ubicación de almacenamiento está cifrada.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md)

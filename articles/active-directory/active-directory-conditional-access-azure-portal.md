@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
@@ -210,7 +210,10 @@ Si usa Intune en su entorno, puede comenzar a usar inmediatamente la directiva d
 
 Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo los dispositivos de confianza puedan acceder a servicios de Office 365. Esto significa que los dispositivos móviles se inscriben con Intune y satisfacen los requisitos de la directiva de cumplimiento y que los equipos con Windows están unidos a un dominio local. Una importante mejora es que no es necesario establecer la misma directiva para cada uno de los servicios de Office 365.  Cuando cree una nueva directiva, configure las aplicaciones de nube para que incluyan cada una de las aplicaciones de Office 365 que quiere proteger con acceso condicional.
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Cambio de un dispositivo corporativo a Bring Your Own Device (BYOD)
+Si desea bloquear dispositivos inscritos cambiando la propiedad del dispositivo de corporativo a personal, puede hacerlo usando el acceso condicional de Azure Active Directory (AAD). Primero debe crear una directiva de acceso condicional en la que esté seleccionado **Bloquear acceso** en la hoja **Conceder**. A continuación, cree un grupo **Dispositivo dinámico** estableciendo la propiedad **deviceOwnership** en **Personal**. A continuación, destine la directiva anterior al nuevo grupo.
+
+## <a name="next-steps"></a>pasos siguientes
 
 - Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 

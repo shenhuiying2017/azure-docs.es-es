@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Desagrupación, ámbitos y bucles de aplicaciones lógicas
   
@@ -26,9 +26,9 @@ Logic Apps proporciona una serie de métodos para trabajar con matrices, colecci
   
 ## <a name="foreach-loop-and-arrays"></a>Matrices y bucle ForEach
   
-Las aplicaciones lógicas permiten crear bucles en un conjunto de datos y realizar una acción en cada elemento.  Esto es posible gracias a la acción `foreach` .  En el diseñador, puede especificar que se agregue un bucle ForEach.  Después de seleccionar la matriz en la que desea realizar la iteración, puede empezar a agregar acciones.  Puede agregar varias acciones por bucle ForEach.  En el bucle se puede empezar a especificar qué debe ocurrir en cada valor de la matriz.
+Las aplicaciones lógicas permiten crear bucles en un conjunto de datos y realizar una acción en cada elemento.  Crear bucles en una colección es posible con la acción `foreach`.  En el diseñador, puede agregar un bucle ForEach.  Después de seleccionar la matriz en la que desea realizar la iteración, puede empezar a agregar acciones.  Puede agregar varias acciones por bucle ForEach.  En el bucle se puede empezar a especificar qué debe ocurrir en cada valor de la matriz.
 
-Si utiliza la vista de código, puede especificar un bucle ForEach como el siguiente.  Se trata de un ejemplo de un bucle ForEach que envía un correo electrónico a cada dirección de correo electrónico que contenga "microsoft.com":
+  Este ejemplo envía un correo electrónico a cada dirección de correo electrónico que contenga "microsoft.com". Si utiliza la vista de código, puede especificar un bucle ForEach como el ejemplo a continuación:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Si utiliza la vista de código, puede especificar un bucle ForEach como el sigui
 }
 ```
   
-  Una acción `foreach` puede iterar hasta 5000 filas en las matrices.  De forma predeterminada, cada iteración se ejecutará en paralelo.  
+  Una acción `foreach` puede recorrer en iteración matrices con miles de entidades.  De forma predeterminada, las iteraciones se ejecutan en paralelo.  Consulte [Límites y configuración](logic-apps-limits-and-config.md) para más información acerca de los límites de matriz y simultaneidad.
 
 ### <a name="sequential-foreach-loops"></a>Bucles ForEach secuenciales
 
@@ -83,13 +83,15 @@ Para habilitar un bucle foreach para ejecutarse de manera secuencial, la operaci
   
 ## <a name="until-loop"></a>Bucle Until
   
-  Puede realizar una acción o una serie de acciones hasta que se cumpla una condición.  El escenario más común para este fin es llamar a un punto de conexión hasta que obtenga la respuesta que busca.  En el diseñador, puede especificar que se agregue un bucle Until.  Después de agregar las acciones dentro del bucle, puede establecer la condición de salida, así como los límites de bucle.  Hay un retraso de 1 minuto entre los ciclos de bucle.
+  Puede realizar una acción o una serie de acciones hasta que se cumpla una condición.  El escenario más común para usar un bucle Until es llamar a un punto de conexión hasta que obtenga la respuesta que busca.  En el diseñador, puede especificar que se agregue un bucle Until.  Después de agregar las acciones dentro del bucle, puede establecer la condición de salida, así como los límites de bucle.
   
-  Si utiliza la vista de código, puede especificar un bucle Until como el siguiente.  Se trata de un ejemplo de una llamada a un punto de conexión HTTP hasta que el cuerpo de respuesta tenga el valor "Completado".  Se completará cuando: 
+  Este ejemplo llama a un punto de conexión HTTP hasta que el cuerpo de respuesta tenga el valor "Completado".  Completa cuando se da una de las siguientes situaciones: 
   
   * La respuesta HTTP tenga el estado "Completado".
-  * Haya realizado intentos durante 1 hora.
+  * Se han realizado intentos durante una hora
   * Haya entrado en bucle 100 veces.
+  
+  Si utiliza la vista de código, puede especificar un bucle Until como el ejemplo a continuación:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Para habilitar un bucle foreach para ejecutarse de manera secuencial, la operaci
   
 ## <a name="spliton-and-debatching"></a>SplitOn y desagrupación
 
-A veces, un desencadenador puede recibir una matriz de elementos que desea desagrupar e iniciar un flujo de trabajo por elemento.  Esto puede realizarse a través del comando `spliton` .  De forma predeterminada, si el archivo swagger desencadenador especifica una carga que es una matriz, se agregará `spliton` e iniciará una ejecución por cada elemento.  SplitOn solo puede agregarse a un desencadenador.  Puede invalidarse o configurarse manualmente en la definición de vista de código.  En estos momentos, SplitOn puede desagrupar hasta 5000 elementos en matrices.  No puede tener `spliton` ni tampoco implementar el patrón de respuesta sincrónica.  Cualquier flujo de trabajo que tiene una acción `response`, además de `spliton`, se ejecutará de forma asincrónica y enviará una respuesta `202 Accepted` inmediata.  
+A veces, un desencadenador puede recibir una matriz de elementos que desea desagrupar e iniciar un flujo de trabajo por elemento.  Esta desagrupación puede realizarse a través del comando `spliton`.  De forma predeterminada, si el archivo swagger desencadenador especifica una carga que es una matriz, se agregará un comando `spliton`. El comando `spliton` inicia una ejecución por cada elemento de la matriz.  SplitOn solo pueden agregarse a un desencadenador que se pueda configurar o invalidar manualmente. No puede tener `spliton` ni tampoco implementar el patrón de respuesta sincrónica.  Cualquier flujo de trabajo llamado que tiene una acción `response`, además de `spliton`, se ejecuta de forma asincrónica y envía una respuesta `202 Accepted` inmediata.  
 
-SplitOn se puede especificar en la vista código como en el siguiente ejemplo.  De este modo, se recibe una matriz de elementos y realiza desagrupaciones en cada fila.
+  Este ejemplo recibe una matriz de elementos y realiza desagrupaciones en cada fila. SplitOn se puede especificar en la vista código como en el siguiente ejemplo:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn se puede especificar en la vista código como en el siguiente ejemplo.  
 
 ## <a name="scopes"></a>Ámbitos
 
-Se pueden agrupar una serie de acciones con un ámbito.  Esto es especialmente útil para implementar el control de excepciones.  En el diseñador puede agregar un nuevo ámbito y empezar a agregar las acciones dentro de él.  Puede definir ámbitos en la vista código de forma similar a esta:
+Se pueden agrupar una serie de acciones con un ámbito.  Los ámbitos son especialmente útiles para implementar el control de excepciones.  En el diseñador puede agregar un nuevo ámbito y empezar a agregar las acciones dentro de él.  Puede definir ámbitos en la vista código de forma similar al siguiente ejemplo:
 
 
 ```

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -29,7 +29,7 @@ Los grupos de acciones le permiten configurar una lista de acciones. Estos grupo
 Un grupo de acciones puede tener hasta 10 acciones de cada tipo. Cada acción se compone de las siguientes propiedades:
 
 * **Nombre**: un identificador único dentro del grupo de acciones.  
-* **Tipo de acción**: envíe un SMS, envíe un correo electrónico, llame a un webhook o envíe datos a una herramienta ITSM.
+* **Tipo de acción**: enviar un SMS, enviar un correo electrónico, llamar a un webhook, enviar datos a una herramienta ITSM, llamar a una aplicación de Azure o ejecutar un runbook de Automation.
 * **Detalles**: el número de teléfono, dirección de correo electrónico o identificador URI del webhook o los detalles de conexión de ITSM.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 1. En el [portal](https://portal.azure.com), seleccione **Monitor**. La hoja **Supervisión** consolida todos los valores y datos de supervisión en una vista.
 
     ![Servicio "Monitor"](./media/monitoring-action-groups/home-monitor.png)
-2. En la sección **Registro de actividad**, seleccione **Grupos de acciones**.
+2. En la sección **Configuración**, seleccione **Grupos de acciones**.
 
     ![Pestaña "Grupos de acciones"](./media/monitoring-action-groups/action-groups-blade.png)
 3. Seleccione **Agregar grupo de acciones** y rellene los campos.
@@ -56,14 +56,12 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     a. **Nombre**: escriba un identificador único para esta acción.
 
-    b. **Tipo de acción**: seleccione SMS, correo electrónico, webhook o ITSM.
+    b. **Tipo de acción**: seleccionar SMS, correo electrónico, webhook, aplicación de Azure, ITSM o runbook de Automation.
 
-    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook o detalles de conexión de ITSM. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM. 
+    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM. 
 
-> [!NOTE]
-> La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md). La acción de ITSM solo funciona actualmente para las alertas de Registro de actividad. Para otros tipos de alerta, esta acción no está actualmente operativa.
->
->
+   > [!NOTE]
+   > La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md). La acción de ITSM solo funciona actualmente para las alertas de Registro de actividad. Para otros tipos de alerta, esta acción no está actualmente operativa.
 
 8. Seleccione **Aceptar** para crear el grupo de acciones.
 
@@ -73,7 +71,7 @@ Después de crear un grupo de acciones, está visible en la sección **Grupos de
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
 
-## <a name="next-steps"></a>Pasos siguientes ##
+## <a name="next-steps"></a>pasos siguientes ##
 * Más información sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).  
 * Obtenga más información sobre [Conector de ITSM](../log-analytics/log-analytics-itsmc-overview.md)

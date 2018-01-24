@@ -22,6 +22,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     * Haga clic en **Aceptar** para cerrar la configuración de TCP/IP y en **Aceptar** otra vez para cerrar la configuración del adaptador. Se restablece la conexión RDP.
 
 6. En un símbolo del sistema, escriba *ipconfig /all*. Se muestran todas las direcciones IP que agregó y DHCP está desactivado.
+7. Configure Windows para usar la dirección IP privada de la configuración IP principal de Azure como dirección IP principal en Windows. Para más información, consulte [Sin acceso a Internet desde una máquina virtual Windows de Azure que tiene varias direcciones IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 
 ### <a name="validation-windows"></a>Validación (Windows)

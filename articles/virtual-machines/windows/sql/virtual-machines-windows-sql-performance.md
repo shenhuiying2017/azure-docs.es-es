@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Azure Virtual Machines
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 En este tema se ofrecen prácticas recomendadas para optimizar el rendimiento de SQL Server en máquina virtual de Microsoft Azure. Mientras se ejecuta SQL Server en Azure Virtual Machines, se recomienda seguir usando las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. Sin embargo, el rendimiento de una base de datos relacional en una nube pública depende de muchos factores como el tamaño de una máquina virtual y la configuración de los discos de datos.
 
-Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las VM en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Las máquinas virtuales de SQL Server aprovisionadas en el portal con Resource Manager incorporan todas estas prácticas recomendadas, incluida la configuración del almacenamiento.
+Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las VM en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Las máquinas virtuales de SQL Server aprovisionadas en el portal con Resource Manager siguen procedimientos recomendados.
 
 Este artículo se centra en cómo obtener el *mejor* rendimiento de SQL Server en máquinas virtuales de Azure. Si su carga de trabajo no es menos exigente, podría no necesitar todas las optimizaciones enumeradas a continuación. Tenga en cuenta sus necesidades de rendimiento y patrones de carga de trabajo a medida que evalúe estas recomendaciones.
 
@@ -90,6 +90,9 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 ### <a name="data-disks"></a>Discos de datos
 
 * **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de Premium Storage proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Premium Storage para discos](../premium-storage.md).
+
+   > [!NOTE]
+   > Al aprovisionar una máquina virtual de SQL Server en el portal, tiene la opción de modificar la configuración de almacenamiento. Según la configuración, Azure configura uno o varios discos. Varios discos se combinan en un único grupo de almacenamiento con seccionamiento. Los archivos de datos y de registro residen juntos en esta configuración, en lugar de en dos discos independientes. Para más información, consulte [Configuración del almacenamiento para máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
 

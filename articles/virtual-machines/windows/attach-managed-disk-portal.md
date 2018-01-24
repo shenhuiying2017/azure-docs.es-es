@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Cómo conectar un disco de datos administrado a una VM con Windows en Azure Portal
 
@@ -35,21 +35,21 @@ También puede [conectar un disco de datos mediante Powershell](attach-disk-ps.m
 ## <a name="add-a-data-disk"></a>Agregar un disco de datos
 1. En el menú izquierdo, haga clic en **Virtual Machines**.
 2. Seleccione la máquina virtual en la lista.
-3. En la hoja de la máquina virtual, haga clic en **Discos**.
-   4. En la hoja **Discos**, haga clic en **+ Add data disk** (+ Agregar disco de datos).
-5. En la lista desplegable para el nuevo disco, seleccione **Crear vacío**.
-6. En la hoja **Crear disco administrado**, escriba un nombre para el disco y ajuste las demás opciones de configuración según sea necesario. Cuando haya terminado, haga clic en **Crear**.
-7. En la hoja **Discos**, haga clic en Guardar para guardar la configuración del nuevo disco de la máquina virtual.
-6. Una vez que Azure crea el disco y lo adjunta a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en el apartado **Discos de datos**.
+3. En la página de la máquina virtual, haga clic en **Discos**.
+4. En la página **Discos**, haga clic en **+ Agregar disco de datos**.
+5. En la lista desplegable para el nuevo disco, seleccione **Crear disco**.
+6. En la página **Crear disco administrado**, escriba un nombre para el disco y ajuste las demás opciones de configuración según sea necesario. Cuando haya terminado, haga clic en **Crear**.
+7. En la página **Discos**, haga clic en **Guardar** para guardar la configuración del nuevo disco de la máquina virtual.
+6. Una vez que Azure crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en el apartado **Discos de datos**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inicio de un nuevo disco de datos
 
 1. Conectar a la máquina virtual.
-1. Haga clic en el menú Inicio dentro de la máquina virtual, escriba **diskmgmt.msc** y presione **Entrar**. Se iniciará el complemento Administración de discos.
-2. Administración de discos reconocerá que hay un nuevo disco sin inicializar y se abrirá la ventana Inicializar disco.
+1. Haga clic en el menú Inicio dentro de la máquina virtual, escriba **diskmgmt.msc** y presione **Entrar**. Se abrirá el complemento Administración de discos.
+2. Administración de discos reconocerá que hay un nuevo disco sin inicializar y se abrirá la ventana **Inicializar disco**.
 3. Asegúrese de que el nuevo disco está seleccionado y haga clic en **Aceptar** para inicializarlo.
-4. El nuevo disco aparecerá ahora como **sin asignar**. Haga clic con el botón derecho en cualquier lugar del disco y seleccione **Nuevo volumen simple**. Se iniciará el **Asistente para nuevo volumen simple**.
+4. El nuevo disco aparecerá como **sin asignar**. Haga clic con el botón derecho en cualquier lugar del disco y seleccione **Nuevo volumen simple**. Se abrirá el **Asistente para nuevo volumen simple**.
 5. Navegue por el asistente, conserve todos los valores predeterminados y, cuando haya terminado, seleccione **Finalizar**.
 6. Cierre Administración de discos.
 7. Se abrirá una ventana emergente necesaria para formatear el nuevo disco para poder usarlo. Haga clic en **Dar formato al disco**.
@@ -80,5 +80,5 @@ defrag.exe <volume:> -l
 
 También puede formatear el volumen para asegurarse de que quede recortado por completo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 ## <a name="introduction"></a>Introducción
@@ -46,7 +46,7 @@ Puede utilizar los controles en la parte inferior del lienzo para acercar y alej
 ### <a name="library-control"></a>Control de Biblioteca
 El control de Biblioteca es donde selecciona las [actividades](#activities) para agregar a su runbook.  Puede agregarlas al lienzo donde las conecta a otras actividades.  Incluye cuatro secciones que se describen en la tabla siguiente.
 
-| Sección | Descripción |
+| Sección | DESCRIPCIÓN |
 |:--- |:--- |
 | Cmdlets |Incluye todos los cmdlets que se pueden usar en su runbook.  Los cmdlets se organizan por módulo.  Estarán disponibles todos los módulos que ha instalado en su cuenta de Automatización. |
 | Runbooks |Incluye los runbooks de la cuenta de Automatización de Azure. Estos runbooks se pueden agregar al lienzo para usarse como runbooks secundarios. Solo se muestran los runbooks del mismo tipo básico que el del runbook que se está editando; para los runbooks gráficos, solo se muestran los basados en PowerShell, mientras que para los runbooks gráficos de flujo de trabajo de PowerShell, solo se muestran los basados en el flujo de trabajo de PowerShell. |
@@ -112,7 +112,7 @@ En el ejemplo siguiente, el cmdlet Get-AzureRmVM tiene tres conjuntos de paráme
 #### <a name="parameter-values"></a>Valores de parámetro
 Cuando especifica un valor para un parámetro, selecciona un origen de datos para determinar cómo se especificará el valor.  Los orígenes de datos disponibles para un parámetro determinado dependerán de los valores válidos para ese parámetro.  Por ejemplo, Null no será una opción disponible para un parámetro que no permite valores nulos.
 
-| Origen de datos | Descripción |
+| Origen de datos | DESCRIPCIÓN |
 |:--- |:--- |
 | Valor constante |Escriba un valor para el parámetro.  Este solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Salida de la actividad |Salida de una actividad que precede la actividad actual en el flujo de trabajo.  Se mostrarán todas las actividades válidas.  Seleccione solo la actividad para usar su salida en el valor de parámetro.  Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad. |
@@ -140,7 +140,7 @@ La condición de reintento es una expresión de PowerShell que se evalúa cada v
 
 La condición de reintento puede utilizar una variable denominada $RetryData que proporciona acceso a información sobre los reintentos de actividad.  Esta variable tiene las propiedades de la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | NumberOfAttempts |Número de veces que se ha ejecutado la actividad. |
 | Salida |Salida de la última ejecución de la actividad. |
@@ -182,7 +182,7 @@ Para crear un vínculo entre dos actividades, seleccione la actividad de origen 
 
 Seleccione el vínculo para configurar sus propiedades en la hoja Configuración.  Esto incluirá el tipo de vínculo que se describe en la tabla siguiente.
 
-| Tipo de vínculo | Descripción |
+| Tipo de vínculo | DESCRIPCIÓN |
 |:--- |:--- |
 | Canalización |La actividad de destino se ejecuta una vez para cada salida de objeto desde la actividad de origen.  La actividad de destino no se ejecuta si la actividad de origen no genera salida.  La salida de la actividad de origen está disponible como objeto. |
 | Secuencia |La actividad de destino se ejecuta solo una vez.  Recibe una matriz de objetos desde la actividad de origen.  La salida de la actividad de origen está disponible como una matriz de objetos. |
@@ -286,11 +286,11 @@ Con esto se abre el control **Entrada y salida**, donde puede editar un parámet
 
 Las propiedades de la siguiente tabla definen cada parámetro de entrada.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |El nombre único del parámetro.  Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
-| Descripción |Una descripción opcional del parámetro de entrada. |
-| Tipo |El tipo de datos que se espera para el valor del parámetro.  El Portal de Azure proporcionará un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
+| NOMBRE |El nombre único del parámetro.  Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
+| DESCRIPCIÓN |Una descripción opcional del parámetro de entrada. |
+| type |El tipo de datos que se espera para el valor del parámetro.  El Portal de Azure proporcionará un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
 | Obligatorio |Especifica si se debe proporcionar un valor para el parámetro.  No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno.  Puede ser Null o un valor específico. |
 

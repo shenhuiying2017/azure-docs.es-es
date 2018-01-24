@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general sobre el servicio Azure Monitor de Microsoft Azure. Se describe la utilidad de Azure Monitor y se ofrecen vínculos a información adicional sobre cómo usar este servicio.  Si prefiere un vídeo de introducción, consulte los vínculos de pasos siguientes al final de este artículo. 
@@ -43,7 +43,7 @@ La página es un punto inicial para la navegación, incluida la incorporación. 
 
 Cuando abre la página, puede seleccionar entre las suscripciones en las que tiene acceso de lectura. Para una suscripción seleccionada, puede ver:
 
-- **Alertas desencadenadas y orígenes de alertas**: en esta tabla se muestran los recuentos de resumen, los orígenes de alertas y cuántas veces se activaron las alertas durante el período seleccionado. Se aplica a las alertas de métricas y de registro de actividad.
+- **Alertas desencadenadas y orígenes de alertas**: en esta tabla se muestran los recuentos de resumen, los orígenes de alertas y cuántas veces se activaron las alertas durante el período seleccionado. Se aplica a las alertas de métricas y de registro de actividad. *<Editar: Alerts (versión preliminar) con experiencia unificada también se muestra para todas las alertas: eventos, métricas y registros>*
 - **Errores del registro de actividad**: si cualquiera de los recursos de Azure registra eventos con una gravedad de nivel de error, puede ver un recuento de alto nivel y hacer clic en la página del registro de actividad para investigar cada evento.
 - **Azure Service Health**: puede ver un recuento de los problemas del servicio de Service Health, eventos de mantenimiento planeados y avisos de mantenimiento. Azure Service Health proporciona información personalizada cuando los problemas en la infraestructura de Azure afectan a los servicios.  Para obtener más información, consulte [Azure Service Health](../service-health/service-health-overview.md).  
 - **Application Insights**: vea KPI para cada recurso de AppInsights en la suscripción actual. Los KPI están optimizados para la supervisión de aplicaciones del lado servidor a través de las aplicaciones web de ASP.NET, Java, Node y tipos de aplicación General. Los KPI incluyen métricas para la tasa de solicitud, la duración de respuesta, la tasa de error y el % de disponibilidad. 
@@ -56,9 +56,10 @@ Si no se ha incorporado en Log Analytics ni Application Insights, o si no ha con
 
 ![Modelo para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
+
 Los servicios de Compute aquí incluyen: 
 - Cloud Services 
-- Máquinas virtuales 
+- Virtual Machines 
 - Conjuntos de escalado de máquina virtual 
 - Service Fabric
 
@@ -124,7 +125,7 @@ Algunas formas de usar estos datos:
 ### <a name="query"></a>Consultar
 Puede usar la API de REST de Azure Monitor, comandos de la interfaz de la línea de comandos (CLI) multiplataforma, cmdlets de PowerShell o el SDK de .NET para acceder a los datos en el sistema o en Azure Storage.
 
-Algunos ejemplos son: 
+Algunos ejemplos son:
 
 * Obtener datos para una aplicación de supervisión personalizada que ha escrito.
 * Crear consultas personalizadas y enviar los datos a una aplicación de terceros.
@@ -134,14 +135,17 @@ Ver los datos de supervisión en gráficos y diagramas ayuda a encontrar tendenc
 
 Algunos métodos de visualización incluyen:
 
-* Uso del Portal de Azure
+* Uso de Azure Portal
 * Enrutamiento de datos a Azure Application Insights
 * Enrutamiento de datos a Microsoft PowerBI
 * Enrutamiento de datos a una herramienta de visualización de terceros mediante streaming en vivo o haciendo que la herramienta lea un archivo de almacenamiento de Azure
 
 
 ### <a name="automate"></a>Automatizar
-Puede usar datos de supervisión para desencadenar alertas o, incluso, procesos enteros. Algunos ejemplos son:
+> [!NOTE]
+> Como parte de la evolución en curso de las alertas en Microsoft Azure, ahora hay una versión preliminar de una experiencia unificada de ellas. Más detalles sobre las [alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
+
+En las alertas de Azure estándar, puede usar datos de supervisión para desencadenar alertas o, incluso, procesos enteros. Algunos ejemplos son:
 
 * Usar los datos para aumentar o reducir automáticamente el número de instancias de proceso según la carga de la aplicación.
 * Enviar mensajes de correo electrónico cuando una métrica cruza un umbral predeterminado.
@@ -154,10 +158,10 @@ En general, puede manipular el seguimiento, el enrutamiento y la recuperación d
 * [Portal de Azure](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md)
-* [API DE REST](https://docs.microsoft.com/rest/api/monitor/)
+* [API de REST](https://docs.microsoft.com/rest/api/monitor/)
 * [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información acerca de
 - Hay un tutorial en vídeo de Azure Monitor en  
 [Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) 

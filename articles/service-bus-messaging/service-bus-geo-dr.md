@@ -11,210 +11,101 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus (versión preliminar)
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
-Cuando los centros de datos regionales experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Service Bus admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
+Cuando hay regiones de Azure completas o centros de datos (si no se utilizan [zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Service Bus admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
-Actualmente, la versión preliminar de la recuperación ante desastres con localización geográfica solo está disponible en dos regiones (**Centro-norte de EE. UU.** y **Centro-sur de EE. UU.)**.
+La característica de recuperación ante desastres con localización geográfica está disponible globalmente para la SKU Premium de Service Bus. 
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 
-En el artículo [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus](service-bus-outages-disasters.md) se hace una distinción entre "interrupciones" y "desastres", la cual es importante tener en cuenta. Una *interrupción* es la falta de disponibilidad temporal de Azure Service Bus y puede afectar a algunos componentes del servicio, como un almacén de mensajes o incluso todo el centro de datos. Sin embargo, una vez corregido el problema, Service Bus vuelve a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de una interrupción de este tipo podría ser un error de corriente en el centro de datos.
+Es importante tener en cuenta la distinción entre "interrupciones" y "desastres". Una *interrupción* es la falta de disponibilidad temporal de Azure Service Bus y puede afectar a algunos componentes del servicio, como un almacén de mensajes o incluso todo el centro de datos. Sin embargo, una vez corregido el problema, Service Bus vuelve a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de una interrupción de este tipo podría ser un error de corriente en el centro de datos. Algunas interrupciones son solo breves pérdidas de conexión debido a problemas transitorios o de red. 
 
-Un *desastre* se define como la pérdida permanente o a largo plazo de un centro de datos o una [unidad de escalado](service-bus-architecture.md#service-bus-scale-units) de Service Bus. El centro de datos no volverá necesariamente a estar disponible, o puede que esté fuera de servicio durante horas o días. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos. Un desastre que se convierte en permanente podría provocar la pérdida de algunos mensajes u otros datos. Sin embargo, en la mayoría de los casos, no debe producirse una pérdida de datos y se pueden recuperar los mensajes una vez que se realiza la copia de seguridad del centro de datos.
+Un *desastre* se define como la pérdida permanente o a largo plazo de un clúster, una región de Azure o un centro de datos de Service Bus. La región o el centro de datos no volverá necesariamente a estar disponible, o puede que esté fuera de servicio durante horas o días. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos. Un desastre que se convierte en permanente podría provocar la pérdida de algunos mensajes, eventos u otros datos. Sin embargo, en la mayoría de los casos, no debe producirse una pérdida de datos y se pueden recuperar los mensajes una vez que se realiza la copia de seguridad del centro de datos.
 
-La característica de recuperación ante desastres con localización geográfica de Azure Service Bus es una solución de recuperación ante desastres. Los conceptos y el flujo de trabajo descritos en este artículo se aplican a situaciones catastróficas y no a interrupciones transitorias o temporales.  
+La característica de recuperación ante desastres con localización geográfica de Azure Service Bus es una solución de recuperación ante desastres. Los conceptos y el flujo de trabajo descritos en este artículo se aplican a situaciones catastróficas y no a interrupciones transitorias o temporales. Para obtener una explicación detallada de la recuperación ante desastres en Microsoft Azure, consulte [este artículo](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
 
 ## <a name="basic-concepts-and-terms"></a>Términos y conceptos básicos
 
-La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. Tenga en cuenta que la característica de recuperación ante desastres con localización geográfica solo está disponible para los [espacios de nombres premium](service-bus-premium-messaging.md). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
+La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. Tenga en cuenta que la característica de recuperación ante desastres con localización geográfica solo está disponible para [SKU Premium](service-bus-premium-messaging.md). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
 
 Los siguientes términos se utilizan en este artículo:
 
--  *Alias*: Su cadena de conexión principal.
+-  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
 
--  *Espacio de nombres principal o secundario*: Describe los espacios de nombres que corresponden al alias. El principal es "activo" y recibe mensajes, y el secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación.
+-  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
 
--  *Metadatos*: Su representación de objetos en Azure Service Bus. Actualmente solo admitimos metadatos.
+-  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociados con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican. 
 
--  *Conmutación por error*: El proceso de activación del espacio de nombres secundario. Debe extraer mensajes de su espacio de nombres anteriormente principal una vez que vuelva a estar disponible y, a continuación, eliminarlo. Para crear otra conmutación por error, puede agregar un nuevo espacio de nombres secundario al emparejamiento. Si desea reutilizar el espacio de nombres principal anterior después de una conmutación por error, primero debe quitar todas las entidades existentes del espacio de nombres. Asegúrese de que recibe todos los mensajes de recepción antes de hacerlo.
+-  *Conmutación por error*: El proceso de activación del espacio de nombres secundario.
 
-## <a name="failover-workflow"></a>Flujo de trabajo de la conmutación por error
+## <a name="setup-and-failover-flow"></a>Flujo de conmutación por error y configuración
 
-En la siguiente sección se incluye información general de todo el proceso de configuración de la conmutación por error inicial y de cómo avanzar a partir de ese punto.
+La siguiente sección contiene información general del proceso de conmutación por error y explica cómo configurar la conmutación por error inicial. 
 
 ![1][]
 
-En primer lugar, configure un espacio de nombres principal y secundario y, a continuación, cree un emparejamiento. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar lógica del desencadenador (por ejemplo, lógica de negocios que detecta si el espacio de nombres no está disponible e inicia la conmutación por error). Puede comprobar la disponibilidad del espacio de nombres mediante la funcionalidad [Exploración de mensajes](message-browsing.md) de Service Bus.
+### <a name="setup"></a>Configuración
 
-Una vez que haya configurado tanto la supervisión como la recuperación ante desastres, puede echar un vistazo al proceso de conmutación por error. Si el desencadenador inicia una conmutación por error o la inicia usted manualmente, se deben seguir dos pasos:
+En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo tanto las conmutaciones por error automáticas raramente son posibles, ya que a menudo las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
-1. En caso de otra interrupción, querrá poder realizar la conmutación por error de nuevo. Por lo tanto, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
-2. Extraiga mensajes del espacio de nombres anteriormente principal una vez que el nuevo espacio de nombres esté disponible. Después de eso, vuelva a usar o elimine el antiguo espacio de nombres principal.
+### <a name="example"></a>Ejemplo
+
+En un ejemplo de este escenario, se considera una solución de punto de venta (POS) que emite mensajes o eventos. Service Bus pasa esos eventos a alguna solución de asignación o de repetición de formateo, que a continuación reenvía los datos asignados a otro sistema para un procesamiento adicional. En ese momento, todos estos sistemas se pueden hospedar en la misma región de Azure. La decisión sobre cuándo y en qué parte se realizará la conmutación por error depende del flujo de datos en su infraestructura. 
+
+Puede automatizar la conmutación por error con la supervisión de sistemas, o con soluciones de supervisión personalizadas. Sin embargo, dicha automatización necesita planeamiento y trabajo extra que se encuentran fuera del ámbito de este artículo.
+
+### <a name="failover-flow"></a>Flujo de conmutación por error
+
+Si inicia la conmutación por error, se requieren dos pasos:
+
+1. En caso de otra interrupción, tiene que poder volver a realizar la conmutación por error. Por lo tanto, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
+
+2. Extraiga mensajes del espacio de nombres anteriormente principal una vez que vuelva a estar disponible. Después de eso, utilice ese espacio de nombres para la mensajería regular fuera de la configuración de recuperación con localización geográfica, o elimine el espacio de nombres principal antiguo.
+
+> [!NOTE]
+> Se admite solo la semántica de conmutación de reenvío. En este escenario, se realiza la conmutación por error y, a continuación, se vuelve a emparejar con un nuevo espacio de nombres. No se admite la conmutación por recuperación, por ejemplo en un clúster de SQL. 
 
 ![2][]
 
-## <a name="set-up-disaster-recovery"></a>Configuración de la recuperación ante desastres
+## <a name="management"></a>Administración
 
-En esta sección se describe cómo crear su propio código de recuperación ante desastres con localización geográfica de Service Bus. Para ello, necesita dos espacios de nombres en ubicaciones independientes; por ejemplo, Sur de EE. UU. y Centro-norte de EE. UU. En el siguiente ejemplo se usa Visual Studio 2017.
+Si ha cometido algún error; por ejemplo, ha emparejado regiones incorrectas durante la configuración inicial, puede interrumpir el emparejamiento de los dos espacios de nombres en cualquier momento. Si desea usar los espacios de nombres emparejados como espacios de nombres normales, elimine el alias.
 
-1.  Cree un nuevo proyecto **Aplicación de consola (.NET Framework)** en Visual Studio y asígnele un nombre; por ejemplo, **SBGeoDR**.
+## <a name="use-existing-namespace-as-alias"></a>Uso de espacio de nombres existente como alias
 
-2.  Instale los siguientes paquetes NuGet:
-    1.  Microsoft.IdentityModel.Clients.ActiveDirectory
-    2.  Microsoft.Azure.Management.ServiceBus
+Si tiene un escenario en el que no se pueden cambiar las conexiones de productores y consumidores, puede reutilizar el nombre del espacio de nombres como nombre de alias. Consulte el [código de ejemplo en GitHub aquí](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-3. Asegúrese de que la versión del paquete NuGet Newtonsoft.Json que usa es la versión 10.0.3.
+## <a name="samples"></a>Muestras
 
-3.  Agregue las siguientes instrucciones `using` al código:
+Los [ejemplos en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) muestran cómo configurar e iniciar una conmutación por error. Estos ejemplos demuestran los conceptos siguientes:
 
-    ```csharp
-    using System.Threading;
-    using Microsoft.Azure.Management.ServiceBus;
-    using Microsoft.Azure.Management.ServiceBus.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    ```
+- Configuración necesaria en Azure Active Directory para usar Azure Resource Manager con Service Bus. 
+- Pasos necesarios para ejecutar el código de ejemplo. 
+- Envío y recepción desde el espacio de nombres principal actual. 
+- Uso de un espacio de nombres existente como alias.
 
-4. Modifique su método `main()` para agregar dos espacios de nombres premium:
+## <a name="considerations"></a>Consideraciones
 
-    ```csharp
-    // 1. Create primary namespace (optional).
+Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
-    var namespaceParams = new SBNamespace()
-    {
-        Location = "South Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
+1. En el planeamiento de la conmutación por error, también debe considerar el factor de tiempo. Por ejemplo, si se pierde la conectividad durante más de 15 a 20 minutos, puede decidir iniciar la conmutación por error. 
+ 
+2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los mensajes programados y los duplicados nuevos. 
 
-    };
+3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez. 
 
-    var namespace1 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, namespaceParams);
+4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto. Las suscripciones y reglas también cuentan como entidades. 
 
-    // 2. Create secondary namespace (optional if you already have an empty namespace available).
-
-    var namespaceParams2 = new SBNamespace()
-    {
-        Location = "North Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
-
-    };
-
-    // If you re-run this program while namespaces are still paired this operation will fail with a bad request.
-    // This is because we block all updates on secondary namespaces once it is paired.
-
-    var namespace2 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRSecondaryNS, namespaceParams2);
-    ```
-
-5. Habilite el emparejamiento entre los dos espacios de nombres y obtenga el alias que usará más tarde para conectarse a sus entidades:
-
-    ```csharp
-    // 3. Pair the namespaces to enable DR.
-
-    ArmDisasterRecovery drStatus = client.DisasterRecoveryConfigs.CreateOrUpdate(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias,
-        new ArmDisasterRecovery { PartnerNamespace = geoDRSecondaryNS });
-
-    // A similar loop can be used to check if other operations (Failover, BreakPairing, Delete) 
-    // mentioned below have been successful.
-    while (drStatus.ProvisioningState != ProvisioningStateDR.Succeeded)
-    {
-        Console.WriteLine("Waiting for DR to be set up. Current state: " +
-        drStatus.ProvisioningState);
-        drStatus = client.DisasterRecoveryConfigs.Get(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias);
-
-        Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }
-    ```
-
-Ha configurado correctamente dos espacios de nombres emparejados. Ahora puede crear entidades para observar la sincronización de metadatos. Si desea realizar una conmutación por error inmediatamente después, debe dar algo de tiempo a los metadatos para sincronizarse. Puede agregar un tiempo de suspensión breve, por ejemplo:
-
-```csharp
-client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new SBTopic());
-client.Subscriptions.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", "myTopic-Sub1", new SBSubscription());
-
-// sleeping to allow metadata to sync across primary and secondary
-Thread.Sleep(1000 * 60);
-```
-
-En este punto puede agregar entidades a través del portal o de Azure Resource Manager y ver cómo se sincronizan. A menos que tenga previsto realizar la conmutación por error manualmente, debe crear una aplicación que supervise su espacio de nombres principal e inicie la conmutación por error si deja de estar disponible. 
-
-## <a name="initiate-a-failover"></a>Inicio de una conmutación por error
-
-El siguiente código muestra cómo iniciar una conmutación por error:
-
-```csharp
-// Note that this failover operation is always run against the secondary namespace 
-// (because primary might be down at time of failover).
-
-client.DisasterRecoveryConfigs.FailOver(resourceGroupName, geoDRSecondaryNS, alias);
-```
-
-Una vez que desencadene la conmutación por error, agregue un nuevo espacio de nombres pasivo y vuelva a establecer el emparejamiento. El código para crear un nuevo emparejamiento se muestra en la sección anterior. Además, debe quitar los mensajes del antiguo espacio de nombres principal una vez que se complete la conmutación por error. Para ver ejemplos de cómo recibir mensajes de una cola, consulte [Introducción a las colas](service-bus-dotnet-get-started-with-queues.md).
-
-## <a name="how-to-disable-geo-disaster-recovery"></a>Cómo deshabilitar la recuperación ante desastres con localización geográfica
-
-El siguiente código muestra cómo deshabilitar un emparejamiento de espacios de nombres:
-
-```csharp
-client.DisasterRecoveryConfigs.BreakPairing(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-El siguiente código elimina el alias que creó:
-
-```csharp
-// Delete the DR config (alias).
-// Note that this operation must run against the namespace to which the alias is currently pointing.
-// If you break the pairing and want to delete the namespaces afterwards, you must delete the alias first.
-
-client.DisasterRecoveryConfigs.Delete(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-## <a name="steps-after-a-failover-failback"></a>Pasos después de una conmutación por error (conmutación por recuperación)
-
-Después de una conmutación por error, realice los dos pasos siguientes:
-
-1.  Cree un nuevo espacio de nombres secundario pasivo. El código se muestra en una sección anterior.
-2.  Quite los mensajes restantes de su cola.
-
-## <a name="alias-connection-string-and-test-code"></a>Cadena de conexión del alias y código de prueba
-
-Si desea probar el proceso de conmutación por error, puede escribir una aplicación de ejemplo que inserte mensajes en el espacio de nombres principal mediante el alias. Para ello, asegúrese de obtener la cadena de conexión del alias a partir de un espacio de nombres activo. Con la versión preliminar actual, no hay otra interfaz para obtener directamente la cadena de conexión. El siguiente código de ejemplo se conecta antes y después de la conmutación por error:
-
-```csharp
-var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-
-if(aliasPrimaryConnectionString == null)
-{
-    accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRSecondaryNS, "RootManageSharedAccessKey");
-    aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-}
-```
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Consulte la [referencia de la API de REST](/rest/api/servicebus/disasterrecoveryconfigs) de la recuperación ante desastres con localización geográfica aquí.
 - Ejecute el [ejemplo de recuperación](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) ante desastres con localización geográfica en GitHub.

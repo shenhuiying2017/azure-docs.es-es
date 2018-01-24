@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Envío de mensajes de nube a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Carga de archivos desde dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back-end de Python o dispositivo de Python](iot-hub-python-twin-getstarted.md)
 ### Uso de métodos directos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-direct-methods.md)
+#### [Back-end de Python o dispositivo de Python](iot-hub-python-python-direct-methods.md)
 ### Introducción a la administración de dispositivos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-device-management-get-started.md)
@@ -162,7 +166,7 @@
 ## [REST (trabajos)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Temas relacionados
-## [Conjunto de aplicaciones de IoT de Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Documentación de Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Servicio Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)

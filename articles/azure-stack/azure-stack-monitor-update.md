@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Puede usar el punto de conexión con privilegios para supervisar el progreso de la ejecución de una actualización de Azure Stack y para reanudar la ejecución de una actualización con errores desde el último paso correcto. 
+Puede usar el punto de conexión con privilegios para supervisar el progreso de la ejecución de una actualización de Azure Stack y para reanudar la ejecución de una actualización con errores desde el último paso correcto en caso de que el portal de Azure Stack no estuviera disponible.  Usar el portal de Azure Stack es el método recomendado para administrar las actualizaciones de Azure Stack.
 
 Los siguientes cmdlets nuevos de PowerShell para la administración de actualizaciones están incluidos en la actualización 1710 para sistemas integrados de Azure Stack.
 
-| Cmdlet  | Descripción  |
+| Cmdlet  | DESCRIPCIÓN  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Devuelve el estado de la actualización actualmente en ejecución, completada o con errores. Proporciona el estado de alto nivel de la operación de actualización y un documento XML que describe el paso actual y el estado correspondiente. |
 | `Get-AzureStackUpdateVerboseLog` | Devuelve los registros detallados que la actualización genera. |
@@ -70,7 +70,7 @@ También puede determinar si los cmdlets están disponibles mediante programaci�
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Por ejemplo:
+   Por ejemplo: 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 El punto de conexión con privilegios está disponible en todas las máquinas virtuales ERCS en el entorno de Azure Stack. Dado que la conexión no se realiza a un punto de conexión de alta disponibilidad, puede experimentar algunas interrupciones, advertencias o mensajes de error. Estos mensajes podrían indicar que la sesión se ha desconectado o que se ha producido un error al comunicarse con el servicio ECE. Este comportamiento es normal. Puede volver a intentar la operación al cabo de unos minutos o crear una sesión de punto de conexión con privilegios en una de las otras máquinas virtuales ERCS. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Administración de las actualizaciones en Azure Stack](azure-stack-updates.md) 
 

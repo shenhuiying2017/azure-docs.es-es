@@ -1,59 +1,59 @@
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
-En esta sección se proporcionan instrucciones paso a paso sobre cómo crear un nuevo proyecto a fin de mostrar cómo integrar una aplicación .NET de escritorio de Windows (XAML) con *Iniciar sesión en Microsoft* de manera que pueda consultar a las API web que requieran un token.
+En esta sección, creará un nuevo proyecto para demostrar cómo integrar una aplicación .NET de escritorio de Windows (XAML) con el *inicio de sesión en Microsoft* para que la aplicación pueda consultar las API web que requieren un token.
 
-En la aplicación creada por esta guía se presenta un botón para Graph, los resultados se muestran en pantalla, y aparece también un botón de cierre de sesión.
+La aplicación que se crea con esta guía muestra un botón que se utiliza para llamar a un gráfico, un área para mostrar los resultados en la pantalla y un botón de cierre de sesión.
 
+> [!NOTE]
 > ¿Prefiere descargar este proyecto de Visual Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) y vaya al [paso de configuración](#create-an-application-express) para configurar el código de ejemplo antes de ejecutarlo.
+>
 
+Para crear la aplicación, lleva a cabo los siguientes pasos:
+1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
+2. En **Plantillas**, seleccione **Visual C#**.
+3. Seleccione **Aplicación WPF** o **Aplicación WPF**, según la versión de Visual Studio que use.
 
-### <a name="create-your-application"></a>Creación de la aplicación
-1. En Visual Studio: `File` > `New` > `Project`<br/>
-2. En *Plantillas*, seleccione `Visual C#`.
-3. Seleccione `WPF App` (o *Aplicación WPF* según la versión de su Visual Studio).
+## <a name="add-msal-to-your-project"></a>Adición de MSAL al proyecto
+1. En Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet**> **Consola del administrador de paquetes**.
+2. En la ventana de la Consola del administrador de paquetes, pegue el siguiente comando de Azure PowerShell:
 
-## <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Adición de la biblioteca de autenticación de Microsoft (MASL) a su proyecto
-1. En Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Copie y pegue lo siguiente en la ventana de la Consola del Administrador de paquetes:
+    ```powershell
+    Install-Package Microsoft.Identity.Client -Pre
+    ```
 
-```powershell
-Install-Package Microsoft.Identity.Client -Pre
-```
-
-> El paquete anterior instala la biblioteca de autenticación de Microsoft (MSAL). MSAL controla la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se utilizan para tener acceso a las API protegidas por Azure Active Directory v2.
+    > [!NOTE] 
+    > Este comando instala la biblioteca de autenticación de Microsoft. MSAL administra la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se usan para acceder a las API protegidas por Azure Active Directory v2.
+    >
 
 ## <a name="add-the-code-to-initialize-msal"></a>Adición del código para inicializar MSAL
-Este paso le ayudará a crear una clase para controlar la interacción con la biblioteca de MSAL, como el control de tokens.
+En este caso, creará una clase para administrar la interacción con MSAL, como la administración de tokens.
 
-1. Abra el archivo `App.xaml.cs` y agregue la referencia de la biblioteca MSAL a la clase:
+1. Abra el archivo *App.xaml.cs* y, a continuación, agregue la referencia de MSAL a la clase:
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Actualice la clase App a lo siguiente:
-</li>
-</ol>
 
-```csharp
-public partial class App : Application
-{
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
-    private static string ClientId = "your_client_id_here";
+2. Actualice la clase app a la siguiente:
 
-    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+    ```csharp
+    public partial class App : Application
+    {
+        //Below is the clientId of your app registration. 
+        //You have to replace the below with the Application Id for your app registration
+        private static string ClientId = "your_client_id_here";
 
-}
-```
+        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
 
-## <a name="create-your-applications-ui"></a>Creación de la IU de la aplicación
-La sección siguiente muestra cómo puede una aplicación consultar a un servidor de back-end protegido como Microsoft Graph. Debe crearse un archivo MainWindow.xaml automáticamente como parte de la plantilla de proyecto. Abra este archivo y, a continuación, siga las instrucciones siguientes:
+    }
+    ```
 
-Reemplace el valor `<Grid>` de la aplicación por lo siguiente:
+## <a name="create-the-application-ui"></a>Creación de la interfaz de usuario de la aplicación
+En esta sección se muestra cómo puede una aplicación consultar un servidor back-end protegido como Microsoft Graph. 
+
+Debe crearse un archivo *MainWindow.xaml* automáticamente como parte de la plantilla de proyecto. Abra este archivo y, luego, reemplace el nodo *\<Grid>* de la aplicación por el código siguiente:
 
 ```xml
 <Grid>
@@ -69,3 +69,4 @@ Reemplace el valor `<Grid>` de la aplicación por lo siguiente:
     </StackPanel>
 </Grid>
 ```
+

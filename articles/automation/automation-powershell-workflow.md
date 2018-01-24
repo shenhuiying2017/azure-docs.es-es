@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation 
 Los runbooks de Azure Automation se implementan como flujos de trabajo de Windows PowerShell.  Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo.  Aunque este artículo está pensado para ayudarle a escribir runbooks con el flujo de trabajo de PowerShell, se recomienda que escribir runbooks con PowerShell, a menos que necesite puntos de control.  Hay varias diferencias de sintaxis al crear runbooks de flujo de trabajo de PowerShell y estas diferencias requieren algo más de trabajo para escribir flujos de trabajo eficaces.  
@@ -258,5 +258,5 @@ Este paso no es necesario si se autentica utilizando una cuenta de ejecución co
 
 Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](http://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Pasos siguientes
-* Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
+## <a name="next-steps"></a>pasos siguientes
+* Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)

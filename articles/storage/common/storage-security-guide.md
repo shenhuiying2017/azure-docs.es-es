@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 ## <a name="overview"></a>Información general
@@ -40,7 +40,7 @@ Estos son los temas que se tratarán en este artículo:
 * [Cifrado en reposo](#encryption-at-rest)
 
   Hablaremos acerca del cifrado del servicio Storage (SSE) y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques, los blobs en páginas y los blobs en anexos se cifren automáticamente al escribir en Azure Storage. También veremos cómo puede usar Azure Disk Encryption y exploraremos los casos y las diferencias básicas entre Disk Encryption, SSE y el cifrado del lado cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
-* Uso de [Análisis de almacenamiento](#storage-analytics) para auditar el acceso de Azure Storage
+* Uso de [Storage Analytics](#storage-analytics) para auditar el acceso de Azure Storage
 
   En esta sección se describe cómo buscar información en los registros de Storage Analytics para una solicitud. Echaremos un vistazo a datos de registro reales de Storage Analytics y aprenderemos a discernir si una solicitud se realiza con una clave de cuenta de Storage, una Firma de acceso compartido o de manera anónima, y si se pudo completar o no.
 * [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#Cross-Origin-Resource-Sharing-CORS)
@@ -288,14 +288,14 @@ Hay tres características de Azure que proporcionan cifrado en reposo. Azure Dis
 
 Aunque puede usar el Cifrado de cliente para cifrar los datos en tránsito (que también se almacenan en su forma cifrada en Almacenamiento), es preferible simplemente usar HTTPS durante la transferencia y disponer de algún método para que los datos se cifren automáticamente al almacenarse. Hay dos maneras de hacerlo: Azure Disk Encryption y SSE. Uno se utiliza para cifrar directamente los datos en los discos de datos y del sistema operativo usados por las máquinas virtuales, y el otro para cifrar los datos escritos en Azure Blob Storage.
 
-### <a name="storage-service-encryption-sse"></a>Cifrado del servicio Storage (SSE)
+### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
 SSE permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage. Cuando se lean los datos desde el Azure Storage, el servicio Storage los descifrará antes de devolverlos. De este modo, protege los datos sin tener que modificar el código o agregar código a las aplicaciones.
 
 Se trata de una configuración que se aplica a toda la cuenta de almacenamiento. Puede habilitar y deshabilitar esta característica cambiando el valor de la configuración. Para ello, puede usar Azure Portal, PowerShell, la CLI de Azure, la API de REST del proveedor de recursos de Storage o la biblioteca de clientes de Storage de .NET. De forma predeterminada, SSE está desactivado.
 
 En este momento, Microsoft administra las claves utilizadas para el cifrado. Generamos las claves originalmente y administramos el almacenamiento seguro de las claves, así como la rotación periódica de acuerdo con la política interna de Microsoft. En el futuro, tendrá la posibilidad de administrar sus propias claves de cifrado, y proporcionaremos una ruta de migración desde las claves administradas por Microsoft a las claves administradas por el cliente.
 
-Esta característica está disponible para cuentas de Standard Sorage y Premium Storage creadas mediante el modelo de implementación de Resource Manager. SSE se aplica solo a blobs en bloques, blobs en páginas y blobs en anexos. Los otros tipos de datos, como tablas, colas y archivos, no se cifrarán.
+Esta característica está disponible para cuentas de Standard Sorage y Premium Storage creadas mediante el modelo de implementación de Resource Manager. SSE se aplica a cualquier tipo de datos: blobs en bloques, blobs en páginas, blobs en anexos, tablas, colas y archivos.
 
 Solo se cifran los datos cuando está habilitado SSE y los datos se escriben en Blob Storage. El hecho de habilitar o deshabilitar el SSE no afecta a los datos existentes. En otras palabras, al habilitar este cifrado, no se cifrarán los datos que ya existan; y tampoco se descifrarán los datos que ya existan al deshabilitarlo.
 
@@ -368,7 +368,7 @@ Si dispone de un VHD no cifrado desde el entorno local, puede cargarlo en la gal
 
 Al agregar un disco de datos y montarlo en la máquina virtual, puede activar Azure Disk Encryption en ese disco de datos. Cifrará primero ese disco de datos localmente y, a continuación, la capa de administración del servicio hará una escritura diferida en el almacenamiento para que se cifre el contenido del mismo.
 
-#### <a name="client-side-encryption"></a>cifrado de cliente
+#### <a name="client-side-encryption"></a>Cifrado de cliente
 El Cifrado de cliente es el método más seguro para cifrar los datos, porque estos se cifran antes del tránsito y en reposo. Sin embargo, requiere que agregue código a sus aplicaciones mediante el almacenamiento, y quizá no desee hacerlo. En esos casos, puede utilizar HTTPS para los datos en tránsito y SSE para cifrar los datos en reposo.
 
 Con el cifrado de cliente, puede cifrar las entidades de tabla, los mensajes de colas y los blobs. Con SSE, solo se pueden cifrar los blobs. Si necesita cifrar los datos de tabla y cola, debe utilizar el Cifrado de cliente.
@@ -380,7 +380,7 @@ El Cifrado de cliente supone más carga en el cliente; así pues, debe tener en 
 #### <a name="storage-service-encryption-sse"></a>Cifrado del servicio Storage (SSE)
 SSE se administra mediante Azure Storage. El uso de SSE no proporciona seguridad para los datos en tránsito, pero cifra los datos a medida que se escriben en Azure Storage. El uso de esta característica no repercute sobre el rendimiento en modo alguno.
 
-Solo puede cifrar blobs en bloques, blobs en anexos y blobs en páginas mediante SSE. Si necesita cifrar datos en tabla o en cola, considere el uso del Cifrado de cliente.
+Puede cifrar cualquier tipo de datos de la cuenta de almacenamiento mediante SSE (blobs en bloques, blobs en anexos, blobs en páginas, datos de tablas, datos de colas y archivos).
 
 Si tiene un archivo o una biblioteca de archivos VHD que utiliza como base para la creación de nuevas máquinas virtuales, puede crear una nueva cuenta de almacenamiento, habilitar SSE y luego cargar los archivos VHD en esa cuenta. Esos archivos VHD se cifrarán con el Azure Storage.
 

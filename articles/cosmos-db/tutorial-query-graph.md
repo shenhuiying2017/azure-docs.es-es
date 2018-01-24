@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 358f2650f767057f4a220d3b3b8507de4ce14e6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: ¿cómo realizar consultas con la API Graph (versión preliminar)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: ¿cómo realizar consultas con Graph API?
 
-La [API Graph](graph-introduction.md) de Azure Cosmos DB (versión preliminar) admite consultas de [Gremlin](https://github.com/tinkerpop/gremlin/wiki). En este artículo se proporcionan consultas y documentos de ejemplo a modo de introducción. En el artículo [Compatibilidad con Gremlin](gremlin-support.md) se incluye una referencia de Gremlin detallada.
+[Graph API](graph-introduction.md) de Azure Cosmos DB admite consultas de [Gremlin](https://github.com/tinkerpop/gremlin/wiki). En este artículo se proporcionan consultas y documentos de ejemplo a modo de introducción. En el artículo [Compatibilidad con Gremlin](gremlin-support.md) se incluye una referencia de Gremlin detallada.
 
 En este artículo se tratan las tareas siguientes: 
 
 > [!div class="checklist"]
 > * Consulta de datos con Gremlin
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para que estas consultas funcionen, debe tener una cuenta de Azure Cosmos DB, así como datos del gráfico en el contenedor. ¿No tiene nada de lo anterior? Complete el [inicio rápido en 5 minutos](create-graph-dotnet.md) o el [tutorial de desarrolladores](tutorial-query-graph.md) para crear una cuenta y rellenar la base de datos. Puede ejecutar las siguientes consultas mediante la [biblioteca de gráficos de .NET de Azure Cosmos DB](graph-sdk-dotnet.md), la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o su controlador de Gremlin favorito.
 
@@ -75,7 +75,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Puede crear consultas más complejas e implementar una lógica de cruce seguro del grafo eficaz con Gremlin, incluidas la combinación de expresiones de filtro, la realización de bucles mediante el paso `loop` y la implementación de la navegación condicional mediante el paso `choose`. Obtenga más información sobre lo que puede hacer con [Compatibilidad con Gremlin](gremlin-support.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha hecho lo siguiente:
 
@@ -85,4 +85,4 @@ En este tutorial, ha hecho lo siguiente:
 Ahora puede continuar con el tutorial siguiente para obtener información sobre cómo distribuir sus datos globalmente.
 
 > [!div class="nextstepaction"]
-> [Distribución de datos global](tutorial-global-distribution-documentdb.md)
+> [Distribución de datos global](tutorial-global-distribution-sql-api.md)

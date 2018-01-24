@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en Azure
 Con [Compose](http://github.com/docker/compose), usará un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. Después, puede poner en marcha la aplicación con un solo comando que realiza todos los pasos para implementarla en el entorno definido. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu. También puede utilizar Compose para configurar aplicaciones más complejas.
@@ -44,26 +44,10 @@ A continuación, implemente una VM con [az group deployment create](/cli/azure/g
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-La implementación tarda unos minutos en finalizar. Una vez finalizada la implementación, [vaya al paso siguiente](#verify-that-compose-is-installed) para SSH en la VM. 
-
-Opcionalmente, en lugar de devolver el control al símbolo del sistema y permitir que la implementación continúe en segundo plano, agregue la marca `--no-wait` al comando anterior. Este proceso permite realizar otro trabajo en la CLI mientras continúa la implementación durante unos minutos. Puede ver detalles sobre el estado del host de Docker con [az vm show](/cli/azure/vm#show). En el ejemplo siguiente, se comprueba el estado de la máquina virtual denominada *myDockerVM* (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado *myResourceGroup*.
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-Cuando este comando devuelve un estado *correcto*, ha terminado la implementación y puede implementar SSH en la máquina virtual en el paso siguiente.
+La implementación tarda unos minutos en finalizar.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Comprobación de que se ha instalado Compose
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH al nuevo host Docker. Proporcione su propio nombre DNS de la siguiente manera:
+SSH al nuevo host Docker. Proporcione su propio nombre de usuario y nombre DNS de los pasos anteriores:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
@@ -153,7 +137,7 @@ Ahora puede conectarse a WordPress directamente en la máquina virtual a través
 
 ![Pantalla de inicio de WordPress][wordpress_start]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Consulte el [manual del usuario de extensión de máquina virtual de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) para obtener más opciones de configuración de Docker y Compose en su máquina virtual de Docker. Por ejemplo, una de ellas consiste en colocar el archivo YML de Compose (convertido a JSON) directamente en la configuración de la extensión de máquina virtual de Docker.
 * Consulte la [referencia de línea de comandos de Compose](http://docs.docker.com/compose/reference/) y el [manual del usuario](http://docs.docker.com/compose/) para obtener más ejemplos de compilación e implementación de aplicaciones con varios contenedores.
 * Use una plantilla del Administrador de recursos de Azure, o bien una propia o una proporcionada por la [comunidad](https://azure.microsoft.com/documentation/templates/), para implementar una VM de Azure con Docker y una aplicación configurada con Compose. Por ejemplo, la plantilla [Implementación de un blog de WordPress con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) usa Docker y Compose para implementar rápidamente WordPress con un back-end de MySQL en una máquina virtual de Ubuntu.

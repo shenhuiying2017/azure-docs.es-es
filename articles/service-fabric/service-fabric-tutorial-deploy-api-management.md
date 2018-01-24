@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implementación de API Management con Service Fabric
 Este tutorial es la cuarta parte de una serie.  La implementación de Azure API Management con Service Fabric es un escenario avanzado.  API Management es útil cuando es necesario publicar API con un completo conjunto de reglas de enrutamiento para los servicios de Service Fabric de back-end. Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado diseñado para la entrada de tráfico, como una aplicación ASP.NET Core, Event Hubs, IoT Hub o Azure API Management. 
@@ -42,7 +42,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * Implementación de API Management con Service Fabric
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
@@ -223,7 +223,7 @@ Para obtener un conjunto completo de los atributos de directiva de back-end de S
 ## <a name="set-parameters-and-deploy-api-management"></a>Definición de los parámetros e implementación de API Management
 Rellene los siguientes parámetros vacíos en *apim.parameters.json* para la implementación. 
 
-|Parámetro|Valor|
+|.|Valor|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -328,8 +328,8 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>pasos siguientes
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Implementación de API Management

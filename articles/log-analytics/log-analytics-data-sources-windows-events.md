@@ -1,6 +1,6 @@
 ---
-title: "Recopilación y análisis de registros de eventos de Windows en Log Analytics (OMS) | Microsoft Docs"
-description: "Los registros de eventos de Windows son uno de los orígenes de datos más comunes que usa Log Analytics.  En este artículo se describe cómo configurar la recopilación de registros de eventos de Windows y detalles de los registros que crean en el repositorio de OMS."
+title: "Recopilación y análisis de registros de eventos de Windows en Azure Log Analytics (OMS) | Microsoft Docs"
+description: "Los registros de eventos de Windows son uno de los orígenes de datos más comunes que usa Log Analytics.  En este artículo se describe cómo configurar la recopilación de registros de eventos de Windows y los detalles de los registros que crean en el área de trabajo de Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Orígenes de datos de registros de eventos de Windows en Log Analytics
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](log-analytics-data-sources.md) más comunes para recopilar información mediante agentes de Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -44,7 +44,7 @@ Log Analytics recopila cada evento que coincide con una gravedad seleccionada de
 ## <a name="windows-event-records-properties"></a>Propiedades de los registros de eventos de Windows
 Los registros de eventos de Windows tienen un tipo **Event** y las propiedades que aparecen en la tabla siguiente:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | EventCategory |Categoría del evento. |
@@ -64,7 +64,7 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 ## <a name="log-searches-with-windows-events"></a>Búsquedas de registros con eventos de Windows
 La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperar registros de eventos de Windows.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 |:---|:---|
 | Evento |Todos los eventos de Windows. |
 | Event &#124; where EventLevelName == "error" |Todos los eventos de Windows con gravedad de error. |
@@ -72,8 +72,8 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Contador de eventos de error de Windows por origen. |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Configure Log Analytics para recopilar otros [orígenes de datos](log-analytics-data-sources.md) para su análisis.
-* Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 * Configure la [recopilación de contadores de rendimiento](log-analytics-data-sources-performance-counters.md) desde los agentes de Windows.

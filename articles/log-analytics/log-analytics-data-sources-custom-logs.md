@@ -1,6 +1,6 @@
 ---
-title: "Recopilación de registros personalizados en Log Analytics (OMS) | Microsoft Docs"
-description: "Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el repositorio de OMS."
+title: "Recopilación de registros personalizados en Azure Log Analytics (OMS) | Microsoft Docs"
+description: "Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el área de trabajo de Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -42,10 +42,10 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Paso 1. Apertura del Asistente para registros personalizados
-El Asistente para registros personalizados se ejecuta en el portal OMS y le permite definir un nuevo registro personalizado para la recopilación.
+El Asistente para registros personalizados se ejecuta en Azure Portal y le permite definir un nuevo registro personalizado para la recopilación.
 
-1. En el portal de OMS, vaya a **Settings**(Configuración).
-2. Haga clic en **Datos** y en **Registros personalizados**.
+1. En Azure Portal, seleccione **Log Analytics** > el área de trabajo > **Configuración avanzada**.
+2. Haga clic en **Datos** > **Registros personalizados**.
 3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.  Si desea modificar este archivo manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis equipos Linux).
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 
@@ -54,14 +54,14 @@ Para empezar, cargue una muestra del registro personalizado.  El Asistente anali
 
 **Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea.
 
-Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en OMS se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada.
+Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en Log Analytics se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada.
 
 
 1. Haga clic en **Browse** (Examinar) y vaya a un archivo de ejemplo.  Tenga en cuenta que este botón puede llamarse **Choose File** (Elegir archivo) en algunos exploradores.
-2. Haga clic en **Siguiente**.
+2. Haga clic en **Next**.
 3. El Asistente para registros personalizados cargará el archivo y mostrará los registros que identifique.
 4. Cambie el delimitador que se utiliza para identificar un registro nuevo y seleccione el delimitador que mejor identifica las entradas en el archivo de registro.
-5. Haga clic en **Siguiente**.
+5. Haga clic en **Next**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Paso 3: Incorporación de rutas de recopilación de registros
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre.  Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado.  También puede proporcionar varias rutas de acceso para un solo archivo de registro.
@@ -70,7 +70,7 @@ Por ejemplo, una aplicación puede crear un archivo de registro cada día con la
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
-| Descripción | Ruta de acceso |
+| DESCRIPCIÓN | Ruta de acceso |
 |:--- |:--- |
 | Todos los archivos en *C:\Logs* con la extensión .txt en el agente de Windows |C:\Logs\\\*.txt |
 | Todos los archivos en *C:\Logs* con un nombre que empieza con "registro" y una extensión .txt en el agente de Windows |C:\Logs\log\*.txt |
@@ -103,13 +103,12 @@ La entrada de registro completa se almacenará en una sola propiedad denominada 
 
 No se proporcionan aquí pasos detallados para analizar las entradas del registro personalizado.  Consulte la documentación de [campos personalizados](log-analytics-custom-fields.md) para ver esta información.
 
-## <a name="disabling-a-custom-log"></a>Deshabilitación de un registro personalizado
-No se puede quitar una definición de registro personalizado una vez que se ha creado, pero se puede deshabilitar mediante la eliminación de todas sus rutas de recopilación.
+## <a name="removing-a-custom-log"></a>Eliminación de un registro personalizado
+Use el proceso siguiente en Azure Portal para eliminar un registro personalizado que haya definido anteriormente.
 
-1. En el portal de OMS, vaya a **Settings**(Configuración).
-2. Haga clic en **Datos** y en **Registros personalizados**.
-3. Haga clic en **Detalles** junto a la definición de registro personalizado para deshabilitarla.
-4. Quite todas las rutas de recopilación de la definición de registro personalizado.
+1. En el menú **Datos** en **Configuración avanzada** del área de trabajo, seleccione **Registros personalizados** para enumerar todos los registros personalizados.
+2. Haga clic en la opción **Quitar** situada junto al registro personalizado que desea quitar.
+
 
 ## <a name="data-collection"></a>Colección de datos
 Log Analytics recopilará nuevas entradas de cada registro personalizado aproximadamente cada 5 minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente queda sin conexión durante un período, Log Analytics recopilará entradas desde donde quedó, incluso si se crearon mientras el agente estaba sin conexión.
@@ -119,7 +118,7 @@ Todo el contenido de la entrada del registro se escribe en una sola propiedad de
 ## <a name="custom-log-record-properties"></a>Propiedades de las entradas del registro personalizado
 Las entradas del registro personalizado tienen un tipo con el nombre del registro que asigne y las propiedades en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Log Analytics recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
 | SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br> Linux: todos los agentes de Linux. |
@@ -127,11 +126,11 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 | ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
 
 ## <a name="log-searches-with-custom-log-records"></a>Búsquedas de registros con entradas de registros personalizados
-Las entradas de los registros personalizados se almacenan en el repositorio de OMS de la misma forma que las entradas de cualquier otro origen de datos.  Tienen un tipo que coincide con el nombre proporcionado al definir el registro, por lo que puede utilizar la propiedad Type en la búsqueda para recuperar registros recopilados de un registro específico.
+Las entradas de los registros personalizados se almacenan en el área de trabajo de Log Analytics de la misma forma que las entradas de cualquier otro origen de datos.  Tienen un tipo que coincide con el nombre proporcionado al definir el registro, por lo que puede utilizar la propiedad Type en la búsqueda para recuperar registros recopilados de un registro específico.
 
 La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperan entradas de los registros personalizados.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 |:--- |:--- |
 | MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
 | MyApp_CL &#124; donde Severity_CF=="error" |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |
@@ -171,6 +170,6 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 
 ![Consulta del registro con campos personalizados](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>Pasos siguientes
-* Utilice los [campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones.
+## <a name="next-steps"></a>pasos siguientes
+* Utilice [Campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.

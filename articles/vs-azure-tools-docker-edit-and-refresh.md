@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depuración de aplicaciones en un contenedor de Docker local
 ## <a name="overview"></a>Información general
@@ -32,7 +32,7 @@ También se muestra cómo establecer puntos de interrupción para la depuración
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Se deben instalar las siguientes herramientas.
 
 * [Versión más reciente de Visual Studio](https://www.visualstudio.com/downloads/)
@@ -91,7 +91,7 @@ A menudo, será preciso inspeccionar más detalladamente los cambios realizados,
 ## <a name="summary"></a>Resumen
 Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)puede conseguir una productividad similar a la de trabajar de forma local, con el realismo que produce desarrollar en un contenedor de Docker.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 [Solución de problemas de desarrollo de Docker en Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Más información acerca de Docker con Visual Studio, Windows y Azure

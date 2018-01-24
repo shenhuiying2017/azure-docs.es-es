@@ -4,7 +4,7 @@ description: "Información sobre cómo instalar y configurar MongoDB en una máq
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux
 [MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. En este artículo se muestra cómo instalar y configurar MongoDB en una máquina virtual Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](install-mongodb-nodejs.md). Se muestran algunos ejemplos detallados de:
@@ -57,18 +57,18 @@ ssh azureuser@<publicIpAddress>
 Para agregar los orígenes de instalación para MongoDB, cree un archivo de repositorio **yum** de la manera siguiente:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Abra el archivo de repositorio de MongoDB para editarlo. Agregue las siguientes líneas:
+Abra el archivo del repositorio de MongoDB para editarlo, por ejemplo, con `vi` o `nano`. Agregue las siguientes líneas:
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 Instale MongoDB mediante **yum** como se indica a continuación:
@@ -125,26 +125,17 @@ Para crear este entorno, necesita la versión más reciente de la [CLI de Azure 
 az group create --name myResourceGroup --location eastus
 ```
 
-Después, implemente la plantilla de MongoDB con [az group deployment create](/cli/azure/group/deployment#create). Defina sus propios nombres y tamaños de recursos donde sea necesario; por ejemplo, para *newStorageAccountName*, *virtualNetworkName* y *vmSize*:
+Después, implemente la plantilla de MongoDB con [az group deployment create](/cli/azure/group/deployment#create). Cuando se le solicite, escriba sus propios valores únicos para *newStorageAccountName*, *dnsNameForPublicIP* y el nombre de usuario administrador y la contraseña:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 Inicie sesión en la máquina virtual con la dirección DNS pública de la máquina virtual. Puede ver la dirección DNS pública con [az vm show](/cli/azure/vm#show):
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 Acceda mediante SSH a la máquina virtual con su propio nombre de usuario y la dirección DNS pública:
@@ -217,7 +208,7 @@ az group deployment show \
     --output tsv
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En estos ejemplos, puede conectarse a la instancia de MongoDB localmente desde la máquina virtual. Si desea conectarse a la instancia de MongoDB desde otra máquina virtual o una red, asegúrese de que [se creen las reglas de grupo de seguridad de red](nsg-quickstart.md) correspondientes.
 
 Estos ejemplos implementan el entorno del núcleo de MongoDB para fines de desarrollo. Aplique las opciones de configuración de seguridad necesarias para su entorno. Para más información, consulte los [documentos de seguridad de MongoDB](https://docs.mongodb.com/manual/security/).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -65,10 +65,10 @@ Las notificaciones de Detección inteligentes se habilitan de forma predetermina
 
 Los mensajes de correo electrónico de las anomalías de rendimiento de Detección inteligente tienen una limitación de un correo electrónico al día por recurso de Application Insights. El mensaje de correo electrónico solo se enviará si se ha detectado, como mínimo, un problema nuevo ese día. No obtendrá repeticiones de ningún mensaje. 
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 * *¿El personal de Microsoft mira mis datos?*
-  * No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
+  * Nº El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
 * *¿Analiza todos los datos recopilados por Application Insights?*
   * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud, el tiempo de respuesta de dependencia y el tiempo de carga de la página. En un futuro analizaremos más métricas.
 
@@ -84,7 +84,7 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).
 * *¿Sustituye esto a las [alertas de métricas](app-insights-alerts.md)?*
-  * No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
+  * Nº  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
 
 
 * *Si no tomo ninguna medida como respuesta a una notificación, ¿recibiré un aviso?*
@@ -178,7 +178,7 @@ Haga clic en los vínculos para abrir el Explorador de métricas y Búsqueda en 
 
 Modifique los filtros y el intervalo de tiempo para explorar la telemetría.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
 * [Generador de perfiles](app-insights-profiler.md) 

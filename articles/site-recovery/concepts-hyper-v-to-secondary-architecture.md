@@ -1,24 +1,16 @@
 ---
-title: "Revisión de la arquitectura para la replicación de Hyper-V a un sitio secundario con Azure Site Recovery | Microsoft Docs"
+title: "Replicación de Hyper-V en una arquitectura secundaria con Azure Site Recovery | Microsoft Docs"
 description: "Este artículo proporciona información general de la arquitectura usada para replicar máquinas virtuales de Hyper-V locales a un sistema sitio System Center VMM secundario con Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replicación de Hyper-V en un sitio secundario
 
@@ -51,20 +43,18 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 ## <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 
-1. Puede conmutar por error una única máquina o crear planes de recuperación para organizar la conmutación por error de varias máquinas.
-2. Puede ejecutar una conmutación por error, planeada o no, entre sitios locales. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
+- Puede conmutar por error una única máquina o crear planes de recuperación para organizar la conmutación por error de varias máquinas.
+- Puede ejecutar una conmutación por error, planeada o no, entre sitios locales. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
     - Si realizó una conmutación por error no planeada a un sitio secundario, tras ella las máquinas de la ubicación secundaria no están protegidas.
     - Si ejecutó una conmutación por error planeada, tras ella las máquinas de la ubicación secundaria están protegidas.
-3. Después que se ejecute la conmutación por error, debe confirmarla para que se inicie. Para ello, acceda a la carga de trabajo desde la máquina virtual de Replica.
-
-Cuando la ubicación principal vuelva a estar disponible, puede realizar la conmutación por recuperación.
-
-1. Inicia la replicación inversa para que comience a replicar desde el sitio secundario en el principal. La replicación inversa pone las máquinas virtuales en un estado protegido pero el centro de datos secundario sigue siendo la ubicación activa.
-2. Para que el sitio principal se convierta de nuevo en la ubicación activa, debe iniciar una conmutación por error planeada desde el secundario al principal, seguida de otra replicación inversa.
+- Después que se ejecute la conmutación por error, debe confirmarla para que se inicie. Para ello, acceda a la carga de trabajo desde la máquina virtual de Replica.
+- Cuando la ubicación principal vuelva a estar disponible, puede realizar la conmutación por recuperación.
+    - Inicia la replicación inversa para que comience a replicar desde el sitio secundario en el principal. La replicación inversa pone las máquinas virtuales en un estado protegido pero el centro de datos secundario sigue siendo la ubicación activa.
+    - Para que el sitio principal se convierta de nuevo en la ubicación activa, debe iniciar una conmutación por error planeada desde el secundario al principal, seguida de otra replicación inversa.
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Revise la matriz de compatibilidad Siga el tutorial para habilitar la replicación de Hyper-V entre nubes de VMM.
-Realice una conmutación por error y una conmutación por recuperación.
+
+Siga [este tutorial](tutorial-vmm-to-vmm.md) para habilitar la replicación de Hyper-V entre nubes de VMM.

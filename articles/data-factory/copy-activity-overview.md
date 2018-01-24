@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -39,7 +39,7 @@ La actividad de copia se ejecuta en una instancia de [Integration Runtime](conce
 * Cuando copie datos entre almacenes de datos y ambos sean accesibles públicamente, la actividad de copia puede usar **Azure Integration Runtime**, que es seguro, confiable, escalable y con carácter de [disponibilidad global](concepts-integration-runtime.md#integration-runtime-location).
 * Cuando copie datos con almacenes de datos como origen o destino ubicados en el entorno local o en una red con control de acceso (por ejemplo, Azure Virtual Network), debe configurar una instancia de **Integrated Runtime autohospedado** para impulsar la copia de datos.
 
-Integration Runtime se debe asociar con cada almacén de datos de origen y receptor. Obtenga detalles sobre cómo la actividad de copia [determina el tipo de IR que se usará](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integration Runtime se debe asociar con todos los almacenes de datos receptores y de origen. Obtenga detalles sobre cómo la actividad de copia [determina el tipo de IR que se usará](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 La actividad de copia pasa por las siguientes fases para copiar datos de un origen a un receptor. El servicio que sustenta la actividad de copia realiza las siguientes acciones:
 
@@ -130,25 +130,25 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 
 ### <a name="syntax-details"></a>Detalles de la sintaxis
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
+| Tipo | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
 | inputs | Especifique el conjunto de datos que creó y que señala los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala los datos de receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
 | de origen | Especifique el tipo de origen de copia y las propiedades correspondientes sobre cómo recuperar los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
 | sink | Especifique el tipo de receptor de copia y las propiedades correspondientes sobre cómo escribir los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
-| translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | No |
-| cloudDataMovementUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos.<br/><br/>Obtenga información en [Unidades de movimiento de datos de nube](copy-activity-performance.md). | No |
-| parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Elija almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiar directamente los datos del origen al receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | No |
+| translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | Sin  |
+| cloudDataMovementUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos.<br/><br/>Obtenga información en [Unidades de movimiento de datos de nube](copy-activity-performance.md). | Sin  |
+| parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | Sin  |
+| enableStaging<br/>stagingSettings | Elija almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiar directamente los datos del origen al receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin  |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin  |
 
 ## <a name="monitoring"></a>Supervisión
 
 Los detalles de la ejecución de la actividad de copia y las características de rendimiento se devuelven en la sección Copy Activity run result -> Output (Resultado de la ejecución de la actividad de copia -> Salida). A continuación se muestra una lista completa. Obtenga información sobre cómo supervisar la ejecución de activad en la [sección de supervisión de inicio rápido](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Puede comparar el rendimiento y la configuración de su escenario con la [referencia de rendimiento](copy-activity-performance.md#performance-reference) de la actividad de copia desde pruebas internas.
 
-| Nombre de propiedad  | Descripción | Unidad |
+| Nombre de propiedad  | DESCRIPCIÓN | Unidad |
 |:--- |:--- |:--- |
 | dataRead | Tamaño de los datos leídos desde el origen | Valor Int64 en bytes |
 | dataWritten | Tamaño de los datos escritos en el receptor | Valor Int64 en bytes |
@@ -156,9 +156,9 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
 | throughput | Velocidad de transferencia de los datos | Número de punto flotante en KB/s |
 | copyDuration | Duración de la copia | Valor Int32 en segundos |
-| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Booleano |
-| redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | Booleano |
-| hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Booleano |
+| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | boolean |
+| redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | boolean |
+| hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | boolean |
 | effectiveIntegrationRuntime | Muestra el tipo de Integration Runtime que se usa para impulsar la ejecución de actividad con el formato "`<IR name> (<region if it's Azure IR>)`". | Texto (cadena) |
 | usedCloudDataMovementUnits | Las unidades de movimiento de datos de nube efectivas durante la copia. | Valor Int32 |
 | redirectRowPath | Ruta de acceso al registro de las filas incompatibles omitidas en la instancia de Blob Storage que configura en "redirectIncompatibleRowSettings". Consulte el ejemplo siguiente. | Texto (cadena) |
@@ -193,7 +193,13 @@ De manera predeterminada, la actividad de copia deja de copiar datos y devuelve 
 
 Vea el artículo [Guía de optimización y rendimiento de la actividad de copia](copy-activity-performance.md), en el que se describen los factores claves que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory. También muestra el rendimiento observado durante las pruebas internas y trata diversas maneras de optimizar el rendimiento de la actividad de copia.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="incremental-copy"></a>Copia incremental 
+La versión 2 de Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen en uno de destino. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Lectura y escritura de datos con particiones
+En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión 2, puede lograr este comportamiento mediante un parámetro de canalización y la hora de inicio o programada del desencadenador como un valor del parámetro. Para más información, consulte [How to read and write large data files](how-to-read-write-partitioned-data.md) (Cómo leer o escribir datos con particiones).
+
+## <a name="next-steps"></a>pasos siguientes
 Consulte las guías de inicio rápido, los tutoriales y los ejemplos siguientes:
 
 - [Copia de datos de una ubicación a otra en la misma instancia de Azure Blob Storage](quickstart-create-data-factory-dot-net.md)

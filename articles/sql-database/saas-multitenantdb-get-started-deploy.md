@@ -4,22 +4,22 @@ description: "Implemente y explore la aplicación de base de datos multiinquilin
 keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: MightyPen
 manager: craigg
-editor: billgib;MightyPen
+editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: sstein
-ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 12/18/2017
+ms.author: genemi
+ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -31,7 +31,7 @@ Este patrón de base de datos permite almacenar uno o varios inquilinos en cada 
 
 #### <a name="app-deploys-quickly"></a>La aplicación se implementa rápidamente
 
-La sección de implementación que sigue proporciona el botón **Implementar en Azure**. Cuando se presiona el botón, la aplicación Wingtip se implementa completamente unos cinco minutos después. La aplicación Wingtip se ejecuta en la nube de Azure y usa Azure SQL Database. Wingtip se implementa en la suscripción de Azure. Tiene acceso completo para trabajar con los componentes individuales de la aplicación.
+La sección de implementación que sigue proporciona el botón **Implementar en Azure** azul. Cuando se presiona el botón, la aplicación Wingtip se implementa completamente unos cinco minutos después. La aplicación Wingtip se ejecuta en la nube de Azure y usa Azure SQL Database. Wingtip se implementa en la suscripción de Azure. Tiene acceso completo para trabajar con los componentes individuales de la aplicación.
 
 La aplicación se implementa con los datos para los tres inquilinos de ejemplo. Los inquilinos se almacenan juntos en una base de datos multiinquilino.
 
@@ -40,7 +40,6 @@ Cualquier usuario puede descargar el código fuente de C# y PowerShell para Wing
 #### <a name="learn-in-this-tutorial"></a>En este tutorial
 
 > [!div class="checklist"]
-
 > - Cómo implementar la aplicación SaaS de Wingtip.
 > - Dónde obtener el código fuente de la aplicación y los scripts de administración.
 > - Información sobre los servidores y las bases de datos que componen la aplicación.
@@ -50,32 +49,38 @@ Cualquier usuario puede descargar el código fuente de C# y PowerShell para Wing
 
 Hay disponible una serie de tutoriales relacionados que se basan en esta implementación inicial. En los tutoriales se explora una variedad de patrones de diseño y administración de SaaS. Cuando trabaja con los tutoriales, se recomienda que recorra los scripts proporcionados para ver cómo se implementan los distintos patrones de SaaS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
+Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 - Tiene instalada la versión más reciente de Azure PowerShell. Para más información, consulte [Introducción a Azure PowerShell][link-azure-get-started-powershell-41q].
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Implementación de la aplicación Wingtip Tickets
 
-1. Haga clic en el botón **Implementar en Azure** siguiente.
-    - Se abrirá Azure Portal con la plantilla de implementación de la aplicación SaaS Wingtip Tickets. La plantilla requiere dos valores de parámetro: un nombre para un grupo de recursos nuevo y un valor de "usuario" que distingue esta implementación de otras implementaciones de la aplicación. En el paso siguiente se proporcionan los detalles para establecer estos valores de parámetro.
-        - Asegúrese de anotar los valores exactos que use, porque los necesitará más adelante para un archivo de configuración.
+#### <a name="plan-the-names"></a>Planeamiento de los nombres
 
-    [![Botón para Implementar en Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+En los pasos de esta sección hay dos lugares donde debe especificar nombres para usted (como *usuario*) y para el nuevo *grupo de recursos*. Para una persona llamada *Ann Finley*, sugerimos los nombres siguientes:
+- *Usuario:* &nbsp; **af1** &nbsp; *(sus iniciales, más un dígito).*
+- *Grupo de recursos:* &nbsp; **wingtip-af1** &nbsp; *(se recomienda todo en minúsculas; anexe un guión y, después, el nombre de usuario).*
+
+Elija los nombres ahora y escríbalos.
+
+#### <a name="steps"></a>Pasos
+
+1. Haga clic en el botón **Implementar en Azure** azul siguiente.
+    - Se abrirá Azure Portal con la plantilla de implementación de la aplicación SaaS Wingtip Tickets.
+
+    [![Botón Implementar en Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 2. Especifique los valores necesarios de los parámetros para la implementación.
 
     > [!IMPORTANT]
-    > Parte de la configuración del firewall del servidor y de la autenticación es poco segura de manera intencional para facilitar la demostración. Elija **Crear nuevo grupo de recursos** y no use grupos de recursos, servidores o grupos existentes. No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
-
-    Se recomienda usar solo letras minúsculas, números y guiones en los nombres de recurso.
+    > Para esta demostración, no utilice grupos de recursos, servidores o grupos preexistentes. En su lugar, elija **Crear nuevo grupo de recursos**. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
+    > No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Algunos aspectos de la configuración del firewall del servidor y de la autenticación son poco seguras (intencionadamente) para facilitar la demostración.
 
     - En **Grupo de recursos**: seleccione **Crear nuevo** y, luego, proporcione un **nombre** para el grupo de recursos (distingue mayúsculas de minúsculas).
-        - Se recomienda usar solo letras minúsculas en el nombre del grupo de recursos.
-        - Le recomendamos anexar un guión, seguido de sus iniciales, y después un dígito, por ejemplo: *wingtip-af1*.
         - Seleccione una **ubicación** en la lista desplegable.
-    - En **Usuario**: se recomienda elegir un valor **Usuario** corto, como sus iniciales más un dígito, por ejemplo: *af1*.
+    - Como **usuario** se recomienda elegir un **usuario** breve.
 
 3. **Implemente la aplicación**.
 
@@ -90,15 +95,15 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 Durante la implementación de la aplicación, descargue el código fuente y los scripts de administración de la aplicación.
 
-> [!IMPORTANT]
-> Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) cuando se descarguen y extraigan archivos ZIP desde un origen externo. Cuando extraiga los scripts de un archivo ZIP, use estos pasos para desbloquear el archivo ZIP antes de extraerlo. Al desbloquear el archivo ZIP se asegura de que los scripts estén autorizados para ejecutarse.
+> [!NOTE]
+> Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) al descargar y extraer archivos ZIP de un origen externo. Cuando extraiga los scripts de un archivo ZIP, use estos pasos para desbloquear el archivo ZIP antes de extraerlo. Al desbloquear el archivo .zip se asegura de que los scripts estén autorizados para ejecutarse.
 
 1. Vaya al [repositorio de GitHub de WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Haga clic en **Clone or download** (Clonar o descargar).
 3. Haga clic en **Download ZIP** (Descargar archivos ZIP) y guarde el archivo.
 4. Haga clic con el botón derecho en el archivo **WingtipTicketsSaaS-MultiTenantDb-master.zip** y seleccione **Propiedades**.
 5. En la pestaña **General**, seleccione **Desbloquear** y haga clic en **Aplicar**.
-6. Haga clic en **Aceptar**.
+6. Haga clic en **OK**.
 7. Extraiga los archivos.
 
 Los scripts se encuentra en la carpeta *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\*.
@@ -107,34 +112,46 @@ Los scripts se encuentra en la carpeta *..\\WingtipTicketsSaaS-MultiTenantDb-mas
 
 Antes de ejecutar cualquier script, establezca los valores *grupo de recursos* y *usuario* en **UserConfig.psm1**. Establezca estas variables en los mismos valores establecidos durante la implementación.
 
-1. Abra ...\\Learning Modules\\*UserConfig.psm1* en *PowerShell ISE*
+1. Abra ...\\Learning Modules\\*UserConfig.psm1* en *PowerShell ISE*.
 2. Actualice *ResourceGroupName* y *Name* con los valores específicos para la implementación (solo en las líneas 10 y 11).
 3. Guarde los cambios.
 
-Todos los scripts usan los valores establecidos en este archivo, por lo que es importante que sean precisos. Si vuelve a implementar la aplicación, asegúrese de elegir otro grupo de recursos y otro valor de usuario. Luego, actualice UserConfig con los valores nuevos.
+Todos los scripts usan los valores establecidos en este archivo, por lo que es importante que sean precisos. Si se vuelve a implementar la aplicación, debe elegir valores diferentes para el usuario y el grupo de recursos. Luego, vuelva a actualizar el archivo UserConfig.psm1 con los valores nuevos.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-La aplicación presenta lugares, como salas de concierto, clubs de jazz o clubes deportivos, que alojan eventos. Los lugares se registran como clientes (o inquilinos) de la plataforma Wingtip, lo que facilita la enumeración de eventos y la venta de entradas. Cada lugar obtiene una aplicación web personalizada que administra y enumera sus eventos y vende las entradas, que independiente y está aislada de otros inquilinos. En segundo plano, los datos de cada inquilino se almacenan de manera predeterminada en una base de datos multiinquilino con particiones.
+En la aplicación Wingtip, los inquilinos son lugares. Una ubicación puede ser un auditorio, un club deportivo o cualquier otra ubicación que hospede los eventos. Las ubicaciones se registran en Wingtip como clientes y se genera un identificador de inquilino para cada una de ellas. Cada ubicación enumera sus próximos eventos en Wingtip, de manera que el público pueda comprar entradas.
 
-Una instancia central de **Events Hub** proporciona una lista de los vínculos a los inquilinos en su implementación específica.
+Cada ubicación obtiene una aplicación web personalizada para mostrar los eventos y vender entradas. Cada aplicación web es independiente y está aislada de los demás inquilinos. Internamente en Azure SQL Database, de manera predeterminada, los datos para cada inquilino se almacenan en una base de datos particionada de varios inquilinos. Todos los datos se etiquetan con el identificador de inquilino.
 
-1. Abra *Events Hub* en el explorador web:
-    - http://events.wingtip.&lt;USUARIO&gt;.trafficmanager.net &nbsp; *(reemplácelo por el valor de usuario de su implementación)*
+Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
+
+1. Abra **Events Hub** en el explorador web:
+    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(reemplace &lt;USER&gt; por el valor del usuario de su implementación).*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
-2. Haga clic en **Fabrikam Jazz Club** en el *centro de eventos*.
+2. Haga clic en **Fabrikam Jazz Club** en el **centro de eventos**.
 
    ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-Para controlar la distribución de las solicitudes entrantes, la aplicación usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Las páginas de eventos, que son específicas del inquilino, incluyen el nombre del inquilino en la dirección URL. Las direcciones URL también incluyen el valor de usuario específico y siguen este formato:
+#### <a name="azure-traffic-manager"></a>Administrador de tráfico de Azure
+
+Para controlar la distribución de las solicitudes entrantes, la aplicación Wingtip usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La página de eventos de cada inquilino incluye el nombre del inquilino en la dirección URL. La dirección URL también incluye el valor del usuario en cuestión. Cada dirección URL sigue el formato que se muestra mediante los siguientes pasos:
 
 - http://events.wingtip.&lt;USUARIO&gt;.trafficmanager.net/*fabrikamjazzclub*
- 
-La aplicación de eventos analiza el nombre del inquilino de la dirección URL y le aplica código hash para crear una clave para acceder a un catálogo mediante la [administración del mapa de particiones](sql-database-elastic-scale-shard-map-management.md). El catálogo asigna la clave a la ubicación de base de datos del inquilino. **Events Hub** enumera todos los inquilinos que se encuentran registrados en el catálogo. **Events Hub** usa metadatos extendidos en el catálogo para recuperar el nombre del inquilino asociado con cada asignación para construir las direcciones URL.
 
-En un entorno de producción, lo habitual sería crear un registro DNS CNAME que [apunte a un dominio de empresa de Internet](../traffic-manager/traffic-manager-point-internet-domain.md) para el perfil de Traffic Manager.
+1. La aplicación de eventos analiza el nombre del inquilino de la dirección URL. Este nombre del inquilino es *fabrikamjazzclub* en la dirección URL del ejemplo anterior.
+2. A continuación, la aplicación analiza el nombre del inquilino para crear una clave de acceso a un catálogo mediante [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
+3. La aplicación busca la clave en el catálogo y obtiene la ubicación correspondiente de la base de datos del inquilino.
+4. La aplicación usa la información de la ubicación para buscar la base de datos que contiene todos los datos del inquilino y acceder a ella.
+
+#### <a name="events-hub"></a>Centro de eventos
+
+1. El **centro de eventos** enumera todos los inquilinos que se encuentran registrados en el catálogo y sus ubicaciones.
+2. **Events Hub** usa metadatos extendidos en el catálogo para recuperar el nombre del inquilino asociado con cada asignación para construir las direcciones URL.
+
+En un entorno de producción, lo habitual es crear un registro DNS CNAME que [apunte a un dominio de empresa de Internet](../traffic-manager/traffic-manager-point-internet-domain.md) para el perfil de Traffic Manager.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Empiece a generar carga en las bases de datos de los inquilinos
 
@@ -143,8 +160,7 @@ Ahora que se implementó la aplicación, vamos a ponerla en marcha. El script *D
 1. En *PowerShell ISE*, abra el script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
 2. Presione **F5** para ejecutar el script e iniciar el generador de carga (por ahora deje los valores predeterminados de los parámetros).
 
-> [!IMPORTANT]
-> El script *Demo-LoadGenerator.ps1* abre otra sesión de PowerShell donde se ejecuta el generador de carga. El generador de carga se ejecuta en esta sesión como una tarea en primer plano que invoca trabajos de generación de carga en segundo plano, uno para cada inquilino.
+El script *Demo-LoadGenerator.ps1* abre otra sesión de PowerShell donde se ejecuta el generador de carga. El generador de carga se ejecuta en esta sesión como una tarea en primer plano que invoca trabajos de generación de carga en segundo plano, uno para cada inquilino.
 
 Una vez que se inicia la tarea en primer plano, se mantiene en un estado de invocación de trabajo. La tarea inicia trabajos en segundo plano adicionales para cualquier inquilino nuevo que se aprovisione posteriormente.
 
@@ -154,38 +170,40 @@ Es posible que desee reiniciar la sesión del generador de carga para usar otros
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Aprovisionamiento de un inquilino nuevo en la base de datos con particiones
 
-La implementación inicial incluye tres inquilinos de ejemplo en la base de datos *Tenants1*. Vamos a crear otro inquilino para ver cómo afecta esto a la aplicación implementada. En este paso, se crea rápidamente un inquilino.
+La implementación inicial incluye tres inquilinos de ejemplo en la base de datos *Tenants1*. Vamos a crear otro inquilino para ver cómo afecta a la aplicación implementada. En este paso, para crear un inquilino se presiona una tecla:
 
-1. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* en *PowerShell ISE*.
-2. Presione **F5** para ejecutar el script (deje por ahora los valores predeterminados).
+1. Abra ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* en *PowerShell ISE*.
+2. Presione **F5** (no **F8**) para ejecutar el script (deje por ahora los valores predeterminados).
 
    > [!NOTE]
-   > Muchos scripts de SaaS de Wingtip Tickets usan *$PSScriptRoot* para permitir la navegación de las carpetas, para invocar otros scripts o para importar módulos. Esta variable solo se evalúa cuando el script se ejecuta como un conjunto al presionar **F5**.  Resaltar y ejecutar una selección (**F8**) puede dar lugar a errores, por tanto, presione **F5** al ejecutar los scripts.
+   > Solo debe ejecutar los scripts de PowerShell al presionar la tecla **F5**, no **F8**, para ejecutar una parte determinada del script. El problema con **F8** es que la variable *$PSScriptRoot* no se evalúa. Esta variable es necesaria para que muchos scripts vayan a carpetas, invoquen otros scripts o importen módulos.
 
-El nuevo inquilino Red Maple Racing se agrega a la base de datos *Tenants1* y se registra en el catálogo. El sitio de *eventos* de venta de entradas del nuevo inquilino se abre en el explorador:
+El nuevo inquilino Red Maple Racing se agrega a la base de datos *Tenants1* y se registra en el catálogo. El sitio de **eventos** de venta de entradas del nuevo inquilino se abre en el explorador:
 
 ![Nuevo inquilino](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Actualice el *centro de eventos* y el nuevo inquilino aparece ahora en la lista.
+Actualice el **centro de eventos** y el nuevo inquilino aparecerá en la lista.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Aprovisionamiento de un inquilino nuevo en su propia base de datos
 
-El modelo multiinquilino con particiones permite elegir entre aprovisionar un inquilino nuevo en una base de datos que contiene otros inquilinos o aprovisionar el inquilino en su propia base de datos. Un inquilino en su propia base de datos se beneficia de tener los datos aislados de los datos de otros inquilinos. El aislamiento permite administrar el rendimiento del inquilino de manera independiente de otros inquilinos. Además, es más sencillo restaurar los datos del inquilino aislado a un momento anterior. Puede decidir colocar los clientes de versiones de evaluación gratuita o los clientes habituales en una base de datos multiinquilino, y los clientes Premium en bases de datos individuales. Si crea grandes cantidades de bases de datos donde cada una contiene solo un inquilino, puede administrarlas todas de manera colectiva en un grupo elástico para optimizar los costos de los recursos.  
+El modelo multiinquilino con particiones permite elegir entre aprovisionar un inquilino nuevo en una base de datos que contenga otros inquilinos o en su propia base de datos. Un inquilino aislado en su propia base de datos disfruta de las siguientes ventajas:
+- El rendimiento de la base de datos del inquilino se puede administrar sin poner en peligro las necesidades de otros inquilinos.
+- Si es necesario, la base de datos puede restaurarse a un momento anterior en el tiempo, ya que los demás inquilinos no resultan afectados.
 
-Ahora aprovisionamos otro inquilino, esta vez en su propia base de datos.
+Puede poner los clientes de prueba de evaluación gratuita o los económicos en bases de datos de varios inquilinos. Podría colocar a cada inquilino premium en su propia base de datos específica. Si crea grandes cantidades de bases de datos que contengan solo un inquilino, puede administrarlas todas de manera colectiva en un grupo elástico para optimizar los costos de los recursos.
 
-1. En \\Módulos de aprendizaje\\Aprovisionamiento y catálogo\*Demo-ProvisionTenants.ps1*, modifique *$TenantName* a **Salix Salsa**, *$VenueType* a **dance** y *$Scenario* a **2**.
+Ahora aprovisionaremos otro inquilino, esta vez, en su propia base de datos:
+
+1. En ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1*, cambie *$TenantName* a **Salix Salsa**, *$VenueType* a **dance** y *$Scenario* a **2**.
 
 2. Presione **F5** para volver a ejecutar el script.
-    - Esta acción aprovisiona el inquilino nuevo en una base de datos independiente. La base de datos y el inquilino se registran en el catálogo. Luego, el explorador se abre en la página de eventos del inquilino.
+    - Al presionar **F5** se aprovisiona el inquilino nuevo en una base de datos independiente. La base de datos y el inquilino se registran en el catálogo. Luego, el explorador se abre en la página de eventos del inquilino.
 
    ![Página de eventos de Salix Salsa](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
    - Desplácese hasta la parte inferior de la página. En el banner verá el nombre de la base de datos en que están almacenados los datos del inquilino.
 
-3. Actualice Events Hub y los dos inquilinos nuevos aparecerán ahora en la lista.
-
-
+3. Actualice el **centro de eventos** y los dos inquilinos nuevos aparecerán en la lista.
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Exploración de los servidores y las bases de datos de inquilino
 
@@ -208,7 +226,7 @@ Veamos ahora algunos de los recursos que se implementaron:
 
 ## <a name="monitor-the-performance-of-the-database"></a>Supervisión del rendimiento de la base de datos
 
-Si el generador de carga lleva varios minutos en ejecución, debería haber suficiente telemetría para empezar a examinar algunas de las funcionalidades de supervisión de bases de datos integradas en el portal.
+Si el generador de carga lleva varios minutos en ejecución, debería haber suficiente telemetría para examinar las funcionalidades de supervisión de bases de datos integradas en Azure Portal.
 
 1. Navegue al servidor **tenants1-mt&lt;USUARIO&gt;** y haga clic en **tenants1** para ver el uso de recursos para la base de datos que tiene cuatro inquilinos en ella. Cada inquilino está sujeto a una carga pesada esporádica desde el generador de carga:
 
@@ -216,42 +234,39 @@ Si el generador de carga lleva varios minutos en ejecución, debería haber sufi
 
    El gráfico de uso de DTU ilustra bien cómo una base de datos multiinquilino puede admitir una carga de trabajo impredecible a través de varios inquilinos. En este caso, el generador de carga aplica una carga esporádica de aproximadamente 30 DTU a cada inquilino. Esta carga equivale al 60 % del uso de una base de datos de 50 DTU. Valores máximos que superan el 60 % son el resultado de la carga que se aplica a más de un inquilino al mismo tiempo.
 
-2. Navegue al servidor **tenants1-mt&lt;USUARIO&gt;** y haga clic en la base de datos **salixsalsa** para ver el uso de recursos de esta base de datos que solo contiene un inquilino.
+2. Vaya al servidor **tenants1 mt&lt;USER&gt;**  y haga clic en la base de datos **salixsalsa**. Puede ver el uso de los recursos en esta base de datos que contiene un solo inquilino.
 
    ![base de datos salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
 El generador de carga aplica una carga similar a cada inquilino, independientemente de la base de datos en que se encuentra cada inquilino. Con solo un inquilino en la base de datos **salixsalsa**, puede ver que la base de datos podría admitir una carga mucho mayor que la base de datos con varios inquilinos. 
 
-> [!NOTE]
-> Las cargas que crea el generador de carga solo tienen fines ilustrativos.  Los recursos asignados a bases de datos multiinquilino y de inquilino único, además de los números de inquilinos que puede hospedar en una base de datos multiinquilino, depende de los patrones de carga de trabajo reales en la aplicación.
+#### <a name="resource-allocations-vary-by-workload"></a>Las asignaciones de recursos varían según la carga de trabajo
 
+En ocasiones, una base de datos de varios inquilinos requiere más recursos para un buen rendimiento que una de un solo inquilino, pero no siempre. La asignación de recursos óptima depende de las características de la carga de trabajo concreta de los inquilinos del sistema.
 
-## <a name="next-steps"></a>Pasos siguientes
+Las cargas de trabajo generadas por el script generador de carga solo tienen fines ilustrativos.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+- Para más información acerca de aplicaciones SaaS multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
+
+- Para más información sobre los grupos elásticos, consulte:
+    - [Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database](sql-database-elastic-pool.md)
+    - [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
+
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha obtenido información:
 
 > [!div class="checklist"]
-
-> - Implementación de la aplicación SaaS de base de datos multiinquilino Widget Tickets
+> - Implementación de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 > - Información sobre los servidores y las bases de datos que componen la aplicación
-> - Acerca de los inquilinos que se asignan a sus datos con el *catálogo*
+> - Los inquilinos se asignan a sus datos con el *catálogo*
 > - Aprovisionamiento de inquilinos nuevos en una base de datos multiinquilino o en una base de datos de inquilino único.
-> - Acerca de cómo ver el uso de grupos para supervisar la actividad de los inquilinos
-> - Acerca de cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos
+> - Visualización del uso de grupos para supervisar la actividad de los inquilinos
+> - Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
 Ahora pruebe el [tutorial de aprovisionamiento del catálogo](sql-database-saas-tutorial-provision-and-catalog.md).
-
-
-
-## <a name="additional-resources"></a>Recursos adicionales
-
-- Para obtener información acerca de aplicaciones SaaS multiempresa, consulte [*Modelos de diseño para las aplicaciones SaaS multiempresa y Azure SQL Database*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
-
-
-
-
-
-
 
 
 <!--  Link references.
@@ -270,13 +285,10 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 
 
-
-
 <!--  Image references.
 
 [image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
-
 -->
 
-[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png
+[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Botón Implementar en Azure."
 

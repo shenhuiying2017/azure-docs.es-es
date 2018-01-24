@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versiones de directivas SSL y conjuntos de cifrado en Application Gateway
 
@@ -110,6 +110,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configuración de una directiva SSL personalizada
 
+Cuando configura una directiva SSL personalizada, pasa los parámetros siguientes: PolicyType, MinProtocolVersion, CipherSuite y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway. 
+
 En el ejemplo siguiente se establece una directiva SSL personalizada en una instancia de Application Gateway. Establece la versión mínima del protocolo en `TLSv1_1` y habilita los siguientes conjuntos de cifrado:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -139,6 +141,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Creación de una puerta de enlace de aplicaciones con una directiva SSL predefinida
+
+Cuando configura una directiva SSL predefinida, pasa los parámetros siguientes: PolicyType, PolicyName y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
 
 En el ejemplo siguiente se crea una nueva puerta de enlace de aplicaciones con una directiva SSL predefinida.
 
@@ -177,6 +181,31 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Actualización de una instancia de Application Gateway existente con una directiva SSL predefinida
 
-Visite [Introducción a la redirección de Application Gateway](application-gateway-redirect-overview.md) para aprender a redirigir el tráfico HTTP a un punto de conexión HTTPS.
+Para establecer una directiva SSL personalizada, pase los parámetros siguientes: **PolicyType**, **MinProtocolVersion**, **CipherSuite** y **ApplicationGateway**. Para establecer una directiva SSL predefinida, pase los parámetros siguientes: **PolicyType**, **PolicyName** y **ApplicationGateway**. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
+
+En el ejemplo siguiente, hay ejemplos de código para la directiva personalizada y la directiva predefinida. Quite la marca de comentario de la directiva que desea usar.
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.

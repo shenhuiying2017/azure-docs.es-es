@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo instalar y configurar el escr
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure
 Las máquinas virtuales de Linux (VM) en Azure normalmente se administran desde la línea de comandos mediante una conexión de shell seguro (SSH). Cuando sean nuevas en Linux, o para escenarios de solución de problemas rápidos, el uso del escritorio remoto puede ser más fácil. En este artículo se detalla cómo instalar y configurar un entorno de escritorio ([xfce](https://www.xfce.org)) y el escritorio remoto ([xrdp](http://www.xrdp.org)) para la máquina virtual Linux con el modelo de implementación de Resource Manager.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Este artículo requiere una máquina virtual de Linux existente en Azure. Si necesita crear una máquina virtual, utilice uno de los métodos siguientes:
 
 - La [CLI de Azure 2.0](quick-create-cli.md)
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Crear una regla de grupo de seguridad de red para el tráfico de escritorio remoto
 Para permitir que el tráfico de escritorio remoto llegue a la máquina virtual Linux, tiene que crearse una regla del grupo de seguridad de red que permita que el TCP del puerto 3389 llegue a la máquina virtual. Para más información acerca de las reglas de grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) También puede [usar Azure Portal para crear una regla de grupos de seguridad de red](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-En los ejemplos siguientes se crea una regla de grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#create) denominada *myNetworkSecurityGroupRule* para *permitir* el tráfico en el puerto *tcp* *3389*.
+En el ejemplo siguiente se crea una regla de grupo de seguridad de red con [az vm open-port](/cli/azure/vm#open-port) en el puerto *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -109,7 +103,7 @@ Tras la autenticación, el entorno de escritorio de xfce se cargará y tendrá u
 
 
 ## <a name="troubleshoot"></a>Solución de problemas
-Si no se puede conectar a la máquina virtual de Linux con un cliente de escritorio remoto, use `netstat` en la máquina virtual Linux para comprobar que la máquina virtual está realizando escuchas para las conexiones RDP de la siguiente forma:
+Si no se puede conectar a la máquina virtual Linux con un cliente de escritorio remoto, use `netstat` en la máquina virtual Linux para comprobar que la máquina virtual escucha las conexiones RDP de la siguiente forma:
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Si el servicio xrdp no está escuchando, en una máquina virtual de Ubuntu, reinicie el servicio como se indica a continuación:
+Si el servicio *xrdp-sesman* no está escuchando, en una máquina virtual Ubuntu, reinicie el servicio como se indica a continuación:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Revise los registros en */var/log*Thug en la máquina virtual de Ubuntu para obtener indicaciones sobre el motivo por el que puede que el servicio no responda. También puede supervisar el registro del sistema durante un intento de conexión al escritorio remoto para ver los errores:
+Revise los registros en */var/log* en la máquina virtual Ubuntu para obtener indicaciones sobre el motivo por el que puede que el servicio no responda. También puede supervisar el registro del sistema durante un intento de conexión al escritorio remoto para ver los errores:
 
 ```bash
 tail -f /var/log/syslog
@@ -139,7 +133,7 @@ Otras distribuciones de Linux como Red Hat Enterprise Linux y SUSE pueden tener 
 Si no recibe ninguna respuesta en el cliente de escritorio remoto y no ve todos los eventos de registro del sistema, este comportamiento indica que el tráfico de escritorio remoto no puede llegar a la máquina virtual. Revise las reglas de grupo de seguridad de red para asegurarse de que tiene una regla para permitir el TCP en el puerto 3389. Para obtener más información, consulte [Solucionar problemas de conectividad de la aplicación](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre cómo crear y utilizar claves de SSH con máquinas virtuales Linux, consulte [Crear claves SSH para máquinas virtuales de Linux en Azure](mac-create-ssh-keys.md).
 
 Para obtener información sobre el uso de SSH de Windows, vea [Uso de claves SSH con Windows](ssh-from-windows.md).

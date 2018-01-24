@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: desarrollo con la API de Cassandra en Java
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En este tutorial se muestra cómo crear una cuenta de Azure Cosmos DB mediante Azure Portal y, a continuación, crear un tabla de Cassandra (documentdb-partition-data.md#partition-keys) mediante la [API de Cassandra](cassandra-introduction.md). Mediante la definición de una clave principal al crear una tabla, la aplicación está preparada para ampliarse sin esfuerzo a medida que crecen los datos. 
+En este tutorial se muestra cómo crear una cuenta de Azure Cosmos DB mediante Azure Portal y, a continuación, crear un tabla de Cassandra (sql-api-partition-data.md#partition-keys) mediante la [API de Cassandra](cassandra-introduction.md). Mediante la definición de una clave principal al crear una tabla, la aplicación está preparada para ampliarse sin esfuerzo a medida que crecen los datos. 
 
 En este tutorial se describen las siguientes tareas mediante el uso de la API de Cassandra:
 
@@ -37,9 +37,9 @@ En este tutorial se describen las siguientes tareas mediante el uso de la API de
 > * Datos de consulta
 > * Revisión de los Acuerdos de Nivel de Servicio (SLA)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Acceda a la versión preliminar del programa de la API de Cassandra de Azure Cosmos DB. Si aún no ha solicitado el acceso, [regístrese ahora](https://aka.ms/cosmosdb-cassandra-signup).
+Acceda a la versión preliminar del programa de la API de Cassandra de Azure Cosmos DB. Si no ha solicitado el acceso aún, [regístrese ahora](https://aka.ms/cosmosdb-cassandra-signup).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
@@ -75,7 +75,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). Estos fragmentos de código se toman de src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
@@ -151,7 +151,7 @@ Los fragmentos de código siguientes son del archivo src/main/java/com/azure/cos
     }
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada.
 
@@ -219,7 +219,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía rápida, ha aprendido a:
 

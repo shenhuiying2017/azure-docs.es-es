@@ -3,7 +3,7 @@ title: "Administración de directivas de laboratorio en Azure DevTest Labs | Mic
 description: "Obtenga información acerca de cómo definir directivas de laboratorio como tamaños de máquina virtual, máximo de máquinas virtuales por usuario y automatización de apagado."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
@@ -107,7 +107,7 @@ Puede establecer una fecha de expiración cuando [cree la VM](devtest-lab-add-vm
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
 
 * [Direcciones IP compartidas](devtest-lab-shared-ip.md); explica cómo las direcciones IP compartidas se usan en DevTest Labs para minimizar el número de direcciones IP públicas necesarias para conectarse a las máquinas virtuales del laboratorio.
@@ -115,5 +115,5 @@ Una vez que defina y aplique las distintas configuraciones de las directivas de 
   para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo previsto para fin de mes.
 * [Creación de una imagen personalizada](devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
 * [Configuración de imágenes de Marketplace](devtest-lab-configure-marketplace-images.md): Azure DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de Azure Marketplace. En este artículo se muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales en un laboratorio.
-* [Creación de una máquina virtual en un laboratorio](devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
+* [Creación de una máquina virtual en un laboratorio](devtest-lab-add-vm.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 

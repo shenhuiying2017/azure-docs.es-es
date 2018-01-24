@@ -1,4 +1,4 @@
-La configuración de un nombre de dominio personalizado en una aplicación web en Servicio de aplicaciones de Azure con equilibrio de carga del Administrador de tráfico solo está disponible para los sitios web en modo **estándar** . Antes de cambiar una aplicación web del modo del plan Gratis del Servicio de aplicaciones al modo Compartido, Básico o Estándar, es preciso eliminar los límites de gasto en vigor en la suscripción de Servicio de aplicaciones. 
+El establecimiento de un nombre de dominio personalizado en una aplicación web integrada en Traffic Manager solo está disponible para el plan de tarifa **Estándar**.  
 
-Para obtener más información sobre los modos de plan de los Servicios de aplicaciones, incluyendo cómo cambiar el modo de un sitio, consulte [Escalación de sitios web](../articles/app-service/web-sites-scale.md).
+Para más información sobre los planes de tarifa de App Service, incluido cómo cambiar el plan de tarifa de la aplicación, consulte [Escalado vertical de aplicaciones en Azure](../articles/app-service/web-sites-scale.md).
 

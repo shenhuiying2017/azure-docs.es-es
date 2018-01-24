@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilación de una aplicación web Java y MySQL en Azure
+
+> [!NOTE]
+> En este artículo se implementa una aplicación en App Service en Windows. Para implementar en App Service en _Linux_, consulte [Implementación de una aplicación en contenedores de Spring Boot en Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 En este tutorial se muestra cómo crear una aplicación web Java en Azure y conectarla a una base de datos MySQL. Cuando haya terminado, tendrá una aplicación [Spring Boot](https://projects.spring.io/spring-boot/) que almacena datos en [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) y que se ejecuta en [Azure App Service Web Apps](app-service-web-overview.md).
 
@@ -38,7 +42,7 @@ En este tutorial, aprenderá a:
 > * Supervisar la aplicación en Azure Portal
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 1. [Descarga e instalación de Git](https://git-scm.com/)
 1. [Descarga e instalación de Java 7 JDK o superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -434,7 +438,7 @@ az group delete --name myResourceGroup
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="checklist"]
 > * Crear una base de datos MySQL en Azure

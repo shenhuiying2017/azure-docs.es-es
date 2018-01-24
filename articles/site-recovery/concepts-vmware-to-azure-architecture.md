@@ -1,24 +1,16 @@
 ---
-title: "Revisar la arquitectura para la replicación de VMware en Azure | Microsoft Docs"
+title: "VMware para la replicación de la arquitectura en Azure con Azure Site Recovery | Microsoft Docs"
 description: "Este artículo proporciona información general de los componentes y la arquitectura usados al replicar máquinas virtuales de VMware locales en Azure con el servicio Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitectura de replicación de VMware a Azure
 
@@ -83,7 +75,6 @@ Cuando el sitio local principal esté disponible de nuevo, podrá realizar una c
 ![Conmutación por recuperación](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Revise la matriz de compatibilidad Siga el tutorial para habilitar la replicación de VMware en Azure.
-Realice una conmutación por error y una conmutación por recuperación.
+Siga [este tutorial](tutorial-vmware-to-azure.md) para habilitar la replicación de VMware en Azure.

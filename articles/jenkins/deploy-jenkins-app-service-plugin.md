@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en una [canalización de Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) o utilizar el [complemento de Jenkins de Azure App Service](https://plugins.jenkins.io/azure-app-service). La versión 1.0 del complemento de Jenkins es compatible con la implementación continua mediante la característica Web Apps de Azure App Service a través de lo siguiente:
-* Git y FTP
+* Git o FTP.
 * Docker para Web Apps en Linux
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Configurar Jenkins para implementar Web Apps a través de Git y FTP
+> * Configurar Jenkins para implementar Web Apps mediante Git o FTP.
 > * Configurar Jenkins para implementar Web App for Containers.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Creación y configuración de una instancia de Jenkins
@@ -64,7 +64,7 @@ Se necesita una entidad de servicio de Azure para implementar en Azure.
 3. Para agregar una entidad de servicio de Microsoft Azure, seleccione **Add Credentials** (Agregar credenciales). Proporcione valores en los campos **Subscription ID** (Id. de suscripción), **Client ID** (Id. de cliente), **Client Secret** (Secreto de cliente) y **OAuth 2.0 Token Endpoint** (Punto de conexión de token de OAuth 2.0). Configure el campo **ID** (Identificador) con el valor **mySp**. Utilizaremos este identificador en pasos posteriores de este artículo.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Configuración de Jenkins para implementar Web Apps a través de Git y FTP
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Configuración de Jenkins para implementar Web Apps mediante la carga de archivos
 
 Para implementar el proyecto en Web Apps, puede cargar los artefactos de compilación (por ejemplo, el archivo WAR en Java) usando Git o FTP.
 
@@ -104,7 +104,7 @@ Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Serv
 8. Si desea implementar en una ranura que no sea de producción, también puede establecer un nombre para **Slot** (ranura).
 9. Guarde y compile el proyecto. La aplicación web se implementa en Azure cuando finaliza la compilación.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Implementación de Web Apps a través de FTP mediante la canalización de Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Implementación de Web Apps mediante la carga de archivos con la canalización de Jenkins
 
 El complemento de Jenkins de Azure App Service es compatible con la canalización. Puede consultar el siguiente ejemplo en el repositorio de GitHub.
 
@@ -227,7 +227,7 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
 
 3. Vaya a http://&lt;nombre_de_su_aplicación>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Reemplace &lt;x> e &lt;y> por cualquier número para obtener la suma de x+y.
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial se utiliza el complemento de Jenkins de Azure App Service para implementar en Azure.
 

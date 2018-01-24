@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
@@ -228,11 +228,87 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 8. Instale __Application Insights__ desde la galería de aplicaciones web de Azure.
 9. Reinicie la aplicación web.
 
+## <a id="profileondemand"></a> Desencadenar manualmente el generador de perfiles
+Cuando se desarrolló el generador de perfiles, se agregó una interfaz de línea de comandos para que fuera posible probarlo en servicios de aplicaciones. Con esta misma interfaz, los usuarios también pueden personalizar cómo se inicia el generador de perfiles. A un nivel alto, el generador de perfiles usa el sistema Kudu de App Service para administrar la generación de perfiles en segundo plano. Cuando se instala la extensión de Application Insights, se crea un trabajo web continuo que hospeda el generador de perfiles. Esta misma tecnología se usará para crear un nuevo trabajo web que se puede personalizar de acuerdo con sus necesidades.
+
+En esta sección se explica cómo:
+
+1.  Crear un trabajo web que puede iniciar el generador de perfiles durante dos minutos con la acción de presionar un botón
+2.  Crear un trabajo web que puede programar el generador de perfiles para que se ejecute
+3.  Establecer los argumentos del generador de perfiles
+
+
+### <a name="set-up"></a>Instalación
+En primer lugar, es necesario familiarizarse con el panel del trabajo web. En Configuración, haga clic en la pestaña WebJobs.
+
+![hoja de webjobs](./media/app-insights-profiler/webjobs-blade.png)
+
+Como puede ver, este panel muestra todos los trabajos web que están instalados actualmente en su sitio. Puede ver que el trabajo web ApplicationInsightsProfiler2 tiene en ejecución el trabajo del generador de perfiles. Aquí es donde terminaremos de crear nuestros nuevos trabajos web para la generación de perfiles manual y programada.
+
+En primer lugar, hay que obtener los binarios necesarios.
+
+1.  Así que, vaya al sitio de Kudu. En la pestaña de herramientas de desarrollo, haga clic en la pestaña "Advanced Tools" (Herramientas avanzadas) con el logotipo de Kudu. Haga clic en "Go" (Ir). Esta acción le llevará a un nuevo sitio e iniciará sesión automáticamente.
+2.  A continuación, es necesario descargar los archivos binarios del generador de perfiles. Vaya al Explorador de archivos mediante Debug Console (Consola de depuración) -> CMD situado en la parte superior de la página.
+3.  Haga clic en site -> wwwroot -> App_Data -> jobs -> continuous. Verá la carpeta "ApplicationInsightsProfiler2". Haga clic en el icono de descarga a la izquierda de la carpeta. Se descargará el archivo "ApplicationInsightsProfiler2.zip".
+4.  Esta descarga contiene todos los archivos que necesitará para continuar. Se recomienda crear un directorio limpio a donde mover este archivo comprimido antes de continuar.
+
+### <a name="setting-up-the-web-job-archive"></a>Configuración del archivo de trabajo web
+Cuando se agrega un nuevo trabajo web al sitio web de Azure, básicamente se crea un archivo ZIP que contiene un archivo run.cmd. El archivo run.cmd indica qué hacer al sistema de trabajo web cuando se ejecuta el trabajo web. Hay otras opciones que puede leer en la documentación del trabajo web, pero para nuestro propósito no se necesita nada más.
+
+1.  Para comenzar, cree una nueva carpeta denominada "RunProfiler2Minutes".
+2.  Copie los archivos de la carpeta ApplicationInsightProfiler2 extraída en esta nueva carpeta.
+3.  Cree un nuevo archivo run.cmd. (Por comodidad, se ha abierto esta carpeta de trabajo en código de VS antes de comenzar).
+4.  Agregue el comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` y guarde el archivo.
+a.  El comando `start` indica al generador de perfiles que se inicie.
+b.  `--engine-mode immediate` indica al generador de perfiles la necesidad de comenzar inmediatamente a generar perfiles.
+c.  `--single` significa ejecutar y detener automáticamente d.  `--immediate-profiling-duration 120` significa hacer que el generador de perfiles se ejecute durante 120 segundos o 2 minutos.
+5.  Guarde este archivo.
+6.  Archive esta carpeta; puede hacer clic con el botón derecho en la carpeta y elegir Enviar a -> Carpeta comprimida (en ZIP). Se crea un archivo .zip con el nombre de la carpeta.
+
+![comando start profiler](./media/app-insights-profiler/start-profiler-command.png)
+
+Ahora tenemos un .zip de trabajo web que se puede usar para configurar trabajos web en nuestro sitio.
+
+### <a name="add-a-new-web-job"></a>Adición de un nuevo trabajo web
+A continuación, se agregará un nuevo trabajo web en nuestro sitio. En este ejemplo se muestra cómo agregar un trabajo web desencadenado manualmente. Luego, será capaz de realizar el proceso casi exactamente igual para el programado. Puede investigar más sobre los trabajos desencadenados programados por su cuenta.
+
+1.  Vaya al panel de trabajos web.
+2.  Haga clic en el comando Agregar en la barra de herramientas.
+3.  Asigne un nombre a su trabajo web. En este caso se eligió para que coincidiera con el nombre del archivo de ejemplo, para una mayor claridad y para que hubiera la posibilidad de tener diferentes versiones del archivo run.cmd.
+4.  En el archivo, cargue parte del formulario, haga clic en el icono Abrir archivo y busque el archivo .zip que creó anteriormente.
+5.  Como tipo, elija Desencadenado.
+6.  En Desencadenadores, elija Manual.
+7.  Haga clic en Aceptar para guardar.
+
+![comando start profiler](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Ejecución del generador de perfiles
+
+Ahora que tenemos un nuevo trabajo web que se puede desencadenar manualmente, podemos intentar ejecutarlo.
+
+1.  Por naturaleza, solo se puede tener un proceso ApplicationInsightsProfiler.exe en ejecución en una máquina en un momento dado. Así que, para comenzar, asegúrese de deshabilitar el trabajo web continuo desde este panel. Haga clic en la fila y presione "Detener". Actualice la barra de herramientas y confirme que el estado indica que el trabajo se ha detenido.
+2.  Haga clic en la fila con el nuevo trabajo web que ha agregado y presione Ejecutar.
+3.  Con la fila aún seleccionada, haga clic en el comando Registros en la barra de herramientas; esta acción le llevará a un panel de trabajos web para este trabajo web que ha iniciado. En él se muestran las ejecuciones más recientes y sus resultados.
+4.  Haga clic en la ejecución que acaba de iniciar.
+5.  Si todo ha ido bien, debería ver algunos registros de diagnóstico procedentes del generador de perfiles que confirman que se ha iniciado la generación de perfiles.
+
+### <a name="things-to-consider"></a>Aspectos que se deben tener en cuenta:
+
+Aunque este método es relativamente sencillo, hay algunas cosas que se deben tener en cuenta.
+
+1.  Como nuestro servicio no administra este proceso, no hay manera de actualizar los archivos binarios del agente para el trabajo web. Como actualmente no se dispone de una página de descarga estable para los archivos binarios, la única forma de conseguir los más recientes es actualizar la extensión y obtenerla de la carpeta continuous, como se hizo anteriormente.
+2.  Como aquí lo que se ha hecho es usar argumentos de la línea de comandos que se diseñaron originalmente teniendo en cuenta el uso por el desarrollador en lugar de por el usuario final, estos argumentos pueden cambiar en el futuro, así que debe tenerlo en cuenta al actualizar. Esto no debería ser un problema, ya que puede agregar un trabajo web, ejecutarlo y probar que funciona. Al final, se creará una interfaz de usuario para realizar este procedimiento sin el proceso manual, pero es algo que se debe tener en cuenta.
+3.  La característica Web Jobs de App Services es única en el sentido de que, cuando se ejecuta el trabajo web, se garantiza que el proceso tiene las mismas variables de entorno y la configuración de aplicación que acabará teniendo el sitio web. Esto significa que no es necesario pasar la clave de instrumentación al generador de perfiles mediante la línea de comandos; simplemente, se debe seleccionar del entorno. Sin embargo, si quiere ejecutar el generador de perfiles en el cuadro de desarrollo o en una máquina fuera de App Services, deberá suministrar una clave de instrumentación. Para ello, pase un argumento `--ikey <instrumentation-key>`. Tenga en cuenta que este valor debe coincidir con la clave de instrumentación que esté usando la aplicación. En la salida del registro del generador de perfiles, se indicará con qué ikey se inició el generador de perfiles y si se detectó actividad de esa clave de instrumentación mientras se generaban los perfiles.
+4.  Los trabajos web desencadenados manualmente se pueden desencadenar en realidad mediante Webhook. Para obtener esta dirección URL, puede hacer clic con el botón derecho en el trabajo web en el panel y ver las propiedades; también, puede elegir las propiedades en la barra de herramientas después de seleccionar el trabajo web de la tabla. Son muchos los artículos que puede encontrar en Internet al respecto, así que sin entrar mucho en detalles, esto abre la posibilidad de desencadenar el generador de perfiles desde su canalización de CI/CD (como VSTS) o algo como Microsoft Flow (https://flow.microsoft.com/en-us/). En función de lo sofisticado que quiera que sea su run.cmd, que, por cierto, puede ser un run.ps1, las posibilidades son inmensas.  
+
+
+
+
 ## <a id="aspnetcore"></a>Compatibilidad con ASP.NET Core
 
 La aplicación ASP.NET Core necesita instalar el paquete de NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o posterior para funcionar con Profiler. A partir del 27 de junio de 2017, no se admiten versiones anteriores.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Trabajo con Application Insights en Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

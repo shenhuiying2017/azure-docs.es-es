@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87e58e8df16f4b87b66a9ac0846be20e09073826
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-xamarin-apps"></a>Integración de Azure AD con aplicaciones de Xamarin
+# <a name="azure-ad-xamarin-getting-started"></a>Introducción a Xamarin de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -48,10 +48,10 @@ Después de que finalice la instalación, abra la solución en Visual Studio. En
 ## <a name="step-2-register-the-directorysearcher-app"></a>Paso 2: Registro de la aplicación DirectorySearcher
 Para permitir que la aplicación obtenga tokens, primero debe registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API de Azure AD Graph: Este es el procedimiento:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. A continuación, en la lista **Directorio**, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Para crear una nueva **aplicación cliente nativa**, siga las indicaciones.
   * **Nombre**: describe la aplicación a los usuarios.
   * El **URI de redirección** es una combinación de esquema y cadena que usará Azure AD para devolver respuestas de tokens. Escriba un valor (por ejemplo, http://DirectorySearcher).

@@ -1,5 +1,5 @@
 ---
-title: "Integrar Azure AD en una aplicación iOS | Microsoft Docs"
+title: "Introducción a iOS de Azure AD | Microsoft Docs"
 description: "Cómo compilar una aplicación iOS que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrar Azure AD en una aplicación iOS
+# <a name="azure-ad-ios-getting-started"></a>Introducción a iOS de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/iOS), que le ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos.  El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código.  Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones. 
-> 
-> 
 
 Azure Active Directory (Azure AD) proporciona la biblioteca de autenticación de Active Directory (ADAL) para los clientes de iOS que necesitan tener acceso a recursos protegidos. ADAL simplifica el proceso que la aplicación usa para obtener tokens de acceso. Para demostrar lo fácil que es, en este artículo compilaremos una aplicación Objective-C de lista de tareas pendientes que permita realizar lo siguiente:
 
@@ -59,17 +54,17 @@ El formato de iOS para un URI de redireccionamiento es:
 ```
 
 * **aap-scheme**: está registrado en el proyecto de XCode. Es el modo en que otras aplicaciones pueden llamarlo. Puede encontrarlo en Info.plist -> Tipos de URL -> Identificador de URL. Debe crear uno si aún no tiene ninguno configurado.
-* **bundle-id** : es el identificador de paquete que se encuentra en la "identity" de la configuración del proyecto en XCode.
+* **bundle-id**: el identificador de paquete que se encuentra en "identity" de la configuración del proyecto XCode.
 
 Ejemplo de este código de inicio rápido: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***.
 
 ## <a name="2-register-the-directorysearcher-application"></a>2. Registro de la aplicación DirectorySearcher
 Para configurar la aplicación para que obtenga tokens, primero debe registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API de Azure AD Graph:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio** lista, elija el inquilino de Active Directory donde desea registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel de navegación izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones para crear una nueva **aplicación cliente nativa**.
   * El **nombre** de la aplicación describe la aplicación a los usuarios finales.
   * El **URI de redireccionamiento** es una combinación de esquema y cadena que Azure AD usa para devolver respuestas de tokens.  Escriba un valor que sea específico de la aplicación y que se base en la información del anterior URI de redireccionamiento.
@@ -231,14 +226,14 @@ El principio básico inherente a ADAL es que cada vez que la aplicación necesit
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. Compilación y ejecución de la aplicación
-¡Enhorabuena! Ahora tiene una aplicación de iOS operativa que puede autenticar usuarios, realizar llamadas seguras a las API web mediante OAuth 2.0 y obtener información básica sobre el usuario.  Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios.  Inicie la aplicación QuickStart e inicie sesión con uno de esos usuarios.  Busque otros usuarios según su UPN.  Cierre la aplicación y vuelva a abrirla.  Observe que la sesión del usuario permanece intacta.
+Felicidades. Ahora tiene una aplicación de iOS operativa que puede autenticar usuarios, realizar llamadas seguras a las API web mediante OAuth 2.0 y obtener información básica sobre el usuario.  Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios.  Inicie la aplicación QuickStart e inicie sesión con uno de esos usuarios.  Busque otros usuarios según su UPN.  Cierre la aplicación y vuelva a abrirla.  Observe que la sesión del usuario permanece intacta.
 
 ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación.  Hace el trabajo sucio por usted: administración en caché, compatibilidad con el protocolo OAuth, presentación al usuario de una interfaz de usuario de inicio de sesión y actualización de tokens expirados.  Todo lo que necesita saber es una única llamada de API, `getToken`.
 
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración).  
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora puede pasar a otros escenarios.  También puede probar lo siguiente:
+## <a name="next-steps"></a>pasos siguientes
+Ahora puede pasar a otros escenarios.  Es posible que desee probar:
 
 * [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 * Obtener información sobre [cómo habilitar el inicio de sesión único entre aplicaciones en iOS mediante ADAL](active-directory-sso-ios.md)  

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Introducción a DNS inverso y compatibilidad en Azure
 
@@ -34,7 +34,7 @@ Los registros de DNS inverso se hospedan en zonas DNS especiales conocidas como 
 
 Por ejemplo, el registro de DNS “www.contoso.com” se implementa mediante un registro “A” de DNS con el nombre "www" en la zona “contoso.com”.  Este registro A apunta a la dirección IP correspondiente, en este caso 64.4.6.100.  La búsqueda inversa se implementa por separado, usando un registro “PTR” llamado “100” en la zona “6.4.64.in-addr.arpa” (tenga en cuenta que las direcciones IP se invierten en las zonas ARPA).  Este registro PTR, si se ha configurado correctamente, apunta al nombre "www.contoso.com".
 
-Cuando se asigna un bloque de direcciones IP a una organización, adquiere también el derecho a administrar la zona ARPA correspondiente. Microsoft hospeda y administra las zonas ARPA correspondientes a los bloques de direcciones IP usados por Azure. Su ISP puede hospedar la zona ARPA para sus propias direcciones IP automáticamente o le puede permitir hospedar la zona ARPA en un servicio DNS de su elección, por ejemplo, el DNS de Azure.
+Cuando se asigna un bloque de direcciones IP a una organización, adquiere también el derecho a administrar la zona ARPA correspondiente. Microsoft hospeda y administra las zonas ARPA correspondientes a los bloques de direcciones IP usados por Azure. Su ISP puede hospedar la zona ARPA para sus propias direcciones IP automáticamente, o le puede permitir hospedar la zona ARPA en un servicio DNS de su elección, por ejemplo, Azure DNS.
 
 > [!NOTE]
 > Las búsquedas DNS directas e inversas se implementan en jerarquías de DNS independientes y paralelas. La búsqueda inversa de "www.contoso.com" **no** se hospeda en la zona "contoso.com"; en su lugar se hospeda en la zona ARPA para el bloque de direcciones IP correspondiente. Se utilizan zonas independientes para los bloques de direcciones IPv4 e IPv6.
@@ -106,7 +106,7 @@ Se puede usar el DNS de Azure para [hospedar las zonas de búsqueda inversa y ad
 
 **Configuración del registro de DNS inverso para la dirección IP asignada a su servicio de Azure.** Azure le permite [configurar la búsqueda inversa de las direcciones IP asignadas a su servicio de Azure](dns-reverse-dns-for-azure-services.md).  Azure configura esta búsqueda inversa como un registro PTR en la zona ARPA correspondiente.  Microsoft hospeda y administra estas zonas ARPA correspondientes a todos los intervalos IP usados por Azure.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre los registros de DNS inverso, consulte información sobre la [búsqueda de DNS inverso en Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 11a4a4d65be09e6c518836c25bb455a6df738dcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Windows en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Windows y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y sistemas operativos más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
@@ -41,7 +41,8 @@ Packer se autentica con Azure mediante una entidad de servicio. Las entidades de
 Cree una entidad de servicio con [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) y asigne permisos para que la entidad de servicio cree y administre recursos con [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
+$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer" `
+    -Password (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force)
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -62,7 +63,7 @@ Para crear imágenes, es preciso crear una plantilla en forma de archivo JSON. E
 
 Cree un archivo denominado *windows.json* y pegue el siguiente contenido. Escriba sus propios valores para los siguientes elementos:
 
-| Parámetro                           | Dónde se obtiene |
+| .                           | Dónde se obtiene |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Vea el identificador de la entidad de servicio con `$sp.applicationId` |
 | *client_secret*                     | La contraseña que especificó en `$securePassword` |
@@ -206,13 +207,13 @@ Packer tarda unos minutos en crear la máquina virtual, ejecutar los aprovisiona
 
 
 ## <a name="create-vm-from-azure-image"></a>Creación de una máquina virtual desde una imagen de Azure
-Establezca el nombre de usuario y la contraseña del administrador para las máquinas virtuales con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+Ya puede crear una máquina virtual a partir de la imagen con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Ya puede crear una máquina virtual a partir de la imagen con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* a partir de *myPackerImage*.
+En el ejemplo siguiente se crea una máquina virtual denominada *myVM* a partir de *myPackerImage*.
 
 ```powershell
 # Create a subnet configuration
@@ -276,7 +277,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-La operación de creación de la máquina virtual tarda unos minutos.
+La operación de creación de la máquina virtual a partir de la imagen de Packer tarda unos minutos.
 
 
 ## <a name="test-vm-and-iis"></a>Pruebas de la máquina virtual y de IIS
@@ -293,7 +294,7 @@ A continuación, puede escribir la dirección IP pública en un explorador web.
 ![Sitio predeterminado de IIS](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este ejemplo, ha utilizado Packer para crear una imagen de máquina virtual con IIS instalado. Esta imagen se puede usar junto con los flujos de trabajo de la implementación existentes, como implementar la aplicación en las máquinas virtuales que se crean a partir de la imagen con Team Services, Ansible, Chef o Puppet.
 
 Para ver más plantillas de Packer de ejemplo para otras distribuciones de Windows, consulte [este repositorio de GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

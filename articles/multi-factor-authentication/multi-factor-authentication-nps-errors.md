@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -96,7 +96,7 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 ### <a name="troubleshoot-user-accounts"></a>Solución de problemas de cuentas de usuario
 
@@ -106,9 +106,10 @@ Si los usuarios [tienen problemas con la verificación en dos pasos](./end-user/
 
 Si necesita ayuda adicional, póngase en contacto con un profesional de soporte técnico a través de [Soporte técnico del servidor Azure Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Al ponerse en contacto con nosotros, nos resultará de gran utilidad que incluya tanta información sobre su problema como sea posible. Entre la información que puede aportar se incluyen la página donde vio el error, el código de error específico, el identificador de sesión específico, el identificador del usuario que vio el error y los registros de depuración.
 
-Para recopilar los registros de depuración de diagnóstico de soporte técnico, use los pasos siguientes: 
+Para recopilar los registros de depuración de diagnóstico de soporte técnico, use los pasos siguientes en el servidor NPS:
 
-1. Abra un símbolo del sistema de administrador y ejecute estos comandos:
+1. Abra el Editor del Registro y vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa; establezca **VERBOSE_LOG** en **TRUE**
+2. Abra un símbolo del sistema de administrador y ejecute estos comandos:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Para recopilar los registros de depuración de diagnóstico de soporte técnico,
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduzca el problema
+3. Reproduzca el problema
 
-3. Use estos comandos para detener el seguimiento:
+4. Use estos comandos para detener el seguimiento:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Para recopilar los registros de depuración de diagnóstico de soporte técnico,
    Start .
    ```
 
-4. Comprima el contenido de la carpeta C:\NPS y adjunte el archivo comprimido al caso de soporte técnico.
+5. Abra el Editor del Registro y vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa; establezca **VERBOSE_LOG** en **FALSE**
+6. Comprima el contenido de la carpeta C:\NPS y adjunte el archivo comprimido al caso de soporte técnico.
 
 

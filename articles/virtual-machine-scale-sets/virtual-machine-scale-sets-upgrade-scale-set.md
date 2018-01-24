@@ -3,8 +3,8 @@ title: "Actualización de un conjunto de escalado de máquinas virtuales de Azur
 description: "Actualización de un conjunto de escalado de máquinas virtuales de Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Actualización de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo puede implementar una actualización del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure sin tiempos de inactividad. En este contexto, una actualización del SO implica un cambio de versión o de SKU del sistema operativo o del URI de una imagen personalizada. Para actualizar sin tiempos de inactividad, las máquinas virtuales deben actualizarse una a una o en grupos (por ejemplo, un dominio de error a la vez), en lugar de todas a la vez. Al hacerlo, todas las máquinas virtuales que no se estén actualizando siguen funcionando.
@@ -31,7 +31,7 @@ Para evitar ambigüedades, se distingue entre cuatro tipos de actualización de 
 * Cambiar la referencia de imagen de un conjunto de escalado que se creó con Azure Managed Disks.
 * Aplicar revisiones al sistema operativo desde una máquina virtual (por ejemplo, instalar una revisión de seguridad y ejecutar Windows Update). Este escenario es posible, pero no se trata en este artículo.
 
-No hablaremos de los conjuntos de escalado de máquinas virtuales que se implementan como parte de un clúster de [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Consulte [Aplicación de revisiones del sistema operativo Windows en el clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) para obtener más información sobre aplicación de revisiones a Service Fabric.
+No hablaremos de los conjuntos de escalado de máquinas virtuales que se implementan como parte de un clúster de [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Para más información sobre aplicación de revisiones a Service Fabric, vea [Revisión del sistema operativo Windows en el clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application).
 
 La secuencia básica para cambiar la versión o la SKU del SO de una imagen de plataforma o el URI de una imagen personalizada es la siguiente:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Si va a actualizar el URI de una imagen personalizada en lugar de cambiar la versión de la imagen de plataforma, reemplace la línea para establecer la nueva versión por un comando que actualice el URI de la imagen de origen. Por ejemplo, si se creó el conjunto de escalado sin usar Azure Managed Disks, la actualización se vería así:
+Si va a actualizar el URI de una imagen personalizada en lugar de cambiar la versión de la imagen de plataforma, reemplace la línea "set the new version" por un comando que actualice el URI de la imagen de origen. Por ejemplo, si se creó el conjunto de escalado sin usar Azure Managed Disks, la actualización se vería así:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Si se creó algún conjunto de escalado basado en imagen mediante Azure Managed Disks, se actualizaría la referencia de imagen. Por ejemplo:
+Si se creó algún conjunto de escalado basado en imagen mediante Azure Managed Disks, se actualizaría la referencia de imagen. Por ejemplo: 
 
 ```powershell
 # set the new version in the model data

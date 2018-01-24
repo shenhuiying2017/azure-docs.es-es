@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 
@@ -126,13 +126,13 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
   }
 }
 ```
-| Configuración      | Descripción                            |
+| Configuración      | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Cuando se establece en **true**, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es **false**. |
 | **Valores** | Colección de opciones de configuración de la aplicación que se usa en la ejecución local. **AzureWebJobsStorage** y **AzureWebJobsDashboard** son ejemplos; para obtener una lista completa, consulte la [referencia de las opciones de configuración de aplicaciones](functions-app-settings.md).  |
 | **Host** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. | 
 | **LocalHttpPort** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
-| **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (**\***), lo que permite realizar solicitudes desde cualquier origen. |
+| **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
 | **ConnectionStrings** | Contiene las cadenas de conexión de la base de datos para las funciones. Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de **System.Data.SqlClient**.  | 
 
 La mayoría de los desencadenadores y los enlaces tienen una propiedad **Connection** que se asigna al nombre de una variable de entorno o a una configuración de aplicación. Por cada propiedad de conexión debe haber una configuración de aplicación definida en el archivo local.settings.json. 
@@ -171,7 +171,7 @@ func new
 ``` 
 `func new` admite los siguientes argumentos opcionales:
 
-| Argumento     | Descripción                            |
+| Argumento     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **`--language -l`** | Lenguaje de programación de la plantilla, como C#, F# o JavaScript. |
 | **`--template -t`** | Nombre de la plantilla. |
@@ -199,7 +199,7 @@ func host start
 
 `func host start` admite las siguientes opciones:
 
-| Opción     | Descripción                            |
+| Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
 | **`--debug <type>`** | Las opciones son `VSCode` y `VS`. |
@@ -295,7 +295,7 @@ También puede invocar una función directamente con `func run <FunctionName>` y
 
 `func run` admite las siguientes opciones:
 
-| Opción     | Descripción                            |
+| Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenido alineado. |
 | **`--debug -d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
@@ -319,7 +319,7 @@ func azure functionapp publish <FunctionAppName>
 
 Puede usar las siguientes opciones:
 
-| Opción     | Descripción                            |
+| Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Se publica la configuración de local.settings.json en Azure, se pide que se sobrescriba si la configuración ya existe.|
 | **`--overwrite-settings -y`** | Debe usarse con `-i`. Sobrescribe AppSettings en Azure con el valor local si es distinto. El valor predeterminado es Preguntar.|
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Azure Functions Core Tools es [código abierto que se hospeda en GitHub](https://github.com/azure/azure-functions-cli).  
 Para notificar un error o realizar una solicitud de característica, [abra un problema de GitHub](https://github.com/azure/azure-functions-cli/issues). 

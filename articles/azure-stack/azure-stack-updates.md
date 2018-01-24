@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Introducción a la administración de actualizaciones en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Microsoft lanzará paquetes de actualización para sistemas integrados de Azure Stack periódicamente, normalmente el cuarto martes de cada mes, a partir de la disponibilidad general. Consulte a su OEM sobre su proceso de notificación específico para asegurarse de que las notificaciones de actualización llegan a su organización o active la casilla en Conceptos\Notas de la versión\Sistemas integrados para más información acerca de versiones específicas.
+Microsoft lanzará paquetes de actualización para sistemas integrados de Azure Stack periódicamente, normalmente el cuarto martes de cada mes, a partir de la disponibilidad general. Consulte a su OEM sobre su proceso de notificación específico para asegurarse de que las notificaciones de actualización llegan a su organización o active la casilla en Introducción\Notas de la versión\Sistemas integrados para más información acerca de versiones específicas.
 
 Cada lanzamiento de actualizaciones de software de Microsoft software viene como una única actualización. Como operador de Azure Stack, puede importar, instalar y supervisar fácilmente el progreso de la instalación de estas actualizaciones desde el portal de administrador. 
 
@@ -62,7 +62,7 @@ El icono Actualizar muestra la versión actual de Azure Stack. Para acceder a é
  
 - En el icono **Administración de regiones**, haga clic en el nombre de la región. Vea la versión actual en el icono **Actualización**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Directiva de servicio de Azure Stack](azure-stack-servicing-policy.md) 
 - [Administración de regiones en Azure Stack](azure-stack-region-management.md)     
