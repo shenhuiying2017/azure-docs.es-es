@@ -4,7 +4,7 @@ description: "Obtenga información acerca de la cantidad de tiempo necesaria par
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
@@ -37,13 +37,15 @@ Hay dos áreas de informes de actividad:
 
 La tabla siguiente enumera la información de latencia para los informes de actividad.
 
-| Informe | Mínima | Media | Máxima |
-| :-- | --- | --- | --- |
-| Registros de auditoría             | 30 minutos  | 45 minutos | 1 hora     |
-| Inicios de sesión               | 15 minutos  | 15 minutos | 2 horas*   |
+| Informe | Mínima | Media | Comentarios |
+| :-- | --- | --- | :-- |
+| Registros de auditoría | 30 minutos  | 1 hora  |En algunos casos, los datos de actividad de auditoría pueden tardar hasta 2 horas en aparecer.|
+| Inicios de sesión | 15 minutos  | 2 horas |En algunos casos, los datos de actividad de inicio de sesión pueden tardar hasta 24 horas en aparecer. Aquí se incluyen los datos de actividad de inicio de sesión procedentes de aplicaciones heredadas de Office. |
 
->[!NOTE]
-> En el caso de algunos datos de actividades de inicio de sesión procedentes de aplicaciones de oficina heredadas, los datos del informe pueden tardar hasta 8 horas en aparecer. 
+
+
+
+
 
 
 ## <a name="security-reports"></a>Informes de seguridad
@@ -77,7 +79,7 @@ La tabla siguiente enumera la información de latencia para eventos de riesgo.
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si desea obtener más información acerca de los informes de actividad en Azure Portal, consulte:
 

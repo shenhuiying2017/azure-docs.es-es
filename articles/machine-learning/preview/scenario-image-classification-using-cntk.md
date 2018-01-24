@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
 
@@ -42,7 +44,7 @@ Este tutorial se divide en tres partes:
 No se requiere experiencia previa de aprendizaje automático y CNTK, pero sí resulta útil para comprender los principios subyacentes. La precisión de los números, la duración del entrenamiento y otras cuestiones reflejadas en el tutorial se incluyen exclusivamente a modo de referencia; de igual modo, los valores reales que se obtengan al ejecutar el código variarán casi con toda seguridad.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
@@ -51,7 +53,7 @@ Los requisitos previos para ejecutar este ejemplo son los siguientes:
 3. Un equipo Windows. Se necesita un sistema operativo Windows porque Workbench admite únicamente Windows y Mac OS, mientras que Microsoft Cognitive Toolkit (que usaremos como biblioteca de aprendizaje profundo) solo es compatible con Windows y Linux.
 4. No se necesita una GPU dedicada para ejecutar el entrenamiento de SVM en la parte 1, pero sí para el proceso de perfeccionamiento de la DNN descrito en la parte 2. Si no tiene una GPU en condiciones, quiere entrenar en varias GPU o no tiene un equipo con Windows, considere la posibilidad de usar máquina de virtual de aprendizaje profundo de Azure con un sistema operativo Windows. Vaya [aquí](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) para obtener una guía de implementación con un solo clic. Una vez implementada, conéctese a la máquina virtual a través de una conexión de Escritorio remoto, instale Workbench y ejecute el código localmente en ella.
 5. Es necesario instalar varias bibliotecas de Python, como OpenCV. Haga clic en *Abrir símbolo del sistema* en el menú *Archivo* de Workbench y ejecute los siguientes comandos para instalar estas dependencias:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` después de descargar OpenCV de http://www.lfd.uci.edu/~gohlke/pythonlibs/ (la versión y el nombre de archivo exactos pueden variar)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +63,11 @@ Los requisitos previos para ejecutar este ejemplo son los siguientes:
 ### <a name="troubleshooting--known-bugs"></a>Solución de problemas/Errores conocidos
 - Se necesita una GPU para la parte 2. Si no hay una, cuando trate de perfeccionar la DNN aparecerá un error que indica que el aprendizaje de normalización por lotes todavía no se ha implementado.
 - Los errores de memoria insuficiente durante el entrenamiento de DNN se pueden soslayar si se reduce el tamaño del minilote (variable `cntk_mb_size` en `PARAMETERS.py`).
-- El código se probó con CNTK 2.0 y 2.1 y debería poder ejecutarse también en las versiones más recientes sin cambios (o solo con cambios mínimos).
+- El código se probó con CNTK 2.2 y debería poder ejecutarse tanto en versiones anteriores (hasta 2.0) como en versiones más recientes sin cambios (o solo con cambios mínimos).
 - En el momento de redactar este artículo, Azure Machine Learning Workbench generaba problemas a la hora de mostrar blocs de notas superiores a 5 MB. Puede haber blocs de notas con este tamaño si se guardan mostrando todas las salidas de celda. Si este error se produce, abra un símbolo del sistema en el menú Archivo de Workbench, ejecute `jupyter notebook`, abra el bloc de notas, borre todas las salidas y guárdelo. Una vez hecho esto, el bloc de notas volverá a abrirse correctamente en Azure Machine Learning Workbench.
+- Todos los scripts que se proporcionan en este ejemplo tienen que ejecutarse de forma local y no en entornos como, por ejemplo, un entorno remoto de docker. Todos los blocs de notas tienen que ejecutarse con el kernel establecido como un kernel del proyecto local denominado "PROJECTNAME local" (por ejemplo, "myImgClassUsingCNTK local").
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Creación de un nuevo proyecto de Workbench
 
 Para crear un proyecto usando este ejemplo como plantilla:
@@ -72,11 +75,11 @@ Para crear un proyecto usando este ejemplo como plantilla:
 2.  En la página **Proyectos**, haga clic en el signo **+** y seleccione **Nuevo proyecto**.
 3.  En el panel **Crear nuevo proyecto**, rellene la información del proyecto nuevo.
 4.  En el cuadro de búsqueda **Buscar plantillas de proyecto**, escriba "Image Classification" (Clasificación de imágenes) y seleccione la plantilla.
-5.  Haga clic en **Crear**.
+5.  Haga clic en **Create**(Crear).
 
 Cuando realice estos pasos, se creará la estructura del proyecto descrita abajo. El directorio del proyecto tiene una limitación de tamaño máximo de 25 MB, ya que Azure Machine Learning Workbench crea una copia de esta carpeta después de cada ejecución (para habilitar el historial de ejecución). Por lo tanto, todos los archivos temporales y de imagen se guardan en el directorio *~/Desktop/imgClassificationUsingCntk_data* (en este documento lo llamaremos *DATA_DIR*).
 
-  Carpeta| Descripción
+  Carpeta| DESCRIPCIÓN
   ---|---
   aml_config/|                           Directorio que contiene los archivos de configuración de Azure Machine Learning Workbench
   libraries/|                              Directorio que contiene todas las funciones auxiliares de Python y Jupyter
@@ -91,7 +94,7 @@ Cuando realice estos pasos, se creará la estructura del proyecto descrita abajo
 
 En este tutorial se usa como ejemplo un conjunto de datos con 428 imágenes de texturas de partes de arriba de ropa. Cada imagen está anotada como perteneciente a una de tres posibles texturas distintas (lunares, rayas o leopardo). Hemos usado un número de imágenes reducido para que este tutorial sea rápido de ejecutar, pero el código está totalmente probado y funciona con miles de imágenes o más. Todas las imágenes se extrajeron con búsquedas de imágenes de Bing y se anotaron a mano tal y como se explica en la [parte 3](#using-a-custom-dataset). Las direcciones URL de las imágenes aparecen en el archivo */resources/fashionTextureUrls.tsv* junto con sus correspondientes atributos.
 
-El script `0_downloadData.py` descarga todas las imágenes en el directorio *DATA_DIR/images/fashionTexture/*. Es probable que los vínculos de algunas de las 428 direcciones URL estén rotos. Esto no supone un problema y simplemente significa que dispondremos de menos imágenes con las que entrenar y probar.
+El script `0_downloadData.py` descarga todas las imágenes en el directorio *DATA_DIR/images/fashionTexture/*. Es probable que los vínculos de algunas de las 428 direcciones URL estén rotos. Esto no supone un problema y simplemente significa que dispondremos de menos imágenes con las que entrenar y probar. Todos los scripts que se proporcionan en este ejemplo tienen que ejecutarse de forma local y no en entornos como, por ejemplo, un entorno remoto de docker.
 
 En la siguiente ilustración se muestran ejemplos de los atributos de lunares (izquierda), a rayas (centro) y leopardo (derecha). Se realizaron las anotaciones pertinentes en función de la prenda de ropa.
 
@@ -114,7 +117,7 @@ Todos los parámetros importantes (además de una breve explicación) se especif
 ### <a name="step-1-data-preparation"></a>Paso 1: Preparación de los datos
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-El bloc de notas `showImages.ipynb` se puede usar para ver las imágenes y para corregir su anotación según sea necesario. Para ejecutar el bloc de notas, ábralo en Azure Machine Learning Workbench, haga clic en "Start Notebook Server" (Iniciar el servidor de bloc de notas) si esta opción aparece y, después, ejecute todas las celdas en el bloc de notas. Vea la sección Solución de problemas de este documento si se produce un error que indica que el bloc de notas es demasiado grande para mostrarse.
+El bloc de notas `showImages.ipynb` se puede usar para ver las imágenes y para corregir su anotación según sea necesario. Para ejecutar el bloc de notas, ábralo en Azure Machine Learning Workbench y haga clic en "Start Notebook Server" (Iniciar el servidor del bloc de notas) si esta opción aparece; a continuación, cambie al kernel del proyecto local denominado "PROJECTNAME local" (por ejemplo,. "myImgClassUsingCNTK local") y ejecute todas las celdas del bloc de notas. Vea la sección Solución de problemas de este documento si se produce un error que indica que el bloc de notas es demasiado grande para mostrarse.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +181,7 @@ Además de la precisión, la curva ROC se traza con la correspondiente área baj
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Por último, se proporciona el bloc de notas `showResults.py` para desplazarse por las imágenes de prueba y ver las correspondientes puntuaciones de clasificación:
+Por último, se proporciona el bloc de notas `showResults.py` para desplazarse por las imágenes de prueba y ver las correspondientes puntuaciones de clasificación. Tal como se explica en el paso 1, cada bloc de notas de este ejemplo debe usar el kernel del proyecto local denominado "PROJECTNAME local":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +193,7 @@ Por último, se proporciona el bloc de notas `showResults.py` para desplazarse p
 ### <a name="step-6-deployment"></a>Paso 6: Implementación
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-El sistema entrenado ya se puede publicar como una API de REST. La implementación se explica en el bloc de notas `deploy.ipynb` y se basa en la funcionalidad de Azure Machine Learning Workbench. Vea también la excelente sección de implementación del [tutorial de Iris](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+El sistema entrenado ya se puede publicar como una API de REST. La implementación se explica en el bloc de notas `deploy.ipynb` y se basa en la funcionalidad de Azure Machine Learning Workbench (recuerde establecer como kernel el kernel del proyecto local denominado "PROJECTNAME local"). Si quiere obtener más información detallada de la implementación, consulte también la excelente sección de implementación del [tutorial de IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
 
 Una vez implementado, el servicio web se puede llamar con el script `6_callWebservice.py`. Cabe mencionar que la dirección IP (ya sea local o en la nube) del servicio web debe establecerse antes en el script. En el bloc de notas `deploy.ipynb` se explica cómo encontrar esta dirección IP.
 

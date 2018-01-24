@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
 
@@ -34,7 +34,7 @@ Antes de exportar una API, debe describir la API con una definición de OpenAPI 
 
 Para exportar la definición de API, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación Azure Functions o App Service.
+1. En [Azure Portal](https://portal.azure.com), vaya a su aplicación Azure Functions o a otra aplicación de App Service.
 
     Si usa Azure Functions, seleccione la aplicación de función, elija **Características de la plataforma** y luego **Definición de la API**.
 
@@ -48,11 +48,11 @@ Para exportar la definición de API, siga estos pasos:
 
     ![Botón Exportar a PowerApps + Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Seleccione el **Modo de exportación**:
+3. Seleccione el **modo de exportación**:
 
-    **Rápida** permite crear el conector personalizado desde dentro Azure Portal. Esto requiere que haya iniciado sesión en PowerApps o Microsoft Flow y que tenga permiso para crear conectores en el entorno de destino. Se trata del enfoque recomendado si se puede cumplir dicho requisito. Si usa este modo, siga las instrucciones de [Uso de la exportación rápida](#express) especificadas más abajo.
+    **Rápida** permite crear el conector personalizado desde dentro Azure Portal. Esto requiere que haya iniciado sesión en PowerApps o Microsoft Flow y que tenga permiso para crear conectores en el entorno de destino. Este es el enfoque recomendado si se puede cumplir dicho requisito. Si usa este modo, siga las instrucciones de [Uso de la exportación rápida](#express) especificadas más abajo.
 
-    **Manual** permite exportar la definición de la API, que puede importarse luego mediante los portales de PowerApps o Microsoft Flow. Este es el enfoque recomendado si el usuario de Azure y el usuario con permiso para crear conectores son personas diferentes o si el conector debe crearse en otro inquilino. Si usa este modo, siga las instrucciones de [Uso de la exportación manual](#manual) especificadas a continuación.
+    **Manual** permite exportar la definición de la API, que puede importarse luego mediante los portales de PowerApps o Microsoft Flow. Este es el enfoque recomendado si el usuario de Azure y el usuario con permiso para crear conectores son personas diferentes o si el conector debe crearse en otro inquilino de Azure. Si usa este modo, siga las instrucciones de [Uso de la exportación manual](#manual) especificadas a continuación.
 
     ![Modo de exportación](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -68,7 +68,7 @@ Para completar la exportación en la modalidad **Rápida**, siga estos pasos:
 
 2. Use la configuración que se especifica en la tabla.
 
-    |Configuración|Descripción|
+    |Configuración|DESCRIPCIÓN|
     |--------|------------|
     |**Entorno**|Seleccione el entorno en que se debe guardar el conector personalizado. Para obtener más información, consulte [Información general sobre los entornos](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Nombre de la API personalizada**|Escriba un nombre, el cual verán PowerApps y Microsoft Flow en su lista de conectores.|
@@ -76,7 +76,7 @@ Para completar la exportación en la modalidad **Rápida**, siga estos pasos:
  
     ![Exportación rápida a PowerApps y Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
-3. Haga clic en **Aceptar**. El conector personalizado se ha compilado y agregado al entorno especificado.
+3. Haga clic en **OK**. El conector personalizado se ha compilado y agregado al entorno especificado.
 
 Para obtener un ejemplo del uso del modo **rápido** con Azure Functions, consulte [Llamada a una función desde PowerApps](functions-powerapps-scenario.md) y [Llamada a una función desde Microsoft Flow](functions-flow-scenario.md).
 
@@ -95,21 +95,25 @@ Para completar la exportación en el modo **Manual**, siga estos pasos:
 
     En este ejemplo se muestra la definición de seguridad de la clave de API que se incluyó en la definición de OpenAPI.
 
-Ahora que ha exportado la definición de API, la importa para crear un conector personalizado en PowerApps y Microsoft Flow. En el ejemplo siguiente se utiliza PowerApps, pero los conectores personalizados se comparten entre los dos servicios, por lo que solo tiene que importar la definición una vez.
+Ahora que ha exportado la definición de API, la importa para crear un conector personalizado en PowerApps y Microsoft Flow. Los conectores personalizados se comparten entre los dos servicios, por lo que solo tiene que importar la definición una vez.
 
 Para importar la definición de la API en PowerApps y Microsoft Flow, siga estos pasos:
 
-1. Inicie sesión en [web.powerapps.com](https://web.powerapps.com) o [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Vaya a [powerapps.com](https://web.powerapps.com) o [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Haga clic en el botón **Configuración** situado en la esquina superior derecha de la página (un icono de engranaje) y seleccione **Conectores personalizados**.
+2. En la esquina superior derecha, haga clic en el icono con forma de engranaje y, a continuación, haga clic en **Conectores personalizados**.
 
-    ![Conectores personalizados](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Icono de engranaje en el servicio](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Haga clic en **Create custom connector** (Crear conector personalizado).
+3. Haga clic en **Crear conector personalizado** y, a continuación, en **Importar una definición de OpenAPI**.
 
-4. En la pestaña **General**, proporcione un nombre para la API y cargue la definición de OpenAPI o pegue la dirección URL de metadatos. Haga clic en **Cargar** y luego en **Continuar**.
+   ![Crear un conector personalizado](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Pestaña General](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Escriba un nombre para el conector personalizado, navegue a la definición de OpenAPI que exportó y haga clic en **Continuar**.
+
+   ![Cargar la definición de OpenAPI](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. En la ficha **General**, revise la información que procede de la definición de OpenAPI.
 
 5. En la pestaña **Seguridad**, si se le pide que proporcione detalles de autenticación, escriba los valores adecuados para el tipo de autenticación. Haga clic en **Continue**.
 

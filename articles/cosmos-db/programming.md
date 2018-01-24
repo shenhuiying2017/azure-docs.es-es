@@ -1,7 +1,7 @@
 ---
 title: "Programación de JavaScript en el lado del servidor de Azure Cosmos DB | Microsoft Docs"
 description: "Obtenga información sobre cómo usar Azure Cosmos DB para escribir procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario en JavaScript. Obtenga sugerencias de programación de base de datos y mucho más."
-keywords: Desencadenadores de base de datos, procedimiento almacenado, procedimiento almacenado, programa de base de datos, sproc, documentdb, azure, Microsoft azure
+keywords: Desencadenadores de base de datos, procedimiento almacenado, procedimiento almacenado, programa de base de datos, sproc, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Conozca cómo la ejecución transaccional integrada del lenguaje de Azure Cosmos DB de JavaScript permite a los desarrolladores escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)** de forma nativa en un elemento de JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). Esto permite escribir la lógica de aplicación del programa de base de datos que se puede enviar y ejecutar directamente en las particiones de almacenamiento de base de datos. 
 
 Se recomienda comenzar con el vídeo siguiente, en el que Andrew Liu ofrece una breve introducción al modelo de programación de base de datos en el servidor de Cosmos DB. 
@@ -53,7 +56,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
   * Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
   * Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizados, procedimientos almacenados y desencadenadores de base de datos mediante la [API de REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) y los [SDK de cliente](documentdb-sdk-dotnet.md) de muchas plataformas, como .NET, Node.js y JavaScript.
+Se admite la creación y ejecución de operadores de consulta personalizados, procedimientos almacenados y desencadenadores de base de datos mediante [Azure Portal](https://portal.azure.com), la [API de REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) y los [SDK de cliente](sql-api-sdk-dotnet.md) en varias plataformas, como .NET, Node.js y JavaScript.
 
 En este tutorial se usa el [SDK de Node.js con objetos Q promise](http://azure.github.io/azure-documentdb-node-q/) para mostrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).   
 
@@ -437,7 +440,7 @@ Este desencadenador consulta el documento de metadatos y lo actualiza con detall
 Es importante tener en cuenta la ejecución **transaccional** de los desencadenadores en Cosmos DB. Este desencadenador posterior se ejecuta como parte de la misma transacción cuando se crea el documento original. Por lo tanto, si lanzamos una excepción desde el desencadenador posterior (en caso de que no podamos actualizar el documento de metadatos), fallará y se revertirá toda la transacción. No se creará ningún documento y se devolverá una excepción.  
 
 ## <a id="udf"></a>Funciones definidas por el usuario
-Las funciones definidas por el usuario se utilizan para ampliar la gramática del lenguaje de consultas SQL de la API de DocumentDB e implementar la lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las funciones definidas por el usuario se pueden ejecutar en réplicas secundarias del servicio Cosmos DB.  
+Las funciones definidas por el usuario (UDF) se usan para ampliar la gramática del lenguaje de consultas SQL de Azure Cosmos DB e implementar lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las funciones definidas por el usuario se pueden ejecutar en réplicas secundarias del servicio Cosmos DB.  
 
 En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de 20.000 $ en impuestos.
 
@@ -479,7 +482,7 @@ La UDF se puede utilizar de forma consecuente en consultas como en el ejemplo si
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integradas en lenguajes JavaScript
-Además de emitir consultas mediante la gramática de SQL del DocumentDB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesitar conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación las consultas al pasar las funciones de predicado a función encadenada, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y las bibliotecas populares de JavaScript, como lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
+Además de emitir consultas mediante la gramática de SQL de Azure Cosmos DB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesidad de tener conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación las consultas al pasar las funciones de predicado a función encadenada, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y las bibliotecas populares de JavaScript, como lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (subrayado doble) es un alias para `getContext().getCollection()`.
@@ -642,7 +645,7 @@ En las descripciones siguientes se explican las consultas de la tabla anterior.
 
 
 ## <a name="runtime-support"></a>Compatibilidad con el tiempo de ejecución
-La [API del lado servidor de JavaScript de DocumentDB](http://azure.github.io/azure-documentdb-js-server/) ofrece compatibilidad con la mayoría de las características del lenguaje JavaScript habituales, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+La [API del lado servidor de JavaScrip](http://azure.github.io/azure-documentdb-js-server/) de Azure Cosmos DB ofrece compatibilidad con la mayoría de las características habituales del lenguaje JavaScript, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Seguridad
 Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en un espacio aislado para que los efectos de un script no se filtren al otro sin pasar por el aislamiento de la transacción de instantánea en el nivel de la base de datos. Los entornos de tiempo de ejecución se agrupan pero se borran del contexto tras cada ejecución. Por lo tanto se garantiza su seguridad de cualquier efecto secundario no intencionado entre ellos.
@@ -651,7 +654,7 @@ Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en
 Los procedimientos almacenados, desencadenadores y UDF se precompilan implícitamente en formato de código byte para evitar los costes de compilación en el momento de cada invocación de script. Esto garantiza que las invocaciones de los procedimientos almacenados son rápidos y tienen poca superficie.
 
 ## <a name="client-sdk-support"></a>Compatibilidad con SDK de cliente
-Además de la API de DocumentDB para el cliente de [Node.js](documentdb-sdk-node.md), Azure Cosmos DB tiene SDK de [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) y [Python](documentdb-sdk-python.md) para la API de DocumentDB. Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
+Además de la API de [Node.js](sql-api-sdk-node.md), Azure Cosmos DB tiene los SDK de [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) y [Python](sql-api-sdk-python.md) para la API de SQL. Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ Además de la API de DocumentDB para el cliente de [Node.js](documentdb-sdk-node
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-En este ejemplo se muestra cómo usar la [API de .NET para DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para crear un desencadenador previo y generar un documento con el desencadenador habilitado. 
+En este ejemplo se muestra cómo usar la [API de .NET para SQL](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para crear un desencadenador previo y generar un documento con el desencadenador habilitado. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ En este ejemplo se muestra cómo usar la [API de .NET para DocumentDB](/dotnet/a
         });
 
 
-Y en el siguiente ejemplo se muestra cómo crear una función definida por el usuario para usarla en una [consulta de SQL de la API de DocumentDB](documentdb-sql-query.md).
+Asimismo, en el siguiente ejemplo se muestra cómo crear una función definida por el usuario (UDF) para usarla en una [consulta de SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -722,7 +725,7 @@ Y en el siguiente ejemplo se muestra cómo crear una función definida por el us
         Console.WriteLine("Read {0} from query", book);
     }
 
-## <a name="rest-api"></a>API de REST
+## <a name="rest-api"></a>API DE REST
 Todas las operaciones de Azure Cosmos DB se pueden realizar mediante RESTful. Los procedimientos almacenados, desencadenadores y funciones definidas por el usuario se pueden registrar en una colección mediante POST HTTP. El siguiente es un ejemplo de cómo registrar un procedimiento almacenado:
 
     POST https://<url>/sprocs/ HTTP/1.1
@@ -797,12 +800,12 @@ Puede encontrar más ejemplos de código del lado servidor (entre los que se inc
 
 ¿Desea compartir el impresionante procedimiento almacenado? Envíenos una solicitud de extracción. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Una vez que haya almacenado uno o varios procedimientos, y creado desencadenadores y funciones definidas por el usuario, puede cargarlos y verlos en Azure Portal mediante el Explorador de datos.
 
 También puede encontrar útiles las siguientes referencias y recursos en su camino hacia el aprendizaje de la programación del servidor de Azure Cosmos DB:
 
-* [SDK de Azure Cosmos DB](documentdb-sdk-dotnet.md)
+* [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

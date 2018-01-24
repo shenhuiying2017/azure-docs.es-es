@@ -1,6 +1,6 @@
 ---
-title: Recorte de seguridad en Azure Search con Azure Active Directory | Microsoft Docs
-description: Implemente el recorte de seguridad con el filtro de Azure Search y Azure Active Directory.
+title: Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory | Microsoft Docs
+description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de Active Directory.
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Recorte de seguridad en Azure Search con Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory
 
-En este artículo se muestra cómo usar Azure Active Directory (AAD) junto con Azure Search para restringir el acceso a los documentos en función de la pertenencia a grupos de usuarios.
+En este artículo se muestra cómo usar las identidades de seguridad de Azure Active Directory (AAD) junto con los filtros de Azure Search para limitar los resultados de búsqueda en función de la pertenencia a grupos de usuarios.
 
 En este artículo se tratan las tareas siguientes:
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ En este artículo se tratan las tareas siguientes:
 >[!NOTE]
 > Los fragmentos de código de ejemplo de este artículo están escritos en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 El índice de Azure Search debe tener un [campo de seguridad](search-security-trimming-for-azure-search.md) para almacenar la lista de identidades de grupo que tengan acceso de lectura al documento. Este caso de uso supone una correspondencia uno a uno entre un elemento protegible (por ejemplo, la solicitud de la universidad de un individuo) y un campo de seguridad que especifica quién tiene acceso a ese elemento (personal de admisión).
 
@@ -187,5 +187,6 @@ En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD par
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Recorte de seguridad con Azure Search](search-security-trimming-for-azure-search.md)
++ [Control de acceso basado en la identidad mediante los filtros de Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtros de Azure Search](search-filters.md)
++ [Control de acceso y seguridad de datos en las operaciones de Azure Search](search-security-overview.md)

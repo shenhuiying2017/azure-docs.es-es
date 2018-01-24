@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Uso de Draft con Azure Container Service (AKS)
 
-Draft es una herramienta de código abierto que ayuda a empaquetar y ejecutar código en un clúster de Kubernetes. La herramienta Draft está destinada al ciclo de iteración de desarrollo: mientras se desarrolla el código, pero antes de la confirmación en el control de versiones. Con Draft, puede reimplementar rápidamente una aplicación en Kubernetes cuando se producen cambios en el código. Para obtener más información sobre Draft, consulte la [documentación de Draft en Github](https://github.com/Azure/draft/tree/master/docs).
+Draft es una herramienta de código abierto que ayuda a empaquetar y ejecutar código en un clúster de Kubernetes. La herramienta Draft está destinada al ciclo de iteración de desarrollo: mientras se desarrolla el código, pero antes de la confirmación en el control de versiones. Con Draft, puede reimplementar rápidamente una aplicación en Kubernetes cuando se producen cambios en el código. Para obtener más información sobre Draft, consulte la [documentación de Draft en Github][draft-documentation].
 
 En este documento se explica el uso de Draft con un clúster de Kubernetes en AKS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-En los pasos que se detallan en este documento se asume que se ha creado un clúster de AKS y que ha establecido una conexión kubectl con dicho clúster. Si necesita estos elementos, consulte la [Guía de inicio rápido de AKS](./kubernetes-walkthrough.md).
+En los pasos que se detallan en este documento se asume que se ha creado un clúster de AKS y que ha establecido una conexión kubectl con dicho clúster. Si necesita estos elementos, vea la [Guía de inicio rápido de AKS][aks-quickstart].
 
-También necesita un Docker Registry privado en Azure Container Registry (ACR). Para obtener instrucciones sobre la implementación de una instancia de ACR, consulte la [Guía de inicio rápido de Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md).
+También necesita un Docker Registry privado en Azure Container Registry (ACR). Para obtener instrucciones sobre la implementación de una instancia de ACR, consulte la [Guía de inicio rápido de Azure Container Registry][acr-quickstart].
 
 ## <a name="install-helm"></a>Instalación de Helm
 
 La CLI de Helm es un cliente que se ejecuta en su sistema de desarrollo, y que permite iniciar, detener y administrar aplicaciones con gráficos de Helm.
 
-Para instalar la CLI de Helm en un equipo Mac, use `brew`. Para conocer otras opciones de instalación, consulte [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) (Instalación de Helm).
+Para instalar la CLI de Helm en un equipo Mac, use `brew`. Para conocer otras opciones de instalación, vea [Installing Helm][install-helm] (Instalación de Helm).
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 La CLI de Draft es un cliente que se ejecuta en su sistema de desarrollo, y que permite implementar código rápidamente en un clúster de Kubernetes.
 
-Para instalar la CLI de Draft en un equipo Mac, use `brew`. Para conocer otras opciones de instalación, consulte la [Guía de instalación de Draft](https://github.com/Azure/draft/blob/master/docs/install.md) (en inglés).
+Para instalar la CLI de Draft en un equipo Mac, use `brew`. Para conocer otras opciones de instalación, consulte la [Draft Install guide][install-draft] (Guía de instalación de Draft).
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ Cuando termine de probar la aplicación, use `Control+C` para detener la conexi�
 
 ## <a name="expose-application"></a>Exponer aplicación
 
-Al probar una aplicación en Kubernetes, es posible que quiera que esté disponible en Internet. Para ello, use un servicio de Kubernetes con un tipo [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) o un [controlador de entrada](https://kubernetes.io/docs/concepts/services-networking/ingress/). En este documento se describe el uso de un servicio de Kubernetes.
+Al probar una aplicación en Kubernetes, es posible que quiera que esté disponible en Internet. Para ello, use un servicio de Kubernetes con un tipo [LoadBalancer][kubernetes-service-loadbalancer] o un [controlador de entrada][kubernetes-ingress]. En este documento se describe el uso de un servicio de Kubernetes.
 
 
 En primer lugar, el paquete de Draft debe actualizarse para especificar la necesidad de crear un servicio con un tipo `LoadBalancer`. Para ello, actualice el tipo de servicio en el archivo `values.yaml`.
@@ -297,9 +297,20 @@ Salida:
 Hello World, I'm Java - Draft Rocks!
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre el uso de Draft, consulte la documentación de Draft en GitHub.
 
 > [!div class="nextstepaction"]
-> [Documentación de Draft](https://github.com/Azure/draft/tree/master/docs)
+> [Documentación de Draft][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

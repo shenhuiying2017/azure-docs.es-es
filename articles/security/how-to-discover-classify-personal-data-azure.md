@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detección, identificación y clasificación de datos personales en Microsoft Azure
 
@@ -183,11 +183,11 @@ Para obtener información complementaria que le ayudará a pensar en cómo confi
 
 Para comenzar con los conceptos básicos, consulte el tutorial [Azure Cosmos DB: ¿cómo realizar consultas mediante SQL?](../cosmos-db/tutorial-query-documentdb.md) En el tutorial, se proporciona un documento de ejemplo y dos consultas SQL de ejemplo y los resultados.
 
-Para obtener instrucciones más detalladas sobre cómo crear consultas SQL, visite [Consultas SQL para la API de DocumentDB de Azure Cosmos DB](../cosmos-db/documentdb-sql-query.md).
+Para obtener instrucciones más detalladas sobre cómo crear consultas SQL, visite [Consultas SQL para la API de DocumentDB de Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Si no está familiarizado con Azure Cosmos DB y quiere obtener información sobre cómo crear una base de datos, agregar una colección y agregar datos, visite el tutorial de inicio rápido [Azure Cosmos DB: Compilar una aplicación web de API DocumentDB](../cosmos-db/create-documentdb-dotnet.md). Si quiere hacer esto en un lenguaje que no sea .NET (como Java o Python), elija el lenguaje que quiera cuando esté en el sitio.
+Si no está familiarizado con Azure Cosmos DB y quiere obtener información sobre cómo crear una base de datos, agregar una colección y agregar datos, visite el tutorial de inicio rápido [Azure Cosmos DB: Compilar una aplicación web de API de SQL](../cosmos-db/create-sql-api-dotnet.md). Si quiere hacer esto en un lenguaje que no sea .NET (como Java o Python), elija el lenguaje que quiera cuando esté en el sitio.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

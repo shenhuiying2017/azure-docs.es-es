@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
 Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a su base de datos. Al crear una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o más valores por [clave de partición](partition-data.md). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento nuevo o actualizado con valores que dupliquen los valores especificados por la restricción de clave única.   
 
 > [!NOTE]
-> Las claves únicas se admiten en las versiones más recientes de los SDK de DocumentDB (SQL) de [.NET](documentdb-sdk-dotnet.md) y [.NET Core](documentdb-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y API Graph no admiten claves únicas en este momento. 
+> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y API Graph no admiten claves únicas en este momento. 
 > 
 >
 
@@ -54,7 +54,7 @@ Las claves únicas deben definirse cuando se crea el contenedor y la clave únic
 
 Los contenedores existentes no se pueden actualizar para utilizar claves únicas.
 
-Cuando se crea un contenedor con una directiva de clave única, esta directiva no se puede cambiar a menos que se vuelva a crear el contenedor. Si tiene datos existentes sobre los que desea implementar claves únicas, cree el nuevo contenedor y utilice después la herramienta de migración de datos apropiada para mover los datos al nuevo contenedor. Para los contenedores de DocumentDB (SQL), use la [Herramienta de migración de datos](import-data.md). Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
+Cuando se crea un contenedor con una directiva de clave única, esta directiva no se puede cambiar a menos que se vuelva a crear el contenedor. Si tiene datos existentes sobre los que desea implementar claves únicas, cree el nuevo contenedor y utilice después la herramienta de migración de datos apropiada para mover los datos al nuevo contenedor. Para los contenedores de SQL, use la [Herramienta de migración de datos](import-data.md). Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
 
 En cada clave única se puede incluir un máximo de 16 valores de ruta de acceso (por ejemplo /firstName, /lastName, /address/zipCode, etc.). 
 
@@ -64,9 +64,9 @@ Los cargos por unidad de solicitud para crear, actualizar y eliminar un elemento
 
 No se admiten las claves únicas dispersas. Si faltan valores para algunas rutas de acceso únicas, se tratan como un valor nulo especial, que participa en la restricción de unicidad.
 
-## <a name="documentdb-sql-api-sample"></a>Ejemplo de API de DocumentDB (SQL)
+## <a name="sql-api-sample"></a>Ejemplo de API de SQL
 
-El ejemplo de código siguiente muestra cómo crear un nuevo contenedor de DocumentDB (SQL) con dos restricciones de clave única. La primera restricción es la del nombre, apellido y correo electrónico descrita en el ejemplo anterior. La segunda restricción es la dirección y el código postal de los usuarios. Un archivo JSON de ejemplo que utiliza las rutas de acceso en esta directiva de clave única sigue el ejemplo de código. 
+En el ejemplo de código siguiente se muestra cómo crear un nuevo contenedor de SQL con dos restricciones de clave única. La primera restricción es la del nombre, apellido y correo electrónico descrita en el ejemplo anterior. La segunda restricción es la dirección y el código postal de los usuarios. Un archivo JSON de ejemplo que utiliza las rutas de acceso en esta directiva de clave única sigue el ejemplo de código. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
@@ -133,7 +133,7 @@ El ejemplo de comando siguiente muestra cómo crear un índice único en los cam
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, ha aprendido a crear claves únicas para los elementos de una base de datos. Si está creando un contenedor por primera vez, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md) pues las claves únicas y las claves de partición dependen unas de otras. 
 

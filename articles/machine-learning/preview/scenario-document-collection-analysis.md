@@ -2,18 +2,19 @@
 title: "Análisis de una colección de documentos - Azure | Microsoft Docs"
 description: "Cómo resumir y analizar una extensa colección de documentos, incluidas técnicas como el aprendizaje de frase, el modelado de tema y el análisis de modelo de tema, con Azure ML Workbench."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Análisis de una colección de documentos
 
@@ -53,7 +54,7 @@ Las técnicas de aprendizaje automático y los algoritmos usados en este escenar
 
 1. Detección de tendencias de tema y anomalías
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
@@ -72,7 +73,7 @@ Cree un nuevo proyecto usando este ejemplo como plantilla:
 
 ## <a name="data-description"></a>Descripción de los datos
 
-El conjunto de datos usado en este escenario contiene resúmenes de texto y los metadatos asociados para cada acción legislativa tomada por el Congreso de EE. UU. Los datos se recopilan de [GovTrack.us](https://www.govtrack.us/), que realiza un seguimiento de las actividades del Congreso de Estados Unidos y ayuda a los norteamericanos a participar en su proceso legislativo nacional. Se pueden descargar los datos de forma masiva a través de [este vínculo](https://www.govtrack.us/data/congress/) mediante un script manual, que no se incluye en este escenario. Los detalles sobre cómo descargar los datos se pueden encontrar en la [documentación de la API de GovTrack](https://www.govtrack.us/developers/api).
+El conjunto de datos usado en este escenario contiene los resúmenes de texto y los metadatos asociados para cada acción legislativa tomada por el Congreso de EE. UU. Los datos se recopilan de [GovTrack.us](https://www.govtrack.us/), que realiza un seguimiento de las actividades del Congreso de Estados Unidos y ayuda a los norteamericanos a participar en su proceso legislativo nacional. Se pueden descargar los datos de forma masiva a través de [este vínculo](https://www.govtrack.us/data/congress/) mediante un script manual, que no se incluye en este escenario. Los detalles sobre cómo descargar los datos se pueden encontrar en la [documentación de la API de GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Origen de datos
 
@@ -82,17 +83,17 @@ En este escenario, los datos sin procesar recopilados son una serie de acciones 
 
 Hay nueve campos de datos en el archivo de datos. Los nombres y descripciones de los campos de datos se enumeran a continuación.
 
-| Nombre del campo | Tipo | Descripción | Faltan valores en el contenido |
+| Nombre del campo | type | DESCRIPCIÓN | Faltan valores en el contenido |
 |------------|------|-------------|---------------|
-| `ID` | String | El identificador de la propuesta o resolución. El formato de este campo es [tipo_de_propuesta][número]-[congreso]. Por ejemplo, "hconres1-93" significa que el tipo de propuesta es "hconres" (abreviatura de House Concurrent Resolution, puede consultar [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), el número de propuesta es '1' y el número de congreso es ' 93'. | No |
-| `Text` | String | El contenido de la propuesta o resolución. | No |
-| `Date` | String | La fecha de la propuesta o resolución propuesta inicialmente. En un formato de "aaaa-mm-dd". | No |
-| `SponsorName` | String | El nombre del patrocinador principal que presenta la propuesta o resolución. | Sí |
-| `Type` | String | El tipo de título del patrocinador principal, puede ser 'rep' (representante) o 'sen' (senador). | Sí |
-| `State` | String | El Estado del patrocinador principal. | Sí |
+| `ID` | string | El identificador de la propuesta o resolución. El formato de este campo es [tipo_de_propuesta][número]-[congreso]. Por ejemplo, "hconres1-93" significa que el tipo de propuesta es "hconres" (abreviatura de House Concurrent Resolution, puede consultar [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), el número de propuesta es '1' y el número de congreso es ' 93'. | Sin  |
+| `Text` | string | El contenido de la propuesta o resolución. | Sin  |
+| `Date` | string | La fecha de la propuesta o resolución propuesta inicialmente. En un formato de "aaaa-mm-dd". | Sin  |
+| `SponsorName` | string | El nombre del patrocinador principal que presenta la propuesta o resolución. | Sí |
+| `Type` | string | El tipo de título del patrocinador principal, puede ser 'rep' (representante) o 'sen' (senador). | Sí |
+| `State` | string | El Estado del patrocinador principal. | Sí |
 | `District` | Entero | El número de distrito del patrocinador principal si el título del patrocinador es representante. | Sí |
-| `Party` | String | El partido del patrocinador principal. | Sí |
-| `Subjects` | String | Los términos del asunto agregados de manera acumulativa por la biblioteca del Congreso a la propuesta. Los términos se concatenan con comas. Estos términos han sido escritos por una persona de la biblioteca del Congreso y normalmente no están presentes cuando se publica la información de la propuesta por primera vez. Se pueden agregar en cualquier momento. Por lo tanto, al final del ciclo de vida de una propuesta, algunos asuntos pueden no resultar relevantes. | Sí |
+| `Party` | string | El partido del patrocinador principal. | Sí |
+| `Subjects` | string | Los términos del asunto agregados de manera acumulativa por la biblioteca del Congreso a la propuesta. Los términos se concatenan con comas. Estos términos han sido escritos por una persona de la biblioteca del Congreso y normalmente no están presentes cuando se publica la información de la propuesta por primera vez. Se pueden agregar en cualquier momento. Por lo tanto, al final del ciclo de vida de una propuesta, algunos asuntos pueden no resultar relevantes. | Sí |
 
 ## <a name="scenario-structure"></a>Estructura del escenario
 
@@ -100,7 +101,7 @@ El ejemplo de análisis de una colección de documentos se divide en dos tipos d
 
 Los archivos de este ejemplo se organizan del siguiente modo.
 
-| Nombre de archivo | Tipo | Descripción |
+| Nombre de archivo | type | DESCRIPCIÓN |
 |-----------|------|-------------|
 | `aml_config` | Carpeta | Carpeta de configuración de Azure Machine Learning Workbench, consulte [esta documentación](./experimentation-service-configuration-reference.md) para la configuración de la ejecución del experimento detallada |
 | `Code` | Carpeta | La carpeta de código usada para guardar el paquete de Python y los scripts de Python |
@@ -122,7 +123,7 @@ Los archivos de este ejemplo se organizan del siguiente modo.
 | `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | Analiza el contenido temático de una colección de documentos de texto y correlaciona la información temática con otros metadatos asociados a la colección de documentos |
 | `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | Visualización interactiva del modelo del tema aprendido |
 | `notebooks/winprocess.py` | Archivo Python | El script de Python para multiproceso utilizado por los Notebooks |
-| `README.md` | Archivo de marcado | Archivo de marcado Léame |
+| `README.md` | Archivo de marcado | Archivo Léame de Markdown |
 
 ### <a name="data-ingestion-and-transformation"></a>Ingesta y transformación de datos
 

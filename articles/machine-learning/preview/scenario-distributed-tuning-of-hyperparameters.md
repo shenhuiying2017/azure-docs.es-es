@@ -4,15 +4,17 @@ description: "Este escenario muestra cómo llevar a cabo el ajuste distribuido d
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuido de hiperparámetros con Azure Machine Learning Workbench
 
@@ -26,30 +28,32 @@ A continuación se muestra el vínculo al repositorio de GitHub público:
 ## <a name="use-case-overview"></a>Información general del caso de uso
 
 Muchos algoritmos de aprendizaje automático tienen uno o varios mandos de control, llamados hiperparámetros. Estos mandos de control permiten ajustar algoritmos para optimizar su rendimiento en datos futuros, medido según métricas especificadas por el usuario (por ejemplo, precisión, AUC, RMSE). Los científicos de datos tienen que proporcionar valores para los hiperparámetros al generar un modelo con datos de entrenamiento antes de ver los datos de pruebas futuras. Basándonos en los datos de entrenamiento conocidos, ¿cómo podemos configurar los valores de los hiperparámetros de modo que el modelo tenga un buen rendimiento con datos de prueba desconocidos? 
-
+    
 Una técnica popular para el ajuste de hiperparámetros es la *búsqueda de cuadrícula* combinada con *validación cruzada*. La validación cruzada es una técnica que evalúa la predicción de un modelo entrenado en un conjunto de entrenamiento sobre el conjunto de prueba. Con esta técnica, primero se divide el conjunto de datos en K subconjuntos y luego se entrena el algoritmo K veces de un modo round robin. Esta técnica se emplea en todos los subconjuntos excepto en uno de ellos denominado "subconjunto apartado". Se calcula el valor medio de las métricas de K modelos sobre K subconjuntos apartados. Este valor promedio, denominado *estimación de rendimiento de validación cruzada*, depende de los valores de los hiperparámetros utilizados al crear K modelos. Al ajustar hiperparámetros, se busca en el espacio de valores del hiperparámetro candidato para encontrar los que optimizan la estimación de rendimiento de validación cruzada. La búsqueda de cuadrícula es una técnica de búsqueda común. En la búsqueda de cuadrícula, el espacio de valores candidatos de varios hiperparámetros es un producto cruzado de conjuntos de valores candidatos de hiperparámetros individuales. 
 
 La búsqueda de cuadrícula con la validación cruzada puede consumir mucho tiempo. Si un algoritmo tiene cinco hiperparámetros cada uno con cinco valores candidatos, usamos K=5 subconjuntos. Después, se completa una búsqueda de cuadrícula entrenando 5<sup>6</sup>= 15 625 modelos. Afortunadamente, la búsqueda de cuadrícula con la validación cruzada es un procedimiento paralelo y se puede entrenar todos estos modelos en paralelo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
 * Una copia instalada de [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](./quickstart-installation.md) para instalar el programa y crear cuentas.
 * En este escenario se da por supuesto que está ejecutando Azure ML Workbench en Windows 10 o MacOS con el motor de Docker instalado localmente. 
-* Para ejecutar el escenario con un contenedor de Docker remoto, aprovisione la instancia de Data Science Virtual Machine (DSVM) Ubuntu siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Se recomienda usar una máquina virtual con al menos 8 núcleos y 28 GB de memoria. Las instancias de máquinas virtuales D4 tienen esa capacidad. 
-* Para ejecutar este escenario con un clúster de Spark, aprovisione el clúster de Azure HDInsight siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Se recomienda tener un clúster con al menos 
-- seis nodos de trabajo
-- ocho núcleos
-- 28 GB de memoria en los nodos de encabezado y de trabajo. Las instancias de máquinas virtuales D4 tienen esa capacidad. Es recomendable cambiar los parámetros siguientes para maximizar el rendimiento del clúster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* Para ejecutar el escenario con un contenedor de Docker remoto, aprovisione la instancia de Data Science Virtual Machine (DSVM) Ubuntu siguiendo estas [instrucciones](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Se recomienda usar una máquina virtual con al menos 8 núcleos y 28 GB de memoria. Las instancias de máquinas virtuales D4 tienen esa capacidad. 
+* Para ejecutar este escenario con un clúster de Spark, aprovisione el clúster de Azure HDInsight siguiendo estas [instrucciones](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Se recomienda tener un clúster con al menos:
+    - seis nodos de trabajo
+    - ocho núcleos
+    - 28 GB de memoria en los nodos de encabezado y de trabajo. Las instancias de máquinas virtuales D4 tienen esa capacidad.       
+    - Es recomendable cambiar los parámetros siguientes para maximizar el rendimiento del clúster:
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
-Puede seguir estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) y editar las definiciones en la sección de personalización de valores predeterminados de spark".
+Puede seguir estas [instrucciones](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) y editar las definiciones en la sección de personalización de valores predeterminados de spark".
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Cree una cuenta de Azure Storage que se usará para almacenar el conjunto de datos. Siga las [instrucciones](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para crear una cuenta de almacenamiento.
+* Cree una cuenta de Azure Storage que se usará para almacenar el conjunto de datos. Siga las [instrucciones](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para crear una cuenta de almacenamiento.
 
 ## <a name="data-description"></a>Descripción de los datos
 

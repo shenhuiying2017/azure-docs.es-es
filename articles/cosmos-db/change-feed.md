@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -34,7 +34,7 @@ La **compatibilidad con la fuente de cambios**  en Azure Cosmos DB le permite cr
 ![Uso de la fuente de cambios de Azure Cosmos DB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> La compatibilidad con la fuente de cambios se proporciona para todos los contenedores y modelos de datos de Azure Cosmos DB. Sin embargo, la fuente de cambios se lee con el cliente DocumentDB y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON. 
+> La compatibilidad con la fuente de cambios se proporciona para todos los contenedores y modelos de datos de Azure Cosmos DB. Sin embargo, la fuente de cambios se lee mediante el cliente de SQL y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON. 
 
 ## <a name="how-does-change-feed-work"></a>¿Cómo funciona la fuente de cambios?
 
@@ -90,11 +90,11 @@ Los desencadenadores pueden crearse en el portal de Azure Functions, en el porta
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Uso del SDK
 
-El [SDK de DocumentDB](documentdb-sdk-dotnet.md) para Azure Cosmos DB proporciona todas las posibilidades para leer y administrar una fuente de cambios. Pero con la eficacia, también vienen una gran cantidad de responsabilidades, demasiadas. Si desea administrar puntos de control, tratar con números de secuencia de documentos y tener un control específico sobre las claves de las particiones, el SDK puede ser la solución correcta.
+El [SDK de SQL](sql-api-sdk-dotnet.md) para Azure Cosmos DB le otorga la capacidad de leer y administrar una fuente de cambios. Pero con la eficacia, también vienen una gran cantidad de responsabilidades, demasiadas. Si desea administrar puntos de control, tratar con números de secuencia de documentos y tener un control específico sobre las claves de las particiones, el SDK puede ser la solución correcta.
 
-Esta sección explica cómo usar el SDK de DocumentDB para trabajar con una fuente de cambios.
+En esta sección se explica cómo usar el SDK de SQL para trabajar con una fuente de cambios.
 
-1. Empiece por leer los siguientes recursos desde appconfig. Las instrucciones sobre cómo recuperar la clave de autorización y puntos de conexión están disponibles en [Actualización de la cadena de conexión](create-documentdb-dotnet.md#update-your-connection-string).
+1. Empiece por leer los siguientes recursos desde appconfig. Las instrucciones sobre cómo recuperar la clave de autorización y puntos de conexión están disponibles en [Actualización de la cadena de conexión](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Por lo tanto, la matriz de puntos de control solo mantiene el LSN para cada part
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Uso de la biblioteca de procesadores de fuente de cambios 
 
-La [biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) puede ayudarle a distribuir fácilmente el procesamiento de eventos entre varios consumidores. Esta biblioteca simplifica la lectura de los cambios a través de las particiones y varios subprocesos que trabajan en paralelo.
+La [biblioteca de procesadores de fuente de cambios de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) puede ayudarle a distribuir fácilmente el procesamiento de eventos entre varios consumidores. Esta biblioteca simplifica la lectura de los cambios a través de las particiones y varios subprocesos que trabajan en paralelo.
 
 La ventaja principal de la biblioteca de procesadores de fuente de cambios es que no tiene que administrar cada partición y token de continuación, ni que sondear manualmente cada colección.
 
@@ -270,17 +270,17 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 ¡Ya está! Después de estos pasos, los documentos empezarán a entrar en el método **DocumentFeedObserver ProcessChangesAsync**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca Azure Cosmos DB con Azure Functions, consulte [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
 
 Para más información sobre cómo utilizar la biblioteca de procesadores de fuente de cambios, use los siguientes recursos:
 
-* [Página de información](documentdb-sdk-dotnet-changefeed.md) 
+* [Página de información](sql-api-sdk-dotnet-changefeed.md) 
 * [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Código de ejemplo que muestra los pasos del 1 al 6 anterior](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Ejemplos adicionales en GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Para más información sobre cómo utilizar la fuente de cambios mediante el SDK, use los siguientes recursos:
 
-* [Página de información de SDK](documentdb-sdk-dotnet.md)
+* [Página de información de SDK](sql-api-sdk-dotnet.md)

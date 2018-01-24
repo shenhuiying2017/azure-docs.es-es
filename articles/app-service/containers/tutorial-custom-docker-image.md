@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) proporciona imágenes integradas de Docker en Linux con compatibilidad para versiones específicas, como PHP 7.0 y Node.js 4.5. Web App for Containers usa la tecnología de contenedores de Docker para hospedar imágenes integradas e imágenes personalizadas como una plataforma como servicio. En este tutorial, aprenderá a crear una imagen de Docker personalizada y a implementarla en Web App for Containers. Este patrón es útil cuando las imágenes integradas no incluyen el lenguaje elegido o cuando la aplicación requiere una configuración específica que no se proporciona en las imágenes integradas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -192,7 +192,7 @@ Puede hospedar aplicaciones Linux nativas en la nube con Azure Web Apps. Para cr
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app_name>` por un nombre de aplicación único y < docker-ID > por el identificador de Docker.
+En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar `<app_name>` por un nombre de aplicación único y < docker-ID > por el identificador de Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +219,7 @@ Cuando se haya creado la aplicación web, la CLI de Azure mostrará información
 
 La mayoría de las imágenes de Docker tienen variables de entorno que deben configurarse. Si usa una imagen de Docker existente que ha creado otra persona, esta puede usar un puerto que no sea el 80. Para indicar a Azure el puerto que usa la imagen se utiliza el valor de la aplicación `WEBSITES_PORT`. La página de GitHub que contiene el [ejemplo de Python de este tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) muestra que es preciso establecer `WEBSITES_PORT` en _8000_.
 
-Para establecer la configuración de aplicación, use el comando [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) en Cloud Shell. La configuración de la aplicación distingue mayúsculas de minúsculas y la separación se realiza mediante espacios.
+Para establecer la configuración de la aplicación, use el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) en Cloud Shell. La configuración de la aplicación distingue mayúsculas de minúsculas y la separación se realiza mediante espacios.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -294,10 +294,15 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* No olvide [iniciar el servicio ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) mediante un script de shell en el directorio /bin.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>Apertura de una conexión SSH a un contenedor
 
 Web App for Containers no permite realizar conexiones externas al contenedor. SSH solo está disponible a través del sitio de Kudu, al que se puede acceder en `https://<app_name>.scm.azurewebsites.net`.
@@ -329,13 +334,13 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-¡Enhorabuena! Ya configuró una imagen personalizada de Docker para una instancia de Web App for Containers.
+Felicidades. Ya configuró una imagen personalizada de Docker para una instancia de Web App for Containers.
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Uso de una imagen privada de Docker Hub (opcional)
 
 En [Crear una aplicación web](#create-a-web-app), especificó una imagen de Docker Hub en el comando `az webapp create`. Dicha imagen suficientemente buena como para ser una imagen pública. Para usar una imagen privada, debe configurar el identificador y la contraseña de su cuenta de Docker en su aplicación web de Azure.
 
-En Cloud Shell, siga el comando `az webapp create` con [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Reemplace *\<app_name >* y también _< docker-id >_ y  _<password>_  con el Id. de Docker y la contraseña.
+En Cloud Shell, siga el comando `az webapp create` con [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Reemplace *\<app_name >* y también _< docker-id >_ y  _<password>_  con el Id. de Docker y la contraseña.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -375,7 +380,7 @@ Azure Container Registry es un servicio administrado de Docker de Azure para hos
 
 ### <a name="create-an-azure-container-registry"></a>Creación de una instancia de Azure Container Registry
 
-En Cloud Shell, use el comando [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) para crear una instancia de Azure Container Registry. Pase el nombre, el grupo de recursos y `Basic` para la SKU. Las SKU disponibles son `Classic`, `Basic`, `Standard` y `Premium`.
+En Cloud Shell, use el comando [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) para crear una instancia de Azure Container Registry. Pase el nombre, el grupo de recursos y `Basic` para la SKU. Las SKU disponibles son `Classic`, `Basic`, `Standard` y `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -413,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Inicio de sesión en Azure Container Registry
 
-Para insertar una imagen en el registro, debe suministrar credenciales para que el registro acepte la inserción. Para recuperar dichas credenciales, ese el comando [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) en Cloud Shell. 
+Para insertar una imagen en el registro, debe suministrar credenciales para que el registro acepte la inserción. Para recuperar dichas credenciales, ese el comando [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) en Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -477,7 +482,7 @@ Enumerar las imágenes en el registro confirma que `mydockerimage` está en el r
 
 Web App for Containers se puede configurar para que ejecute un contenedor almacenado en Azure Container Registry. El uso de Azure Container Registry no se diferencia en nada del uso de cualquier registro privado, por lo que si necesita usar su registro privado, los pasos para completar la tarea serán similares.
 
-En Cloud Shell, ejecute [az acr credential show](/cli/azure/acr/credential#az_acr_credential_show) para mostrar el nombre de usuario y la contraseña de Azure Container Registry. Copie el nombre de usuario y una de las contraseñas para que pueda usarlo para configurar la aplicación web en el paso siguiente.
+En Cloud Shell, ejecute [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para mostrar el nombre de usuario y la contraseña de Azure Container Registry. Copie el nombre de usuario y una de las contraseñas para que pueda usarlo para configurar la aplicación web en el paso siguiente.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -499,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-En Cloud Shell, ejecute el comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) comando para asignar la imagen de Docker personalizada a la aplicación web. Reemplace *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ y _\<password>_. En el caso de Azure Container Registry,  *\<docker-registry-server-url >* tiene el formato `https://<azure-container-registry-name>.azurecr.io`. 
+En Cloud Shell, ejecute el comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) comando para asignar la imagen de Docker personalizada a la aplicación web. Reemplace *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ y _\<password>_. En el caso de Azure Container Registry,  *\<docker-registry-server-url >* tiene el formato `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -538,7 +543,7 @@ El comando revela una salida similar a la cadena JSON siguiente, lo que muestra 
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Compilación de una aplicación web Docker Python con PostgreSQL en Azure](tutorial-docker-python-postgresql-app.md)

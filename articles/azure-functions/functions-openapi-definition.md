@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creación de una definición de OpenAPI para una función
 Las API de REST a menudo se describen con una definición de OpenAPI (anteriormente conocida como el archivo [Swagger](http://swagger.io/)). Esta definición contiene información sobre las operaciones que están disponibles en una API y cómo se deben estructurar los datos de la solicitud y la respuesta para la API.
@@ -48,9 +48,17 @@ Debe tener una Function App para hospedar la ejecución de las funciones. Una ap
 
 En este tutorial se usa una función desencadenada por HTTP que toma dos parámetros: el tiempo estimado para reparar una turbina (en horas) y la capacidad de la turbina (en kilovatios). La función luego calcula cuánto costará la reparación y cuántos ingresos podría generar la turbina en un período de 24 horas.
 
-1. Expanda la aplicación de función, haga clic en el botón **+** junto a **Funciones** y haga clic en la plantilla **HTTPTrigger**. Escriba `TurbineRepair` como **Nombre** de la función y haga clic en **Crear**.
+1. Expanda la instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Funciones**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones. 
 
-    ![Hoja Instancias de Function App, Functions +](media/functions-openapi-definition/add-function.png)
+    ![Página de inicio rápido de Functions en Azure Portal](media/functions-openapi-definition/add-first-function.png)
+
+2. En el campo de búsqueda, escriba `http` y, a continuación, elija **C#** para la plantilla del desencadenador HTTP. 
+ 
+    ![Elija el desencadenador HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Escriba `TurbineRepair` en el campo **Nombre** de la función, elija `Function` en **[Nivel de autenticación](functions-bindings-http-webhook.md#http-auth)** y, a continuación, seleccione **Crear**.  
+
+    ![Crear la función desencadenada mediante HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Reemplace el contenido del archivo run.csx por el código siguiente y haga clic en **Guardar**:
 
@@ -117,7 +125,7 @@ Ahora el usuario está listo para generar la definición de OpenAPI. Esta defini
 
     1. En la pestaña **Integrar** de la nueva función de Desencadenador HTTP, cambie **Métodos HTTP permitidos** a **Métodos seleccionados**
 
-    1. En **Métodos HTTP seleccionados**, borre todas las opciones excepto **POST**.
+    1. En **Métodos HTTP seleccionados**, borre todas las opciones excepto **POST** y, a continuación, haga clic en **Guardar**.
 
         ![Métodos HTTP seleccionados](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -264,7 +272,7 @@ Antes de usar la definición de la API, se aconseja probarla en la interfaz de u
 
 1. Vuelva a la definición de la API: **function-demo-energy** > **Características de la plataforma** > **Definición de la API**.
 
-1. En el panel de la derecha, haga clic en **Cambiar autenticación**, escriba la clave de API que copió y haga clic en **Autenticar**.
+1. En el panel de la derecha, haga clic en **Autenticar**, escriba la clave de API que copió y haga clic en **Autenticar**.
 
     ![Autenticación con la clave de API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -278,13 +286,13 @@ Antes de usar la definición de la API, se aconseja probarla en la interfaz de u
 
     Observe cómo la interfaz de usuario usa las descripciones de la definición de la API.
 
-1. Haga clic en **Enviar una solicitud** y, luego, haga clic en la pestaña **Pretty** para ver el resultado.
+1. Haga clic en **Enviar solicitud** y, a continuación, haga clic en la pestaña **Pretty** (Descripción) para ver el resultado.
 
     ![Enviar una solicitud](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una función en Azure

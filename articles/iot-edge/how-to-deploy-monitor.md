@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementación y supervisión de módulos de IoT Edge a escala (versión preliminar)
 
@@ -40,7 +40,7 @@ Para más información sobre los dispositivos gemelos y etiquetas, consulte [Inf
 
 ## <a name="create-a-deployment"></a>de una implementación
 
-1. Inicie sesión en [Azure Portal][lnk-portal] y vaya a IoT Hub. 
+1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
 1. Seleccione **IoT Edge (versión preliminar)**.
 1. Seleccione **Agregar implementación de IoT Edge**.
 
@@ -61,26 +61,25 @@ Si se crea una implementación sin módulos, quita cualquier módulo existente d
 >[!NOTE]
 >Azure Machine Learning y Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente esos servicios a la implementación. 
 
-Para agregar un módulo desde un servicio de Azure, siga estos pasos:
-1. Seleccione **Add Azure service IoT Edge module** (Agregar módulo del servicio Azure IoT Edge).
+Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
+1. Seleccione **Import Azure Stream Analytics IoT Edge Module** (Importar módulo de IoT Edge de Azure Stream Analytics).
 1. Utilice los menús desplegables para seleccionar las instancias de servicio de Azure que desea implementar.
-1. Seleccione **Guardar** para agregar los módulos a la implementación. 
+1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
 Para agregar código personalizado como un módulo, o para agregar manualmente un módulo de servicio de Azure, siga estos pasos:
-1. Seleccione **Add custom IoT Edge module** (Agregar módulo de IoT Edge personalizado).
+1. Seleccione **Add IoT Edge module** (Agregar módulo de IoT Edge).
 1. Asigne un **nombre** al módulo.
-1. En el campo **Imagen**, introduzca la imagen de contenedor de Docker para este módulo: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Use los menús desplegables bajo **OS** y **Arquitectura** para identificar las propiedades del contenedor de Docker que representa este módulo. 
-1. Especifique cualquier **opción de creación** que debe pasarse al contenedor. Para más información, consulte [docker create][lnk-docker-create].
+1. En el campo **URI de imagen**, introduzca la imagen de contenedor de Docker para el módulo. 
+1. Especifique cualquier **opción de creación de contenedor** que deba pasarse al contenedor. Para más información, consulte [docker create][lnk-docker-create].
 1. Use el menú desplegable para seleccionar una **directiva de reinicio**. Elija entre las siguientes opciones: 
    * **Always** (Siempre): el módulo siempre se reinicia si se cierra por cualquier razón.
    * **Never** (Nunca): el módulo nunca se reinicia si se cierra por cualquier razón.
    * **On-failed** (En error): el módulo se reinicia si se bloquea, pero no si se cierra sin problemas. 
    * **On-unhealthy** (En estado incorrecto): el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento. 
-1. Use el menú desplegable para seleccionar el **estado** de inicio para el módulo. Elija entre las siguientes opciones:
+1. Use el menú desplegable para seleccionar el **estado deseado** para el módulo. Elija entre las siguientes opciones:
    * **En ejecución**: esta es la opción predeterminada. El módulo volverá a ejecutarse inmediatamente después de la implementación.
    * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que se llame después del inicio por el usuario u otro módulo.
-1. Seleccione **Edit module twin** (Editar módulo gemelo) si desea agregar las etiquetas o las propiedades que desee en el módulo. 
+1. Seleccione **Habilitar** si quiere agregar etiquetas o propiedades al módulo gemelo. 
 1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
 Cuando tenga todos los módulos configurados para una implementación, seleccione **Siguiente** para ir al tercer paso.
@@ -96,7 +95,7 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 Como varias implementaciones pueden tener como destino el mismo dispositivo, debe dar a cada implementación un número de prioridad. En caso de conflicto, gana la implementación con la prioridad más alta. Si dos implementaciones tienen el mismo número de prioridad, gana la que se creó más recientemente. 
 
 1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación.
-1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo: `tags.environment='test'`. 
+1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
 ### <a name="step-5-review-template"></a>Paso 5: Revisión de la plantilla
@@ -167,12 +166,12 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 1. Seleccione **Eliminar**.
 1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si los clientes desean hacerlo, deben crear una implementación sin módulos e implementarla en los mismos dispositivos. Seleccione **Sí** si desea continuar. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga más información sobre cómo [implementar módulos en dispositivos de Edge][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

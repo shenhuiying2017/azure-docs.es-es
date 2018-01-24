@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
 En este artículo se proporciona información general acerca de varios casos de uso comunes de Azure Cosmos DB.  Las recomendaciones de este artículo sirven como punto de partida para desarrollar su aplicación con Cosmos DB.   
@@ -33,9 +33,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 ## <a name="introduction"></a>Introducción
 [Azure Cosmos DB](../cosmos-db/introduction.md) es un servicio de base de datos de distribución global de Microsoft. El servicio está diseñado para permitir que los clientes escalen de manera elástica e independiente el rendimiento y el almacenamiento en cualquier número de regiones geográficas. Azure Cosmos DB es el primer servicio de bases de datos distribuidas de forma global que ofrece [acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/cosmos-db/) integrales que abarcan rendimiento, latencia, disponibilidad y coherencia. 
 
-El proyecto Azure Cosmos DB comenzó en 2011 como "Proyecto Florencia" para abordar los problemas de desarrollo que aparecen en las aplicaciones a escala de Internet dentro de Microsoft. Después de observar que estos problemas no eran exclusivos de las aplicaciones de Microsoft, decidimos que Azure Cosmos DB estuviera disponible a nivel general para los desarrolladores externos en 2015 como [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). El servicio se usa de forma generalizada internamente dentro de Microsoft y es uno de los servicios de crecimiento más rápido que los desarrolladores de Azure usan de manera externa. 
-
-Azure Cosmos DB es una base de datos con varios modelos y de distribución global que se usa en una amplia variedad de aplicaciones y casos de uso. Constituye una buena opción para cualquier aplicación [sin servidor](http://azure.com/serverless) que necesite tiempos de respuesta reducidos, de milésimas de segundo, y precise escalarse rápida y globalmente. Admite varios modelos de datos (clave-valor, documentos, grafos y columnas) y muchas API para acceso de datos, entre las que se incluyen [API MongoDB](mongodb-introduction.md), [API DocumentDB (SQL)](documentdb-introduction.md), [API Graph (Gremlin)](graph-introduction.md) y [Table API](table-introduction.md) de forma nativa y de forma extensible. 
+Azure Cosmos DB es una base de datos con varios modelos y de distribución global que se usa en una amplia variedad de aplicaciones y casos de uso. Constituye una buena opción para cualquier aplicación [sin servidor](http://azure.com/serverless) que necesite tiempos de respuesta reducidos, de milésimas de segundo, y precise escalarse rápida y globalmente. Admite varios modelos de datos (par clave-valor, documentos, grafos y columnas) y varias API para el acceso de datos, entre las que se incluyen la [API de MongoDB](mongodb-introduction.md), la [API de SQL](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md) y [Tables API](table-introduction.md) de forma nativa y de forma extensible. 
 
 A continuación se exponen algunos atributos de Azure Cosmos DB que la convierten en una opción perfecta para aplicaciones de alto rendimiento con una ambición mundial.
 
@@ -106,8 +104,8 @@ JSON, un formato compatible con Cosmos DB, es eficaz para representar datos de d
 
 ![Arquitectura de referencia de aplicaciones web de Azure Cosmos DB](./media/use-cases/personalization.png)
 
-## <a name="next-steps"></a>Pasos siguientes
-Para empezar a trabajar con Azure Cosmos DB, siga nuestras [guías de inicio rápido](create-documentdb-dotnet.md), que le indican el proceso de creación de una cuenta y cómo comenzar a usar Cosmos DB. 
+## <a name="next-steps"></a>pasos siguientes
+Para empezar a trabajar con Azure Cosmos DB, siga nuestras [guías de inicio rápido](create-sql-api-dotnet.md), que le indican el proceso de creación de una cuenta y cómo comenzar a usar Cosmos DB. 
 
 O bien, si desea leer más acerca de los usuarios que emplean Cosmos DB, tiene a su disposición los siguientes testimonios de clientes:
 

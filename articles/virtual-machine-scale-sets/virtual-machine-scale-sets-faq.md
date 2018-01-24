@@ -4,7 +4,7 @@ description: "Obtenga respuestas a preguntas frecuentes sobre los conjuntos de e
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -73,7 +73,7 @@ El ejemplo utiliza la métrica de CPU de nivel de host y una métrica de recuent
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>¿Cómo se configuran las reglas de alerta en un conjunto de escalado de máquinas virtuales?
 
-Puede crear alertas en las métricas de los conjuntos de escalado de máquinas virtuales a través de PowerShell o CLI de Azure. Para más información, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) y [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Puede crear alertas en las métricas de los conjuntos de escalado de máquinas virtuales a través de PowerShell o CLI de Azure. Para obtener más información, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) y [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 El elemento TargetResourceId del conjunto de escalado de máquinas virtuales tiene el siguiente aspecto: 
 
@@ -216,9 +216,9 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
     }
 ```
  
-Nombre del elemento de linuxConfiguration | Obligatorio | Tipo | Descripción
+Nombre del elemento de linuxConfiguration | Obligatorio | type | DESCRIPCIÓN
 --- | --- | --- | --- |  ---
-ssh | No | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
+ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
 path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
 keyData | Sí | string | Especifica una clave pública SSH codificada en base64
 
@@ -281,7 +281,7 @@ Si restablece la imagen inicial de una máquina virtual, los certificados se eli
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>¿Qué ocurre si se elimina un certificado del almacén de claves?
 
-Si elimina el secreto del almacén de claves y ejecuta `stop deallocate` para todas las máquinas virtuales y luego las inicia de nuevo, se producirá un error. El error se produce porque el CRP necesita recuperar los secretos desde el almacén de claves, pero no puede. En este escenario, puede eliminar los certificados del conjunto de escalado de máquinas virtuales. 
+Si elimina el secreto del almacén de claves y ejecuta `stop deallocate` en todas las máquinas virtuales y las inicia de nuevo, se producirá un error. El error se produce porque el CRP necesita recuperar los secretos desde el almacén de claves, pero no puede. En este escenario, puede eliminar los certificados del conjunto de escalado de máquinas virtuales. 
 
 El componente de CRP no conserva los secretos de cliente. Si ejecuta `stop deallocate` para todas las máquinas virtuales en el conjunto de escalado de máquinas virtuales, se elimina la memoria caché. En este escenario, los secretos se recuperan del almacén de claves.
 
@@ -337,7 +337,7 @@ Desde la perspectiva del cumplimiento, los conjuntos de escalado de máquinas vi
 
 Para más información, consulte el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>¿La [identidad de servicio administrada de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funciona con conjuntos de escalado de máquinas virtuales?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>¿La [identidad de servicio administrada de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funciona con conjuntos de escalado de máquinas virtuales?
 
 Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de ejemplo de inicio rápido de Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -369,24 +369,30 @@ Para aprender sobre la secuenciación de extensión en conjuntos de escalado de 
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>¿Cómo se restablece la contraseña para las máquinas virtuales en el conjunto de escalado de máquinas virtuales?
 
-Para restablecer la contraseña para las máquinas virtuales del conjunto de escalado de máquinas virtuales, use las extensiones de acceso de máquina virtual. 
+Hay dos formas principales de cambiar la contraseña de las máquinas virtuales en conjuntos de escalado.
 
-Utilice el siguiente ejemplo de PowerShell:
+- Crear directamente un modelo de conjunto de escalado de máquinas virtuales. Disponible con Compute API 2017-12-01 y versiones posteriores.
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+    Actualizar las credenciales de administrador directamente en el modelo del conjunto de escalado (por ejemplo, mediante Azure Resource Explorer, PowerShell o CLI). Una vez que el conjunto de escalado está actualizado, todas las nuevas máquinas virtuales tienen nuevas credenciales. Las máquinas virtuales existentes solo tienen las nuevas credenciales si se restablece la imagen inicial. 
+
+- Restablecer la contraseña mediante las extensiones de acceso de la máquina virtual.
+
+    Utilice el siguiente ejemplo de PowerShell:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
+
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>¿Cómo agrego una extensión a todas las máquinas virtuales del conjunto de escalado de máquinas virtuales?
 
 Si la directiva de actualización se establece en **automática**, al volver a implementar la plantilla con las nuevas propiedades de extensión se actualizan todas máquinas virtuales.
@@ -461,7 +467,7 @@ Para ejecutar un script personalizado que está hospedado en una cuenta de almac
 
 ## <a name="networking"></a>Redes
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>¿Es posible asignar un grupo de seguridad de red (NSG) a un conjunto de escalado, para que se aplique a todas las NIC de VM en el conjunto?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>¿Es posible asignar un grupo de seguridad de red (NSG) a un conjunto de escalado, para que se aplique a todas las NIC de VM en el conjunto?
 
 Sí. Un grupo de seguridad de red se puede aplicar directamente a un conjunto de escalado haciendo referencia a él en la sección networkInterfaceConfigurations del perfil de red. Ejemplo:
 
@@ -517,11 +523,11 @@ Para implementar un conjunto de escalado de máquinas virtuales en una red virtu
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>¿Cómo se agrega la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla?
 
-Para agregar la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla, consulte [ARM - Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (ARM: obtención de las IP privadas de VMSS).
+Para agregar la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla, consulte [AAzure Resource Manager: Get virtual machine scale sets private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (Azure Resource Manager: obtener las IP privadas de los conjuntos de escalado de máquinas virtuales).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>¿Puedo usar conjuntos de escalado con redes aceleradas?
 
-Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo,
+Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -577,7 +583,7 @@ Otra razón por la que podría crear un conjunto de escalado de máquinas virtua
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>¿Cómo se cambia el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales?
 
-Para cambiar el número de VM en un conjunto de escalado de File Storage en Azure Portal, en la sección de propiedades del conjunto de escalado de VM, haga clic en la hoja "Escala" y use el control deslizante. Para conocer otras maneras de cambiar el recuento de instancias, consulte [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambio del recuento de instancias de un conjunto de escalado de máquinas virtuales).
+Para cambiar el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales en Azure Portal, en la sección de propiedades del conjunto de escalado de máquinas virtuales, haga clic en la hoja "Escalado" y use el control deslizante. Para conocer otras maneras de cambiar el recuento de instancias, consulte [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambio del recuento de instancias de un conjunto de escalado de máquinas virtuales).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>¿Cómo puedo definir alertas personalizadas para cuando se alcanzan determinados umbrales?
 
@@ -651,9 +657,9 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Puede encontrar el workspaceId y la workspaceKey requeridos en el portal de OMS. En la página Información general, haga clic en el icono Configuración. Haga clic en la pestaña Orígenes conectados en la parte superior.
 
-Nota: Si establece _upgradePolicy_ del conjunto de escalado en Manual, debe aplicar la extensión a todas las máquinas virtuales del conjunto mediante una llamada de actualización. En CLI, esto sería _az vmss update-instances_.
+Nota: Si establece _upgradePolicy_ del conjunto de escalado en Manual, debe aplicar la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En CLI, esto sería _az vmss update-instances_.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>¿Cómo se activa el diagnóstico de arranque?
 
