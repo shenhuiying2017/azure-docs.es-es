@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -72,3 +72,13 @@ Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>¿Qué ocurre cuando se cambia una directiva de copia de seguridad en las máquinas virtuales?
 Cuando se aplica una nueva directiva en las máquinas virtuales, se sigue la programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>¿Cómo puedo mover una máquina virtual inscrita en Azure Backup entre grupos de recursos?
+Siga los pasos que aparecen a continuación para mover correctamente la máquina virtual de la que se ha realizado la copia de seguridad al grupo de recursos de destino. 
+1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
+2. Traslade la máquina virtual al grupo de recursos de destino
+3. Vuelva a protegerla con el mismo almacén u otro nuevo
+
+Los usuarios pueden restaurar desde los puntos de restauración disponibles creados antes de la operación de traslado.
+
+

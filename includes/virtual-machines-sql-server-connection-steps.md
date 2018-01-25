@@ -10,7 +10,7 @@
 5. En el cuadro de diálogo **Protocolo y puertos**, use el **TCP** predeterminado. En el cuadro **Puertos locales específicos**, escriba el número de puerto de la instancia del motor de base de datos (**1433** para la instancia predeterminada que elija para el puerto privado en el paso del punto de conexión).
    
     ![Puerto TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. Haga clic en **Siguiente**.
+6. Haga clic en **Next**.
 7. En el cuadro de diálogo **Acción**, seleccione **Permitir la conexión** y haga clic en **Siguiente**.
    
     **Nota de seguridad:** si selecciona **Permitir la conexión si es segura**, puede proporcionar una mayor seguridad. Seleccione esta opción si desea configurar opciones de seguridad adicionales en el entorno.
@@ -42,7 +42,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 1. Mientras está conectado a la máquina virtual, en la página de inicio, escriba **SQL Server Management Studio** y haga clic en el icono seleccionado.
    
     La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
-2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor** . En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectarse al motor de base de datos con el explorador de objetos [en lugar del nombre de la máquina virtual, se puede utilizar **(local)** o un punto (.) como **nombre del servidor**]. Seleccione **Autenticación de Windows** y deje ***nombre_de_su_MV*\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
+2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor** . En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectarse al motor de base de datos con el explorador de objetos [en lugar del nombre de la máquina virtual, se puede utilizar **(local)** o un punto (.) como **nombre del servidor**]. Seleccione **Autenticación de Windows** y deje ***nombre_de_su_MV\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
    
     ![Conectar con el servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. En el Explorador de objetos de SQL Server Management Studio, haga clic con el botón derecho en el nombre de la instancia de SQL Server (el nombre de la máquina virtual) y, a continuación, haga clic en **Propiedades**.
@@ -54,7 +54,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 5. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Aceptar** para aceptar el requisito de reiniciar SQL Server.
 6. En el Explorador de objetos, haga clic con el botón derecho en el servidor y, a continuación, haga clic en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
    
-    ![Reiniciar](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Reinicio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Sí** para indicar que desea reiniciar SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creación de inicios de sesión para la autenticación de SQL Server
