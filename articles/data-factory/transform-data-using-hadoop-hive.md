@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 579df714910020e1e16e410a051c8b3773369dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a29d826a948788c5374ad2cc20b6a2040230ad
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-hive-activity.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-hive-activity.md)
 > * [Versión 2: versión preliminar](transform-data-using-hadoop-hive.md)
 
 La actividad de Hive de HDInsight en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta consultas de Hive en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
@@ -59,19 +59,19 @@ Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Dat
 }
 ```
 ## <a name="syntax-details"></a>Detalles de la sintaxis
-| Propiedad            | Descripción                              | Obligatorio |
+| Propiedad            | DESCRIPCIÓN                              | Obligatorio |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nombre de la actividad                     | Sí      |
-| Descripción         | Texto que describe para qué se usa la actividad. | No       |
-| type                | Para la actividad de Hive, el tipo de actividad es HDinsightHive. | Sí      |
+| Nombre                | Nombre de la actividad                     | Sí      |
+| Descripción         | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo                | Para la actividad de Hive, el tipo de actividad es HDinsightHive. | Sí      |
 | linkedServiceName   | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| scriptLinkedService | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar el script de Hive que se va a ejecutar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
+| scriptLinkedService | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar el script de Hive que se va a ejecutar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | Sin        |
 | scriptPath          | Proporcione la ruta de acceso al archivo de script almacenado en Azure Storage al que hace referencia scriptLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
-| getDebugInfo        | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por scriptLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No       |
-| argumentos           | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | No       |
-| define los campos             | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | No       |
+| getDebugInfo        | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por scriptLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | Sin        |
+| argumentos           | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | Sin        |
+| define los campos             | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | Sin        |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

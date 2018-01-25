@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ En la misma aplicación *HelloWorld*, puede agregar un nuevo servicio haciendo c
 
 ![Agregue un servicio a su aplicación Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Seleccione **Servicio con estado** y asígnele el nombre *HelloWorldStateful*. Haga clic en **Aceptar**.
+Seleccione **Servicio con estado** y asígnele el nombre *HelloWorldStateful*. Haga clic en **OK**.
 
 ![Uso del cuadro de diálogo Nuevo proyecto para crear un nuevo servicio con estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -188,7 +188,7 @@ Reliable Collections puede almacenar cualquier tipo de .NET, incluidos los tipos
 Reliable State Manager administra Reliable Collections de forma automática. Basta con solicitar a Reliable State Manager una colección confiable por nombre en cualquier momento y lugar del servicio. Reliable State Manager garantiza la obtención de una referencia. No recomendamos guardar referencias a instancias de colecciones fiables en variables o propiedades de miembros de clase. Debe tener especial cuidado para asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida de servicio. Reliable State Manager controla esta tarea automáticamente y está optimizado para la repetición de visitas.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operaciones transaccionales y asincrónicas
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
@@ -215,7 +215,7 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 ![Ver eventos de diagnóstico en Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
 [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)

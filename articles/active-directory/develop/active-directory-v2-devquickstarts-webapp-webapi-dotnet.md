@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Llamada a una API web desde una aplicación web .NET
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del middleware OWIN de Microsoft.  La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
@@ -27,7 +27,7 @@ Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a su
 Este tutorial se centrará principalmente en el uso de MSAL para obtener y usar tokens de acceso en una aplicación web, lo que se describe [aquí](active-directory-v2-flows.md#web-apps) en su totalidad.  Como requisitos previos, es aconsejable que aprenda primero cómo [agregar un inicio de sesión básico a una aplicación web](active-directory-v2-devquickstarts-dotnet-web.md) o cómo [proteger correctamente una API web](active-directory-v2-devquickstarts-dotnet-api.md).
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -63,12 +63,12 @@ Ahora configure el middleware OWIN para usar el [protocolo de autenticación Ope
 * Abra el archivo `web.config` en la raíz del proyecto `TodoList-WebApp` y escriba los valores de configuración de su aplicación en la sección `<appSettings>`.
   * El `ida:ClientId` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
   * El `ida:ClientSecret` es el **secreto de aplicación** que creó en el portal de registro.
-  * El `ida:RedirectUri` es el **identificador URI de redireccionamiento** que escribió en el portal.
+  * `ida:RedirectUri` es el **uri de redireccionamiento** especificado en el portal.
 * Abra el archivo `web.config` en la raíz del proyecto `TodoList-Service` y reemplace `ida:Audience` por el mismo **Id. de aplicación** que se ha utilizado antes.
 * Abra el archivo `App_Start\Startup.Auth.cs` y agregue instrucciones `using` para las bibliotecas anteriores.
 * Implemente el método `ConfigureAuth(...)` en el mismo archivo.  Los parámetros que proporciona en `OpenIDConnectAuthenticationOptions` servirán como coordenadas para que su aplicación se comunique con Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ En la notificación `AuthorizationCodeReceived`, deseamos usar [OAuth 2.0 conjun
 * Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para MSAL.
 * Ahora agregue un nuevo método, el controlador de eventos `OnAuthorizationCodeReceived`.  Este controlador usará MSAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de MSAL para su uso posterior:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Ahora es el momento de usar el access_token que adquirió en el paso 3.  Abra el
     `using Microsoft.Identity.Client;`
 * En la acción `Index`, use el método `AcquireTokenSilentAsync` de MSAL para obtener un access_token que pueda utilizarse para leer datos desde el servicio de lista de tareas pendientes:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Entonces, el ejemplo agrega el token resultante a la solicitud HTTP GET como el encabezado de `Authorization`, que usa el servicio de lista de tareas pendientes para autenticar la solicitud.
 * Si el servicio de lista de tareas pendientes devuelve una respuesta `401 Unauthorized`, el access_tokens en MSAL dejó de ser válido por algún motivo.  En este caso, debe anular cualquier access_tokens de la memoria caché de MSAL y mostrar al usuario un mensaje de que necesita iniciar sesión de nuevo, lo que reiniciará el flujo de adquisición del token.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Del mismo modo, si MSAL no puede devolver un access_token por cualquier motivo, se recomienda indicar al usuario que vuelva a iniciar sesión.  Esto es tan sencillo como detectar cualquier `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

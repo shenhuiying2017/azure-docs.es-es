@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -37,7 +37,7 @@ Para obtener más información sobre cómo codificar y descodificar el mensaje u
 
 En la siguiente tabla, aparece el conjunto de propiedades del sistema en los mensajes de IoT Hub.
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | MessageId |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Número de secuencia |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. |
@@ -61,7 +61,7 @@ IoT Hub mide el tamaño de los mensajes de una manera independiente del protocol
 
 Solamente se pueden usar caracteres ASCII para los valores y los nombres de propiedades, por lo que la longitud de las cadenas es igual al tamaño en bytes.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información acerca de los límites de tamaño de mensaje IoT Hub, consulte [Cuotas y limitación de IoT Hub][lnk-quotas].
 

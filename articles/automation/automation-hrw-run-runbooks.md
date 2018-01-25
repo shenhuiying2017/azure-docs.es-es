@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker 
 No hay ninguna diferencia en la estructura de runbooks que se ejecutan en Azure Automation y los que se ejecutan en Hybrid Runbook Worker. Los runbooks que usa con cada uno de ellos probablemente sean muy distintos entre sí, debido a que los runbooks destinados a Hybrid Runbook Worker normalmente administran los recursos en el propio equipo local donde se implementan, mientras que los runbooks en Azure Automation suelen hacerlo en la nube de Azure.
@@ -26,8 +26,7 @@ No hay ninguna diferencia en la estructura de runbooks que se ejecutan en Azure 
 Puede editar un runbook para Trabajo híbrido de runbook en Azure Automation, pero es probable que tenga dificultades si intenta probar el runbook en el editor.  Es posible que los módulos de PowerShell que tienen acceso a los recursos locales no estén instalados en el entorno de Azure Automation; si este es el caso, la prueba presentará errores.  Si instala los módulos necesarios, se ejecutará el runbook, pero no podrá tener acceso a los recursos locales para una prueba completa.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Inicio de un runbook en Hybrid Runbook Worker
-
-            [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) describe los distintos métodos para iniciar un runbook.  Trabajo híbrido de runbook agrega una opción **Ejecutar en** donde puede especificar el nombre de un grupo de Trabajos híbridos de runbook.  Si se especifica un grupo, los trabajos de ese grupo recuperan y ejecutan el runbook.  Si no se especifica esta opción, se ejecuta en Azure Automation de la manera normal.
+[Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) describe los distintos métodos para iniciar un runbook.  Trabajo híbrido de runbook agrega una opción **Ejecutar en** donde puede especificar el nombre de un grupo de Trabajos híbridos de runbook.  Si se especifica un grupo, los trabajos de ese grupo recuperan y ejecutan el runbook.  Si no se especifica esta opción, se ejecuta en Azure Automation de la manera normal.
 
 Cuando inicie un runbook en Azure Portal, verá una opción **Ejecutar en** donde puede seleccionar **Azure** o **Hybrid Worker**.  Si selecciona **Trabajo híbrido**, puede seleccionar el grupo en una lista desplegable.
 
@@ -145,18 +144,17 @@ El siguiente runbook de PowerShell, *Export-RunAsCertificateToHybridWorker*, exp
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Guarde el runbook *Export-RunAsCertificateToHybridWorker* en el equipo con una extensión `.ps1`.  Impórtelo en la cuenta de Automation y edite el runbook, cambiando el valor de la variable `$Password` con su propia contraseña.  Publique y, a continuación, ejecute el runbook dirigido al grupo de Hybrid Worker que ejecuta y autentica runbooks con la cuenta de ejecución.  La transmisión del trabajo informa sobre el intento de importar el certificado en el almacén de la máquina local y sigue con varias líneas dependiendo del número de cuentas de Automation definidas en la suscripción y de si la autenticación se realiza correctamente.  
 
 ## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Solución de problemas de runbooks en Hybrid Runbook Worker
 Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Hybrid Worker también registra los errores y eventos en el registro de eventos de Windows, en **Registros de aplicaciones y servicios\Microsoft-SMA\Operational**.  Los eventos relacionados con los runbooks ejecutados en el trabajo de runbook se escriben en **Registros de aplicaciones y servicios\Microsoft-Automation\Operational**.  El registro **Microsoft SMA** incluye muchos más eventos relacionados con los procesos de runbook insertados en el trabajo de runbook y el procesamiento del runbook.  Aunque el registro de eventos **Microsoft-Automation** no tenga muchos eventos con detalles relacionados con la solución de problemas de ejecución de un runbook, al menos encontrará los resultados del trabajo de runbook.  
 
-
-            [La salida y los mensajes de runbooks](automation-runbook-output-and-messages.md) se envían a Azure Automation desde los trabajos híbridos igual que los trabajos de runbook que se ejecutan en la nube.  También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.  
+[La salida y los mensajes de runbooks](automation-runbook-output-and-messages.md) se envían a Azure Automation desde los trabajos híbridos igual que los trabajos de runbook que se ejecutan en la nube.  También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.  
 
 Si sus runbooks no están finalizando correctamente y el resumen del trabajo muestra el estado **Suspendido**, consulte el artículo de solución de problemas [Hybrid Runbook Worker: un trabajo de Runbook finaliza con el estado Suspendido](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información sobre los distintos métodos que se pueden utilizar para iniciar un runbook, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).  
 * Para entender los diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Azure Automation mediante el editor de texto, consulte [Edición de runbooks de texto en Azure Automation](automation-edit-textual-runbook.md)

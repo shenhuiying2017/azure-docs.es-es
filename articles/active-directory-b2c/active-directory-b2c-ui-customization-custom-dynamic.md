@@ -14,16 +14,16 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Este artículo se centra en cómo personalizar la interfaz de usuario de Azure AD B2C con *contenido dinámico* utilizando directivas personalizadas. Para empezar, consulte el artículo sobre [personalización de la interfaz de usuario en una directiva personalizada](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -39,7 +39,7 @@ En una directiva personalizada, una definición de contenido define el identific
 
 La sección `ContentDefinitions` contiene una serie de elementos XML `ContentDefinition`. El atributo ID del elemento `ContentDefinition` especifica el tipo de página que se relaciona con la definición de contenido. Es decir, el elemento define el contexto que una plantilla personalizada de HTML5/CSS va a aplicar. En la tabla siguiente se describe el conjunto de identificadores de definición de contenido reconocidos por el motor IEF y el tipo de páginas relacionadas con ellos.
 
-| Id. de definición de contenido | Plantilla HTML5 predeterminada| Descripción | 
+| Id. de definición de contenido | Plantilla HTML5 predeterminada| DESCRIPCIÓN | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**. Esta página se muestra cuando se produce una excepción o un error. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de selección del proveedor de identidades**. Esta página contiene una lista de proveedores de identidades entre los que el usuario puede elegir durante el inicio de sesión. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
@@ -105,7 +105,7 @@ La plantilla HTML5 personalizada se basa en la plantilla HTML5 integrada de Azur
 
 7. En este tutorial, vamos a eliminar la referencia a la página de diseño. Agregue el siguiente fragmento de código al archivo _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Modifique el método `unified` de HomeController para aceptar el parámetro camp
 
 1. Abra el archivo *Controllers\HomeController.cs* y cambie el método `unified` agregando el siguiente fragmento de código:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

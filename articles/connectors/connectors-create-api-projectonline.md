@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Introducción al conector ProjectOnline
 Project Online en es una solución en línea flexible para la administración de carteras de proyectos (PPM) y el trabajo diario de Microsoft. Ofrecida a través de Office 365, Project Online permite a las organizaciones empezar a trabajar rápidamente con grandes capacidades de administración de proyectos para planear, priorizar y administrar proyectos e inversiones de carteras de proyectos, desde prácticamente cualquier lugar en casi todos los dispositivos.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-projectonline"></a>Creación de una conexión a ProjectOnline
 Para crear aplicaciones lógicas con ProjectOnline, primero debe crear una **conexión** y, después, facilitar los detalles de las siguientes propiedades: 
 
-| Propiedad | Obligatorio | Descripción |
+| Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | Se necesita el cifrado de tokens |Sí |Proporciona las credenciales de ProjectOnline. |
 

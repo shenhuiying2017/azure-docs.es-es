@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -47,14 +47,14 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Tipo de contenido |application/json |
 
 ### <a name="request-uri-parameters"></a>Parámetros de URI de solicitud
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 |:--- |:--- |
 | CustomerID |Identificador único del área de trabajo de Microsoft Operations Management Suite. |
 | Recurso |Nombre de recurso de la API: /api/logs. |
 | Versión de API |Versión de la API que se usará con esta solicitud. Actualmente, es 2016-04-01. |
 
 ### <a name="request-headers"></a>Encabezados de solicitud
-| Encabezado | Descripción |
+| Encabezado | DESCRIPCIÓN |
 |:--- |:--- |
 | Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
 | Log-Type |Especifica el tipo de registro de los datos que se envían. Actualmente, el tipo de registro solo admite caracteres alfabéticos. No admite valores numéricos ni caracteres especiales. |
@@ -96,7 +96,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Los ejemplos de las secciones siguientes tienen código de ejemplo que le ayudarán a crear un encabezado de autorización.
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>Cuerpo de la solicitud
 El cuerpo del mensaje debe estar en formato JSON. Debe incluir uno o varios registros con los pares de nombre y valor de propiedad en este formato:
 
 ```
@@ -134,9 +134,9 @@ Para identificar el tipo de datos de una propiedad, Log Analytics agrega un sufi
 
 | Tipo de datos de la propiedad | Sufijo |
 |:--- |:--- |
-| Cadena |_s |
-| Booleano |_b |
-| Double |_d |
+| string |_s |
+| boolean |_b |
+| Doble |_d |
 | Fecha/hora |_t |
 | GUID |_g |
 
@@ -173,7 +173,7 @@ El código de estado HTTP 200 significa que se ha recibido la solicitud para su 
 
 Esta tabla muestra el conjunto completo de códigos de estado que el servicio puede devolver:
 
-| Código | Estado | Código de error | Descripción |
+| Código | Status | Código de error | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Ejemplo de C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Use la [API de búsqueda de registros](log-analytics-log-search-api.md) para recuperar datos desde el repositorio de Log Analytics.

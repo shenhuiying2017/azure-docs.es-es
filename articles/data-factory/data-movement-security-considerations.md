@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-data-movement-security-considerations.md)
-> * [Versión 2: Versión preliminar](data-movement-security-considerations.md)
+> * [Versión 2: versión preliminar](data-movement-security-considerations.md)
 
 En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos en Azure Data Factory para proteger los datos. Los recursos de administración de Azure Data Factory están integrados en la infraestructura de seguridad de Azure y aplican todas las medidas de seguridad que ofrece Azure.
 
@@ -148,7 +148,7 @@ En una empresa, se ejecuta un **firewall corporativo** en el enrutador central d
 
 En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos de dominio para el **firewall corporativo**.
 
-| Nombres de dominio                  | Puertos de salida | Descripción                              |
+| Nombres de dominio                  | Puertos de salida | DESCRIPCIÓN                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443, 80        | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de datos de Data Factory |
 | `*.core.windows.net`          | 443            | Lo usa Integration Runtime autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
@@ -161,7 +161,7 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 
 En la tabla siguiente, se proporcionan los requisitos del **puerto de entrada** para el **firewall de Windows**.
 
-| Puertos de entrada | Descripción                              |
+| Puertos de entrada | DESCRIPCIÓN                              |
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [cifrado de credenciales en Integration Runtime autohospedado](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en Integration Runtime autohospedado. |
 
@@ -174,7 +174,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
@@ -187,7 +187,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 **Respuesta:** Integration Runtime autohospedado establece conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que Integration Runtime autohospedado establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen y destino, tendrá que abrir también el puerto **1433**. Para más información, consulte la sección [Configuraciones del firewall y lista de direcciones IP admitidas](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para información sobre el rendimiento de la actividad de copia, consulte la [Guía de optimización y rendimiento de la actividad de copia](copy-activity-performance.md).
 
  

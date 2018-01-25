@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo se aplica a la versión 2 del servicio de Azure Data Factory. Proporciona respuestas a las preguntas más frecuentes acerca de Data Factory.  
@@ -164,7 +164,7 @@ Para ver la información más actualizada acerca de Azure Data Factory, vaya a l
 ## <a name="technical-deep-dive"></a>Inmersión técnica profunda 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>¿Pueden las canalizaciones de la versión 1 y de la versión 2 ejecutarse en paralelo?
-No. Las factorías de datos de la versión 2 y la versión 1 no pueden contener entidades (por ejemplo, servicios vinculados, conjuntos de datos o canalizaciones) de la otra versión.   
+Nº Las factorías de datos de la versión 2 y la versión 1 no pueden contener entidades (por ejemplo, servicios vinculados, conjuntos de datos o canalizaciones) de la otra versión.   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>¿Aún tengo que definir los conjuntos de datos en la versión 2?
 Un conjunto de datos ya no es una entidad obligatoria para la mayoría de las actividades. Es necesario para la copia, el aprendizaje automático, la búsqueda, la validación y las actividades personalizadas que utilizan el esquema y otra información de metadatos del conjunto de datos para la transformación. El resto de las actividades ya no requieren conjuntos de datos.
@@ -196,7 +196,7 @@ Puede usar la construcción de `@coalesce` en las expresiones para controlar cor
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>¿Puedo usar el reintento o el tiempo de expiración en el nivel de actividad en la versión 2?
 Sí. Para controlar la ejecución de actividades en la versión 2, al igual que en la versión 1, puede configurar el reintento y el tiempo de expiración en el nivel de actividad. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener instrucciones paso a paso para crear una factoría de datos de la versión 2, consulte los siguientes tutoriales:
 
 - [Guía de inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-dot-net.md)

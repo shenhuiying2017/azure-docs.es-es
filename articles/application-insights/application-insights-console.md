@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 [Application Insights](app-insights-overview.md) permite supervisar la disponibilidad, el rendimiento y el uso de una aplicación web.
@@ -31,7 +31,7 @@ Necesita una suscripción a [Microsoft Azure](http://azure.com). Inicie sesión 
 * Instale el paquete [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) más reciente.
 * Establezca la clave de instrumentación en el código antes de hacer el seguimiento de cualquier telemetría (o establezca la variable de entorno APPINSIGHTS_INSTRUMENTATIONKEY). Después de eso, debe ser capaz de hacer un seguimiento manual de la telemetría y verla en Azure Portal
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
@@ -45,13 +45,13 @@ Puede inicializar y configurar Application Insights desde el código o con el ar
 
 De manera predeterminada, el SDK de Application Insights busca el archivo `ApplicationInsights.config` en el directorio de trabajo cuando se crea `TelemetryConfiguration`
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
 También puede especificar la ruta de acceso al archivo de configuración.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
@@ -90,7 +90,7 @@ Puede obtener un ejemplo completo del archivo de configuración mediante la inst
 
 * Durante el inicio de la aplicación, cree y configure la instancia `DependencyTrackingTelemetryModule`, que debe ser singleton y se debe conservar por toda la duración de la aplicación.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * Agregue inicializadores de telemetría comunes
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -121,7 +121,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 
 #### <a name="full-example"></a>Ejemplo completo
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
@@ -27,7 +27,7 @@ Mediante la acción de consulta puede utilizar lotes y matrices para realizar fl
 * Crear una tarea para todos los registros de alta prioridad desde una base de datos.
 * Guardar todos los datos adjuntos en PDF de correos electrónicos en un blob de Azure.
 
-Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Uso de la acción de consulta
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).  
@@ -54,7 +54,7 @@ Este es el procedimiento para agregarlo en una aplicación lógica:
 ## <a name="query-action"></a>Acción de consulta
 Aquí se muestran los detalles de la acción que admite este conector. El conector tiene una acción posible.
 
-| Acción | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | Filter array |Evalúa una condición de cada elemento de una matriz y devuelve los resultados |
 
@@ -65,9 +65,9 @@ La acción de consulta incluye una acción posible. Las tablas siguientes descri
 Los siguientes son los campos de entrada para la acción que realiza una solicitud de salida HTTP.
 Un * significa que es un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
-| De* |from |La matriz que se va a filtrar. |
+| De* |De |La matriz que se va a filtrar. |
 | Condición* |donde |La condición que se va a evaluar en cada elemento. |
 
 <br>
@@ -75,10 +75,10 @@ Un * significa que es un campo obligatorio.
 ### <a name="output-details"></a>Detalles de salida
 Los detalles de la salida de la respuesta HTTP son los siguientes.
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

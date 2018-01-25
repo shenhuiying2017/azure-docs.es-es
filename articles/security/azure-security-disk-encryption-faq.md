@@ -3,9 +3,9 @@ title: Preguntas frecuentes sobre Azure Disk Encryption | Microsoft Docs
 description: "En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -129,9 +129,9 @@ Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de alma
 
 **P:** ¿Dónde puedo formular preguntas o enviar comentarios?
 
-**R:** Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**R:** Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este documento, aprendió más acerca de las preguntas más frecuentes sobre Azure Disk Encryption. Para más información acerca de este servicio y su funcionalidad, consulte los artículos siguientes:
 
 - [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

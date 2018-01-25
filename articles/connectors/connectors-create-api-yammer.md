@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Introducción al conector de Yammer
 Conectarse a Yammer para acceder a conversaciones en la red empresarial. Con Yammer, puede:
@@ -28,12 +28,12 @@ Conectarse a Yammer para acceder a conversaciones en la red empresarial. Con Yam
 * Usar desencadenadores cuando haya un nuevo mensaje en un grupo o en una fuente que le sigue.
 * Usar acciones para publicar un mensaje, obtener todos los mensajes y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando aparece un nuevo mensaje, puede enviar un correo electrónico mediante Office 365.
 
-Empiece por crear una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Empiece por crear una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-yammer"></a>Creación de una conexión a Yammer
 Para usar el conector de Yammer, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades: 
 
-| Propiedad | Obligatorio | Descripción |
+| Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | Se necesita el cifrado de tokens |Sí |Proporcionar credenciales de Yammer |
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ En concreto, este conector de Amazon Redshift admite la recuperación de datos d
 > [!TIP]
 > Para obtener el mejor rendimiento al copiar grandes cantidades de datos desde Redshift, considere usar Redshift UNLOAD integrado a través de Amazon S3. Vea la sección [Uso de UNLOAD para copiar datos de Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) para más detalles.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Si va a copiar datos a un local almacén de datos local mediante [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md), conceda a Integration Runtime (use la dirección IP de la máquina) el acceso al clúster de Amazon Redshift. Consulte [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorización para acceder al clúster) para obtener instrucciones.
 * Si va a copiar datos a un almacén de datos de Azure, consulte [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de direcciones IP de Azure Data Center) para ver los intervalos de direcciones IP de Compute y los intervalos SQL que se utilizan en los centros de datos de Azure.
@@ -54,7 +54,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado Amazon Redshift:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **AmazonRedshift**. | Sí |
 | Servidor |Dirección IP o nombre de host del servidor de Amazon Redshift. |Sí |
@@ -96,7 +96,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Amazon Redshift, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla en Amazon Redshift. | No (si se especifica "query" en el origen de la actividad) |
@@ -126,7 +126,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Amazon Redshift, establezca el tipo de origen de la actividad de copia en **AmazonRedshiftSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AmazonRedshiftSource** | Sí |
 | query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No (si se especifica "tableName" en el conjunto de datos) |

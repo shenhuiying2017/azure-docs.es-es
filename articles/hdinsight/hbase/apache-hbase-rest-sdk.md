@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>Uso del SDK de .NET para HBase
 
@@ -38,12 +38,12 @@ El SDK de .NET para HBase se proporciona como un paquete de NuGet, que puede ins
 
 Para usar el SDK, cree instancias de un objeto nuevo de `HBaseClient`, pasando en `ClusterCredentials` compuesto por `Uri` para el clúster, y la contraseña y el nombre de usuario de Hadoop.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
 
-Substituya CLUSTERNAME por el nombre del clúster de HDInsight HBase y USERNAME y PASSWORD por las credenciales de Hadoop especificadas durante la creación del clúster. El nombre de usuario de Hadoop predeterminado es **admin**.
+Reemplace CLUSTERNAME por el nombre del clúster de HDInsight HBase y USERNAME y PASSWORD por las credenciales de Hadoop especificadas durante la creación del clúster. El nombre de usuario de Hadoop predeterminado es **admin**.
 
 ## <a name="create-a-new-table"></a>Creación de una nueva tabla
 
@@ -53,7 +53,7 @@ Los datos se almacenan físicamente en *HFiles*. Un único HFile contiene datos 
 
 Para crear una tabla nueva, especifique `TableSchema` y columnas. El código siguiente comprueba si la tabla "RestSDKTable" ya existe. Si no es así, se crea.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ Esta nueva tabla tiene dos familias de columnas: t1 y t2. Dado que las familias 
 
 Para eliminar una tabla:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Para insertar datos, especifique una clave de fila única como identificador de la fila. Los datos se almacenan en una matriz de `byte[]`. El código siguiente define y agrega las columnas `title`, `director` y `release_date` a la familia de columnas t1, ya que es a estas columnas a las que se accede con más frecuencia. Las columnas `description` y `tagline` se agregan a la familia de columnas t2. Puede dividir los datos en familias de columnas según sea necesario.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase implementa BigTable, por lo que el formato de datos es similar al siguient
 
 Para leer los datos de una tabla de HBase, pase la clave de la fila y el nombre de la tabla para que el método `GetCellsAsync` devuelva `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 En este caso, el código solo devuelve la primera fila coincidente, ya que solo debe haber una fila para una clave única. El valor devuelto se cambia al formato `string` desde la matriz `byte[]`. También puede convertir el valor en otros tipos, como un número entero para la fecha de lanzamiento de la película:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 HBase utiliza `scan` para recuperar una o varias filas. En este ejemplo se solicitan varias filas en lotes de 10 y se recuperan datos cuyos valores clave están comprendidos entre 25 y 35. Después de recuperar todas las filas, elimine el escáner para limpiar los recursos.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

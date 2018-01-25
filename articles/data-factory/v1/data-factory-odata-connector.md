@@ -1,6 +1,6 @@
 ---
 title: "Movimiento de datos desde orígenes OData | Microsoft Docs"
-description: "Obtenga información sobre cómo mover datos desde orígenes de OData mediante Factoría de datos de Azure."
+description: "Obtenga información sobre cómo mover datos desde orígenes de OData mediante Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Factoría de datos de Azure
+# <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-odata-connector.md)
-> * [Versión 2: Versión preliminar](../connector-odata.md)
+> * [Versión 2: versión preliminar](../connector-odata.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [OData connector in V2](../connector-odata.md) (Conector de OData en V2).
 
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde un origen OData. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde un origen OData. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 Puede copiar datos de un origen OData a cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente la transferencia de datos de un origen OData a otros almacenes de datos, pero no viceversa. 
 
@@ -45,9 +45,9 @@ Estos son los tipos de autenticación admitidos:
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos desde un origen OData mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
@@ -62,15 +62,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de OData.
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| type |La propiedad type debe establecerse en **OData** |Sí |
+| Tipo |La propiedad type debe establecerse en **OData** |Sí |
 | URL |Dirección URL del servicio de OData. |Sí |
 | authenticationType |Tipo de autenticación que se usa para conectarse al origen de OData. <br/><br/> Para OData en la nube, los valores posibles son Anonymous, Basic y OAuth (tenga en cuenta que Azure Data Factory en estos momentos solo admite la autenticación OAuth basada en Azure Active Directory). <br/><br/> Para OData local, los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
+| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sí (solo si usa la autenticación básica) |
 | authorizedCredential |Si está usando OAuth, haga clic en el botón **Autorizar** del Editor o el Asistente para copiar de Data Factory y escriba su credencial. Después, el valor de esta propiedad se generará automáticamente. |Sí (solo si usa la autenticación OAuth) |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |No |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |Sin  |
 
 ### <a name="using-basic-authentication"></a>Uso de la autenticación básica
 ```json
@@ -147,9 +147,9 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **ODataResource** (que incluye el conjunto de datos de OData) tiene las propiedades siguientes:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| path |Ruta de acceso al recurso de OData |No |
+| path |Ruta de acceso al recurso de OData |Sin  |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
@@ -158,9 +158,9 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 Cuando la actividad de copia es de tipo **RelationalSource** (lo que incluye OData), están disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | Descripción | Ejemplo | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Ejemplo | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |"?$select=Name, Description&$top=5" |No |
+| query |Utilice la consulta personalizada para leer los datos. |"?$select=Name, Description&$top=5" |Sin  |
 
 ## <a name="type-mapping-for-odata"></a>Asignación de tipos para OData
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos.
@@ -175,8 +175,8 @@ Al mover datos desde OData, se usan las asignaciones siguientes de tipos de ODat
 | Edm.Binary |Byte[] |
 | Edm.Boolean |Booleano |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
-| Edm.Decimal |Decimal |
+| Edm.DateTime |Datetime |
+| Edm.Decimal |DECIMAL |
 | Edm.Double |Doble |
 | Edm.Single |Single |
 | Edm.Guid |Guid |
@@ -184,15 +184,15 @@ Al mover datos desde OData, se usan las asignaciones siguientes de tipos de ODat
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |String |
-| Edm.Time |TimeSpan |
-| Edm.DateTimeOffset |Datetimeoffset |
+| Edm.String |string |
+| Edm.Time |timespan |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > Los tipos de datos complejos de OData, como por ejemplo, Object no se admiten.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de un origen OData a un blob de Azure
-Este ejemplo proporciona definiciones de JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos de un origen de OData en Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure. El ejemplo consta de las siguientes entidades de Data Factory:
+Este ejemplo proporciona definiciones de JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos de un origen de OData en Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory. El ejemplo consta de las siguientes entidades de Data Factory:
 
 1. Un servicio vinculado de tipo [OData](#linked-service-properties).
 2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
@@ -219,7 +219,7 @@ En el ejemplo se copian los datos de la consulta en un origen de OData a un blob
 }
 ```
 
-**Servicio vinculado de Almacenamiento de Azure:**
+**Servicio vinculado de Azure Storage:**
 
 ```json
 {
@@ -235,7 +235,7 @@ En el ejemplo se copian los datos de la consulta en un origen de OData a un blob
 
 **Conjunto de datos de entrada de OData:**
 
-Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
 
 ```json
 {

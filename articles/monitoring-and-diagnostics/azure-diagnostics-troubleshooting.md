@@ -1,6 +1,6 @@
 ---
 title: "Solución de problemas de Diagnósticos de Azure | Microsoft Docs"
-description: "Solucione problemas al utilizar Diagnósticos de instancias de Azure Virtual Machine, Service Fabric o Cloud Services."
+description: Solucione problemas al utilizar Diagnostics de instancias de Azure Virtual Machines, Service Fabric o Cloud Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](azure-diagnostics.md).
@@ -33,8 +33,8 @@ En este artículo se proporciona información para la solución de problemas rel
 ## <a name="logartifact-paths"></a>Rutas de acceso de registro y de artefacto
 Estas son las rutas de acceso a algunos de los registros y artefactos más importantes. Se tendrá en cuenta esta información a lo largo del documento.
 
-### <a name="azure-cloud-services"></a>Servicios en la nube de Azure
-| Artefacto | path |
+### <a name="azure-cloud-services"></a>Azure Cloud Services
+| Artefacto | Ruta de acceso |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Archivos de registro** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -45,7 +45,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de registro de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-| Artefacto | path |
+| Artefacto | Ruta de acceso |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Archivos de registro** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
@@ -64,7 +64,7 @@ En este caso, el elemento **PartitionKey** de la tabla se compone del id. de rec
 Si el identificador de recursos es incorrecto, compruebe la opción **Diagnósticos** **Configuración** > **Métricas** > **id. de recursos** para ver si el identificador de recursos está configurado correctamente.
 
 Si no hay ningún dato para la métrica específica, compruebe la opción **Configuración de diagnóstico** > **Contador de rendimiento** para ver si se incluye la métrica (el contador de rendimiento). Los siguientes contadores se habilitan de forma predeterminada:
-- \Processor(_Total)\% Processor Time
+- Procesador(_Total)\% Hora del procesador
 - \Memoria\Bytes disponibles
 - \ASP.NET Applications(__Total__)\Requests/Sec [\Aplicaciones ASP.NET(Total)\Solicitudes/s]
 - \ASP.NET Applications(__Total__)\Errors Total/Sec [\Aplicaciones ASP.NET(Total)\Total de errores/s]
@@ -154,7 +154,7 @@ Si va a ponerse en contacto con el servicio técnico, lo primero que podrían pe
 ## <a name="diagnostics-data-tables-not-found"></a>Tablas de datos de diagnóstico no encontradas
 Las tablas de Azure Storage que contienen eventos de ETW se nombran mediante el código siguiente:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -165,7 +165,7 @@ Las tablas de Azure Storage que contienen eventos de ETW se nombran mediante el 
             tableName = "WAD" + eventDestination;
 ```
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -228,7 +228,7 @@ En cuanto al rol de servicio en la nube, si elige la configuración del disco, l
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de salida del complemento Azure Diagnostics
 El complemento devuelve los siguientes códigos de salida:
 
-| Código de salida | Descripción |
+| Código de salida | DESCRIPCIÓN |
 | --- | --- |
 | 0 |Correcta. |
 | -1 |Error genérico. |

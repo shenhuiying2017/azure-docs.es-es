@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 899110992cc52ca5edf1706320fd5570473de784
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Introducción al conector Wunderlist
 Wunderlist proporciona una lista de tareas pendientes y un administrador de tareas para ayudar a los usuarios a hacer su trabajo.  Ya sea que comparta una lista de la compra con un ser querido, trabaje en un proyecto o planee unas vacaciones, capturar, compartir y completar tareas pendientes con Wunderlist es sencillo. Wunderlist sincroniza de forma instantánea su teléfono, tableta o PC para que pueda tener acceso a todas las tareas desde cualquier lugar.
 
-Empiece por crear una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Empiece por crear una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-wunderlist"></a>Creación de una conexión a Wunderlist
 Para crear aplicaciones lógicas con Wunderlist, primero necesita establecer una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-| Propiedad | Obligatorio | Descripción |
+| Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | Se necesita el cifrado de tokens |Sí |Proporciona las credenciales de Wunderlist. |
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8941e631976eb11966c1f9ddd207af816df5dadf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 511df58befe9aed4aa65fc6944cae3a8e2c74c2d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-for-vpn-connectivity-preview"></a>Acceso condicional de Azure Active Directory para la conectividad de VPN (versión preliminar)
 
@@ -42,7 +42,7 @@ En este tema se da por supuesto que está familiarizado con los temas siguientes
 Consulte [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Mejora del acceso remoto en Windows 10 con un perfil VPN automático) para obtener información acerca de la forma en que Microsoft implementa esta característica.   
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar el acceso condicional de Azure Active Directory para la conectividad de VPN debe tener configurado un servidor de VPN. 
 
@@ -90,7 +90,7 @@ Para crear un certificado VPN:
 
     b. En **Principal**, seleccione **Sí**.
 
-    c. Haga clic en **Crear**.
+    c. Haga clic en **Create**(Crear).
 
 7. En la página Conectividad VPN, haga clic en **Descargar certificado**.
 
@@ -173,7 +173,7 @@ Esta sección le proporciona instrucciones para configurar la directiva de acces
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Mejora del acceso remoto en Windows 10 con un perfil VPN automático) para obtener información acerca de la forma en que Microsoft implementa esta característica.    
 

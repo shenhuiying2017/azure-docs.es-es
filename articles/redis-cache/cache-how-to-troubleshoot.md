@@ -1,10 +1,10 @@
 ---
 title: "Solución de problemas de Azure Redis Cache | Microsoft Docs"
-description: "Aprenda más sobre cómo resolver problemas comunes con Caché en Redis de Azure."
+description: "Aprenda más sobre cómo resolver problemas comunes con Azure Redis Cache."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-troubleshoot-azure-redis-cache"></a>Solución de problemas de Caché en Redis de Azure
-Este artículo proporciona orientación para solucionar problemas de las siguientes categorías de problemas de Caché en Redis de Azure.
+# <a name="how-to-troubleshoot-azure-redis-cache"></a>Solución de problemas de Azure Redis Cache
+Este artículo proporciona orientación para solucionar problemas de las siguientes categorías de problemas de Azure Redis Cache.
 
-* [Solución de problemas de lado cliente](#client-side-troubleshooting) : esta sección proporciona instrucciones acerca de cómo identificar y resolver problemas causados por la aplicación que se conecta a Caché en Redis de Azure.
-* [Solución de problemas de lado servidor](#server-side-troubleshooting) : esta sección proporciona instrucciones acerca de cómo identificar y resolver problemas causados en el lado de servidor de Caché en Redis de Azure.
+* [Solución de problemas de lado cliente](#client-side-troubleshooting) : esta sección proporciona instrucciones acerca de cómo identificar y resolver problemas causados por la aplicación que se conecta a Azure Redis Cache.
+* [Solución de problemas de lado servidor](#server-side-troubleshooting): esta sección proporciona instrucciones acerca de cómo identificar y resolver problemas causados en el lado de servidor de Azure Redis Cache.
 * [Excepciones de tiempo de espera de StackExchange.Redis](#stackexchangeredis-timeout-exceptions) : esta sección proporciona información sobre cómo solucionar problemas al usar el cliente StackExchange.Redis.
 
 > [!NOTE]
@@ -76,7 +76,7 @@ Configure las [opciones de ThreadPool](https://gist.github.com/JonCole/e65411214
 El uso elevado de la CPU en el cliente es una indicación de que el sistema no puede realizar todo el trabajo que se ha solicitado. Esto significa que el cliente puede producir un error al procesar una respuesta de Redis de manera puntual aunque Redis envíe la respuesta muy rápidamente.
 
 #### <a name="measurement"></a>Medición
-Supervise el uso de CPU en todo el sistema mediante el Portal de Azure o el contador de rendimiento asociado. Tenga cuidado para no supervisar la CPU de un *proceso* , porque un solo proceso puede tener un uso de CPU bajo, al tiempo que el uso de CPU general del sistema es elevado. Busque picos de uso de CPU que correspondan a tiempos de espera agotados. Como resultado de un uso de CPU alto, también puede ver valores de `in: XXX` en mensajes de error de `TimeoutException`, como se describe en la sección [Ráfagas de tráfico](#burst-of-traffic).
+Supervise el uso de CPU en todo el sistema mediante Azure Portal o el contador de rendimiento asociado. Tenga cuidado para no supervisar la CPU de un *proceso* , porque un solo proceso puede tener un uso de CPU bajo, al tiempo que el uso de CPU general del sistema es elevado. Busque picos de uso de CPU que correspondan a tiempos de espera agotados. Como resultado de un uso de CPU alto, también puede ver valores de `in: XXX` en mensajes de error de `TimeoutException`, como se describe en la sección [Ráfagas de tráfico](#burst-of-traffic).
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 y versiones posteriores incluyen la métrica `local-cpu` en mensajes de error de `TimeoutException`. Asegúrese de usar la versión más reciente del [paquete StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Hay errores que se solucionan constantemente en el código que lo hacen más solido frente a tiempos de espera agotados, por lo que es importante tener la versión más reciente.
@@ -121,7 +121,7 @@ Esto es difícil de medir. Básicamente, debe instrumentar el código del client
 
 ### <a name="what-happened-to-my-data-in-redis"></a>¿Qué ha ocurrido con mis datos en Redis?
 #### <a name="problem"></a>Problema
-Esperaba que ciertos datos estuvieran en la instancia de Caché en Redis de Azure, pero no parecen estar ahí.
+Esperaba que ciertos datos estuvieran en la instancia de Azure Redis Cache, pero no parecen estar ahí.
 
 #### <a name="resolution"></a>Resolución
 Consulte [¿Qué ha ocurrido con mis datos en Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para ver posibles causas y soluciones.
@@ -157,7 +157,7 @@ Hay varios cambios posibles que puede hacer para ayudar a mantener un uso de mem
 El uso elevado de la CPU puede significar que el lado cliente no puede procesar una respuesta de Redis de manera puntual, aunque Redis envió la respuesta muy rápidamente.
 
 #### <a name="measurement"></a>Medición
-Supervise el uso de CPU en todo el sistema mediante el Portal de Azure o el contador de rendimiento asociado. Tenga cuidado para no supervisar la CPU de un *proceso* , porque un solo proceso puede tener un uso de CPU bajo, al tiempo que el uso de CPU general del sistema es elevado. Busque picos de uso de CPU que correspondan a tiempos de espera agotados.
+Supervise el uso de CPU en todo el sistema mediante Azure Portal o el contador de rendimiento asociado. Tenga cuidado para no supervisar la CPU de un *proceso* , porque un solo proceso puede tener un uso de CPU bajo, al tiempo que el uso de CPU general del sistema es elevado. Busque picos de uso de CPU que correspondan a tiempos de espera agotados.
 
 #### <a name="resolution"></a>Resolución
 [Escale](cache-how-to-scale.md) a un nivel de memoria caché mayor, con más capacidad de CPU o investigue qué causando los picos de la CPU. 
@@ -194,7 +194,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 ### <a name="steps-to-investigate"></a>Pasos para investigar
 1. Como procedimiento recomendado, asegúrese de usar el patrón siguiente para conectarse al usar al cliente de StackExchange.Redis.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -212,7 +212,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 
     Para más información, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
-1. Asegúrese de que la Caché en Redis de Azure y la aplicación cliente están en la misma región de Azure. Por ejemplo, podría obtener tiempos de espera agotados cuando la memoria caché está en este de EE. UU., pero el cliente está en oeste de EE. UU. y no se completa la solicitud en el intervalo `synctimeout`, o bien podría obtener tiempos de espera agotados cuando realiza la depuración en el equipo de desarrollo local. 
+1. Asegúrese de que Azure Redis Cache y la aplicación cliente están en la misma región de Azure. Por ejemplo, podría obtener tiempos de espera agotados cuando la memoria caché está en este de EE. UU., pero el cliente está en oeste de EE. UU. y no se completa la solicitud en el intervalo `synctimeout`, o bien podría obtener tiempos de espera agotados cuando realiza la depuración en el equipo de desarrollo local. 
    
     Se recomienda encarecidamente que la memoria caché y el cliente estén en la misma región de Azure. Si tiene un escenario que incluye llamadas entre regiones, debe establecer el intervalo `synctimeout` a un valor mayor que el intervalo predeterminado de 1000 ms mediante la inclusión de una propiedad `synctimeout` en la cadena de conexión. En el ejemplo siguiente se muestra un fragmento de cadena de conexión de caché de StackExchange.Redis con un `synctimeout` de 2000 ms.
    
@@ -225,7 +225,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
    * Supervise si la `CPU`[métrica de rendimiento de caché](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) para comprobar si la CPU le está limitando en el servidor. Las solicitudes entrantes mientras Redis está limitado por la CPU pueden provocar que dichas solicitudes agoten el tiempo de espera. Para solucionar este problema, puede distribuir la carga entre varias particiones en una memoria caché premium o actualizar a un tamaño o plan de tarifa mayor. Para más información, consulte [Ancho de banda del lado servidor agotado](#server-side-bandwidth-exceeded).
 5. ¿Hay comandos que tardan mucho tiempo en procesarse en el servidor? Los comandos que tardan mucho tiempo en procesarse en el servidor de Redis pueden hacer que se agote el tiempo de espera. Algunos ejemplos de comandos que tardan mucho en ejecutarse son `mget` con un gran número de claves, `keys *` o scripts de LUA mal escritos. Puede conectarse a la instancia de Azure Redis Cache con el cliente redis-cli o usar la [consola de Redis](cache-configure.md#redis-console) y ejecutar el comando [SlowLog](http://redis.io/commands/slowlog) para ver si hay solicitudes que tardan más de lo esperado. El servidor de Redis y StackExchange.Redis están optimizados para muchas solicitudes pequeñas, en lugar de menos solicitudes de gran tamaño. Dividir los datos en fragmentos menores puede mejorar las cosas aquí. 
    
-    Para información acerca de cómo conectarse al punto de conexión SSL de Caché en Redis de Azure con redis-cli y stunnel, consulte La publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Anuncio de proveedor de estado de sesión ASP.NET para la versión preliminar de Redis). Para más información, consulte [SlowLog](http://redis.io/commands/slowlog).
+    Para información acerca de cómo conectarse al punto de conexión SSL de Azure Redis Cache con redis-cli y stunnel, consulte La publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Anuncio de proveedor de estado de sesión ASP.NET para la versión preliminar de Redis). Para más información, consulte [SlowLog](http://redis.io/commands/slowlog).
 6. Una carga alta del servidor de Redis puede causar tiempos de espera agotados. Puede supervisar la carga del servidor con la `Redis Server Load`[métrica de rendimiento de caché](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Una carga del servidor de 100 (valor máximo) significa que el servidor de redis ha estado ocupado procesando solicitudes, sin tiempo de inactividad. Para ver si ciertas solicitudes ocupan toda la funcionalidad del servidor, ejecute el comando SlowLog, como se describe en el párrafo anterior. Para más información, consulte [Uso elevado de la CPU/carga de servidor](#high-cpu-usage-server-load).
 7. ¿Ha habido cualquier otro evento en el lado cliente que puede haber causado una señalización visual de red? Compruebe en el cliente (web, rol de trabajo o máquina virtual de Iaas) si se ha producido un evento como el escalado vertical o la reducción vertical del número de instancias de cliente, la implementación de una nueva versión del cliente o está habilitado el escalado automático. En nuestras pruebas hemos encontrado que el escalado automático o el escalado vertical o la reducción vertical pueden hacer que se pierda la conectividad de red saliente durante varios segundos. El código de StackExchange.Redis es resistente a dichos eventos y se volverá a conectar. Durante este tiempo de reconexión, las solicitudes en la cola pueden agotar el tiempo de espera.
 8. ¿Ha habido una solicitud grande antes de varias solicitudes pequeñas en la Caché en Redis que agotó el tiempo de espera? El parámetro `qs` en el error mensaje indica cuántas solicitudes se enviaron del cliente al servidor, pero que aún no han procesado una respuesta. Este valor puede seguir creciendo, ya que StackExchange.Redis usa una sola conexión de TCP y solo puede leer una respuesta cada vez. Aunque la primera operación ha agotado el tiempo de espera, no impide que los datos se envíen al o del servidor, y que se bloqueen otras solicitudes hasta que termine, provocando tiempos de espera agotados. Una solución es reducir la posibilidad de tiempos de espera agotados, garantizando que la memoria caché sea lo suficientemente grande para la carga de trabajo y dividiendo los valores grandes en fragmentos menores. Otra posible solución es utilizar un grupo de objetos `ConnectionMultiplexer` en el cliente y elegir el parámetro `ConnectionMultiplexer` con menos carga al enviar una solicitud nueva. Esto debería evitar que un único tiempo de espera haga que otras solicitudes también agoten el tiempo de espera.
@@ -257,5 +257,5 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 * [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 * [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
-* [Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md)
+* [Supervisión de Azure Redis Cache](cache-how-to-monitor.md)
 

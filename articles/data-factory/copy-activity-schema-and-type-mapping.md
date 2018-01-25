@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos desde datos de origen hasta datos receptores al realizar la copia de datos.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 
 ## <a name="column-mapping"></a>Asignación de columnas
@@ -151,17 +151,17 @@ Puede encontrar la asignación entre un tipo nativo y un tipo provisional en la 
 Data Factory admite los siguientes tipos de datos provisionales: puede especificar valores inferiores al proporcionar la información de tipo en la configuración de la [estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure):
 
 * Byte[]
-* Booleano
-* Datetime
+* boolean
+* DateTime
 * Datetimeoffset
-* Decimal
-* Double
+* DECIMAL
+* Doble
 * Guid
 * Int16
 * Int32
 * Int64
 * Single
-* String
+* string
 * TimeSpan
 
 ### <a name="explicit-data-type-conversion"></a>Conversión de tipos de datos explícitos
@@ -186,7 +186,7 @@ En los escenarios siguientes, se sugiere el elemento "structure" en el conjunto 
 * Copia desde almacenes de datos con esquema flexible, como Azure Table/Cosmos DB (conjunto de datos de entrada), para garantizar que los datos esperados (columnas) se copien en lugar de permitir que la actividad de copia interfiera en el esquema en función de las filas superiores durante cada ejecución de la actividad.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)

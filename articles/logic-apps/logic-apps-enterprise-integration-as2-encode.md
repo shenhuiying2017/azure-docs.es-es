@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificación de mensajes AS2 para Azure Logic Apps con Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Esto es lo que necesita:
 
 ## <a name="encode-as2-messages"></a>Codificación de mensajes AS2
 
-1. [Creación de una aplicación lógica](logic-apps-create-a-logic-app.md).
+1. [Crear una aplicación lógica](quickstart-create-first-logic-app-workflow.md).
 
 2. El conector de codificación de mensajes AS2 no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, por ejemplo, un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
@@ -60,7 +60,7 @@ Esto es lo que necesita:
 
 6. Una vez creada la conexión, como se muestra en este ejemplo, proporcione los detalles de los identificadores **AS2-From**, **AS2-To** como esté configurado en el contrato y de **Cuerpo**, que es la carga útil del mensaje.
    
-    ![especificar los campos obligatorios](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
+    ![especificar campos obligatorios](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 
 ## <a name="as2-encoder-details"></a>Detalles de codificador de AS2
 
@@ -78,6 +78,6 @@ Para intentar implementar una aplicación lógica totalmente operativa y conocer
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
 

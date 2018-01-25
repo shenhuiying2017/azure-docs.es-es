@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10e7687448f4401864e06545447ed4c46e5552be
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2d3327bd3f27e9743524590faaec98d36bf6c549
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Copiar datos de Google BigQuery con Azure Data Factory (beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas para el conector Google BigQuery.
 
@@ -45,7 +45,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Google BigQuery:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **GoogleBigQuery** | Sí |
 | proyecto | Identificador del proyecto predeterminado de BigQuery para el que se realizarán consultas.  | Sí |
@@ -108,7 +108,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Google BigQuery, establezca el tipo de origen de la actividad de copia en **GoogleBigQuerySource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **GoogleBigQuerySource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |

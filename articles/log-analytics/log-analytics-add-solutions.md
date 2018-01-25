@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
@@ -54,7 +54,7 @@ Puede instalar las Soluciones de administración de Azure Marketplace, haciendo 
     ![Hoja Supervisión y administración](./media/log-analytics-add-solutions/management-solutions.png)  
 6. En la hoja Solución de administración, revise la información sobre la solución de administración y haga clic en **Crear**.
 7. En la hoja *nombre del área de trabajo*, seleccione el área de trabajo que desea asociar a la solución de administración.
-8. Tiene la opción de cambiar la suscripción de Azure, el grupo de recursos y la ubicación en la configuración del área de trabajo. También puede elegir **Opciones de Automation**. Haga clic en **Crear**.  
+8. Tiene la opción de cambiar la suscripción de Azure, el grupo de recursos y la ubicación en la configuración del área de trabajo. También puede elegir **Opciones de Automation**. Haga clic en **Create**(Crear).  
     ![área de trabajo de solución](./media/log-analytics-add-solutions/solution-workspace.png)  
 9. Para empezar a usar la solución de administración que ha agregado al área de trabajo, vaya a **Log Analytics** > **Suscripciones** > ***nombre del área de trabajo*** > **Información general**. Se muestra un icono nuevo para la solución de administración. Haga clic en el icono para abrirlo y empezar a usar la solución después de recopilar los datos para la solución.
 
@@ -85,11 +85,11 @@ Todas las soluciones de la tabla siguiente están disponibles en Azure Portal y 
 | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Azure SQL Analytics (versión preliminar)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br>Por&nbsp;nodo&nbsp;(OMS)                                                                          | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation|
 | [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
-|[Copia de seguridad](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)                                                                       | Requiere un almacén de Backup clásico.<br> No disponible para agregar desde Azure Portal o Marketplace. |
+|[Backup](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)                                                                       | Requiere un almacén de Backup clásico.<br> No disponible para agregar desde Azure Portal o Marketplace. |
 | [Capacity and Performance (versión preliminar)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Seguimiento de cambios](log-analytics-change-tracking.md)                                       | <ul><li>Automation and Control</li></ul>                                  | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
 | [Contenedores](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
-| [IT Service Management Connector (versión preliminar)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [IT Service Management Connector](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)     | |
 | Supervisión de HDInsight HBase <br>(versión preliminar)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Análisis de Key Vault](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | No disponible para agregar desde Azure Portal o Marketplace. |
@@ -170,15 +170,15 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 | Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | N/D |
-| Seguimiento de cambios |Windows |&#8226; |&#8226; |  |  |&#8226; |cada hora |
-| Seguimiento de cambios |Linux |&#8226; |  |  |  |  |cada hora |
+| Seguimiento de cambios |Windows |&#8226; |&#8226; |  |  |&#8226; |Cada hora |
+| Seguimiento de cambios |Linux |&#8226; |  |  |  |  |Cada hora |
 | Administración de actualizaciones | Windows |&#8226; |&#8226; |  |  |&#8226; |al menos 2 veces al día y 15 minutos después de instalar una actualización |
 
 ### <a name="security--compliance"></a>Seguridad y cumplimiento
 
 | Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Evaluación antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |cada hora |
+| Evaluación antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |Cada hora |
 | Seguridad y auditoría<sup>1</sup> | Windows y Linux | parcial | parcial | parcial |   | parcial | varias |
 
 <sup>1</sup>La solución Seguridad y auditoría puede recopilar registros de agentes de Windows, Operations Manager y Linux. Consulte [Orígenes de datos](#data-sources) para información sobre la recopilación de datos para:
@@ -278,5 +278,5 @@ Invitamos a los clientes a las vistas previas privadas de diversas maneras, depe
 * Puede registrarse conforme a la información publicada en [msopsmgmt](https://twitter.com/msopsmgmt).
 * Puede registrarse basándose en detalles compartidos en eventos comunitarios: búsquenos en encuentros, conferencias y en comunidades en línea.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Busque en los registros](log-analytics-log-searches.md) para ver información detallada recopilada por las soluciones de administración.

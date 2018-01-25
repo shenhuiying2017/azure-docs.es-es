@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 En este artículo se describe cómo supervisar una canalización de una factoría de datos mediante distintos kits de desarrollo de software (SDK). 
@@ -79,7 +79,7 @@ print_activity_run_details(activity_runs_paged[0])
 
 Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de Python de Data Factory](/python/api/overview/azure/datafactory?view=azure-python).
 
-## <a name="rest-api"></a>API de REST
+## <a name="rest-api"></a>API DE REST
 Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante la API de REST, consulte [Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST](quickstart-create-data-factory-rest-api.md).
  
 1. Ejecute el script siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos.
@@ -146,6 +146,6 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 
 Para obtener la documentación completa sobre los cmdlets de PowerShell, consulte la [referencia de los cmdlets de PowerShell de Data Factory](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos. 
 

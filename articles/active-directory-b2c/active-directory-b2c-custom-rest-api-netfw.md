@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 El marco de experiencia de identidad, que subyace a Azure Active Directory B2C (Azure AD B2C), le permite realizar la integración con una API RESTful en un recorrido del usuario. En este tutorial, aprenderá de qué forma Azure AD B2C con los servicios REST de .NET Framework (API web).
@@ -53,7 +53,7 @@ Información general:
 * Devolución de un número de fidelidad. 
 * Incorporación del número de fidelidad a JSON Web Token (JWT).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Paso 1: Creación de ASP.NET Web API
@@ -88,7 +88,7 @@ Cree un modelo que represente las notificaciones de entrada, para lo que debe se
 
 3. Asigne a la clase el nombre `InputClaimsModel` y, después, agregue las siguientes propiedades a la clase `InputClaimsModel`:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Cree un modelo que represente las notificaciones de entrada, para lo que debe se
 
 4. Cree un nuevo modelo, `OutputClaimsModel`, y agregue las siguientes propiedades a la clase `OutputClaimsModel`:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Cree un modelo que represente las notificaciones de entrada, para lo que debe se
 
 5. Cree un modelo más, `B2CResponseContent`, que se usa para generar mensajes de error de la validación de los datos de entrada. Agregue las siguientes propiedades a la clase `B2CResponseContent`, proporcione las referencias que faltan y guarde el archivo:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ En la API web, un _controlador_ es un objeto que controla las solicitudes HTTP. 
 
 4. Si el archivo *IdentityController.cs* no está abierto, haga doble clic en él y reemplace el código por el siguiente:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -382,6 +382,6 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 * Una vez completado el tutorial [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), le recomendamos que compile su escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw) para que los tenga como referencia.
 * El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Protección de las API de RESTful con autenticación básica [nombre de usuario y contraseña])
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md) (Protección de las API de RESTful con certificados de cliente)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conexión a Dynamics 365 desde flujos de trabajo de aplicación lógica
 
@@ -30,7 +30,7 @@ Con Logic Apps puede conectarse a Dynamics 365 (en línea) y crear flujos de neg
 
 En este tema se muestra cómo crear una aplicación lógica que crea una tarea en Dynamics 365 cada vez que se crea un nuevo cliente potencial en Dynamics 365.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una cuenta de Azure.
 * Una cuenta de Dynamics 365 (en línea).
 
@@ -113,7 +113,7 @@ Por ejemplo, puede usar una consulta de filtro para recuperar solo cuentas activ
 
 Cuando agregue un valor a un campo, el tipo de campo tiene que coincidir, tanto si escribe el valor como si lo selecciona de la lista de contenido dinámica.
 
-Tipo de campo  |Modo de uso  |Dónde encontrarlo  |Nombre  |Tipo de datos  
+Tipo de campo  |Modo de uso  |Dónde encontrarlo  |NOMBRE  |Tipo de datos  
 ---------|---------|---------|---------|---------
 Campos de texto|Los campos de texto requieren una sola línea de texto o contenido dinámico que sea un campo de tipo texto. Algunos ejemplos son los campos de categoría y subcategoría.|Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |categoría |Línea de texto única        
 Campos numéricos enteros | Algunos campos requieren un número entero o un contenido dinámico que sea un campo de tipo numérico entero. Algunos ejemplos son Porcentaje completado y Duración. |Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |percentcomplete |Número entero         
@@ -147,7 +147,7 @@ O bien, en la barra de herramientas de acciones, haga clic en **ENVIAR UN VÍNCU
 
    ![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid.png)
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Para solucionar problemas de un paso con errores en una aplicación de lógica, vea los detalles de estado del evento.
 
 1. En **Logic Apps**, seleccione la aplicación lógica y haga clic en **Información general**. 
@@ -170,5 +170,5 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/crm/). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).

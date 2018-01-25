@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copia de datos desde el punto de conexión HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **HttpServer**. | Sí |
 | URL | Dirección URL base para el servidor web | Sí |
@@ -63,7 +63,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
 Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **Windows** y especifique las siguientes propiedades junto con las genéricas descritas en la sección anterior:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | userName | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
 | contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString. | Sí |
@@ -96,7 +96,7 @@ Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **
 
 Para usar la autenticación ClientCertificate, establezca la propiedad "authenticationType" en **ClientCertificate** y especifique las siguientes propiedades junto con las genéricas descritas en la sección anterior:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | embeddedCertData | Datos del certificado codificados en Base64. | Especifique `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | La huella digital del certificado que se instaló en el almacén de certificados de la máquina Integration Runtime (autohospedado). Solo se aplica cuando se especifica un tipo autohospedado de un entorno Integration Runtime en connectVia. | Especifique `embeddedCertData` o `certThumbprint`. |
@@ -159,7 +159,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HTTP, establezca la propiedad type del conjunto de datos en **HttpFile**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **HttpFile**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, se solo se usa la dirección URL especificada en la definición de servicio vinculado. | Sin  |
@@ -216,7 +216,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HTTP, establezca el tipo de origen de la actividad de copia en **HttpSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
 | httpRequestTimeout | El tiempo que la solicitud HTTP espera (TimeSpan) a obtener una respuesta. Es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta.<br/> El valor predeterminado es: 00:01:40.  | Sin  |

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: danis
-ms.openlocfilehash: f3e4ab075f7cd75bac2d66f0391227c0de6e11a0
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3be001c2ad63c5872af4740f136438034e1e406b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 
-El agente de máquina virtual de Microsoft Azure (agente AM) es un proceso ligero y seguro que administra la interacción de VM con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de VM habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de VM de Azure, no se pueden ejecutar las extensiones de máquina virtual.
+El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de VM con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de VM habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de VM de Azure, no se pueden ejecutar las extensiones de máquina virtual.
 
 En este documento se describe la instalación, detección y eliminación del agente de máquina virtual de Azure.
 

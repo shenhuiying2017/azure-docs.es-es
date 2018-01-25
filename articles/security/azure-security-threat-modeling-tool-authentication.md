@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | SQL Azure |
 | **Atributos**              | Versión de SQL: V12 |
-| **Referencias**              | [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
+| **Referencias**              | [Conexión a SQL Database mediante autenticación de Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
 | **Pasos** | **Versión mínima**: se requiere Azure SQL Database V12 para que Azure SQL Database pueda usar la autenticación de AAD en el directorio de Microsoft. |
 
 ## <a id="authn-account-pword"></a>Cuando se use el modo de autenticación de SQL, asegurarse de que se apliquen directivas de cuenta y contraseña en SQL Server
@@ -374,7 +374,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Pasos** | <p>La propiedad TokenReplayCache permite a los desarrolladores definir una caché de reproducción de tokens, un almacén que se puede usar para guardar tokens con el fin de comprobar que ningún token se pueda usar más de una vez.</p><p>Esta es una medida contra un ataque habitual, el llamado acertadamente ataque de reproducción de tokens: un atacante que intercepta el token enviado al inicio de sesión podría enviarlo de nuevo a la aplicación ("reproducirlo") para establecer una nueva sesión. Por ejemplo, en el flujo de concesión de código de OIDC, tras la autenticación correcta del usuario, se realiza una solicitud al punto de conexión "/signin-oidc" del usuario de confianza con los parámetros "id_token", "code" y "state".</p><p>El usuario de confianza valida esta solicitud y establece una nueva sesión. Si un adversario captura esta solicitud y la reproduce, podría establecer correctamente una sesión y suplantar al usuario. La presencia del valor de seguridad nonce de OpenID Connect puede limitar, pero no eliminar totalmente, las circunstancias en las que el ataque se puede aprobar correctamente. Para proteger sus aplicaciones, los desarrolladores pueden proporcionar una implementación de ITokenReplayCache y asignar una instancia a TokenReplayCache.</p>|
 
 ### <a name="example"></a>Ejemplo
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>Ejemplo
 Este es un ejemplo de implementación de la interfaz ITokenReplayCache. (Personalice e implemente el marco de almacenamiento en caché específico del proyecto).
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 Se debe hacer referencia a la caché implementada en las opciones de OIDC mediante la propiedad "TokenValidationParameters", como se indica a continuación.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -457,7 +457,7 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 | **Pasos** | <ul><li>**Genérico**: autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, OAuth</li><li>**C#**: al crear una instancia de DeviceClient, el método Create crea de forma predeterminada una instancia de DeviceClient que usa el protocolo AMQP para comunicarse con IoT Hub. Para usar el protocolo HTTPS, utilice la invalidación del método Create que permite especificar el protocolo. Si usa el protocolo HTTPS, también debe agregar el paquete NuGet `Microsoft.AspNet.WebApi.Client` al proyecto para incluir el espacio de nombres `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";

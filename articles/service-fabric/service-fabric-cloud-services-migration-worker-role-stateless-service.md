@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -40,7 +40,7 @@ Igual que el rol de trabajo, un rol web también representa una carga de trabajo
 
 | **Aplicación** | **Compatible** | **Ruta de migración** |
 | --- | --- | --- |
-| Formularios Web Forms ASP.NET |No |Conversión a ASP.NET Core 1 MVC |
+| Formularios Web Forms ASP.NET |Sin  |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
 | ASP.NET Web API |Con migración |Uso de servidor autohospedado o ASP.NET Core 1 |
 | ASP.NET Core 1 |Sí |N/D |
@@ -56,7 +56,7 @@ Las API de rol de trabajo y las de los servicios de Service Fabric ofrecen punto
 | Apertura del agente de escucha para las solicitudes de cliente |N/D |<ul><li> `CreateServiceInstanceListener()` para sin estado</li><li>`CreateServiceReplicaListener()` para con estado</li></ul> |
 
 ### <a name="worker-role"></a>Rol de trabajo
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Servicio sin estado de Service Fabric
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Cada uno de estos paquetes puede tener versiones y actualizaciones independiente
 #### <a name="cloud-services"></a>Cloud Services
 Se puede acceder a los valores de configuración de Serviceconfiguration.*.cscfg a través de `RoleEnvironment`. Estas opciones están disponibles globalmente para todas las instancias de rol en la misma implementación del Servicio en la nube.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Cada servicio tiene su propio paquete de configuración individual. No hay ning�
 
 Se puede acceder a los valores de configuración de cada instancia de servicio a través de `CodePackageActivationContext`del servicio.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 El evento `RoleEnvironment.Changed` se utiliza para notificar a todas las instancias de rol cuando se produce un cambio en el entorno, como un cambio de configuración. Esto se usa para consumir las actualizaciones de configuración sin reciclar las instancias de rol ni reiniciar un proceso de trabajo.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Cada uno de los tres tipos de paquete de un servicio, Código, Config y Datos, t
 
 Estos eventos están disponibles para consumir los cambios en los paquetes de servicio sin necesidad de reiniciar la instancia de servicio.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -251,7 +251,7 @@ En Service Fabric se configura un punto de entrada de inicio por servicio en Ser
 ## <a name="a-note-about-development-environment"></a>Nota acerca de un entorno de desarrollo
 Cloud Services y Service Fabric se integran con Visual Studio mediante plantillas de proyecto y soporte para depuración, configuración e implementación tanto local como en Azure. Cloud Services y Service Fabric también proporcionan un entorno de desarrollo local en tiempo de ejecución. La diferencia es que mientras que el tiempo de ejecución de desarrollo del Servicio en la nube emula el entorno de Azure en el que se ejecuta, Service Fabric no utiliza un emulador, sino que usa el tiempo de ejecución de Service Fabric completo. El entorno de Service Fabric que ejecuta en el equipo de desarrollo local es el mismo entorno que se ejecuta en producción.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Conozca más información sobre Reliable Services de Service Fabric y las diferencias fundamentales entre Cloud Services y la arquitectura de la aplicación de Service Fabric para aprender a aprovechar el conjunto completo de características de Service Fabric.
 
 * [Introducción a Reliable Services de Service Fabric](service-fabric-reliable-services-quick-start.md)

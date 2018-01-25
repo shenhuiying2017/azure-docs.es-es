@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Ejecución de Azure Functions con trabajos de Azure Stream Analytics 
- 
-> [!IMPORTANT]
-> Esta funcionalidad está en versión preliminar.
 
 Puede ejecutar Azure Functions con Azure Stream Analytics al configurar Functions como uno de los receptores de salida para el trabajo de Stream Analytics. Functions es una experiencia de procesos a petición orientada a eventos que permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o en servicios de terceros. Esta capacidad que tiene Functions para responder a los desencadenadores hace que sea una salida natural para los trabajos de Stream Analytics.
 
@@ -62,7 +59,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 2. Vaya a la función **run.csx**. Actualícela con el código siguiente. (Asegúrese de reemplazar "\<su cadena de conexión de redis cache va aquí\>" por la cadena de conexión principal de Azure Redis Cache que recuperó en la sección anterior).  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +110,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
    Cuando Stream Analytics recibe una excepción "La entidad de solicitud HTTP es demasiado grande" de una función, disminuye el tamaño de los lotes que envía a Azure Functions. En la función, utilice el código siguiente para comprobar que Stream Analytics no envía lotes demasiado grandes. Asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se ingresan en el portal de Stream Analytics.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

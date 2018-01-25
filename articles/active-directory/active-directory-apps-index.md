@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
@@ -135,7 +135,7 @@ Automatice la creación, el mantenimiento y la eliminación de identidades de us
 | Guía de artículos |  |
 |:---:| --- |
 | Información acerca de su funcionamientos y respuestas a preguntas comunes |[Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md) |
-| Configuración de cómo se asigna información entre Azure AD y una aplicación SaaS |[Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Configuración de cómo se asigna información entre Azure AD y una aplicación SaaS |[Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Habilitación del aprovisionamiento automático en todas las aplicaciones que admitan el protocolo SCIM |[Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md) |
 | Cómo notificar y solucionar problemas de aprovisionamiento de usuarios |[Notificación del aprovisionamiento automático de usuarios](active-directory-saas-provisioning-reporting.md)<br><br>[Aprovisionamiento de notificaciones](active-directory-saas-account-provisioning-notifications.md)<br><br>[Solución de problemas con aprovisionamiento de usuarios](active-directory-application-provisioning-content-map.md) |
 | Limitación de quiénes se aprovisionan en una aplicación en función de los valores de sus atributos |[Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](active-directory-saas-scoping-filters.md) |

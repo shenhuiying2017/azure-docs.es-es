@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Introducción al conector de webhook
 
@@ -79,7 +79,7 @@ A continuación encontrará más detalles sobre los desencadenadores y las accio
 
 ## <a name="webhook-triggers"></a>Desencadenadores de webhook
 
-| Acción | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | Webhook HTTP |Suscribe una URL de devolución de llamada a un servicio que puede llamar a la URL para activar la aplicación de lógica según sea necesario. |
 
@@ -90,7 +90,7 @@ A continuación encontrará más detalles sobre los desencadenadores y las accio
 Suscribe una URL de devolución de llamada a un servicio que puede llamar a la URL para activar la aplicación de lógica según sea necesario.
 Un asterisco (*) indica un campo obligatorio.
 
-| Display Name (Nombre para mostrar) | Nombre de propiedad | Descripción |
+| Display Name (Nombre para mostrar) | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Método de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de suscripción. |
 | URI de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de suscripción. |
@@ -98,8 +98,8 @@ Un asterisco (*) indica un campo obligatorio.
 | URI de cancelación de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | Cuerpo de suscripción |body |Cuerpo de la solicitud HTTP para realizar la suscripción. |
 | Encabezados de suscripción |encabezados |Encabezados de la solicitud HTTP para realizar la suscripción. |
-| Autenticación de suscripción |authentication |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
-| Cuerpo de cancelación de suscripción |body |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
+| Autenticación de suscripción |Autenticación |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
+| Cuerpo de cancelación de suscripción |Cuerpo |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
 | Encabezados de cancelación de suscripción |encabezados |Encabezados de la solicitud HTTP para cancelar la suscripción. |
 | Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 
@@ -107,15 +107,15 @@ Un asterisco (*) indica un campo obligatorio.
 
 Solicitud de webhook
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | encabezados |objeto |Encabezados de la solicitud de webhook |
-| body |objeto |Objeto de la solicitud de webhook |
+| Cuerpo |objeto |Objeto de la solicitud de webhook |
 | Código de estado |int |Código de estado de la solicitud de webhook |
 
 ## <a name="webhook-actions"></a>Acciones de webhook
 
-| Acción | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | Webhook HTTP |Suscribe una URL de devolución de llamada a un servicio que puede llamar a la URL para reanudar un paso de flujo de trabajo según sea necesario. |
 
@@ -126,7 +126,7 @@ Solicitud de webhook
 Suscribe una URL de devolución de llamada a un servicio que puede llamar a la URL para reanudar un paso de flujo de trabajo según sea necesario.
 Un asterisco (*) indica un campo obligatorio.
 
-| Display Name (Nombre para mostrar) | Nombre de propiedad | Descripción |
+| Display Name (Nombre para mostrar) | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Método de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de suscripción. |
 | URI de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de suscripción. |
@@ -134,8 +134,8 @@ Un asterisco (*) indica un campo obligatorio.
 | URI de cancelación de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | Cuerpo de suscripción |body |Cuerpo de la solicitud HTTP para realizar la suscripción. |
 | Encabezados de suscripción |encabezados |Encabezados de la solicitud HTTP para realizar la suscripción. |
-| Autenticación de suscripción |authentication |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
-| Cuerpo de cancelación de suscripción |body |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
+| Autenticación de suscripción |Autenticación |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
+| Cuerpo de cancelación de suscripción |Cuerpo |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
 | Encabezados de cancelación de suscripción |encabezados |Encabezados de la solicitud HTTP para cancelar la suscripción. |
 | Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 
@@ -143,13 +143,13 @@ Un asterisco (*) indica un campo obligatorio.
 
 Solicitud de webhook
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | encabezados |objeto |Encabezados de la solicitud de webhook |
-| body |objeto |Objeto de la solicitud de webhook |
+| Cuerpo |objeto |Objeto de la solicitud de webhook |
 | Código de estado |int |Código de estado de la solicitud de webhook |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Buscar otros conectores](apis-list.md)

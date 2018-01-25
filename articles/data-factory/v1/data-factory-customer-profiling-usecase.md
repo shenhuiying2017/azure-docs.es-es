@@ -1,6 +1,6 @@
 ---
 title: "Caso de uso - Generación de perfiles de clientes"
-description: "Obtenga información sobre cómo se usa Factoría de datos de Azure para crear un flujo de trabajo orientado a datos (canalización) para generar perfiles de clientes de juegos."
+description: "Obtenga información sobre cómo se usa Azure Data Factory para crear un flujo de trabajo orientado a datos (canalización) para generar perfiles de clientes de juegos."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,27 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Generación de perfiles de clientes
-Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Factoría de datos de Azure puede resolver los problemas comunes de análisis.
+Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
 
 ## <a name="scenario"></a>Escenario
 Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. A medida que los usuarios juegan a estos juegos, se generan grandes volúmenes de datos de registro que realizan el seguimiento de los patrones de uso, estilo de juegos y preferencias del usuario.  Cuando se combinan con datos demográficos, regionales y de productos, Contoso realiza análisis para guiar a los usuarios sobre cómo mejorar su experiencia y orientarles sobre actualizaciones y compras en el juego. 
 
 El objetivo de Contoso es identificar oportunidades de aumento de ventas potenciales y ventas cruzadas basadas en el historial de juegos de sus usuarios y agregar características atractivas para impulsar el crecimiento del negocio y ofrecer una mejor experiencia a los clientes. Para este caso de uso, usamos una empresa de juegos como ejemplo de empresa. La empresa desea optimizar sus juegos según el comportamiento de los jugadores. Estos principios se aplican a cualquier empresa que desee atraer a sus clientes hacia sus productos y servicios y mejorar la experiencia de estos.
 
-En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en una base de datos SQL de Azure para analizar el impacto de la campaña.
+En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en Azure SQL Database para analizar el impacto de la campaña.
 
 ## <a name="deploy-solution"></a>Implementación de la solución
-Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de almacenamiento de Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) y una [base de datos SQL de Azure](../../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
+Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de Azure Blob Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) y [Azure SQL Database](../../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
 
 1. Cree una factoría de datos o abra una. Vea [Copia de datos de Blob Storage a SQL Database con Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener los pasos para crear una factoría de datos.
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
@@ -54,7 +54,7 @@ Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una 
     ![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="solution-overview"></a>Información general de la solución
-Este caso de uso sencillo puede usarse como un ejemplo de cómo puede usar Factoría de datos de Azure para recopilar, preparar, transformar, analizar y publicar datos.
+Este caso de uso sencillo puede usarse como un ejemplo de cómo puede usar Azure Data Factory para recopilar, preparar, transformar, analizar y publicar datos.
 
 ![Flujo de trabajo de un extremo a otro](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 

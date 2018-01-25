@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: c1fbb6864629874ef116cdf81d48df4a9ed5af1f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-map-reduce.md)
-> * [Versión 2: Versión preliminar](transform-data-using-hadoop-map-reduce.md)
+> * [Versión 2: versión preliminar](transform-data-using-hadoop-map-reduce.md)
 
 
 La actividad MapReduce de HDInsight en una [canalización](concepts-pipelines-activities.md) de Data Factory invoca el programa MapReduce en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
@@ -66,19 +66,19 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using
 
 ## <a name="syntax-details"></a>Detalles de la sintaxis
 
-| Propiedad          | Descripción                              | Obligatorio |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nombre de la actividad                     | Sí      |
-| Descripción       | Texto que describe para qué se usa la actividad. | No       |
-| type              | Para la actividad MapReduce, el tipo de actividad es HDinsightMapReduce. | Sí      |
+| Nombre              | Nombre de la actividad                     | Sí      |
+| Descripción       | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo              | Para la actividad MapReduce, el tipo de actividad es HDinsightMapReduce. | Sí      |
 | linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | className         | Nombre de la clase que se va a ejecutar         | Sí      |
-| jarLinkedService  | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los archivos Jar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
+| jarLinkedService  | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los archivos Jar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | Sin        |
 | jarFilePath       | Proporcione la ruta de acceso a los archivos Jar almacenados en el almacenamiento de Azure Storage al que hace referencia jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
-| jarlibs           | Matriz de cadenas de la ruta de acceso a los archivos de la biblioteca Jar a la que hace referencia el trabajo almacenado en el almacenamiento de Azure Storage definido en jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | No       |
-| getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por jarLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No       |
-| argumentos         | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | No       |
-| define los campos           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | No       |
+| jarlibs           | Matriz de cadenas de la ruta de acceso a los archivos de la biblioteca Jar a la que hace referencia el trabajo almacenado en el almacenamiento de Azure Storage definido en jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sin        |
+| getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por jarLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | Sin        |
+| argumentos         | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | Sin        |
+| define los campos           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | Sin        |
 
 
 
@@ -118,7 +118,7 @@ Puede usar la actividad MapReduce de HDInsight para ejecutar cualquier archivo j
 ```
 Puede especificar los argumentos para el programa MapReduce en la sección **arguments**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

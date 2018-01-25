@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Introducción al conector de Office 365 Outlook
 El conector de Office 365 Outlook permite la interacción con Outlook en Office 365. Utilice este conector para crear, editar y actualizar elementos de calendario y contactos, y también recibir, enviar y responder al correo electrónico.
@@ -33,11 +33,11 @@ Con Office 365 Outlook:
 En este tema se muestra cómo usar el conector de Office 365 Outlook en una aplicación lógica, y se enumeran los desencadenadores y las acciones.
 
 > [!NOTE]
-> Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
+> Esta versión del artículo se aplica a la disponibilidad general de Logic Apps.
 > 
 > 
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-what-are-logic-apps.md) y [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-overview.md) y [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Conectarse a Office 365
 Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a Office 365 Outlook, primero necesita una *conexión* de Office 365. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que desea conectarse. Por lo tanto, para crear la conexión con Office 365 Outlook, escriba las credenciales de la cuenta de Office 365.
@@ -48,7 +48,7 @@ Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree pri
 > 
 
 ## <a name="use-a-trigger"></a>Uso de un desencadenador
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. En la aplicación lógica, escriba "office 365" para obtener una lista de los desencadenadores:  
    
@@ -69,7 +69,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 4. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 
 ## <a name="use-an-action"></a>Uso de una acción
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
    
@@ -95,5 +95,5 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+[Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 

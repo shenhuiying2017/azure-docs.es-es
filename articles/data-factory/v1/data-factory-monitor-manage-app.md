@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Description</th>
+    <th align="left">Status</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
 </tr>
 <tr>
     <td rowspan="8">En espera</td><td>ScheduleTime</td><td>Aún no es momento de ejecutar la ventana de actividad.</td>
@@ -322,14 +322,14 @@ En la lista de alertas, use los botones asociados con la alerta para editarla, e
 ### <a name="eventstatussubstatus"></a>Evento/estado/subestado
 En la tabla siguiente se ofrece una lista de los eventos y los estados (y subestados) disponibles.
 
-| Nombre del evento | Estado | Subestado |
+| Nombre del evento | Status | Subestado |
 | --- | --- | --- |
 | Ejecución de actividad iniciada |Started |Iniciando |
-| Ejecución de actividad finalizada |Correcto |Correcto |
+| Ejecución de actividad finalizada |Succeeded |Succeeded |
 | Ejecución de actividad finalizada |Con error |Asignación de recursos errónea<br/><br/>Ejecución con errores<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
 | Creación de clúster de HDI a petición iniciada |Started |-|
-| Creación correcta de clúster de HDI a petición |Correcto |-|
-| Clúster de HDI a petición eliminado |Correcto |-|
+| Creación correcta de clúster de HDI a petición |Succeeded |-|
+| Clúster de HDI a petición eliminado |Succeeded |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Edición, eliminación o deshabilitación de alertas
 

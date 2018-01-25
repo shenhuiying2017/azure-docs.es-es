@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4618f7cd702a1cfefafe80eff35a0753e04a50c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ed3558fd4ca0022389091edad9caa7686a5116a0
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
 Microsoft Azure AD proporciona soporte para el aprovisionamiento de usuarios para aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si dispone de aprovisionamiento de usuarios para una aplicación SaaS de terceros habilitada, el Portal de administración de Azure controla sus valores de atributo en forma de una configuración denominada "asignación de atributos".
@@ -77,7 +77,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
 
 Microsoft Azure AD proporciona una implementación eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización. Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados. Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
@@ -57,7 +57,7 @@ Una entidad de servicio se puede crear con los pasos siguientes:
 
 Se puede iniciar sesión en la biblioteca de proceso fluida puede con estas credenciales de la siguiente forma (tenga en cuenta que los tipos de Azure fluidos principales como `IAzure` se encuentran en el paquete [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Una vez iniciada la sesión, el recuento de instancias de conjunto de escalado s
 ## <a name="scaling-out"></a>Escalado horizontal
 Con SDK de proceso fluido de Azure, se pueden agregar instancias al conjunto de escalado de máquinas virtuales con unas pocas llamadas.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Reducir horizontalmente es similar a escalar horizontalmente. Los cambios reales
 
 Preparar el nodo para el apagado implica buscar el nodo que se va a eliminar (el nodo agregado más recientemente) y desactivarlo. Para nodos que no sean de raíz, se pueden encontrar nodos más recientes mediante la comparación de `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Los nodos raíz son distintos y no siguen siempre la convención de que se quite
 
 Cuando se encuentre el nodo que se va a quitar, puede desactivarse y eliminarse utilizando la misma instancia `FabricClient` y la `IAzure` que se usó anteriormente.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Como con el escalado, los cmdlets de PowerShell para la capacidad de modificación del conjunto de escalado de máquinas virtuales pueden usarse aquí si es preferible un enfoque de scripting. Una vez que se ha eliminado la instancia de máquina virtual, se puede quitar el estado del nodo de Service Fabric.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
@@ -144,7 +144,7 @@ Como se muestra en los fragmentos de código anterior, crear su propio servicio 
 
 La forma en la que debe enfocar el escalado de Service Fabric depende de su escenario. Si el escalado no es común, la capacidad de agregar o quitar nodos de forma manual es probablemente suficiente. Para escenarios más complejos, las reglas de escalado automático y los SDK con la capacidad de escalar mediante programación ofrecen unas eficaces alternativas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para empezar a implementar su propia lógica de escalado automático, familiarícese con los siguientes conceptos y API útiles:
 

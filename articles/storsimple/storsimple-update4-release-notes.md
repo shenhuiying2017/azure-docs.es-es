@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 4
 > [!NOTE]
-> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, vea las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Información general
@@ -59,7 +59,7 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 4
 
 * **Actualización de cambios**: en esta versión, se han corregido los errores relacionados con la actualización.
 
-* **Alerta de errores en el disco**. En esta versión, se agregó una alerta nueva que advierte al usuario cuando existen errores latentes en el disco. Si se produce esta alerta, póngase en contacto con el soporte técnico de Microsoft para enviar un disco de sustitución. Para obtener más información, lea el tema sobre [alertas de hardware del dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Alerta de errores en el disco**. En esta versión, se agregó una alerta nueva que advierte al usuario cuando existen errores latentes en el disco. Si se produce esta alerta, póngase en contacto con el soporte técnico de Microsoft para enviar un disco de sustitución. Para obtener más información, lea el tema sobre [alertas de hardware del dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Cambios en el reemplazo del controlador**. En esta versión, se agregó un cmdlet que permite que el usuario consulte el estado del proceso de reemplazo del controlador. Para más información, vaya al [cmdlet para consultar el estado del reemplazo del controlador](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -68,10 +68,10 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 4
 
 En las tablas siguientes se proporciona un resumen de los problemas corregidos en Update 4.    
 
-| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Sin  | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Conmutación por error |En la versión anterior, después de la conmutación por error, existía un error relacionado con la limpieza que se observaba en el sitio del cliente. Este problema está corregido en esta versión. |Sí |Sí |
-| 2 |Volúmenes anclados localmente |En la versión anterior, se producía un error relacionado con la creación de los volúmenes anclados localmente que podía generar errores al crear los volúmenes. La causa raíz de este problema se corrigió en esta versión. |Sí |No |
+| 2 |Volúmenes anclados localmente |En la versión anterior, se producía un error relacionado con la creación de los volúmenes anclados localmente que podía generar errores al crear los volúmenes. La causa raíz de este problema se corrigió en esta versión. |Sí |Sin  |
 | 3 |Paquete de soporte |En la versión anterior, existían problemas relacionados con el paquete de soporte que podían generar una excepción System.OutOfMemory u otros errores que podían impedir la creación del paquete de soporte. Estos errores se corrigieron en esta versión. |Sí |Sí |
 | 4 |Supervisión |En la versión anterior, existía un problema relacionado con la supervisión de gráficos para los volúmenes anclados localmente, donde el consumo se mostraba en EB. Este error se solucionó en esta versión. |Sí |Sí |
 | 5 |Migración |En la versión anterior, había varios problemas relacionados con la confiabilidad de la migración desde dispositivos de las series 5000 a 7000 a los dispositivos de la serie 8000. Estos problemas se solucionaron en esta versión. |Sí |Sí |

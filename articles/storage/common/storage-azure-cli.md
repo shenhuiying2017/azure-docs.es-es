@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 34780001afb309a2986cc21dae948d9d94f1a63f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
@@ -30,7 +30,7 @@ Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de l
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En esta guía se supone que conoce los conceptos básicos de Azure Storage. También se da por sentado que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y el servicio Almacenamiento.
 
 ### <a name="accounts"></a>Cuentas
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Establecimiento variables de entorno para una cuenta de almacenamiento de Azure predeterminada
-Puede tener varias cuentas de almacenamiento en su suscripción a Azure. Para seleccionar una con la que usar todos los comandos de almacenamiento subsiguientes, puede establecer estas variables de entorno:
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -239,7 +240,7 @@ Puede establecer uno de los tres niveles de acceso de lectura para un nuevo cont
 * `blob`: acceso de lectura público solo para blobs.
 * `container`: acceso de lectura y lista públicos para todo el contenedor.
 
-Para obtener más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
+Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
 
 ### <a name="upload-a-blob-to-a-container"></a>Carga de un blob en un contenedor
 Azure Blob Storage admite blobs de bloque, anexados y en páginas. Puede cargar blobs en un contenedor con el comando `blob upload`:
@@ -509,7 +510,7 @@ Salida de ejemplo
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Estos son algunos recursos adicionales para obtener más información acerca de cómo trabajar con la CLI de Azure 2.0.
 
 * [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

@@ -3,9 +3,9 @@ title: "Azure Disk Encryption para máquinas virtuales IaaS con Linux y Windows|
 description: "En este artículo se ofrece información general de Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux."
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
-ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.

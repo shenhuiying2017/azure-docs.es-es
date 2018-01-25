@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Conexión a sistemas de archivos locales desde las aplicaciones lógicas con el conector de sistema de archivos
 
 Para administrar datos y acceder de forma segura a recursos locales, las aplicaciones lógicas pueden utilizar la puerta de enlace de datos local. En este artículo se muestra cómo conectar a un sistema de archivos local a través de un escenario de ejemplo básico: copiar un archivo que se carga en Dropbox a un recurso compartido de archivos y, después, enviar un correo electrónico.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Descargue la [puerta de enlace de datos local](https://www.microsoft.com/download/details.aspx?id=53127) más reciente.
 
 * Instale y configure la puerta de enlace de datos local más reciente, versión 1.15.6150.1 o superior. Para conocer los pasos, consulte [Obtener acceso a orígenes de datos locales desde aplicaciones lógicas con la puerta de enlace de datos local](http://aka.ms/logicapps-gateway). La puerta de enlace se debe instalar en una máquina local para poder continuar con estos pasos.
 
-* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/logic-apps-create-a-logic-app.md)
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Incorporación de desencadenadores y acciones para conectarse al sistema de archivos
 
@@ -48,7 +48,7 @@ Para administrar datos y acceder de forma segura a recursos locales, las aplicac
 
    ![Configuración de la conexión](media/logic-apps-using-file-connector/create-file.png)
 
-   | Configuración | Descripción |
+   | Configuración | DESCRIPCIÓN |
    | ------- | ----------- |
    | **Carpeta raíz** | Especifique la carpeta raíz del sistema de archivos. Puede especificar una carpeta local en la máquina en la que está instalada la puerta de enlace de datos local; o bien, la carpeta puede ser un recurso compartido de red al que tiene acceso la máquina. <p>**Sugerencia**: La carpeta raíz es la carpeta primaria principal y se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
    | **Tipo de autenticación** | El tipo de autenticación que usa el sistema de archivos | 
@@ -85,7 +85,7 @@ Intente explorar otras funcionalidades ofrecidas por el conector, por ejemplo:
 - Eliminar archivo
 - Obtener contenido de archivo
 - Obtener contenido de archivo mediante la ruta de acceso
-- Obtener metadatos de archivo
+- Obtención de metadatos de archivo
 - Obtener metadatos de archivo mediante la ruta de acceso
 - Enumerar archivos de la carpeta raíz
 - Actualizar archivo
@@ -100,7 +100,7 @@ Vea los [detalles de Swagger](/connectors/fileconnector/).
 
 * Para ayudar a mejorar Azure Logic Apps y los conectores, vote o envíe ideas en el [sitio de UserVoice de Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Conexión a datos locales](../logic-apps/logic-apps-gateway-connection.md) 
 * [Supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)

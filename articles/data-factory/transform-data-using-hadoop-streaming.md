@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-hadoop-streaming-activity.md)
-> * [Versión 2: Versión preliminar](transform-data-using-hadoop-streaming.md)
+> * [Versión 2: versión preliminar](transform-data-using-hadoop-streaming.md)
 
 La actividad de HDInsight Streaming en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta programas de Hadoop Streaming en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
@@ -72,24 +72,24 @@ Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Dat
 
 ## <a name="syntax-details"></a>Detalles de la sintaxis
 
-| Propiedad          | Descripción                              | Obligatorio |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nombre de la actividad                     | Sí      |
-| Descripción       | Texto que describe para qué se usa la actividad. | No       |
-| type              | En Hadoop Streaming Activity, el tipo de actividad es HDInsightStreaming | Sí      |
+| Nombre              | Nombre de la actividad                     | Sí      |
+| Descripción       | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo              | En Hadoop Streaming Activity, el tipo de actividad es HDInsightStreaming | Sí      |
 | linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | mapper            | Especifica el nombre del archivo ejecutable del asignador | Sí      |
 | reducer           | Especifica el nombre del archivo ejecutable del reductor | Sí      |
-| combiner          | Especifica el nombre del archivo ejecutable del combinador | No       |
-| fileLinkedService | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los programas Asignador, Combinador y Reductor que se van a ejecutar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
+| combiner          | Especifica el nombre del archivo ejecutable del combinador | Sin        |
+| fileLinkedService | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los programas Asignador, Combinador y Reductor que se van a ejecutar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | Sin        |
 | filePath          | Proporcione una matriz de ruta de acceso a los programas Asignador, Combinador y Reductor almacenados en el almacenamiento de Azure Storage al que fileLinkedService hace referencia. La ruta de acceso distingue mayúsculas de minúsculas. | Sí      |
 | input             | Especifica la ruta de acceso de WASB al archivo de entrada para el asignador. | Sí      |
 | output            | Especifica la ruta de acceso de WASB al archivo de salida para el reductor. | Sí      |
-| getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por scriptLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No       |
-| argumentos         | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | No       |
-| define los campos           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | No       | 
+| getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por scriptLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | Sin        |
+| argumentos         | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | Sin        |
+| define los campos           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | Sin        | 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

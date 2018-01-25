@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: Información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Ejemplo
 Esto se puede implementar por medio de un filtro. Puede usar el siguiente ejemplo: 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Pasos** | El atributo autocomplete especifica si un formulario debe tener Autocompletar activado o desactivado. Cuando está activado, el explorador completa automáticamente los valores en función de los que el usuario haya escrito antes. Por ejemplo, cuando se escribe un nombre y una contraseña nuevos en un formulario y se envía este, el explorador le pregunta si se debe guardar la contraseña. A partir de entonces, cuando se muestre el formulario, el nombre y la contraseña se rellenan automáticamente o se completan cuando se escribe el nombre. Un atacante con acceso local podría obtener la contraseña no cifrada de la memoria caché del explorador. De forma predeterminada, la función Autocompletar está habilitada y se debe deshabilitar explícitamente. |
 
 ### <a name="example"></a>Ejemplo
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -353,7 +353,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### <a name="example"></a>Ejemplo
 Intune se puede configurar con las siguientes directivas de seguridad para proteger datos confidenciales: 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -361,7 +361,7 @@ Allow screen capture
 
 ### <a name="example"></a>Ejemplo
 Si la aplicación no es empresarial, use el almacén de claves proporcionado por la plataforma, llaveros para almacenar claves de cifrado, con cualquier operación criptográfica que se pueda realizar en el sistema de archivos. En el siguiente fragmento de código, se muestra cómo acceder a la clave del llavero con xamarin: 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get

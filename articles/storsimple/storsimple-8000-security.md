@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
 
@@ -155,7 +155,7 @@ La clave de cifrado de datos de servicio se genera solo en el primer dispositivo
 > [!IMPORTANT]
 > Es muy importante crear una copia de esta clave y guardarla en una ubicación segura. Una copia de la clave de cifrado de datos de servicio se debe almacenar de manera tal para que una persona autorizada pueda tener acceso a ella y se pueda comunicar fácilmente al administrador del dispositivo.
 > 
-> Si se pierde la clave de cifrado de datos de servicio, una persona del soporte técnico de Microsoft puede ayudarle a recuperarla siempre que tenga al menos un dispositivo en línea. Se recomienda cambiar la clave de cifrado de datos de servicio después de recuperarla. Para obtener instrucciones, vaya a [Cambio de la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Si se pierde la clave de cifrado de datos de servicio, una persona del soporte técnico de Microsoft puede ayudarle a recuperarla siempre que tenga al menos un dispositivo en línea. Se recomienda cambiar la clave de cifrado de datos de servicio después de recuperarla.
 
 Para cambiar la clave de cifrado de datos de servicio y el certificado de cifrado de datos correspondiente, siga los pasos de la opción [Cambiar la clave de cifrado de datos de servicio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key) para el servicio StorSimple Device Manager. Cambiar las claves de cifrado requiere que todos los dispositivos se actualicen con la clave nueva. Por lo tanto, se recomienda cambiar la clave cuando todos los dispositivos estén en línea. Si los dispositivos están sin conexión, es posible que las claves cambien en momentos distintos. Los dispositivos con claves obsoletas de todos modos podrán ejecutar copias de seguridad, pero no podrán restaurar datos hasta que se actualice la clave.
 
@@ -268,7 +268,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **R:** Como todos los datos están cifrados en el servicio y la clave privada se mantiene en el dispositivo, la entidad gubernamental deberá pedir los datos al cliente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Implementación del dispositivo de StorSimple](storsimple-8000-deployment-walkthrough-u2.md)
 

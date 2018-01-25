@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eebae624ea024f2ff8c1fa4764027c05220a15f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Administración de metadatos de artefactos en cuentas de integración para aplicaciones lógicas
 
@@ -37,7 +37,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 ## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Recuperación de metadatos de artefactos para aplicaciones lógicas
 
-1. Cree una [aplicación lógica](logic-apps-create-a-logic-app.md).
+1. Cree una [aplicación lógica](quickstart-create-first-logic-app-workflow.md).
 
 2. Cree un [vínculo desde su aplicación lógica a su cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
@@ -66,5 +66,5 @@ Los metadatos del asociado tienen estos detalles de `routingUrl`:
     ![Buscar lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Más información sobre los contratos](logic-apps-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")  

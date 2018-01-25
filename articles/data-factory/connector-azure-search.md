@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 63081e2e5a2c792c8e688e7b8aaff0eca40e48a1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copia de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 
@@ -36,7 +36,7 @@ Puede copiar datos desde cualquier almacén de datos de origen compatible en un 
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Azure Search.
 
@@ -44,7 +44,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Search:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
 | URL | La URL del servicio Azure Search. | Sí |
@@ -82,7 +82,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos a Azure Search, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex**. | Sí |
 | indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
@@ -113,7 +113,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Si va a copiar datos a Azure Search, establezca el tipo de origen de la actividad de copia en **AzureSearchIndexSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureSearchIndexSink**. | Sí |
 | writeBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).<br/><br/>Los valores permitidos son: **Merge** (valor predeterminado) y**Upload**. | Sin  |

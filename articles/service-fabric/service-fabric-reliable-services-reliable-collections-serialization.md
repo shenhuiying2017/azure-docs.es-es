@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialización de objetos de Reliable Collections en Azure Service Fabric
 Reliable Collections replica y conserva sus elementos para garantizar su durabilidad en casos de errores de equipos e interrupciones del suministro eléctrico.
@@ -40,7 +40,7 @@ Reliable State Manager tiene serializadores integrados para los siguientes tipos
 - byte[]
 - char
 - cadena
-- Decimal
+- decimal
 - double
 - float
 - int
@@ -56,7 +56,7 @@ Los serializadores personalizados se usan normalmente para aumentar el rendimien
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) se usa para registrar un serializador personalizado para un tipo determinado T. Este registro suele realizarse para la compilación de StatefulServiceBase, a fin de garantizar que, antes de que empiece la recuperación, todos los elementos de Reliable Collections puedan acceder al serializador pertinente para leer los datos persistentes.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ Un serializador personalizado debe implementar la interfaz [IStateSerializer<T>]
 
 A continuación se expone un ejemplo de tipo personalizado denominado OrderKey que contiene cuatro propiedades.
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 A continuación se muestra una implementación de ejemplo de IStateSerializer<OrderKey>.
 Tenga en cuenta que las sobrecargas de lectura y escritura que usan baseValue llaman a su sobrecarga correspondiente para compatibilidad con versiones posteriores.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)
@@ -147,7 +147,7 @@ Los usuarios de serializadores personalizados deben atenerse a los criterios del
 Una manera común de admitir todas las versiones es agregar información sobre el tamaño al principio y solo agregar propiedades opcionales.
 De esta forma, cada versión puede leer todo lo posible y saltar por la parte restante de la secuencia.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
   * [Serialización y actualización](service-fabric-application-upgrade-data-serialization.md)
   * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.

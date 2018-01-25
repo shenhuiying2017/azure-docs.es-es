@@ -12,28 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19a51c7456df698fa682fdecf1487730e282de19
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-onprem-sybase-connector.md)
-> * [Versión 2: Versión preliminar](../connector-sybase.md)
+> * [Versión 2: versión preliminar](../connector-sybase.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Sybase connector in V2](../connector-sybase.md) (Conector de Sybase en V2).
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde una base de datos Sybase local. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde una base de datos Sybase local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 Puede copiar datos de un almacén de datos de Sybase local a cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de Sybase a otros almacenes de datos, pero no viceversa. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 El servicio Factoría de datos admite la conexión a orígenes de Sybase locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
 La puerta de enlace es necesaria incluso si la base de datos Sybase está hospedada en una máquina virtual de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual de IaaS como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
@@ -47,8 +47,8 @@ Para que Data Management Gateway se conecte a la Base de datos Sybase, es precis
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
-- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -63,15 +63,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Sybase.
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| type |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
-| server |Nombre del servidor de Sybase. |Sí |
-| database |Nombre de la base de datos Sybase. |Sí |
-| schema |Nombre del esquema de la base de datos. |No |
+| Tipo |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
+| Servidor |Nombre del servidor de Sybase. |Sí |
+| Base de datos |Nombre de la base de datos Sybase. |Sí |
+| schema |Nombre del esquema de la base de datos. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |No |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
+| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -79,7 +79,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **RelationalTable** (que incluye el conjunto de datos de Sybase) tiene las propiedades siguientes:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla en la instancia de Base de datos Sybase a la que hace referencia el servicio vinculado. |No (si se especifica **query** de **RelationalSource**) |
 
@@ -90,7 +90,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 Cuando el origen es de tipo **RelationalSource** (lo que incluye Sybase), están disponibles las propiedades siguientes en la sección **typeProperties**:
 
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No (si se especifica **tableName** de **dataset**) |
 

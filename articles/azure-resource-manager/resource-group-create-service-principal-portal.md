@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -195,7 +195,7 @@ La aplicación está ahora configurada en Azure Active Directory. Tiene un id. y
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).  
 * Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).

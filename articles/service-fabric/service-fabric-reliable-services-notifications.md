@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Notificaciones de Reliable Services
 Las notificaciones permiten que los clientes sigan los cambios que se están realizando en un objeto que les interesa. Existen dos tipos de objeto que admiten notificaciones: *Reliable State Manager* y *Reliable Dictionary*.
@@ -51,7 +51,7 @@ La colección de Reliable State Manager se recompila en tres situaciones:
 
 Para registrarse para las notificaciones de transacciones o notificaciones del administrador de estado, se debe registrar con los eventos **TransactionChanged** o **StateManagerChanged** en Reliable State Manager. Un lugar habitual donde registrarse con estos controladores de eventos es el constructor de su servicio con estado. Cuando se registre en el constructor, no perderá ninguna notificación causada por un cambio mientras dure **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ El controlador de eventos **TransactionChanged** usa **NotifyTransactionChangedE
 
 A continuación, se ofrece un ejemplo de controlador de eventos **TransactionChanged** .
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Use la propiedad de acción en **NotifyStateManagerChangedEventArgs** para conve
 
 A continuación, se ofrece un ejemplo de controlador de notificación **StateManagerChanged** .
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Reliable Dictionary proporciona notificaciones para los siguientes eventos:
 Para obtener notificaciones de Reliable Dictionary, se debe registrar con el controlador de eventos **DictionaryChanged** en **IReliableDictionary**. Un lugar habitual donde registrarse con estos controladores de eventos es en la notificación de adición de **ReliableStateManager.StateManagerChanged** .
 Registrarse cuando se agrega **IReliableDictionary** a **IReliableStateManager** garantiza que no se pierda ninguna notificación.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 El código anterior establece la interfaz **IReliableNotificationAsyncCallback**, junto con **DictionaryChanged**. Dado que **NotifyDictionaryRebuildEventArgs** contiene una interfaz **IAsyncEnumerable**, que debe enumerarse de forma asincrónica, las notificaciones de recompilación se desencadenan mediante **RebuildNotificationAsyncCallback** en lugar de **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ El controlador de eventos **DictionaryChanged** usa **NotifyDictionaryChangedEve
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -215,7 +215,7 @@ Algunos aspectos que debe tener en cuenta:
 * Para las transacciones que contienen varias operaciones, se aplican las operaciones en el orden en que se recibieron en la réplica principal del usuario.
 * Como parte del procesamiento de progreso falso, es posible que algunas operaciones se deshagan. Se generan notificaciones para estas operaciones de deshacer y se revierte el estado de la réplica a un punto estable. Una diferencia importante de las notificaciones de deshacer es que se agregan eventos con claves duplicadas. Por ejemplo, si se está deshaciendo la transacción T1, el usuario verá una única notificación para Delete(X).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)

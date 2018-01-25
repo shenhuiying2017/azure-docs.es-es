@@ -12,14 +12,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 09/29/2017
+ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 8f6ab60861c422d083686a6ad5fb880c3e236f59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889e1bbb71f6eaa1871556b3b9a7da1c28cf16ee
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Actualización de una aplicación de Service Fabric
 
@@ -35,7 +35,7 @@ Si es necesario, instale el módulo Service Fabric PowerShell con el [SDK de Ser
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Obtiene todas las aplicaciones del clúster de Service Fabric o una aplicación específica.  |
 | [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Obtiene el estado de actualización de una aplicación de Service Fabric. |
@@ -47,7 +47,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Quita un paquete de aplicación de Service Fabric del almacén de imágenes.|
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el módulo Service Fabric PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 

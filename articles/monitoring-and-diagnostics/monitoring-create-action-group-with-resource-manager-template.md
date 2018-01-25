@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e715cad5cb28ad0c763ffb29c43e9ee98741699
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creación de un grupo de acciones con una plantilla de Resource Manager
 En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
@@ -126,7 +126,7 @@ Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree
     "webhookReceiverName": {
       "type": "string",
       "metadata": {
-        "description": "Webhook receiver service URI."
+        "description": "Webhook receiver service Name."
       }
     },    
     "webhookServiceUri": {
@@ -168,7 +168,7 @@ Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Más información sobre los [grupos de acciones](monitoring-action-groups.md).
 * Obtenga más información sobre [alertas](monitoring-overview-alerts.md).
 * Aprenda a agregar [alertas mediante una plantilla de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2e4da8cd02a1d07a3225a0c1fda4c60928dba8a4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI para el inicio de sesión mediante una entidad de servicio de MSI, así como instrucciones sobre temas importantes como el tratamiento de errores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Una MSI proporciona una [entidad de servicio](develop/active-directory-dev-gloss
 
 Con MSI, el cliente de script ya no necesita hacer nada de esto, ya que puede iniciar sesión con la entidad de servicio de MSI. 
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 El script siguiente muestra cómo:
 

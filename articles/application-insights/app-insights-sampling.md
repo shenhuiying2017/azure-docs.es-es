@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 1f6c58b219a5fb040048d0075644102f5f0c5323
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -126,7 +126,7 @@ Quite el nodo `AdaptiveSamplingTelemetryProcessor` del archivo .config.
 
 *C#*
 
-```C#
+```csharp
 
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -243,7 +243,7 @@ En lugar de establecer el parámetro de muestreo en el archivo .config, puede es
 
 *C#*
 
-```C#
+```csharp
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
@@ -357,6 +357,6 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [filtro](app-insights-api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
 

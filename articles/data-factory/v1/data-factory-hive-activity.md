@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -74,17 +74,17 @@ La actividad de Hive de HDInsight en una [canalización](data-factory-create-pip
 }
 ```
 ## <a name="syntax-details"></a>Detalles de la sintaxis
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la actividad |Sí |
-| Descripción |Texto que describe para qué se usa la actividad. |No |
-| type |HDinsightHive |Sí |
-| inputs |Entradas consumidas por la actividad de Hive |No |
+| Nombre |Nombre de la actividad |Sí |
+| Descripción |Texto que describe para qué se usa la actividad. |Sin  |
+| Tipo |HDinsightHive |Sí |
+| inputs |Entradas consumidas por la actividad de Hive |Sin  |
 | outputs |Salidas producidas por la actividad de Hive |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
-| script |Especifica el script de Hive en línea |No |
-| script path |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |No |
-| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |No |
+| script |Especifica el script de Hive en línea |Sin  |
+| script path |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
+| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |Sin  |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su empresa. 

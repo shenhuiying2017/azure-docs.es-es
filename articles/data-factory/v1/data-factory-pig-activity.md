@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,17 +82,17 @@ La actividad de Pig para HDInsight en una [canalización](data-factory-create-pi
 }
 ```
 ## <a name="syntax-details"></a>Detalles de la sintaxis
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la actividad |Sí |
-| Descripción |Texto que describe para qué se usa la actividad. |No |
-| type |HDinsightPig |Sí |
-| inputs |Una o varias entradas consumidas por la actividad de Pig |No |
+| Nombre |Nombre de la actividad |Sí |
+| Descripción |Texto que describe para qué se usa la actividad. |Sin  |
+| Tipo |HDinsightPig |Sí |
+| inputs |Una o varias entradas consumidas por la actividad de Pig |Sin  |
 | outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
-| script |Especifica el script de Pig en línea |No |
-| ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |No |
-| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |No |
+| script |Especifica el script de Pig en línea |Sin  |
+| ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
+| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin  |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su compañía.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Introducción a la API web de .NET de Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Para validar solicitudes y tokens entrantes, debe configurar la aplicación para
 
 3. Cambie la declaración de clase a `public partial class Startup`. Ya hemos implementado parte de esta clase en otro archivo. En el método `Configuration(…)`, realice una llamada a `ConfgureAuth(…)` para configurar la autenticación para su aplicación web.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Para validar solicitudes y tokens entrantes, debe configurar la aplicación para
 
 4. Abra el archivo `App_Start\Startup.Auth.cs` e implemente el método `ConfigureAuth(…)`. Los parámetros que proporciona en `WindowsAzureActiveDirectoryBearerAuthenticationOptions` servirán como coordenadas para que su aplicación se comunique con Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Para validar solicitudes y tokens entrantes, debe configurar la aplicación para
 
 5. Ahora puede usar atributos `[Authorize]` como ayuda para proteger los controladores y acciones con la autenticación de portador de JSON Web Token (JWT). Decore la clase `Controllers\TodoListController.cs` con una etiqueta Autorizar. Esto obligará al usuario a iniciar sesión antes de tener acceso a esa página.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Para validar solicitudes y tokens entrantes, debe configurar la aplicación para
 
 6. Un requisito común de las API web es validar los "ámbitos" presentes en el token. De esta forma se garantiza que el usuario ha dado su consentimiento a los permisos necesarios para acceder al servicio de lista de tareas pendientes.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Uso del conector de Azure Blob Storage en una aplicación lógica
 Use el conector de Azure Blob Storage para cargar, actualizar, obtener y eliminar blobs en la cuenta de almacenamiento, todo dentro de una aplicación lógica.  
@@ -31,9 +31,7 @@ Con Almacenamiento de blobs de Azure:
 
 En este tema se muestra cómo usar el conector de Azure Blob Storage en una aplicación lógica.
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-what-are-logic-apps.md) y [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
-
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-what-are-logic-apps.md) y [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-overview.md) y [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Conexión con el almacenamiento de blobs de Azure
 Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a una cuenta de almacenamiento, debe crear primero una *conexión* con Blob Storage. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que se está conectando. En el caso de Almacenamiento de Azure, para crear la conexión, deberá escribir las credenciales de la cuenta de almacenamiento. 
@@ -42,7 +40,7 @@ Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree pri
 > [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 ## <a name="use-a-trigger"></a>Uso de un desencadenador
-Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica; por ejemplo, un desencadenador de periodicidad, un desencadenador HTTP webhook, los desencadenadores disponibles con otros conectores, etc. En [Creación de una nueva aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) se puede ver un ejemplo.
+Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica; por ejemplo, un desencadenador de periodicidad, un desencadenador HTTP webhook, los desencadenadores disponibles con otros conectores, etc. En [Creación de una nueva aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) se puede ver un ejemplo.
 
 ## <a name="use-an-action"></a>Uso de una acción
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.
@@ -73,6 +71,6 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/azureblobconnector/). 
 
-## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+[Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 

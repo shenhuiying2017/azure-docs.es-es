@@ -1,5 +1,5 @@
 ---
-title: "Invocar programa MapReduce desde la factoría de datos de Azure"
+title: Invocar programa MapReduce desde Azure Data Factory
 description: "Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure."
 services: data-factory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -54,7 +54,7 @@ En la definición de JSON para la actividad de HDInsight:
 1. Establezca el **tipo** de la **actividad** en **HDInsight**.
 2. Especifique el nombre de la clase para la propiedad **className** .
 3. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath** .
-4. Especifique el servicio vinculado que hace referencia al almacenamiento de blobs de Azure que contiene el archivo JAR de la propiedad **jarLinkedService** .   
+4. Especifique el servicio vinculado que hace referencia a Azure Blob Storage que contiene el archivo JAR de la propiedad **jarLinkedService** .   
 5. Especifique los argumentos para el programa de MapReduce en la sección **argumentos** . En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
 
     ```JSON   
@@ -120,9 +120,9 @@ Puede descargar un ejemplo para usar la actividad MapReduce de HDInsight desde: 
 La canalización de este ejemplo ejecuta el programa de asignación/reducción del recuento de palabras en el clúster de HDInsight de Azure.   
 
 ### <a name="linked-services"></a>Servicios vinculados
-En primer lugar, cree un servicio vinculado para vincular el almacenamiento de Azure usado por el clúster de HDInsight de Azure con la Factoría de datos de Azure. Si copia/pega el código siguiente, no olvide reemplazar el **nombre de la cuenta** y la **clave de la cuenta** por el nombre y la clave de su instancia de Azure Storage. 
+En primer lugar, cree un servicio vinculado para vincular Azure Storage usado por el clúster de HDInsight de Azure con Azure Data Factory. Si copia/pega el código siguiente, no olvide reemplazar el **nombre de la cuenta** y la **clave de la cuenta** por el nombre y la clave de su instancia de Azure Storage. 
 
-#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 
 ```JSON
 {
@@ -185,10 +185,10 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 
 | Propiedad | Notas |
 |:--- |:--- |
-| type |El tipo debe establecerse en **HDInsightMapReduce**. |
+| Tipo |El tipo debe establecerse en **HDInsightMapReduce**. |
 | className |El nombre de la clase es: **wordcount** |
 | jarFilePath |Ruta de acceso al archivo .jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. |
-| jarLinkedService |Servicio vinculado al Almacenamiento de Azure que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. |
+| jarLinkedService |Servicio vinculado a Azure Storage que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. |
 | argumentos |El programa de recuento de palabras toma dos argumentos, una entrada y una salida. El archivo de entrada es el archivo davinci.txt. |
 | frecuencia/intervalo |Los valores de estas propiedades coinciden con el conjunto de datos de salida. |
 | linkedServiceName |hace referencia al servicio vinculado a HDInsight creado anteriormente. |

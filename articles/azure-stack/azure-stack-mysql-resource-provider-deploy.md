@@ -3,7 +3,7 @@ title: Usar bases de datos MySQL como PaaS en Azure Stack | Microsoft Docs
 description: "Aprenda cómo puede implementar el proveedor de recursos de MySQL y proporcionar bases de datos MySQL como servicio en Azure Stack"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bases de datos MySQL en Microsoft Azure Stack
 
@@ -90,7 +90,7 @@ Esta cuenta del sistema debe tener los siguientes privilegios:
 
 6. [Instale Azure PowerShell versión 1.2.11](azure-stack-powershell-install.md).
 
-7. Ejecute el script DeploySqlProvider.ps1.
+7. Ejecute el script `DeployMySqlProvider.ps1`.
 
 El script sigue estos pasos:
 
@@ -155,7 +155,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parámetros de DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>Parámetros de DeployMySqlProvider.ps1
 Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o se produce un error en la validación de algún parámetro, se le pide que proporcione los requeridos.
 
 | Nombre de parámetro | DESCRIPCIÓN | Comentario o valor predeterminado |

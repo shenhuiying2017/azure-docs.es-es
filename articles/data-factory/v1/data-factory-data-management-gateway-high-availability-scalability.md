@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -43,7 +43,7 @@ También puede configurar el número de **trabajos de movimiento de datos simult
 
 Mediante Azure Portal, puede supervisar el estado de estos nodos, lo que ayuda a decidir si agregar o quitar un nodo de la puerta de enlace lógica. 
 
-## <a name="architecture"></a>Arquitectura 
+## <a name="architecture"></a>Architecture 
 El diagrama siguiente proporciona información general de la arquitectura de la característica de escalabilidad y disponibilidad de Data Management Gateway: 
 
 ![Data Management Gateway - Alta disponibilidad y escalabilidad](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -184,10 +184,10 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 Puede habilitar la **Configuración avanzada** en la página **Puerta de enlace** para ver métricas avanzadas como **Red**(entrada/salida), **Rol y estado de credenciales**, que es útil para depurar problemas de puerta de enlace y **Trabajos simultáneos** (en ejecución / límite) que puede ser modificado según corresponda durante la optimización del rendimiento. En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:  
 
-Propiedad de supervisión | Descripción
+Propiedad de supervisión | DESCRIPCIÓN
 :------------------ | :---------- 
-Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
-Estado | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
+NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
+Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
 Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
@@ -201,7 +201,7 @@ Rol | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son tra
 
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
 
-Estado  | Comentarios/Escenarios
+Status  | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -212,7 +212,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace. 
 
-Estado | Comentarios
+Status | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea
@@ -256,7 +256,7 @@ Para revertir desde la versión preliminar, elimine todos los nodos excepto uno.
 Después de eliminarlo, haga clic en **Característica de versión preliminar** en la misma página de Azure Portal y deshabilite la característica de versión preliminar. Ha restablecido la puerta de enlace como puerta de enlace de un nodo GA (disponibilidad general).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los artículos siguientes:
 - [Data Management Gateway](data-factory-data-management-gateway.md): ofrece una información general detallada de la puerta de enlace.
 - [Movimiento de datos entre equipos locales y almacenes de datos en la nube](data-factory-move-data-between-onprem-and-cloud.md): contiene un tutorial con instrucciones paso a paso para usar una puerta de enlace con un único nodo. 

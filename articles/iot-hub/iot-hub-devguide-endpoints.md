@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Puede encontrar el nombre de la instancia de IoT Hub que hospeda los puntos de conexión en el portal en la hoja **Introducción**. De forma predeterminada, el nombre DNS de una instancia de IoT Hub es similar a lo siguiente: `{your iot hub name}.azure-devices.net`.
 
-Puede utilizar Azure DNS para crear un nombre DNS personalizado para el centro de IoT. Para más información, consulte [Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure](../dns/dns-custom-domain.md#azure-iot).
+Puede utilizar Azure DNS para crear un nombre DNS personalizado para el centro de IoT. Para más información, consulte [Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de puntos de conexión de IoT Hub integrados
 
@@ -69,7 +69,7 @@ Puede vincular los servicios de Azure existentes en su centro de IoT para usarlo
 IoT Hub admite actualmente los siguientes servicios de Azure como puntos de conexión adicionales:
 
 * Contenedores de Azure Storage
-* Centros de eventos
+* Event Hubs
 * Colas de Service Bus
 * Temas de Service Bus
 
@@ -101,7 +101,7 @@ En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los d
 
 Puede usar [Azure IoT Edge][lnk-iot-edge] para implementar una puerta de enlace de campo. IoT Edge ofrece la funcionalidad de multiplexar la comunicación desde varios dispositivos en la misma conexión de IoT Hub.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
