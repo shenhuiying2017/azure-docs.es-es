@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-store"></a>almacén de sfctl
 Realice operaciones básicas a nivel de archivo en el almacén de imágenes del clúster.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    delete| Elimina el contenido existente en el almacén de imágenes.|
 |    root-info| Obtiene la información de contenido en la raíz del almacén de imágenes.|
@@ -39,14 +39,14 @@ Elimina el contenido existente del almacén de imágenes que se encuentra en la 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --content-path [Obligatorio]| Ruta de acceso relativa al archivo o la carpeta del almacén de imágenes desde su raíz.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -61,14 +61,14 @@ Devuelve la información sobre el contenido del almacén de imágenes que se enc
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --content-path [Obligatorio]| Ruta de acceso relativa al archivo o la carpeta del almacén de imágenes desde su raíz.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -76,6 +76,6 @@ Devuelve la información sobre el contenido del almacén de imágenes que se enc
 | --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

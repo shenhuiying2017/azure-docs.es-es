@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-usql-activity.md)
-> * [Versión 2: Versión preliminar](transform-data-using-data-lake-analytics.md)
+> * [Versión 2: versión preliminar](transform-data-using-data-lake-analytics.md)
 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics**. 
 
@@ -37,11 +37,11 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. 
 
-| Propiedad                 | Descripción                              | Obligatorio                                 |
+| Propiedad                 | DESCRIPCIÓN                              | Obligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
-| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | No                                       |
+| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | Sin                                        |
 | **subscriptionId**       | Identificador de suscripción de Azure                    | No (si no se especifica, se usa la suscripción de Data Factory). |
 | **resourceGroupName**    | Nombre del grupo de recursos de Azure.                | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
@@ -53,7 +53,7 @@ El servicio vinculado de Azure Data Lake Analytics requiere una autenticación d
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
-| Propiedad                | Descripción                              | Obligatorio |
+| Propiedad                | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
@@ -117,19 +117,19 @@ El siguiente fragmento JSON define una canalización con una actividad U-SQL de 
 
 En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad. 
 
-| Propiedad            | Descripción                              | Obligatorio |
+| Propiedad            | DESCRIPCIÓN                              | Obligatorio |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nombre de la actividad en la canalización     | Sí      |
-| Descripción         | Texto que describe para qué se usa la actividad.  | No       |
-| type                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
+| Nombre                | Nombre de la actividad en la canalización     | Sí      |
+| Descripción         | Texto que describe para qué se usa la actividad.  | Sin        |
+| Tipo                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
 | linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |Sí       |
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
 | scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | Sí      |
-| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No       |
-| prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No       |
-| parameters          | Parámetros del script SQL U          | No       |
-| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usa | No       |
-| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de estos valores: **Semántico:** solo realiza comprobaciones de semántica y comprobaciones de integridad necesarias, **Completo:** realiza la compilación completa, incluida la comprobación de sintaxis, optimización, generación de código, etc., **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | No |
+| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | Sin        |
+| prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin        |
+| parameters          | Parámetros del script SQL U          | Sin        |
+| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usa | Sin        |
+| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de estos valores: **Semántico:** solo realiza comprobaciones de semántica y comprobaciones de integridad necesarias, **Completo:** realiza la compilación completa, incluida la comprobación de sintaxis, optimización, generación de código, etc., **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | Sin  |
 
 Para ver la definición del script, consulte [Definición del script SearchLogProcessing.txt](#sample-u-sql-script). 
 
@@ -176,7 +176,7 @@ En la definición de canalización de ejemplo, se asignan los parámetros in y o
 }
 ```
 
-Es posible usar los parámetros dinámicos en su lugar. Por ejemplo: 
+Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:  
 
 ```json
 "parameters": {
@@ -187,7 +187,7 @@ Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:
 
 En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad Hive](transform-data-using-hadoop-hive.md)

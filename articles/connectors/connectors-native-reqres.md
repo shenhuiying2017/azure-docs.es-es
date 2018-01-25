@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introducción a los componentes de solicitud y respuesta
 Con los componentes de solicitud y respuesta de una aplicación lógica, puede responder en tiempo real a eventos.
@@ -30,7 +30,7 @@ Por ejemplo, puede:
 * Desencadenar una aplicación lógica desde un evento webhook externo.
 * Llamar a una aplicación lógica con una acción de solicitud y respuesta desde otra aplicación lógica.
 
-Para empezar a usar las acciones de solicitud y respuesta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Para empezar a usar las acciones de solicitud y respuesta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Uso del desencadenador de solicitud HTTP
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).
@@ -67,14 +67,14 @@ A continuación se explica cómo agregar una acción de respuesta HTTP:
 ## <a name="request-trigger"></a>Desencadenador de solicitud
 Aquí se muestran los detalles del desencadenador que admite este conector. Solo existe un único desencadenador de solicitud.
 
-| Desencadenador | Description |
+| Desencadenador | DESCRIPCIÓN |
 | --- | --- |
 | Solicitud |Se produce cuando se recibe una solicitud HTTP. |
 
 ## <a name="response-action"></a>Acción de respuesta
 Aquí se muestran los detalles de la acción que admite este conector. Hay una única de acción de respuesta que solo puede usarse acompañada de un desencadenador de solicitud.
 
-| Acción | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | Response |Devuelve una respuesta a la solicitud HTTP correlacionada. |
 
@@ -84,7 +84,7 @@ En las tablas siguientes se describen los campos de entrada para el desencadenad
 #### <a name="request-trigger"></a>Desencadenador de solicitud
 El siguiente es un campo de entrada para el desencadenador de una solicitud HTTP entrante.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Esquema JSON |schema |Esquema JSON del cuerpo de la solicitud HTTP |
 
@@ -94,7 +94,7 @@ El siguiente es un campo de entrada para el desencadenador de una solicitud HTTP
 
 Los detalles del resultado de la solicitud son los siguientes:
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | encabezados |objeto |Encabezados de solicitud |
 | Cuerpo |objeto |Objeto de solicitud |
@@ -102,12 +102,12 @@ Los detalles del resultado de la solicitud son los siguientes:
 #### <a name="response-action"></a>Acción de respuesta
 A continuación se muestran los campos de entrada para la acción de respuesta HTTP. Un * significa que es un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Código de estado* |statusCode |Código de estado HTTP |
-| Encabezados |Encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
+| encabezados |encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
 | Cuerpo |Cuerpo |Cuerpo de la respuesta |
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

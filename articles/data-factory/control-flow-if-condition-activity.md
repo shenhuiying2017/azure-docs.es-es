@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
 La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`. 
@@ -68,11 +68,11 @@ La actividad de la condición IF proporciona la misma funcionalidad que proporci
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | Descripción | Valores permitidos | Obligatorio
+Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-name | Nombre de la actividad de la condición IF. | String | Sí
-type | Debe establecerse en **IfCondition** | String | Sí
-expresión | Expresión que debe evaluarse como true o false | Sí
+Nombre | Nombre de la actividad de la condición IF. | string | Sí
+Tipo | Debe establecerse en **IfCondition** | string | Sí
+expresión | Expresión que debe evaluarse como "true" o "false" | Sí
 ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Sí
 ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Sí
 
@@ -80,7 +80,7 @@ ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión
 La canalización de este ejemplo copia los datos de una carpeta de entrada a una carpeta de salida. La carpeta de salida viene determinada por el valor del parámetro de canalización routeSelection. Si el valor de routeSelection es true, los datos se copian en outputPath1. Y si el valor de routeSelection es false, los datos se copian en outputPath2. 
 
 > [!NOTE]
-> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlas en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización de Data Factory con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos y una canalización con PowerShell](quickstart-create-data-factory-powershell.md).
+> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlos en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización de Data Factory con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos y una canalización con PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Canalización con actividad de condición If (Adfv2QuickStartPipeline.json)
 
@@ -211,7 +211,7 @@ Otro ejemplo para la expresión es:
 ```
 
 ### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de datos de blob de Azure con parámetros (BlobDataset.json)
-La canalización establece **folderPath** en el valor del parámetro **outputPath1** o del parámetro **outputPath2** de la canalización. 
+La canalización establece **folderPath** en el valor de los parámetros **outputPath1** o **outputPath2** de la canalización. 
 
 ```json
 {
@@ -249,7 +249,7 @@ La canalización establece **folderPath** en el valor del parámetro **outputPat
 ```
 
 ### <a name="powershell-commands"></a>Comandos de PowerShell
-Estos comandos presuponen que ha guardado los archivos JSON en la carpeta: C:\ADF. 
+Estos comandos presuponen que ha guardado los archivos JSON en la carpeta C:\ADF. 
 
 ```powershell
 Login-AzureRmAccount
@@ -290,11 +290,11 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
 - [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
-- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)

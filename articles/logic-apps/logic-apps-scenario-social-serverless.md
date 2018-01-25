@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Cree un panel de Customer Insights en tiempo real con Azure Logic Apps y Azure Functions
 
@@ -37,7 +37,7 @@ Toda la solución se puede [compilar en Visual Studio](logic-apps-deploy-from-vs
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Compilación de la aplicación lógica para actuar con datos del cliente
 
-Después de [crear una aplicación de lógica](logic-apps-create-a-logic-app.md) en Visual Studio o Azure Portal:
+Después de [crear una aplicación de lógica](quickstart-create-first-logic-app-workflow.md) en Visual Studio o Azure Portal:
 
 1. Agregue un desencadenador para **On New Tweets** (En los tweets nuevos) de Twitter
 2. Configure el desencadenador para escuchar tweets con una palabra clave o hashtag.
@@ -99,7 +99,7 @@ Una vez que se ha desarrollado una solución, se puede capturar e implementar a 
 
 Azure Functions también se puede incorporar a la plantilla de implementación (con el fin de que toda la solución, con todas las dependencias, se puede administrar como una sola plantilla).  Un ejemplo de una plantilla de implementación de funciones se puede encontrar en el [repositorio azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Vea otros ejemplos y escenarios comunes de Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Vea un tutorial en vídeo sobre la creación de esta solución de un extremo a otro](http://aka.ms/logicappsdemo)

@@ -3,7 +3,7 @@ title: "Azure AD Connect: actualización automática | Microsoft Docs"
 description: "En este tema se describe la característica de actualización automática integrada en la sincronización de Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: actualización automática
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
@@ -47,7 +47,7 @@ En la actualización automática se utiliza Azure AD Connect Health como infraes
 
 Si la IU de **Synchronization Service Manager** se está ejecutando en el servidor, la actualización se suspenderá hasta que la IU se cierre.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si la instalación de Connect no se actualiza según lo esperado, siga estos pasos para detectar dónde se produce el error.
 
 En primer lugar, no debe esperar que la actualización automática se intente el primer día que se lanza una nueva versión. Hay una aleatoriedad intencional antes intentar una actualización, por lo que no se alarme si la instalación no se actualiza inmediatamente.
@@ -64,7 +64,7 @@ Ahora puede ver los registros de eventos asociados con el estado de la actualiza
 
 El código de resultado tiene un prefijo con información general sobre el estado.
 
-| Prefijo del código de resultado | Description |
+| Prefijo del código de resultado | DESCRIPCIÓN |
 | --- | --- |
 | Correcto |La instalación se actualizó correctamente. |
 | UpgradeAborted |Una condición temporal detuvo la actualización. Se reintentará nuevo y se espera que se complete correctamente más tarde. |
@@ -72,7 +72,7 @@ El código de resultado tiene un prefijo con información general sobre el estad
 
 Aquí presentamos una lista de los mensajes más comunes que se encuentran. No aparecen todos, pero el mensaje de resultado debe identificar claramente el problema.
 
-| Mensaje de resultado | Description |
+| Mensaje de resultado | DESCRIPCIÓN |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |No se pudo escribir en el registro. |
@@ -100,5 +100,5 @@ Aquí presentamos una lista de los mensajes más comunes que se encuentran. No a
 | UpgradeNotSupportedStagingModeEnabled |El servidor está establecido en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Se ha habilitado la característica [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

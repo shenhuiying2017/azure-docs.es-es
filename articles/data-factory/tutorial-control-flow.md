@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -43,7 +43,7 @@ En este tutorial se usa SDK de .NET. Puede usar otros mecanismos para interactua
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
@@ -190,7 +190,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
-Agregue el código siguiente al método **Main** que crea un **servicio vinculado a Azure Storage**. Obtenga más información en la sección [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) (Propiedades del servicio vinculado del blob de Azure) sobre los detalles y las propiedades que se admiten.
+Agregue el código siguiente al método **main** que crea un **servicio vinculado de Azure Storage**. Obtenga más información en la sección [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) (Propiedades del servicio vinculado del blob de Azure) sobre los detalles y las propiedades que se admiten.
 
 ```csharp
 client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
@@ -292,7 +292,7 @@ En el proyecto de C#, cree una clase denominada **EmailRequest**. Esto define qu
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Creación de puntos de conexión de flujo de trabajo del correo electrónico
-Para desencadenar el envío de un correo electrónico, use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) a fin de definir el flujo de trabajo. Para obtener más información acerca de cómo crear un flujo de trabajo de una aplicación lógica, consulte [Cómo crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). 
+Para desencadenar el envío de un correo electrónico, use [Logic Apps](../logic-apps/logic-apps-overview.md) a fin de definir el flujo de trabajo. Para obtener más información acerca de cómo crear un flujo de trabajo de una aplicación lógica, consulte [Cómo crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Flujo de trabajo del correo electrónico de operación correcta 
 Cree un flujo de trabajo de aplicación lógica denominado `CopySuccessEmail`. Defina el desencadenador del flujo de trabajo como `When an HTTP request is received` y agregue una acción de `Office 365 Outlook – Send an email`.
@@ -326,7 +326,7 @@ Su solicitud debería tener un aspecto siguiente a la del Diseñador de aplicaci
 
 ![Diseñador de aplicación lógica: solicitud](media/tutorial-control-flow/logic-app-designer-request.png)
 
-Para la acción **Enviar correo electrónico**, personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del cuerpo de solicitud. Aquí tiene un ejemplo:
+Para la acción **Enviar correo electrónico**, personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del cuerpo de solicitud. Este es un ejemplo:
 
 ![Diseñador de aplicación lógica: acción de envío de correo electrónico](media/tutorial-control-flow/send-email-action.png)
 
@@ -338,7 +338,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Flujo de trabajo del correo electrónico de operación incorrecta 
-Clone su **CopySuccessEmail** y crear otro flujo de trabajo de Logic Apps de **CopyFailEmail**. En el desencadenador de solicitudes, `Request Body JSON schema` es el mismo. Simplemente, cambie el formato del correo electrónico, por ejemplo, la parte `Subject`, para adaptarlo para que sea un correo electrónico de operación incorrecta. Aquí tiene un ejemplo:
+Clone su **CopySuccessEmail** y crear otro flujo de trabajo de Logic Apps de **CopyFailEmail**. En el desencadenador de solicitudes, `Request Body JSON schema` es el mismo. Simplemente, cambie el formato del correo electrónico, por ejemplo, la parte `Subject`, para adaptarlo para que sea un correo electrónico de operación incorrecta. Este es un ejemplo:
 
 ![Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -540,7 +540,7 @@ CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
-## <a name="monitor-a-pipeline-run"></a>Supervisión de una ejecución de canalización
+## <a name="monitor-a-pipeline-run"></a>Supervisar una ejecución de canalización
 1. Agregue el código siguiente al método **Main** para comprobar continuamente el estado de la ejecución de canalización hasta que termine de copiar los datos.
 
     ```csharp
@@ -581,7 +581,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>Ejecución del código
 Compile e inicie la aplicación y, a continuación, compruebe la ejecución de la canalización.
-La consola imprime el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad con el tamaño de los datos leídos/escritos. A continuación, use herramientas como Explorador de Azure Storage para comprobar que los blobs se copian a "outputBlobPath" desde "inputBlobPath", como se especificó en las variables.
+La consola imprime el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad de copia con el tamaño de los datos leídos/escritos. A continuación, use herramientas como Explorador de Azure Storage para comprobar que los blobs se copian a "outputBlobPath" desde "inputBlobPath", como se especificó en las variables.
 
 **Salida de ejemplo:**
 
@@ -735,7 +735,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]

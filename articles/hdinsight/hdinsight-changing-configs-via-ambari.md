@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usar Ambari para optimizar configuraciones de clúster de HDInsight
 
@@ -234,7 +234,7 @@ La ejecución especulativa inicia un número determinado de tareas duplicadas co
 
 La ejecución especulativa no debe activarse para las tareas MapReduce de ejecución prolongada con grandes cantidades de entradas.
 
-1. Para habilitar la ejecución especulativa, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y, a continuación, establezca el parámetro `hive.mapred.reduce.tasks.speculative.execution` en true. El valor predeterminado es false.
+* Para habilitar la ejecución especulativa, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y, a continuación, establezca el parámetro `hive.mapred.reduce.tasks.speculative.execution` en true. El valor predeterminado es false.
 
     ![La propiedad mapred de Hive reduce la ejecución especulativa de tareas](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -456,7 +456,7 @@ El uso del búfer de asignación local de Memstore viene determinado por la prop
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>pasos siguientes
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

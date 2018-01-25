@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 6a1697061d20d26b4263c02487180fee81e87947
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: adbe54dec363b454d64340bf3a862cdead2e5435
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de máquinas virtuales Windows en Azure
 
@@ -127,7 +127,7 @@ Elija un tamaño que se admita en el clúster del conjunto de disponibilidad. Al
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>¿Puedo agregar una máquina virtual clásica a un conjunto de disponibilidad?
 
-Sí. Puede agregar una máquina virtual clásica existente a un conjunto de disponibilidad nuevo o existente. Para más información, consulte [Incorporación de una máquina virtual existente a un conjunto de disponibilidad](classic/configure-availability.md#addmachine).
+Sí. Puede agregar una máquina virtual clásica existente a un conjunto de disponibilidad nuevo o existente. Para más información, consulte [Incorporación de una máquina virtual existente a un conjunto de disponibilidad](classic/configure-availability-classic.md#addmachine).
 
 
 ## <a name="next-steps"></a>pasos siguientes

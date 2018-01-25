@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
@@ -32,14 +32,14 @@ Estos límites se aplican a una única solicitud HTTP o llamada de conector.
 
 #### <a name="timeout"></a>Tiempo de espera
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Tiempo de espera de solicitud | 120 segundos | Un [patrón asincrónico](../logic-apps/logic-apps-create-api-app.md) o un [bucle until](logic-apps-loops-and-scopes.md) se pueden compensar, según sea necesario. |
 |||| 
 
 #### <a name="message-size"></a>Tamaño del mensaje
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Tamaño del mensaje | 100 MB | Puede que algunos conectores y API no admitan 100 MB. | 
 | Límite de evaluación de expresiones | 131 072 caracteres. | `@concat()`, `@base64()` y `string` no pueden superar este límite. | 
@@ -47,7 +47,7 @@ Estos límites se aplican a una única solicitud HTTP o llamada de conector.
 
 #### <a name="retry-policy"></a>Directiva de reintentos
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Número de reintentos | 90 | El valor predeterminado es 4. Se puede configurar con el [parámetro de directiva de reintento](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Retraso máximo entre reintentos | 1 día | Se puede configurar con el [parámetro de directiva de reintento](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -58,7 +58,7 @@ Estos límites se aplican a una única solicitud HTTP o llamada de conector.
 
 Estos límites se aplican a una única ejecución de aplicación lógica.
 
-| Nombre | Límite | 
+| NOMBRE | Límite | 
 | ---- | ----- | 
 | Duración de la ejecución | 90 días | 
 | Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | 
@@ -72,7 +72,7 @@ Si desea superar los límites de la duración de ejecución o la retención de a
 
 Estos límites se aplican a una única ejecución de aplicación lógica.
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Elementos ForEach | 100 000 | Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario. | 
 | Iteraciones Until | 5.000 | | 
@@ -84,7 +84,7 @@ Estos límites se aplican a una única ejecución de aplicación lógica.
 
 Estos límites se aplican a una única instancia de aplicación lógica.
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Ejecuciones de acciones cada 5 minutos | 100 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
 | Llamadas salientes simultáneas de acciones | Aproximadamente 2500 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
@@ -99,7 +99,7 @@ Si desea superar estos límites en el procesamiento normal, o ejecutar pruebas d
 
 Estos límites se aplican a una única definición de aplicación lógica.
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Acciones por flujo de trabajo | 500 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. |
 | Niveles de anidamiento de acciones permitidos | 8 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. | 
@@ -121,7 +121,7 @@ Estos límites se aplican a una única definición de aplicación lógica.
 
 Estos límites se aplican a los conectores personalizados que puede crear a partir de las API web.
 
-| Nombre | Límite | 
+| NOMBRE | Límite | 
 | ---- | ----- | 
 | Número de conectores personalizados que puede crear | 1000 por cada suscripción de Azure | 
 | Número de solicitudes por minuto para cada conexión creada por un conector personalizado | 500 solicitudes para cada conexión creada por el conector |
@@ -131,7 +131,7 @@ Estos límites se aplican a los conectores personalizados que puede crear a part
 
 Estos límites se aplican a los artefactos que se pueden agregar a una cuenta de integración.
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Puede usar el [identificador URI del blob](../logic-apps/logic-apps-enterprise-integration-schemas.md) para cargar archivos mayores de 2 MB. | 
 | Asignación (archivo XSLT) | 2 MB | | 
@@ -145,7 +145,7 @@ Estos límites se aplican al número de artefactos que puede agregar a una cuent
 
 #### <a name="free-pricing-tier"></a>Plan de tarifa Gratis
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Contratos | 10 | | 
 | Otros tipos de artefacto | 25 |Los tipos de artefacto incluyen socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos. | 
@@ -153,7 +153,7 @@ Estos límites se aplican al número de artefactos que puede agregar a una cuent
 
 #### <a name="standard-pricing-tier"></a>Plan de tarifa Estándar
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | Cualquier tipo de artefacto | 500 | Los tipos de artefacto incluyen acuerdos, socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos. | 
 |||| 
@@ -162,7 +162,7 @@ Estos límites se aplican al número de artefactos que puede agregar a una cuent
 
 Estos límites se aplican a los protocolos B2B.
 
-| Nombre | Límite | Notas | 
+| NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | Se aplica a la decodificación y la codificación | 
 | X12 | 50 MB | Se aplica a la decodificación y la codificación | 
@@ -185,9 +185,9 @@ Las llamadas que efectúa directamente una aplicación lógica, esto es, a trav�
 |Centro de Canadá|52.233.29.92, 52.228.39.241, 52.228.39.244|
 |Este de Canadá|52.232.128.155, 52.229.120.45, 52.229.126.25|
 |India Central|52.172.154.168, 52.172.186.159, 52.172.185.79|
-|Central EE. UU.:|13.67.236.125, 104.208.25.27, 40.122.170.198|
+|Central EE. UU:|13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Asia oriental|13.75.94.173, 40.83.127.19, 52.175.33.254|
-|Este de EE. UU.|13.92.98.111, 40.121.91.41, 40.114.82.191|
+|Este de EE. UU|13.92.98.111, 40.121.91.41, 40.114.82.191|
 |Este de EE. UU. 2|40.84.30.147, 104.208.155.200, 104.208.158.174|
 |Este de Japón|13.71.158.3, 13.73.4.207, 13.71.158.120|
 |Oeste de Japón|40.74.140.4, 104.214.137.243, 138.91.26.45|
@@ -199,7 +199,7 @@ Las llamadas que efectúa directamente una aplicación lógica, esto es, a trav�
 |Centro occidental de EE.UU.|52.161.27.190, 52.161.18.218, 52.161.9.108|
 |Europa occidental|40.68.222.65, 40.68.209.23, 13.95.147.65|
 |Oeste de la India|104.211.164.80, 104.211.162.205, 104.211.164.136|
-|Oeste de EE. UU.|52.160.92.112, 40.118.244.241, 40.118.241.243|
+|Oeste de EE. UU|52.160.92.112, 40.118.244.241, 40.118.241.243|
 |Oeste de EE. UU. 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
 |Sur del Reino Unido 2|51.140.74.14, 51.140.73.85, 51.140.78.44|
 |Oeste de Reino Unido|51.141.54.185, 51.141.45.238, 51.141.47.136|
@@ -217,9 +217,9 @@ Las llamadas que los [conectores](../connectors/apis-list.md) efectúan proceden
 |Centro de Canadá|52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13|
 |Este de Canadá|52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52|
 |India Central|104.211.98.164|
-|Central EE. UU.:|40.122.49.51|
+|Central EE. UU:|40.122.49.51|
 |Asia oriental|23.99.116.181|
-|Este de EE. UU.|191.237.41.52|
+|Este de EE. UU|191.237.41.52|
 |Este de EE. UU. 2|104.208.233.100|
 |Este de Japón|40.115.186.96|
 |Oeste de Japón|40.74.130.77|
@@ -230,14 +230,14 @@ Las llamadas que los [conectores](../connectors/apis-list.md) efectúan proceden
 |Sur de la India|104.211.227.225|
 |Europa occidental|40.115.50.13|
 |Oeste de la India|104.211.161.203|
-|Oeste de EE. UU.|104.40.51.248|
+|Oeste de EE. UU|104.40.51.248|
 |Sur del Reino Unido 2|51.140.80.51|
 |Oeste de Reino Unido|51.141.47.105|
 | | | 
 
-## <a name="next-steps"></a>Pasos siguientes  
+## <a name="next-steps"></a>pasos siguientes  
 
-* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Ejemplos y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Vídeo: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatización de procesos empresariales con Logic Apps) 
 * [Vídeo: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (Integración de los sistemas con Logic Apps)

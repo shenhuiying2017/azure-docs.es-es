@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="use-logic-apps-features"></a>Uso de las características de aplicaciones lógicas
+# <a name="use-logic-apps-features"></a>Uso de las características de Logic Apps
 
-En un [tema anterior](../logic-apps/logic-apps-create-a-logic-app.md), creó su primera aplicación lógica. Para controlar el flujo de trabajo de la aplicación lógica, puede especificar distintas rutas de acceso para que la aplicación lógica se ejecute y determinar cómo se procesan los datos de matrices, colecciones y lotes. Puede incluir estos elementos en el flujo de trabajo de la aplicación lógica:
+En un [tema anterior](../logic-apps/quickstart-create-first-logic-app-workflow.md), creó su primera aplicación lógica. Para controlar el flujo de trabajo de la aplicación lógica, puede especificar distintas rutas de acceso para que la aplicación lógica se ejecute y determinar cómo se procesan los datos de matrices, colecciones y lotes. Puede incluir estos elementos en el flujo de trabajo de la aplicación lógica:
 
 * Las condiciones y las instrucciones [switch](../logic-apps/logic-apps-switch-case.md) permiten que la aplicación lógica ejecute distintas acciones en función de que se cumplan determinadas condiciones.
 
@@ -48,7 +48,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que le envía demasiados 
 2. Agregue una condición a la ubicación del flujo de trabajo que quiera. 
 
    Para agregar la condición entre pasos existentes en el flujo de trabajo de la aplicación lógica, mueva el puntero sobre la flecha en la que quiere agregar la condición. 
-   Elija el **signo más** (**+**) y luego seleccione **Agregar una condición**. Por ejemplo:
+   Elija el **signo más** (**+**) y luego seleccione **Agregar una condición**. Por ejemplo: 
 
    ![Incorporación de una condición a la aplicación lógica](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que le envía demasiados 
 
 3. Defina la condición. Especifique el campo de origen que quiere evaluar, la operación que va a realizar y el valor o campo de destino. Para agregar campos existentes, elija en la lista **Agregar contenido dinámico**.
 
-   Por ejemplo:
+   Por ejemplo: 
 
    ![Edición de una condición en modo básico](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ Por ejemplo, suponga que tiene una aplicación lógica que le envía demasiados 
    ![Condición completa](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > Para definir la condición en el código, elija **Editar en modo avanzado**. Por ejemplo:
+   > Para definir la condición en el código, elija **Editar en modo avanzado**. Por ejemplo: 
    > 
    > ![Edición de la condición en el código](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. En **EN CASO AFIRMATIVO** y **EN CASO NEGATIVO**, agregue los pasos que se van a realizar en función de que la condición se cumpla.
 
-   Por ejemplo:
+   Por ejemplo: 
 
    ![Condición con las trayectoria en caso de AFIRMATIVO y NEGATIVO](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 
@@ -143,7 +143,7 @@ Para iniciar un flujo de trabajo, los servicios pueden llamar a un punto de cone
 <!-- Shared links -->
 [Azure Portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Instrucciones switch](../logic-apps/logic-apps-switch-case.md) 
 * [Bucles, ámbitos y desagrupación](../logic-apps/logic-apps-loops-and-scopes.md)

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="introduction-to-azure-data-factory"></a>Introducción a la Azure Data Factory 
+# <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-introduction.md)
-> * [Versión 2: Versión preliminar](../introduction.md)
+> * [Versión 2: versión preliminar](../introduction.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si utiliza la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Introducción a Data Factory V2](../introduction.md).
@@ -102,7 +102,7 @@ Para más información, consulte [Movimiento de datos con la actividad de copia]
 ### <a name="custom-net-activities"></a>Actividades personalizadas de .NET
 Cree una actividad personalizada de .NET si necesita mover datos a un almacén de datos, o desde este, que no sean compatibles con la actividad de copia, o si necesita transformar datos con su propia lógica. Consulte [Uso de actividades personalizadas en una canalización de Azure Data Factory](data-factory-use-custom-activities.md) para más información sobre la creación y el uso de una actividad personalizada.
 
-### <a name="datasets"></a>CONJUNTOS DE DATOS
+### <a name="datasets"></a>Conjuntos de datos
 Cada actividad toma cero o más conjuntos de datos como entrada y genera uno o varios conjuntos de datos como salida. Los conjuntos de datos representan estructuras de datos en los almacenes de datos. Estas estructuras apuntan o hacen referencia a los datos que desea utilizar en las actividades (por ejemplo, como entradas o salidas). 
 
 Por ejemplo, un conjunto de datos de blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de los que la canalización debe leer los datos. O bien, un conjunto de datos de tabla de Azure SQL especifica la tabla en la que la actividad escribe los datos de salida. 
@@ -138,12 +138,12 @@ Puede usar una de esas herramientas o una de estas API para crear canalizaciones
 - Visual Studio
 - PowerShell
 - API de .NET
-- API de REST
+- API DE REST
 - Plantilla del Administrador de recursos de Azure
 
 Para aprender a compilar factorías de datos con canalizaciones de datos, siga las instrucciones paso a paso de los siguientes tutoriales:
 
-| Tutorial | Descripción |
+| Tutorial | DESCRIPCIÓN |
 | --- | --- |
 | [Movimiento de datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Cree una factoría de datos con una canalización que mueva datos de Blob Storage a SQL Database. |
 | [Transformación de datos con el clúster de Hadoop](data-factory-build-your-first-pipeline.md) |Compile su primera instancia de Azure Data Factory con una canalización de datos que procese los datos al ejecutar un script de Hive en un clúster de Azure HDInsight (Hadoop). |

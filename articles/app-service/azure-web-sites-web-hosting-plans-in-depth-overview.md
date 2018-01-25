@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -54,7 +54,7 @@ Además, cada plan proporciona un subconjunto específico de características de
 > - Mediano (dos núcleos de CPU, 7 GiB de memoria) 
 > - Grande (cuatro núcleos de CPU, 14 GiB de memoria)  
 >
-> Para obtener más información sobre el precio del plan **PremiumV2**, consulte [Precios de App Service](/pricing/details/app-service/).
+> Para obtener más información sobre el precio del plan **PremiumV2**, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >
 > Para empezar a usar el nuevo plan de tarifa **PremiumV2**, consulte [Configuración del nivel PremiumV2 para App Service](app-service-configure-premium-tier.md).
 

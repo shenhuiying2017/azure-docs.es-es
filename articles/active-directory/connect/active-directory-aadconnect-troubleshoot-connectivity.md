@@ -3,7 +3,7 @@ title: "Azure AD Connect: solución de problemas de conectividad | Microsoft Doc
 description: "Explica cómo solucionar problemas de conectividad con Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -40,7 +40,7 @@ El servidor proxy también debe tener abiertas las direcciones URL necesarias. L
 
 De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azure AD. Esta lista no incluye características opcionales, como la escritura diferida de contraseñas ni Azure AD Connect Health. Se documentan aquí para ayudar a solucionar problemas de la configuración inicial.
 
-| URL | Port | Description |
+| URL | Port | DESCRIPCIÓN |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Se usa para descargar listas CRL. |
 | \*.verisign.com |HTTP/80 |Se usa para descargar listas CRL. |
@@ -108,7 +108,7 @@ Si ha seguido todos los pasos anteriores y aún no se puede conectar, en este mo
 ### <a name="reference-proxy-logs"></a>Registros de proxy de referencia
 Este es un volcado de un registro de proxy real y la página del asistente para instalación desde la que se tomó (se quitaron las entradas duplicadas al mismo punto de conexión). Esta sección se puede usar como referencia para su propio proxy y los registros de red. Los puntos de conexión reales pueden variar en su entorno (en concreto, las direcciones URL que están en *cursiva*).
 
-**Conectar con Azure AD**
+**Conectarse a Azure AD**
 
 | Hora | URL |
 | --- | --- |
@@ -197,5 +197,5 @@ Este error aparece cuando el Ayudante para el inicio de sesión no puede conecta
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Si es correcta, siga los pasos descritos en [Comprobación de la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del asistente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

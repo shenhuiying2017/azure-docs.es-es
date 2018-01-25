@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -124,10 +124,10 @@ El siguiente paso es implementar las máquinas virtuales que hospedarán los dis
 
 | Máquina | Rol | Subred | Conjunto de disponibilidad | Cuenta de almacenamiento | Dirección IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |Estática |
-| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |Estática |
-| contosowap1 |WAP |DMZ |contosowapset |contososac1 |Estática |
-| contosowap2 |WAP |DMZ |contosowapset |contososac2 |Estática |
+| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |estática |
+| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |estática |
+| contosowap1 |WAP |DMZ |contosowapset |contososac1 |estática |
+| contosowap2 |WAP |DMZ |contosowapset |contososac2 |estática |
 
 Como habrá observado, no se ha especificado ningún NSG. Esto es porque Azure permite usar NSG en el nivel de subred. A continuación, puede controlar el tráfico de red de la máquina mediante el NSG individual asociado a la subred o mediante el objeto NIC. Para más información consulte [¿Qué es un grupo de seguridad de red?](https://aka.ms/Azure/NSG)
 Se recomienda una dirección IP estática si está administrando el DNS. Puede utilizar DNS de Azure en lugar de los registros de DNS para su dominio; haga referencia a las nuevas máquinas por su nombre de dominio completo de Azure.
@@ -267,7 +267,7 @@ Siga los mismos pasos que en el ILB para configurar la regla de equilibrio de ca
 
 En general, necesita las siguientes reglas para proteger eficazmente la subred interna (en el orden en el que aparecen a continuación).
 
-| Regla | Descripción | Flujo |
+| Regla | DESCRIPCIÓN | Flujo |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Permitir la comunicación HTTPS desde la red perimetral |Entrada |
 | DenyInternetOutbound |Sin acceso a Internet |Salida |
@@ -278,14 +278,17 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 
 **9.2. Protección de la subred DMZ**
 
-| Regla | Descripción | Flujo |
+| Regla | DESCRIPCIÓN | Flujo |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Permite HTTPS de Internet a la red perimetral |Entrada |
 | DenyInternetOutbound |No se bloquea nada, excepto HTTPS a Internet |Salida |
 
 ![Reglas de acceso EXT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[comentario]: <> (![reglas de acceso EXT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comentario]: <> (![reglas de acceso EXT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Si se requiere la autenticación del certificado de usuario del cliente (autenticación de clientTLS mediante certificados de usuario X509), AD FS necesitará que el puerto TCP 49443 esté habilitado para el acceso de entrada.
@@ -313,9 +316,9 @@ La plantilla implementa una instalación de 6 equipos para controladores de domi
 
 Puede usar una red virtual existente o crear una nueva red virtual durante la implementación de esta plantilla. A continuación se enumeran los distintos parámetros disponibles para personalizar la implementación con la descripción del uso del parámetro en el proceso de implementación. 
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 |:--- |:--- |
-| Ubicación |La región para implementar los recursos, por ejemplo, este de EE. UU. |
+| La ubicación |La región para implementar los recursos, por ejemplo, este de EE. UU. |
 | StorageAccountType |El tipo de la cuenta de almacenamiento creada |
 | VirtualNetworkUsage |Indica si se creará una nueva red virtual o se va a utilizar una existente |
 | VirtualNetworkName |El nombre de la red virtual a crear, esto es obligatorio tanto en el caso del uso de una nueva red virtual como de una existente |
@@ -350,7 +353,7 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 * [Azure Virtual Network](https://aka.ms/Azure/VNet)
 * [AD FS y vínculos de proxy de aplicación web](http://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

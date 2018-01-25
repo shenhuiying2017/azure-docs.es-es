@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: d02994a4fba64605c79edae3f68db36dc8935b28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
 
@@ -81,7 +81,7 @@ Para comprobar si un dispositivo está unido a Azure AD, consulte el cuadro de d
 ![Obtener acceso a trabajo o escuela](./media/device-management-azuread-joined-devices-frx/13.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 

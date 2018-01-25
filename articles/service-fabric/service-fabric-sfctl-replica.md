@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    deployed  | Obtiene los detalles de la réplica implementada en un nodo de Service Fabric.|
 |    deployed-list| Obtiene la lista de réplicas implementadas en un nodo de Service Fabric.|
@@ -44,7 +44,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio]| El nombre del nodo.|
 | --partition-id [Obligatorio]| La identidad de la partición.|
@@ -53,7 +53,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -68,7 +68,7 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --replica-id [Obligatorio]| El identificador de la réplica.|
@@ -77,7 +77,7 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                | Muestra este mensaje de ayuda y sale.|
@@ -92,7 +92,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --replica-id [Obligatorio]| El identificador de la réplica.|
@@ -101,7 +101,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -117,7 +117,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --continuation-token  | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
@@ -125,7 +125,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -140,7 +140,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio]| El nombre del nodo.|
 | --partition-id [Obligatorio]| La identidad de la partición.|
@@ -150,7 +150,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -165,7 +165,7 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio]| El nombre del nodo.|
 | --partition-id [Obligatorio]| La identidad de la partición.|
@@ -174,7 +174,7 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -182,6 +182,6 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 | --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

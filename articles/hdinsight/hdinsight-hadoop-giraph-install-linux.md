@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
 
@@ -140,7 +140,7 @@ Después de que se ha creado el clúster, use estos pasos para ejecutar el ejemp
 
     Los parámetros que se usan con este comando se describen en la tabla siguiente:
 
-   | Parámetro | Qué hace |
+   | . | Qué hace |
    | --- | --- |
    | `jar` |El archivo jar que contiene los ejemplos. |
    | `org.apache.giraph.GiraphRunner` |La clase que se usa para iniciar los ejemplos. |
@@ -174,7 +174,7 @@ Después de que se ha creado el clúster, use estos pasos para ejecutar el ejemp
 
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md).
 

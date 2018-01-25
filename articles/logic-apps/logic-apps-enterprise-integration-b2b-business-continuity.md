@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperación ante desastres de Logic Apps B2B entre regiones
 
@@ -92,7 +92,7 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 ![Seleccionar comprobar la configuración duplicada](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria.    
+1. Cree una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en una región secundaria.    
 
 2. Busque en **X12** y seleccione **X12: Cuando se modifica un número de control**.   
 
@@ -147,7 +147,7 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 ![Seleccionar comprobar la configuración duplicada](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria.    
+1. Cree una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en una región secundaria.    
 
 2. Busque en **EDIFACT** y seleccione **EDIFACT: Cuando se modifica un número de control**.
 
@@ -199,7 +199,7 @@ La continuidad empresarial de los documentos que usan el protocolo AS2 se basa e
 > [!TIP]
 > También puede usar la [plantilla de inicio rápido de AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear una aplicación lógica que tiene un desencadenador y una acción. La aplicación lógica crea una conexión desde un desencadenador a una cuenta de integración primaria y una acción a una cuenta de integración secundaria.
 
-1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en la región secundaria.  
+1. Cree una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en la región secundaria.  
 
 2. Busque en **AS2** y seleccione **AS2: Cuando se crea un valor MIC**.   
 
@@ -243,7 +243,7 @@ La continuidad empresarial de los documentos que usan el protocolo AS2 se basa e
 
 Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se replica de la región primaria a la secundaria. Durante un desastre, si la región primaria no está disponible, el tráfico se dirige a la región secundaria para la continuidad empresarial. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md)
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -172,7 +172,7 @@ En el plan de App Service, la aplicación de función se ejecuta en máquinas vi
 
 Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan de App Service].
 
-### <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
+### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
 ```json
 {
@@ -197,7 +197,7 @@ Después de seleccionar una opción de escalado, cree una aplicación de funció
 Una aplicación de función tiene muchos recursos secundarios que puede usar en la implementación, incluidas la configuración de la aplicación y las opciones de control del código fuente. Es posible que también elija quitar el recurso secundario **sourcecontrols** y usar otra [opción de implementación](functions-continuous-deployment.md) en su lugar.
 
 > [!IMPORTANT]
-> Para implementar la aplicación de forma correcta mediante Azure Resource Manager, es importante comprender cómo se implementan los recursos en Azure. En el siguiente ejemplo, se aplican configuraciones de nivel superior mediante **siteConfig**. Es importante establecer estas configuraciones en un nivel superior porque transmiten información al motor de implementación y en tiempo de ejecución de Functions. Se necesita información de nivel superior antes de aplicar el recurso secundario **sourcecontrols/web**. Aunque es posible configurar estas opciones en el recurso de nivel secundario **config/appSettings**, en algunos casos debe implementar la aplicación de función *antes de* que se aplique **config/appSettings**. Por ejemplo, cuando se usan funciones con [Logic Apps](../logic-apps/index.md), las funciones son una dependencia de otro recurso.
+> Para implementar la aplicación de forma correcta mediante Azure Resource Manager, es importante comprender cómo se implementan los recursos en Azure. En el siguiente ejemplo, se aplican configuraciones de nivel superior mediante **siteConfig**. Es importante establecer estas configuraciones en un nivel superior porque transmiten información al motor de implementación y en tiempo de ejecución de Functions. Se necesita información de nivel superior antes de aplicar el recurso secundario **sourcecontrols/web**. Aunque es posible configurar estas opciones en el recurso de nivel secundario **config/appSettings**, en algunos casos debe implementar la aplicación de función *antes de* que se aplique **config/appSettings**. Por ejemplo, cuando se usan funciones con [Logic Apps](../logic-apps/index.yml), las funciones son una dependencia de otro recurso.
 
 ```json
 {
@@ -260,8 +260,8 @@ Puede usar cualquiera de los siguientes métodos para implementar la plantilla:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [API DE REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [API de REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure
 
@@ -279,11 +279,11 @@ A continuación se muestra un ejemplo que usa HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a desarrollar y configurar Azure Functions.
 
-* [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)
+* [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Configuración de aplicaciones de función de Azure](functions-how-to-use-azure-function-app-settings.md)
 * [Creación de su primera función de Azure](functions-create-first-azure-function.md)
 

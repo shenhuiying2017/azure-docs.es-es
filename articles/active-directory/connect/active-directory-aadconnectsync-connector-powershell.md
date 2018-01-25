@@ -3,7 +3,7 @@ title: Conector de PowerShell | Microsoft Docs
 description: "En este artículo se describe cómo configurar el conector de Windows PowerShell de Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referencia técnica del conector de Windows PowerShell
 En este artículo se describe el conector de Windows PowerShell. El artículo se aplica a los siguientes productos:
@@ -32,7 +32,7 @@ Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [C
 ## <a name="overview-of-the-powershell-connector"></a>Información general sobre el conector de PowerShell
 El conector de PowerShell le permite integrar el servicio de sincronización con los sistemas externos que ofrecen API basadas en Windows PowerShell. El conector proporciona un puente entre las funcionalidades del marco del agente de administración de conectividad extensible 2 (ECMA2) basado en llamadas y Windows PowerShell. Para obtener más información sobre el marco ECMA, consulte [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
 * Microsoft .NET 4.5.2 Framework o posterior
@@ -59,7 +59,7 @@ Puede configurar los siguientes parámetros de conectividad:
 
 **Conectividad**
 
-| Parámetro | Valor predeterminado | Propósito |
+| . | Valor predeterminado | Propósito |
 | --- | --- | --- |
 | Server |<Blank> |Nombre del servidor al que debe conectarse el conector. |
 | Dominio |<Blank> |Dominio de la credencial para almacenar para su uso cuando se ejecuta el conector. |
@@ -88,7 +88,7 @@ El script de validación es un script de Windows PowerShell opcional que puede u
 
 El script de validación recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |La pestaña o cuadro de diálogo de configuración que desencadenó la solicitud de validación. |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
@@ -101,7 +101,7 @@ El script Detección de esquema es obligatorio. Este script devuelve los tipos d
 
 El script de detección del esquema recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -120,7 +120,7 @@ La pestaña Funcionalidades del Diseñador de agente de administración define e
 
 ![Capacidades](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| Capacidad | Descripción |
+| Capacidad | DESCRIPCIÓN |
 | --- | --- |
 | [Estilo de nombre distintivo][dnstyle] |Indica si el conector admite nombres distintivos y si es así, de qué estilo. |
 | [Tipo de exportación][exportT] |Determina los tipos de objetos presentes en el script de exportación. <li>AttributeReplace: incluye el conjunto completo de valores de un atributo multivalor cuando cambia el atributo.</li><li>AttributeUpdate: incluye solo las diferencias de un atributo multivalor cuando cambia el atributo.</li><li>MultivaluedReferenceAttributeUpdate: incluye un conjunto completo de valores de atributos de varios valores sin referencia y diferencias solo para atributos de referencia de varios valores.</li><li>ObjectReplace: incluye todos los atributos de un objeto cuando no cambia ningún atributo.</li> |
@@ -148,7 +148,7 @@ Una partición es un espacio de nombres independiente dentro de un esquema compa
 
 El script de detección de partición recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -160,7 +160,7 @@ El script de detección de jerarquía solo se usa cuando la funcionalidad del es
 
 El script de detección de jerarquía recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -168,7 +168,7 @@ El script de detección de jerarquía recibe los parámetros siguientes del cone
 
 El script debe devolver un único objeto HierarchyNode secundario o un elemento List[T] de objetos HierarchyNode secundarios a la canalización.
 
-#### <a name="import"></a>Importación
+#### <a name="import"></a>Importar
 Los conectores que admiten operaciones de importación deben implementar tres scripts.
 
 **Begin Import**  
@@ -176,7 +176,7 @@ El script de inicio de importación se ejecuta al principio de un paso de ejecuc
 
 El script de inicio de importación recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -190,7 +190,7 @@ El conector llama al script de importación de datos hasta que el script indica 
 
 El script de importación de datos recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -205,7 +205,7 @@ Al acabar la ejecución de importación, se ejecutará el script de finalizació
 
 El script de finalización de importación recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -222,7 +222,7 @@ El script de inicio de exportación se ejecuta al principio de un paso de ejecuc
 
 El script de inicio de exportación recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -236,7 +236,7 @@ El servicio de sincronización llamará al script de exportación de datos tanta
 
 El script de exportación de datos recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -251,7 +251,7 @@ Al acabar la ejecución de la importación, se ejecutará el script de finalizac
 
 El script de finalización de exportación recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
@@ -265,16 +265,16 @@ Se pueden usar los conectores de Windows PowerShell como destino para los cambio
 
 El script de contraseña recibe los parámetros siguientes del conector:
 
-| Nombre | Tipo de datos | Description |
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabla de parámetros de configuración para el conector. |
 | Credential: |[PSCredential][pscred] |Contiene las credenciales especificadas por el administrador en la pestaña Conectividad. |
 | Partition |[Partición][part] |Partición del directorio en el que se encuentra CSEntry. |
 | CSEntry |[CSEntry][cse] |Entrada del espacio de conector para el objeto que recibe un cambio o restablecimiento de contraseña. |
-| OperationType |Cadena |Indica si la operación es un restablecimiento (**SetPassword**) o un cambio (**ChangePassword**). |
+| OperationType |string |Indica si la operación es un restablecimiento (**SetPassword**) o un cambio (**ChangePassword**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Marcas que especifican el comportamiento de restablecimiento de contraseña pretendido. Este parámetro solo está disponible si OperationType es **SetPassword**. |
-| OldPassword |String |Se rellena con la contraseña anterior del objeto para cambios de contraseña. Este parámetro solo está disponible si OperationType es **ChangePassword**. |
-| NewPassword |String |Se rellena con la nueva contraseña del objeto que debe establecer el script. |
+| OldPassword |string |Se rellena con la contraseña anterior del objeto para cambios de contraseña. Este parámetro solo está disponible si OperationType es **ChangePassword**. |
+| NewPassword |string |Se rellena con la nueva contraseña del objeto que debe establecer el script. |
 
 El script de contraseña no devuelve ningún resultado a la canalización de Windows PowerShell. Si se produce un error en el script de contraseña, este producirá una de las excepciones siguientes para informar al servicio de sincronización acerca del problema:
 
@@ -309,7 +309,7 @@ Acceso de lectura a las carpetas del sistema de archivo siguientes:
 
 Sustituya el nombre del conector de Windows PowerShell por el marcador de posición {nombreDeConector}.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

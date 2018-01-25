@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creación de API personalizadas que se pueden llamar desde flujos de trabajo de aplicación lógica
 
@@ -31,7 +31,7 @@ Aunque Azure Logic Apps ofrece [más de 100 conectores integrados](../connectors
 
 Básicamente, los conectores son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](http://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Dado que los conectores son API de REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores, como, por ejemplo, .NET, Java, o Node.js. También puede hospedar las API en [Azure App Service](../app-service/app-service-web-overview.md), una oferta de plataforma como servicio (PaaS) que proporciona una de las formas más eficaces, sencillas y escalables para hospedar API. 
 
-Para que las API personalizadas funcionen con las aplicaciones lógicas, su API puede proporcionar [*acciones*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que realicen tareas específicas en flujos de trabajo de aplicaciones lógicas. La API también puede actuar como un [*desencadenador*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia un flujo de trabajo de aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. En este tema se describen los patrones comunes que puede seguir para crear acciones y desencadenadores en la API, en función del comportamiento que desee que ofrezca su API.
+Para que las API personalizadas funcionen con las aplicaciones lógicas, su API puede proporcionar [*acciones*](./logic-apps-overview.md#logic-app-concepts) que realicen tareas específicas en flujos de trabajo de aplicaciones lógicas. La API también puede actuar como un [*desencadenador*](./logic-apps-overview.md#logic-app-concepts) que inicia un flujo de trabajo de aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. En este tema se describen los patrones comunes que puede seguir para crear acciones y desencadenadores en la API, en función del comportamiento que desee que ofrezca su API.
 
 Puede hospedar las API en [Azure App Service](../app-service/app-service-web-overview.md), una oferta de plataforma como servicio (PaaS) que proporciona hospedaje API fácil y altamente escalable.
 
@@ -73,7 +73,7 @@ Muchas bibliotecas, como [Swashbuckle](https://github.com/domaindrivendev/Swashb
 
 ## <a name="action-patterns"></a>Patrones de acción
 
-Para que las aplicaciones lógicas realicen tareas, la API personalizada debe proporcionar [*acciones*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Cada operación de la API se asigna a una acción. Una acción básica es un controlador que acepta solicitudes HTTP y devuelve respuestas HTTP. Por ejemplo, una aplicación lógica envía una solicitud HTTP a su aplicación web o aplicación de API. A continuación, la aplicación devuelve una respuesta HTTP, junto con el contenido que puede procesar la aplicación lógica.
+Para que las aplicaciones lógicas realicen tareas, la API personalizada debe proporcionar [*acciones*](./logic-apps-overview.md#logic-app-concepts). Cada operación de la API se asigna a una acción. Una acción básica es un controlador que acepta solicitudes HTTP y devuelve respuestas HTTP. Por ejemplo, una aplicación lógica envía una solicitud HTTP a su aplicación web o aplicación de API. A continuación, la aplicación devuelve una respuesta HTTP, junto con el contenido que puede procesar la aplicación lógica.
 
 Para una acción estándar, puede escribir un método de solicitud HTTP en la API y describir ese método en un archivo Swagger. A continuación, puede llamar directamente a su API con una [acción HTTP](../connectors/connectors-native-http.md) o una acción [HTTP + Swagger](../connectors/connectors-native-http-swagger.md). De forma predeterminada, se deben devolver las respuestas en el [límite de tiempo de expiración de la solicitud](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Para este patrón, configure dos puntos de conexión en el controlador: `subscri
 
 ## <a name="trigger-patterns"></a>Patrones de desencadenador
 
-La API personalizada puede actuar como un [*desencadenador*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia una aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. Este desencadenador puede realizar comprobaciones periódicamente o esperar y escuchar nuevos datos o eventos en su punto de conexión de servicio. Si un evento o datos nuevos cumplen la condición especificada, el desencadenador se activa e inicia la aplicación lógica, que está escuchando a ese desencadenador. Para iniciar aplicaciones lógicas de esta manera, la API puede seguir el patrón de [*desencadenador de sondeo*](#polling-triggers) o [*desencadenador de webhook*](#webhook-triggers). Estos patrones son similares a sus [acciones de sondeo](#async-pattern) y [acciones de webhook](#webhook-actions) homólogas. Obtenga también más información sobre la [medición de uso para desencadenadores](logic-apps-pricing.md).
+La API personalizada puede actuar como un [*desencadenador*](./logic-apps-overview.md#logic-app-concepts) que inicia una aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. Este desencadenador puede realizar comprobaciones periódicamente o esperar y escuchar nuevos datos o eventos en su punto de conexión de servicio. Si un evento o datos nuevos cumplen la condición especificada, el desencadenador se activa e inicia la aplicación lógica, que está escuchando a ese desencadenador. Para iniciar aplicaciones lógicas de esta manera, la API puede seguir el patrón de [*desencadenador de sondeo*](#polling-triggers) o [*desencadenador de webhook*](#webhook-triggers). Estos patrones son similares a sus [acciones de sondeo](#async-pattern) y [acciones de webhook](#webhook-actions) homólogas. Obtenga también más información sobre la [medición de uso para desencadenadores](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -178,7 +178,7 @@ Por ejemplo, para comprobar periódicamente el servicio para buscar nuevos archi
 
 | ¿La solicitud incluye `triggerState`? | Respuesta de la API | 
 | -------------------------------- | -------------| 
-| No | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
+| Sin  | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
 | Sí | Compruebe si en el servicio se han agregado archivos después de la fecha `DateTime` para `triggerState`. | 
 ||| 
 
@@ -231,11 +231,11 @@ Para que las API personalizadas estén disponibles para todos los usuarios de Lo
 
 * Para obtener ayuda específica sobre las API personalizadas, póngase en contacto con [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-* Si tiene preguntas, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md)
 * [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP](../logic-apps/logic-apps-http-endpoint.md)

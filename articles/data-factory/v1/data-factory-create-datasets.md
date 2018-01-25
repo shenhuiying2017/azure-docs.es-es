@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-create-datasets.md)
-> * [Versión 2: Versión preliminar](../concepts-datasets-linked-services.md)
+> * [Versión 2: versión preliminar](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre los [conjuntos de datos en V2](../concepts-datasets-linked-services.md).
@@ -80,15 +80,15 @@ Un conjunto de datos de Data Factory se define con formato JSON de la manera sig
 
 La tabla siguiente describe las propiedades del JSON anterior:   
 
-| Propiedad | Descripción | Obligatorio | Valor predeterminado |
+| Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| name |Nombre del conjunto de datos. Consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
-| type |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
-| structure |Esquema del conjunto de datos.<br/><br/>Para más información, consulte [Estructura del conjunto de datos](#Structure). |No |N/D |
+| Nombre |Nombre del conjunto de datos. Consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
+| Tipo |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
+| structure |Esquema del conjunto de datos.<br/><br/>Para más información, consulte [Estructura del conjunto de datos](#Structure). |Sin  |N/D |
 | typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
-| external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. Si la canalización actual no produce el conjunto de datos de entrada de una actividad, defina esta marca en true. Establezca esta marca en true para el conjunto de datos de entrada de la primera actividad de la canalización.  |No |false |
+| external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. Si la canalización actual no produce el conjunto de datos de entrada de una actividad, defina esta marca en true. Establezca esta marca en true para el conjunto de datos de entrada de la primera actividad de la canalización.  |Sin  |false |
 | availability | Define la ventana de procesamiento (por ejemplo, horas, días, etc.) o el modelo de segmentación para la producción del conjunto de datos. Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. Si la disponibilidad de un conjunto de datos de salida se establece en diaria (frecuencia: día, intervalo: 1), se produce un segmento diariamente. <br/><br/>Para más información, consulte [Disponibilidad del conjunto de datos](#Availability). <br/><br/>Para más información sobre el modelo de segmentación del conjunto de datos, consulte el artículo [Programación y ejecución de Data Factory](data-factory-scheduling-and-execution.md). |Sí |N/D |
-| policy |Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy). |No |N/D |
+| policy |Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy). |Sin  |N/D |
 
 ## <a name="dataset-example"></a>Ejemplo de conjunto de datos
 En el siguiente ejemplo, el conjunto de datos representa una tabla llamada **MyTable** en una base de datos SQL.
@@ -193,12 +193,12 @@ structure:
 
 Cada columna de la estructura contiene las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la columna. |Sí |
-| type |Tipo de datos de la columna.  |No |
-| culture |Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. |No |
-| formato |Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. |No |
+| Nombre |Nombre de la columna. |Sí |
+| Tipo |Tipo de datos de la columna.  |Sin  |
+| culture |Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. |Sin  |
+| formato |Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. |Sin  |
 
 Las siguientes instrucciones le ayudan a determinar cuándo incluir información de estructura y qué incluir en la sección **structure**.
 
@@ -236,13 +236,13 @@ El conjunto de datos de salida se genera cada hora dentro de las horas de inicio
 
 La tabla siguiente describe las propiedades que puede utilizar en la sección de disponibilidad:
 
-| Propiedad | Descripción | Obligatorio | Valor predeterminado |
+| Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
 | frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month. |Sí |N/D |
 | interval |Especifica un multiplicador para "frequency".<br/><br/>"Frequency x interval" determina la frecuencia con la que se produce el segmento. Por ejemplo, si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/>Observe que si especifica **frequency** como **Minute**, debe establecer el intervalo en un valor no inferior a 15. |Sí |N/D |
-| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** se establece en **Month** y **style** se establece en **EndOfInterval**, el segmento se produce el último día del mes. Si **style** se establece en **StartOfInterval**, el segmento se produce el primer día del mes.<br/><br/>Si **frequency** se establece en **Day** y **style** se establece en **EndOfInterval**, el segmento se produce la última hora del día.<br/><br/>Si **frequency** se establece en **Hour** y **style** se establece en **EndOfInterval**, el segmento se produce al final de la hora. Por ejemplo, para un segmento en el período de 1 p.m. - 2 p.m., el segmento se producirá a las 2 p.m. |No |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha que son más específicas que la frecuencia indicada, las partes más específicas se ignoran. Por ejemplo, si el valor de **interval** es **hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds**, las partes **minutes and seconds** de AnchorDateTime no se tienen en cuenta. |No |01/01/0001 |
-| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>Tenga en cuenta que si se especifican **anchorDateTime** y **offset**, el resultado es el desplazamiento combinado. |No |N/D |
+| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** se establece en **Month** y **style** se establece en **EndOfInterval**, el segmento se produce el último día del mes. Si **style** se establece en **StartOfInterval**, el segmento se produce el primer día del mes.<br/><br/>Si **frequency** se establece en **Day** y **style** se establece en **EndOfInterval**, el segmento se produce la última hora del día.<br/><br/>Si **frequency** se establece en **Hour** y **style** se establece en **EndOfInterval**, el segmento se produce al final de la hora. Por ejemplo, para un segmento en el período de 1 p.m. - 2 p.m., el segmento se producirá a las 2 p.m. |Sin  |EndOfInterval |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha que son más específicas que la frecuencia indicada, las partes más específicas se ignoran. Por ejemplo, si el valor de **interval** es **hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds**, las partes **minutes and seconds** de AnchorDateTime no se tienen en cuenta. |Sin  |01/01/0001 |
+| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>Tenga en cuenta que si se especifican **anchorDateTime** y **offset**, el resultado es el desplazamiento combinado. |Sin  |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset
 De forma predeterminada, los segmentos diarios (`"frequency": "Day", "interval": 1`) comienzan a las 12 p.m. (medianoche), Hora universal coordinada (UTC). Si desea que, en su lugar, la hora de inicio sea a las 6:00 UTC, defina el desplazamiento como se muestra en el siguiente fragmento de código: 
@@ -283,10 +283,10 @@ El siguiente conjunto de datos es mensual y se produce el tercer día de cada me
 En la sección **policy** de la definición del conjunto de datos se definen los criterios o condiciones que deben cumplir los segmentos del conjunto de datos.
 
 ### <a name="validation-policies"></a>Directivas de validación
-| Nombre de la directiva | Descripción | Se aplica a | Obligatorio | Valor predeterminado |
+| Nombre de la directiva | DESCRIPCIÓN | Se aplica a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Azure Blob Storage |No |N/D |
-| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>Tabla de Azure</li></ul> |No |N/D |
+| minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Azure Blob Storage |Sin  |N/D |
+| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>Tabla de Azure</li></ul> |Sin  |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**
@@ -319,12 +319,12 @@ Los conjuntos de datos externos son los que no son producidos por una canalizaci
 
 A menos que se esté produciendo un conjunto de datos mediante Data Factory, debe marcarse como **external**. Generalmente, esta configuración se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
 
-| Nombre | Descripción | Obligatorio | Valor predeterminado |
+| NOMBRE | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| dataDelay |Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, puede retrasar una comprobación horaria mediante esta configuración.<br/><br/>Esta configuración solo se aplica a la hora actual.  Por ejemplo, si es la 1:00 p.m. y este valor es de 10 minutos, la validación se inicia a la 1:10 p.m.<br/><br/>Tenga en cuenta que esta configuración no afecta a los segmentos del pasado. Los segmentos con **Slice End Time** + **dataDelay** < **Now** se procesan sin retraso.<br/><br/>Los tiempos mayores que 23:59 horas se deben especificar mediante el formato `day.hours:minutes:seconds`. Por ejemplo, para especificar 24 horas, no use 24:00:00. En su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. |No |0 |
-| retryInterval |El tiempo de espera entre un error y el siguiente intento. Esta configuración se aplica a la hora actual. Si se ha producido algún error en el intento anterior, el siguiente intento se realiza después del período **retryInterval**. <br/><br/>Si ahora es la 1:00 p. m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. |No |00:01:00 (1 minuto) |
-| retryTimeout |El tiempo de espera de cada reintento.<br/><br/>Si esta propiedad se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marca como **TimedOut**. |No |00:10:00 (10 minutos) |
-| maximumRetry |Número de veces que se va a comprobar la disponibilidad de los datos externos. El máximo permitido es de 10. |No |3 |
+| dataDelay |Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, puede retrasar una comprobación horaria mediante esta configuración.<br/><br/>Esta configuración solo se aplica a la hora actual.  Por ejemplo, si es la 1:00 p.m. y este valor es de 10 minutos, la validación se inicia a la 1:10 p.m.<br/><br/>Tenga en cuenta que esta configuración no afecta a los segmentos del pasado. Los segmentos con **Slice End Time** + **dataDelay** < **Now** se procesan sin retraso.<br/><br/>Los tiempos mayores que 23:59 horas se deben especificar mediante el formato `day.hours:minutes:seconds`. Por ejemplo, para especificar 24 horas, no use 24:00:00. En su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. |Sin  |0 |
+| retryInterval |El tiempo de espera entre un error y el siguiente intento. Esta configuración se aplica a la hora actual. Si se ha producido algún error en el intento anterior, el siguiente intento se realiza después del período **retryInterval**. <br/><br/>Si ahora es la 1:00 p. m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. |Sin  |00:01:00 (1 minuto) |
+| retryTimeout |El tiempo de espera de cada reintento.<br/><br/>Si esta propiedad se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marca como **TimedOut**. |Sin  |00:10:00 (10 minutos) |
+| maximumRetry |Número de veces que se va a comprobar la disponibilidad de los datos externos. El máximo permitido es de 10. |Sin  |3 |
 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
@@ -335,7 +335,7 @@ Puede crear conjuntos de datos mediante el uso de algunas de estas herramientas 
 - Visual Studio
 - PowerShell
 - Plantilla del Administrador de recursos de Azure
-- API de REST
+- API DE REST
 - API de .NET
 
 Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK:
@@ -448,6 +448,6 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante la pr
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para más información sobre las canalizaciones, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). 
 - Para más información sobre cómo programar y ejecutar canalizaciones en Azure Data Factory, consulte [este artículo](data-factory-scheduling-and-execution.md). 

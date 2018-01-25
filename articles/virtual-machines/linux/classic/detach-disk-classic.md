@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: e9589084062e4cefa661aaf2bc1630fa9eee8bd7
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3b9678e7b1cfbff1ba83ae6cf881546335ab3e12
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Desacoplamiento de un disco de una máquina virtual de Linux
 > [!IMPORTANT] 
@@ -31,6 +31,6 @@ ms.lasthandoff: 01/08/2018
 ## <a name="next-steps"></a>pasos siguientes
 Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes artículos:
 
-* [Acoplamiento de un disco de datos a una máquina virtual Linux](attach-disk.md)
+* [Acoplamiento de un disco de datos a una máquina virtual Linux](attach-disk-classic.md)
 * [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

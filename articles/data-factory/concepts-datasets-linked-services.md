@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de datos y servicios vinculados en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-create-datasets.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-create-datasets.md)
 > * [Versión 2: versión preliminar](concepts-datasets-linked-services.md)
 
 En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory V2. 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), vea la [Datasets in Data Factory V1](v1/data-factory-create-datasets.md) (Conjuntos de datos en Data Factory V1).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), vea la [Datasets in Data Factory V1](v1/data-factory-create-datasets.md) (Conjuntos de datos en Data Factory V1).
 
 Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md) para obtener información general. 
 
@@ -65,12 +65,12 @@ Un servicio vinculado de Data Factory se define con formato JSON de la manera si
 
 La tabla siguiente describe las propiedades del JSON anterior:
 
-Propiedad | Descripción | Obligatorio |
+Propiedad | DESCRIPCIÓN | Obligatorio |
 -------- | ----------- | -------- |
-name | Nombre del servicio vinculado. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
-type | Tipo de servicio vinculado. Por ejemplo: AzureStorage (almacén de datos) o AzureBatch (proceso). Vea la descripción de typeProperties. | Sí |
+Nombre | Nombre del servicio vinculado. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
+Tipo | Tipo de servicio vinculado. Por ejemplo: AzureStorage (almacén de datos) o AzureBatch (proceso). Vea la descripción de typeProperties. | Sí |
 typeProperties | Las propiedades de tipo son diferentes para cada almacén de datos o proceso. <br/><br/> Para los tipos de almacenes de datos compatibles y sus propiedades de tipo, consulte la tabla [Tipo de conjunto de datos](#dataset-type) en este artículo. Vaya al artículo del conector del almacén de datos para obtener información acerca de las propiedades de tipo específicas de un almacén de datos. <br/><br/> Para los tipos de procesos compatibles y sus propiedades de tipo, vea [Servicios de proceso vinculados](compute-linked-services.md). | Sí |
-connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | No
+connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | Sin 
 
 ## <a name="linked-service-example"></a>Ejemplo de servicio vinculado
 El siguiente servicio vinculado no es un servicio vinculado de Azure Storage. Tenga en cuenta que el tipo está establecido en AzureStorage. Las propiedades de tipo del servicio vinculado de Azure Storage incluyen una cadena de conexión. El servicio Data Factory utiliza esta cadena de conexión para conectarse al almacén de datos en tiempo de ejecución. 
@@ -122,11 +122,11 @@ Un conjunto de datos de Data Factory se define con formato JSON de la manera sig
 ```
 La tabla siguiente describe las propiedades del JSON anterior:
 
-Propiedad | Descripción | Obligatorio |
+Propiedad | DESCRIPCIÓN | Obligatorio |
 -------- | ----------- | -------- |
-name | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
-type | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-types) (Tipo de conjunto de datos). | Sí |
-structure | Esquema del conjunto de datos. Para más información, consulte [Estructura del conjunto de datos](#dataset-structure). | No |
+Nombre | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
+Tipo | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-types) (Tipo de conjunto de datos). | Sí |
+structure | Esquema del conjunto de datos. Para más información, consulte [Estructura del conjunto de datos](#dataset-structure). | Sin  |
 typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#dataset-type). | Sí |
 
 ## <a name="dataset-example"></a>Ejemplo de conjunto de datos
@@ -196,12 +196,12 @@ La sección **structure** es opcional. Define el esquema del conjunto de datos a
 
 Cada columna de la estructura contiene las siguientes propiedades:
 
-Propiedad | Descripción | Obligatorio
+Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
-name | Nombre de la columna. | Sí
-type | Tipo de datos de la columna. | No
-culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | No
-formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. | No
+Nombre | Nombre de la columna. | Sí
+Tipo | Tipo de datos de la columna. | Sin 
+culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin 
+formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. | Sin 
 
 Las siguientes instrucciones le ayudan a determinar cuándo incluir información de estructura y qué incluir en la sección **structure**.
 
@@ -221,7 +221,7 @@ A continuación se indican algunas diferencias entre los conjuntos de datos de D
 - Las propiedades de directiva y disponibilidad no se admiten en V2. La hora de inicio de una canalización depende de [desencadenadores](concepts-pipeline-execution-triggers.md).
 - Los conjuntos de datos con ámbito (conjuntos de datos definidos en una canalización) no se admiten en V2. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte el siguiente tutorial para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK. 
 
 - [Inicio rápido: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Crear una factoría de datos mediante .NET)

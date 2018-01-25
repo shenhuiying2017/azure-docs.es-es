@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d1c1698b1d94131d4f54878306b020c12dc577f2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b22f387a0338246c7586f0f0735b4612a796691a
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solución de errores de los paquetes de contenido de los registros de actividad de Azure Active Directory 
 
@@ -63,7 +63,7 @@ Este tema proporciona información sobre las posibles causas y cómo corregir es
 | ---   | ---        |
 | Según el tamaño de su inquilino, este paso puede tardar desde algunos minutos hasta media hora. | Tenga paciencia. Si el mensaje no cambia para mostrar el panel dentro de una hora, registre una incidencia de soporte técnico. Para más detalles, consulte [Obtención de soporte técnico para Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para instalar el paquete de contenido de Power BI para Azure Active Directory (versión preliminar), haga clic [aquí](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
 

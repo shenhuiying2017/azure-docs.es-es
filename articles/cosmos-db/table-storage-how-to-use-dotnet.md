@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introducción al Almacenamiento de tablas de Azure mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,14 +31,14 @@ Table Storage se puede usar para almacenar conjuntos de datos flexibles, como da
 ### <a name="about-this-tutorial"></a>Acerca de este tutorial
 En este tutorial se muestra cómo usar la [biblioteca del cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) en algunos escenarios habituales de Azure Table Storage. Estos escenarios se presentan con ejemplos de C# para crear y eliminar una tabla, e insertar, actualizar, eliminar y consultar datos de la tabla.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Necesitará lo siguiente para completar este tutorial correctamente:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Cuenta de Almacenamiento de Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -460,7 +460,7 @@ do
 } while(continuationToken != null);
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de Tabla, siga estos vínculos para obtener más información sobre tareas de almacenamiento más complejas.
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
@@ -468,7 +468,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
 * Consulte la documentación de referencia de Table service para obtener información detallada acerca de las API disponibles:
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
-* Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 * [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
 * Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configuración de dispositivos Windows 10 registrados en Azure Active Directory
 
@@ -51,14 +51,14 @@ Al registrar un dispositivo, debería tener en cuenta lo siguiente:
 
 En esta sección, se proporcionan los pasos para registrar su dispositivo Windows 10 en Azure AD. Si ha registrado correctamente el dispositivo en Azure AD, el cuadro de diálogo **Obtener acceso a trabajo o escuela** lo indica con la entrada **Cuenta profesional o educativa**.
 
-![Registro](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 
 **Para registrar su dispositivo Windows 10:**
 
 1. En el menú **Inicio**, haga clic en **Configuración**.
 
-    ![Settings](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
+    ![Configuración](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
 
 2. Haga clic en **Cuentas**.
 
@@ -92,17 +92,17 @@ En esta sección, se proporcionan los pasos para registrar su dispositivo Window
 
 Para comprobar si un dispositivo está unido a Azure AD, puede consultar el cuadro de diálogo **Obtener acceso a trabajo o escuela** en el dispositivo.
 
-![Registro](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 Como alternativa, también puede consultar la configuración del dispositivo en el portal de Azure AD.
 
-![Registro](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
 
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 

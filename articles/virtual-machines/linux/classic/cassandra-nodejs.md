@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Ejecutar un clúster de Cassandra en Azure para Linux con Node.js
 
@@ -292,7 +292,7 @@ Inicie sesión en la máquina virtual con el nombre de host (hk-cas-template.clo
 Ejecute la siguiente secuencia de acciones para capturar la imagen:
 
 ##### <a name="1-deprovision"></a>1. Desaprovisionamiento
-Use el comando “sudo waagent –deprovision+user” para quitar la información específica de la instancia de máquina virtual. Consulte [Captura de una máquina virtual de Linux](capture-image.md) para usar como plantilla. Encontrará más detalles en el proceso de captura de imagen.
+Use el comando “sudo waagent –deprovision+user” para quitar la información específica de la instancia de máquina virtual. Consulte [Captura de una máquina virtual de Linux](capture-image-classic.md) para usar como plantilla. Encontrará más detalles en el proceso de captura de imagen.
 
 ##### <a name="2-shut-down-the-vm"></a>2: Apague la máquina virtual
 Asegúrese de que la máquina virtual está resaltada y haga clic en el vínculo de cierre de la barra de comandos de la parte inferior.

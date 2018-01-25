@@ -3,7 +3,7 @@ title: Conector de Lotus Domino | Microsoft Docs
 description: "En este artículo, se describe cómo configurar el conector de Lotus Domino para Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referencia técnica del conector de Lotus Domino
 En este artículo, se describe el conector de Lotus Domino. El artículo se aplica a los siguientes productos:
@@ -43,7 +43,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 
 El conector de Lotus Domino usa el cliente de Lotus Notes para comunicarse con el servidor de Lotus Domino. Como consecuencia de esta dependencia, debe instalarse un cliente de Lotus Notes compatible en el servidor de sincronización. La comunicación entre el cliente y el servidor se implementa a través de la interfaz de interoperabilidad .NET de Lotus Notes (Interop.domino.dll). Esta interfaz facilita la comunicación entre el cliente de Lotus Notes y la plataforma de Microsoft .NET, y admite el acceso a documentos y vistas de Lotus Domino. Para la importación diferencial, es también posible que se use la interfaz nativa de C++ (según el método de importación diferencial seleccionado).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de usar el conector, asegúrese de que cumple los siguientes requisitos previos en el servidor de sincronización:
 
 * Microsoft .NET 4.5.2 Framework o posterior
@@ -128,7 +128,7 @@ El archivo UserID proporcionado se almacena en la base de datos de configuració
 
 Para **Importación diferencial** , tiene estas opciones:
 
-* **Ninguna**. El conector no realiza ninguna importación diferencial.
+* **No**. El conector no realiza ninguna importación diferencial.
 * **Adición y actualización**. El conector realiza una importación diferencial de las operaciones de adición y actualización. Para las de eliminación, se necesita una operación **Importación completa** . Esta operación emplea la interoperabilidad .NET.
 * **Adición, actualización y eliminación**. El conector realiza una importación diferencial de las operaciones de adición, actualización y eliminación. Esta operación usa las interfaces de C++ nativo.
 
@@ -285,7 +285,7 @@ El objeto de persona representa a los usuarios de la organización y las unidade
   2. Usuario móvil (un usuario normal que incluye todos los archivos de base de datos móvil)
   3. Contactos (usuarios sin archivo de identificación)
 
-Las personas (excepto los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Estas personas usan al cliente de Notes para acceder a los servidores de Lotus Domino, que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tienen un archivo de correo. El usuario debe estar registrado para activarse. Para más información, consulte:
+Las personas (excepto los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Estas personas usan al cliente de Notes para acceder a los servidores de Lotus Domino, que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tienen un archivo de correo. El usuario debe estar registrado para activarse. Para obtener más información, consulte 
 
 * [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 * [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
@@ -358,7 +358,7 @@ El conector de Lotus Domino admite las siguientes operaciones para la contraseñ
 * Establecer contraseña: esta opción establece una nueva contraseña HTTP/Internet en el usuario de Domino. Además, de forma predeterminada, la cuenta también se desbloquea. La marca de desbloqueo se expone en la interfaz de WMI del motor de sincronización.
 * Cambiar contraseña: en este escenario, con la opción Solo cambiar, un usuario puede cambiar la contraseña o se le pide que la cambie tras un tiempo especificado. Para que esta operación se lleve a cabo, son obligatorias ambas contraseñas (la antigua y la nueva). Una vez cambiada, la nueva contraseña se actualiza en Lotus Domino.
 
-Para más información, consulte:
+Para obtener más información, consulte 
 
 * [Using the Internet lockout feature](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 * [Managing Internet passwords](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
@@ -371,7 +371,7 @@ Cuando se aprovisionan objetos de persona en el directorio de Lotus Domino, los 
 
 En la tabla siguiente, se incluyen estas propiedades y se proporciona su descripción.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | \_MMS_AltFullName |El nombre completo alternativo del usuario. |
 | \_MMS_AltFullNameLanguage |El idioma que se usa para especificar el nombre completo alternativo del usuario. |
@@ -492,5 +492,5 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 7. Después de agregar los atributos requeridos para ExtensibleObjectClass, haga clic en **Save & Close** (Guardar y cerrar).
 8. Se crea un elemento ExtensibleObjectClass para la clase de objeto predeterminada respectiva con atributos extendidos.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

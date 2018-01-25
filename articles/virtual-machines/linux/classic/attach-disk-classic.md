@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: a03c71d2691478b17864d6cc5ec4c0c55caef477
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b47451bb8e53154760b893e452649f15ffdff7f9
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Acoplamiento de un disco de datos a una máquina virtual Linux
 > [!IMPORTANT] 
@@ -227,7 +227,7 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes artículos:
 
 * [Inicio de sesión en una máquina virtual con Linux][Logon]
-* [Desconexión de un disco de una máquina virtual de Linux](detach-disk.md)
+* [Desconexión de un disco de una máquina virtual de Linux](detach-disk-classic.md)
 * [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Configuración de RAID en una máquina virtual Linux en Azure](../configure-raid.md)
 * [Configuración del LVM en una máquina virtual Linux en Azure](../configure-lvm.md)

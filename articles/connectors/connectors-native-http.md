@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introducción a la acción HTTP
 
@@ -30,7 +30,7 @@ Puede:
 * Cree flujos de trabajo de aplicaciones lógicas que se activen (desencadenador) cuando un sitio web que administre deje de funcionar.
 * Comuníquese con cualquier punto de conexión por HTTP para ampliar los flujos de trabajo a otros servicios.
 
-Para empezar a usar la acción HTTP en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Para empezar a usar la acción HTTP en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Uso del desencadenador HTTP
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).
@@ -93,16 +93,16 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 ## <a name="http-trigger"></a>Desencadenador HTTP
 Aquí se muestran los detalles del desencadenador que admite este conector. El conector HTTP tiene un desencadenador.
 
-| Desencadenador | Description |
+| Desencadenador | DESCRIPCIÓN |
 | --- | --- |
-| http |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
+| HTTP |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
 
 ## <a name="http-action"></a>Acción HTTP
 Aquí se muestran los detalles de la acción que admite este conector. El conector HTTP tiene una acción posible.
 
-| Acción | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
-| http |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
+| HTTP |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
 
 ## <a name="http-details"></a>Detalles HTTP
 Las tablas siguientes describen los campos de entrada obligatorios y opcionales para la acción y los detalles de salida correspondientes asociados a su uso.
@@ -111,11 +111,11 @@ Las tablas siguientes describen los campos de entrada obligatorios y opcionales 
 Los siguientes son los campos de entrada para la acción que realiza una solicitud de salida HTTP.
 Un * significa que es un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Método* |estático |El verbo HTTP que se usará |
 | URI* |uri |El identificador URI de la solicitud HTTP |
-| Encabezados |Encabezados |Objeto JSON de los encabezados HTTP que incluir |
+| Encabezados |encabezados |Objeto JSON de los encabezados HTTP que incluir |
 | Cuerpo |Cuerpo |Cuerpo de la solicitud HTTP |
 | Autenticación |Autenticación |Detalles en la sección [Autenticación](#authentication) |
 
@@ -124,7 +124,7 @@ Un * significa que es un campo obligatorio.
 #### <a name="output-details"></a>Detalles de salida
 Los detalles de la salida de la respuesta HTTP son los siguientes.
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | encabezados |objeto |Encabezados de respuesta |
 | Cuerpo |objeto |Objeto de respuesta |
@@ -142,17 +142,17 @@ Logic Apps permite utilizar diferentes tipos de autenticación en los puntos de 
 Se requiere el siguiente objeto de autenticación para la autenticación básica.
 Un * significa que es un campo obligatorio.
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
-| Type* |type |Tipo de autenticación (debe ser `Basic` para la autenticación básica) |
-| Username* |nombre de usuario |Nombre de usuario que se va a autenticar |
+| Type* |Tipo |Tipo de autenticación (debe ser `Basic` para la autenticación básica) |
+| Username* |Nombre de usuario |Nombre de usuario que se va a autenticar |
 | Password* |contraseña |Contraseña para autenticar. |
 
 > [!TIP]
 > Si quiere usar una contraseña que no se pueda recuperar de la definición, use un parámetro `securestring` y la  
 > [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
 
-Por ejemplo:
+Por ejemplo: 
 
 ```javascript
 {
@@ -166,9 +166,9 @@ Por ejemplo:
 
 Se requiere el siguiente objeto de autenticación para la autenticación de certificados de clientes. Un * significa que es un campo obligatorio.
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
-| Type* |type |El tipo de autenticación (debe ser `ClientCertificate` para los certificados de cliente SSL) |
+| Type* |Tipo |El tipo de autenticación (debe ser `ClientCertificate` para los certificados de cliente SSL) |
 | PFX* |pfx |El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
 | Password* |contraseña |La contraseña para acceder al archivo PFX |
 
@@ -176,7 +176,7 @@ Se requiere el siguiente objeto de autenticación para la autenticación de cert
 > Para usar un parámetro que no se pueda leer en la definición después de guardar la aplicación lógica puede usar un parámetro `securestring` y la  
 > [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
 
-Por ejemplo:
+Por ejemplo: 
 
 ```javascript
 {
@@ -189,9 +189,9 @@ Por ejemplo:
 #### <a name="azure-ad-oauth-authentication"></a>Autenticación de OAuth de Azure AD
 Se requiere el siguiente objeto de autenticación para la autenticación de OAuth de Azure AD. Un * significa que es un campo obligatorio.
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
-| Type* |type |El tipo de autenticación (debe ser `ActiveDirectoryOAuth` para la autenticación de OAuth de Azure AD) |
+| Type* |Tipo |El tipo de autenticación (debe ser `ActiveDirectoryOAuth` para la autenticación de OAuth de Azure AD) |
 | Tenant* |tenant |Identificador del inquilino de Azure AD. |
 | Audience* |audience |Recurso para cuyo uso solicita autorización. Por ejemplo: `https://management.core.windows.net/` |
 | Client ID* |clientId |Identificador de cliente para la aplicación de Azure AD |
@@ -202,7 +202,7 @@ Se requiere el siguiente objeto de autenticación para la autenticación de OAut
 > 
 > 
 
-Por ejemplo:
+Por ejemplo: 
 
 ```javascript
 {
@@ -214,6 +214,6 @@ Por ejemplo:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en Logic Apps consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en Logic Apps consultando nuestra [lista de API](apis-list.md).
 

@@ -3,8 +3,8 @@ title: "Aprovisionamiento de aplicación web con Caché de Redis"
 description: "Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web con Caché en Redis."
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: erickson-doug
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b787b3f2caaff5535557c03c45b058e1bbb0c77d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creación de una aplicación web y Caché en Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa una aplicación web de Azure con Caché en Redis. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
@@ -31,7 +31,7 @@ Para ver la plantilla completa, consulte [Plantilla Aplicación web con Caché e
 En esta plantilla, implementará lo siguiente:
 
 * Aplicación web de Azure
-* Caché en Redis de Azure.
+* Azure Redis Cache.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -56,7 +56,7 @@ Esta plantilla usa variables para construir los nombres de los recursos. Usa la 
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="redis-cache"></a>Caché en Redis
-Crea Caché en Redis de Azure que se usa con la aplicación web. El nombre de la memoria caché se especifica en la variable **cacheName** .
+Crea Azure Redis Cache que se usa con la aplicación web. El nombre de la memoria caché se especifica en la variable **cacheName** .
 
 La plantilla crea la memoria caché en la misma ubicación que el grupo de recursos.
 

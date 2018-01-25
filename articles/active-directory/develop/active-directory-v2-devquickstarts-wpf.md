@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Agregar inicio de sesión a una aplicación de escritorio de Windows
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones de escritorio compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  También permite que la aplicación se comunique de forma segura con una API web back-end, así como con [Microsoft Graph](https://graph.microsoft.io) y algunas de las [API unificadas de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ El principio básico inherente a MSAL es que cada vez que la aplicación necesit
 
 * En el proyecto `TodoListClient`, abra `MainWindow.xaml.cs` y busque el método `OnInitialized(...)`.  El primer paso consiste en inicializar la clase principal de MSAL de `PublicClientApplication` de la aplicación que representa las aplicaciones nativas.  Este es el lugar en el que pasa a MSAL las coordenadas que necesita para comunicarse con Azure AD e indicarle cómo almacenar en caché los tokens.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Cuando se inicia la aplicación, queremos comprobar y asegurarnos de si el usuario ya está registrado en la aplicación.  Sin embargo, no deseamos invocar una IU de inicio de sesión todavía, sino que haremos que el usuario haga clic en "Iniciar sesión" para hacerlo.  En el método `OnInitialized(...)` también ocurre lo siguiente:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Si el usuario no ha iniciado sesión y hace clic en el botón "Iniciar sesión", deseamos invocar una IU de inicio de sesión y que el usuario escriba sus credenciales.  Implementar el controlador del botón Inicio de sesión:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Si el usuario inicia sesión correctamente, MSAL recibirá y almacenará en caché un token por usted y podrá proceder con la llamada al método `GetTodoList()` con confianza.  Lo único que queda para obtener las tareas del usuario es implementar el método `GetTodoList()` .
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -240,15 +240,15 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ## <a name="run"></a>Ejecute
-¡Enhorabuena! Ya tiene una aplicación .NET WPF en funcionamiento con la capacidad de autenticar a usuarios y API web de llamadas de forma segura mediante OAuth 2.0.  Ejecute sus dos proyectos e inicie sesión con una cuenta de Microsoft personal o una cuenta profesional o educativa.  Agregue tareas a la lista de tareas pendientes de ese usuario.    Cierre sesión e iníciela de nuevo como otro usuario para ver su lista de tareas pendientes.  Cierre la aplicación y vuelva a ejecutarla.  Observe que la sesión del usuario permanece intacta. Esto se debe a que la aplicación captura tokens de un archivo local.
+Felicidades. Ya tiene una aplicación .NET WPF en funcionamiento con la capacidad de autenticar a usuarios y API web de llamadas de forma segura mediante OAuth 2.0.  Ejecute sus dos proyectos e inicie sesión con una cuenta de Microsoft personal o una cuenta profesional o educativa.  Agregue tareas a la lista de tareas pendientes de ese usuario.    Cierre sesión e iníciela de nuevo como otro usuario para ver su lista de tareas pendientes.  Cierre la aplicación y vuelva a ejecutarla.  Observe que la sesión del usuario permanece intacta. Esto se debe a que la aplicación captura tokens de un archivo local.
 
-MSAL facilita la incorporación de las características de identidades comunes a la aplicación, tanto mediante las cuentas personales como las profesionales.  Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc.  Todo lo que necesita saber es una única llamada de API, `app.AcquireTokenAsync(...)`.
+MSAL facilita la incorporación de las características de identidades comunes a la aplicación, tanto mediante las cuentas personales como las profesionales.  Se encarga de todo el trabajo duro: administración de la caché, compatibilidad con el protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de los tokens caducados, etc.  Todo lo que necesita saber es una única llamada de API, `app.AcquireTokenAsync(...)`.
 
 Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora puede pasar a temas más avanzados.  Es posible que desee probar:
 
 * [Proteger la API web TodoListService con el punto de conexión v2.0](active-directory-v2-devquickstarts-dotnet-api.md)

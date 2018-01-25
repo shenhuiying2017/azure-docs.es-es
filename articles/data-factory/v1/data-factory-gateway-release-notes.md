@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3cc96b22b45e5c741991b11e1bbee758a569bed9
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 2aeed42d3cf6f4d5b30777d12cb7d51c6e4a6b59
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -29,7 +29,7 @@ Uno de los desafíos de la integración de datos moderna es la migración de dat
 En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo:
 
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
-*  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md)
+*  [Movimiento de datos entre una ubicación local y la nube mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## <a name="current-version"></a>VERSIÓN ACTUAL 
@@ -128,7 +128,7 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
     *  Controles reorganizados y simplificados.
 
     *  Puede copiar datos desde un almacenamiento mediante la [herramienta de vista previa de código abierto](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) .
-*  Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Aprendizaje automático de Azure.
+*  Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Azure Machine Learning.
 
 *  Mejoras en el rendimiento
 
@@ -199,52 +199,52 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 ### <a name="1656761"></a>1.6.5676.1
 
 *  Compatibilidad con herramientas de diagnóstico de Administrador de configuración
-*  Columnas de la tabla de soporte técnico para orígenes de datos tabulares de la Factoría de datos de Azure
-*  Compatibilidad con SQL DW para Factoría de datos de Azure
-*  Compatibilidad con Reclusive en BlobSource y FileSource para Factoría de datos de Azure
-*  Compatibilidad con CopyBehavior - MergeFiles, PreserveHierarchy y FlattenHierarchy en BlobSink y FileSink con copia binaria para Data Factory de Azure
-*  Compatibilidad con los informes de progreso de la actividad de copia para Factoría de datos de Azure
-*  Compatibilidad con la validación de conectividad de origen de datos para Factoría de datos de Azure
+*  Columnas de la tabla de soporte técnico para orígenes de datos tabulares de Azure Data Factory
+*  Compatibilidad con SQL DW para Azure Data Factory
+*  Compatibilidad con Reclusive en BlobSource y FileSource para Azure Data Factory
+*  Compatibilidad con CopyBehavior - MergeFiles, PreserveHierarchy y FlattenHierarchy en BlobSink y FileSink con copia binaria para Azure Data Factory
+*  Compatibilidad con los informes de progreso de la actividad de copia para Azure Data Factory
+*  Compatibilidad con la validación de conectividad de origen de datos para Azure Data Factory
 *  Corrección de errores
 
 ### <a name="1656721"></a>1.6.5672.1
 
-*  Compatibilidad con nombre de tabla de origen de datos ODBC para Factoría de datos de Azure
+*  Compatibilidad con nombre de tabla de origen de datos ODBC para Azure Data Factory
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
 ### <a name="1656581"></a>1.6.5658.1
 
-*  Compatibilidad con receptor de archivos para Factoría de datos de Azure
-*  Compatibilidad con la conservación jerarquía en copia binaria para Factoría de datos de Azure
-*  Compatibilidad con idempotencia de la actividad de copia para Factoría de datos de Azure
+*  Compatibilidad con receptor de archivos para Azure Data Factory
+*  Compatibilidad con la conservación jerarquía en copia binaria para Azure Data Factory
+*  Compatibilidad con idempotencia de la actividad de copia para Azure Data Factory
 *  Corrección de errores
 
 ### <a name="1656401"></a>1.6.5640.1
 
-*  Compatibilidad con tres orígenes de datos más para Factoría de datos de Azure (ODBC, OData y HDFS)
-*  Compatibilidad con carácter de comillas en el analizador de archivos .csv para Factoría de datos de Azure
+*  Compatibilidad con tres orígenes de datos más para Azure Data Factory (ODBC, OData y HDFS)
+*  Compatibilidad con carácter de comillas en el analizador de archivos .csv para Azure Data Factory
 *  Compatibilidad con compresión (BZip2)
 *  Corrección de errores
 
 ### <a name="1556121"></a>1.5.5612.1
 
-*  Compatibilidad con cinco bases de datos relacionales para Data Factory de Azure (MySQL, PostgreSQL, DB2, Teradata y Sybase)
+*  Compatibilidad con cinco bases de datos relacionales para Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata y Sybase)
 *  Compatibilidad de compresión (Gzip y Deflate)
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
 ### <a name="1455491"></a>1.4.5549.1
 
-*  Incorporación de compatibilidad de origen de datos Oracle para Factoría de datos de Azure
+*  Incorporación de compatibilidad de origen de datos Oracle para Azure Data Factory
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
 ### <a name="1454921"></a>1.4.5492.1
 
-*  Binario unificado que admite los servicios Factoría de datos de Microsoft Azure y Office 365 Power BI
+*  Binario unificado que admite los servicios Microsoft Azure Data Factory y Office 365 Power BI
 *  Restricción de la interfaz de usuario de configuración y del proceso de registro
-*  Factoría de datos de Azure: compatibilidad de entrada y salida de Azure con origen de datos SQL Server
+*  Azure Data Factory: compatibilidad de entrada y salida de Azure con origen de datos SQL Server
 
 ### <a name="1253031"></a>1.2.5303.1
 
@@ -256,4 +256,4 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 
 ### <a name="1051442"></a>1.0.5144.2
 
-*  No hay cambios que afecten a los escenarios de Factoría de datos de Azure.
+*  No hay cambios que afecten a los escenarios de Azure Data Factory.

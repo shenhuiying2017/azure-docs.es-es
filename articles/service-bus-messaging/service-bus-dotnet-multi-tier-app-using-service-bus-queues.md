@@ -1,6 +1,6 @@
 ---
 title: "Aplicación de niveles múltiples .NET mediante Azure Service Bus | Microsoft Docs"
-description: "Un tutorial .NET que le ayuda a desarrollar una aplicación de varios niveles en Azure que usa colas del Bus de servicio para comunicarse entre los niveles."
+description: "Un tutorial .NET que le ayuda a desarrollar una aplicación de varios niveles en Azure que usa colas de Service Bus para comunicarse entre los niveles."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -11,16 +11,16 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas del Bus de servicio de Azure
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas de Azure Service Bus
 
 Desarrollar para Microsoft Azure es muy sencillo con Visual Studio y el SDK de Azure para .NET gratis. Este tutorial lo guía por los pasos para crear una aplicación que usa varios recursos de Azure que se ejecutan en su entorno local.
 
@@ -29,7 +29,7 @@ Aprenderá lo siguiente:
 * Cómo habilitar el equipo para el desarrollo de Azure con una única descarga e instalación.
 * Cómo utilizar Visual Studio para desarrollar para Azure.
 * Cómo crear una aplicación de niveles múltiples en Azure mediante el uso de roles web y de trabajo.
-* Cómo comunicarse entre niveles mediante las colas del bus de servicio.
+* Cómo comunicarse entre niveles mediante las colas de Service Bus.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -42,15 +42,15 @@ La siguiente captura de pantalla muestra la aplicación completada.
 ## <a name="scenario-overview-inter-role-communication"></a>Información general del escenario: comunicación entre roles
 Para enviar una orden para su procesamiento, el componente de la interfaz de usuario de front-end, que se ejecuta en el rol web, debe interactuar con la lógica del nivel intermedio que se ejecuta en el rol de trabajo. En ese ejemplo se utiliza la mensajería de Service Bus para la comunicación entre los niveles.
 
-El uso de la mensajería de Service Bus entre los niveles de web e intermedio desacopla los dos componentes. Al contrario que en la mensajería directa (es decir, TCP o HTTP), el nivel web no se conecta directamente al nivel intermedio; por el contrario, inserta unidades de trabajo, como mensajes, en el Bus de servicio, que los conserva de manera confiable hasta que el nivel intermedio esté preparado para consumirlas y procesarlas.
+El uso de la mensajería de Service Bus entre los niveles de web e intermedio desacopla los dos componentes. Al contrario que en la mensajería directa (es decir, TCP o HTTP), el nivel web no se conecta directamente al nivel intermedio; por el contrario, inserta unidades de trabajo, como mensajes, en Service Bus, que los conserva de manera confiable hasta que el nivel intermedio esté preparado para consumirlas y procesarlas.
 
-El bus de servicio ofrece dos entidades para admitir la mensajería asincrónica: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para una suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. En este ejemplo se usan las colas de bus de servicio.
+Service Bus ofrece dos entidades para admitir la mensajería asincrónica: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para una suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. En este ejemplo se usan las colas de Service Bus.
 
 ![][1]
 
 Este mecanismo de comunicación tiene varias ventajas sobre la mensajería directa:
 
-* **Desacoplamiento temporal.** Con el patrón de mensajería asincrónica, los productores y los consumidores no tienen que estar en línea al mismo tiempo. El bus de servicio almacena los mensajes de manera confiable hasta que la parte consumidora esté lista para recibirlos. De esta forma, los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte al sistema en su conjunto. Es más, puede que la aplicación consumidora solo necesite estar en línea durante determinados períodos del día.
+* **Desacoplamiento temporal.** Con el patrón de mensajería asincrónica, los productores y los consumidores no tienen que estar en línea al mismo tiempo. Service Bus almacena los mensajes de manera confiable hasta que la parte consumidora esté lista para recibirlos. De esta forma, los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte al sistema en su conjunto. Es más, puede que la aplicación consumidora solo necesite estar en línea durante determinados períodos del día.
 * **Redistribución de la carga.** En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido para cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora (el trabajador) solo necesita ser aprovisionada para acomodar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación.
 * **Equilibrio de carga.** A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Además, este equilibrio de carga permite el uso óptimo de las máquinas de trabajo aunque estas máquinas difieran en términos de capacidad de procesamiento, ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina patrón de *consumo de competidor*.
   
@@ -68,19 +68,19 @@ Antes de comenzar a desarrollar aplicaciones de Azure, obtenga las herramientas 
 5. Cuando la instalación se complete, dispondrá de todo lo necesario para iniciar el desarrollo de la aplicación. El SDK incluye las herramientas que le permiten desarrollar fácilmente aplicaciones Azure en Visual Studio.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-El siguiente paso consiste en crear un *espacio de nombres* y obtener una [clave de Firma de acceso compartido (SAS)](service-bus-sas.md) para dicho espacio de nombres. Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Service Bus para autenticar el acceso a una aplicación.
+El siguiente paso consiste en crear un *espacio de nombres* y obtener una [clave de Firma de acceso compartido (SAS)](service-bus-sas.md) para dicho espacio de nombres. Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través de Service Bus. El sistema genera una clave SAS cuando se crea un espacio de nombres. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Service Bus para autenticar el acceso a una aplicación.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Creación de un rol web
 En esta sección, va a crear el front-end de la aplicación. En primer lugar, va a crear las páginas que mostrará la aplicación.
-Después, va a agregar el código que envía elementos a una cola del Bus de servicio y muestra información de estado sobre la cola.
+Después, va a agregar el código que envía elementos a una cola de Service Bus y muestra información de estado sobre la cola.
 
 ### <a name="create-the-project"></a>Creación del proyecto
 1. Inicie Visual Studio con privilegios de administrador: haga clic con el botón derecho en el icono del programa **Visual Studio** y después haga clic en **Ejecutar como administrador**. El emulador de proceso de Azure, descrito posteriormente en este artículo, requiere que se inicie Visual Studio con privilegios de administrador.
    
    En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-2. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Nube** y, a continuación, en **Azure Cloud Service**. Denomine el proyecto **MultiTierApp**. y, a continuación, haga clic en **Aceptar**.
+2. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Nube** y, a continuación, en **Azure Cloud Service**. Denomine el proyecto **MultiTierApp**. A continuación, haga clic en **Aceptar**.
    
    ![][9]
 3. En el panel **Roles**, haga doble clic en **Rol web de ASP.NET**.
@@ -200,12 +200,12 @@ En esta sección, creará las distintas páginas que va a mostrar la aplicación
     
     ![][17]
 
-### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Especificación del código para enviar elementos a una cola del bus de servicio
-Ahora, agregue el código para enviar elementos a una cola. En primer lugar, va a crear una clase que contiene la información de conexión a la cola del Bus de servicio. A continuación, inicialice la conexión en Global.aspx.cs. Finalmente, actualice el código de envío que creó antes en HomeController.cs para enviar realmente los elementos a una cola del Bus de servicio.
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Especificación del código para enviar elementos a una cola de Service Bus
+Ahora, agregue el código para enviar elementos a una cola. En primer lugar, va a crear una clase que contiene la información de conexión a la cola de Service Bus. A continuación, inicialice la conexión en Global.aspx.cs. Finalmente, actualice el código de envío que creó antes en HomeController.cs para enviar realmente los elementos a una cola de Service Bus.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **FrontendWebRole** (haga clic con el botón derecho en el proyecto, no en el rol). Haga clic en **Agregar** y, a continuación, en **Clase**.
 2. Asigne a la clase el nombre **QueueConnector.cs**. Haga clic en **Agregar** para crear la clase.
-3. Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Bus de servicio. Reemplace todo el contenido de QueueConnector.cs por el código siguiente y escriba valores para `your Service Bus namespace` (el nombre del espacio de nombres) y `yourKey`, la **clave principal** que obtuvo antes en Azure Portal.
+3. Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Service Bus. Reemplace todo el contenido de QueueConnector.cs por el código siguiente y escriba valores para `your Service Bus namespace` (el nombre del espacio de nombres) y `yourKey`, la **clave principal** que obtuvo antes en Azure Portal.
    
    ```csharp
    using System;
@@ -325,7 +325,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
    
    ![][23]
 5. En el cuadro **Nombre**, asigne al proyecto el nombre **OrderProcessingRole**. A continuación, haga clic en **Agregar**.
-6. Copie en el Portapapeles la cadena de conexión que obtuvo en el paso 9 de la sección "Creación de un espacio de nombres de bus de servicio".
+6. Copie en el Portapapeles la cadena de conexión que obtuvo en el paso 9 de la sección "Creación de un espacio de nombres de Service Bus".
 7. En el **Explorador de soluciones**, haga clic con el botón derecho en el elemento **OrderProcessingRole** que creó en el paso 5 (asegúrese de hacer clic con el botón derecho en **OrderProcessingRole** en **Roles** y no en la clase). A continuación, haga clic en **Propiedades**.
 8. En la pestaña **Configuración** del cuadro de diálogo **Propiedades**, haga clic dentro del cuadro **Valor** para **Microsoft.ServiceBus.ConnectionString** y, a continuación, pegue el valor de punto de conexión que copió en el paso 6.
    
@@ -352,14 +352,14 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
     Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
     receivedMessage.Complete();
     ```
-14. Ha completado la aplicación. Puede probar la aplicación completa haciendo clic con el botón derecho en el proyecto MultiTierApp en el Explorador de soluciones, seleccionando **Establecer como proyecto de inicio** y, a continuación, presionando F5. Tenga en cuenta que el contador de mensajes no se aumenta, ya que el rol de trabajo procesa los elementos de la cola y los marca como finalizados. Puede ver el resultado de seguimiento de su rol de trabajo viendo la interfaz de usuario del emulador de proceso de Azure. Para ello, haga clic con el botón derecho en el icono del emulador del área de notificación de la barra de tareas y seleccione **Mostrar interfaz de usuario del emulador de proceso**.
+14. Ha completado la aplicación. Puede probar la aplicación completa haciendo clic con el botón derecho en el proyecto MultiTierApp en el Explorador de soluciones, seleccionando **Establecer como proyecto de inicio** y, a continuación, presionando F5. Tenga en cuenta que el contador de mensajes no se aumenta, ya que el rol de trabajo procesa los elementos de la cola y los marca como finalizados. Puede ver el resultado de seguimiento de su rol de trabajo viendo la interfaz de usuario del emulador de Azure Compute. Para ello, haga clic con el botón derecho en el icono del emulador del área de notificación de la barra de tareas y seleccione **Mostrar interfaz de usuario del emulador de proceso**.
     
     ![][19]
     
     ![][20]
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:  
+## <a name="next-steps"></a>pasos siguientes
+Para obtener más información sobre Service Bus, consulte los siguientes recursos:  
 
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Introducción a las colas de Service Bus][sbacomqhowto]

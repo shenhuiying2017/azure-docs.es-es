@@ -31,6 +31,8 @@
   items:
     - name: '1: Aplicación con base de datos'
       items:
+        - name: .NET Core con SQL Database
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET con SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP con MySQL
@@ -85,7 +87,7 @@
           href: web-sites-python-configure.md
         - name: Conexión a recursos locales
           href: web-sites-integrate-with-vnet.md
-    - name: Implementación en Azure
+    - name: Implementar en Azure
       items:
         - name: Implementar la aplicación
           items:
@@ -169,11 +171,11 @@
           href: websites-dotnet-deploy-webjobs.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: API de REST
+    - name: API DE REST
       href: /rest/api/appservice/
 - name: Recursos
   items:
@@ -211,7 +213,7 @@
           href: 'https://msdn.microsoft.com/library/azure/dn407359.aspx'
         - name: Azure SDK para .NET 2.0
           href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
-    - name: Prácticas recomendadas
+    - name: Procedimientos recomendados
       href: app-service-best-practices.md
     - name: Muestras
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
@@ -223,7 +225,7 @@
           href: ../guidance/guidance-ra-app-service.md
         - name: Scripts de implementación
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Solución de problemas
+    - name: solución de problemas
       items:
         - name: Solución de problemas con Visual Studio
           href: web-sites-dotnet-troubleshoot-visual-studio.md

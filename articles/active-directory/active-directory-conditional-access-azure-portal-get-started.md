@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introducción al acceso condicional en Azure Active Directory
 
@@ -33,7 +33,7 @@ En este tema se proporcionan instrucciones para probar un acceso condicional bas
 En muchas organizaciones, un requisito habitual es requerir solo autenticación multifactor para el acceso a las aplicaciones que no se realiza desde la intranet corporativa. Con Azure Active Directory, puede conseguir este objetivo fácilmente mediante la configuración de una directiva de acceso condicional basado en la ubicación. En este tema se proporcionan instrucciones detalladas para configurar esta directiva. La directiva aprovecha las [direcciones IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) para distinguir entre los intentos de acceso que se realizan desde la intranet corporativa y todas las demás ubicaciones.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En el escenario descrito en este tema se da por supuesto que está familiarizado con los conceptos que se describen en [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
@@ -156,7 +156,7 @@ Para probar la directiva, debe acceder a la aplicación desde un dispositivo que
 La autenticación multifactor solo se requerirá durante un intento de conexión realizado desde un dispositivo que no está dentro de las direcciones IP de confianza configuradas. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

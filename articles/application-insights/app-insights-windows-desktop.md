@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows
 
@@ -45,10 +45,10 @@ ms.lasthandoff: 11/01/2017
    
     Si usa ApplicationInsights.config, asegúrese de que sus propiedades en el Explorador de soluciones se establecen en **Acción de compilación = Contenido, Copiar en el directorio de salida = Copiar**.
 5. [Use la API](app-insights-api-custom-events-metrics.md) para enviar telemetría.
-6. Ejecute la aplicación y vea la telemetría en el recurso que creó en el Portal de Azure.
+6. Ejecute la aplicación y vea la telemetría en el recurso que creó en Azure Portal.
 
 ## <a name="telemetry"></a>Ejemplo de código
-```C#
+```csharp
 
     public partial class Form1 : Form
     {
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/01/2017
 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Creación de un panel](app-insights-dashboards.md)
 * [Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 * [Exploración de métricas](app-insights-metrics-explorer.md)

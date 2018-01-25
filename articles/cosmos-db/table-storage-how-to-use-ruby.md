@@ -8,17 +8,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b1ad9fc7b609209ca867e64226c3a0e393081408
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: decc6ffb38a4358d3593642f9cedb59d08f6bfef
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>Uso de Azure Table Storage con Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -32,7 +32,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través de Azure Tabl
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md) (Aplicación web de Ruby on Rails en una máquina virtual de Azure).
+Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/ruby-rails-web-app.md) (Aplicación web de Ruby on Rails en una máquina virtual de Azure).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento
 Para usar Azure Storage tendrá que descargar y usar el paquete Ruby azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
@@ -58,7 +58,7 @@ Azure.config.storage_access_key = "<your azure storage access key>"
 
 Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource Manager o clásica en el Portal de Azure:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
 4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
@@ -160,7 +160,7 @@ Para eliminar una tabla, use el método **delete\_table()** para pasar el nombre
 azure_table_service.delete_table("testtable")
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub

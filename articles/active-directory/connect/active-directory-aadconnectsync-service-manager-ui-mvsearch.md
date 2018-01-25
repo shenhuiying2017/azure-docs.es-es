@@ -3,7 +3,7 @@ title: "Búsqueda de metaverso de Synchronization Service Manager de Azure AD Co
 description: "Conozca la pestaña Búsqueda de metaverso de Synchronization Service Manager para Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 20234dd4-3328-4817-b7ff-268f953d376d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: ea18a0fa6a71d24b78c350bb516b3df2bedb224b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d62542f905a76788852649eec92234a62e3d4853
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Búsqueda de metaverso de Synchronization Service Manager
 
@@ -28,7 +28,7 @@ La pestaña Búsqueda de metaverso resulta útil para solucionar problemas relac
 
 En los resultados de búsqueda, seleccione un objeto y **Propiedades** para ver las [propiedades del objeto de metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

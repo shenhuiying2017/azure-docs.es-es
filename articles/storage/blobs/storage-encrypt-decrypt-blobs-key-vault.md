@@ -2,27 +2,21 @@
 title: 'Tutorial: Cifrado y descifrado de blobs en Azure Storage con Azure Key Vault | Microsoft Docs'
 description: "Cómo cifrar y descifrar un blob mediante el cifrado del lado cliente de Microsoft Azure Storage con Azure Key Vault."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault
 ## <a name="introduction"></a>Introducción
-Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cliente con Almacén de claves de Azure. Se explica cómo cifrar y descifrar un blob en una aplicación de consola con estas tecnologías.
+Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cliente con Azure Key Vault. Se explica cómo cifrar y descifrar un blob en una aplicación de consola con estas tecnologías.
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
@@ -30,10 +24,10 @@ Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key V
 
 Para obtener información general sobre el cifrado de cliente para Azure Storage, consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para realizar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de almacenamiento de Azure.
+* Una cuenta de Azure Storage.
 * Visual Studio 2013 o posterior.
 * Azure PowerShell
 
@@ -42,12 +36,12 @@ Para obtener información general acerca del cifrado de cliente para Azure Stora
 
 Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 
-1. El SDK de cliente de Almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.
+1. El SDK de cliente de Azure Storage genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.
 2. Los datos de usuario se cifran mediante esta CEK.
-3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure. El propio cliente de almacenamiento no tiene acceso a KEK. Simplemente invoca el algoritmo de ajuste de clave proporcionado por Almacén de claves. Los clientes pueden elegir usar proveedores personalizados para el ajuste y desajuste de la clave si así lo desean.
-4. A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure.
+3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Azure Key Vault. El propio cliente de almacenamiento no tiene acceso a KEK. Simplemente invoca el algoritmo de ajuste de clave proporcionado por Key Vault. Los clientes pueden elegir usar proveedores personalizados para el ajuste y desajuste de la clave si así lo desean.
+4. A continuación, se cargan los datos cifrados en el servicio Azure Storage.
 
-## <a name="set-up-your-azure-key-vault"></a>Configuración de Almacén de claves de Azure
+## <a name="set-up-your-azure-key-vault"></a>Configuración de Azure Key Vault
 Para continuar con este tutorial, debe seguir los siguientes pasos que se describe en el tutorial: [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md):
 
 * Cree un almacén de claves.
@@ -100,7 +94,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Agregar un método para obtener un token para la aplicación de consola
-El siguiente método lo usan las clases de Almacén de claves que tienen que autenticarse para poder acceder a su almacén de claves.
+El siguiente método lo usan las clases de Key Vault que tienen que autenticarse para poder acceder a su almacén de claves.
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -118,7 +112,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Acceso a Almacenamiento y Almacén de claves en el programa
+## <a name="access-storage-and-key-vault-in-your-program"></a>Acceso a Storage y Key Vault en el programa
 En la función Main, agregue el código siguiente:
 
 ```csharp
@@ -137,13 +131,13 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
-> Modelos de objetos de Almacén de claves
+> Modelos de objetos de Key Vault
 > 
-> Es importante entender que hay en realidad dos modelos de objeto de Almacén de claves a tener en cuenta: uno se basa en la API de REST (espacio de nombres KeyVault) y el otro es una extensión para el cifrado de cliente.
+> Es importante entender que hay en realidad dos modelos de objeto de Key Vault a tener en cuenta: uno se basa en la API de REST (espacio de nombres KeyVault) y el otro es una extensión para el cifrado de cliente.
 > 
-> El cliente de Almacén de claves interactúa con la API de REST y entiende las claves web JSON y los secretos de los dos tipos de elementos que están contenidos en Almacén de claves.
+> El cliente de Key Vault interactúa con la API de REST y entiende las claves web JSON y los secretos de los dos tipos de elementos que están contenidos en Key Vault.
 > 
-> Las extensiones de Almacén de claves son clases que parecen creadas específicamente para el cifrado de cliente en Almacenamiento de Azure. Contienen una interfaz para claves (IKey) y clases basadas en el concepto de un solucionador de claves. Hay dos implementaciones de IKey que necesita conocer: RSAKey y SymmetricKey. Ahora coinciden con las cosas que están contenidas en un almacén de datos, pero en este momento son clases independientes (la clave y el secreto recuperado por el cliente de almacén de claves no implementan IKey).
+> Las extensiones de Key Vault son clases que parecen creadas específicamente para el cifrado de cliente en Azure Storage. Contienen una interfaz para claves (IKey) y clases basadas en el concepto de un solucionador de claves. Hay dos implementaciones de IKey que necesita conocer: RSAKey y SymmetricKey. Ahora coinciden con las cosas que están contenidas en un almacén de datos, pero en este momento son clases independientes (la clave y el secreto recuperado por el cliente de almacén de claves no implementan IKey).
 > 
 > 
 
@@ -168,19 +162,15 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-La siguiente es una captura de pantalla del [Portal de Azure clásico](https://manage.windowsazure.com) para un blob que se ha cifrado mediante el cifrado del lado cliente con una clave almacenada en Key Vault. La propiedad **KeyId** es el URI de la clave en Key Vault que actúa como la clave de cifrado de claves (KEK). La propiedad **EncryptedKey** contiene la versión cifrada de la CEK.
-
-![Captura de pantalla en la que se muestran los metadatos del blob que incluyen los metadatos de cifrado](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
-
 > [!NOTE]
 > Si observa el constructor BlobEncryptionPolicy, verá que puede aceptar una clave o una resolución. Tenga en cuenta que ahora no puede utilizar una resolución para el cifrado porque en la actualidad no admite una clave predeterminada.
 > 
 > 
 
 ## <a name="decrypt-blob-and-download"></a>Descifrado y carga del blob
-Es en el descifrado realmente cuando las clases de solucionador tienen sentido. El identificador de la clave usada para el cifrado se asocia con el blob en sus metadatos, así que no hace falta que recupere la clave ni que recuerde la asociación entre la clave y el blob. Solo tiene que asegurarse de que la clave se mantiene en Almacén de claves.   
+Es en el descifrado realmente cuando las clases de solucionador tienen sentido. El identificador de la clave usada para el cifrado se asocia con el blob en sus metadatos, así que no hace falta que recupere la clave ni que recuerde la asociación entre la clave y el blob. Solo tiene que asegurarse de que la clave se mantiene en Key Vault.   
 
-La clave privada de una clave RSA permanece en Almacén de claves, por lo que para que se produzca el descifrado, la clave cifrada de los metadatos del blob que contiene la CEC (clave de cifrado de contenido) se envía a Almacén de claves.
+La clave privada de una clave RSA permanece en Key Vault, por lo que para que se produzca el descifrado, la clave cifrada de los metadatos del blob que contiene la CEC (clave de cifrado de contenido) se envía a Key Vault.
 
 Agregue lo siguiente para descifrar el blob que acaba de cargar.
 
@@ -199,14 +189,14 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 > 
 
-## <a name="use-key-vault-secrets"></a>Uso de secretos de Almacén de claves
-La manera de usar un secreto con cifrado del lado cliente es mediante la clase SymmetricKey, porque un secreto es esencialmente una clave simétrica. Sin embargo, como se mencionó anteriormente, un secreto en Almacén de claves no se asigna exactamente a una SymmetricKey. Existen algunos aspectos que debe comprender:
+## <a name="use-key-vault-secrets"></a>Uso de secretos de Key Vault
+La manera de usar un secreto con cifrado del lado cliente es mediante la clase SymmetricKey, porque un secreto es esencialmente una clave simétrica. Sin embargo, como se mencionó anteriormente, un secreto en Key Vault no se asigna exactamente a una SymmetricKey. Existen algunos aspectos que debe comprender:
 
 * La clave en una SymmetricKey tiene que tener una longitud fija: 128, 192, 256, 384 o 512 bits
 * La clave en una SymmetricKey debe estar codificada en Base64.
-* Un secreto de Almacén de clave que se use como una SymmetricKey tiene que tener un tipo de contenido de "application/octet-stream" en Almacén de claves.
+* Un secreto de Almacén de clave que se use como una SymmetricKey tiene que tener un tipo de contenido de "application/octet-stream" en Key Vault.
 
-Este es un ejemplo en PowerShell de creación de un secreto en Almacén de claves que se puede usar como una SymmetricKey.
+Este es un ejemplo en PowerShell de creación de un secreto en Key Vault que se puede usar como una SymmetricKey.
 Tenga en cuenta que el valor codificado, $key, es solo para fines de demostración. En su código, es recomendable generar esta clave.
 
 ```csharp
@@ -231,7 +221,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 Eso es todo. ¡Disfrute!
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre el uso de Microsoft Azure Storage con C#, consulte [Biblioteca de cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Para más información sobre la API de REST de blobs, consulte [API de REST de Blob service](https://msdn.microsoft.com/library/azure/dd135733.aspx).

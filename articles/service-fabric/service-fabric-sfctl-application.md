@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 | create       | Crea una aplicación de Service Fabric con la descripción especificada.|
 | delete       | Elimina una aplicación existente de Service Fabric.|
@@ -39,7 +39,7 @@ Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 | manifest     | Obtiene el manifiesto que describe un tipo de aplicación.|
 | provision    | Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster.|
 | report-health| Envía un informe de estado sobre la aplicación de Service Fabric.|
-| type         | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado.|
+| Tipo         | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado.|
 | type-list    | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric.|
 | unprovision  | Elimina un tipo de aplicación de Service Fabric del clúster o anula su registro.|
 | upgrade      | Inicia la actualización de una aplicación en el clúster de Service Fabric.|
@@ -53,7 +53,7 @@ Crea una aplicación de Service Fabric con la descripción especificada.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --app-name [Obligatorio]| El nombre de la aplicación, incluido el esquema URI 'fabric:'.|
 | --app-type [Obligatorio]| El nombre del tipo de aplicación que se encuentra en el manifiesto de aplicación.|
@@ -66,7 +66,7 @@ Crea una aplicación de Service Fabric con la descripción especificada.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug              | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h            | Muestra este mensaje de ayuda y sale.|
@@ -81,7 +81,7 @@ Elimina una aplicación existente de Service Fabric. Una aplicación debe crears
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --force-remove          | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas.|
@@ -89,7 +89,7 @@ Elimina una aplicación existente de Service Fabric. Una aplicación debe crears
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -102,7 +102,7 @@ Obtiene la información sobre una aplicación implementada en un nodo de Service
      
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --node-name [Obligatorio]| El nombre del nodo.|
@@ -110,7 +110,7 @@ Obtiene la información sobre una aplicación implementada en un nodo de Service
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -125,7 +125,7 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --deployed-applications-health-state-filter| Permite filtrar los objetos de estado de mantenimiento de las aplicaciones implementadas devueltos en el resultado de la consulta de mantenimiento de las aplicaciones según su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Solo se devolverán las aplicaciones implementadas que coincidan con el filtro. Todas las aplicaciones implementadas se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones implementadas con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
@@ -136,7 +136,7 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                               | Muestra este mensaje de ayuda y sale.|
@@ -151,7 +151,7 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --exclude-application-parameters| La marca que especifica si los parámetros de la aplicación se excluirán del resultado.|
@@ -159,7 +159,7 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                    | Muestra este mensaje de ayuda y sale.|
@@ -174,7 +174,7 @@ Obtiene la información sobre las aplicaciones que se crearon o que están en pr
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--application-definition-kind-filter| Se usa para filtrar por ApplicationDefinitionKind en las operaciones de consulta de aplicación. - Default: valor predeterminado. Filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 0. - All: filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 65535. -ServiceFabricApplicationDescription: filtro que asocia la entrada con el valor ServiceFabricApplicationDescription de ApplicationDefinitionKind. El valor es 1. - All: filtro que asocia la entrada con el valor Compose de ApplicationDefinitionKind. El valor es 2. Valor predeterminado: 65535.|
 | --application-type-name      | El nombre del tipo de aplicación utilizado para filtrar las aplicaciones que se van a consultar. Este valor no debe contener la versión del tipo de aplicación.|
@@ -184,7 +184,7 @@ Obtiene la información sobre las aplicaciones que se crearon o que están en pr
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                    | Muestra este mensaje de ayuda y sale.|
@@ -198,13 +198,13 @@ Obtiene la información de carga sobre una aplicación de Service Fabric.
 Devuelve la información de carga sobre la aplicación que se creó o que está en proceso de crearse en el clúster de Service Fabric y cuyo nombre coincide con el especificado como parámetro. La respuesta incluye el nombre, los nodos mínimos y máximos, el número de nodos de los que la aplicación se ocupa actualmente y la información de métrica de carga sobre la aplicación.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --timeout -t               | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
     --help -h                  | Muestra este mensaje de ayuda y sale.|
@@ -219,7 +219,7 @@ Obtiene el manifiesto que describe un tipo de aplicación. La respuesta contiene
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
 | --application-type-version [Obligatorio]| La versión del tipo de aplicación.|
@@ -227,7 +227,7 @@ Obtiene el manifiesto que describe un tipo de aplicación. La respuesta contiene
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                         | Muestra este mensaje de ayuda y sale.|
@@ -242,14 +242,14 @@ Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster. 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-build-path [Obligatorio]| Ruta de acceso relativa del almacén de imágenes al paquete de aplicación.|
 | --timeout -t                         | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                              | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                            | Muestra este mensaje de ayuda y sale.|
@@ -265,7 +265,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
 | --continuation-token           | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
@@ -275,7 +275,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                        | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                      | Muestra este mensaje de ayuda y sale.|
@@ -290,7 +290,7 @@ Elimina un tipo de aplicación de Service Fabric del clúster o anula su registr
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
 | --application-type-version [Obligatorio]| La versión del tipo de aplicación.|
@@ -298,7 +298,7 @@ Elimina un tipo de aplicación de Service Fabric del clúster o anula su registr
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                         | Muestra este mensaje de ayuda y sale.|
@@ -313,7 +313,7 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --app-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --app-version [Obligatorio]| Versión de aplicación de destino.|
@@ -335,7 +335,7 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                     | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                   | Muestra este mensaje de ayuda y sale.|
@@ -350,7 +350,7 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --path [Obligatorio]| Ruta de acceso al paquete de aplicación local.|
 |--imagestore-string| Almacén de imágenes de destino en el que cargar el paquete de aplicación.  Valor predeterminado: fabric:ImageStore.|
@@ -358,7 +358,7 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug       | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h     | Muestra este mensaje de ayuda y sale.|
@@ -366,6 +366,6 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 | --query       | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose     | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

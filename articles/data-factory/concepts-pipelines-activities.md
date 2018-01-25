@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: f5384b4fa0a1baaafd8b2dbf3ed4d7776f4d80ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-create-pipelines.md)
-> * [Versión 2: Versión preliminar](concepts-pipelines-activities.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-create-pipelines.md)
+> * [Versión 2: versión preliminar](concepts-pipelines-activities.md)
 
 Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
 
@@ -68,7 +68,7 @@ Para obtener más información, consulte el artículo sobre las [actividades de 
 ## <a name="control-activities"></a>Actividades de control
 Se admiten las siguientes actividades de flujo de control:
 
-Actividad de control | Descripción
+Actividad de control | DESCRIPCIÓN
 ---------------- | -----------
 [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md) | La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
 [Actividad ForEach](control-flow-for-each-activity.md) | La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle Foreach de los lenguajes de programación.
@@ -97,12 +97,12 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 }
 ```
 
-Etiqueta | Descripción | Tipo | Obligatorio
+Etiqueta | DESCRIPCIÓN | type | Obligatorio
 --- | ----------- | ---- | --------
-name | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>•   No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | String | Sí
-description | Especifique el texto que describe para qué se usa la canalización. | String | No
+Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>•   No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | Sí
+Descripción | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
 actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Matriz | Sí
-parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | No
+parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | Sin 
 
 ## <a name="activity-json"></a>Actividad de JSON
 La sección **activities** puede contener una o más actividades definidas. Hay dos tipos principales de actividades principales: actividades de ejecución y de control.
@@ -130,15 +130,15 @@ Las actividades de ejecución incluyen las actividades de [movimiento de datos](
 
 En la tabla siguiente se describen las propiedades en la definición JSON de la actividad:
 
-Etiqueta | Description | Obligatorio
+Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | ---------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li></ul>
-description | Texto que describe para qué se usa la actividad. | Sí
-type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li></ul>
+Descripción | Texto que describe para qué se usa la actividad. | Sí
+Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
 linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
-typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
-policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye el comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | No
-dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | No
+typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
+policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye el comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | Sin 
+dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin 
 
 ### <a name="activity-policy"></a>Directiva de actividades
 Las directivas afectan al comportamiento en tiempo de ejecución de una actividad, lo que proporciona las opciones de capacidad de configuración. Las directivas de actividades solo están disponibles para las actividades de ejecución. 
@@ -169,11 +169,11 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
     }
 }
 ```
-Nombre JSON | Descripción | Valores permitidos | Obligatorio
+Nombre JSON | DESCRIPCIÓN | Valores permitidos | Obligatorio
 --------- | ----------- | -------------- | --------
-timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
-retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
-retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es de 20 segundos.
+timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | Nº El tiempo de espera predeterminado es de 7 días.
+retry | Número máximo de reintentos | Entero | Nº El valor predeterminado es 0.
+retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | Nº El valor predeterminado es de 20 segundos.
 
 ### <a name="control-activity"></a>Actividad de control
 Las actividades de control tienen la siguiente estructura de nivel superior:
@@ -192,13 +192,13 @@ Las actividades de control tienen la siguiente estructura de nivel superior:
 }
 ```
 
-Etiqueta | Description | Obligatorio
+Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | --------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li><ul> 
-description | Texto que describe para qué se usa la actividad. | Sí
-type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
-typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
-dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | No
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li><ul> 
+Descripción | Texto que describe para qué se usa la actividad. | Sí
+Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
+typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
+dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin 
 
 ### <a name="activity-dependency"></a>Dependencia de actividades
 La dependencia de actividades define cómo las actividades siguientes dependen de las actividades anteriores, lo que determina la condición de si se debe continuar ejecutando la tarea siguiente. Una actividad puede depender de una o varias actividades anteriores con distintas condiciones de dependencia. 
@@ -389,7 +389,7 @@ Por ejemplo, supongamos que tiene un desencadenador de programador, “TriggerA�
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones con actividades: 
 
 - [Creación de una canalización con una actividad de copia](quickstart-create-data-factory-powershell.md)

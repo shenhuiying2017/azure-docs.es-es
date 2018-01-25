@@ -3,7 +3,7 @@ title: 'Azure AD Connect: conocimiento del aprovisionamiento declarativo | Micro
 description: "Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
@@ -39,9 +39,9 @@ La canalización consta de varios módulos diferentes. Cada uno de ellos es resp
 * [Prioridad](#precedence): resuelve las contribuciones de atributo en conflicto.
 * Destino: el objeto de destino.
 
-## <a name="scope"></a>Ámbito
+## <a name="scope"></a>Scope
 El módulo de ámbito consiste en evaluar un objeto, y determina las reglas que están en el ámbito y deben incluirse en el procesamiento. En función de los valores de los atributos en el objeto, se evalúan diferentes reglas de sincronización para que estén en el ámbito. Por ejemplo, un usuario deshabilitado sin ningún buzón de Exchange tiene reglas diferentes a las de un usuario con un buzón habilitado.  
-![Ámbito](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
+![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 El ámbito se define como cláusulas y grupos. Las cláusulas están dentro de un grupo. Se usa un operador lógico AND entre todas las cláusulas de un grupo. Por ejemplo, (departamento = IT AND país = Dinamarca). Se usa un operador lógico OR entre los grupos.
 
@@ -50,7 +50,7 @@ El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinam
 
 El módulo de ámbito admite las siguientes operaciones:
 
-| Operación | Description |
+| Operación | DESCRIPCIÓN |
 | --- | --- |
 | EQUAL, NOTEQUAL |Una comparación de cadenas que evalúa si el valor es igual al valor del atributo. Para los atributos con varios valores, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Una comparación de cadenas que evalúa si el valor es menor que el valor en el atributo. |
@@ -117,7 +117,7 @@ El literal **AuthoritativeNull** es similar a **NULL** pero con la diferencia de
 
 Un flujo de atributo también puede usar el atributo **IgnoreThisFlow**. Es similar a NULL en el sentido de que indica que no hay nada que aportar. La diferencia es que no se quita ningún valor existente en el destino. Es como si el flujo de atributo nunca hubiera estado allí.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 En la regla *Out to AD - User Exchange hybrid* se puede encontrar el siguiente flujo:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
@@ -148,7 +148,7 @@ Si tiene varios objetos en el mismo espacio conector unido al mismo objeto de me
 En este escenario, debe cambiar el ámbito de las reglas de sincronización para que los objetos de origen tengan reglas de sincronización diferentes en el ámbito. Esto permite definir una prioridad diferente.  
 ![Varios objetos unidos al mismo objeto de mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Vea cómo se utiliza aprovisionamiento declarativo integrado en el artículo sobre la [configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).

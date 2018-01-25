@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicar máquinas virtuales de Azure en otra región después de la migración a Azure mediante Azure Site Recovery
 
@@ -51,7 +51,7 @@ Después de la migración, no es necesario ejecutar una conmutación por error n
 2. La acción **Completar la migración** termina el proceso de migración, quita la replicación de la máquina y detiene la facturación de la máquina en Site Recovery.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Paso 2: instalar el agente de máquina virtual de Azure en la máquina virtual
-El [agente de máquina virtual](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) de Azure se debe instalar en la máquina virtual para que la extensión de Site Recovery funcione y proteja la máquina virtual.
+El [agente de máquina virtual](../../virtual-machines/windows/agent-user-guide.md) de Azure se debe instalar en la máquina virtual para que la extensión de Site Recovery funcione y proteja la máquina virtual.
 
 >[!IMPORTANT]
 >A partir de la versión 9.7.0.0, en las máquinas virtuales Windows, el instalador de Mobility Service también instalará la versión más reciente del agente de máquina virtual de Azure. Tras la migración, la máquina virtual cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual, incluida la extensión de Site Recovery. El agente de máquina virtual de Azure debe instalarse de forma manual únicamente si la versión de Mobility Service instalada en la máquina migrada es 9.6 o anterior.

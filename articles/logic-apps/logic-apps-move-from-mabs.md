@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Migración desde BizTalk Services a Logic Apps
 
@@ -37,7 +37,7 @@ En el caso de la integración basada en puente de EAI y EDI, el reemplazo es Log
 
 La tabla siguiente muestra una asignación de las funcionalidades de BizTalk Services a Logic Apps.
 
-| Servicios de BizTalk   | Aplicaciones lógicas            | Propósito                  |
+| BizTalk Services   | Logic Apps            | Propósito                  |
 | ------------------ | --------------------- | ---------------------------- |
 | Conector          | Conector             | Envío y recepción de datos   |
 | Puente             | Aplicación lógica             | Procesador de canalización           |
@@ -126,6 +126,6 @@ Logic Apps ofrece funcionalidades más avanzadas de seguimiento y supervisión e
 Para alcanzar alta disponibilidad (HA) en BizTalk Services, usa más de una instancia de una región predeterminada para compartir la carga de procesamiento. Con las aplicaciones lógicas, la alta disponibilidad en la región está integrada y no supone ningún costo adicional. En el caso de la recuperación ante desastres fuera de la región para el procesamiento B2B en BizTalk Services, se requiere un proceso de copia de seguridad y restauración. En Logic Apps, se proporciona una [funcionalidad de DR](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) activa/pasiva entre regiones, lo que permite realizar la sincronización de datos B2B entre cuentas de integración en distintas regiones para la continuidad empresarial.
 
 ## <a name="next"></a>Pasos siguientes
-* [¿Qué es Logic Apps?](logic-apps-what-are-logic-apps.md)
-* [Cree la primera aplicación lógica](logic-apps-create-a-logic-app.md) o empiece a trabajar rápidamente mediante una [plantilla precompilada](logic-apps-create-logic-apps-from-templates.md)  
+* [¿Qué es Logic Apps?](logic-apps-overview.md)
+* [Cree la primera aplicación lógica](quickstart-create-first-logic-app-workflow.md) o empiece a trabajar rápidamente mediante una [plantilla precompilada](logic-apps-create-logic-apps-from-templates.md)  
 * [Vea todos los conectores disponibles](../connectors/apis-list.md) que se pueden utilizar en una aplicación lógica

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introducción a las directivas personalizadas
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Después de completar los pasos de este artículo, la directiva personalizada admitirá el registro o el inicio de sesión de la "cuenta local" mediante una dirección de correo electrónico y una contraseña. También preparará el entorno para agregar proveedores de identidades (como Facebook o Azure Active Directory). Le recomendamos que siga estos pasos antes de informarse sobre otros usos del marco de experiencia de identidad de Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, asegúrese de que tiene un inquilino de Azure AD B2C, que es un contenedor para todos los usuarios, las aplicaciones, las directivas y mucho más. Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](active-directory-b2c-get-started.md). Se recomienda encarecidamente a todos los desarrolladores que completen los tutoriales de las directivas integradas de Azure AD B2C y que configuren las aplicaciones con directivas integradas antes de continuar. Las aplicaciones funcionarán con ambos tipos de directivas una vez que se realice un pequeño cambio en el nombre de la directiva para invocar la directiva personalizada.
 
@@ -145,9 +145,9 @@ Cada paquete de inicio contiene lo siguiente:
    >[!NOTE]
    >`PolicyId` es el nombre de la directiva que ve en el portal y el nombre que otros archivos de directiva usan para referirse a este archivo de directiva.
 
-5. Guarde el archivo .
-6. Abra TrustFrameworkExtensions.xml. Realice los dos mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C. Realice la misma sustitución en el elemento `<TenantId>`, con lo que el total de cambios serán tres. Guarde el archivo .
-7. Abra SignUpOrSignIn.xml. Realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares. Guarde el archivo .
+5. Guarde el archivo.
+6. Abra TrustFrameworkExtensions.xml. Realice los dos mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C. Realice la misma sustitución en el elemento `<TenantId>`, con lo que el total de cambios serán tres. Guarde el archivo.
+7. Abra SignUpOrSignIn.xml. Realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares. Guarde el archivo.
 8. Abra los archivos de edición de perfiles y restablecimiento de contraseña. Realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares en cada archivo. Guarde los archivos.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Incorporación de identificadores de aplicación a la directiva personalizada
@@ -157,7 +157,7 @@ Agregue los identificadores de aplicación al archivo de extensiones (`TrustFram
 2. Reemplace ambas instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad que creó antes. Este es un ejemplo:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Reemplace ambas instancias de `ProxyIdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad del proxy que ha creado anteriormente.
 4. Guarde el archivo de extensiones.
@@ -196,7 +196,7 @@ Cuando se carga un archivo, se antepone `B2C_1A_` al nombre del archivo de direc
 >Una causa común de los errores en el inicio de sesión es que la aplicación IdentityExperienceFramework no esté configurada correctamente.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
 Para configurar Facebook:

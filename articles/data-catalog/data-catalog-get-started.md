@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: a1d16cac19571c5802be081d6972e1f74f6dffe1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción a Azure Data Catalog
 Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es Azure Data Catalog](data-catalog-what-is-data-catalog.md).
 
 Este tutorial le ayudará a empezar a trabajar con Azure Data Catalog. En este tutorial, se realizan los siguientes procedimientos:
 
-| Procedimiento | Descripción |
+| Procedimiento | DESCRIPCIÓN |
 |:--- |:--- |
 | [Aprovisionamiento del catálogo de datos](#provision-data-catalog) |En este procedimiento, se aprovisiona o se configura Azure Data Catalog. Este paso solo se realiza si el catálogo no se ha configurado antes. Solo puede haber un catálogo de datos por organización (dominio de Microsoft Azure Active Directory), aunque haya varias suscripciones asociadas a su cuenta de Azure. |
 | [Registro de los recursos de datos](#register-data-assets) |En este procedimiento, se registran los recursos de datos de la base de datos de ejemplo AdventureWorks2014 con el catálogo de datos. Registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos, y copiar esos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente. |

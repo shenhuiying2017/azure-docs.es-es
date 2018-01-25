@@ -3,8 +3,8 @@ title: "Creación de una aplic. web con Redis Cache | Microsoft Docs"
 description: "Aprenda a crear una aplicación web con Caché en Redis"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Creación de una aplicación web con Caché en Redis
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Aprenderá a realizar los siguientes procedimientos:
 * Aprovisionar los recursos de Azure para la aplicación mediante una plantilla de Resource Manager.
 * Publicar la aplicación en Azure con Visual Studio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * [Cuenta de Azure](#azure-account)
@@ -102,7 +102,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     ![Agregar de clase de modelo][cache-model-add-class-dialog]
 3. Reemplace las instrucciones `using` de la parte superior del archivo `Team.cs` por las siguientes instrucciones `using`.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
 
 1. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases auxiliares de Entity Framework. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     ![Global.asax.cs][cache-global-asax]
 6. Agregue las dos siguientes instrucciones `using` a la parte superior del archivo, debajo de las restantes instrucciones `using`.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
 
 1. Agregue la siguiente línea de código al final del método `Application_Start` .
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Reemplace `controller = "Home"` en el código siguiente del método `RegisterRoutes` por `controller = "Teams"`, como se muestra en el ejemplo siguiente.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
     ![Controlador de equipos][cache-teamscontroller]
 4. Agregue las dos siguientes instrucciones `using` a **TeamsController.cs**.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Agregue las dos propiedades siguientes a la clase `TeamsController` .
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
 1. Agregue las siguientes instrucciones `using` al archivo `TeamsController.cs` encima de las restantes instrucciones `using`.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Reemplace la implementación del método `public ActionResult Index()` actual por la siguiente implementación.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
    
     El método `PlayGames` actualiza las estadísticas de equipos mediante la simulación de una temporada de juegos, guarda los resultados en la base de datos y borra de la caché los datos ahora obsoletos.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
     El método `RebuildDB` reinicializa la base de datos con el conjunto predeterminado de equipos, genera estadísticas para ellos y borra de la memoria caché los datos ahora obsoletos.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
     El método `ClearCachedTeams` quita de la memoria caché las estadísticas de equipos almacenadas.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
    
     El método `GetFromDB` lee las estadísticas de equipos de la base de datos.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
     El método `GetFromList` lee las estadísticas de equipos de la memoria caché como un elemento `List<Team>` serializado. Si se produce un error de caché, las estadísticas de equipos se leen de la base de datos y luego se almacenan en la caché para la próxima vez. En este ejemplo, vamos a usar la serialización de JSON.NET para serializar los objetos .NET a y desde la caché. Para más información, consulte [Trabajar con objetos .NET en la memoria caché](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
     El método `GetFromSortedSet` lee las estadísticas de equipos de un conjunto ordenado almacenado en caché. Si se produce un error de caché, las estadísticas de equipos se leen de la base de datos y se almacenan en la caché como un conjunto ordenado.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
     El método `GetFromSortedSetTop5` lee los 5 equipos principales del conjunto ordenado almacenado en caché. Para comenzar, comprueba que en la memoria caché exista la clave `teamsSortedSet` . Si esta clave no existe, se llama al método `GetFromSortedSet` para leer las estadísticas de equipos y almacenarlas en la memoria caché. Luego, se consulta los 5 equipos principales en el conjunto ordenado en caché, y se devuelven.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ El código de scaffolding que se generó como parte de este ejemplo incluye mét
 
 1. Vaya al método `Create(Team team)` en la clase `TeamsController`. Agregue una llamada al método `ClearCachedTeams` , tal como se muestra en el ejemplo siguiente.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ El código de scaffolding que se generó como parte de este ejemplo incluye mét
 
 1. Vaya al método `Edit(Team team)` en la clase `TeamsController`. Agregue una llamada al método `ClearCachedTeams` , tal como se muestra en el ejemplo siguiente.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ El código de scaffolding que se generó como parte de este ejemplo incluye mét
 
 1. Vaya al método `DeleteConfirmed(int id)` en la clase `TeamsController`. Agregue una llamada al método `ClearCachedTeams` , tal como se muestra en el ejemplo siguiente.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -760,7 +760,7 @@ En este paso del tutorial, publicará la aplicación en Azure y la ejecutará en
 
 En la tabla siguiente se describe cada vínculo de acción de la aplicación de ejemplo.
 
-| Acción | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | Crear nuevo |Crear un nuevo equipo. |
 | Reproducir temporada |Reproducir una temporada de juegos, actualizar las estadísticas de equipos y borrar de la caché los datos de equipo no actualizados. |
@@ -820,7 +820,7 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Más información sobre la [introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/).
 * Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).

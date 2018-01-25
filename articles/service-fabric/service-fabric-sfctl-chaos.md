@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    report| Obtiene el siguiente segmento del informe de Chaos basado en el token de continuación pasado o en el intervalo de tiempo pasado.|
 |    start | Si Chaos no está aún en ejecución en el clúster, comienza a ejecutar Chaos con los parámetros de Chaos especificados.|
@@ -39,7 +39,7 @@ Se puede especificar ContinuationToken para obtener el siguiente segmento del in
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --end-time-utc   | El recuento de tics que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte la [propiedad DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para más detalles sobre los tics.|
@@ -48,7 +48,7 @@ Se puede especificar ContinuationToken para obtener el siguiente segmento del in
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
@@ -61,7 +61,7 @@ Si Chaos no está aún en ejecución en el clúster, comienza a ejecutar Chaos c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --app-type-health-policy-map  | Lista codificada por JSON con porcentaje máximo de aplicaciones en mal estado para los tipos de aplicación específicos. Cada entrada especifica como una clave el nombre del tipo de aplicación y como un valor un entero que representa el porcentaje de MaxPercentUnhealthyApplications usado para evaluar las aplicaciones del tipo de aplicación especificado.|
 | --disable-move-replica-faults | Deshabilita los errores de mover principal y mover secundario.|
@@ -77,7 +77,7 @@ Si Chaos no está aún en ejecución en el clúster, comienza a ejecutar Chaos c
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                  | Muestra este mensaje de ayuda y sale.|
@@ -92,13 +92,13 @@ Detiene Chaos de programar más errores; sin embargo, los errores en proceso no 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --timeout -t| Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h| Muestra este mensaje de ayuda y sale.|
@@ -106,6 +106,6 @@ Detiene Chaos de programar más errores; sin embargo, los errores en proceso no 
 | --query  | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose| Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

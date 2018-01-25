@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics CRM y 365 mediante Azure Data Factory
 
@@ -50,7 +50,7 @@ Para Dynamics 365 en concreto, se admiten los siguientes tipos de aplicación:
 
 ## <a name="getting-started"></a>Introducción
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Dynamics.
 
@@ -60,7 +60,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 y Dynamics CRM Online
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
@@ -68,7 +68,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | authenticationType | Tipo de autenticación para conectarse a Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
 | Nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Tendrá que colocar la contraseña en Azure Key Vault y configurar la contraseña como "AzureKeyVaultSecret". Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene un entorno de ejecución de integración |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
 >Al copiar datos **a** Dynamics, no podrá utilizarse el entorno de ejecución de integración predeterminado de Azure para ejecutar la copia. En otras palabras, si el servicio vinculado al origen no tiene un entorno de ejecución de integración especificado, [cree una instancia de Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con una ubicación próxima a Dynamics y asocie el servicio vinculado a Dynamics como en el ejemplo siguiente.
@@ -107,7 +107,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 *Las propiedades adicionales, en comparación con Dynamics Online, son "hostName" y "port".*
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
@@ -160,7 +160,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conjunto de datos en **DynamicsEntity**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **DynamicsEntity**. |Sí |
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
@@ -213,7 +213,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de copia en **DynamicsSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**.  | Sí |
 | query  | FetchXML es un lenguaje de consulta patentado que se usa en Microsoft Dynamics (Online y local). Consulte el ejemplo siguiente y obtenga más información en el artículo sobre cómo [generar consultas con FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (si se especifica "entityName" en el conjunto de datos)  |
@@ -274,7 +274,7 @@ Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de c
 
 Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de copia en **DynamicsSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **DynamicsSink**.  | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"**. | Sí |

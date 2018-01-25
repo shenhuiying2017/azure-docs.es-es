@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4caff18728f2f0f1246f4a05ac121cecdaaeaf04
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
-> * [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -43,10 +43,10 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 > [!NOTE]
 > Este artículo no abarca toda la API de REST. Para obtener documentación completa sobre la API de REST, consulte la [referencia de la API de REST de Data Factory](/rest/api/datafactory/).
 > 
-> pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
 * Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos.
 * Siga las instrucciones de [este artículo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para:
@@ -121,7 +121,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | ClusterSize |Tamaño del clúster de HDInsight. |
 | TimeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
@@ -167,12 +167,12 @@ Este código JSON define un conjunto de datos denominado **AzureBlobInput**, que
 
 En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| type |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
+| Tipo |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
 | linkedServiceName |hace referencia a StorageLinkedService que creó anteriormente. |
 | fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log. |
-| type |Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
+| Tipo |Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
 | columnDelimiter |Las columnas de los archivos de registro están delimitadas por una coma (,). |
 | frecuencia/intervalo |La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
 | external |Esta propiedad se establece en true si el servicio Factoría de datos no ha generado los datos de entrada. |
@@ -472,7 +472,7 @@ Ejecute Invoke-Command y el siguiente hasta que vea el segmento en estado **List
 >
 >
 
-También puede usar el Portal de Azure para supervisar los segmentos y solucionar cualquier problema. Consulte más detalles en la sección sobre la [supervisión de canalizaciones con el Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) .
+También puede usar el Portal de Azure para supervisar los segmentos y solucionar cualquier problema. Consulte más detalles en la sección sobre la [supervisión de canalizaciones con el Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) .
 
 ## <a name="summary"></a>Resumen
 En este tutorial, ha creado una instancia de Data Factory de Azure para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para realizar los siguientes pasos:
@@ -484,11 +484,11 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 3. Ha creado dos **conjuntos de datos**, que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización.
 4. Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Otras referencias
-| Tema. | Descripción |
+| Tema. | DESCRIPCIÓN |
 |:--- |:--- |
 | [Referencia de API de REST de Data Factory](/rest/api/datafactory/) |Consulte la documentación completa sobre los cmdlets de Factoría de datos |
 | [Procesos](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |

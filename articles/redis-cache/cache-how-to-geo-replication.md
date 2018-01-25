@@ -3,8 +3,8 @@ title: "Configuración de replicación geográfica para Azure Redis Cache | Micr
 description: "Obtenga información sobre cómo replicar las instancias de Azure Redis Cache en distintas regiones geográficas."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Configuración de replicación geográfica para Azure Redis Cache
 
@@ -177,7 +177,7 @@ En la versión inicial de la replicación geográfica, Azure Redis Cache no admi
 Actualmente, para iniciar la conmutación por error, es necesario quitar el vínculo de replicación geográfica en Azure Portal y, luego, cambiar el punto de conexión del cliente Redis de la caché vinculada principal a la caché secundaria (anteriormente vinculada). Cuando se elimina la asociación de ambas cachés, la réplica se vuelve a convertir en una caché normal de lectura y escritura y acepta solicitudes directamente de los clientes Redis.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Más información sobre el [nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 

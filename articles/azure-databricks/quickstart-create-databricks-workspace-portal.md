@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
@@ -38,10 +38,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 2. En **Azure Databricks (versión preliminar)**, haga clic en **Crear**.
 
-    > [!NOTE]
-    > Azure Databricks está ahora en versión preliminar limitada. Si desea que su suscripción de Azure se considere para la creación de listas de permitidos para la versión preliminar, debe rellenar el [formulario de registro](https://databricks.azurewebsites.net/).
-
-2. En **Servicio Azure Databricks**, proporcione los valores siguientes:
+3. En **Servicio Azure Databricks**, proporcione los valores siguientes:
 
     ![Creación de un área de trabajo de Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Creación de un área de trabajo de Azure Databricks")
 
@@ -50,7 +47,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     * Para **Grupo de recursos**, especifique si desea crear un grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
     * En **Ubicación**, seleccione **Este de EE.UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
-3. Haga clic en **Crear**.
+4. Haga clic en **Create**(Crear).
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creación de un clúster de Spark en Databricks
 
@@ -89,7 +86,7 @@ Realice los pasos siguientes para crear un notebook en Databricks, configúrelo 
 
     ![Creación de notebooks en Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Creación de notebooks en Databricks")
 
-    Haga clic en **Crear**.
+    Haga clic en **Create**(Crear).
 
 3. En el siguiente fragmento de código, reemplace `{YOUR STORAGE ACCOUNT NAME}` por el nombre de cuenta de Azure Storage que creó y `{YOUR STORAGE ACCOUNT ACCESS KEY}` por su clave de acceso de la cuenta de almacenamiento. Pegue el fragmento de código siguiente en una celda vacía del notebook y, después, presione MAYÚS + ENTRAR para ejecutar la celda de código. Este fragmento de código configura el notebook para leer datos de una instancia de Azure Blob Storage.
 
@@ -141,7 +138,7 @@ Realice los pasos siguientes para crear un notebook en Databricks, configúrelo 
     * Establezca **Valores** en **level** (nivel).
     * Establezca **Agregación** en **COUNT** (recuento).
 
-    Haga clic en **Apply**.
+    Haga clic en **Aplicar**.
 
 9. El resultado muestra la representación visual, como se describe en la siguiente captura de pantalla:
 
@@ -155,7 +152,7 @@ Si no activó la casilla, debe terminar el clúster manualmente. Para ello, desd
 
 ![Terminar el clúster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminar el clúster Databricks")
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, creó un clúster de Spark en Azure Databricks y ejecutó un trabajo de Spark utilizando los datos de Azure Storage. También puede mirar [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) (Orígenes de datos de Spark) para aprender a importar datos desde otros orígenes de datos en Azure Databricks. Siga con el siguiente artículo para aprender a usar Azure Data Lake Store con Azure Databricks.
 

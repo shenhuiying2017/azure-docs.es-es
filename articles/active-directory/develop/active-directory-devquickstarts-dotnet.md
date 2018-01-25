@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Introducción a escritorio de .NET (WPF) de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -30,7 +30,7 @@ Si está desarrollando una aplicación de escritorio, Azure AD le facilita la au
 
 Para los clientes nativos .NET que necesitan tener acceso a recursos protegidos, Azure AD proporciona la Biblioteca de autenticación de Active Directory (ADAL).  El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso.  Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes (ToDo) de .NET WPF que permita realizar las siguientes acciones:
 
-* Obtener tokens de acceso para llamar a la API Graph de Azure AD utilizando el [protocolo de autenticación OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+* Obtenga tokens de acceso para llamar a Graph API de Azure AD utilizando el [protocolo de autenticación OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Buscar un directorio para los usuarios con un alias determinado
 * Cerrar la sesión de los usuarios
 
@@ -43,7 +43,7 @@ Para crear la aplicación de trabajo completa, deberá realizar estas acciones:
 Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación.  Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
 ## <a name="1-register-the-directorysearcher-application"></a>1. Registro de la aplicación DirectorySearcher
-Para habilitar la aplicación para obtener tokens, primero deberá registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API Graph de Azure AD:
+Para habilitar la aplicación para obtener tokens, primero deberá registrarla en su inquilino de Azure AD y concederle permiso de acceso a Graph API de Azure AD:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
@@ -53,7 +53,7 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
   * El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.
   * El **URI de redirección** es una combinación de esquema y cadena que utilizará Azure AD para devolver las respuestas de los tokens.  Escriba un valor específico para la aplicación, por ejemplo, `http://DirectorySearcher`.
 6. Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de aplicación único.  Necesitará este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
-7. En la página **Configuración**, elija **Permisos necesarios** y luego **Agregar**. Seleccione **Microsoft Graph** como API y agregue el permiso **Leer datos de directorio** en **Permisos delegados**.  Esto permitirá a su aplicación consultar la API Graph para los usuarios.
+7. En la página **Configuración**, elija **Permisos necesarios** y luego **Agregar**. Seleccione **Microsoft Graph** como API y agregue el permiso **Leer datos de directorio** en **Permisos delegados**.  Esto permitirá a su aplicación consultar Graph API para los usuarios.
 
 ## <a name="2-install--configure-adal"></a>2. Instalar y configurar ADAL
 Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad.  Para que ADAL pueda comunicarse con Azure AD, hay que proporcionarle información sobre el registro de la aplicación.
@@ -74,7 +74,7 @@ El principio básico inherente a ADAL es que cada vez que la aplicación necesit
 
 * En el proyecto `DirectorySearcher`, abra `MainWindow.xaml.cs` y busque el método `MainWindow()`.  El primer paso consiste en inicializar el `AuthenticationContext` de la aplicación, que es la clase principal de ADAL.  Este es el lugar en el que se pasan a ADAL las coordenadas necesarias para comunicarse con Azure AD e indicarle cómo almacenar en caché los tokens.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -85,9 +85,9 @@ public MainWindow()
 }
 ```
 
-* Ahora busque el método `Search(...)` , que se invoca cuando el usuario hace clic en el botón de búsqueda de la interfaz de usuario de la aplicación.  Este método realiza una solicitud GET a la API Graph de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado.  Sin embargo, para realizar una consulta a la API Graph, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
+* Ahora busque el método `Search(...)` , que se invoca cuando el usuario hace clic en el botón de búsqueda de la interfaz de usuario de la aplicación.  Este método realiza una solicitud GET a Graph API de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado.  Sin embargo, para realizar una consulta a Graph API, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Observe que el objeto `AuthenticationResult` contiene un objeto `UserInfo` que puede usarse para recopilar información puede necesitar la aplicación.  En el DirectorySearcher, se usa `UserInfo` para personalizar la interfaz de usuario de la aplicación con el identificador del usuario.
 * Cuando el usuario hace clic en el botón "Cerrar sesión", queremos asegurarnos de que la próxima llamada a `AcquireTokenAsync(...)` solicite al usuario que inicie sesión.  Con ADAL, esto es tan fácil como borrar la caché de tokens:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Sin embargo, si el usuario no hace clic en el botón "Cerrar sesión", puede que desee mantener la sesión del usuario para la próxima vez que ejecute DirectorySearcher.  Cuando se inicie la aplicación, puede comprobar la caché de tokens de ADAL para un token existente y actualizar la interfaz de usuario en consecuencia.  En el método `CheckForCachedToken()`, realice otra llamada a `AcquireTokenAsync(...)`, pero esta vez pasando en el parámetro `PromptBehavior.Never`.  `PromptBehavior.Never` indicará a ADAL que no se debe solicitar al usuario que inicie sesión. En lugar de ello, ADAL debe iniciar una excepción si no puede devolver un token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

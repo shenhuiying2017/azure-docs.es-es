@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS (versión preliminar)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
 
 Los archivos de configuración de cliente VPN están contenidos en un archivo zip. Estos archivos proporcionan la configuración necesaria para que un cliente VPN IKEv2 nativo de Windows o Mac se conecte a una red virtual mediante una conexión de punto a sitio. El servidor RADIUS proporciona varias opciones de autenticación, así que la configuración del cliente VPN varía con cada una.
 
@@ -33,7 +33,7 @@ Los archivos de configuración de cliente VPN están contenidos en un archivo zi
   4. [Complete la configuración de P2S y conéctese](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
->Si después de generar el perfil de configuración de cliente VPN hay algún cambio en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, debe generar e instalar una nueva configuración de cliente VPN en sus dispositivos de usuario.
+>Si después de generar el perfil de configuración de cliente VPN hay algún cambio en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, debe generar e instalar una nueva configuración de cliente de VPN en sus dispositivos de usuario.
 >
 >
 
@@ -94,8 +94,8 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
   ![continuar](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
 5. Durante la instalación del perfil, tendrá la opción de especificar el nombre de usuario y la contraseña usados para la autenticación de VPN. No es obligatorio especificar esta información. Si lo hace, la información se guarda y se usa automáticamente cuando se inicia una conexión. Haga clic en **Instalar** para continuar.
 
-  ![Configuración](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. Para instalar el perfil en el equipo, se debe especificar un nombre de usuario y una contraseña para los privilegios necesarios. Haga clic en **Aceptar**.
+  ![configuración](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
+6. Para instalar el perfil en el equipo, se debe especificar un nombre de usuario y una contraseña para los privilegios necesarios. Haga clic en **OK**.
 
   ![nombre de usuario y contraseña](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Una vez instalado, el perfil es visible en el cuadro de diálogo **Perfiles**. Este cuadro de diálogo también se puede abrir más adelante desde **Preferencias del sistema**.
@@ -205,6 +205,6 @@ Para usar un tipo de autenticación diferente (por ejemplo, OTP), y no el nombre
   * Rutas: rutas que tiene que configurar en el perfil para que solo el tráfico enlazado de red virtual de Azure se envíe a través del túnel P2S.
   * La carpeta GenenericDevice también contiene un archivo .cer denominado "VpnServerRoot". Este archivo contiene el certificado raíz necesario para validar la instancia de Azure VPN Gateway durante la configuración de la conexión de P2S. Instale el certificado en todos los dispositivos que se van a conectar a la red virtual de Azure. 
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Vuelva al artículo para [completar la configuración de la conexión de punto a sitio](point-to-site-how-to-radius-ps.md).

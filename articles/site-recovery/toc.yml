@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: administración
       items:
-        - name: Actualización a un almacén de Recovery Services
-          href: upgrade-site-recovery-vaults.md
         - name: Administración de servidores de proceso de Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Administración del servidor de configuración

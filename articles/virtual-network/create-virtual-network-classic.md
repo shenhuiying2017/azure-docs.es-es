@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
@@ -41,12 +41,12 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 1. En un explorador de Internet, vaya a [Azure Portal](https://portal.azure.com). Inicie sesión con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. Haga clic en **+Nuevo** en el portal.
 3. Escriba *Red virtual* en la casilla **Buscar en el Marketplace** en la parte superior de la hoja **Nuevo** que aparece.  Haga clic en **Red virtual** cuando aparezca en los resultados de la búsqueda.
-4. Seleccione **Clásica** en la casilla **Seleccionar un modelo de implementación** en la hoja **Red virtual** que aparece y, luego, haga clic en **Crear**. 
+4. Seleccione **Clásica** en la casilla **Seleccionar un modelo de implementación** en la hoja **Virtual Network** que aparece y, luego, haga clic en **Crear**. 
 5. Especifique los siguientes valores en la hoja **Crear red virtual (clásica)** y, luego, haga clic en **Crear**:
 
     |Configuración|Valor|
     |---|---|
-    |Nombre|myVnet|
+    |NOMBRE|myVnet|
     |Espacio de direcciones|10.0.0.0/16|
     |Nombre de subred|Público|
     |Intervalo de direcciones de subred|10.0.0.0/24|
@@ -57,7 +57,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 4. En el portal, solo se puede crear una subred cuando se crea una red virtual. En este tutorial, creará una segunda subred después de crear la red virtual. Más adelante podría crear recursos accesibles desde Internet en la subred **Pública**. También podría crear recursos que no fueran accesibles desde Internet en la subred **Privada**. Para crear la segunda subred, escriba **myVnet** en el cuadro **Buscar recursos** en la parte superior de la página. Haga clic en **myVnet** cuando aparezca en los resultados de búsqueda.
 5. Haga clic en **Subredes** (en la sección **CONFIGURACIÓN**) en la hoja **Crear red virtual (clásica)** que aparece.
 6. Haga clic en **+Agregar** en la hoja **myVnet: subredes** que aparece.
-7. Especifique **Privado** para el **Nombre** en la hoja **Agregar subred**. Especifique **10.0.1.0/24** para **Intervalo de direcciones**.  Haga clic en **Aceptar**.
+7. Especifique **Privado** para el **Nombre** en la hoja **Agregar subred**. Especifique **10.0.1.0/24** para **Intervalo de direcciones**.  Haga clic en **OK**.
 8. En la hoja **myVnet: subredes**, puede ver las subredes **Pública** y **Privada** que ha creado.
 9. **Opcional**: cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en gastos de uso:
     - Haga clic en **Introducción** en la hoja **myVnet**.
@@ -159,10 +159,10 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 
 ---
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para más información sobre todos los valores de red virtual y subred, vea [Administración de redes virtuales](virtual-network-manage-network.md) y [Manage virtual network subnets (Administración de subredes virtuales)](virtual-network-manage-subnet.md). Tiene varias opciones para el uso de redes virtuales y subredes en un entorno de producción para satisfacer requisitos diferentes.
 - Para filtrar el tráfico de subred entrante y saliente, cree y aplique [grupos de seguridad de red](virtual-networks-nsg.md) a las subredes.
-- Cree una máquina virtual [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y después conéctela a una red virtual existente.
+- Cree una máquina virtual [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y después conéctela a una red virtual existente.
 - Para conectar dos redes virtuales en la misma ubicación de Azure, cree un [emparejamiento de red virtual](create-peering-different-deployment-models.md) entre las redes virtuales. Puede emparejar una red virtual (Resource Manager) en una red virtual (clásica), pero no puede crear un emparejamiento entre dos redes virtuales (clásicas).
 - Conecte la red virtual a una red local mediante un circuito de [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

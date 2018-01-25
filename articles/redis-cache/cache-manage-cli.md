@@ -3,8 +3,8 @@ title: "Administración de Azure Redis Cache mediante la CLI de Azure | Microsof
 description: "En este tema se describe cómo instalar la CLI de Azure en cualquier plataforma, cómo usarla para conectarse a la cuenta de Azure y cómo crear y administra una caché en Redis desde la CLI de Azure."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Creación y administración de Azure Redis Cache mediante la interfaz de línea de comandos de Azure (CLI de Azure)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ La CLI de Azure es una excelente manera de administrar la infraestructura de Azu
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para crear y administrar instancias de Azure Redis Cache mediante la CLI de Azure, debe realizar los pasos siguientes.
 
 * Debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos momentos.
@@ -45,9 +45,9 @@ Para crear y administrar instancias de Azure Redis Cache mediante la CLI de Azur
 ## <a name="redis-cache-properties"></a>Propiedades de caché en Redis
 Las siguientes propiedades se utilizan al crear y actualizar instancias de caché en Redis.
 
-| Propiedad | Switch | Description |
+| Propiedad | Switch | DESCRIPCIÓN |
 | --- | --- | --- |
-| name |-n,--name |Nombre de la caché en Redis. |
+| Nombre |-n,--name |Nombre de la caché en Redis. |
 | resource group |-g, --resource-group |Nombre del grupo de recursos. |
 | location |-l, --location |Ubicación donde crear la caché. |
 | size |-z, --size |Tamaño de la caché en Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
@@ -61,7 +61,7 @@ Las siguientes propiedades se utilizan al crear y actualizar instancias de cach�
 | StaticIP |-p, --static-ip <static-ip> |Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. |
 | Subred |t, --subnet <subnet> |Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. |
 | VirtualNetwork |-v, --virtual-network <virtual-network> |Si hospeda la memoria caché en una red virtual, especifica el id. de recurso de ARM exacto de la red virtual en la que se va a implementar la Caché en Redis. Formato de ejemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Subscription |-s, --subscription |Identificador de la suscripción. |
+| La suscripción |-s, --subscription |Identificador de la suscripción. |
 
 ## <a name="see-all-redis-cache-commands"></a>Consulta de todos los comandos de caché en Redis
 Para ver todos los comandos de Caché en Redis y sus parámetros, use el comando `azure rediscache -h` .

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Seguimiento de la comunicación B2B en Microsoft Operations Management Suite (OMS)
 
@@ -32,7 +32,7 @@ Después de configurar la comunicación B2B entre dos procesos o aplicaciones em
 
 ## <a name="requirements"></a>Requisitos
 
-* Una aplicación lógica configurada con registro de diagnósticos. Obtenga información sobre [cómo crear una aplicación lógica](logic-apps-create-a-logic-app.md) y [cómo configurar el registro de esa aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Una aplicación lógica configurada con registro de diagnósticos. Obtenga información sobre [cómo crear una aplicación lógica](quickstart-create-first-logic-app-workflow.md) y [cómo configurar el registro de esa aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Una cuenta de integración configurada con supervisión y registro. Aprenda [cómo crear una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y [cómo configurar la supervisión y el registro para esa cuenta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -147,12 +147,12 @@ Estas son las descripciones de propiedades y los formatos de nombre de los archi
 
 Estas son las descripciones de propiedades de cada mensaje AS2.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Remitente | Asociado invitado especificado en **Configuración de recepción** o asociado del host especificado en **Configuración de envío** para un acuerdo de AS2 |
 | Receptor | Asociado del host especificado en **Configuración de recepción** o asociado invitado especificado en **Configuración de envío** para un acuerdo de AS2 |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones AS2 |
-| Estado | Estado del mensaje AS2 <br>Correcto = recibido o enviado un mensaje AS2 válido. No se configura ninguna MDN. <br>Correcto = recibido o enviado un mensaje AS2 válido. Se configura y se recibe una MDN, o se envía. <br>Error = recibido un mensaje AS2 no válido. No se configura ninguna MDN. <br>Pendiente = recibido o enviado un mensaje AS2 válido. Se configura una MDN y se espera una MDN. |
+| Status | Estado del mensaje AS2 <br>Correcto = recibido o enviado un mensaje AS2 válido. No se configura ninguna MDN. <br>Correcto = recibido o enviado un mensaje AS2 válido. Se configura y se recibe una MDN, o se envía. <br>Error = recibido un mensaje AS2 no válido. No se configura ninguna MDN. <br>Pendiente = recibido o enviado un mensaje AS2 válido. Se configura una MDN y se espera una MDN. |
 | Ack | Estado del mensaje MDN <br>Aceptado = recibida o enviada una MDN positiva. <br>Pendiente = esperando a recibir o enviar una MDN. <br>Rechazado = recibida o enviada una MDN negativa. <br>No necesario = no configurada ninguna MDN en el acuerdo. |
 | Dirección | Dirección del mensaje AS2 |
 | Id. de correlación | Identificador que correlaciona todos los desencadenadores y las acciones de una aplicación lógica |
@@ -178,12 +178,12 @@ Estos son los formatos de nombre de cada carpeta y archivo de mensajes AS2 desca
 
 Estas son las descripciones de propiedades de cada mensaje X12.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Remitente | Asociado invitado especificado en **Configuración de recepción** o asociado del host especificado en **Configuración de envío** para un acuerdo de X12 |
 | Receptor | Asociado del host especificado en **Configuración de recepción** o asociado invitado especificado en **Configuración de envío** para un acuerdo de X12 |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones X12 |
-| Estado | Estado del mensaje X12 <br>Correcto = recibido o enviado un mensaje X12 válido. No se configura ninguna confirmación funcional. <br>Correcto = recibido o enviado un mensaje X12 válido. Se configura y se recibe una confirmación funcional, o se envía una confirmación funcional. <br>Error = recibido o enviado un mensaje X12 no válido. <br>Pendiente = recibido o enviado un mensaje X12 válido. Se configura una confirmación funcional y se espera una confirmación funcional. |
+| Status | Estado del mensaje X12 <br>Correcto = recibido o enviado un mensaje X12 válido. No se configura ninguna confirmación funcional. <br>Correcto = recibido o enviado un mensaje X12 válido. Se configura y se recibe una confirmación funcional, o se envía una confirmación funcional. <br>Error = recibido o enviado un mensaje X12 no válido. <br>Pendiente = recibido o enviado un mensaje X12 válido. Se configura una confirmación funcional y se espera una confirmación funcional. |
 | Ack | Estado de confirmación funcional (997) <br>Aceptado = recibida o enviada una confirmación funcional positiva. <br>Rechazado = recibida o enviada una confirmación funcional negativa. <br>Pendiente = se espera una confirmación funcional, pero no se ha recibido. <br>Pendiente = generada una confirmación funcional, pero no se puede enviar al asociado. <br>No necesario = confirmación funcional no configurada. |
 | Dirección | Dirección del mensaje X12 |
 | Id. de correlación | Identificador que correlaciona todos los desencadenadores y las acciones de una aplicación lógica |
@@ -211,12 +211,12 @@ Estos son los formatos de nombre de cada carpeta y archivo de mensajes X12 desca
 
 Estas son las descripciones de propiedades de cada mensaje EDIFACT.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Remitente | Asociado invitado especificado en **Configuración de recepción** o asociado del host especificado en **Configuración de envío** para un acuerdo de EDIFACT |
 | Receptor | Asociado del host especificado en **Configuración de recepción** o asociado invitado especificado en **Configuración de envío** para un acuerdo de EDIFACT |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones EDIFACT |
-| Estado | Estado del mensaje EDIFACT <br>Correcto = recibido o enviado un mensaje EDIFACT válido. No se configura ninguna confirmación funcional. <br>Correcto = recibido o enviado un mensaje EDIFACT válido. Se configura y se recibe una confirmación funcional, o se envía una confirmación funcional. <br>Error = recibido o enviado un mensaje EDIFACT no válido <br>Pendiente = recibido o enviado un mensaje EDIFACT válido. Se configura una confirmación funcional y se espera una confirmación funcional. |
+| Status | Estado del mensaje EDIFACT <br>Correcto = recibido o enviado un mensaje EDIFACT válido. No se configura ninguna confirmación funcional. <br>Correcto = recibido o enviado un mensaje EDIFACT válido. Se configura y se recibe una confirmación funcional, o se envía una confirmación funcional. <br>Error = recibido o enviado un mensaje EDIFACT no válido <br>Pendiente = recibido o enviado un mensaje EDIFACT válido. Se configura una confirmación funcional y se espera una confirmación funcional. |
 | Ack | Estado de confirmación funcional (997) <br>Aceptado = recibida o enviada una confirmación funcional positiva. <br>Rechazado = recibida o enviada una confirmación funcional negativa. <br>Pendiente = se espera una confirmación funcional, pero no se ha recibido. <br>Pendiente = generada una confirmación funcional, pero no se puede enviar al asociado. <br>No necesario = confirmación funcional no configurada. |
 | Dirección | Dirección del mensaje EDIFACT |
 | Id. de correlación | Identificador que correlaciona todos los desencadenadores y las acciones de una aplicación lógica |
@@ -238,7 +238,7 @@ Estos son los formatos de nombre de cada carpeta y archivo de mensajes EDIFACT d
 | Archivos de entrada, salida y, si se ha configurado, de confirmación | **Carga de entrada**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Carga de salida**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Salidas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Consulta de mensajes B2B en Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

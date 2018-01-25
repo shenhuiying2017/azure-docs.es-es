@@ -3,7 +3,7 @@ title: "Sincronización de Azure AD Connect: cambio de la configuración predete
 description: "Proporciona procedimientos recomendados para cambiar la configuración predeterminada de Azure AD Connect Sync."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 86b9af69063ded2740ac353b863442725104c071
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 384794849eb0bf2cb2f4dd056b0c95ab84d77b6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
 El propósito de este tema es describir los cambios admitidos y no admitidos en la sincronización de Azure AD Connect.
@@ -65,7 +65,7 @@ Seleccione **Sí** para crear una copia de la regla. A continuación, se abre la
 
 En esta regla clonada, realice los cambios necesarios en el ámbito, la combinación y las transformaciones.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)

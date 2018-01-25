@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Premium Storage con SQL Server | Microsoft Docs
-description: "En este artículo se usan los recursos creados con el modelo de implementación clásica y se proporcionan instrucciones sobre cómo usar el almacenamiento premium de Azure con SQL Server que se ejecuta en máquinas virtuales de Azure."
+description: "En este artículo se usan los recursos creados con el modelo de implementación clásica y se proporcionan instrucciones sobre cómo usar Azure Premium Storage con SQL Server que se ejecuta en Azure Virtual Machines."
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
+# <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 ## <a name="overview"></a>Información general
-[almacenamiento Premium de Azure](../premium-storage.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)de SQL Server en IaaS.
+[Azure Premium Storage](../premium-storage.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)de SQL Server en IaaS.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
-Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use almacenamiento Premium. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
+Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use Premium Storage. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
 
-Es importante comprender el proceso de extremo a extremo para usar el almacenamiento Premium de Azure con máquinas virtuales de SQL Server en IAAS. En ella se incluye:
+Es importante comprender el proceso de extremo a extremo para usar Azure Premium Storage con máquinas virtuales de SQL Server en IAAS. Esto incluye:
 
-* Identificación de los requisitos previos para usar el almacenamiento Premium.
-* Ejemplos de implementación de SQL Server en IaaS en el almacenamiento Premium para nuevas implementaciones.
+* Identificación de los requisitos previos para usar Premium Storage.
+* Ejemplos de implementación de SQL Server en IaaS en Premium Storage para nuevas implementaciones.
 * Ejemplos de migración de implementaciones existentes, tanto servidores independientes como implementaciones mediante grupos de disponibilidad AlwaysOn de SQL.
 * Enfoques de migración posibles.
 * Ejemplo completo que muestra los pasos de Azure, Windows y SQL Server para la migración de una implementación AlwaysOn existente.
@@ -42,14 +42,14 @@ Para obtener información general sobre SQL Server en máquinas virtuales de Azu
 
 **Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
-## <a name="prerequisites-for-premium-storage"></a>Requisitos previos para el almacenamiento Premium
-Hay varios requisitos previos para usar el almacenamiento Premium.
+## <a name="prerequisites-for-premium-storage"></a>Requisitos previos para Premium Storage
+Hay varios requisitos previos para usar Premium Storage.
 
 ### <a name="machine-size"></a>Tamaño de la máquina
-Para usar el almacenamiento Premium deberá usar máquinas virtuales de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para usar Premium Storage deberá usar máquinas virtuales de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Servicios en la nube
-Solo puede usar máquinas virtuales DS* con almacenamiento Premium cuando se crean en un servicio en la nube nuevo. Si usando AlwaysOn de SQL Server en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
+Solo puede usar máquinas virtuales DS* con Premium Storage cuando se crean en un servicio en la nube nuevo. Si usando AlwaysOn de SQL Server en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
 
 > [!NOTE]
 > La primera máquina virtual que se implementa en el servicio en la nube nuevo debe ser de la serie DS*.
@@ -86,7 +86,7 @@ Para moverlo a una red virtual regional en Europa Occidental, cambie la configur
     </VirtualNetworkSite>
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
-Necesitará crear una cuenta de almacenamiento nueva que esté configurada para el almacenamiento Premium. Tenga en cuenta que el uso del almacenamiento Premium se establece en la cuenta de almacenamiento, no en VHD individuales. Sin embargo, cuando se usa una máquina virtual de la serie DS*, se puede adjuntar VHD desde cuentas de almacenamiento estándar y Premium. Puede considerar esta opción si no desea colocar el VHD del sistema operativo en la cuenta de almacenamiento Premium.
+Necesitará crear una cuenta de almacenamiento nueva que esté configurada para Premium Storage. Tenga en cuenta que el uso de Premium Storage se establece en la cuenta de almacenamiento, no en VHD individuales. Sin embargo, cuando se usa una máquina virtual de la serie DS*, se puede adjuntar VHD desde cuentas de Standard Storage y Premium Storage. Puede considerar esta opción si no desea colocar el VHD del sistema operativo en la cuenta de Premium Storage.
 
 El siguiente comando **New-AzureStorageAccountPowerShell** con el tipo **"Premium_LRS"** crea una cuenta Premium Storage:
 
@@ -94,17 +94,17 @@ El siguiente comando **New-AzureStorageAccountPowerShell** con el tipo **"Premiu
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### <a name="vhds-cache-settings"></a>Configuración de la caché de los VHD
-La diferencia principal al crear discos que forman parte de una cuenta de almacenamiento Premium es la configuración de la caché de disco. En el caso de discos de volumen de datos de SQL Server, se recomienda usar "**Read Caching**". En el caso de volúmenes de registro de transacciones, la configuración de memoria caché de disco se debe establecer en "**None**". Esto difiere de las recomendaciones para las cuentas de almacenamiento estándar.
+La diferencia principal al crear discos que forman parte de una cuenta de Premium Storage es la configuración de la caché de disco. En el caso de discos de volumen de datos de SQL Server, se recomienda usar "**Read Caching**". En el caso de volúmenes de registro de transacciones, la configuración de memoria caché de disco se debe establecer en "**None**". Esto difiere de las recomendaciones para las cuentas de Standard Storage.
 
 Una vez conectados los VHD, no se puede modificar la configuración de caché. Deberá desconectar y volver a conectar el VHD con una configuración de caché actualizada.
 
 ### <a name="windows-storage-spaces"></a>Espacios de almacenamiento de Windows
-Puede usar los [espacios de almacenamiento de Windows](https://technet.microsoft.com/library/hh831739.aspx) como hizo con el almacenamiento estándar anterior. Esto le permitirá migrar una máquina virtual que ya usa los espacios de almacenamiento. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (paso 9 y posteriores) se muestra el código de Powershell para extraer e importar una máquina virtual con varios VHD conectados.
+Puede usar los [espacios de almacenamiento de Windows](https://technet.microsoft.com/library/hh831739.aspx) como hizo con la instancia de Standard Storage anterior. Esto le permitirá migrar una máquina virtual que ya usa los espacios de almacenamiento. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (paso 9 y posteriores) se muestra el código de Powershell para extraer e importar una máquina virtual con varios VHD conectados.
 
-Se usaron grupos de almacenamiento con la cuenta de almacenamiento estándar de Azure para mejorar el rendimiento y reducir la latencia. Pueden resultarle útiles las pruebas de los grupos de almacenamiento con el almacenamiento Premium para implementaciones nuevas, pero agregan una complejidad adicional con la configuración del almacenamiento.
+Se usaron grupos de almacenamiento con la cuenta de Azure Storage estándar para mejorar el rendimiento y reducir la latencia. Pueden resultarle útiles las pruebas de los grupos de almacenamiento con Premium Storage para implementaciones nuevas, pero agregan una complejidad adicional con la configuración del almacenamiento.
 
 #### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Cómo encontrar qué discos virtuales de Azure se asignan a grupos de almacenamiento
-Dado que existen recomendaciones de configuración de caché diferentes para los VHD conectados, tal vez decida copiar los VHD en una cuenta de almacenamiento Premium. Sin embargo, al volver a conectarlos a la máquina virtual nueva de la serie DS, podría tener que modificar la configuración de caché. Es más sencillo aplicar la configuración de caché recomendada para el almacenamiento Premium cuando se tienen VHD independientes para los archivos de datos y los archivos de registro de SQL (en lugar de un solo VHD que contenga ambos tipos de archivos).
+Dado que existen recomendaciones de configuración de caché diferentes para los VHD conectados, tal vez decida copiar los VHD en una cuenta de Premium Storage. Sin embargo, al volver a conectarlos a la máquina virtual nueva de la serie DS, podría tener que modificar la configuración de caché. Es más sencillo aplicar la configuración de caché recomendada para Premium Storage cuando se tienen VHD independientes para los archivos de datos y los archivos de registro de SQL (en lugar de un solo VHD que contenga ambos tipos de archivos).
 
 > [!NOTE]
 > Si tiene los archivos de datos y los archivos de registro de SQL Server en el mismo volumen, la opción de caché que elija depende de los patrones de acceso de E/S para las cargas de trabajo de la base de datos. Solo las pruebas pueden demostrar qué opción de caché es más adecuada para este escenario.
@@ -138,7 +138,7 @@ Para cada disco, siga estos pasos:
 
 Ahora puede usar esta información para asociar los VHD conectados a discos físicos en los grupos de almacenamiento.
 
-Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, puede desconectarlos y copiarlos en una cuenta de almacenamiento Premium. A continuación, conéctelos con la configuración de la caché correcta. Consulte los pasos del 8 al 12 del ejemplo incluido en el [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Estos pasos muestran cómo extraer una configuración de disco VHD conectado a una máquina virtual en un archivo CSV, copiar los VHD, modificar la configuración de la caché del disco y, por último, volver a implementar la máquina virtual como una máquina virtual de la serie DS con todos los discos conectados.
+Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, puede desconectarlos y copiarlos en una cuenta de Premium Storage. A continuación, conéctelos con la configuración de la caché correcta. Consulte los pasos del 8 al 12 del ejemplo incluido en el [Apéndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Estos pasos muestran cómo extraer una configuración de disco VHD conectado a una máquina virtual en un archivo CSV, copiar los VHD, modificar la configuración de la caché del disco y, por último, volver a implementar la máquina virtual como una máquina virtual de la serie DS con todos los discos conectados.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Ancho de banda del almacenamiento de la VM y rendimiento del almacenamiento del VHD
 El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -148,7 +148,7 @@ El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cu
 Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
 ## <a name="new-deployments"></a>Nuevas implementaciones
-Las dos secciones siguientes muestran cómo puede implementar máquinas virtuales de SQL Server para almacenamiento Premium. Como se mencionó antes, no debe colocar necesariamente el disco del sistema operativo en el almacenamiento Premium. Puede hacerlo si va a colocar las cargas de trabajo intensivas de E/S en el VHD del sistema operativo.
+Las dos secciones siguientes muestran cómo puede implementar máquinas virtuales de SQL Server para Premium Storage. Como se mencionó antes, no debe colocar necesariamente el disco del sistema operativo en el almacenamiento Premium. Puede hacerlo si va a colocar las cargas de trabajo intensivas de E/S en el VHD del sistema operativo.
 
 El primer ejemplo muestra el uso de las imágenes existente en la Galería de Azure. El segundo ejemplo muestra cómo usar una imagen de máquina virtual personalizada que tiene en una cuenta de almacenamiento estándar existente.
 
@@ -157,8 +157,8 @@ El primer ejemplo muestra el uso de las imágenes existente en la Galería de Az
 >
 >
 
-### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Crear una nueva máquina virtual con almacenamiento Premium con una imagen de la Galería
-El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en el almacenamiento Premium y cómo adjuntar los VHD de almacenamiento Premium. Sin embargo, también puede colocar el disco del sistema operativo en una cuenta de almacenamiento estándar y, a continuación, conectar los VHD que residen en una cuenta de almacenamiento Premium. Se muestran ambos escenarios.
+### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Crear una nueva máquina virtual con Premium Storage con una imagen de la Galería
+El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en Premium Storage y cómo adjuntar los VHD de Premium Storage. Sin embargo, también puede colocar el disco del sistema operativo en una cuenta de Standard Storage y, a continuación, conectar los VHD que residen en una cuenta de Premium Storage. Se muestran ambos escenarios.
 
     $mysubscription = "DansSubscription"
     $location = "West Europe"
@@ -167,7 +167,7 @@ El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en el al
     Set-AzureSubscription -SubscriptionName $mysubscription
     Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 
-#### <a name="step-1-create-a-premium-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento Premium
+#### <a name="step-1-create-a-premium-storage-account"></a>Paso 1: Crear una cuenta de Premium Storage
     #Create Premium Storage account, note Type
     $newxiostorageaccountname = "danspremsams"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
@@ -196,7 +196,7 @@ El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en el al
     $containerName = 'vhds'
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
-#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Paso 5: Colocar el VHD del sistema operativo en el almacenamiento estándar o Premium
+#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Paso 5: Colocar el VHD del sistema operativo en Standard o Premium Storage
     #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
 
     #If you want to place the OS VHD Premium Storage Account
@@ -250,8 +250,8 @@ El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en el al
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 
-### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Crear una nueva VM para usar el almacenamiento Premium con una imagen personalizada
-Este escenario muestra dónde tiene imágenes personalizadas que residen en una cuenta de almacenamiento estándar. Como ya se mencionó, si desea colocar el VHD del sistema operativo en el almacenamiento Premium necesitará copiar la imagen que existe en la cuenta de almacenamiento estándar y transferirlo a un almacenamiento Premium antes de poder usarlo. Si tiene una imagen local, también puede usar este método para copiarla directamente a la cuenta Premium Storage.
+### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Crear una nueva VM para usar Premium Storage con una imagen personalizada
+Este escenario muestra dónde tiene imágenes personalizadas que residen en una cuenta de Standard Storage. Como ya se mencionó, si desea colocar el VHD del sistema operativo en Premium Storage necesitará copiar la imagen que existe en la cuenta de Standard Storage y transferirlo a Premium Storage antes de poder usarlo. Si tiene una imagen local, también puede usar este método para copiarla directamente a la cuenta Premium Storage.
 
 #### <a name="step-1-create-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento
     $mysubscription = "DansSubscription"
@@ -270,7 +270,7 @@ Este escenario muestra dónde tiene imágenes personalizadas que residen en una 
 
 
 #### <a name="step-3-use-existing-image"></a>Paso 3: Usar una imagen existente
-Puede usar una imagen existente. También puede [captar la imagen de una máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que la máquina de la que se crea una imagen no tiene que ser DS \*. Ahora que ya ha creado la imagen, los pasos siguientes muestran cómo copiarla en la cuenta de Premium Storage con el commandlet de PowerShell **Start-AzureStorageBlobCopy**.
+Puede usar una imagen existente. También puede [captar la imagen de una máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que la máquina de la que se crea una imagen no tiene que ser DS \*. Ahora que ya ha creado la imagen, los pasos siguientes muestran cómo copiarla en la cuenta de Premium Storage con el commandlet de PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account
@@ -307,7 +307,7 @@ Puede usar una imagen existente. También puede [captar la imagen de una máquin
 >
 
 #### <a name="step-7--build-the-vm"></a>Paso 7: Crear la máquina virtual
-Aquí va a crear la máquina virtual a partir de la imagen y a adjuntar dos VHD de almacenamiento Premium:
+Aquí va a crear la máquina virtual a partir de la imagen y a adjuntar dos VHD de Premium Storage:
 
     $newimageName = "prem"+"dansoldonorsql2k14"
     #Set up Machine Specific Information
@@ -346,13 +346,13 @@ Aquí va a crear la máquina virtual a partir de la imagen y a adjuntar dos VHD 
 >
 >
 
-Existen diferentes consideraciones para las implementaciones de SQL Server que no usan grupos de disponibilidad AlwaysOn y para las que los usan. Si no usa AlwaysOn y tiene un servidor SQL Server independiente, puede realizar la actualización a almacenamiento Premium mediante un servicio en la nube y una cuenta de almacenamiento nuevos. Considere las opciones siguientes:
+Existen diferentes consideraciones para las implementaciones de SQL Server que no usan grupos de disponibilidad AlwaysOn y para las que los usan. Si no usa AlwaysOn y tiene un servidor SQL Server independiente, puede realizar la actualización a Premium Storage mediante un servicio en la nube y una cuenta de almacenamiento nuevos. Considere las opciones siguientes:
 
-* **Crear una nueva máquina virtual de SQL Server**. Puede crear una nueva máquina virtual de SQL Server que use una cuenta de almacenamiento Premium, como se documenta en Nuevas implementaciones. A continuación, haga una copia de seguridad y restaure las bases de datos de usuario y la configuración de SQL Server. La aplicación deberá actualizarse para que haga referencia al nuevo servidor SQL Server si se tiene acceso a ella interna o externamente. Deberá copiar todos los objetos “fuera de la base de datos” como si estuviera llevando a cabo una migración de SQL Server en paralelo (SxS). Esto incluye objetos tales como inicios de sesión, certificados y servidores vinculados.
-* **Migrar una máquina virtual de SQL Server existente**. Esto requerirá desconectar la máquina virtual de SQL Server y, a continuación, transferirla a un nuevo servicio en la nube, lo que incluye copiar todos los VHD conectados en la cuenta de almacenamiento Premium. Cuando la máquina virtual se conecte, la aplicación hará referencia al nombre de host del servidor, igual que antes. Tenga en cuenta que el tamaño del disco existente afectará a las características de rendimiento. Por ejemplo, un disco de 400 GB se redondea hacia arriba a P20. Si sabe que no necesita ese rendimiento de disco, podría volver a crear la máquina virtual como una máquina virtual de la serie DS y conectar los VHD de almacenamiento Premium con la especificación de tamaño o rendimiento que necesite. A continuación, puede desconectar y volver a conectar los archivos de base de datos de SQL.
+* **Crear una nueva máquina virtual de SQL Server**. Puede crear una nueva máquina virtual de SQL Server que use una cuenta de Premium Storage, como se documenta en Nuevas implementaciones. A continuación, haga una copia de seguridad y restaure las bases de datos de usuario y la configuración de SQL Server. La aplicación deberá actualizarse para que haga referencia al nuevo servidor SQL Server si se tiene acceso a ella interna o externamente. Deberá copiar todos los objetos “fuera de la base de datos” como si estuviera llevando a cabo una migración de SQL Server en paralelo (SxS). Esto incluye objetos tales como inicios de sesión, certificados y servidores vinculados.
+* **Migrar una máquina virtual de SQL Server existente**. Esto requerirá desconectar la máquina virtual de SQL Server y, a continuación, transferirla a un nuevo servicio en la nube, lo que incluye copiar todos los VHD conectados en la cuenta de Premium Storage. Cuando la máquina virtual se conecte, la aplicación hará referencia al nombre de host del servidor, igual que antes. Tenga en cuenta que el tamaño del disco existente afectará a las características de rendimiento. Por ejemplo, un disco de 400 GB se redondea hacia arriba a P20. Si sabe que no necesita ese rendimiento de disco, podría volver a crear la máquina virtual como una máquina virtual de la serie DS y conectar los VHD de Premium Storage con la especificación de tamaño o rendimiento que necesite. A continuación, puede desconectar y volver a conectar los archivos de base de datos de SQL.
 
 > [!NOTE]
-> Al copiar los discos VHD debe tener en cuenta el tamaño, ya que en función de este se decidirá en qué tipo de disco de almacenamiento Premium se engloban, lo que determina la especificación de rendimiento del disco. Azure redondeará hacia arriba al tamaño de disco más cercano, por lo que si tiene un disco de 400 GB, redondeará a P20. En función de los requisitos de E/S existentes del VHD del sistema operativo, podría no tener que migrarlo a una cuenta de almacenamiento Premium.
+> Al copiar los discos VHD debe tener en cuenta el tamaño, ya que en función de este se decidirá en qué tipo de disco de Premium Storage se engloban, lo que determina la especificación de rendimiento del disco. Azure redondeará hacia arriba al tamaño de disco más cercano, por lo que si tiene un disco de 400 GB, redondeará a P20. En función de los requisitos de E/S existentes del VHD del sistema operativo, podría no tener que migrarlo a una cuenta de Premium Storage.
 >
 >
 
@@ -402,7 +402,7 @@ Debe aprovisionar tiempo donde pueda realizar una conmutación por error manual 
 > ##### <a name="high-level-steps"></a>Pasos de alto nivel
 >
 
-1. Cree dos nuevos servidores SQL Server en el nuevo servicio en la nube con el almacenamiento Premium conectado.
+1. Cree dos nuevos servidores SQL Server en el nuevo servicio en la nube con Premium Storage conectado.
 2. Copie las de copias de seguridad completas y restáurelas con **NORECOVERY**.
 3. Copie los objetos dependientes “fuera de la base de datos de usuario”, como los inicios de sesión, etc.
 4. Cree un equilibrador de carga interno nuevo (ILB) o use un equilibrador de carga externo (ELB) y, a continuación, configure los extremos de carga equilibrada en ambos nodos nuevos.
@@ -460,7 +460,7 @@ Hay dos estrategias para migrar las implementaciones de AlwaysOn de tal modo que
 2. **Usar una réplica de un elemento secundario existente: multisitio**
 
 #### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Usar un elemento secundario existente: sitio único
-Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemento secundario existente en la nube y quitarlo del servicio en la nube actual. A continuación, copie los VHD a la nueva cuenta de almacenamiento Premium y cree la máquina virtual en el nuevo servicio en la nube. A continuación, actualice el agente de escucha en la agrupación en clústeres y la conmutación por error.
+Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemento secundario existente en la nube y quitarlo del servicio en la nube actual. A continuación, copie los VHD a la nueva cuenta de Premium Storage y cree la máquina virtual en el nuevo servicio en la nube. A continuación, actualice el agente de escucha en la agrupación en clústeres y la conmutación por error.
 
 ##### <a name="points-of-downtime"></a>Puntos de tiempo de inactividad
 * Hay tiempo de inactividad cuando se actualiza el nodo final con el punto de conexión de carga equilibrada.
@@ -476,12 +476,12 @@ Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemen
 * No se incurre en más gastos durante la migración.
 * Migración uno a uno.
 * Menor complejidad.
-* Admite una mayor IOPS en los SKU de almacenamiento Premium. Cuando los discos se desconectan de la máquina virtual y se copian en el nuevo servicio en la nube, puede usarse una herramienta de terceros para aumentar el tamaño del VHD, lo que proporciona un mayor rendimiento. Para aumentar el tamaño del VHD, consulte este [debate de foro](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
+* Admite una mayor IOPS en los SKU de Premium Storage. Cuando los discos se desconectan de la máquina virtual y se copian en el nuevo servicio en la nube, puede usarse una herramienta de terceros para aumentar el tamaño del VHD, lo que proporciona un mayor rendimiento. Para aumentar el tamaño del VHD, consulte este [debate de foro](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
 ##### <a name="disadvantages"></a>Desventajas
 * Hay una pérdida temporal de alta disponibilidad y recuperación ante desastres durante la migración.
 * Como se trata de una migración de 1:1, tendrá que usar un tamaño mínimo de máquina virtual que sea compatible con el número de VHD, por lo que podría no ser capaz de reducir el tamaño de las máquinas virtuales.
-* Este escenario usa el commandlet **Start-AzureStorageBlobCopy** , que es asincrónico. No hay ningún contrato de nivel de servicio cuando finaliza la copia. El tiempo de realización de las copias varía; aunque depende de la espera en cola, también depende de la cantidad de datos que se van a transferir. El tiempo de copia aumenta si la transferencia va a otro centro de datos de Azure que admite el almacenamiento Premium en otra región. Si solo tiene dos nodos, considere una posible mitigación en caso de que la copia tarde más que en las pruebas. Esto puede incluir las siguientes ideas.
+* Este escenario usa el commandlet **Start-AzureStorageBlobCopy** , que es asincrónico. No hay ningún contrato de nivel de servicio cuando finaliza la copia. El tiempo de realización de las copias varía; aunque depende de la espera en cola, también depende de la cantidad de datos que se van a transferir. El tiempo de copia aumenta si la transferencia va a otro centro de datos de Azure que admite Premium Storage en otra región. Si solo tiene dos nodos, considere una posible mitigación en caso de que la copia tarde más que en las pruebas. Esto puede incluir las siguientes ideas.
   * Agregue un tercer nodo temporal de SQL Server para alta disponibilidad antes de la migración con el tiempo de inactividad acordado.
   * Ejecute la migración fuera del mantenimiento programado de Azure.
   * Asegúrese de que ha configurado correctamente el cuórum de clúster.  
@@ -492,7 +492,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 ![MinimalDowntime][8]
 
 * Recopile la configuración del disco y quite el nodo (no elimine los VHD conectados).
-* Cree una cuenta de almacenamiento Premium y copie los VHD de la cuenta de almacenamiento estándar.
+* Cree una cuenta de Premium Storage y copie los VHD de la cuenta de Standard Storage.
 * Cree un nuevo servicio en la nube y vuelva a implementar la máquina virtual SQL2 en ese servicio en la nube. Cree la máquina virtual mediante el VHD del sistema operativo original copiado y adjunte los VHD copiados.
 * Configure ILB/ELB y agregue extremos.
 * Actualice el agente de escucha de una de las siguientes maneras:
@@ -506,7 +506,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 #### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Usar una réplica de un elemento secundario existente: multisitio
 Si tiene nodos en más de un centro de datos (DC) de Azure o si tiene un entorno híbrido, puede usar una configuración de AlwaysOn en este entorno para minimizar el tiempo de inactividad.
 
-El enfoque consiste en cambiar la sincronización de AlwaysOn a sincrónica para el centro de datos de Azure local o secundario y, después, realizar la conmutación por error a ese servidor SQL Server. Posteriormente, copie los VHD en una cuenta de almacenamiento Premium y vuelva a implementar la máquina en un nuevo servicio en la nube. Actualice el agente de escucha y, a continuación, conmute por recuperación.
+El enfoque consiste en cambiar la sincronización de AlwaysOn a sincrónica para el centro de datos de Azure local o secundario y, después, realizar la conmutación por error a ese servidor SQL Server. Posteriormente, copie los VHD en una cuenta de Premium Storage y vuelva a implementar la máquina en un nuevo servicio en la nube. Actualice el agente de escucha y, a continuación, conmute por recuperación.
 
 ##### <a name="points-of-downtime"></a>Puntos de tiempo de inactividad
 El tiempo de inactividad es el tiempo que se tarda en conmutar por error al centro de datos alternativo y conmutar por recuperación. También depende de la configuración de cliente/DNS, y la reconexión del cliente podría retrasarse.
@@ -536,8 +536,8 @@ Este escenario da por supuesto que se ha documentado sobre su instalación y sab
 
 * Convierta el centro de datos local/alternativo de Azure en el servidor principal de SQL Server y en el otro asociado de conmutación por error automática (AFP).
 * Recopile información sobre la configuración del disco de SQL2 y quite el nodo (no elimine los VHD conectados).
-* Cree una cuenta de almacenamiento Premium y copie los VHD de la cuenta de almacenamiento estándar.
-* Cree un nuevo servicio en la nube y cree la máquina virtual SQL2 con sus discos de almacenamiento Premium conectados.
+* Cree una cuenta de Premium Storage y copie los VHD de la cuenta de Standard Storage.
+* Cree un nuevo servicio en la nube y cree la máquina virtual SQL2 con sus discos de Premium Storage conectados.
 * Configure ILB/ELB y agregue extremos.
 * Actualice el agente de escucha de AlwaysOn con la nueva dirección IP del ILB/ELB y pruebe la conmutación por error.
 * Compruebe la configuración de DNS.
@@ -545,7 +545,7 @@ Este escenario da por supuesto que se ha documentado sobre su instalación y sab
 * Pruebe las conmutaciones por error.
 * Cambie el AFP de nuevo a SQL1 y SQL2.
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apéndice: Migración de un clúster de AlwaysOn de sitios múltiples al Almacenamiento premium
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apéndice: Migración de un clúster de AlwaysOn de sitios múltiples al Premium Storage
 En el resto de este tema, encontrará un ejemplo detallado de cómo convertir un clúster de AlwaysOn de sitios múltiples al Almacenamiento premium. Asimismo, convierte el agente de escucha de modo que pase de usar un equilibrador de carga externo (ELB) a un equilibrador de carga interno (ILB).
 
 ### <a name="environment"></a>Environment
@@ -768,7 +768,7 @@ Para los volúmenes TLOG, debe establecerse en NONE.
 
 
 
-Puede comprobar el estado de la copia de los VHD en la cuenta de almacenamiento Premium:
+Puede comprobar el estado de la copia de los VHD en la cuenta de Premium Storage:
 
     ForEach ($disk in $diskobjects)
        {
@@ -1096,9 +1096,9 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Almacenamiento Premium de Azure](../premium-storage.md)
+* [Azure Premium Storage](../premium-storage.md)
 * [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)
-* [SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

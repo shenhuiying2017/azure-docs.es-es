@@ -3,8 +3,8 @@ title: "Preguntas más frecuentes sobre Azure Redis Cache | Microsoft Docs"
 description: "Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>P+F de Azure Redis Cache
 Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache.
@@ -34,7 +34,7 @@ Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar un
 ## <a name="azure-redis-cache-basics"></a>Conceptos básicos de Azure Redis Cache
 Las preguntas más frecuentes de esta sección tratan algunos de los aspectos básicos de Azure Redis Cache.
 
-* [¿Qué es Caché en Redis de Azure?](#what-is-azure-redis-cache)
+* [¿Qué es Azure Redis Cache?](#what-is-azure-redis-cache)
 * [Introducción a Azure Redis Cache](#how-can-i-get-started-with-azure-redis-cache)
 
 Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuestiones sobre Azure Redis Cache; en una de las otras secciones de preguntas más frecuentes encontrará las respuestas.
@@ -56,7 +56,7 @@ Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuest
 * [¿Qué clientes de Caché en Redis puedo usar?](#what-redis-cache-clients-can-i-use)
 * [¿Hay un emulador local para Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 * [¿Cómo puedo ejecutar comandos de Redis?](#how-can-i-run-redis-commands)
-* [¿Por qué Caché en Redis de Azure no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [¿Por qué Azure Redis Cache no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [¿Puedo usar Azure Redis Cache como caché de la sesión PHP?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
 * [¿Cuáles son las bases de datos de Redis?](#what-are-redis-databases)
 
@@ -107,9 +107,9 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 * **Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Premium ofrece más ancho de banda en comparación con los niveles Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, consulte la [tabla siguiente](#cache-performance).
 * **Rendimiento**: el nivel Premium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanzan los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para más información, vea la tabla siguiente.
 * **Alta disponibilidad/SLA**: Azure Redis Cache garantiza que la caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Azure Redis Cache](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
-* **Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. Si existen problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Redis Cache ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [Cómo configurar la persistencia para una instancia Premium de Azure Redis Cache](cache-how-to-premium-persistence.md).
+* **Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. Si existen problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Redis Cache ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [Cómo configurar la persistencia para una instancia de Azure Redis Cache Premium](cache-how-to-premium-persistence.md).
 * **Clúster en Redis**: para crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres para una instancia Premium de Azure Redis Cache](cache-how-to-premium-clustering.md).
-* **Aislamiento de red y seguridad mejorado**: la implementación de Azure Virtual Network ofrece seguridad mejorada y aislamiento para su instancia de Azure Redis Cache, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, vea [Cómo configurar la compatibilidad de Virtual Network para una instancia Premium de Azure Redis Cache](cache-how-to-premium-vnet.md).
+* **Aislamiento de red y seguridad mejorado**: la implementación de Azure Virtual Network ofrece seguridad mejorada y aislamiento para su Azure Redis Cache, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, vea [Cómo configurar la compatibilidad de red virtual para Azure Redis Cache Premium](cache-how-to-premium-vnet.md).
 * **Configurar Redis**: tanto en los niveles Estándar como Premium, puede configurar Redis para las notificaciones de Keyspace.
 * **Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. Para obtener más información, consulte [Precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
 * **Núcleo dedicado para el servidor Redis**: en el nivel Premium todos los tamaños de caché tienen un núcleo dedicado para Redis. En los niveles Básico/Estándar, el tamaño C1 y superiores tienen un núcleo dedicado para el servidor Redis.
@@ -183,7 +183,7 @@ Para más información sobre el uso de Azure Redis Cache con PowerShell en la nu
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>¿Qué hacen las opciones de configuración de StackExchange.Redis?
 StackExchange.Redis tiene muchas opciones. En esta sección se describen algunas de las configuraciones comunes. Para obtener más información acerca de las opciones de StackExchange.Redis, consulte [Configuración de StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Descripción | Recomendación |
+| ConfigurationOptions | DESCRIPCIÓN | Recomendación |
 | --- | --- | --- |
 | AbortOnConnectFail |Cuando se establece en true, la conexión no se volverá a conectar después de un error de red. |Establézcalo en false y deje que StackExchange.Redis se vuelva a conectar automáticamente. |
 | ConnectRetry |El número de veces que se repiten los intentos de conexión durante la conexión inicial. |Consulte la siguiente imagen para obtener instrucciones. |
@@ -192,7 +192,7 @@ StackExchange.Redis tiene muchas opciones. En esta sección se describen algunas
 Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste las opciones en función de su carga de trabajo.
 
 * **Reintentos**
-  * Para ConnectRetry y ConnectTimeout, la regla general es error rápido e intentarlo de nuevo. Esta regla se basa en la carga de trabajo y en cuánto tiempo como media tarda el cliente en enviar un comando de Redis y en recibir una respuesta.
+  * Para ConnectRetry y ConnectTimeout, la regla general es fracasar y responder rápido a los errores y volver a intentarlo. Esta regla se basa en la carga de trabajo y en cuánto tiempo como media tarda el cliente en enviar un comando de Redis y en recibir una respuesta.
   * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected**.
   * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Orientación general sobre reintentos](../best-practices-retry-general.md) publicado por el grupo de Microsoft Patterns & Practices.
 * **Valores de tiempo de expiración**
@@ -201,7 +201,7 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
   * Utilice una única instancia de ConnectionMultiplexer para la aplicación. Puede usar LazyConnection para crear una instancia única que se devuelva por una propiedad de conexión, tal como se muestra en [Conexión a la caché mediante la clase ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Establezca la propiedad `ConnectionMultiplexer.ClientName` a un nombre único de la instancia de aplicación con fines de diagnóstico.
   * Use varias instancias `ConnectionMultiplexer` para cargas de trabajo personalizadas.
-      * Puede seguir este modelo si tiene una carga variable en la aplicación. Por ejemplo:
+      * Puede seguir este modelo si tiene una carga variable en la aplicación. Por ejemplo: 
       * Puede tener un multiplexor para tratar con claves grandes.
       * Puede tener un multiplexor para tratar con claves pequeñas.
       * Puede establecer distintos valores para los tiempos de expiración de la conexión así como lógica de reintento para cada ConnectionMultiplexer que use.
@@ -337,7 +337,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-benchmarking"></a>
 
 ### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?
-* [Habilite los diagnósticos de la memoria caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) su estado. Puede ver las métricas en Azure Portal y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
+* [Habilite los diagnósticos de la memoria caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) su estado. Puede ver las métricas en el Portal de Azure y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
 * Puede utilizar redis-benchmark.exe para la prueba de carga del servidor Redis.
 * Asegúrese de que la prueba de carga del cliente y de la caché de Redis se encuentran la misma región.
 * Use redis cli.exe y supervise la memoria caché mediante el comando INFO.

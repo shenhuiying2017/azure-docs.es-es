@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
@@ -40,7 +40,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Directorio de Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -48,7 +48,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Archivo de Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -56,7 +56,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Almacenamiento de blobs de Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -64,7 +64,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Directorio de Azure Storage</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -72,7 +72,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Azure Storage</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>
         <font size="2">
@@ -84,7 +84,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Directorio de HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -92,7 +92,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Archivo de HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -100,7 +100,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -108,7 +108,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de Hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -116,7 +116,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -124,7 +124,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -132,7 +132,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Oracle Database</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -140,7 +140,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de Oracle Database</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -156,7 +156,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Azure SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -164,7 +164,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -172,7 +172,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Dimensión de SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -180,7 +180,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>KPI de SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -188,7 +188,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Medida de SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -196,7 +196,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -204,7 +204,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Informe de SQL Server Reporting Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
       <td>Solo servidores de modo nativo. No se admite el modo de SharePoint.</td>
@@ -212,7 +212,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -220,7 +220,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -228,7 +228,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -236,7 +236,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -244,7 +244,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de SAP HANA</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -252,7 +252,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -260,7 +260,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -276,7 +276,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Directorio FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -284,7 +284,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Archivo FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -332,7 +332,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -340,7 +340,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -356,7 +356,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td> Objeto de Salesforce</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -372,7 +372,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Colección de Azure Cosmos DB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -380,7 +380,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla ODBC genérica</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -388,7 +388,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de ODBC genérica</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -396,7 +396,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como un recurso ODBC genérico</td>
@@ -404,7 +404,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como un recurso ODBC genérico</td>
@@ -412,7 +412,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -420,7 +420,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -428,7 +428,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Tabla de MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como un recurso ODBC genérico</td>
@@ -436,7 +436,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
     <tr>
       <td>Vista de MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como un recurso ODBC genérico</td>

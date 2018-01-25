@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -41,7 +41,7 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 > [!IMPORTANT]
 > Oozie no está habilitado en HDInsight unido a un dominio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Un clúster de HDInsight**: Consulte [Introducción a HDInsight en Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -505,7 +505,7 @@ La API de REST de Oozie le permite crear sus propias herramientas que funcionan 
 
 * **URI**: se puede acceder a la API de REST desde fuera del clúster en `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticación**: autentíquese en la API con la cuenta HTTP del clúster (admin) y la contraseña. Por ejemplo:
+* **Autenticación**: autentíquese en la API con la cuenta HTTP del clúster (admin) y la contraseña. Por ejemplo: 
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -670,7 +670,7 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
 
     ![Información de acción](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Con la IU Oozie, puede ver registros de Oozie. La IU de Oozie también contiene vínculos a registros de JobTracker para tareas de MapReduce iniciadas por el flujo de trabajo. El patrón para la solución de problemas debe ser el siguiente:
 
@@ -731,7 +731,7 @@ Por ejemplo, para el trabajo de este documento, se usarían los siguientes pasos
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecutar un trabajo de Oozie. Para obtener más información sobre el trabajo con HDInsight, consulte los siguientes artículos:
 

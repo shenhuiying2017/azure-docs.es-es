@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "Azure Key Vault: Uso de la eliminación temporal con la CLI"
 description: "Ejemplos de casos de uso de eliminación temporal con fragmentos de código de la CLI"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -22,7 +22,7 @@ La característica de eliminación temporal de Azure Key Vault permite recuperar
 - Compatibilidad con la eliminación recuperable de una instancia de Key Vault
 - Compatibilidad con la eliminación recuperable de objetos de Key Vault: claves, secretos y certificados
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - CLI de Azure 2.0: si no tiene esta configuración para su entorno, consulte [Administración de Key Vault mediante CLI 2.0](key-vault-manage-with-cli2.md).
 
@@ -32,7 +32,7 @@ Para obtener información de referencia específica sobre Key Vault para la CLI,
 
 Las operaciones de Key Vault se administran por separado mediante los permisos de control de acceso basado en roles (RBAC) como se indica a continuación:
 
-| Operación | Descripción | Permiso del usuario |
+| Operación | DESCRIPCIÓN | Permiso del usuario |
 |:--|:--|:--|
 |Enumerar|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura un almacén de claves eliminado.|Microsoft.KeyVault/vaults/write|

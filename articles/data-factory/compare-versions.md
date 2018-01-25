@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparación de Azure Data Factory V1 y V2
 En este artículo se comparan las versiones 2 y 1 de Azure Data Factory. Para ver una introducción a la versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). Para ver una introducción a la versión 2, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -27,7 +27,7 @@ En la tabla siguiente se comparan las características de las versiones 1 y 2.
 
 | Característica | versión 1 | versión 2 | 
 | ------- | --------- | --------- | 
-| CONJUNTOS DE DATOS | Una vista de datos con nombre que hace referencia a los datos que desea usar en sus actividades como entrada y salida. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de Blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de la que la actividad debe leer los datos.<br/><br/>La **disponibilidad** define el modelo de segmentación de la ventana de procesamiento para el conjunto de datos (por ejemplo, cada hora, cada día, etc.). | Los conjuntos de datos son los mismos en la versión 2. Sin embargo, no es preciso definir programaciones de **disponibilidad** para los conjuntos de datos. Se puede definir un recurso de desencadenador que puede programar las canalizaciones a partir de un paradigma de programador de reloj. Para más información, consulte [Desencadenadores](concepts-pipeline-execution-triggers.md#triggers) y [Conjuntos de datos](concepts-datasets-linked-services.md). | 
+| Conjuntos de datos | Una vista de datos con nombre que hace referencia a los datos que desea usar en sus actividades como entrada y salida. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de Blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de la que la actividad debe leer los datos.<br/><br/>La **disponibilidad** define el modelo de segmentación de la ventana de procesamiento para el conjunto de datos (por ejemplo, cada hora, cada día, etc.). | Los conjuntos de datos son los mismos en la versión 2. Sin embargo, no es preciso definir programaciones de **disponibilidad** para los conjuntos de datos. Se puede definir un recurso de desencadenador que puede programar las canalizaciones a partir de un paradigma de programador de reloj. Para más información, consulte [Desencadenadores](concepts-pipeline-execution-triggers.md#triggers) y [Conjuntos de datos](concepts-datasets-linked-services.md). | 
 | Servicios vinculados | Los servicios vinculados son muy similares a las cadenas de conexión, que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. | Los servicios vinculados son los mismos que en la versión 1 de Data Factory, salvo en que tienen una nueva propiedad **connectVia** para utilizar el entorno de proceso Integration Runtime de la versión 2 de Data Factory. Para más información, consulte [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md) y [Propiedades del servicio vinculado](connector-azure-blob-storage.md#linked-service-properties). |
 | Procesos | Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Use startTime, endTime, isPaused para programar y ejecutar canalizaciones. | Las canalizaciones son grupos de actividades que se realizan en los datos. Sin embargo, la programación de actividades en la canalización se ha dividido en nuevos recursos de desencadenador. En la versión 2 de Data Factory, las canalizaciones se pueden considerar más como "unidades de flujo de trabajo" que se programan por separado a través de desencadenadores. <br/><br/>Las canalizaciones no tienen "ventanas" de ejecución temporal en la versión 2 de Data Factory. Los conceptos de startTime, endTime e isPaused, que están presentes en la versión 1 de Data Factory dejan de estarlo en la versión 2. Para más información, consulte [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md) y [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md). |
 | Actividades | Las actividades definen las acciones que se realizan en los datos en una canalización. Se admiten las actividades de movimiento de datos (actividad de copia) y transformación de datos (como, Hive, Pig y MapReduce). | En la versión 2 de Data Factory, las actividades siguen siendo acciones definidas en una canalización. La versión 2 incorpora nuevas [actividades de los flujos de control](concepts-pipelines-activities.md#control-activities). Dichas actividades se usan en un flujo de control (bucle y bifurcación). Las actividades de movimiento de datos y transformación de datos que se admitían en la versión 1 se admiten en la 2. En la versión 2, se pueden definir actividades de transformación sin usar conjuntos de datos. |
@@ -73,7 +73,7 @@ Un caso de uso importante en los patrones de extracción, transformación y carg
 ### <a name="other-control-flow-activities"></a>Otras actividades del flujo de control
 Estas son otras actividades del flujo de control compatibles con la versión 2 de Data Factory. 
 
-Actividad de control | Descripción
+Actividad de control | DESCRIPCIÓN
 ---------------- | -----------
 [Actividad ForEach](control-flow-for-each-activity.md) | Define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
 [Actividad web](control-flow-web-activity.md) | Llama a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso. 
@@ -128,11 +128,20 @@ Para más información, consulte [Diferencias entre la actividad personalizada d
 Los SDK que se actualizan para la versión 2 no son compatibles con los clientes de la versión 1. 
 
 ## <a name="authoring-experience"></a>Experiencia de creación
-Con Data Factory V1 se pueden crear canalizaciones mediante Data Factory Editor en Azure Portal. Actualmente, Data Factory V2 solo admite métodos de programación (cómo SDK de .NET, API de REST, PowerShell y Python) para crear factorías de datos. Aún no hay compatibilidad con la interfaz del usuario.  La versión 1 de Data Factory también admite la creación con SDK, REST y PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure Portal | [Sí](quickstart-create-data-factory-portal.md) | [Sí](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Sí](quickstart-create-data-factory-powershell.md) | [Sí](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Sí](quickstart-create-data-factory-dot-net.md) | [Sí](data-factory-build-your-first-pipeline-using-vs.md) |
+| API DE REST | [Sí](quickstart-create-data-factory-rest-api.md) | [Sí](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| SDK de Python | [Sí](quickstart-create-data-factory-python.md) | Sin  |
+| Plantilla de Resource Manager | [Sí](quickstart-create-data-factory-resource-manager-template.md) | [Sí](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Experiencia de supervisión
 En la versión 2, también puede supervisar factorías de datos mediante [Azure Monitor](monitor-using-azure-monitor.md). Los nuevos cmdlets de PowerShell admiten la supervisión de [instancias de Integration Runtime](monitor-integration-runtime.md). Tanto la versión 1 como la versión 2 admiten la supervisión visual a través de una aplicación de supervisión que se puede iniciar desde Azure Portal.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para aprender a crear una factoría de datos, siga las instrucciones detalladas de las siguientes guías de inicio rápido: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md) y [API de REST](quickstart-create-data-factory-rest-api.md). 

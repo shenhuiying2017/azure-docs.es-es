@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
-Puede iniciar automáticamente el [flujo de trabajo de una aplicación lógica](../logic-apps/logic-apps-what-are-logic-apps.md) cuando se producen eventos específicos en recursos de Azure o de otros fabricantes. Estos recursos pueden publicar esos eventos en una [cuadrícula de eventos Azure](../event-grid/overview.md). A su vez, la cuadrícula de eventos envía esos eventos a los suscriptores que tienen colas, webhooks o [centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como puntos de conexión. Como suscriptor, su aplicación lógica puede esperar esos eventos desde la cuadrícula de eventos antes de ejecutar flujos de trabajo automatizados para llevar a cabo ciertas tareas, sin escribir código.
+Puede iniciar automáticamente el [flujo de trabajo de una aplicación lógica](../logic-apps/logic-apps-overview.md) cuando se producen eventos específicos en recursos de Azure o de otros fabricantes. Estos recursos pueden publicar esos eventos en una [cuadrícula de eventos Azure](../event-grid/overview.md). A su vez, la cuadrícula de eventos envía esos eventos a los suscriptores que tienen colas, webhooks o [centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como puntos de conexión. Como suscriptor, su aplicación lógica puede esperar esos eventos desde la cuadrícula de eventos antes de ejecutar flujos de trabajo automatizados para llevar a cabo ciertas tareas, sin escribir código.
 
 Por ejemplo, aquí incluimos algunos eventos que los publicadores pueden enviar a los suscriptores a través del servicio Azure Event Grid:
 
@@ -39,7 +39,7 @@ En este tutorial, aprenderá a:
 > * Incorporar una condición que comprueba específicamente cambios en la máquina virtual.
 > * Enviar un mensaje de correo electrónico cuando la máquina virtual cambia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una cuenta de correo electrónico de [cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps](../connectors/apis-list.md), como Office 365 Outlook, Outlook.com o Gmail, para el envío de notificaciones. Este tutorial usa Office 365 Outlook.
 
@@ -49,7 +49,7 @@ En este tutorial, aprenderá a:
 
 En primer lugar, cree una aplicación lógica y agregue un desencadenador de la cuadrícula de eventos que supervise el grupo de recursos de la máquina virtual. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
 2. En la esquina superior izquierda del menú principal de Azure, elija **Nuevo** > **Integración empresarial** > **Aplicación lógica**.
 
@@ -79,7 +79,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
    ![Selección de la plantilla de aplicación lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   El Diseñador de aplicaciones lógicas ahora muestra los [ *conectores* ](../connectors/apis-list.md) y [ *desencadenadores* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) que puede usar para iniciar la aplicación lógica, además de las acciones que puede agregar después de un desencadenador para realizar tareas. Un desencadenador es un evento que crea una instancia de aplicación lógica e inicia el flujo de trabajo de la aplicación lógica. 
+   El Diseñador de aplicaciones lógicas ahora muestra los [ *conectores* ](../connectors/apis-list.md) y [ *desencadenadores* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) que puede usar para iniciar la aplicación lógica, además de las acciones que puede agregar después de un desencadenador para realizar tareas. Un desencadenador es un evento que crea una instancia de aplicación lógica e inicia el flujo de trabajo de la aplicación lógica. 
    La aplicación lógica necesita un desencadenador como primer elemento.
 
 6. En el cuadro de búsqueda, escriba "cuadrícula de eventos" como filtro. Seleccione este desencadenador: **Azure Event Grid - On a resource event**
@@ -97,7 +97,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
    ![Proporcione detalles de la suscripción de eventos](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Configuración | Valor sugerido | Descripción | 
+   | Configuración | Valor sugerido | DESCRIPCIÓN | 
    | ------- | --------------- | ----------- | 
    | **Suscripción** | *{suscripción-de-Azure-de-la-máquina-virtual}* | Seleccione la suscripción de Azure del publicador de eventos. En este tutorial, seleccione la suscripción de Azure de la máquina virtual. | 
    | **Tipo de recurso** | Microsoft.Resources.resourceGroups | Seleccione el tipo de recurso del publicador de eventos. Para este tutorial, seleccione el valor especificado para que la aplicación lógica supervise solo los grupos de recursos. | 
@@ -154,13 +154,13 @@ Escriba esta expresión:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Envío de un mensaje de correo electrónico cuando la máquina virtual cambia
 
-Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) para recibir un mensaje de correo electrónico cuando se cumpla la condición especificada.
+Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) para recibir un mensaje de correo electrónico cuando se cumpla la condición especificada.
 
 1. En el cuadro **If true** (Si es true) de la condición, elija **Agregar una acción**.
 
    ![Agregar una acción para cuando la condición se cumpla](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. En el cuadro de búsqueda, escriba "email" como filtro. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. A continuación, seleccione la acción "enviar correo electrónico" para el conector. Por ejemplo: 
+2. En el cuadro de búsqueda, escriba "email" como filtro. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. A continuación, seleccione la acción "enviar correo electrónico" para el conector. Por ejemplo:  
 
    * Para una cuenta profesional o educativa de Azure, seleccione el conector de Office 365 Outlook. 
    * Para las cuentas de Microsoft personales, seleccione el conector de Outlook.com. 
@@ -180,7 +180,7 @@ Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-what-are-logic-apps.md
    > [!TIP]
    > Para seleccionar desde los campos disponibles en el flujo de trabajo, haga clic en un cuadro de edición para que se abra la lista **Contenido dinámico** o elija **Agregar contenido dinámico**. Para más campos, elija **Ver más** para cada sección de la lista. Para cerrar la lista **Contenido dinámico** elija **Agregar contenido dinámico**.
 
-   | Configuración | Valor sugerido | Descripción | 
+   | Configuración | Valor sugerido | DESCRIPCIÓN | 
    | ------- | --------------- | ----------- | 
    | **To** | *{dirección-de-correo electrónico-del-destinatario}* |Escriba la dirección de correo electrónico del destinatario. Para realizar pruebas, puede usar su propia dirección de correo electrónico. | 
    | **Asunto** | Recurso actualizado: **Asunto**| Escriba el contenido del asunto del correo electrónico. Para este tutorial, escriba el texto sugerido y seleccione el campo **Asunto** del evento. En este caso, el asunto del correo electrónico incluye el nombre del recurso actualizado (máquina virtual). | 
@@ -211,7 +211,7 @@ Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-what-are-logic-apps.md
 
    Por ejemplo, puede cambiar el tamaño de la máquina virtual en Azure Portal o [cambiar el tamaño de la máquina virtual con Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-   Transcurridos unos instantes, debería recibir un correo electrónico. Por ejemplo:
+   Transcurridos unos instantes, debería recibir un correo electrónico. Por ejemplo: 
 
    ![Correo electrónico acerca de la actualización de una máquina virtual](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
@@ -245,6 +245,6 @@ Este tutorial utiliza recursos y realiza acciones que generan gastos en su suscr
 
 * Para eliminar la aplicación de forma definitiva, en el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, elija **Eliminar**. Confirme que quiere eliminar la aplicación lógica y elija **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Creación y enrutamiento de eventos personalizados con Event Grid](../event-grid/custom-event-quickstart.md)

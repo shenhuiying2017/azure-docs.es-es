@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 42d7fddd592b9cea8fbfa38bf39ca5def3542d66
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registro de orígenes de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
@@ -85,5 +85,5 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## <a name="summary"></a>Resumen
 Dado que este copia los metadatos estructurales y descriptivos de un origen de datos en el servicio de catálogo, el registro del origen de datos en Data Catalog hace que los datos sean más fáciles de detectar y entender. Después de haber registrado el origen de datos, puede anotarlo, administrarlo y detectarlo a través del portal de Data Catalog.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre el registro de orígenes de datos, consulte el tutorial [Introducción a Azure Data Catalog](data-catalog-get-started.md).

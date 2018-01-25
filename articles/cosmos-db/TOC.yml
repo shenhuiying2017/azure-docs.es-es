@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Muestras
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -248,7 +248,7 @@
           items:
             - name: Conexión a una cuenta de MongoDB
               href: connect-mongodb-account.md
-            - name: Uso de MongoChef
+            - name: Uso de Studio 3T
               href: mongodb-mongochef.md
             - name: Uso de Robomongo
               href: mongodb-robomongo.md

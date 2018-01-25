@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2dd30470ee0f6c038a8601bfca73fc97091de2fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl"></a>sfctl 
 Comandos para administrar clústeres y entidades de Service Fabric. Esta versión es compatible con el tiempo de ejecución de Service Fabric 6.0. Comandos siguen el patrón de nombre-verbo; consulte los siguientes subgrupos para obtener más información.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|Descripción|
+|Subgrupo|DESCRIPCIÓN|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Cree, elimine y administre aplicaciones y tipos de aplicaciones.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Inicie, detenga e informe sobre el servicio de prueba de Chaos.|
@@ -38,6 +38,6 @@ Comandos para administrar clústeres y entidades de Service Fabric. Esta versió
 | [service](service-fabric-sfctl-service.md) | Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.|
 | [store](service-fabric-sfctl-store.md)   | Realice operaciones básicas a nivel de archivo en el almacén de imágenes del clúster.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

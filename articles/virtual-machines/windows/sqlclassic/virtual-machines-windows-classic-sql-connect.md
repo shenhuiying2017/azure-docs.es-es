@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ La forma en que un cliente se conecta a SQL Server que se ejecuta en una máquin
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Conexión a SQL Server en el mismo servicio en la nube
-Se pueden crear varias máquinas virtuales en el mismo servicio en la nube. Para comprender el escenario de las máquinas virtuales, consulte [Cómo conectar máquinas virtuales con un servicio en la nube o red virtual](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Este escenario se produce cuando un cliente de una máquina virtual intenta conectarse a una instancia de SQL Server que se ejecuta en otra máquina virtual del mismo servicio en la nube.
+Se pueden crear varias máquinas virtuales en el mismo servicio en la nube. Para comprender el escenario de las máquinas virtuales, consulte [Cómo conectar máquinas virtuales con un servicio en la nube o red virtual](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Este escenario se produce cuando un cliente de una máquina virtual intenta conectarse a una instancia de SQL Server que se ejecuta en otra máquina virtual del mismo servicio en la nube.
 
 En dicho escenario, puede conectarse mediante la máquina virtual **Nombre** (también mostrada como **Nombre de equipo** o **nombre de host** en el portal). Este es el nombre que ha proporcionado para la máquina virtual durante su creación. Por ejemplo, si ha asignado a su máquina virtual de SQL el nombre **mysqlvm**, una máquina virtual cliente del mismo servicio en la nube podría usar la siguiente cadena de conexión para conectarse:
 

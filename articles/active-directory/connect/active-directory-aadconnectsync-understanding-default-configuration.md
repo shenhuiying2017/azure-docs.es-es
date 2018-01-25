@@ -3,7 +3,7 @@ title: "Sincronización de Azure AD Connect: descripción de la configuración p
 description: "En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: descripción de la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -145,7 +145,7 @@ Puesto que se trata de una regla integrada, vamos a ver una advertencia al abrir
 
 Una regla de sincronización tiene cuatro secciones de configuración: Descripción, Filtro de ámbito, Reglas de unión y Transformaciones.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>DESCRIPCIÓN
 La primera sección proporciona información básica como el nombre y la descripción.
 
 ![Pestaña Descripción del Editor de reglas de sincronización ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
@@ -217,7 +217,7 @@ El asistente para instalación establece la precedencia para las reglas de sincr
 ### <a name="putting-it-all-together"></a>Resumen
 Ahora conocemos lo suficiente de las reglas de sincronización para poder comprender cómo funciona la configuración con las distintas reglas de sincronización. Si tomamos un usuario y los atributos que se aportan al metaverso, las reglas se aplican en el orden siguiente:
 
-| Nombre | Comentario |
+| NOMBRE | Comentario |
 |:--- |:--- |
 | In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
 | In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |
@@ -226,7 +226,7 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 | In from AD – User Exchange |Solo existirá si se detecta Exchange. Hará fluir todos los atributos de Exchange de la infraestructura. |
 | In from AD – User Lync |Solo existirá si se detecta Lync. Hará fluir todos los atributos de Lync de la infraestructura. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Siga leyendo sobre cómo funciona la configuración rápida en [Azure AD Connect Sync: descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md)

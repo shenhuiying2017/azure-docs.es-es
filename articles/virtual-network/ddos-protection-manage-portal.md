@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -72,7 +72,7 @@ Puede seleccionar cualquiera de las métricas de Protección contra DDoS disponi
 
     ![Alerta de ataque](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-Puede aprender más sobre [configurar webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) y [aplicaciones lógicas](../logic-apps/logic-apps-what-are-logic-apps.md) para la creación de alertas.
+Puede aprender más sobre [configurar webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) y [aplicaciones lógicas](../logic-apps/logic-apps-overview.md) para la creación de alertas.
 
 ## <a name="configure-logging-on-ddos-protection-standard-metrics"></a>Configuración del registro de métricas de Protección contra DDoS estándar
 

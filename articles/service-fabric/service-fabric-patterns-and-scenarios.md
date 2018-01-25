@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Escenarios y patrones de Service Fabric
 Si está pensando en crear microservicios a gran escala mediante Azure Service Fabric, aprenda de la mano de los expertos que diseñaron y construyeron esta plataforma como servicio (PaaS). Comience con la arquitectura adecuada y aprenda luego a optimizar los recursos de su aplicación. El curso de [patrones y procedimientos de Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) da respuesta a las preguntas más frecuentes que plantean los clientes del mundo real sobre los escenarios y las áreas de aplicación de Service Fabric.
@@ -97,5 +97,5 @@ Conozca la respuesta a la pregunta: "¿Por qué contenedores?" Aprenda sobre la 
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Contenedores y compatibilidad con Linux</a></td></tr>
 </table>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha aprendido sobre los patrones y escenarios de Service Fabric, lea más sobre cómo [crear y administrar clústeres](service-fabric-deploy-anywhere.md), [migrar aplicaciones de Cloud Services a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurar la entrega continua](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) e [implementar contenedores](service-fabric-containers-overview.md).

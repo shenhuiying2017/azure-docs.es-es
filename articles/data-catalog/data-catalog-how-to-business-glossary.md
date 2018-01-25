@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: bcd2ba4f92937cf1e134b2a59d97c7bea7802145
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configuración del glosario empresarial para el etiquetado regulado
 ## <a name="introduction"></a>Introducción
@@ -81,5 +81,5 @@ Se pueden realizar búsquedas tanto en las etiquetas de glosario como en las de 
 ## <a name="summary"></a>Resumen
 Mediante el uso del glosario empresarial en Azure Data Catalog y del etiquetado regulado que se puede identificar, administrar y detectar recursos de datos de forma coherente. El glosario empresarial pueden promover que los miembros de la organización aprendan el vocabulario empresarial. El glosario también admite la captura de metadatos descriptivos, lo que simplifica el conocimiento y la detección de recursos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Documentación de API de REST para las operaciones del glosario empresarial](https://msdn.microsoft.com/library/mt708855.aspx)

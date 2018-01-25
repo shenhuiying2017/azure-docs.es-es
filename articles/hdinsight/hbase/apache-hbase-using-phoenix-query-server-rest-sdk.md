@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
 
@@ -39,7 +39,7 @@ El controlador Microsoft .NET para Apache Phoenix Query Server se proporciona co
 
 Para comenzar a usar la biblioteca, cree instancias de un objeto nuevo de `PhoenixClient`, pasando `ClusterCredentials` que contiene `Uri` para el clúster, y la contraseña y el nombre de usuario de Hadoop del clúster.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ Reemplace CLUSTERNAME por el nombre del clúster de HDInsight HBase y USERNAME y
 
 Para enviar una o varias solicitudes a PQS, debe incluir un identificador de conexión único para asociar las solicitudes con la conexión.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ En primer lugar, cada ejemplo realiza una llamada al método `OpenConnectionRequ
 
 Para llamar a `ConnectionSyncRequestAsync`, pase un objeto `ConnectionProperties`.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -77,7 +77,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Estas son algunas propiedades que pueden interesarle:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | -- | -- |
 | AutoCommit | Valor booleano que indica si la propiedad `autoCommit` está habilitada para las transacciones de Phoenix. |
 | ReadOnly | Valor booleano que indica si la conexión es de solo lectura. |
@@ -88,7 +88,7 @@ Estas son algunas propiedades que pueden interesarle:
 
 A continuación, se muestran los valores `TransactionIsolation`:
 
-| Valor de aislamiento | Descripción |
+| Valor de aislamiento | DESCRIPCIÓN |
 | -- | -- |
 | 0 | No se admiten las transacciones. |
 | 1 | Pueden producirse lecturas de datos sucios, no repetibles y fantasma. |
@@ -102,7 +102,7 @@ HBase, al igual que cualquier otro RDBMS, almacena los datos en tablas. Phoenix 
 
 En este ejemplo y en todos los siguientes, use el objeto `PhoenixClient` con instancias tal como se define en [Crear una instancia nueva del objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ En el ejemplo anterior se crea una nueva tabla denominada `Customers` con la opc
 
 En este ejemplo se muestra una inserción de datos individual, que hace referencia a una colección `List<string>` de abreviaturas de los territorios y estados de América:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 El valor de la columna `StateProvince` de la tabla se usará en una operación de selección posterior.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ La estructura para ejecutar una instrucción INSERT es similar a crear una nueva
 
 El código siguiente es casi idéntico al código para insertar datos de forma individual. En este ejemplo se usa el objeto `UpdateBatch` en una llamada a `ExecuteBatchRequestAsync`, en lugar de llamar repetidamente a `ExecuteRequestAsync` con una instrucción preparada.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ En este ejemplo se muestra cómo reutilizar una conexión para ejecutar varias c
 2. Utilice una instrucción SELECT de recuento total de filas para recuperar un único resultado escalar.
 3. Ejecute una instrucción SELECT que devuelve el número total de clientes por estado o territorio.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Supervisar, recibir y enviar eventos con el conector de Event Hubs
 
-Para configurar la supervisión de eventos para que su aplicación lógica pueda detectar eventos, recibir eventos y enviar eventos, conéctese a un [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) desde la aplicación lógica. Obtenga más información acerca de los [Centros de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+Para configurar la supervisión de eventos para que su aplicación lógica pueda detectar eventos, recibir eventos y enviar eventos, conéctese a un [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) desde la aplicación lógica. Obtenga más información acerca de los [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ## <a name="requirements"></a>Requisitos
 
 * Debe tener un [espacio de nombres de Event Hubs y un Event Hub](../event-hubs/event-hubs-create.md) en Azure. Obtenga información sobre [cómo crear un espacio de nombres de Event Hubs y un Event Hub](../event-hubs/event-hubs-create.md). 
 
-* Para usar [cualquier conector](https://docs.microsoft.com/azure/connectors/apis-list) en su aplicación lógica, primero debe crearla. Obtenga información sobre [cómo crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+* Para usar [cualquier conector](https://docs.microsoft.com/azure/connectors/apis-list) en su aplicación lógica, primero debe crearla. Obtenga información sobre [cómo crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Comprobar los permisos del espacio de nombres de Event Hubs y buscar la cadena de conexión
@@ -64,7 +64,7 @@ Para comprobar sus permisos y obtener la cadena de conexión, siga estos pasos.
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Iniciar el flujo de trabajo cuando el Event Hub recibe eventos nuevos
 
-Un [*desencadenador*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) es un evento que inicia un flujo de trabajo en la aplicación lógica. Para iniciar un flujo de trabajo cuando se envían nuevos eventos al Event Hub, siga estos pasos para agregar el desencadenador que detecta este evento.
+Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un evento que inicia un flujo de trabajo en la aplicación lógica. Para iniciar un flujo de trabajo cuando se envían nuevos eventos al Event Hub, siga estos pasos para agregar el desencadenador que detecta este evento.
 
 1.  En [Azure Portal](https://portal.azure.com "Azure Portal"), vaya a la aplicación lógica existente o cree una aplicación de lógica en blanco.
 
@@ -94,7 +94,7 @@ Un [*desencadenador*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Enviar eventos al Event Hub desde la aplicación lógica
 
-Una [*acción*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) es una tarea realizada por el flujo de trabajo de la aplicación lógica. Después de agregar un desencadenador a la aplicación lógica, puede agregar una acción para llevar a cabo operaciones con los datos generados por ese desencadenador. Para enviar eventos al Event Hub desde la aplicación lógica, siga estos pasos.
+Una [*acción*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una tarea realizada por el flujo de trabajo de la aplicación lógica. Después de agregar un desencadenador a la aplicación lógica, puede agregar una acción para llevar a cabo operaciones con los datos generados por ese desencadenador. Para enviar eventos al Event Hub desde la aplicación lógica, siga estos pasos.
 
 1.  En el Diseñador de aplicaciones lógicas, bajo el desencadenador de la aplicación lógica, elija **Nuevo paso** > **Agregar una acción**.
 
@@ -125,12 +125,12 @@ Seleccione esta acción: **Enviar evento**
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/eventhubs/). 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 Para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Para ayudar a mejorar Logic Apps y los conectores, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 *  [Encuentre otros conectores para Azure Logic apps](./apis-list.md)

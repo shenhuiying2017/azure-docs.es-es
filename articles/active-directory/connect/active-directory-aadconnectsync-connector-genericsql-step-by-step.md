@@ -3,7 +3,7 @@ title: "Conector de SQL genérico paso a paso | Microsoft Docs"
 description: "Este artículo le guía paso a paso por un sencillo sistema de Recursos Humanos con el Conector de SQL genérico."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Conector de SQL genérico paso a paso
 Este tema es una guía paso a paso. Crea una sencilla base de datos de ejemplo de Recursos Humanos y la usa para importar algunos usuarios y su pertenencia a grupos.
@@ -48,7 +48,7 @@ El conector de SQL genérico usa ODBC para conectarse al servidor remoto. Primer
    ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
 8. Proporcione el nombre de la base de datos de ejemplo, **GSQLDEMO**.  
    ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
-9. Mantenga las opciones predeterminadas de esta pantalla. Haga clic en **Finalizar**.  
+9. Mantenga las opciones predeterminadas de esta pantalla. Haga clic en **Finalizar**  
    ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
 10. Para comprobar que todo funciona según lo esperado, haga clic en **Probar origen de datos**.  
     ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)

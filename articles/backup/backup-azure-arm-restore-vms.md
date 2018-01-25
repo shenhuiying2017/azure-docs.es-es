@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -42,7 +42,7 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 * Seleccionar el tipo de restauración, cree una nueva máquina virtual o restaure los discos y especifique los parámetros necesarios. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Seleccionar un punto de restauración
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
 
 2. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
@@ -196,7 +196,7 @@ Para obtener la plantilla que se generó como parte de la opción de discos de r
    ![Envío de la implementación de plantilla](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Pasos posteriores a la restauración
-* Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por motivos de seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/classic/reset-access.md). Se recomienda usar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
+* Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por motivos de seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/reset-password.md). Se recomienda usar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
 * Las extensiones existentes durante la configuración de copia de seguridad están instaladas, pero no se habilitarán. Si ve un problema, vuelva a instalar las extensiones. 
 * Si la máquina virtual de copia de seguridad tiene una dirección IP estática posterior a la restauración, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos cuando se cree una máquina virtual restaurada. Aprenda más sobre cómo puede [agregar una dirección IP estática a una máquina virtual restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Una máquina virtual restaurada no tiene un conjunto de valores de disponibilidad. Se recomienda usar la opción de discos de restauración para [agregar un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) cuando se crea una máquina virtual con PowerShell o plantillas mediante los discos restaurados. 
@@ -248,7 +248,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
    d. Cree una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de solución de problemas para más información sobre los errores comunes con las máquinas virtuales. Asimismo, consulte el artículo sobre la administración de las tareas con las máquinas virtuales.
 
 * [Solución de errores](backup-azure-vms-troubleshoot.md#restore)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificación de mensajes X12 para Azure Logic Apps con Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Esto es lo que necesita:
 
 ## <a name="encode-x12-messages"></a>Codificación de mensajes X12
 
-1. [Creación de una aplicación lógica](logic-apps-create-a-logic-app.md).
+1. [Crear una aplicación lógica](quickstart-create-first-logic-app-workflow.md).
 
 2. El conector de codificación de mensajes X12 no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, como un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
@@ -95,6 +95,6 @@ El conector de codificación X12 lleva a cabo estas tareas:
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
 

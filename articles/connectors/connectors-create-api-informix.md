@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introducción al conector de Informix
 Microsoft Connector para Informix permite conectar Logic Apps a los recursos almacenados en una base de datos de IBM Informix. Este conector de Informix incluye un cliente de Microsoft para comunicarse con equipos de servidor de Informix remotos a través de una red TCP/IP. Este incluye bases de datos en la nube, como IBM Informix para Windows para Windows que se ejecuta en virtualización en Azure y bases de datos locales con la puerta de enlace de datos locales. Consulte la [lista compatible](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de versiones y plataformas de IBM Informix (en este tema).
@@ -35,7 +35,7 @@ El conector admite las siguientes operaciones de base de datos:
 
 Este tema le muestra cómo usar el conector en una aplicación lógica para procesar operaciones de base de datos.
 
-Para más información acerca de Logic Apps, consulte el artículo sobre [creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para más información acerca de Logic Apps, consulte el artículo sobre [creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Acciones disponibles
 Este conector admite las siguientes acciones de Logic Apps:
@@ -83,14 +83,14 @@ Dentro de la aplicación lógica, puede agregar una acción para mostrar las tab
 ## <a name="create-the-connections"></a>Crear las conexiones
 El conector admite conexiones a bases de datos locales y en la nube mediante las siguientes propiedades de conexión. 
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Servidor |Obligatorio. Acepta un valor de cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6 seguido de un número de puerto TCP/IP (delimitado por dos puntos). |
-| Base de datos |Obligatorio. Acepta un valor de cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM). Informix acepta una cadena de 128 bytes (la base de datos se conoce como una base de datos IBM Informix (dbname)). |
+| Servidor |Necesario. Acepta un valor de cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6 seguido de un número de puerto TCP/IP (delimitado por dos puntos). |
+| Base de datos |Necesario. Acepta un valor de cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM). Informix acepta una cadena de 128 bytes (la base de datos se conoce como una base de datos IBM Informix (dbname)). |
 | Autenticación |Opcional. Acepta un valor de elemento de lista que puede ser Basic o Windows (kerberos). |
-| Nombre de usuario |Obligatorio. Acepta un valor de cadena. |
-| Contraseña |Obligatorio. Acepta un valor de cadena. |
-| Puerta de enlace |Obligatorio. Acepta un valor de elemento de lista que representa la puerta de enlace de datos local definida para Logic Apps en el grupo de almacenamiento. |
+| Nombre de usuario |Necesario. Acepta un valor de cadena. |
+| contraseña |Necesario. Acepta un valor de cadena. |
+| Puerta de enlace |Necesario. Acepta un valor de elemento de lista que representa la puerta de enlace de datos local definida para Logic Apps en el grupo de almacenamiento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Crear una conexión a una puerta de enlace local
 Este conector puede tener acceso a una base de datos Informix local a través de la puerta de enlace de datos local. Consulte los temas sobre puertas de enlace para más información. 
@@ -168,7 +168,7 @@ Puede crear una acción de aplicación lógica para agregar una fila en una tabl
 2. En la lista de **desencadenadores**, seleccione **Periodicidad**. 
 3. En el desencadenador **Periodicidad**, seleccione **Editar**, después, en la lista desplegable **Frecuencia** para seleccionar **Día** y, a continuación, seleccione **Intervalo** y escriba **7**. 
 4. Seleccione el cuadro **+ Nuevo paso** y, a continuación, seleccione **Agregar una acción**.
-5. En la lista de **acciones**, escriba **informix** en el cuadro de edición **Buscar más acciones** y, a continuación, seleccione **Informix - Insert row (Preview)** (Informix - Insertar fila [Vista previa]).
+5. En la lista de **acciones**, escriba **informix** en el cuadro de edición **Buscar más acciones** y, a continuación, seleccione **Informix - Insert row (Preview)** (Informix - Insertar fila [versión preliminar]).
 6. En la acción **Get rows (Preview)** (Obtener filas [Vista previa]), seleccione **Cambiar conexión**. 
 7. En el panel de configuración **Conexiones** , seleccione una conexión. Por ejemplo, seleccione **hisdemo2**.
    
@@ -275,6 +275,6 @@ Este conector admite estas versiones de IBM Informix siguientes, cuando se confi
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/informix/). 
 
-## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+[Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 

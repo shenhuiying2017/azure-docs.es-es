@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 49a66c826a98f7160b97b516e6fd541795ae3b0e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de precios de Logic Apps
 Puede crear y ejecutar flujos de trabajo de integración escalable automatizados en la nube con Azure Logic Apps. Estos son los detalles sobre cómo funcionan los precios y facturación para Logic Apps.
@@ -51,11 +51,11 @@ Azure Logic Apps también ofrece cuentas de integración básicas y estándar co
 ## <a name="pricing"></a>Precios
 Para más información, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Información general de Logic Apps][whatis]
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[whatis]: logic-apps-what-are-logic-apps.md
-[create]: logic-apps-create-a-logic-app.md
+[whatis]: logic-apps-overview.md
+[create]: quickstart-create-first-logic-app-workflow.md
 

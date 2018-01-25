@@ -3,7 +3,7 @@ title: "Azure AD Connect: actualización desde una versión anterior | Microsoft
 description: "Se explican los diferentes métodos para realizar la actualización a la versión más reciente de Azure Active Directory Connect, entre los que se incluyen una actualización local y una migración oscilante."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -27,7 +27,7 @@ Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actu
 
 Hay algunas estrategias distintas que se pueden usar para actualizar Azure AD Connect.
 
-| Método | Description |
+| Método | DESCRIPCIÓN |
 | --- | --- |
 | [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) |Este es el método más sencillo para los clientes con una instalación rápida. |
 | [Actualización local](#in-place-upgrade) |Si tiene un solo servidor, puede actualizar la instalación local en el mismo servidor. |
@@ -129,5 +129,5 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
 
 Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información acerca de la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

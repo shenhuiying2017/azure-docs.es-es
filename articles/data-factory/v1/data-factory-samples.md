@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Ejemplos en GitHub
 El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Azure Data Factory (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
 
-| Muestra | Description |
+| Muestra | DESCRIPCIÓN |
 |:--- |:--- |
 | [Tutorial de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Este ejemplo ofrece un tutorial exhaustivo para el procesamiento de archivos de registro mediante Azure Data Factory con el fin de convertir los datos de los archivos de registro en información útil. <br/><br/>En este tutorial, la canalización de Data Factory recopila registros de muestra, procesa y enriquece los datos de los registros con datos de referencia, y transforma los datos para evaluar la eficacia de una campaña de marketing lanzada recientemente. |
 | [Muestras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Esta muestra ofrece ejemplos de JSON para escenarios comunes. |
@@ -37,9 +37,9 @@ El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-data
 | [Muestra de CrossAppDomainDotNetActivity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Esta muestra le permite crear una actividad .NET personalizada que no esté restringida a las versiones de ensamblado utilizadas por el iniciador de ADF (por ejemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
 | [Ejecutar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |Esta muestra incluye la actividad personalizada de Data Factory que puede usarse para invocar RScript.exe. Esta muestra solo funciona con su propio clúster de HDInsight (no a petición) que ya tiene R instalado. |
 | [Invocar trabajos de Spark en clústeres de Hadoop de HDInsight](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) |Este ejemplo muestra cómo utilizar la actividad MapReduce para invocar un programa Spark. El programa Spark se limita a copiar datos de un contenedor de blobs de Azure a otro. |
-| [Análisis de Twitter mediante actividad de puntuación de lotes de Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de Aprendizaje automático de Azure que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
-| [Análisis de Twitter mediante actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Este ejemplo muestra cómo usar una actividad de .NET personalizada para invocar un modelo de Aprendizaje automático de Azure que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
-| [Canalizaciones con parámetros para el Aprendizaje automático de Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |Esta muestra ofrece un código C# de un extremo a otro a fin de implementar canalizaciones N para la puntuación y el reciclaje de cada una con un parámetro de una región distinta, donde la lista regiones procede de un archivo .txt de parámetros que se incluye con esta muestra. |
+| [Análisis de Twitter mediante actividad de puntuación de lotes de Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de Azure Machine Learning que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
+| [Análisis de Twitter mediante actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Este ejemplo muestra cómo usar una actividad de .NET personalizada para invocar un modelo de Azure Machine Learning que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
+| [Canalizaciones con parámetros para Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |Esta muestra ofrece un código C# de un extremo a otro a fin de implementar canalizaciones N para la puntuación y el reciclaje de cada una con un parámetro de una región distinta, donde la lista regiones procede de un archivo .txt de parámetros que se incluye con esta muestra. |
 | [Actualización de datos de referencia para los trabajos de Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |Este ejemplo muestra cómo aprovechar Azure Data Factory y Stream Analytics de Azure de forma conjunta para ejecutar las consultas con datos de referencia y configurar la actualización de dichos datos en un programa. |
 | [Canalización híbrida con Hadoop Hortonworks local](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |El ejemplo utiliza un clúster de Hadoop local como un destino de proceso para ejecutar trabajos en Data Factory del mismo modo en que agregaría otros destinos de proceso, como un clúster de Hadoop basado en HDInsight en la nube. |
 | [Herramienta de conversión de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Esta herramienta le permite convertir los archivos JSON de una versión anterior a la versión preliminar del 01-07-2015 a la más reciente o a la preliminar del 01-07-2015 (predeterminada). |
@@ -49,7 +49,7 @@ El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-data
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager para Data Factory.
 
-| Plantilla | Descripción |
+| Plantilla | DESCRIPCIÓN |
 | --- | --- |
 | [Copia de datos de Azure Blob Storage de Azure en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos SQL de Azure. |
 | [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
@@ -78,7 +78,7 @@ Puede usar el icono de **Canales de muestras** de la página principal de la fac
     ![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Ejemplos en Visual Studio
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Debe tener lo siguiente instalado en el equipo:
 
 * Visual Studio 2013 o Visual Studio 2015.
@@ -93,7 +93,7 @@ Debe tener lo siguiente instalado en el equipo:
    2. Seleccione **Data Factory Templates** (Plantillas de Data Factory) en el panel derecho.
    3. Escriba un **nombre** para el proyecto.
    4. Seleccione una **ubicación** para el proyecto.
-   5. Haga clic en **Aceptar**.
+   5. Haga clic en **OK**.
 
       ![Cuadro de diálogo Nuevo proyecto](./media/data-factory-samples/vs-new-project-adf-templates.png)
 3. En el cuadro de diálogo **Data Factory Templates** (Plantillas de Data Factory), seleccione la plantilla de ejemplo desde la sección **Use-Case Templates** (Plantillas de caso de uso) y haga clic en **Siguiente**. Los siguientes pasos le guiarán en la utilización de la plantilla **Generación de perfiles de cliente** . Los pasos son similares para los otros ejemplos.
@@ -106,7 +106,7 @@ Debe tener lo siguiente instalado en el equipo:
    3. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
    4. Seleccione el **grupo de recursos** para la factoría de datos.
    5. Seleccione **oeste de EE. UU.**, **este de EE. UU.** o **Europa del Norte** para la **región**.
-   6. Haga clic en **Siguiente**.
+   6. Haga clic en **Next**.
 6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos SQL de Azure** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
 7. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**.
 8. En la página **Resumen** revise toda la configuración y haga clic en **Siguiente**.

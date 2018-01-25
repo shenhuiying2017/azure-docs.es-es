@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5285cddcb64e44cb61c99cc18f8a66d60cd1c0fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes funcionalidades de integración de datos en distintos entornos de red:
@@ -28,7 +28,7 @@ Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Fac
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 En Data Factory, una actividad define la acción que se realizará. Un servicio vinculado define un almacén de datos o un servicio de proceso de destino. Una instancia de Integration Runtime proporciona el puente entre la actividad y los servicios vinculados.  El servicio vinculado hace referencia a él, y este proporciona el entorno de proceso donde se ejecuta la actividad o desde donde se distribuye.  De esta manera, la actividad puede realizarse en la región más cercana posible al almacén de datos o servicio de proceso de destino de la manera con mayor rendimiento, a la vez que se satisfacen las necesidades de seguridad y cumplimiento.
 
@@ -91,7 +91,7 @@ Para una alta disponibilidad y escalabilidad, puede escalar horizontalmente Inte
 Para levantar y mover la carga de trabajo de SSIS existente, puede crear una instancia de Integration Runtime de SSIS de Azure para ejecutar paquetes SSIS de forma nativa.
 
 ### <a name="network-environment"></a>Entorno de red
-Integration Runtime de SSIS de Azure se puede aprovisionar en la red pública o la red privada.  El acceso a datos locales se admite mediante la combinación de Integration Runtime de SSIS de Azure a una red virtual (VNet) que está conectada a la red local. Actualmente, se admite solo la VNet clásica. 
+Integration Runtime de SSIS de Azure se puede aprovisionar en la red pública o la red privada.  El acceso a datos locales se admite mediante la combinación de Integration Runtime de SSIS de Azure a una red virtual (VNet) que está conectada a la red local.  
 
 ### <a name="compute-resource-and-scaling"></a>Recursos de proceso y escalado
 Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure dedicado a ejecutar los paquetes de SSIS. Puede hacer que su propio servidor de Azure SQL Database o Instancia administrada (versión preliminar privada) hospede el catálogo de proyectos y paquetes de SSIS (SSISDB) que se va a adjuntar. Puede escalar verticalmente la eficacia de los procesos especificando el tamaño de nodo y escalar horizontalmente especificando el número de nodos del clúster. Puede administrar el coste de funcionamiento de Integration Runtime de SSIS de Azure deteniéndolo e iniciándolo según lo considere oportuno.
@@ -134,21 +134,21 @@ Data Factory utiliza una instancia de Integration Runtime de Azure en la región
 
 Geografía del almacén de datos de receptores | Ubicación del almacén de datos de receptores | Ubicación utilizada para Integration Runtime de Azure
 -------------------------------| ----------------| ------------------
-Estados Unidos | Este de EE. UU. | Este de EE. UU.
+Estados Unidos | Este de EE. UU | Este de EE. UU
 &nbsp; | Este de EE. UU. 2 | Este de EE. UU. 2
-&nbsp; | Central EE. UU.: | Central EE. UU.:
+&nbsp; | Central EE. UU: | Central EE. UU:
 &nbsp; | Centro-Norte de EE. UU | Centro-Norte de EE. UU
 &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU
 &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU.
-&nbsp; | Oeste de EE. UU. | Oeste de EE. UU.
+&nbsp; | Oeste de EE. UU | Oeste de EE. UU
 &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. 2
 Canadá | Este de Canadá | Centro de Canadá
 &nbsp; | Centro de Canadá | Centro de Canadá
 Brasil | Sur de Brasil | Sur de Brasil
 Europa | Europa del Norte | Europa del Norte
 &nbsp; | Europa occidental | Europa occidental
-Reino Unido | Oeste de Reino Unido | Sur del Reino Unido
-&nbsp; | Sur del Reino Unido | Sur del Reino Unido
+Reino Unido | Oeste de Reino Unido | Sur del Reino Unido 2
+&nbsp; | Sur del Reino Unido 2 | Sur del Reino Unido 2
 Asia Pacífico | Sudeste asiático | Sudeste asiático
 &nbsp; | Asia oriental | Sudeste asiático
 Australia | Australia Oriental | Australia Oriental
@@ -183,7 +183,7 @@ Al seleccionar la ubicación adecuada para Integration Runtime de SSIS de Azure,
 - Si la ubicación de su servidor existente de Instancia administrada de Azure SQL Database (versión preliminar privada) donde se hospeda la SSISDB no es la misma que la ubicación de una VNet conectada a la red local, primero cree la instancia de Integration Runtime de SSIS de Azure con un servidor existente de Instancia administrada de Azure SQL Database (versión preliminar privada) y únase a otra VNet en la misma ubicación y, a continuación, configure una conexión de red virtual a red virtual entre distintas ubicaciones.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los artículos siguientes:
 
 - [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)

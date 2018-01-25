@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8adda0d9cd6af98c04f2432eeabbc003ad403719
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -27,7 +27,7 @@ Para que pueda empezar a crear flujos de trabajo más rápidamente, Logic Apps p
 
 Estas son algunas categorías de plantillas:
 
-| Tipo de plantilla | Descripción | 
+| Tipo de plantilla | DESCRIPCIÓN | 
 | ------------- | ----------- | 
 | Plantillas de empresa en la nube | Para integrar Azure Blob, Dynamics CRM, Salesforce, Box y el blob de Azure; y también incluyen otros conectores para sus necesidades empresariales en la nube. Por ejemplo, puede usar estas plantillas para organizar clientes potenciales de empresa o realizar copias de seguridad de datos de archivos corporativos. | 
 | Plantillas de productividad personal | Mejore la productividad personal al establecer avisos diarios, convertir los elementos de trabajo importantes en listas de tareas pendientes y automatizar las tareas largas con un único paso de aprobación de usuario. | 
@@ -36,7 +36,7 @@ Estas son algunas categorías de plantillas:
 | Plantillas de patrón de protocolo | Para implementar patrones de protocolo, como el patrón solicitud-respuesta a través de HTTP, e integraciones a través de FTP y SFTP. Use estas plantillas tal como se proporcionan, o compile a partir de estas para obtener patrones de protocolo complejos. | 
 ||| 
 
-Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar. Para obtener más información acerca de cómo compilar una aplicación lógica, consulte [Crear una aplicación de lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar. Para obtener más información acerca de cómo compilar una aplicación lógica, consulte [Crear una aplicación de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-logic-apps-from-templates"></a>Creación de aplicaciones lógicas a partir de plantillas
 
@@ -50,7 +50,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
    ![Proporcione los detalles de la aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Configuración | Valor | Descripción | 
+   | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
    | **Name** | *nombre-de-la-aplicación-lógica* | Proporcione un nombre único de aplicación lógica. | 
    | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
@@ -67,7 +67,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    Una vez que Azure ha implementado la aplicación lógica, el Diseñador de Logic Apps se abre y muestra una página con un vídeo de introducción. 
    Bajo el vídeo encontrará plantillas de los patrones de aplicación lógica más comunes. 
 
-5. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo:
+5. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo: 
 
    ![Elegir una plantilla de aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -75,7 +75,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    > Para crear la aplicación lógica desde cero, elija **Aplicación lógica en blanco**.
 
    Cuando se selecciona una plantilla precompilada, puede ver más información acerca de dicha plantilla. 
-   Por ejemplo:
+   Por ejemplo: 
 
    ![Elegir una plantilla precompilada](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -89,7 +89,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
    * Si ya configuró estas conexiones, elija **Continuar**.
 
-   Por ejemplo:
+   Por ejemplo: 
 
    ![Crear conexiones](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -107,16 +107,16 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 1. En [Azure Portal](https://portal.azure.com "Azure Portal"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
-2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo:
+2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo: 
 
    ![Elegir "Plantillas"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo:
+3. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo: 
 
    ![Elegir una plantilla de aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Cuando se selecciona una plantilla precompilada, puede ver más información acerca de dicha plantilla. 
-   Por ejemplo:
+   Por ejemplo: 
 
    ![Elegir una plantilla precompilada](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -153,9 +153,9 @@ En la barra de herramientas del diseñador, haga clic en **Guardar**.
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votarlas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información acerca de cómo compilar aplicaciones lógicas a través de ejemplos, escenarios, casos de clientes y tutoriales.
 

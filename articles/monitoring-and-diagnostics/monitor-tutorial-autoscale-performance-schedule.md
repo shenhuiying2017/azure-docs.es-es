@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
@@ -43,7 +43,7 @@ Seleccione un nombre de aplicación, como *MyTestScaleWebApp*. Cree un nuevo gru
 
 En el plazo de unos minutos, los recursos deberían aprovisionarse. Utilice la aplicación web y el plan de App Service correspondiente a lo largo de este tutorial.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Creación de un nuevo servicio de aplicación en el portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navegación a la configuración de escalado automático
 1. En el panel de navegación izquierdo, seleccione la opción **Monitor**. Una vez que la página se cargue, seleccione la pestaña **Escalado automático**.
@@ -172,7 +172,7 @@ La condición de reducción horizontal en la configuración de escalado automát
 
 4. Escriba **sí** en el cuadro de texto para confirmar la eliminación y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, hizo lo siguiente:  
 > [!div class="checklist"]

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 071d593108dd96605897cffe179d6451f8789ce6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -117,7 +117,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 > 
 
 ### <a name="properties"></a>Properties (Propiedades)
-| Propiedad                     | DESCRIPCIÓN                              | Requerido |
+| Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
 | Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
 | clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. | Sí      |
@@ -140,7 +140,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 ### <a name="advanced-properties"></a>Propiedades avanzadas
 También puede especificar las siguientes propiedades para la configuración granular del clúster de HDInsight a petición.
 
-| Propiedad               | DESCRIPCIÓN                              | Requerido |
+| Propiedad               | DESCRIPCIÓN                              | Obligatorio |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica los parámetros de configuración Core (como en core-site.xml) para crear el clúster de HDInsight. | Sin        |
 | hBaseConfiguration     | Especifica los parámetros de configuración HBase (como en hbase-site.xml) para el clúster de HDInsight. | Sin        |
@@ -193,7 +193,7 @@ También puede especificar las siguientes propiedades para la configuración gra
 ### <a name="node-sizes"></a>Tamaño de nodo
 Puede especificar los tamaños de los nodos principal, de datos y de zookeeper con las siguientes propiedades: 
 
-| Propiedad          | DESCRIPCIÓN                              | Requerido |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3 Consulte la sección **Especificación de tamaños de nodos** para más información. | Sin        |
 | dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3 | Sin        |
@@ -249,7 +249,7 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 ```
 
 ### <a name="properties"></a>Properties (Propiedades)
-| Propiedad          | DESCRIPCIÓN                              | Requerido |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | La propiedad type se debe establecer en **HDInsight**. | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.        | Sí      |
@@ -297,7 +297,7 @@ Otra opción es proporcionar el punto de conexión batchUri tal como se muestra 
 ```
 
 ### <a name="properties"></a>Properties (Propiedades)
-| Propiedad          | DESCRIPCIÓN                              | Requerido |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
 | accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
@@ -324,7 +324,7 @@ Un servicio vinculado de Azure Machine Learning se crea para registrar un punto 
 ```
 
 ### <a name="properties"></a>Properties (Propiedades)
-| Propiedad   | DESCRIPCIÓN                              | Requerido |
+| Propiedad   | DESCRIPCIÓN                              | Obligatorio |
 | ---------- | ---------------------------------------- | -------- |
 | type       | La propiedad type se debe establecer en: **AzureML**. | Sí      |
 | mlEndpoint | La dirección URL de puntuación por lotes.                   | Sí      |
@@ -335,7 +335,7 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. Puede elegir entre la autenticación de la entidad de servicio y la autenticación de credenciales de usuario.
 
-| Propiedad                 | DESCRIPCIÓN                              | Requerido                                 |
+| Propiedad                 | DESCRIPCIÓN                              | Obligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
@@ -351,7 +351,7 @@ Para usar la autenticación de la entidad de servicio, registre una entidad de a
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
-| Propiedad                | DESCRIPCIÓN                              | Requerido |
+| Propiedad                | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
@@ -379,7 +379,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 ### <a name="user-credential-authentication"></a>Autenticación de credenciales de usuario
 También puede utilizar la autenticación de credenciales de usuario para Data Lake Analytics mediante la especificación de las propiedades siguientes:
 
-| Propiedad          | DESCRIPCIÓN                              | Requerido |
+| Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | **authorization** | Haga clic en el botón **Autorizar** de Data Factory Editor y escriba sus credenciales, que asignan la dirección URL de autorización generada automáticamente a esta propiedad. | Sí      |
 | **sessionId**     | Id. de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar Data Factory Editor. | Sí      |

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-onprem-db2-connector.md)
-> * [Versión 2: Versión preliminar](../connector-db2.md)
+> * [Versión 2: versión preliminar](../connector-db2.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [DB2 connector in V2](../connector-db2.md) (Conector de DB2 en V2).
@@ -34,7 +34,7 @@ En este artículo se describe cómo se puede usar la actividad de copia en Azure
 
 Data Factory actualmente solo admite mover datos desde una base de datos DB2 a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos desde otros almacenes de datos a una base de datos DB2.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Data Factory admite la conexión a una base de datos DB2 local mediante la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md). Para instrucciones paso a paso sobre cómo configurar la canalización de datos de la puerta de enlace para mover los datos, consulte el artículo [Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 Se requiere una puerta de enlace incluso si DB2 está hospedada en una máquina virtual de IaaS de Azure. Puede instalarla en la misma máquina virtual de IaaS en la que está el almacén de datos. Si la puerta de enlace se puede conectar a la base de datos, es posible instalar la puerta de enlace en otra máquina virtual.
@@ -80,15 +80,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="db2-linked-service-properties"></a>Propiedades del servicio vinculado de DB2
 En la tabla siguiente se enumeran las propiedades JSON que son específicas de un servicio vinculado de DB2.
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |Sí |
 | **server** |Nombre del servidor DB2. |Sí |
 | **database** |Nombre de la base de datos DB2. |Sí |
-| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |No |
+| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin  |
 | **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |No |
-| **password** |Contraseña para la cuenta de usuario. |No |
+| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin  |
+| **password** |Contraseña para la cuenta de usuario. |Sin  |
 | **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -96,7 +96,7 @@ Para una lista de las secciones y propiedades disponibles para definir conjuntos
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **RelationalTable**, que incluye el conjunto de datos de DB2, tiene la propiedad siguiente:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | **tableName** |Nombre de la tabla en la instancia de base de datos DB2 a la que hace referencia el servicio vinculado. Esta propiedad distingue mayúsculas de minúsculas. |No (si se especifica la propiedad **query** de una actividad de copia de tipo **RelationalSource**) |
 
@@ -105,7 +105,7 @@ Para una lista de las secciones y propiedades disponibles para definir actividad
 
 En el caso de la actividad de copia, si el origen es de tipo **RelationalSource** (que incluye DB2), las propiedades siguientes están disponibles en la sección **typeProperties**:
 
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | **consulta** |Use la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: `"query": "select * from "MySchema"."MyTable""` |No (si se especifica la propiedad **tableName** de un conjunto de datos) |
 
@@ -315,37 +315,37 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Real |Single |
 | Doble |Doble |
 | Float |Doble |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| Date |DateTime |
-| Hora |TimeSpan |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
+| Numeric |DECIMAL |
+| Date |Datetime |
+| Hora |timespan |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Char |string |
+| VarChar |string |
+| LongVarChar |string |
+| DB2DynArray |string |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |string |
+| VarGraphic |string |
+| LongVarGraphic |string |
+| Clob |string |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |string |
 | SmallInt |Int16 |
 | Entero |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Doble |Doble |
 | Float |Doble |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| Date |DateTime |
-| Hora |TimeSpan |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
+| Numeric |DECIMAL |
+| Date |Datetime |
+| Hora |timespan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |string |

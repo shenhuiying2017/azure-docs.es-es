@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Anotación de orígenes de datos
 ## <a name="introduction"></a>Introducción
@@ -43,7 +43,7 @@ La búsqueda de Data Catalog admite los siguientes tipos de anotaciones:
 | Anotación | Notas |
 | --- | --- |
 | Nombre descriptivo |Se pueden proporcionar nombres descriptivos en el nivel de recursos de datos para que dichos recursos de datos se entiendan con más facilidad. Los nombres descriptivos son más útiles cuando el nombre del objeto subyacente es críptico, está abreviado o no es significativo para los usuarios. |
-| Description |Las descripciones se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las descripciones son anotaciones de texto breve de forma libre que describen la perspectiva del usuario sobre el recurso de datos o su uso. |
+| DESCRIPCIÓN |Las descripciones se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las descripciones son anotaciones de texto breve de forma libre que describen la perspectiva del usuario sobre el recurso de datos o su uso. |
 | Etiquetas (etiquetas de usuario) |Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Los usuarios definen las etiquetas que se pueden usar para clasificar los atributos o recursos de datos. |
 | Etiquetas (etiquetas de glosario) |Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las etiquetas del glosario son términos de glosario definidos centralmente que pueden utilizarse para clasificar los recursos de datos o atributos mediante una taxonomía empresarial común. Para más información, vea [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md). |
 | Expertos |Los expertos se pueden facilitar en el nivel de recursos de datos. Los expertos identifican usuarios o grupos con perspectivas expertas sobre los datos, y pueden actuar como puntos de contacto para los usuarios que detecten los orígenes de datos registrados y tengan preguntas que no estén respondidas en las anotaciones existentes. |

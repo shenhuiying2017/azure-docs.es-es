@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 Esta guía le ayudará a:
@@ -106,7 +106,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
     a. Para bloquearlo, seleccione **Medio** en **Bloquear inicio de sesión**.
     
     b. Para aplicar el cambio de contraseña segura, seleccione **Medio** en **Requerir autenticación multifactor**.
-11. Haga clic en **Guardar**.
+11. Haga clic en **Save**(Guardar).
 12. Ahora puede probar el acceso condicional basado en riesgos mediante un inicio de sesión con un usuario con un nivel de riesgo elevado. Si el riesgo del usuario es Medio, en función de la directiva que establezca, se bloqueará el inicio de sesión o se forzará el cambio de contraseña. 
     <br><br>
     ![Guía de](./media/active-directory-identityprotection-playbook/201.png "Guía")

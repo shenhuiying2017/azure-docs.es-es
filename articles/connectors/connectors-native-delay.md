@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introducción a las acciones de retraso y retraso hasta
 Con las acciones de retraso y retraso hasta, puede completar escenarios de flujo de trabajo como los siguientes.
@@ -29,7 +29,7 @@ Por ejemplo, puede:
 * Esperar hasta un día de la semana para enviar una actualización de estado por correo electrónico.
 * Retrasar el flujo de trabajo hasta que una llamada HTTP tenga tiempo para completarse antes de reanudarse y recuperar el resultado.
 
-Para empezar a usar la acción de retraso en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Para empezar a usar la acción de retraso en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Uso de las acciones de retraso
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).
@@ -52,7 +52,7 @@ El desencadenador de periodicidad tiene las siguientes propiedades que se pueden
 Esta acción retrasa la ejecución durante un determinado intervalo de tiempo.
 Un * significa que es un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Recuento* |count |El número de unidades de tiempo de retraso |
 | Unidad* |unit |La unidad de tiempo: `Second`, `Minute`, `Hour` o `Day`. |
@@ -63,7 +63,7 @@ Un * significa que es un campo obligatorio.
 Esta acción retrasa la ejecución hasta una fecha u hora especificada.
 Un * significa que es un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Año* |timestamp |El año hasta el que retrasar (GMT) |
 | Mes* |timestamp |El mes hasta el que retrasar (GMT) |
@@ -71,6 +71,6 @@ Un * significa que es un campo obligatorio.
 
 <br>
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para obtener los desencadenadores y las acciones definidas por la descripción de Swagger de cada conector, así como los límites de cada uno, consulte los [detalles del conector](/connectors/).
@@ -126,7 +126,7 @@ Las aplicaciones lógicas incluyen acciones integradas que pueden cambiar o mani
 | **Filtrar matriz** (consulta) | Filtrar las entradas que le interesen de un conjunto de resultados. Por ejemplo, buscar todos los tweets que contengan `#Azure` y, después, "filtrar" los tweets devueltos para devolver únicamente aquellos que cumplan la condición `Tweeted_by_followers > 50`. |
 | **Join** | Une una matriz por algún delimitador. Por ejemplo, la operación Detectar frases clave devuelve una matriz de frases clave. Las puede "unir" con un carácter `,`, o algo similar. Por lo que en lugar de `["Some", "Phrase"]`, tendrá `"Some, Phrase"`. |
 | **Análisis del archivo JSON** | Analizar y acceder a los valores de un objeto JSON en el diseñador. Por ejemplo, si Azure Functions devuelve una carga útil JSON, puede analizarla para acceder a las propiedades JSON en un paso posterior. La acción también valida que el código JSON coincide con el esquema especificado en tiempo de ejecución. | 
-| **Select** | Seleccione algunas propiedades de una matriz para su posterior procesamiento. Si usa la acción "Enumerar registros" y SQL devuelve 15 columnas, seleccione algunas para su procesamiento posterior. La salida es una matriz que solo contiene las propiedades que ha seleccionado. |
+| **Selección** | Seleccione algunas propiedades de una matriz para su posterior procesamiento. Si usa la acción "Enumerar registros" y SQL devuelve 15 columnas, seleccione algunas para su procesamiento posterior. La salida es una matriz que solo contiene las propiedades que ha seleccionado. |
 
 ## <a name="custom-connectors-and-azure-certification"></a>Conectores personalizados y certificación de Azure 
 
@@ -134,7 +134,7 @@ Para llamar a las API que ejecutan código personalizado o que no están disponi
 
 Si quiere que las aplicaciones de API sean públicas y estén disponibles para usarlas en Azure, también puede [enviar sus conectores para que Microsoft los certifique](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 Para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
@@ -142,8 +142,8 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 
 ¿Falta un tema sobre conectores o algún dato que considere importante? Si es así, puede ayudarnos. Agréguelo a nuestros temas existentes o escriba el suyo propio. Nuestra documentación es de código abierto y se hospeda en GitHub. Para comenzar, vaya a nuestro [repositorio de GitHub](https://github.com/Microsoft/azure-docs). 
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Creación de API personalizadas para las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md)
 * [Supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

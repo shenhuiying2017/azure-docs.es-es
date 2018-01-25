@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
 
@@ -903,7 +903,7 @@ Los agregados definidos por el usuario son todas las funciones relacionadas con 
 
 La definición de clase base agregada definida por el usuario es la siguiente:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -952,7 +952,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Primer parámetro para Accumulate
 * TResult: Tipo de valor devuelto de Terminate
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Para evitar la creación de una instancia del objeto en el script base, podemos crear un contenedor de función como se indicó en el ejemplo anterior:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 O con la invocación de un método de fábrica de contenedor:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1871,7 +1871,7 @@ Ejemplo:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 Los objetos de programación principales son:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

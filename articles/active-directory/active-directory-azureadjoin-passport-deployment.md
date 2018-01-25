@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitación de Windows Hello para empresas en su organización
 Tras [conectar dispositivos con Windows 10 unidos a un dominio mediante Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), lleve a cabo los siguientes pasos para habilitar Windows Hello para empresas en la organización.
@@ -52,12 +52,12 @@ El uso de System Center Configuration Manager es el método preferido cuando tam
 
 1. Abra el Administrador del servidor y vaya a **Herramientas** > **Administración de directivas de grupo**.
 2. En Administración de directivas de grupo, vaya al nodo de dominio que corresponde al dominio en el que desea habilitar Azure AD Join.
-3. Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo; por ejemplo, Habilitar Windows Hello para empresas. Haga clic en **Aceptar**.
+3. Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo; por ejemplo, Habilitar Windows Hello para empresas. Haga clic en **OK**.
 4. Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y luego seleccione **Editar**.
 5. Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Windows Hello para empresas**.
 6. Haga clic con el botón derecho en **Hablitar Windows Hello para empresas** y, después, seleccione **Editar**.
-7. Seleccione el botón de opción **Habilitado** y, luego, haga clic en **Aplicar**. Haga clic en **Aceptar**.
-8. Ahora puede vincular el objeto de directiva de grupo a la ubicación que elija. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule la Directiva de grupo al dominio. Por ejemplo:
+7. Seleccione el botón de opción **Habilitado** y, luego, haga clic en **Aplicar**. Haga clic en **OK**.
+8. Ahora puede vincular el objeto de directiva de grupo a la ubicación que elija. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule la Directiva de grupo al dominio. Por ejemplo: 
    * Una unidad organizativa (OU) específica en Active Directory donde se encontrarán los equipos unidos a un dominio de Windows 10.
    * Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente en Azure AD.
 
@@ -76,7 +76,7 @@ El uso de System Center Configuration Manager es el método preferido cuando tam
    
     a. En el cuadro de texto **Nombre**, escriba un nombre para el perfil, como **Mi perfil de WHpE**.
    
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 4. En el cuadro de diálogo **Plataformas admitidas**, seleccione las plataformas que se aprovisionarán con este perfil de Windows Hello para empresas y, a continuación, haga clic en **Siguiente**.
    
     ![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -90,7 +90,7 @@ El uso de System Center Configuration Manager es el método preferido cuando tam
    
     c. Como valor de **Método de autenticación**, seleccione **Basada en certificados**.
    
-    d. Haga clic en **Siguiente**.
+    d. Haga clic en **Next**.
 6. En el cuadro de diálogo **Resumen**, haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Finalización**, haga clic en **Cerrar**.
 8. En la barra de herramientas de la parte superior, haga clic en **Implementar**.
@@ -105,7 +105,7 @@ Si utiliza la autenticación basada en certificados para la autenticación local
 
 En la página **Inscripción de SCEP** del perfil de certificado, tiene que seleccionar **Instalar en Passport for Work o generar un error** como valor de **Proveedor de almacenamiento de claves**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)

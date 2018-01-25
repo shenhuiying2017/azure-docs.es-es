@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Con Azure Portal, puede:
 En esta sección se describen también las transiciones de sectores de un conjunto de datos de un estado a otro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegación hasta la factoría de datos
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos**, en la categoría **INTELIGENCIA Y ANÁLISIS**.
 
    ![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -60,7 +60,7 @@ En esta sección se describen también las transiciones de sectores de un conjun
 #### <a name="diagram-view-of-your-data-factory"></a>Vista de diagrama de la factoría de datos
 La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama**.
 
-![Vista de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![Vista Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100 %, bloquear el diseño del diagrama y colocar automáticamente canalizaciones y conjuntos de datos. También puede ver la información de linaje de datos (es decir, se muestran los elementos ascendentes y descendentes de los elementos seleccionados).
 
@@ -86,7 +86,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Description</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
 </tr>
 <tr>
     <td rowspan="8">En espera</td><td>ScheduleTime</td><td>No ha llegado la hora para que se ejecute el segmento.</td>
@@ -177,7 +177,7 @@ Puede pausar o suspender canalizaciones con el cmdlet **Suspend-AzureRmDataFacto
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por ejemplo:
+Por ejemplo: 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Tras solucionar el problema con la canalización, se puede reanudar la canalizac
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por ejemplo:
+Por ejemplo: 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Por ejemplo:
+   Por ejemplo: 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Por ejemplo:
+    Por ejemplo: 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -366,13 +366,13 @@ Este ejemplo configura la alerta para todas las factorías de datos de la suscri
 
 En la tabla siguiente se ofrece una lista de las operaciones y los estados (y subestados) disponibles.
 
-| Nombre de la operación | Estado | Subestado |
+| Nombre de la operación | Status | Subestado |
 | --- | --- | --- |
 | RunStarted |Started |Iniciando |
 | RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Started | |
-| OnDemandClusterCreateSuccessful |Correcto | |
-| OnDemandClusterDeleted |Correcto | |
+| OnDemandClusterCreateSuccessful |Succeeded | |
+| OnDemandClusterDeleted |Succeeded | |
 
 Vea [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) (Creación de una regla de alerta) para más información sobre los elementos JSON usados en el ejemplo.
 

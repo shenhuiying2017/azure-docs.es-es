@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introducción a la acción HTTP + Swagger
 
 Puede crear un conector de primera categoría para cualquier punto de conexión REST a través de un [documento Swagger](https://swagger.io) al usar la acción HTTP + Swagger en el flujo de trabajo de la aplicación lógica. También puede ampliar las aplicaciones lógicas para llamar a cualquier punto de conexión REST con una experiencia de Diseñador de aplicación lógica de primer nivel.
 
-Para aprender a crear aplicaciones lógicas con conectores, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para aprender a crear aplicaciones lógicas con conectores, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Uso de HTTP + Swagger como desencadenador o acción
 
@@ -77,14 +77,14 @@ A continuación se muestran los detalles de los desencadenadores y las acciones 
 ## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md) El conector HTTP + Swagger tiene un desencadenador.
 
-| Desencadenador | Description |
+| Desencadenador | DESCRIPCIÓN |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
 ## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md) El conector HTTP + Swagger tiene una acción posible.
 
-| Acción | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
@@ -95,11 +95,11 @@ El conector HTTP + Swagger incluye una acción posible. A continuación, se incl
 Realice una solicitud HTTP saliente con ayuda de los metadatos de Swagger.
 Un asterisco (*) significa un campo obligatorio.
 
-| Nombre para mostrar | Nombre de propiedad | Description |
+| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Método* |estático |Verbo HTTP que se va a usar |
 | URI* |uri |Identificador URI de la solicitud HTTP |
-| Encabezados |Encabezados |Objeto JSON de los encabezados HTTP que se va a incluir |
+| encabezados |encabezados |Objeto JSON de los encabezados HTTP que se va a incluir |
 | Cuerpo |Cuerpo |Cuerpo de la solicitud HTTP |
 | Autenticación |Autenticación |Autenticación que se utiliza para la solicitud. Para más información, consulte el artículo [Conector HTTP](connectors-native-http.md#authentication). |
 
@@ -107,7 +107,7 @@ Un asterisco (*) significa un campo obligatorio.
 
 Respuesta HTTP
 
-| Nombre de propiedad | Tipo de datos | Description |
+| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | encabezados |objeto |Encabezados de respuesta |
 | Cuerpo |objeto |Objeto de respuesta |
@@ -116,7 +116,7 @@ Respuesta HTTP
 ### <a name="http-responses"></a>Respuestas HTTP
 Al realizar llamadas a diversas acciones, es posible que obtenga determinadas respuestas. A continuación se incluye una tabla que describe las respuestas y descripciones correspondientes.
 
-| Nombre | Descripción |
+| NOMBRE | DESCRIPCIÓN |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |
@@ -127,7 +127,7 @@ Al realizar llamadas a diversas acciones, es posible que obtenga determinadas re
 | 500 |Error interno del servidor Error desconocido. |
 
 - - -
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Buscar otros conectores](apis-list.md)

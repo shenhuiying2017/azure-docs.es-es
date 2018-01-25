@@ -1,10 +1,10 @@
 ---
 title: Aprovisionamiento de Redis Cache mediante Azure Resource Manager | Microsoft Docs
-description: "Use una plantilla del Administrador de recursos de Azure para implementar Caché en Redis de Azure."
+description: Use una plantilla de Azure Resource Manager para implementar Azure Redis Cache.
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Creación de una Caché en Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Azure Resource Manager que implementa Azure Redis Cache. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
@@ -41,7 +41,7 @@ Para ver la plantilla completa, consulte [Plantilla Caché en Redis](https://git
 > 
 
 ## <a name="what-you-will-deploy"></a>Lo que implementará
-En esta plantilla, implementará una caché en Redis de Azure que utiliza una cuenta de almacenamiento de datos de diagnóstico.
+En esta plantilla, implementará una instancia de Azure Redis Cache que utiliza una cuenta de almacenamiento de datos de diagnóstico.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -88,7 +88,7 @@ Un valor que indica si están activados los diagnósticos. Utilice ON (activados
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
 ### <a name="redis-cache"></a>Caché en Redis
-Crea Caché en Redis de Azure.
+Crea Azure Redis Cache.
 
     {
       "apiVersion": "2015-08-01",

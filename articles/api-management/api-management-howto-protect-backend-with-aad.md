@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
 En el vídeo siguiente se muestra cómo crear un back-end de API web cómo protegerlo mediante el protocolo OAuth 2.0 con Azure Active Directory y la administración de API.  En este artículo se ofrece una introducción e información adicional de los pasos del vídeo. Este vídeo de 24 minutos le muestra cómo:
@@ -81,13 +81,13 @@ La API web de este ejemplo implementa un servicio básico de calculadora mediant
 
 Agregue la siguiente instrucción `using` en la parte superior del archivo `CalcInput.cs`.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Reemplace la clase generada por el siguiente código.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Haga clic con el botón derecho en **Controladores** en el **Explorador de soluc
 
 Agregue la siguiente instrucción `using` en la parte superior del archivo `CalcController.cs`.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Reemplace la clase del controlador generada por el siguiente código. Este código implementa las operaciones `Add`, `Subtract`, `Multiply` y `Divide` de la API de calculadora básica.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -356,11 +356,11 @@ En este momento, la API se ha importado en la administración de API, pero no se
 
 Haga clic en el **portal para desarrolladores** en la parte superior derecha del portal para editores.
 
-![portal para desarrolladores][api-management-developer-portal-menu]
+![Portal para desarrolladores][api-management-developer-portal-menu]
 
 Haga clic en **API** y en la API de la **Calculadora**.
 
-![portal para desarrolladores][api-management-dev-portal-apis]
+![Portal para desarrolladores][api-management-dev-portal-apis]
 
 Haga clic en **Pruébelo**.
 
@@ -510,7 +510,7 @@ El procedimiento final en el vídeo empieza en 20:48 y muestra cómo usar la dir
 
 Para ver otra demostración de cómo configurar y usar esta directiva, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
 * Para conocer otras formas de proteger el servicio back-end, consulte [Autenticación de certificado mutua](api-management-howto-mutual-certificates.md).
 

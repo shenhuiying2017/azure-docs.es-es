@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configuración de un webhook en una alerta de métrica de Azure
 Los webhooks permiten enrutar una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para enrutarla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones diversas. En este artículo, se describe cómo establecer un webhook en una alerta de métrica de Azure y cuál es el aspecto de la carga útil de la operación HTTP POST a un webhook. Para más información sobre la configuración y el esquema de una alerta de registro de actividad de Azure (alerta de eventos), [consulte esta página en su lugar](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -78,8 +81,8 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 | contexto |Y | |Contexto de la alerta |
 | timestamp |Y | |La hora en la que se desencadenó la alerta. |
 | id |Y | |Cada regla de alerta tiene un id. único. |
-| name |Y | |Nombre de la alerta |
-| description |Y | |Descripción de la alerta |
+| Nombre |Y | |Nombre de la alerta |
+| Descripción |Y | |Descripción de la alerta |
 | conditionType |Y |"Métrica", "Evento" |Se admiten dos tipos de alertas. Uno basado en una condición de métrica y otro, en un evento en el registro de actividad. Use este valor para comprobar si la alerta está basada en una métrica o en un evento. |
 | condition |Y | |Los campos específicos que buscar en función del campo conditionType |
 | metricName |para alertas de métricas | |El nombre de la métrica que define qué supervisa la regla. |
@@ -93,7 +96,7 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 | resourceGroupName |Y | |Nombre del grupo de recursos del recurso afectado. |
 | resourceName |Y | |Nombre del recurso afectado |
 | resourceType |Y | |Tipo del recurso afectado |
-| resourceId |Y | |Identificador de recurso del recurso afectado. |
+| ResourceId |Y | |Identificador de recurso del recurso afectado. |
 | resourceRegion |Y | |Región o ubicación del recurso afectado |
 | portalLink |Y | |Vínculo directo a la página de resumen de recursos del portal |
 | propiedades |N |Opcional |Conjunto de pares `<Key, Value>` (es decir, `Dictionary<String, String>`) que incluye detalles sobre el evento El campo de propiedades es opcional. En un flujo de trabajo basado en una aplicación lógica o una interfaz de usuario personalizada, los usuarios pueden especificar clave/valores que se pueden pasar con la carga útil. La forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta). |
@@ -103,7 +106,7 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Aprenda más sobre los webhooks y las alertas de Azure en el vídeo [Integración de las alertas de Azure con PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Ejecute scripts de Azure Automation (Runbooks) en alertas de Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Use una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)

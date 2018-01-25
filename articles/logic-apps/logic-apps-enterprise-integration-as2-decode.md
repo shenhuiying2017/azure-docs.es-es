@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes AS2 para Azure Logic Apps con Enterprise Integration Pack 
 
@@ -35,7 +35,7 @@ Esto es lo que necesita:
 
 ## <a name="decode-as2-messages"></a>Descodificación de mensajes AS2
 
-1. [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+1. [Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. El conector de descodificación de mensajes AS2 no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, por ejemplo, un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
@@ -62,7 +62,7 @@ Esto es lo que necesita:
    
     ![conexión de integración creada](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-    Por ejemplo:
+    Por ejemplo: 
 
     ![Seleccione el cuerpo y los encabezados de las salidas de la solicitud](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
@@ -89,6 +89,6 @@ Para intentar implementar una aplicación lógica totalmente operativa y conocer
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
 

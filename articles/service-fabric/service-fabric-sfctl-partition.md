@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consulte y administre las particiones para cualquier servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    data-loss      | Esta API induce la pérdida de datos para la partición especificada.|
 |    data-loss-status  | Obtiene el progreso de una operación de pérdida de datos de partición que se ha iniciado mediante la API StartDataLoss.|
@@ -52,7 +52,7 @@ Use ReplicasHealthStateFilter para filtrar la colección de objetos ReplicaHealt
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --events-health-state-filter  | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento.                Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.                - All: filtro que asocia la entrada con cualquier valor de HealthState.                El valor es 65535.|
@@ -62,7 +62,7 @@ Use ReplicasHealthStateFilter para filtrar la colección de objetos ReplicaHealt
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                  | Muestra este mensaje de ayuda y sale.|
@@ -77,14 +77,14 @@ El punto de conexión de las particiones devuelve información sobre la partici�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -99,7 +99,7 @@ Obtiene la lista de particiones de un servicio de Service Fabric. El identificad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados.         Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
@@ -107,7 +107,7 @@ Obtiene la lista de particiones de un servicio de Service Fabric. El identificad
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
@@ -122,14 +122,14 @@ Devuelve información sobre la partición especificada. La respuesta incluye una
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -144,14 +144,14 @@ Indica al clúster de Service Fabric que debería intentar recuperar una partici
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -166,7 +166,7 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --operation-id [Obligatorio]| Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente.|
 | --partition-id [Obligatorio]| La identidad de la partición.|
@@ -176,7 +176,7 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                         | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                       | Muestra este mensaje de ayuda y sale.|
@@ -184,6 +184,6 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 | --query                         | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose                       | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

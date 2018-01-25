@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e5fa40dc128412e3b5b39c9fbdb751c797ca0cc7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificación a los pacientes de cambios en los registros de asistencia sanitaria de HL7 FHIR con Logic Apps y Azure Cosmos DB
 
@@ -76,7 +76,7 @@ Logic Apps controlan el proceso de flujo de trabajo. Las capturas de pantalla si
 
     ![La aplicación lógica que envía correos electrónicos al paciente con el recurso de HL7 FHIR en el cuerpo del mensaje](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
-#### <a name="service-bus"></a>Service Bus
+#### <a name="service-bus"></a>Azure Service Bus
 La figura siguiente muestra la cola de pacientes. El valor de propiedad de etiqueta se utiliza para el asunto del correo electrónico.
 
 ![La cola de Service Bus usada en este tutorial FHIR HL7](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
@@ -105,7 +105,7 @@ Usamos la clase [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 
 **Origen de la aplicación de API**
 
-```C#
+```csharp
 
     using System.Collections.Generic;
     using System.Linq;
@@ -228,7 +228,7 @@ La siguiente imagen muestra todos los servicios de Azure para esta solución eje
 - Ha visto como aprovechando Logic Apps puede crear flujos de trabajo sin escribir ningún código.
 - Ha visto que usando las colas de Azure Service Bus puede controlar la distribución de los documentos de HL7 FHIR.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre Azure Cosmos DB, consulte la [página principal de Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Para más información acerca de Logic Apps, consulte [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

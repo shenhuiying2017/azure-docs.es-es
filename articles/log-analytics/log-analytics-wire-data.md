@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solución Wire Data 2.0 (versión preliminar) en Log Analytics
 
@@ -61,7 +61,7 @@ Wire Data obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depe
 | Agentes de Windows | Sí | Wire Data analiza y recopila datos de equipos del agente de Windows. <br><br> Además del [agente de OMS](log-analytics-windows-agent.md), los agentes de Windows requieren el agente de dependencia de Microsoft. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Agentes de Linux | Sí | Wire Data analiza y recopila datos de equipos del agente de Linux.<br><br> Además del [agente de OMS](log-analytics-quick-collect-linux-computer.md), los agentes de Linux requieren Microsoft Dependency Agent. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Grupo de administración de System Center Operations Manager | Sí | Wire Data analiza y recopila datos de los agentes de Windows y Linux en un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md) conectado. <br><br> Se requiere una conexión directa desde el equipo agente de System Center Operations Manager a Log Analytics. Los datos se reenvían desde el grupo de administración a Log Analytics. |
-| Cuenta de almacenamiento de Azure | No | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
+| Cuenta de almacenamiento de Azure | Sin  | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
 
 En Windows, tanto System Center Operations Manager como Log Analytics usan Microsoft Monitoring Agent (MMA) para recopilar y enviar los datos. Dependiendo del contexto, el agente se denomina agente de System Center Operations Manager, agente de OMS, agente de Log Analytics, MMA o agente directo. System Center Operations Manager y Log Analytics proporcionan versiones ligeramente diferentes de MMA. Cada una de estas versiones puede informar a System Center Operations Manager, a Log Analytics o a ambos.
 
@@ -80,7 +80,7 @@ Si es un usuario de System Center Operations Manager con un grupo de administrac
 
 Si usa el agente directo, debe configurar el agente de OMS para conectarse a Log Analytics o a la puerta de enlace de OMS. Puede descargar la nueva versión de la puerta de enlace de OMS en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Se requiere la oferta de la solución [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Si usa la versión anterior de la solución Wire Data, primero debe quitarla. Pero todos los datos capturados a través de la solución Wire Data original siguen estando disponibles en Wire Data 2.0 y la búsqueda de registros.
@@ -375,9 +375,6 @@ Utilice la siguiente información para instalar y configurar la solución.
 
 Después de instalar los agentes y la solución, el icono de Wire Data 2.0 aparece en el área de trabajo.
 
-> [!NOTE]
-> Actualmente, debe usar el portal de OMS para ver los datos de conexión. No se puede usar Azure Portal para ver los datos de conexión.
-
 ![Icono de Wire Data](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Uso de la solución Wire Data 2.0
@@ -420,7 +417,7 @@ La solución Datos de conexión recopila metadatos sobre el tráfico de red con 
 
 Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada. Los registros de WireData tienen las propiedades mostradas en la tabla siguiente:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |---|---|
 | Equipo | Nombre de equipo del que se recopilan los datos |
 | TimeGenerated | Hora del registro |
@@ -431,7 +428,7 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 | IPVersion | Versión de la dirección IP |
 | Dirección | De entrada o de salida |
 | MaliciousIP | Dirección IP de un origen malintencionado conocido |
-| Gravedad | Gravedad del supuesto malware |
+| Severity | Gravedad del supuesto malware |
 | RemoteIPCountry | País de la dirección IP remota |
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager |
 | SourceSystem | Origen del que se recopilan los datos |
@@ -451,6 +448,6 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 | RemoteIPLatitude | Valor de latitud IP |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.

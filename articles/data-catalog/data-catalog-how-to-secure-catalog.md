@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 0950d453e53a70f96f59de572ac10326ef030444
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Acceso seguro al catálogo de datos y a los activos de datos
 > [!IMPORTANT]
@@ -54,6 +54,6 @@ Para proporcionar a un usuario o a un grupo acceso al catálogo de datos y estab
 - Los permisos asignados a grupos de seguridad son aditivos. Por ejemplo, un usuario pertenece a dos grupos. En un grupo tiene permisos de anotación y en otro no. Por lo tanto, el usuario tiene permisos de anotación. 
 - Los permisos asignados explícitamente a un usuario reemplazan los permisos asignados a los grupos a los que pertenece el usuario. En el ejemplo anterior, agregó explícitamente el usuario a los usuarios del catálogo y no se asignaron permisos de anotación. El usuario no puede anotar activos de datos a pesar de que el usuario sea miembro de un grupo que tiene permisos de anotación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Introducción a Azure Data Catalog](data-catalog-get-started.md)
 

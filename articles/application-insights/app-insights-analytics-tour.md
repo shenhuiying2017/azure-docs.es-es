@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Un paseo por Analytics de Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -134,7 +134,7 @@ De forma predeterminada, las consultas se restringen a las últimas 24 horas. Pe
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Reemplace el intervalo de tiempo mediante la escritura de cualquier consulta que mencione `timestamp` en una cláusula where. Por ejemplo:
+Reemplace el intervalo de tiempo mediante la escritura de cualquier consulta que mencione `timestamp` en una cláusula where. Por ejemplo: 
 
 ```AIQL
 
@@ -502,7 +502,7 @@ requests
 ```
 
 
-### <a name="functions"></a>Funciones
+### <a name="functions"></a>Functions
 
 Use *Let* para definir una función:
 
@@ -538,7 +538,7 @@ Si la aplicación adjunta [dimensiones personalizadas (propiedades) y medidas pe
 
 Por ejemplo, si la aplicación incluye:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Si utiliza [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 
 
 Veamos un ejemplo en el que el código de aplicación contiene estas líneas:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ Extraer las medidas y dimensiones de los eventos:
 ![Mostrar la tasa de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabla de métricas personalizadas
-Si utiliza [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar sus propios valores de métrica, encontrará los resultados en la transmisión **customMetrics**. Por ejemplo:  
+Si utiliza [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar sus propios valores de métrica, encontrará los resultados en la transmisión **customMetrics**. Por ejemplo:   
 
 ![Métricas personalizadas en Application Insights Analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -709,7 +709,7 @@ Consultas avanzadas:
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Referencia de idioma de Analytics](app-insights-analytics-reference.md)
 * [La hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics) traduce las expresiones más comunes.
 

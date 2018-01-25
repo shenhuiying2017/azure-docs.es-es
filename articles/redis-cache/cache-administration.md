@@ -1,10 +1,10 @@
 ---
 title: "Administración de Azure Redis Cache | Microsoft Docs"
-description: "Aprenda a realizar tareas de administración como el reinicio y la programación de actualizaciones para la Caché en Redis de Azure"
+description: "Aprenda a realizar tareas de administración como el reinicio y la programación de actualizaciones para Azure Redis Cache"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="how-to-administer-azure-redis-cache"></a>Administración de la Caché en Redis de Azure
+# <a name="how-to-administer-azure-redis-cache"></a>Administración de Azure Redis Cache
 En este tema se describe cómo realizar tareas de administración como el [reinicio](#reboot) y la [programación de actualizaciones](#schedule-updates) para las instancias de Azure Redis Cache.
 
 ## <a name="reboot"></a>Reboot
@@ -40,7 +40,7 @@ Para reiniciar uno o varios nodos de la caché, seleccione los nodos que prefier
 
 El impacto en las aplicaciones cliente varía en función de los nodos que se reinicien.
 
-* **Master** (Maestro): cuando el nodo maestro se reinicia, en Caché en Redis de Azure se produce una conmutación por error en el nodo de la réplica y lo promueve al maestro. Durante esta conmutación por error puede haber un breve intervalo en el que se puede producir un error de conexión a la memoria caché.
+* **Master** (Maestro): cuando el nodo maestro se reinicia, en Azure Redis Cache se produce una conmutación por error en el nodo de la réplica y lo promueve al maestro. Durante esta conmutación por error puede haber un breve intervalo en el que se puede producir un error de conexión a la memoria caché.
 * **Slave** (Subordinado): el reinicio de un nodo subordinado no suele afectar a las cachés cliente.
 * **Both master and slave** (Maestro y subordinado): cuando se reinician ambos nodos de la memoria caché se pierden todos los datos de la caché y las conexiones a la caché producen un error hasta que el nodo principal vuelve a estar en línea. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de la copia de seguridad más reciente.
 * **Nodes of a premium cache with clustering enabled** (Nodos de una caché premium con agrupamiento en clústeres habilitado): cuando reinicie uno o varios nodos de una caché premium con el agrupamiento en clústeres habilitado, el comportamiento de los nodos seleccionados es el mismo que al reiniciar el nodo o nodos correspondientes de una caché sin agrupar.
@@ -80,7 +80,7 @@ Sí. Para más información sobre las instrucciones de PowerShell consulte la se
 El reinicio está disponible para todos los planes de tarifas.
 
 ## <a name="schedule-updates"></a>Programar actualizaciones
-La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la memoria caché de nivel Premium. Cuando se especifica un período de mantenimiento, las actualizaciones del servidor Redis se realizan en ese intervalo de tiempo. 
+La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la memoria caché de nivel Premium. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. 
 
 > [!NOTE] 
 > El período de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a las actualizaciones de Azure o del sistema operativo de las máquinas virtuales que hospedan la caché.
@@ -89,7 +89,7 @@ La hoja **Programar actualizaciones** permite designar una ventana de mantenimie
 
 ![Programar actualizaciones](./media/cache-administration/redis-schedule-updates.png)
 
-Para especificar una ventana de mantenimiento, compruebe los días deseados, especifique la hora de inicio de la ventana de mantenimiento para cada día y haga clic en **Aceptar**. Tenga en cuenta que la hora de la ventana de mantenimiento está en formato UTC. 
+Para especificar una ventana de mantenimiento, compruebe los días deseados, especifique la hora de inicio de la ventana de mantenimiento para cada día y haga clic en **Aceptar**. Tenga en cuenta que la hora del período de mantenimiento está en formato UTC. 
 
 > [!NOTE]
 > La ventana de mantenimiento predeterminada para las actualizaciones es de cinco horas. Este valor no es configurable desde Azure Portal, pero puede configurarlo en PowerShell mediante el parámetro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Para obtener más información, consulte [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
@@ -119,6 +119,6 @@ Sí, puede administrar sus actualizaciones programadas con los siguientes cmdlet
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?
 La característica **Programación de actualizaciones** solo está disponible en el plan de tarifa Premium.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Explore más características del [nivel premium de Azure Redis Cache](cache-premium-tier-intro.md) .
 

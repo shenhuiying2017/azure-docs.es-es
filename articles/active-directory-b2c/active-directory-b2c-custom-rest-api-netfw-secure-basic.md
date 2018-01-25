@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 En un [artículo de Azure AD B2C relacionado](active-directory-b2c-custom-rest-api-netfw.md), se crea un servicio REST (API web) que se integra en los recorridos del usuario de Azure Active Directory B2C (Azure AD B2C) sin autenticación. 
@@ -27,7 +27,7 @@ En dicho artículo se agrega una autenticación HTTP básica al servicio REST, c
 
 Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Paso 1: Adición de compatibilidad con la autenticación
@@ -76,7 +76,7 @@ Agregue la clase `ClientAuthMiddleware.cs` a la carpeta *App_Start*. Para ello:
 
 3. Abra el archivo *App_Start\ClientAuthMiddleware.cs* y reemplace su contenido por el código siguiente:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Agregue una clase de inicio de OWIN denominada `Startup.cs` a la API. Para ello:
 
 2. Abra el archivo *Startup.cs* y reemplace su contenido por el código siguiente:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     
@@ -342,6 +342,6 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 * Una vez completado el tutorial [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), le recomendamos que compile su escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic) para que los tenga como referencia.
 * El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Uso de certificados de cliente para proteger la API de REST](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 

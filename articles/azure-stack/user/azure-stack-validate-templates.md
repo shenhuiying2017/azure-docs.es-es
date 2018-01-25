@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Compruebe las plantillas para Azure Stack con el validador de plantilla
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Puede usar la herramienta de validación de plantillas para comprobar si las [plantillas](azure-stack-arm-templates.md) de Azure Resource Manager están listas para Azure Stack. La herramienta de validación de plantillas está disponible como parte de las herramientas de Azure Stack. Descargue las herramientas de Azure Stack mediante los pasos descritos en el artículo [Descargar herramientas de GitHub](azure-stack-powershell-download.md). 
 
@@ -56,17 +56,17 @@ Cualquier error o advertencia de validación de plantillas se registra en la con
 
 ![informe de validación de ejemplo](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Descripción | Obligatorio |
+| . | DESCRIPCIÓN | Obligatorio |
 | ----- | -----| ----- |
 | TemplatePath | Especifica la ruta de acceso para buscar de forma recursiva las plantillas del Resource Manager | Sí | 
-| TemplatePattern | Especifica el nombre de los archivos de plantilla para que coincida. | No |
+| TemplatePattern | Especifica el nombre de los archivos de plantilla para que coincida. | Sin  |
 | CapabilitiesPath | Especifica la ruta de acceso al archivo JSON de funcionalidades de la nube | Sí | 
-| IncludeComputeCapabilities | Incluye la evaluación de recursos de IaaS como tamaños de máquina virtual y extensiones de máquina virtual | No |
-| IncludeStorageCapabilities | Incluye la evaluación de recursos de almacenamiento como los tipos SKU | No |
-| Informe | Especifica el nombre del informe HTML generado | No |
-| Detallado | Registra los errores y advertencias en la consola | No|
+| IncludeComputeCapabilities | Incluye la evaluación de recursos de IaaS como tamaños de máquina virtual y extensiones de máquina virtual | Sin  |
+| IncludeStorageCapabilities | Incluye la evaluación de recursos de almacenamiento como los tipos SKU | Sin  |
+| Informe | Especifica el nombre del informe HTML generado | Sin  |
+| Detallado | Registra los errores y advertencias en la consola | Sin |
 
 
 ### <a name="examples"></a>Ejemplos
@@ -93,11 +93,11 @@ Los archivos descargados incluyen un archivo predeterminado *AzureStackCloudCapa
 3.  Use el cmdlet Get-CloudCapabilities para recuperar las versiones de servicio y crear un archivo JSON de funcionalidades de la nube:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  - [Implementar plantillas en Azure Stack](azure-stack-arm-templates.md)
  - [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md)
 

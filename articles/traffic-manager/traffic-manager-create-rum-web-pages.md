@@ -4,7 +4,7 @@ description: "Configuración de páginas web para enviar medidas de usuarios rea
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
@@ -61,7 +61,7 @@ Después de haber obtenido la clave RUM, el siguiente paso es insertar este cód
 1.  Abra la página HTML en un editor de texto.
 2.  Pegue el código de JavaScript que ha copiado en el paso anterior en la sección de cuerpo de HTML (el código copiado está en línea 8 y 9, consulte la figura 3).
  
-    ![Inserción de código JavaScript en la página web para Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Inserción de código JavaScript en la página web para Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Figura 3: HTML simple con JavaScript insertado de Real User Measurements**
 
@@ -69,9 +69,9 @@ Después de haber obtenido la clave RUM, el siguiente paso es insertar este cód
 4. La próxima vez que se represente la página en un explorador web, el código JavaScript al que se hace referencia se descarga y el script ejecuta las operaciones de medidas e informes.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Obtenga más información sobre [Real User Measurements](traffic-manager-rum-overview.md).
 - Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-overview.md)
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
-- Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
+- Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
 

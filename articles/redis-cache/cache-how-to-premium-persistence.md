@@ -1,10 +1,10 @@
 ---
-title: "Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium"
-description: "Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Caché en Redis de Azure de nivel Premium"
+title: "Cómo configurar la persistencia de datos para Azure Redis Cache Premium"
+description: "Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Azure Redis Cache de nivel Premium"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: sdanie
-ms.openlocfilehash: 638f0154d3a4fd091197a2da86374a053b31c4c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
-Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Caché en Redis de Azure premium.
+# <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Cómo configurar la persistencia de datos para Azure Redis Cache Premium
+Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Azure Redis Cache premium.
 
 Para obtener información sobre otras características de caché Premium, consulte [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 
@@ -58,7 +58,7 @@ Para habilitar la persistencia de RDB, haga clic en **RDB**. Para deshabilitar l
 
 Para configurar el intervalo de copia de seguridad, seleccione una **Frecuencia de copia de seguridad** en la lista desplegable. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior y se inicia cuando se produce una nueva copia de seguridad.
 
-Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que quiere usar y, en el cuadro desplegable **Clave de almacenamiento**, elija la **clave principal** o la **clave secundaria** que se va a utilizar. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Almacenamiento Premium** porque el almacenamiento premium tiene un mayor rendimiento. 
+Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que quiere usar y, en el cuadro desplegable **Clave de almacenamiento**, elija la **clave principal** o la **clave secundaria** que se va a utilizar. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Premium Storage** porque Premium Storage tiene un mayor rendimiento. 
 
 > [!IMPORTANT]
 > Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**.
@@ -85,7 +85,7 @@ Para configurar la persistencia de AOF, especifique **Primera cuenta de almacena
 Cuando se habilita la persistencia de AOF, las operaciones de escritura en la memoria caché se guardan en la cuenta de almacenamiento designada (o las cuentas si ha configurado una segunda cuenta de almacenamiento). Si se produce un error catastrófico que daña la caché principal y de réplica, el registro de AOF almacenado se usa para regenerar la memoria caché.
 
 ## <a name="persistence-faq"></a>P+F de persistencia
-La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la persistencia de Caché en Redis de Azure.
+La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la persistencia de Azure Redis Cache.
 
 * [¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [¿Puedo habilitar la persistencia de AOF y RDB al mismo tiempo?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
@@ -179,10 +179,10 @@ Cuando la agrupación en clústeres está habilitada, cada partición de la memo
 Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las operaciones de reescritura se producen en segundo plano y se anexan al primer conjunto de archivos, mientras que las operaciones de conjunto que se envían a la memoria caché durante la reescritura se anexan al segundo conjunto. Durante las operaciones de reescritura se almacena de forma temporal una copia de seguridad por si hubiera un error, pero se elimina inmediatamente después de que finalice la reescritura.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
-* [Introducción al nivel Premium de Caché en Redis de Azure](cache-premium-tier-intro.md)
+* [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

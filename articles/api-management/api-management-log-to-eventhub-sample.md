@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de las API con Azure API Management, Event Hubs y Runscope
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio Administración de API mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel del portal de Publisher, pero aparte de eso, los detalles desaparecen.
@@ -166,7 +166,7 @@ En este ejemplo, se usa `EventProcessorHost` por motivos de simplicidad; sin emb
 ### <a name="ieventprocessor"></a>IEventProcessor
 El concepto central al usar `EventProcessorHost` es crear una implementación de la interfaz `IEventProcessor` que contenga el método `ProcessEventAsync`. La esencia de ese método se muestra aquí:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ Se pasa una lista de objetos EventData al método y realizamos la iteración en 
 ### <a name="httpmessage"></a>HttpMessage
 La instancia `HttpMessage` contiene tres elementos de datos:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ En este ejemplo, decidí que sería interesante insertar la solicitud de HTTP en
 
 Las implementación `IHttpMessageProcessor` tiene este aspecto:
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;
@@ -273,7 +273,7 @@ En la siguiente imagen animada, puede ver una solicitud realizada a una API en e
 ## <a name="summary"></a>Resumen
 El servicio Azure API Management proporciona un lugar ideal para capturar el tráfico HTTP hacia y desde la API. Azure Event Hubs es una solución altamente escalable y de bajo costo para capturar ese tráfico y colocarlo en sistemas de procesamiento secundario para registro, supervisión y otros análisis sofisticados. La conexión a sistemas de supervisión de tráfico de terceros como Runscope se reduce a unas cuantas docenas de líneas de código.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información acerca de Azure Event Hubs
   * [Introducción a Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

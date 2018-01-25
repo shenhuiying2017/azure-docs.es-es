@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Informe de uso sin licencia
 El informe de uso sin licencia ayuda a identificar usuarios sin licencia que utilizan características de Azure AD de pago, lo que permite hacer un mejor uso de las licencias que se han adquirido e identificar en qué momento se necesitan más licencias. 
@@ -25,7 +25,7 @@ El informe de uso sin licencia ayuda a identificar usuarios sin licencia que uti
 El informe muestra el uso activo de las características de pago en los últimos 30 días. 
 
 ## <a name="report-structure"></a>Estructura del informe
-| Nombre de la columna | Descripción |
+| Nombre de la columna | DESCRIPCIÓN |
 |:--- |:--- |
 | Usuario sin licencia |Nombre del usuario |
 | Característica |El nombre de la característica. Por ejemplo: acceso condicional |
@@ -41,7 +41,7 @@ A los usuarios sin licencia se les marcará cuando accedan a un servicio al que 
 
 Esto se aplica a las directivas de MFA/ubicación, así como a las directivas de dispositivos que usan Intune.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 * [Introducción al acceso condicional a Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

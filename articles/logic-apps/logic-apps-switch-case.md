@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Diferentes acciones en Logic Apps con una instrucción switch
 
@@ -31,10 +31,10 @@ Puede utilizar una instrucción switch para implementar estos escenarios. La apl
 > Al igual que todos los lenguajes de programación, la instrucción switch solo admite los operadores de igualdad. Utilice una instrucción de condición si necesita otros operadores relacionales, como "mayor que".
 > Para garantizar el comportamiento de ejecución determinístico, los casos deben contener un valor único y estático en lugar de tokens dinámicos o una expresión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Una suscripción de Azure activa. Si no tiene una suscripción de Azure activa, [cree una cuenta gratuita](https://azure.microsoft.com/free/) o pruebe [Logic Apps gratis](https://tryappservice.azure.com/).
-- [Conocimientos básicos acerca de Logic Apps](logic-apps-what-are-logic-apps.md)
+- [Conocimientos básicos acerca de Logic Apps](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Adición de una instrucción switch al flujo de trabajo
 
@@ -114,13 +114,13 @@ Ahora que ha creado correctamente una aplicación de lógica mediante una instru
 * `"cases"` puede contener cualquier número de casos. Para cada caso, `"Case *"` es el nombre predeterminado del caso; puede cambiar su nombre para mejorar la legibilidad. 
 `"case"` especifica la etiqueta del caso, que la expresión switch usa para la comparación, y debe ser un valor único y constante. Si ninguno de los casos coincide con la expresión switch, se ejecutan las acciones bajo `"default"`.
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 Para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Para ayudar a mejorar Azure Logic Apps y los conectores, vote o envíe ideas en el [sitio de comentarios de usuario de Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Aprenda cómo [agregar condiciones](logic-apps-use-logic-app-features.md).
 - Aprenda sobre el [control de errores y las excepciones](logic-apps-exception-handling.md).

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
@@ -46,8 +46,8 @@ Vista de lista que muestra cada ejecución de canalización para las canalizacio
 | Hora de inicio de la ejecución | Fecha y hora de inicio de la ejecución de canalización (MM/DD/AAAA HH: mm: SS a.m./p.m.) |
 | Duration | Duración de ejecución (HH) |
 | Desencadenado por | Desencadenador manual, desencadenador de programación |
-| Estado | No se pudo, Se realizó correctamente, En curso |
-| parameters | Canalización de parámetros de ejecución (nombre, pares de valor) |
+| Status | No se pudo, Se realizó correctamente, En curso |
+| Parámetros | Canalización de parámetros de ejecución (nombre, pares de valor) |
 | Error | Error de ejecución de canalización (if/any) |
 | Ejecutar identificador | Identificador de la ejecución de canalización |
 
@@ -62,7 +62,7 @@ Vista de lista muestra ejecuciones de actividad correspondiente a cada ejecució
 | Tipo de actividad | Tipo de la actividad es decir, copia, HDInsightSpark, HDInsightHive, etcetera. |
 | Hora de inicio de la ejecución | Hora y fecha de inicio de ejecución de actividad (MM/DD/AAAA HH:MM:SS a.m./p.m.) |
 | Duration | Duración de ejecución (HH) |
-| Estado | No se pudo, Se realizó correctamente, En curso |
+| Status | No se pudo, Se realizó correctamente, En curso |
 | Entrada | Matriz JSON que describe las entradas de actividad |
 | Salida | Matriz JSON que describe las salidas de actividad |
 | Error | Error de ejecución de actividad (if/any) |
@@ -112,6 +112,6 @@ Haga clic en el icono "Comentarios" para enviarnos comentarios de varias caracte
 
 ![Comentarios](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte el artículo [Supervisión y administración de canalizaciones mediante programación](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) para obtener información sobre la supervisión y administración de canalizaciones

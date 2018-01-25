@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>servicio de sfctl
 Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    app-name       | Obtiene el nombre de la aplicación de Service Fabric para un servicio.|
 |    code-package-list | Obtiene la lista de paquetes de código implementados en un nodo de Service Fabric.|
@@ -33,7 +33,7 @@ Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.
 |    delete         | Elimina un servicio existente de Service Fabric.|
 |    deployed-type  | Obtiene la información sobre un tipo de servicio especificado de la aplicación implementada en un nodo en un clúster de Service Fabric.|
 |    deployed-type-list| Obtiene la lista que contiene información sobre los tipos de servicio desde las aplicaciones implementadas en un nodo en el clúster de Service Fabric.|
-|    description    | Obtiene la descripción de un servicio de Service Fabric existente.|
+|    Descripción    | Obtiene la descripción de un servicio de Service Fabric existente.|
 |    health         | Obtiene el estado del servicio de Service Fabric especificado.|
 |    info           | Obtiene la información sobre el servicio específico que pertenece a una aplicación de Service Fabric.|
 |    list           | Obtiene la información sobre todos los servicios que pertenecen a la aplicación especificados por el identificador de la aplicación.|
@@ -54,7 +54,7 @@ Crea el servicio de Service Fabric especificado a partir de la descripción.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --app-id [Obligatorio]| La identidad de la aplicación principal. Suele ser el identificador completo de la aplicación sin el esquema URI "fabric:"1. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1' en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --name [Obligatorio]| Nombre del servicio. Debe ser un elemento secundario del identificador de la aplicación.           Se trata del nombre completo, incluido el URI `fabric:`. Por ejemplo, el servicio `fabric:/A/B` es un elemento secundario de la aplicación `fabric:/A`.|
@@ -87,7 +87,7 @@ Crea el servicio de Service Fabric especificado a partir de la descripción.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -102,7 +102,7 @@ Elimina un servicio existente de Service Fabric. Una servicio debe crearse para 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --force-remove      | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas.|
@@ -110,7 +110,7 @@ Elimina un servicio existente de Service Fabric. Una servicio debe crearse para 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
@@ -125,14 +125,14 @@ Obtiene la descripción de un servicio de Service Fabric existente. Debe crearse
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --timeout -t        | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
@@ -147,7 +147,7 @@ Obtiene la información de estado del servicio especificado. Use EventsHealthSta
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
@@ -157,7 +157,7 @@ Obtiene la información de estado del servicio especificado. Use EventsHealthSta
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                    | Muestra este mensaje de ayuda y sale.|
@@ -172,7 +172,7 @@ Devuelve la información sobre el servicio específico que pertenece a una aplic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1' en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
@@ -180,7 +180,7 @@ Devuelve la información sobre el servicio específico que pertenece a una aplic
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -195,7 +195,7 @@ Devuelve la información sobre todos los servicios que pertenecen a la aplicaci�
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1' en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --continuation-token    | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
@@ -204,7 +204,7 @@ Devuelve la información sobre todos los servicios que pertenecen a la aplicaci�
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -219,7 +219,7 @@ Obtiene el manifiesto que describe un tipo de servicio. La respuesta contiene el
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
 | --application-type-version [Obligatorio]| La versión del tipo de aplicación.|
@@ -228,7 +228,7 @@ Obtiene el manifiesto que describe un tipo de servicio. La respuesta contiene el
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                         | Muestra este mensaje de ayuda y sale.|
@@ -243,14 +243,14 @@ Indica al clúster de Service Fabric que debería intentar recuperar el servicio
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --timeout -t        | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
@@ -265,7 +265,7 @@ Resuelve una partición de servicio de Service Fabric para obtener los puntos de
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --partition-key-type| Tipo de clave para la partición. Este parámetro es obligatorio si el esquema de partición para el servicio es Int64Range o Con nombre. Los valores posibles son los siguientes. -Ninguno (1): indica que no se especifica el parámetro PartitionKeyValue. Esto es válido para las particiones con el esquema de partición como Singleton. Este es el valor predeterminado. El valor es 1. -Int64Range (2): indica que el parámetro PartitionKeyValue es una clave de partición int64. Esto es válido para las particiones con el esquema de partición como Int64Range. El valor es 2. - Con nombre (3): indica que el parámetro PartitionKeyValue es un nombre de la partición. Esto es válido para las particiones con el esquema de partición como Con nombre. El valor es 3.|
@@ -275,7 +275,7 @@ Resuelve una partición de servicio de Service Fabric para obtener los puntos de
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
@@ -288,7 +288,7 @@ Actualiza el servicio especificado con la descripción de actualización determi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio]| Servicio de destino que se va a actualizar. Este suele ser el identificador completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --constraints         | Las restricciones de colocación como una cadena. Las restricciones de colocación son expresiones booleanas en las propiedades del nodo y permiten restringir un servicio en nodos concretos según los requisitos de servicio. Por ejemplo, para colocar un servicio en los nodos en los que NodeType está en azul,  especifique lo siguiente: "NodeColor == blue".|
@@ -309,7 +309,7 @@ Actualiza el servicio especificado con la descripción de actualización determi
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
@@ -317,6 +317,6 @@ Actualiza el servicio especificado con la descripción de actualización determi
 | --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -3,8 +3,8 @@ title: Uso de Azure Redis Cache con Java | Microsoft Docs
 description: "Introducción a Azure Redis Cache usando Java"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/31/2017
-ms.author: sdanie
-ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: a93dbf78c9cb94f6c20c8569a69e068ceb3b98bc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>Uso de Azure Redis Cache con Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Azure Redis Cache le proporciona acceso a una caché en Redis dedicada, administ
 
 En este tema se explica cómo comenzar a usar Azure Redis Cache mediante Java.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [Jedis](https://github.com/xetorthio/jedis) - Cliente de Java para Redis
 
 Este tutorial usa Jedis, pero puede usar cualquier cliente de Java enumerado en [http://redis.io/clients](http://redis.io/clients).
@@ -78,7 +78,7 @@ Las últimas compilaciones de [jedis](https://github.com/xetorthio/jedis) permit
     }
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Habilite los diagnósticos de cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché.
 * Lea la [documentación de Redis](http://redis.io/documentation)oficial.
 * Aprenda a [configurar una aplicación Spring Initializr para usar Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md).

@@ -3,7 +3,7 @@ title: Conectores de la interfaz de usuario de Synchronization Service Manager d
 description: "Conozca la pestaña Conectores de Synchronization Service Manager para Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bbbe5d0d7a7ed7065133b4bc6e5fc2dba39bf7d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/11/2017
 La pestaña Conectores se usa para administrar todos los sistemas a los que está conectado el motor de sincronización.
 
 ## <a name="connector-actions"></a>Acciones del conector
-| Acción | Comentario |
+| . | Comentario |
 | --- | --- |
 | Crear |No usar. Para conectarse a los bosques de AD adicionales, use el Asistente para instalación. |
-| Propiedades |Se usa para el filtrado por dominio y unidad organizativa. |
+| Properties (Propiedades) |Se usa para el filtrado por dominio y unidad organizativa. |
 | [Eliminar](#delete) |Se usa para eliminar los datos en el espacio del conector o eliminar la conexión a un bosque. |
 | [Configurar perfiles de ejecución](#configure-run-profiles) |A excepción del filtrado de dominio, no es necesario configurar ninguna otra opción. Puede utilizar esta acción para ver los perfiles de ejecución ya configurados. |
 | Ejecute |Se usa para iniciar una ejecución única de un perfil. |
-| Detención |Detiene un conector que esté ejecutando un perfil. |
+| Stop |Detiene un conector que esté ejecutando un perfil. |
 | Exportar conector |No usar. |
 | Importar conector |No usar. |
 | Actualizar conector |No usar. |
@@ -90,7 +90,7 @@ Para resolver el problema, actualice la cuenta de usuario de AD DS mediante lo s
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

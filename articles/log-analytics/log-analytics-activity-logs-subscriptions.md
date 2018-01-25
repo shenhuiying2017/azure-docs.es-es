@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones
 
@@ -27,7 +27,7 @@ Si el área de trabajo de Log Analytics está en la misma suscripción de Azure,
 
 ## <a name="overview"></a>Información general
 
-La estrategia utilizada en este escenario consiste en que el registro de actividad de Azure envíe eventos a un [centro de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) en el que una [aplicación lógica](../logic-apps/logic-apps-what-are-logic-apps.md) los remita a su área de trabajo de Log Analytics. 
+La estrategia utilizada en este escenario consiste en que el registro de actividad de Azure envíe eventos a un [centro de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) en el que una [aplicación lógica](../logic-apps/logic-apps-overview.md) los remita a su área de trabajo de Log Analytics. 
 
 ![imagen del flujo de datos del registro de actividad a Log Analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -36,7 +36,7 @@ Las ventajas de este enfoque incluyen:
 - Se requiere un código mínimo y no hay que implementar ninguna infraestructura de servidor.
 
 En este artículo se explica cómo:
-1. Crear un centro de eventos. 
+1. Cree un centro de eventos. 
 2. Exportar registros de actividad a un centro de eventos mediante el perfil de exportación del registro de actividad de Azure.
 3. Crear una aplicación lógica que lea del centro de eventos y envíe los eventos a Log Analytics.
 
@@ -141,7 +141,7 @@ Para obtener el nombre y la cadena de conexión del centro de eventos, siga los 
 
 El diseñador de aplicaciones lógicas ahora muestra los conectores disponibles y sus desencadenadores, que utilizará para iniciar el flujo de trabajo de la aplicación lógica.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Adición del desencadenador del centro de eventos
 

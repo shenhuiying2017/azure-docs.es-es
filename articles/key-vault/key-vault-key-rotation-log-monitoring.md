@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro
 ## <a name="introduction"></a>Introducción
@@ -27,11 +27,11 @@ Una vez que haya creado el almacén de claves, podrá utilizarlo para guardar la
 En este artículo, se explica paso a paso un ejemplo sobre el uso de Azure Key Vault para guardar un secreto. En este caso, se trata de una clave de la cuenta de Azure Storage a la que accede una aplicación. El artículo también incluye una demostración de la implementación de una rotación programada de dicha clave. Por último, se explica paso a paso cómo supervisar los registros de auditoría del almacén de claves y cómo generar alertas cuando se realizan solicitudes inesperadas.
 
 > [!NOTE]
-> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración del almacén de claves mediante CLI](key-vault-manage-with-cli2.md).
+> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción a Azure Key Vault](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración de Key Vault mediante la CLI](key-vault-manage-with-cli2.md).
 >
 >
 
-## <a name="set-up-key-vault"></a>Configuración del Almacén de claves
+## <a name="set-up-key-vault"></a>Configuración de Key Vault
 Para que una aplicación pueda recuperar un secreto de Key Vault, primero debe crear el secreto y guardarlo en el almacén. Para ello, abra una sesión de Azure PowerShell e inicie sesión en su cuenta de Azure con el siguiente comando:
 
 ```powershell
@@ -157,7 +157,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Cuando ejecute la aplicación, debería estar autenticado en Azure Active Directory y recuperar el valor del secreto de Azure Key Vault.
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotación de claves mediante Azure Automation
-Existen varias opciones para implementar una estrategia de rotación de los valores que se guardan como secretos del Almacén de claves de Azure. Los secretos pueden rotarse mediante un proceso manual, mediante programación a través de llamadas a API o mediante un script de automatización. En este artículo, utilizaremos Azure PowerShell y Azure Automation para cambiar una clave de acceso de la cuenta de Azure Storage. A continuación, podrá actualizar un secreto del almacén de claves con esa nueva clave.
+Existen varias opciones para implementar una estrategia de rotación de los valores que se guardan como secretos de Azure Key Vault. Los secretos pueden rotarse mediante un proceso manual, mediante programación a través de llamadas a API o mediante un script de automatización. En este artículo, utilizaremos Azure PowerShell y Azure Automation para cambiar una clave de acceso de la cuenta de Azure Storage. A continuación, podrá actualizar un secreto del almacén de claves con esa nueva clave.
 
 Para que Azure Automation pueda establecer los valores del secreto en el almacén de claves, deberá obtener el identificador de cliente de la conexión AzureRunAsConnection que se creó al establecer la instancia de Azure Automation. Para encontrar este identificador, seleccione **Recursos** en la instancia de Azure Automation. A continuación, seleccione **Conexiones** y el nombre principal de servicio **AzureRunAsConnection**. Anote el **Identificador de la aplicación**.
 
@@ -385,7 +385,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 La función selecciona el archivo de registro más reciente de la cuenta de almacenamiento en la que se escriben los registros del almacén de claves, recopila los últimos eventos de ese archivo y los inserta en una cola de Service Bus. Como un único archivo puede tener varios eventos, debe crear un archivo sync.txt. La función también consultará este archivo para determinar la marca de tiempo del último evento seleccionado. De este modo, se asegura de que no se inserta el mismo evento varias veces. Este archivo sync.txt contiene la marca de tiempo del último evento encontrado. Cuando los registros se han cargado, deben ordenarse con arreglo a la marca de tiempo para garantizar que el orden es el correcto.
 
-En esta función, vamos a hacer referencia a un par de bibliotecas adicionales que no están disponibles de forma predeterminada en Funciones de Azure. Para incluir estas bibliotecas, necesitamos que Azure Functions las extraiga mediante NuGet. Elija la opción **Ver archivos**.
+En esta función, vamos a hacer referencia a un par de bibliotecas adicionales que no están disponibles de forma predeterminada en Azure Functions. Para incluir estas bibliotecas, necesitamos que Azure Functions las extraiga mediante NuGet. Elija la opción **Ver archivos**.
 
 ![Opción Ver archivos](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
@@ -416,11 +416,11 @@ Llegados a este punto, la función ya está lista. No olvide volver a la pestañ
 ### <a name="azure-logic-app"></a>Aplicación lógica de Azure
 Ahora, debe crear una aplicación lógica de Azure que seleccione los eventos que la función inserta en la cola de Service Bus, analice el contenido y envíe un correo electrónico si se cumple una determinada condición.
 
-[Cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en **Nuevo -&gt; Aplicación lógica**.
+[Cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en **Nuevo -&gt; Aplicación lógica**.
 
 Una vez creada, acceda a ella y elija **editar**. En el editor de la aplicación lógica, elija la **cola de Service Bus** y especifique las credenciales de Service Bus para conectarla a la cola.
 
-![Bus de servicio de la aplicación lógica de Azure](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
+![Service Bus de la aplicación lógica de Azure](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
 A continuación, elija **Agregar una condición**. En la condición, cambie al editor avanzado y escriba el código siguiente (no olvide cambiar APP_ID por el valor real de APP_ID de la aplicación web):
 

@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Cree, elimine y administre implementaciones de Docker Compose.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    create| Implemente una aplicación de Service Fabric desde un archivo de Compose.|
 |    list  | Obtiene la lista de implementaciones de Compose creadas en el clúster de Service Fabric.|
@@ -40,7 +40,7 @@ Crea una implementación de Compose de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --file-path [Obligatorio]| Ruta de acceso al archivo de destino de Docker Compose.|
  |   --deployment-name [Obligatorio]| Nombre de la implementación.|
@@ -51,7 +51,7 @@ Crea una implementación de Compose de Service Fabric.
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -66,7 +66,7 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta.      Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --max-results    | El número máximo de resultados que se devuelven como parte de las consultas paginadas.      Este parámetro define el límite superior en el número de resultados devueltos.      Si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración, los resultados devueltos pueden ser menos que el número máximo de resultados especificado. Si este parámetro es cero o no se especifica, las consultas paginadas incluyen tantos resultados como quepan en el mensaje devuelto.|
@@ -74,7 +74,7 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
@@ -89,14 +89,14 @@ Elimina una implementación existente de Compose de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --deployment-name [Obligatorio]| La identidad de la implementación. Este suele ser el nombre completo de la aplicación sin el esquema de URI 'fabric:'.|
 | --timeout -t            | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -111,14 +111,14 @@ Devuelve el estado de la implementación de Compose que se creó o está en proc
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --deployment-name [Obligatorio]| La identidad de la implementación. |
 | --timeout -t            | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
@@ -132,7 +132,7 @@ Inicia la actualización de una implementación de Compose en el clúster de Ser
 Valida los parámetros de actualización proporcionados e inicia la actualización de la implementación.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |    --file-path [Obligatorio]| Ruta de acceso al archivo de destino de Docker Compose.|
 |    --deployment-name [Obligatorio]| Nombre de la implementación.|
@@ -156,7 +156,7 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 |    --warning-as-error           | Las advertencias se tratan con el mismo nivel de gravedad que los errores.|
 
 ### <a name="global-arguments"></a>Argumentos globales
- |Argumento|Descripción|
+ |Argumento|DESCRIPCIÓN|
 | --- | --- |
 |   --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                    | Muestra este mensaje de ayuda y sale.|
@@ -165,6 +165,6 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
  |   --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
  |   --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

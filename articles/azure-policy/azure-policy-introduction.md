@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -38,7 +38,7 @@ Estos permisos no se incluyen en el rol **Colaborador**.
 
 Cada definición de directiva tiene condiciones que regulan su aplicación. Además, tiene una acción complementaria que lleva a cabo cuando se cumplen las condiciones.
 
-En Azure Portal, se ofrecen algunas directivas integradas que están disponibles de manera predeterminada. Por ejemplo:
+En Azure Portal, se ofrecen algunas directivas integradas que están disponibles de manera predeterminada. Por ejemplo: 
 
 - **Requerir SQL Server 12.0**: esta definición de directiva tiene condiciones o reglas para garantizar que todos los servidores SQL usen la versión 12.0. Su acción es denegar a todos los servidores que no cumplen con estos criterios.
 - **SUK de cuenta de almacenamiento permitida**: esta definición de directiva tiene un conjunto de condiciones o reglas que determinan si una cuenta de almacenamiento que se está implementado se encuentra dentro de un conjunto de tamaños de SKU. Su acción es denegar a todos los servidores que no cumplen con el conjunto de tamaños de SKU definidos.
@@ -118,7 +118,7 @@ Cuando cree y administre asignaciones y definiciones de directiva, se recomienda
 
    Tenga en cuenta que, una vez que crea una asignación de iniciativa desde una definición de iniciativa, cualquier definición de directiva nueva que se agregue a la definición de iniciativa se implementa automáticamente en las asignaciones de iniciativa bajo esa definición de iniciativa. Sin embargo, si se introduce un parámetro nuevo en la definición de directiva nueva, debe actualizar la definición de iniciativa y las asignaciones mediante la edición de la definición o la asignación de la iniciativa.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que tiene información general sobre Azure Policy y algunos de los conceptos clave que estamos presentando, sugerimos seguir estos pasos:
 

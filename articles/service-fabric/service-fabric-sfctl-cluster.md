@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|DESCRIPCIÓN|
 | --- | --- |
 |    code-versions| Obtiene una lista de versiones de código de tejido que se aprovisionan en un clúster de Service Fabric.|
 |    config-versions | Obtiene una lista de versiones de configuración de tejido que se aprovisionan en un clúster de Service Fabric.|
@@ -52,7 +52,7 @@ Obtiene el estado de un clúster de Service Fabric. Use EventsHealthStateFilter 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --applications-health-state-filter| Permite el filtrado de los objetos de estado de mantenimiento de aplicaciones devueltos en el resultado de la consulta de mantenimiento del clúster en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen un valor entero obtenido de los miembros u operaciones bit a bit en miembros de la enumeración HealthStateFilter. Solo se devuelven las aplicaciones que coinciden con el filtro.  Todas las aplicaciones se usan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
 | --events-health-state-filter   | Permite filtrar la colección de objetos HealthEvent devueltos en función del estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier valor de HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning.  El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
@@ -63,7 +63,7 @@ Obtiene el estado de un clúster de Service Fabric. Use EventsHealthStateFilter 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug                        | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                      | Muestra este mensaje de ayuda y sale.|
@@ -78,13 +78,13 @@ Obtiene el manifiesto de clúster de Service Fabric. El manifiesto de clúster c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --timeout -t| Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h| Muestra este mensaje de ayuda y sale.|
@@ -98,7 +98,7 @@ Valida y aprovisiona el código o los paquetes de configuración de un clúster 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--cluster-manifest-file-path| La ruta de acceso del archivo de manifiesto de clúster.|
 |    --code-file-path            | La ruta del archivo del paquete de código del clúster.|
@@ -106,7 +106,7 @@ Valida y aprovisiona el código o los paquetes de configuración de un clúster 
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h  | Muestra este mensaje de ayuda y sale.|
@@ -121,7 +121,7 @@ Si se conecta al clúster segura, especifique un archivo de certificado (.crt) y
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --endpoint [Obligatorio]| Dirección URL del punto de conexión del clúster, incluido el puerto y el prefijo HTTP o HTTPS.|
 | --aad             | Utilice Azure Active Directory para la autenticación.|
@@ -133,7 +133,7 @@ Si se conecta al clúster segura, especifique un archivo de certificado (.crt) y
 
 ### <a name="global-arguments"></a>Argumentos globales
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --debug           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h         | Muestra este mensaje de ayuda y sale.|
@@ -147,14 +147,14 @@ Deshace el aprovisionamiento del código o los paquetes de configuración de un 
 Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--code-version  | La versión del paquete de código del clúster.|
 |    --config-version| La versión del manifiesto de clúster.|
 |    --timeout -t    | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--debug         | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
  |   --help -h       | Muestra este mensaje de ayuda y sale.|
@@ -168,7 +168,7 @@ Comienza a actualizar la versión del código o de la configuración de un clús
 Valida los parámetros de actualización suministrados e inicia la actualización del código o de la versión de configuración de un clúster de Service Fabric si los parámetros son válidos.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |    --app-health-map                      | Diccionario codificado en JSON de pares de nombres de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error.|
  |   --app-type-health-map                 | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error.|
@@ -192,7 +192,7 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
  |   --warning-as-error                    | Las advertencias se tratan con el mismo nivel de gravedad que los errores.|
 
 ### <a name="global-arguments"></a>Argumentos globales
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 | --- | --- |
 |--debug                               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                             | Muestra este mensaje de ayuda y sale.|
@@ -200,6 +200,6 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 |    --query                               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 |    --verbose                             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

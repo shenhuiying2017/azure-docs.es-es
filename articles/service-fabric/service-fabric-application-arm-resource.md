@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
 
@@ -66,7 +66,7 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
 1. Prepare la plantilla de Resource Manager del clúster para la implementación. Para más información al respecto, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Piense en algunas de las aplicaciones que planea implementar en el clúster. ¿Habrá alguna que siempre esté en ejecución de la que puedan tener dependencias otras aplicaciones? ¿Tiene pensado implementar aplicaciones de configuración o de gobierno del clúster? Estos tipos de aplicaciones se administran mejor mediante una plantilla de Resource Manager, como se ha indicado anteriormente. 
 3. Una vez que ha estimado qué aplicaciones quiere implementar de esta forma, las aplicaciones se deben empaquetar, comprimir y colocar en un recurso compartido de archivos. El recurso compartido debe ser accesible a través de un punto de conexión de REST para que Azure Resource Manager lo use durante la implementación.
-4. En la plantilla de Resource Manager, debajo de la declaración del clúster, describe las propiedades de cada aplicación. Estas propiedades incluyen el recuento de instancias o réplicas y las cadenas de dependencia entre los recursos (otras aplicaciones o servicios). Para obtener una lista completa de propiedades, consulte la [especificación de Swagger de la API de REST](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Tenga en cuenta que esta especificación no sustituye a los manifiestos de aplicación o servicio, sino que describe algo de lo que contienen como parte de la plantilla de Resource Manager del clúster. A continuación se muestra una plantilla de ejemplo que incluye la implementación de un servicio sin estado *Service1* y un servicio con estado *Service2* como parte de *Application1*:
+4. En la plantilla de Resource Manager, debajo de la declaración del clúster, describe las propiedades de cada aplicación. Estas propiedades incluyen el recuento de instancias o réplicas y las cadenas de dependencia entre los recursos (otras aplicaciones o servicios). Para obtener una lista completa de propiedades, consulte la [especificación de Swagger de la API de REST](https://aka.ms/sfrpswaggerspec). Tenga en cuenta que esta especificación no sustituye a los manifiestos de aplicación o servicio, sino que describe algo de lo que contienen como parte de la plantilla de Resource Manager del clúster. A continuación se muestra una plantilla de ejemplo que incluye la implementación de un servicio sin estado *Service1* y un servicio con estado *Service2* como parte de *Application1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },
@@ -263,7 +263,7 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
 Si el clúster ya está activo y algunas de las aplicaciones que le gustaría administrar como recursos de Resource Manager ya están implementadas en él, en lugar de quitar las aplicaciones y volver a implementarlas, puede usar una llamada PUT con las mismas API para que las aplicaciones se confirmen como recursos de Resource Manager. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Use la [CLI de Service Fabric](service-fabric-cli.md) o [PowerShell](service-fabric-deploy-remove-applications.md) para implementar otras aplicaciones en el clúster. 
 * [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md)

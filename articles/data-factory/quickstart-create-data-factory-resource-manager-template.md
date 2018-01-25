@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 944310b802dafa15612fe92f4115a2e819436a6a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Versión 2: Versión preliminar](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Versión 2: versión preliminar](quickstart-create-data-factory-resource-manager-template.md) 
 
 En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
 
@@ -59,11 +59,12 @@ Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFTutor
             "type": "string",
             "allowedValues": [
                 "East US",
-                "East US 2"
+                "East US 2",
+                "West Europe"
             ],
             "defaultValue": "East US",
             "metadata": {
-                "description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
             }
         },
         "storageAccountName": {
@@ -646,5 +647,5 @@ Tenga en cuenta que el primer comando usa el archivo de parámetros para el ento
 También puede volver a usar la plantilla para llevar a cabo tareas repetidas. Por ejemplo, cree muchas factorías de datos con una o varias canalizaciones que implementen la misma lógica, pero cada factoría de datos usa cuentas de Azure Storage diferentes. En este escenario, usa la misma plantilla en el mismo entorno (desarrollo, prueba o producción) con distintos archivos de parámetros para crear factorías de datos. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Consulte los [tutoriales](tutorial-copy-data-dot-net.md) para obtener información acerca del uso de Data Factory en otros escenarios. 

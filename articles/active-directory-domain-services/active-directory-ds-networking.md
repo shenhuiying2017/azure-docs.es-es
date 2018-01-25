@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -74,15 +74,15 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 * Es obligatorio permitir el acceso a este puerto en el grupo de seguridad de red. Sin acceso a este puerto, el dominio administrado no está sincronizado con el directorio de Azure AD. Los usuarios no podrán iniciar sesión ya que los cambios en sus contraseñas no se sincronizan con el dominio administrado.
 * Puede restringir el acceso de entrada a este puerto a las direcciones IP que pertenezcan al intervalo de direcciones IP de Azure.
 
-**Puerto 5986 (comunicación remota de PowerShell)** 
+**Puerto 5986 (comunicación remota de PowerShell)**
 * Se usa para realizar tareas de administración usando la comunicación remota de PowerShell en el dominio administrado.
 * Es obligatorio permitir el acceso por este puerto en el grupo de seguridad de red. Sin acceso a este puerto, el dominio administrado no se puede actualizar, configurar, incluir en una copia de seguridad ni supervisar.
-* Puede restringir el acceso de entrada a este puerto a las siguientes direcciones IP de origen: : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Puede restringir el acceso de entrada a este puerto a las siguientes direcciones IP de origen: : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Los controladores de dominio para el dominio administrado no suelen escuchar en este puerto. El servicio abre este puerto en los controladores de dominio administrados solo cuando debe llevarse a cabo una operación de administración o mantenimiento para el dominio administrado. Tan pronto como finaliza la operación, el servicio cierra este puerto en los controladores de dominio administrados.
 
-**Puerto 3389 (Escritorio remoto)** 
-* Se utiliza para las conexiones de escritorio remoto a los controladores de dominio del dominio administrado. 
-* Es opcional abrir este puerto mediante el grupo de seguridad de red. 
+**Puerto 3389 (Escritorio remoto)**
+* Se utiliza para las conexiones de escritorio remoto a los controladores de dominio del dominio administrado.
+* Es opcional abrir este puerto mediante el grupo de seguridad de red.
 * Este puerto también permanece desactivado en gran medida en el dominio administrado. Este mecanismo no se utiliza de forma continuada, puesto que las tareas de administración y supervisión se realizan usando la comunicación remota de PowerShell. Este puerto se usa únicamente en el caso excepcional de que Microsoft necesite conectarse de forma remota al dominio administrado para llevar a cabo estrategias avanzadas para solucionar problemas. El puerto se cierra en cuanto se completa la operación de solución de problemas.
 
 **Puerto 636 (LDAP seguro)**
@@ -99,7 +99,7 @@ En la tabla siguiente se muestra un NSG de ejemplo que se puede configurar para 
 
 Además, el NSG muestra también cómo bloquear el acceso LDAP seguro a través de Internet. Omita esta regla si no ha habilitado el acceso de LDAP seguro al dominio administrado a través de Internet. NSG contiene un conjunto de reglas que permiten el acceso LDAPS de entrada a través del puerto TCP 636 solo desde un conjunto especificado de direcciones IP. La regla NSG para permitir el acceso LDAPS a través de Internet desde direcciones IP especificadas tiene una prioridad mayor que la regla NSG DenyAll.
 
-![NSG de muestra para el acceso LDAPS seguro a través de Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![NSG de muestra para el acceso LDAPS seguro a través de Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Más información** - [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
     ![Conectividad de Virtual Network mediante emparejamiento](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Más información: emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una instancia de VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
 
     ![Conectividad de Virtual Network mediante VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

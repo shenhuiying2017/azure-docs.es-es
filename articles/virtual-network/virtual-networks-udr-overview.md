@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -89,7 +89,7 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
     > [!NOTE]
     > Implemente una aplicación virtual en una subred diferente la que se encuentran los recursos que enrutan a través de la aplicación virtual. La implementación de la aplicación virtual en la misma subred y la posterior aplicación de una tabla de rutas en la subred que enruta el tráfico a través de la aplicación virtual pueden provocar bucles de enrutamiento, en los que el tráfico nunca sale de la subred.
 
-    - La dirección IP privada de un [equilibrador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. A menudo se usa un equilibrador de carga como parte de una [estrategia de alta disponibilidad para aplicaciones virtuales de red](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - La dirección IP privada de un [equilibrador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. A menudo se usa un equilibrador de carga como parte de una [estrategia de alta disponibilidad para aplicaciones virtuales de red](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Puede definir una ruta con 0.0.0.0/0 como prefijo de dirección y un tipo de próximo salto de la aplicación virtual, lo que permite a la aplicación inspeccionar el tráfico y determinar si el tráfico se debe reenviar o eliminar. Si tiene intención de crear una definida por el usuario que contenga el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0).
 
@@ -244,11 +244,11 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.0.0.0/8          |None                      |                   |
 |Valor predeterminado |Active |100.64.0.0/10       |None                      |                   |
 |Valor predeterminado |Active |172.16.0.0/12       |None                      |                   |
-|Valor predeterminado |Active |192.168.0.0/16      |Ninguna                      |                   |
+|Valor predeterminado |Active |192.168.0.0/16      |None                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Creación de una ruta definida por el usuario - Azure Portal](create-user-defined-route-portal.md)
 - [Configuración de BGP para Azure VPN Gateway con PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

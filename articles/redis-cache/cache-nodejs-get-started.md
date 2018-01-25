@@ -3,8 +3,8 @@ title: Uso de Azure Redis Cache con Node.js | Microsoft Docs
 description: "Introducción a Azure Redis Cache usando Node.js y node_redis."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
-ms.author: sdanie
-ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: e8b4818ad2b876ce4d55cf8aa2aa0e0162dea963
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Uso de Azure Redis Cache con Node.js
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Azure Redis Cache le proporciona acceso a una caché en Redis segura y dedicada,
 
 En este tema se explica cómo comenzar a usar Azure Redis Cache mediante Node.js. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Instale [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
@@ -82,7 +82,7 @@ Salida:
     value
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Habilite los diagnósticos de cache](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché.
 * Lea la [documentación de Redis](http://redis.io/documentation)oficial.
 

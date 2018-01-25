@@ -1,7 +1,7 @@
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
+## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
 Para usar Service Bus, descargue y use el paquete de Ruby de Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Uso de RubyGems para obtener el paquete
@@ -15,7 +15,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 require "azure"
 ```
 
-## <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
+## <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión de Service Bus
 Utilice el código siguiente para establecer los valores de espacio de nombres, nombre de la clave, clave, firmante y host:
 
 ```ruby

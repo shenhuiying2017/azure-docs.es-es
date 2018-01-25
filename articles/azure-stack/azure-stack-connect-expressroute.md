@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Conexión de Azure Stack a Azure mediante ExpressRoute
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Hay dos métodos admitidos para conectar redes virtuales de Azure Stack a redes virtuales de Azure:
    * **De sitio a sitio**
@@ -88,7 +88,7 @@ Utilice los procedimientos siguientes para crear los recursos de red necesarios 
 
    |Campo  |Valor  |
    |---------|---------|
-   |Nombre     |Tenant1VNet1         |
+   |NOMBRE     |Tenant1VNet1         |
    |Espacio de direcciones     |10.1.0.0/16|
    |Nombre de subred     |Tenant1-Sub1|
    |Intervalo de direcciones de subred     |10.1.1.0/24|
@@ -101,7 +101,7 @@ Utilice los procedimientos siguientes para crear los recursos de red necesarios 
 
     c. Haga clic en **Anclar al panel**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
 
 
 
@@ -128,7 +128,7 @@ Utilice los procedimientos siguientes para crear los recursos de red necesarios 
 7. En el campo **Nombre**, escriba **GW1 PiP** y haga clic en **Aceptar**.
 8. El **Tipo de VPN** debe tener seleccionada la opción **Route-based** (Basada en enrutamiento) de forma predeterminada.
     Mantenga este ajuste.
-9. Compruebe que la **Suscripción** y la **Ubicación** son correctas. Si lo desea, puede anclar el recurso al panel. Haga clic en **Crear**.
+9. Compruebe que la **Suscripción** y la **Ubicación** son correctas. Si lo desea, puede anclar el recurso al panel. Haga clic en **Create**(Crear).
 
 #### <a name="create-the-local-network-gateway"></a>Creación de la puerta de enlace de red local
 
@@ -172,7 +172,7 @@ Para validar los datos que se desplazan a través de la conexión VPN, es necesa
 5. Escriba un nombre de usuario y una contraseña válidos. Usará esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione **Suscripción**, **Grupo de recursos** y **Ubicación** y haga clic en **Aceptar**.
 7. En la sección **Tamaño**, haga clic en un tamaño de máquina virtual para esta instancia y luego haga clic en **Seleccionar**.
-8. En la sección **Configuración**, acepte los valores predeterminados. Pero asegúrese de que la red virtual seleccionada sea **Tenant1VNet1** y la subred esté establecida en **10.1.1.0/24**. Haga clic en **Aceptar**.
+8. En la sección **Configuración**, acepte los valores predeterminados. Pero asegúrese de que la red virtual seleccionada sea **Tenant1VNet1** y la subred esté establecida en **10.1.1.0/24**. Haga clic en **OK**.
 9. Revise la configuración en la sección **Resumen** y haga clic en **Aceptar**.
 
 Para cada VNet de inquilino a la que desee conectarse, repita los pasos anteriores de la sección **Creación de la red virtual y la subred de máquina virtual** a la **Creación de una máquina virtual**.
@@ -205,19 +205,22 @@ El enrutador es una máquina virtual Windows Server (**AzS-BGPNAT01**) que ejecu
    En los diagramas de ejemplo, la *Dirección de BGPNAT externo* es 10.10.0.62 y la *Dirección IP interna* es 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ El enrutador es una máquina virtual Windows Server (**AzS-BGPNAT01**) que ejecu
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ El enrutador es una máquina virtual Windows Server (**AzS-BGPNAT01**) que ejecu
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -564,5 +567,5 @@ Si desea saber la cantidad de tráfico que está pasando por la conexión, puede
 
    ![Datos de entrada y salida](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Implementar aplicaciones en Azure y Azure Stack](azure-stack-solution-pipeline.md)

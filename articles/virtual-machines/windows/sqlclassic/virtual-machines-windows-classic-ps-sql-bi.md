@@ -1,6 +1,6 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "En este tema se utilizan recursos creados con el modelo de implementación clásica y se describen las características de Business Intelligence (BI) disponibles para SQL Server cuando se ejecuta en máquinas virtuales de Azure."
+description: "En este tema se utilizan recursos creados con el modelo de implementación clásica y se describen las características de Business Intelligence (BI) disponibles para SQL Server cuando se ejecuta en Azure Virtual Machines."
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Máquinas virtuales de Azure
+# <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Azure Virtual Machines
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 La galería de máquinas virtuales de Microsoft Azure incluye  imágenes que contienen instalaciones de SQL Server. Las ediciones de SQL Server que se admiten en las imágenes de la galería son los mismos archivos de instalación que puede instalar en equipos locales y máquinas virtuales. En este tema se resumen las características de Business Intelligence (BI) de SQL Server instaladas en las imágenes, y los pasos de configuración necesarios después de aprovisionar una máquina virtual. En este tema también se describen las topologías de implementación admitidas para las características de BI y los procedimientos recomendados.
 
 ## <a name="license-considerations"></a>Consideraciones de licencias
-Hay dos maneras de conceder licencias de SQL Server en máquinas virtuales de Microsoft Azure:
+Hay dos maneras de conceder licencias de SQL Server en Microsoft Azure Virtual Machines:
 
 1. Ventajas de la movilidad de licencias que forman parte de Software Assurance. Para obtener más información, consulte [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/).
-2. Tarifa de pago por hora de máquinas virtuales de Azure con SQL Server instalado. Vea la sección "SQL Server" en [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+2. Tarifa de pago por hora de Azure Virtual Machines con SQL Server instalado. Vea la sección "SQL Server" en [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 Para obtener más información sobre las licencias y las tarifas actuales, vea [P+F sobre licencias de Máquinas virtuales](https://azure.microsoft.com/pricing/licensing-faq/%20/).
 
@@ -78,12 +78,12 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 | Característica de BI de SQL Server | Instalada en la imagen de la galería | Notas |
 | --- | --- | --- |
 | **Modo nativo de Reporting Services** |Sí |Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services). |
-| **Modo de SharePoint de Reporting Services** |No |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
+| **Modo de SharePoint de Reporting Services** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
 | **Minería de datos y multidimensional de Analysis Services (OLAP)** |Sí |Instalado y configurado como la instancia de Analysis Services predeterminada |
-| **Tabular de Analysis Services** |No |Se admite en imágenes de SQL Server 2012, 2014 y 2016, pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema. |
-| **Analysis Services PowerPivot para SharePoint** |No |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
+| **Tabular de Analysis Services** |Sin  |Se admite en imágenes de SQL Server 2012, 2014 y 2016, pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema. |
+| **Analysis Services PowerPivot para SharePoint** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
 
-<sup>1</sup> Para más información sobre SharePoint y las máquinas virtuales de Azure, consulte [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [Implementación de SharePoint en máquinas virtuales de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
+<sup>1</sup> Para más información sobre SharePoint y Azure Virtual Machines, consulte [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [Implementación de SharePoint en Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Ejecute el siguiente comando de PowerShell para obtener una lista de los servicios instalados que contienen "SQL" en el nombre del servicio.
 
@@ -98,7 +98,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
   * La política de almacenamiento en caché de unidad para la unidad predeterminada **C**: no es óptima para trabajar con datos.
   * La unidad **D**: es una unidad temporal que se usa principalmente para el archivo de paginación. La unidad **D**: no se conserva y no se guarda en el almacenamiento de blobs. Las tareas de administración como un cambio al tamaño de la máquina virtual restablecen la unidad de disco **D**:. Se recomienda **NO** usar la unidad **D**: para los archivos de bases de datos, incluido tempdb.
     
-    Para obtener más información sobre cómo crear y acoplar discos, consulte [Acoplamiento de un disco de datos a una máquina virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Para obtener más información sobre cómo crear y acoplar discos, consulte [Acoplamiento de un disco de datos a una máquina virtual](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Detenga o desinstale servicios que no planee usar. Por ejemplo, si la máquina virtual solo se usa para Reporting Services, detenga o desinstale Analysis Services y SQL Server Integration Services. La imagen siguiente es un ejemplo de los servicios que se inician de forma predeterminada.
   
     ![Servicios de SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -110,7 +110,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 * Consulte **Windows Update** para ver nuevas "Actualizaciones importantes". Las imágenes de máquina virtual de Microsoft Azure se actualizan con frecuencia; sin embargo, las actualizaciones importantes pueden estar disponibles en **Windows Update** después de la última actualización de la imagen de máquina virtual.
 
 ## <a name="example-deployment-topologies"></a>Topologías de implementación de ejemplo
-Las siguientes son las implementaciones de ejemplo que usan máquinas virtuales de Microsoft Azure. Las topologías de estos diagramas son solo algunas de las topologías posibles que puede usar con las funciones de SQL Server BI y las máquinas virtuales de Microsoft Azure.
+Las siguientes son las implementaciones de ejemplo que usan Microsoft Azure Virtual Machines. Las topologías de estos diagramas son solo algunas de las topologías posibles que puede usar con las funciones de SQL Server BI y Microsoft Azure Virtual Machines.
 
 ### <a name="single-virtual-machine"></a>Máquina virtual única
 Analysis Services, Reporting Services, el motor de base de datos de SQL Server y los orígenes de datos en una única máquina virtual.
@@ -130,7 +130,7 @@ Analysis Services, Reporting Services, el motor de base de datos de SQL Server y
 ![escenarios de máquina virtual de bi iaas y AzureSQL como origen de datos](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 
 ### <a name="hybrid-data-on-premises"></a>Híbrido: datos locales
-* En esta implementación de ejemplo, Analysis Services, Reporting Services y el motor de base de datos de SQL Server se ejecutan en una única máquina virtual. La máquina virtual hospeda las bases de datos del servidor de informes. La máquina virtual se une a un dominio local a través de la red virtual de Azure o alguna otra solución de tunelización de VPN.
+* En esta implementación de ejemplo, Analysis Services, Reporting Services y el motor de base de datos de SQL Server se ejecutan en una única máquina virtual. La máquina virtual hospeda las bases de datos del servidor de informes. La máquina virtual se une a un dominio local a través de Azure Virtual Network o alguna otra solución de tunelización de VPN.
 * El origen de datos es local.
 
 ![escenarios de máquina virtual de bi iaas y orígenes de datos locales](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
@@ -206,7 +206,7 @@ O:
 **Dirección URL del portal web o URL del Administrador de informes de 2012 y 2014:**
 
 1. En el panel izquierdo, haga clic en **URL del portal web** o **URL del Administrador de informes** para 2014 y 2012.
-2. Haga clic en **Apply**.
+2. Haga clic en **Aplicar**.
 3. En el panel **Resultados** , compruebe las acciones completadas correctamente.
 4. Haga clic en **Salir**.
 
@@ -223,7 +223,7 @@ Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012
 
 1. Crear un extremo para la máquina virtual del puerto 80 TCP Para obtener más información, vea la sección [Extremos de máquina virtual y puertos de firewall](#virtual-machine-endpoints-and-firewall-ports) de este documento.
 2. Abra el puerto 80 en el firewall de la máquina virtual.
-3. Navegue hasta el portal web o el administrador de informes. Como nombre de servidor en la URL, use el **nombre de DNS** de la máquina virtual de Azure. Por ejemplo:
+3. Navegue hasta el portal web o el administrador de informes. Como nombre de servidor en la URL, use el **nombre de DNS** de la máquina virtual de Azure. Por ejemplo: 
    
     **Servidor de informes**: http://uebi.cloudapp.net/reportserver **Portal web**: http://uebi.cloudapp.net/reports
    
@@ -287,7 +287,7 @@ En los pasos de esta sección se **resume** la instalación del modo tabular de 
 
 ## <a name="analysis-services-configuration"></a>Configuración de Analysis Services
 ### <a name="remote-access-to-analysis-services-server"></a>Acceso remoto al servidor de Analysis Services
-El servidor de Analysis Services solo admite la Autenticación de Windows. Para obtener acceso a Analysis Services de manera remota desde aplicaciones cliente como SQL Server Management Studio o SQL Server Data Tools, la máquina virtual debe estar unida al dominio local mediante la red virtual de Azure. Para obtener más información, consulte [Red virtual de Azure](../../../virtual-network/virtual-networks-overview.md).
+El servidor de Analysis Services solo admite la Autenticación de Windows. Para obtener acceso a Analysis Services de manera remota desde aplicaciones cliente como SQL Server Management Studio o SQL Server Data Tools, la máquina virtual debe estar unida al dominio local mediante la instancia de Azure Virtual Network. Para obtener más información, consulte [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).
 
 Una **instancia predeterminada** de Analysis Services escucha en el puerto TCP **2383**. Abra el puerto en el firewall de máquinas virtuales. Una instancia con nombre en clúster de Analysis Services también escucha en el puerto **2383**.
 
@@ -316,7 +316,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
   * Cree extremos de máquina virtual para los puertos anotados (*).
 * Si la máquina virtual se une a un dominio con un túnel VPN, como las redes virtuales de Azure, los extremos no son necesarios. Sin embargo, abra los puertos en el firewall en la máquina virtual.
   
-  | Port | Tipo | Description |
+  | Port | type | DESCRIPCIÓN |
   | --- | --- | --- |
   | **80** |TCP |Acceso remoto al servidor de informes (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -335,11 +335,11 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 ![puertos que deben abrirse para aplicaciones de bi en máquinas virtuales de Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>Recursos
-* Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad con características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para máquinas virtuales Azure](http://support.microsoft.com/kb/2721672).
-* [Información general sobre SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad con características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
+* [Información general sobre SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Acoplamiento de un disco de datos a una máquina virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Acoplamiento de un disco de datos a una máquina virtual](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migración de una base de datos a SQL Server en una máquina virtual de Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determinar el modo de servidor de una instancia de Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modelado multidimensional (Tutorial de Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
@@ -350,5 +350,5 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 > [Envíe comentarios e información de contacto a través de Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>Contenido de la Comunidad
-* [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [Administración de Azure SQL Database con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 

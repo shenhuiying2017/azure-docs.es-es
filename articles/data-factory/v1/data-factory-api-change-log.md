@@ -1,6 +1,6 @@
 ---
 title: 'Data Factory: registro de cambios de la API de .NET | Microsoft Docs'
-description: "Describe los cambios importantes, las adiciones de características y las correcciones de errores, entre otros, en una versión específica de la API de .NET para Factoría de datos de Azure."
+description: "Describe los cambios importantes, las adiciones de características y las correcciones de errores, entre otros, en una versión específica de la API de .NET para Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 92623b504341572e1b6fae18ba612bcab20162f1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 55a08d22c622c89b918d1bfadd0ce34b77c3d408
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="azure-data-factory---net-api-change-log"></a>Factoría de datos de Azure: registro de cambios de la API de .NET
+# <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: registro de cambios de la API de .NET
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. 
 
-En este artículo se proporciona información sobre los cambios realizados en el SDK de Factoría de datos de Azure en una versión específica. El paquete NuGet más reciente para Azure Data Factory se encuentra [aquí](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
+En este artículo se proporciona información sobre los cambios realizados en el SDK de Azure Data Factory en una versión específica. El paquete NuGet más reciente para Azure Data Factory se encuentra [aquí](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
 ## <a name="version-4110"></a>Versión 4.11.0
 Incorporación de características:
@@ -77,7 +77,7 @@ Incorporación de características:
 ### <a name="feature-additions"></a>Incorporación de características
 * Se han agregado los nuevos tipos StorageFormat y [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) para copiar archivos en el formato Optimized Row Columnar (ORC).
 * Se han agregado las propiedades [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) y PolyBaseSettings a SqlDWSink.
-  * Habilita el uso de PolyBase para copiar datos del Almacenamiento de datos SQL.
+  * Habilita el uso de PolyBase para copiar datos de SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versión 4.6.1
 ### <a name="bug-fixes"></a>Corrección de errores
@@ -184,4 +184,4 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 
 ### <a name="feature-additions"></a>Incorporación de características
 * La clase [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) admite dos nuevas propiedades, **SliceIdentifierColumnName** y **SqlWriterCleanupScript**, para permitir la copia idempotente en Azure SQL Data Warehouse. Consulte el artículo sobre [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) para obtener más información acerca de estas propiedades.
-* Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Para más información acerca de estas propiedades, consulte los artículos acerca de [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) y [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com.  
+* Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Azure SQL Database y Azure SQL Data Warehouse como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Para más información acerca de estas propiedades, consulte los artículos acerca de [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) y [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com.  

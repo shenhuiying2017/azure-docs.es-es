@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/03/2017
 Este artículo proporciona información sobre las funciones y las variables compatibles con Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variables del sistema de Data Factory
-| Nombre de la variable | Descripción | Ámbito del objeto | Ámbito JSON y casos de uso |
+| Nombre de la variable | DESCRIPCIÓN | Ámbito del objeto | Ámbito JSON y casos de uso |
 | --- | --- | --- | --- |
 | WindowStart |Inicio del intervalo de tiempo para la ventana de ejecución de la actividad actual |activity |<ol><li>Especifique las consultas de selección de datos. Consulte los artículos de conector indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) .</li> |
 | WindowEnd |Final del intervalo de tiempo para la ventana de ejecución de actividad actual |activity |igual que WindowStart. |
@@ -75,10 +75,10 @@ En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se a
 
 Consulte el tema [Cadenas con formato de fecha y hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa). 
 
-### <a name="functions"></a>Funciones
+### <a name="functions"></a>Functions
 Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 
-| Categoría | Función | Parámetros | Descripción |
+| Categoría | Función | Parámetros | DESCRIPCIÓN |
 | --- | --- | --- | --- |
 | Hora |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Agrega Y horas a la hora X determinada. <br/><br/>Ejemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Agrega Y minutos a X.<br/><br/>Ejemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -95,8 +95,8 @@ Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime  |Obtiene la fecha y hora que representa el final del día (componente de días) de X.<br/><br/>Ejemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime  |Obtiene el final del mes representado por el componente de mes del parámetro X. <br/><br/>Ejemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (fecha y hora que representan el final del mes de septiembre) |
 | Date |StartOfDay(X) |X: DateTime  |Obtiene el inicio del día representado por el componente de día del parámetro X.<br/><br/>Ejemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |From(X) |X: String |Analiza la cadena X en una fecha y hora. |
-| DateTime |Ticks(X) |X: DateTime  |Obtiene la propiedad ticks del parámetro X. Un ciclo es igual a 100 nanosegundos. El valor de esta propiedad representa el número de ciclos transcurridos desde la medianoche del 1 de enero de 0001. |
+| Datetime |From(X) |X: String |Analiza la cadena X en una fecha y hora. |
+| Datetime |Ticks(X) |X: DateTime  |Obtiene la propiedad ticks del parámetro X. Un ciclo es igual a 100 nanosegundos. El valor de esta propiedad representa el número de ciclos transcurridos desde la medianoche del 1 de enero de 0001. |
 | Texto |Format(X) |X: String variable |Formatea el texto (use la combinación `\\'` para aplicar el escape del carácter `'`).|
 
 > [!IMPORTANT]

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -66,7 +66,7 @@ Los datos de supervisión de la suscripción ahora fluyen a la cuenta de almacen
 
 Ahora configure los datos de nivel de recurso (métricas de recursos y registros de diagnóstico) que se enrutarán a la cuenta de almacenamiento mediante las opciones de **configuración de diagnóstico de recurso**.
 
-1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda y luego en **Configuración de diagnóstico**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor. Si no dispone de ningún recurso en esta lista, puede [crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) antes de continuar para tener un recurso en el que pueda definir una configuración de diagnóstico.
+1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda y luego en **Configuración de diagnóstico**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor. Si no dispone de ningún recurso en esta lista, puede [crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de continuar para tener un recurso en el que pueda definir una configuración de diagnóstico.
 
 2. Haga clic en un recurso de la lista y luego en **Activar diagnóstico**.
    
@@ -80,7 +80,7 @@ Ahora configure los datos de nivel de recurso (métricas de recursos y registros
 
    ![Sección Configuración de diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. Haga clic en el botón **Configurar** debajo de **Archivar en una cuenta de almacenamiento** y seleccione la cuenta de almacenamiento que creó en la sección anterior. Haga clic en **Aceptar**.
+4. Haga clic en el botón **Configurar** debajo de **Archivar en una cuenta de almacenamiento** y seleccione la cuenta de almacenamiento que creó en la sección anterior. Haga clic en **OK**.
 
    ![Cuenta de almacenamiento de configuración de diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
@@ -90,7 +90,7 @@ Ahora configure los datos de nivel de recurso (métricas de recursos y registros
    
 6. Establezca el control deslizante **Retención (días)** en 30. Este control deslizante establece un número de días para retener los datos de supervisión en la cuenta de almacenamiento. Azure Monitor elimina automáticamente los datos anteriores al número de días especificado. Con una retención de cero días, los datos se almacenan indefinidamente.
 
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento.
 
@@ -124,7 +124,7 @@ Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento
 
 9. En la sección que aparece, seleccione la cuenta de almacenamiento que creó en el paso **Crear una cuenta de almacenamiento** anterior.
 
-10. Haga clic en **Guardar**.
+10. Haga clic en **Save**(Guardar).
 
 Los datos de supervisión de las máquinas virtuales ahora fluyen a la cuenta de almacenamiento.
 
@@ -164,7 +164,7 @@ Ya ha configurado correctamente que los datos de supervisión se archiven en una
 
 5. Si ha creado una máquina virtual o aplicación lógica para los pasos anteriores, elimínelas también.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento. 
 

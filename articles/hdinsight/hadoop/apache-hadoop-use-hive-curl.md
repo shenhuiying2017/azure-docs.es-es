@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Hive con Hadoop en HDInsight con REST
 
@@ -50,7 +50,9 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 
     Debe recibir una respuesta similar al texto siguiente:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     Los parámetros que se utilizan en este comando son los siguientes:
 
@@ -65,7 +67,9 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 
     Esta solicitud devuelve una respuesta similar al texto siguiente:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Use lo siguiente para crear una tabla llamada **log4jLogs**:
 
@@ -105,7 +109,9 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 
    Este comando devuelve un identificador de trabajo que se pueda usar para comprobar el estado del trabajo.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Para revisar el estado del trabajo, use el siguiente comando:
 
@@ -156,7 +162,7 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](../hdinsight-debug-ambari-tez-view.md)
 
 Para obtener más información sobre la API de REST usada en este documento, consulte el documento [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) (Referencia de WebHCat).
 
