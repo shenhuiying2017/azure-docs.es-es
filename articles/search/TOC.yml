@@ -1,0 +1,218 @@
+- name: Documentación de Azure Search
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Search
+      href: search-what-is-azure-search.md
+- name: Inicios rápidos
+  items:
+    - name: Crear un servicio
+      href: search-create-service-portal.md
+    - name: Portal
+      items:
+        - name: Creación de un índice
+          href: search-create-index-portal.md
+        - name: Importar datos
+          href: search-import-data-portal.md
+        - name: Explorador de búsqueda
+          href: search-explorer.md
+    - name: .NET
+      items:
+        - name: Creación de un índice
+          href: search-create-index-dotnet.md
+        - name: Importar datos
+          href: search-import-data-dotnet.md
+        - name: Search
+          href: search-query-dotnet.md
+    - name: REST
+      items:
+        - name: Creación de un índice
+          href: search-create-index-rest-api.md
+        - name: Importar datos
+          href: search-import-data-rest-api.md
+        - name: Search
+          href: search-query-rest-api.md
+        - name: Prueba con clientes REST
+          href: search-fiddler.md
+- name: Tutoriales
+  items:
+    - name: 1 - Indexación de Azure SQL Database
+      href: search-indexer-tutorial.md
+    - name: 2 - Indexación de blobs de Azure
+      href: search-semi-structured-data.md
+    - name: 3 - Incorporación de sinónimos en .NET
+      href: search-synonyms-tutorial-sdk.md
+    - name: 4 - Tutorial del portal
+      href: search-get-started-portal.md
+- name: Muestras
+  items:
+    - name: Ejemplos de código de Azure
+      href: 'https://azure.microsoft.com/resources/samples/?service=search'
+    - name: Ejemplos de GitHub
+      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
+- name: Conceptos
+  items:
+    - name: Búsqueda de texto completo
+      href: search-lucene-query-architecture.md
+    - name: Indización
+      href: search-what-is-data-import.md
+    - name: Definición de índice
+      href: search-what-is-an-index.md
+    - name: Análisis lingüístico
+      href: search-analyzers.md
+- name: Guías de procedimientos
+  items:
+    - name: Planeamiento y diseño
+      items:
+        - name: Elección de una SKU
+          href: search-sku-tier.md
+        - name: Límites de servicio
+          href: search-limits-quotas-capacity.md
+        - name: Escalabilidad del servicio
+          href: search-capacity-planning.md
+        - name: Patrones de diseño para varios inquilinos
+          href: search-modeling-multitenant-saas-applications.md
+        - name: Rendimiento y optimización
+          href: search-performance-optimization.md
+    - name: Seguridad
+      items:
+        - name: Seguridad operativa y de datos
+          href: search-security-overview.md
+        - name: Protección mediante filtros de identidad
+          href: search-security-trimming-for-azure-search.md
+        - name: Protección mediante Active Directory
+          href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Desarrollo
+      items:
+        - name: Versiones de API
+          href: search-api-versions.md
+        - name: Desarrollo en .NET
+          href: search-howto-dotnet-sdk.md
+        - name: Desarrollo en Node.js
+          href: search-get-started-nodejs.md
+        - name: Desarrollo en Java
+          href: search-get-started-java.md
+        - name: Actualización del SDK
+          items:
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: SDK de administración de .NET
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: Actualización de la API de REST
+          href: search-api-migration.md
+        - name: Tipos de datos complejos de modelo
+          href: search-howto-complex-data-types.md
+        - name: Manejo de actualizaciones simultáneas
+          href: search-howto-concurrency.md
+        - name: Paginación de resultados
+          href: search-pagination-page-layout.md
+    - name: Análisis de texto
+      items:
+        - name: Analizadores de idiomas
+          href: 'https://docs.microsoft.com/rest/api/searchservice/language-support'
+        - name: Analizadores personalizados
+          href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
+    - name: Datos de indexación
+      items:
+        - name: Introducción a los indexadores
+          href: search-indexer-overview.md
+        - name: Indexador de Azure Blob Storage
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Indexador de Azure Table Storage
+          href: search-howto-indexing-azure-tables.md
+        - name: Indexador de Azure SQL
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Indexador de Azure Cosmos DB
+          href: search-howto-index-cosmosdb.md
+        - name: Indexación de blobs CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Indexación de blobs JSON
+          href: search-howto-index-json-blobs.md
+        - name: Configuración de conexiones de indexador a SQL Server en la máquina virtual de Azure
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Asignaciones de campos en indexadores
+          href: search-indexer-field-mappings.md
+    - name: Search
+      items:
+        - name: Construcción de consultas básicas
+          href: search-query-overview.md
+        - name: Sintaxis de consulta simplificada
+          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+        - name: Sintaxis de consulta de Lucene
+          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
+        - name: Ejemplos de consulta de sintaxis de Lucene
+          href: search-query-lucene-examples.md
+        - name: Navegación por facetas
+          href: search-faceted-navigation.md
+        - name: Perfiles de puntuación
+          href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
+        - name: Sugerencias
+          href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
+        - name: Sinónimos (en versión preliminar)
+          href: search-synonyms.md
+    - name: Filtros
+      items:
+        - name: Introducción sobre los filtros
+          href: search-filters.md
+        - name: Filtros de faceta
+          href: search-filters-facets.md
+        - name: Sintaxis de expresión de OData
+          href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
+    - name: Administración y análisis
+      items:
+        - name: Administración (portal)
+          href: search-manage.md
+        - name: PowerShell (Azure Search)
+          href: search-manage-powershell.md
+        - name: Supervisión del uso y las estadísticas
+          href: search-monitor-usage.md
+        - name: Búsqueda de análisis de tráfico
+          href: search-traffic-analytics.md
+- name: Referencia
+  items:
+    - name: .NET
+      href: /dotnet/api/?term=microsoft.azure.search
+    - name: .NET (administración)
+      href: /dotnet/api/?term=microsoft.azure.management.search
+    - name: Python (administración)
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
+    - name: REST
+      href: /rest/api/searchservice
+    - name: REST (administración)
+      href: /rest/api/searchmanagement
+    - name: REST de servicio (Versión preliminar)
+      href: search-api-2016-09-01-preview.md
+- name: Recursos
+  items:
+    - name: 'P+F: Preguntas más frecuentes'
+      href: search-faq-frequently-asked-questions.md
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/search/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Cursos y tutoriales
+      items:
+        - name: Vídeos y tutoriales
+          href: search-video-demo-tutorial-list.md
+        - name: Academia virtual
+          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
+    - name: Sitios de demostración
+      items:
+        - name: Demostración del analizador de búsquedas
+          href: 'http://alice.unearth.ai/'
+        - name: Aplicaciones de demostración en vivo
+          href: 'https://searchsamples.azurewebsites.net/'
+        - name: Aplicación de listados de trabajos
+          href: 'http://aka.ms/azjobsdemo'
+    - name: Partner y comunidad
+      items:
+        - name: Foro de MSDN sobre Azure Search
+          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
+        - name: Stackoverflow
+          href: 'http://stackoverflow.com/questions/tagged/azure-search'
+        - name: 'Blog: Modelado de datos relacionales'
+          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
+        - name: 'Blog: Aplicación de facetas de varios niveles'
+          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 | **Cliente para dispositivos móviles** | <ul><li>[Implementación de detección implícita de jailbreak o rooting](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referencia débil de clase en WCF](#weak-class-wcf)</li><li>[WCF: implementación de control de autorización](#wcf-authz)</li></ul> |
 | **API web** | <ul><li>[Implementación del mecanismo de autorización adecuado en ASP.NET Web API](#authz-aspnet)</li></ul> |
-| **Dispositivo de IoT** | <ul><li>[Realización de comprobaciones de autorización en el dispositivo si admite varias acciones que requieren distintos niveles de permiso](#device-permission)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Realización de comprobaciones de autorización en el dispositivo si admite varias acciones que requieren distintos niveles de permiso](#device-permission)</li></ul> |
 | **Puerta de enlace de campo de IoT** | <ul><li>[Realización de comprobaciones de autorización en la puerta de enlace de campo si admite varias acciones que requieren distintos niveles de permiso](#field-permission)</li></ul> |
 
 ## <a id="acl-restricted-access"></a>Comprobación de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo
@@ -400,7 +400,7 @@ return result;
 | **Pasos** | <p>Es posible obtener información de roles de los usuarios de la aplicación a partir de notificaciones ADFS o Azure AD si la aplicación los utiliza como proveedores de identidades o si la propia aplicación las proporciona. En cualquiera de estos casos, la implementación de la autorización personalizada debe validar la información de roles de usuario.</p><p>Es posible obtener información de roles de los usuarios de la aplicación a partir de notificaciones ADFS o Azure AD si la aplicación los utiliza como proveedores de identidades o si la propia aplicación las proporciona. En cualquiera de estos casos, la implementación de la autorización personalizada debe validar la información de roles de usuario.</p>
 
 ### <a name="example"></a>Ejemplo
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 Todos los controladores y métodos de acción que es necesario proteger deben contener el atributo anterior.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

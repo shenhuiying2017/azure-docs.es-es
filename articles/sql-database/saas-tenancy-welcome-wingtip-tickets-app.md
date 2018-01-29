@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/28/2017
 ---
-# <a name="the-wingtip-tickets-saas-application"></a>La aplicación SaaS Wingtip Tickets
+# <a name="the-wingtip-tickets-saas-application"></a>Aplicación SaaS Wingtip Tickets
 
 La misma aplicación *Wingtip Tickets* se implementa en cada uno de los tres ejemplos. La aplicación es una simple aplicación SaaS de lista de eventos y venta de entradas centrada en pequeños locales: teatros, clubes, etc. Cada local es un inquilino de la aplicación y tiene sus propios datos: detalles del local, listas de los eventos, clientes, pedidos de entradas, etc.  La aplicación, junto con los scripts de administración y los tutoriales, muestra un escenario completo de SaaS. Esto incluye aprovisionar los inquilinos, supervisar y administrar el rendimiento, la administración de esquemas y los informes y análisis entre inquilinos.
 

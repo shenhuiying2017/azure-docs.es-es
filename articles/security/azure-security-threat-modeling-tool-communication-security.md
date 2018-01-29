@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: Seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Centro de eventos de Azure** | <ul><li>[Protección de las comunicaciones con el centro de eventos mediante SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Comprobación de los privilegios de cuenta de servicio y de que las páginas de ASP.NET o los servicios personalizados respetan la seguridad de CRM](#priv-aspnet)</li></ul> |
-| **Factoría de datos de Azure** | <ul><li>[Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Comprobación de que todo el tráfico a Identity Server se transmite a través de una conexión HTTPS](#identity-https)</li></ul> |
 | **Aplicación web** | <ul><li>[Comprobación de certificados X.509 utilizados para autenticar las conexiones SSL, TLS y DTLS](#x509-ssltls)</li><li>[Configuración de un certificado SSL para un dominio personalizado en Azure App Service](#ssl-appservice)</li><li>[Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS](#appservice-https)</li><li>[Habilitación de seguridad de transporte estricto HTTP (HSTS)](#http-hsts)</li></ul> |
 | **Base de datos** | <ul><li>[Comprobación de cifrado de la conexión de SQL Server y validación de certificados](#sqlserver-validation)</li><li>[Aplicación forzosa de comunicación cifrada a SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
-| **Referencias**              | [Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure](../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Referencias**              | [Habilitación de HTTPS para una aplicación en Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Pasos** | De forma predeterminada, Azure ya habilita HTTPS para cada aplicación con un certificado comodín para el dominio *.azurewebsites.net. Sin embargo, al igual que todos los dominios comodín, no es tan seguro como usar un dominio personalizado con su propio certificado. [Más información](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Se recomienda habilitar SSL para el dominio personalizado a través del que se accederá a la aplicación implementada.|
 
 ## <a id="appservice-https"></a>Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS
@@ -200,7 +200,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | StorageType: archivo |
 | **Referencias**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Compatibilidad con SMB de Azure File Storage para clientes de Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
-| **Pasos** | Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite el cifrado, y se puede utilizar con Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio. |
+| **Pasos** | Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB asociado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite el cifrado, y se puede utilizar con Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio. |
 
 ## <a id="cert-pinning"></a>Implementación de asignación de certificados
 
@@ -214,7 +214,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Pasos** | <p>La asignación de certificados protege frente a ataques de tipo "man in the middle". La asignación es el proceso de asociar un host a su certificado X509 o clave pública esperados. Tras determinar el certificado o clave pública de un host, dicho certificado o clave pública se asocia o asigna al host. </p><p>De este modo, cuando un atacante intenta realizar un ataque de tipo "man in the middle" SSL, durante el protocolo de enlace SSL la clave del servidor del atacante será distinta a la clave del certificado asignado, por lo que la solicitud se descartará, lo que evita que pueda realizarse una asociación de certificados mediante ataque de tipo "man in the middle" al implementar el delegado `ServerCertificateValidationCallback` de ServicePointManager.</p>|
 
 ### <a name="example"></a>Ejemplo
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>Ejemplo 
 El código siguiente muestra un filtro de autenticación de API web que comprueba el estado de SSL: 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Añada este filtro a todas las acciones de API web que requieran SSL: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]
@@ -380,7 +380,7 @@ public class ValuesController : ApiController
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Soporte técnico de Azure Redis SSL](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Pasos** | El servidor de Redis no admite SSL desde el principio, pero Azure Redis Cache sí. Si se conecta a Azure Redis Cache y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para las instancias nuevas de Azure Redis Cache. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
+| **Pasos** | El servidor de Redis no admite SSL desde el principio, pero lo hace Azure Redis Cache. Si se conecta a Azure Redis Cache y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para las instancias nuevas de Azure Redis Cache. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
 
 Tenga en cuenta que Redis está diseñado para que puedan acceder clientes de confianza dentro de entornos de confianza. Por ello, normalmente no es recomendable exponer la instancia de Redis directamente a Internet o, en general, a un entorno desde el que clientes que no sean de confianza puedan acceder directamente el puerto TCP de Redis o a un socket de UNIX. 
 

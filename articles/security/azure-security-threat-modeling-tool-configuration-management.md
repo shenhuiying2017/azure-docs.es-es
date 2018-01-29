@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplicación web** | <ul><li>[Implementación de la directiva de seguridad de contenido [CSP] y deshabilitación de Javascript en línea](#csp-js)</li><li>[Habilitación del filtro XSS del explorador](#xss-filter)</li><li>[Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación](#trace-deploy)</li><li>[Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza](#js-trusted)</li><li>[Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic](#ui-defenses)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en las aplicaciones web ASP.NET](#cors-aspnet)</li><li>[Habilitación del atributo ValidateRequest en las páginas de ASP.NET](#validate-aspnet)</li><li>[Uso de las últimas versiones locales de las bibliotecas de JavaScript](#local-js)</li><li>[Deshabilitación del rastreo automático de MIME](#mime-sniff)</li><li>[Eliminación de encabezados de servidor estándar de los sitios web de Windows Azure para evitar la creación de huellas digitales](#standard-finger)</li></ul> |
 | **Base de datos** | <ul><li>[Configuración de Firewall de Windows para el acceso al motor de base de datos](#firewall-db)</li></ul> |
 | **API web** | <ul><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API](#cors-api)</li><li>[Cifrado de secciones de los archivos de configuración de la API web que contienen datos confidenciales](#config-sensitive)</li></ul> |
-| **Dispositivo de IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
 | **Puerta de enlace de campo de IoT** | <ul><li>[Cifrado del sistema operativo y particiones adicionales en la puerta de enlace de campo de IoT con Bitlocker](#field-bit-locker)</li><li>[Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación](#default-change)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Comprobación de que la puerta de enlace de la nube implementa un proceso para mantener actualizado el firmware de los dispositivos conectados](#cloud-firmware)</li></ul> |
 | **Límite de confianza de la máquina** | <ul><li>[Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas](#controls-policies)</li></ul> |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Ejemplo
 Ejemplo de directiva: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Esta directiva permite a los scripts cargar solo desde el servidor de la aplicación web y de Google Analytics. Se rechazarán los scripts que se carguen desde cualquier otro sitio. Cuando se habilita la CSP en un sitio web, para mitigar los ataques XSS, se deshabilitan automáticamente las siguientes características. 
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Ejemplo
 El encabezado X-FRAME-OPTIONS se puede establecer a través de web.config de IIS. Fragmento de código de web.config para los sitios que nunca deben enmarcarse: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ El encabezado X-FRAME-OPTIONS se puede establecer a través de web.config de IIS
 
 ### <a name="example"></a>Ejemplo
 Código de web.config para los sitios que solo deben enmarcar las páginas del mismo dominio: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -158,7 +158,7 @@ Si se puede acceder a web.config, CORS puede agregarse mediante el siguiente nod
 
 ### <a name="example"></a>Ejemplo
 Si no se puede acceder a web.config, CORS puede configurarse mediante la incorporación del código CSharp siguiente: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -226,7 +226,7 @@ Agregue el encabezado en el archivo web.config si la aplicación está hospedada
 
 ### <a name="example"></a>Ejemplo
 Agregue el encabezado mediante el método Application\_BeginRequest global. 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Ejemplo
 Implemente un módulo HTTP personalizado 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,7 +262,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>Ejemplo
 Puede habilitar el encabezado necesario solo para páginas específicas si lo agrega a respuestas individuales: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Ejemplo
 En App_Start/WebApiConfig.cs, agregue el siguiente código al método WebApiConfig.Register 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>Ejemplo
 El atributo de EnableCors se puede aplicar a métodos de acción en un controlador como se indica a continuación: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ Tenga en cuenta que es fundamental garantizar que la lista de orígenes del atri
 
 ### <a name="example"></a>Ejemplo
 Para deshabilitar CORS en un determinado método en una clase, se puede utilizar el atributo DisableCors tal y como se muestra a continuación: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Ejemplo
 Lo primero que se hace es llamar a UseCors con una expresión lambda. La expresión lambda toma un objeto CorsPolicyBuilder: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Ejemplo
 Lo segundo es definir una o varias directivas CORS con nombre y seleccionar la directiva por el nombre en tiempo de ejecución. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Ejemplo
 Por acción: para especificar una directiva de CORS para una acción específica, agregue el atributo [EnableCors] a la acción. Especifique el nombre de la directiva. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Ejemplo
 Por controlador: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Ejemplo
 Globalmente: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ Tenga en cuenta que es fundamental garantizar que la lista de orígenes del atri
 
 ### <a name="example"></a>Ejemplo
 Para deshabilitar CORS en una acción o un controlador, utilice el atributo [DisableCors]. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -584,7 +584,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Guía de seguridad de Azure Storage: administración de las claves de la cuenta de almacenamiento](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
-| **Pasos** | <p>Almacenamiento de claves: se recomienda almacenar las claves de acceso de almacenamiento de Azure en Azure Key Vault como secreto y hacer que las aplicaciones recuperen la clave del almacén. Se recomienda esto por los siguientes motivos:</p><ul><li>La aplicación nunca tendrá la clave de almacenamiento codificada de manera rígida en un archivo de configuración, lo que elimina la posibilidad de que alguien acceda a las claves sin permiso específico</li><li>El acceso a las claves se controla con Azure Active Directory. Esto significa que el propietario de la cuenta puede conceder acceso a la serie de aplicaciones que necesitan recuperar las claves de Azure Key Vault. Las demás aplicaciones no podrán acceder a las claves si no se les concede específicamente el permiso</li><li>Regeneración de claves: por motivos de seguridad, se recomienda disponer de un proceso para volver a generar las claves de acceso de almacenamiento de Azure. Los detalles sobre por qué y cómo planear la regeneración de claves se documentan en el artículo de referencia de la Guía de seguridad de Azure Storage</li></ul>|
+| **Pasos** | <p>Almacenamiento de claves: se recomienda almacenar las claves de acceso de Azure Storage en Azure Key Vault como secreto y hacer que las aplicaciones recuperen la clave del almacén. Se recomienda esto por los siguientes motivos:</p><ul><li>La aplicación nunca tendrá la clave de almacenamiento codificada de manera rígida en un archivo de configuración, lo que elimina la posibilidad de que alguien acceda a las claves sin permiso específico</li><li>El acceso a las claves se controla con Azure Active Directory. Esto significa que el propietario de la cuenta puede conceder acceso a la serie de aplicaciones que necesitan recuperar las claves de Azure Key Vault. Las demás aplicaciones no podrán acceder a las claves si no se les concede específicamente el permiso</li><li>Regeneración de claves: por motivos de seguridad, se recomienda disponer de un proceso para volver a generar las claves de acceso de almacenamiento de Azure. Los detalles sobre por qué y cómo planear la regeneración de claves se documentan en el artículo de referencia de la Guía de seguridad de Azure Storage</li></ul>|
 
 ## <a id="cors-storage"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage
 
