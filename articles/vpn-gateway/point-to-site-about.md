@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 010/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -36,7 +36,7 @@ La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 Si tiene un entorno de cliente mixto con dispositivos Windows y Mac, configure tanto SSTP como IKEv2.
 
 >[!NOTE]
->Actualmente, IKEv2 para P2S está en su versión preliminar y está disponible para el modelo de implementación del Administrador de recursos.
+>IKEv2 para P2S solo está disponible para el modelo de implementación del Administrador de recursos. No está disponible para el modelo de implementación clásico.
 >
 
 ## <a name="authentication"></a>¿Cómo se autentican los clientes VPN de punto a sitio?
@@ -57,28 +57,40 @@ La autenticación de dominio de AD permite a los usuarios conectarse a Azure con
 
 Los servidores RADIUS también se integran con otros sistemas de identidad externos. Esto abre una gran cantidad de opciones de autenticación para VPN P2S, incluidas las opciones de multifactor.
 
->[!NOTE]
->Actualmente, la autenticación RADIUS para P2S se encuentra en versión preliminar.
->
-
 ![point-to-site]](./media/point-to-site-about/p2s.png "De punto a sitio")
 
 ### <a name="configuration-requirements-for-client-devices"></a>Requisitos de configuración para los dispositivos cliente
 
 Los usuarios utilizan los clientes VPN nativos en los dispositivos Windows y Mac para P2S. Azure proporciona un archivo zip de configuración de cliente VPN con la configuración que necesitan estos clientes nativos para conectarse a Azure.
 
-  * Para los dispositivos Windows, la configuración de cliente VPN consta de un paquete de instalación que los usuarios instalan en sus dispositivos.
-  * Para los dispositivos Mac, consta del archivo mobileconfig que los usuarios instalan en sus dispositivos.
+* Para los dispositivos Windows, la configuración de cliente VPN consta de un paquete de instalación que los usuarios instalan en sus dispositivos.
+* Para los dispositivos Mac, consta del archivo mobileconfig que los usuarios instalan en sus dispositivos.
 
 El archivo zip también proporciona los valores de algunas de las opciones de configuración importantes del lado de Azure que puede usar para crear su propio perfil para estos dispositivos. Algunos de los valores incluyen la dirección de puerta de enlace de VPN, los tipos de túnel configurados, las rutas y el certificado raíz para la validación de la puerta de enlace.
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>¿Qué SKU de puerta de enlace admiten VPN de punto a sitio?
+>[!NOTE]
+>Para los clientes de Windows, debe tener derechos de administrador en el dispositivo de cliente para poder iniciar la conexión VPN desde el dispositivo cliente en Azure.
+>
+
+### <a name="gwsku"></a>¿Qué SKU de puerta de enlace admite VPN de P2S?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 * Las pruebas comparativas de rendimiento agregado se basan en las mediciones de varios túneles agregados a través de una sola puerta de enlace. No es un rendimiento garantizado debido a las condiciones del tráfico de Internet y a los comportamientos de las aplicaciones.
 * Puede encontrar más información sobre los precios en la página Precios. 
 * La información del SLA (acuerdo de nivel de servicio) puede encontrarse en la página SLA.
+
+>[!NOTE]
+>La SKU básica no admite la autenticación de IKEv2 o RADIUS.
+>
+
+## <a name="configure"></a>¿Cómo se puede configurar una conexión de P2S?
+
+En una configuración de P2S es necesario realizar unos pocos pasos específicos. En los siguientes artículos encontrará los pasos necesarios para realizar una configuración de P2S, así como vínculos para configurar los dispositivos de cliente VPN:
+
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md) (Configurar una conexión P2S: autenticación RADIUS)
+
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) (Configurar una conexión P2S: autenticación de certificados nativos de Azure)
 
 ## <a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
 
@@ -90,6 +102,6 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de conexiones de punto a sitio: autenticación con RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md) (Configurar una conexión P2S: autenticación RADIUS)
 
-[Configuración de conexiones de punto a sitio: autenticación con certificados nativos de Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) (Configurar una conexión P2S: autenticación de certificados nativos de Azure)

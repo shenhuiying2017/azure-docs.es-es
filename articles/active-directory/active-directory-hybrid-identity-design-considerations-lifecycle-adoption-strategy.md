@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de la estrategia de adopción de ciclo de vida de identidad híbrida | Microsoft Docs"
+title: "Diseño de identidades híbridas: estrategia de adopción de ciclo de vida en Azure | Microsoft Docs"
 description: "Ayuda a definir las tareas de administración de identidades híbridas según las opciones disponibles para cada fase del ciclo de vida."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -32,7 +33,7 @@ El control de acceso es una función crucial en un sistema centralizado de aprov
 
 Las cuentas en empresas de TI sofisticadas incluyen cientos de parámetros que definen las autoridades y estos detalles se pueden controlar mediante el sistema de aprovisionamiento. Los nuevos usuarios pueden identificarse con los datos que proporcione desde el origen de autoridad. La capacidad de aprobación de solicitudes de acceso inicia los procesos que aprueban (o rechazan) el aprovisionamiento de recursos para ellos.
 
-| Fase de administración del ciclo de vida | Local | Nube | Híbrida |
+| Fase de administración del ciclo de vida | Local | Nube | Híbrido |
 | --- | --- | --- | --- |
 | Aprovisionamiento y administración de cuentas |Mediante el rol del servidor Servicios de dominio de Active Directory® (AD DS), puede crear una infraestructura escalable, segura y administrable para la administración de recursos y usuarios, así como proporcionar compatibilidad con aplicaciones habilitadas para directorio, como Microsoft® Exchange Server. <br><br> [Puede aprovisionar grupos en AD DS a través de un administrador de identidad.](https://technet.microsoft.com/library/ff686261.aspx) <br>[Puede aprovisionar usuarios en AD DS.](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Los administradores pueden usar el control de acceso para administrar el acceso de usuarios a los recursos compartidos por seguridad. En Active Directory, el control de acceso se administra en el nivel de objeto; para ello, se establecen distintos niveles de acceso, o permisos, a los objetos, como Control total, Escritura, Lectura o Sin acceso. El control de acceso en Active Directory define cómo los distintos usuarios pueden usar objetos de Active Directory. De forma predeterminada, los permisos de los objetos de Active Directory se establecen en la configuración más segura. |Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio de nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea. Para obtener más información, consulte [Creación o edición de usuarios en Azure AD](active-directory-create-users.md). <br><br> Dentro de Azure Active Directory, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio o los recursos externos al directorio, como las aplicaciones SaaS, los servicios de Azure y los sitios de SharePoint o los recursos publicados en modo local. <br><br> En el centro de la solución de administración de acceso de Azure Active Directory se encuentra el grupo de seguridad. El propietario de los recursos (o el administrador del directorio) puede asignar un grupo para proporcionar determinados derechos de acceso a los recursos que posee. Los miembros del grupo recibirán el derecho de acceso y el propietario del recurso puede delegar el derecho de administración de la lista de miembros de un grupo en otra persona como, por ejemplo, un administrador de departamento o un administrador de soporte técnico.<br> <br> El tema Administración de grupos en Azure AD proporciona más información sobre la administración del acceso mediante grupos. |Amplíe las identidades de Active Directory a la nube por medio de la sincronización y la federación. |
 
@@ -72,7 +73,7 @@ Integración con otros proveedores
 Azure Active Directory ofrece inicio de sesión único y seguridad mejorada de acceso a aplicaciones para miles de aplicaciones SaaS y aplicaciones web locales. Para obtener una lista detallada de la galería de aplicaciones de Azure Active Directory con las aplicaciones SaaS compatibles, consulte la lista de compatibilidad de federación de Azure Active Directory, que incluye aquellos proveedores de identidad que sirven para implementar el inicio de sesión único.
 
 ## <a name="define-synchronization-management"></a>Definición de la administración de sincronización
-La integración de directorios locales con Azure AD hace que los usuarios sean más productivos al proporcionar una identidad común para acceder tanto a los recursos en la nube como a los locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
+la integración de directorios locales con Azure AD hace que los usuarios sean más productivos proporcionando una identidad común para tener acceso a recursos de nube y locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
 
 * Las organizaciones pueden proporcionar a los usuarios una identidad híbrida común entre servicios en la nube o locales al aprovechar Windows Server Active Directory y, a continuación, conectarse a Active Directory de Azure.
 * Los administradores pueden proporcionar acceso condicional basado en el recurso de la aplicación, dispositivo e identidad de usuario, ubicación de red y autenticación multifactor.

@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: fe3ea6c22fafad0d0dcf611ceb365a2ebca80011
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure SQL Data Warehouse
 
@@ -62,7 +62,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 3. Rellene el formulario SQL Data Warehouse con la siguiente información:   
 
-   | Configuración | Valor sugerido | Descripción | 
+   | Configuración | Valor sugerido | DESCRIPCIÓN | 
    | ------- | --------------- | ----------- | 
    | **Nombre de la base de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -73,7 +73,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | Descripción | 
+    | Configuración | Valor sugerido | DESCRIPCIÓN | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -90,7 +90,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Haga clic en **Apply**.
+8. Haga clic en **Aplicar**.
 9. En la página SQL Data Warehouse, seleccione una **intercalación** para la base de datos en blanco. En este tutorial, use el valor predeterminado. Para más información sobre las intercalaciones, vea [Collations](/sql/t-sql/statements/collations.md) (Intercalaciones)
 
 11. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
@@ -125,7 +125,7 @@ El servicio SQL Data Warehouse crea un firewall en el nivel de servidor, lo que 
 
 4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
 6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
@@ -152,7 +152,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-    | Configuración      | Valor sugerido | Descripción | 
+    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver-20171113.database.windows.net**. |
@@ -170,7 +170,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="create-a-user-for-loading-data"></a>Creación de un usuario para cargar datos
 
-La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. Normalmente, la carga de datos requiere una gran cantidad de memoria. Se definen [valores máximos de memoria](performance-tiers.md#memory-maximums) según el [nivel de rendimiento](performance-tiers.md) y la [clase de recurso](resource-classes-for-workload-management.md). 
+La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. La carga de datos es una operación que utiliza mucha memoria. Se definen [valores máximos de memoria](performance-tiers.md#memory-maximums) según el [nivel de rendimiento](performance-tiers.md) y la [clase de recurso](resource-classes-for-workload-management.md). 
 
 Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar datos. A continuación, agregue el usuario de carga a una [clase de recurso](resource-classes-for-workload-management.md) que permita una asignación de memoria máxima apropiada.
 
@@ -211,7 +211,7 @@ El primer paso para cargar datos es iniciar sesión como LoaderRC20.
 
     ![Conexión con nuevo inicio de sesión](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Escriba el nombre completo del servidor, pero esta vez escriba **LoaderRC20** como el inicio de sesión.  Escriba la contraseña para LoaderRC20.
+2. Escriba el nombre completo del servidor y escriba **LoaderRC20** como inicio de sesión.  Escriba la contraseña para LoaderRC20.
 
 3. Haga clic en **Conectar**.
 
@@ -452,6 +452,10 @@ Ejecute los siguientes scripts SQL para especificar información sobre los datos
 
 En esta sección se utilizan las tablas externas que acaba de definir para cargar los datos de ejemplo desde Azure Storage Blob en SQL Data Warehouse.  
 
+> [!NOTE]
+> En este tutorial se cargan los datos directamente en la tabla final. En un entorno de producción, normalmente se usa CREATE TABLE AS SELECT para cargar en una tabla de almacenamiento provisional. Con los datos en la tabla de almacenamiento provisional, puede realizar las transformaciones necesarias. Para anexar los datos de la tabla de almacenamiento provisional a una tabla de producción, use la instrucción INSERT...SELECT. Para más información, consulte [Inserción de datos en una tabla de producción](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> 
+
 El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) para cargar los datos de Azure Storage Blob en nuevas tablas en el almacenamiento de datos. CTAS crea una tabla nueva en función de los resultados de una instrucción select. La nueva tabla tiene las mismas columnas y los mismos tipos de datos que los resultados de la instrucción select. Cuando la instrucción select realiza la selección en una tabla externa, SQL Data Warehouse importa los datos en una tabla relacional en el almacenamiento de datos. 
 
 1. Ejecute el siguiente script para cargar los datos en tablas nuevas en el almacenamiento de datos.
@@ -567,7 +571,7 @@ El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/
 
 SQL Data Warehouse no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
-1. Ejecute estos comandos para crear estadísticas de columnas que suelen usarse en las combinaciones.
+Ejecute estos comandos para crear estadísticas de columnas que suelen usarse en las combinaciones.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -595,7 +599,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 5. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>pasos siguientes 
 En este tutorial, aprendió a crear un almacenamiento de datos y a crear un usuario para cargar datos. Creó tablas externas para definir la estructura de los datos almacenados en Azure Storage Blob y luego utilizó la instrucción CREATE TABLE AS SELECT de PolyBase para cargar datos en el almacenamiento de datos. 
 
 Hizo todo esto:

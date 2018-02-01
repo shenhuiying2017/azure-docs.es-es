@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Enrutamiento de mensajes con IoT Hub (Node)
 
@@ -89,7 +89,7 @@ En esta sección, se modifica la aplicación de dispositivo que creó en el tuto
     };
     ```
    
-    Con este método se agrega aleatoriamente la propiedad `"level": "critical"` y `"level": "storage"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones o uno que necesita almacenarse permanentemente. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+    Con este método se agrega aleatoriamente la propiedad `"level": "critical"` y `"level": "storage"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones o uno que necesita almacenarse permanentemente. La aplicación admite el enrutamiento de mensajes basado en el cuerpo del mensaje.
    
    > [!NOTE]
    > Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
@@ -105,7 +105,7 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][lnk-sb-queues-node]. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el centro de IoT y haga clic en **Endpoints** (Puntos de conexión).
+2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
 
     ![Puntos de conexión en IoT Hub][30]
 
@@ -222,13 +222,13 @@ En esta sección, se crea una cuenta de Storage, se conecta con el IoT Hub y se 
 
 1. En Azure Portal, vaya a la cuenta de almacenamiento en **Blob Service**, haga clic en **Examinar blobs...**.  Seleccione el contenedor, vaya al archivo JSON y haga clic en él. Después, haga clic en **Descargar** para ver los datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha aprendido a enviar de manera confiable mensajes del dispositivo a la nube mediante la funcionalidad de enrutamiento de mensajes de IoT Hub.
 
 El tutorial sobre [cómo enviar mensajes de dispositivo a la nube con IoT Hub][lnk-c2d] muestra cómo enviar mensajes a los dispositivos desde la solución de back-end.
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usan IoT Hub, consulte [Conjunto de aplicaciones de IoT de Azure][lnk-suite].
+Para ver ejemplos de soluciones completas de un extremo a otro que usan IoT Hub, consulte [Azure IoT Suite][lnk-suite].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -254,8 +254,7 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 [Guía del desarrollador de IoTHub de Azure]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-
-            [Introducción a Azure IoT Hub para .NET]: iot-hub-node-node-getstarted.md
+[Introducción a Azure IoT Hub para .NET]: iot-hub-node-node-getstarted.md
 [Centro para desarrolladores de Azure IoT]: https://azure.microsoft.com/develop/iot
 [Control de errores transitorios]: https://msdn.microsoft.com/library/hh675232.aspx
 

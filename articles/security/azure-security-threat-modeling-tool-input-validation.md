@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Ejemplo 
 
-```C#
+```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
@@ -50,14 +50,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ### <a name="example"></a>Ejemplo
 Si lo usa con MSXML 6.0, el scripting XSLT está deshabilitado de forma predeterminada. Sin embargo, debe asegurarse de que no se haya habilitado explícitamente por medio de la propiedad AllowXsltScript del objeto DOM XML. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Ejemplo
 Si usa MSXML 5 o una versión anterior, el scripting XSLT está habilitado de forma predeterminada y debe deshabilitarlo explícitamente. Establezca la propiedad AllowXsltScript del objeto DOM XML en false. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
@@ -144,7 +144,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 ### <a name="example"></a>Ejemplo
 Para el código de .NET Framework, puede usar los enfoques siguientes:
 
-```C#
+```csharp
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
 
@@ -162,7 +162,7 @@ Tenga en cuenta que el valor predeterminado de `ProhibitDtd` en `XmlReaderSettin
 ### <a name="example"></a>Ejemplo
 Para deshabilitar la resolución de entidades para XmlDocuments, use la sobrecarga `XmlDocument.Load(XmlReader)` del método Load y establezca las propiedades adecuadas en el argumento XmlReader para deshabilitar la resolución, como se muestra en el código siguiente: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
 XmlReader reader = XmlReader.Create(stream, settings);
@@ -173,7 +173,7 @@ doc.Load(reader);
 ### <a name="example"></a>Ejemplo
 Si no es posible deshabilitar la resolución de entidades para su aplicación, establezca la propiedad XmlReaderSettings.MaxCharactersFromEntities en un valor razonable según las necesidades de su aplicación. Esto limitará el impacto de posibles ataques DoS de expansión exponencial. En el código siguiente se muestra un ejemplo de este enfoque: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -181,9 +181,9 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Ejemplo
-Si tiene que resolver entidades en línea pero no necesita resolver externas, establezca la propiedad XmlReaderSettings.XmlResolver en null. Por ejemplo: 
+Si tiene que resolver entidades en línea pero no necesita resolver externas, establezca la propiedad XmlReaderSettings.XmlResolver en null. Por ejemplo:  
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -217,7 +217,7 @@ Tenga en cuenta que en MSXML6, ProhibitDTD está establecido en true (deshabilit
 ### <a name="example"></a>Ejemplo
 En lo que respecta al último punto sobre la validación de la firma de formato del archivo, consulte más detalles en la clase que sigue: 
 
-```C#
+```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
                     { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
@@ -333,7 +333,7 @@ En lo que respecta al último punto sobre la validación de la firma de formato 
 ### <a name="example"></a>Ejemplo 
 En el código siguiente, se muestra cómo usar parámetros con seguridad de tipos con SqlParameterCollection al llamar a un procedimiento almacenado. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -373,7 +373,7 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 
 ### <a name="example"></a>Ejemplo
 
-```C#
+```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -465,7 +465,7 @@ No utilice `innerHtml`; en su lugar, use `innerText`. Igualmente, en lugar de `$
 ### <a name="example"></a>Ejemplo
 Por ejemplo, la siguiente configuración produce una excepción RegexMatchTimeoutException si el procesamiento excede los 5 segundos: 
 
-```C#
+```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -483,7 +483,7 @@ Por ejemplo, la siguiente configuración produce una excepción RegexMatchTimeou
 ### <a name="example"></a>Ejemplo
 El siguiente ejemplo es inseguro: 
 
-```C#
+```csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -508,7 +508,7 @@ No utilice `Html.Raw()` a menos que necesite mostrar marcado. Este método no re
 ### <a name="example"></a>Ejemplo
 El ejemplo siguiente es de un procedimiento almacenado dinámico inseguro: 
 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -535,7 +535,7 @@ AS
 
 ### <a name="example"></a>Ejemplo
 Este es el mismo procedimiento almacenado pero implementado de forma segura: 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -568,7 +568,7 @@ AS
 ### <a name="example"></a>Ejemplo
 El código siguiente lo demuestra: 
 
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApi.Models
@@ -589,7 +589,7 @@ namespace MyApi.Models
 ### <a name="example"></a>Ejemplo
 En el método de acción de los controladores de API, la validez del modelo se debe comprobar explícitamente como se muestra a continuación: 
 
-```C#
+```csharp
 namespace MyApi.Controllers
 {
     public class ProductsController : ApiController
@@ -636,7 +636,7 @@ namespace MyApi.Controllers
 ### <a name="example"></a>Ejemplo
 En el código siguiente, se muestra cómo usar parámetros con seguridad de tipos con SqlParameterCollection al llamar a un procedimiento almacenado. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 

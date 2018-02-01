@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Introducción a las zonas de disponibilidad en Azure (versión preliminar)
 
@@ -31,6 +31,7 @@ Las zonas de disponibilidad ayudan a protegerse frente a errores en el nivel de 
 ## <a name="regions-that-support-availability-zones"></a>Regiones que admiten zonas de disponibilidad
 
 - Este de EE. UU. 2
+- Centro de EE. UU.
 - Europa occidental
 - Centro de Francia
 
@@ -40,14 +41,15 @@ Los servicios de Azure que admiten zonas de disponibilidad son:
 
 - Máquinas virtuales Linux
 - Máquinas virtuales Windows
-- Conjuntos de escalado de máquinas virtuales de zona
+- Conjuntos de escalado de máquina virtual
 - Managed Disks
 - Load Balancer
 - Dirección IP pública
+- Almacenamiento con redundancia de zona
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Introducción a la versión preliminar de las zonas de disponibilidad
 
-La versión preliminar de las zonas de disponibilidad está disponible en las regiones Este de EE. UU. 2, Europa Occidental y Centro de Francia para servicios específicos de Azure. 
+La versión preliminar de las zonas de disponibilidad está disponible en las regiones Este de EE. UU. 2, Centro de EE. UU., Europa Occidental y Centro de Francia para los servicios específicos de Azure. 
 
 1. [Registro para la versión preliminar de las zonas de disponibilidad](http://aka.ms/azenroll). 
 2. Inicie sesión en la suscripción de Azure.

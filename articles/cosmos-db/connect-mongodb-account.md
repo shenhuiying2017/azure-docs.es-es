@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
 Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos DB como almacén de datos de la aplicación MongoDB. 
@@ -75,5 +75,5 @@ Por ejemplo, considere la cuenta que aparece en la hoja **Cadena de conexión**.
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>pasos siguientes
-* Obtenga información sobre cómo [usar MongoChef](mongodb-mongochef.md) con una API de Azure Cosmos DB para una cuenta de MongoDB.
+* Obtenga información sobre cómo [usar Studio 3T (MongoChef)](mongodb-mongochef.md) con una cuenta de MongoDB API en Azure Cosmos DB.
 * Explore [ejemplos](mongodb-samples.md) de la API de Azure Cosmos DB para MongoDB.

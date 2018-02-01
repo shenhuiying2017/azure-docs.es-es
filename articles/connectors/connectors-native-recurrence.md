@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Programación con Logic Apps de tareas y flujos de trabajo ejecutados con regularidad
 
-Para programar tareas, acciones, cargas de trabajo o procesos que se ejecutan con regularidad, puede crear un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) **Schedule - Recurrence**. Con este desencadenador, puede establecer una fecha y hora para iniciar la periodicidad y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
+Para programar tareas, acciones, cargas de trabajo o procesos que se ejecutan con regularidad, puede crear un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Schedule - Recurrence**. Con este desencadenador, puede establecer una fecha y hora para iniciar la periodicidad y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
 
 * Obtener datos internos: [ejecutar un procedimiento almacenado de SQL](../connectors/connectors-create-api-sqlazure.md) cada día.
 * Obtener datos externos: extraer informes meteorológicos de NOAA cada 15 minutos.
@@ -42,15 +42,15 @@ Este desencadenador es compatible con muchos patrones, por ejemplo:
 
 Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejecuta una instancia nueva del flujo de trabajo de aplicación lógica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Adición de un desencadenador de periodicidad a la aplicación lógica
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). Cree una aplicación lógica en blanco u obtenga información [sobre cómo crear una aplicación lógica en blanco](../logic-apps/logic-apps-create-a-logic-app.md).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Cree una aplicación lógica en blanco u obtenga información [sobre cómo crear una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "recurrence". Seleccione el desencadenador **Schedule - Recurrence**. 
 
@@ -96,15 +96,15 @@ Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejec
 
 Puede configurar estas propiedades en el desencadenador de periodicidad.
 
-| Nombre | Obligatorio | Nombre de propiedad | Tipo | Descripción | 
+| NOMBRE | Obligatorio | Nombre de propiedad | type | DESCRIPCIÓN | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frecuencia** | Sí | frequency | String | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
+| **Frecuencia** | Sí | frequency | string | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
 | **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
-| **Zona horaria** | No | timeZone | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. | 
-| **Hora de inicio** | No | startTime | String | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p. m., especifique entonces "2017-09-18T14:00:00" y selecciona una zona horaria como Hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [*¿De qué formas puedo usar la fecha y hora de inicio?*](#start-time) | 
-| **En estos días** | No | weekDays | Cadena o matriz de cadenas | Si selecciona "Week", puede seleccionar uno o varios días en los que desea ejecutar el flujo de trabajo: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** y **Sunday** | 
-| **A estas horas** | No | hours | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede especificar uno o varios enteros de 0 a 23 como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
-| **En estos minutos** | No | minutes | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede seleccionar uno o varios enteros de 0 a 59 como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
+| **Zona horaria** | Sin  | timeZone | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. | 
+| **Hora de inicio** | Sin  | startTime | string | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p. m., especifique entonces "2017-09-18T14:00:00" y selecciona una zona horaria como Hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [*¿De qué formas puedo usar la fecha y hora de inicio?*](#start-time) | 
+| **En estos días** | Sin  | weekDays | Cadena o matriz de cadenas | Si selecciona "Week", puede seleccionar uno o varios días en los que desea ejecutar el flujo de trabajo: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** y **Sunday** | 
+| **A estas horas** | Sin  | hours | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede especificar uno o varios enteros de 0 a 23 como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
+| **En estos minutos** | Sin  | minutes | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede seleccionar uno o varios enteros de 0 a 59 como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
 ||||| 
 
 ## <a name="json-example"></a>Ejemplo JSON
@@ -140,7 +140,7 @@ Este es un ejemplo de definición de desencadenador de periodicidad:
 }
 ```
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 <a name="example-recurrences"></a>
 
@@ -200,7 +200,7 @@ En este escenario, el motor de Logic Apps calcula las horas de ejecución en fun
 
 Por tanto, en este escenario, no importa el tiempo que haya transcurrido desde que especificó la hora de inicio; por ejemplo, **05**-09-2017 a las 2:00 p. m. o **01**-09-2017 a las 2:00 p. m., ya que la hora de la primera ejecución es la misma.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Acciones y desencadenadores de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Conectores](../connectors/apis-list.md)

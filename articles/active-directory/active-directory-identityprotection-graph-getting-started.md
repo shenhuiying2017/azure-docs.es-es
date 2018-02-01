@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Azure Active Directory Identity Protection y Microsoft Graph | Microsoft Docs"
+title: Microsoft Graph para Azure Active Directory Identity Protection | Microsoft Docs
 description: "Obtenga información sobre cómo realizar una consulta a Microsoft Graph para obtener una lista de eventos de riesgo e información asociada desde Azure Active Directory."
 services: active-directory
 keywords: azure active directory identity protection, evento de riesgo, vulnerabilidad, directiva de seguridad, Microsoft Graph
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](active-directory-identityprotection.md). La primera API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](active-directory-identityprotection-risk-events-types.md) así como información asociada. Este artículo es una introducción a cómo consultar esta API. Para una introducción más detallada, consulte la documentación completa y el acceso al explorador de Graph en [sitio web de Microsoft Graph](https://graph.microsoft.io/).
@@ -75,7 +76,7 @@ Antes de comenzar, necesitará lo siguiente:
    
     c. En el cuadro de texto **URL de inicio de sesión**, escriba `http://localhost`.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
 
 4. Para abrir la página **Configuración**, en la lista de aplicaciones, haga clic en el registro de aplicación recién creado. 
 
@@ -132,7 +133,7 @@ Antes de comenzar, necesitará lo siguiente:
     
     b. Como **Duración**, seleccione **1 año**.
 
-    c. Haga clic en **Guardar**.
+    c. Haga clic en **Save**(Guardar).
    
     d. Copie el valor de clave y, a continuación, péguelo en una ubicación segura.   
    
@@ -206,12 +207,12 @@ Solo tiene que agregar el identificador de cliente, la clave secreta y el domini
     } 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Enhorabuena, acaba de hacer la primera llamada a Microsoft Graph.  
 Ahora puede consultar los eventos de riesgo de identidad y utilizar los datos cuando lo estime necesario.
 
-Para obtener más información sobre Microsoft Graph y cómo crear aplicaciones con la API Graph, consulte la [documentación](https://graph.microsoft.io/docs) y muchos más detalles en el [sitio web de Microsoft Graph](https://graph.microsoft.io/). Además, asegúrese de guardar en sus favoritos la página de las [API de Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) , donde se enumeran todas las API de Identity Protection disponibles en Graph. A medida que se agreguen nuevas formas de trabajar con Identity Protection a través de la API, los verá en la página.
+Para obtener más información sobre Microsoft Graph y cómo crear aplicaciones con Graph API, consulte la [documentación](https://graph.microsoft.io/docs) y muchos más detalles en el [sitio web de Microsoft Graph](https://graph.microsoft.io/). Además, asegúrese de guardar en sus favoritos la página de las [API de Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) , donde se enumeran todas las API de Identity Protection disponibles en Graph. A medida que se agreguen nuevas formas de trabajar con Identity Protection a través de la API, los verá en la página.
 
 Para obtener información relacionada, consulte:
 

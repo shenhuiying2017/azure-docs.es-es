@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Ejemplo de configuración: dispositivo Cisco ASA (IKEv2/no BGP)
 En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco Adaptive Security Appliance (ASA) a puertas de enlace de VPN de Azure. El ejemplo se aplica a dispositivos Cisco ASA que ejecutan IKEv2 sin Border Gateway Protocol (BGP). 
@@ -34,7 +34,7 @@ En este artículo se proporciona un ejemplo de configuración para conectar disp
 | Modelo probado           | ASA 5505                          |
 | Versión probada         | 9.2                               |
 | Versión de IKE            | IKEv2                             |
-| BGP                    | No                                |
+| BGP                    | Sin                                 |
 | Tipo de puerta de enlace de VPN de Azure | Puerta de enlace de VPN basada en rutas           |
 |                        |                                   |
 
@@ -98,10 +98,7 @@ En la tabla siguiente se enumeran los algoritmos y parámetros de IPsec o IKE qu
 
 * La compatibilidad con grupos DH y PFS por encima del Grupo 5, requiere la versión ASA 9.x.
 
-* La compatibilidad para cifrado IPsec con AES-GCM e integridad de IPsec con SHA-256, SHA-384 y SHA-512, requiere la versión ASA 9.x. Este requisito de compatibilidad se aplica a los dispositivos ASA más nuevos.
-
-    > [!NOTE]
-    > No se admiten los modelos de dispositivo ASA 5505, 5510, 5520, 5540, 5550 y 5580. Consulte las especificaciones del dispositivo VPN para asegurarse de que todos los algoritmos enumerados anteriormente son compatibles con los modelos de dispositivo VPN y las versiones de firmware.
+* La compatibilidad para cifrado IPsec con AES-GCM e integridad de IPsec con SHA-256, SHA-384 y SHA-512, requiere la versión ASA 9.x. Este requisito de compatibilidad se aplica a los dispositivos ASA más nuevos. En el modelo de la publicación, los modelos 5505, 5510, 5520, 5540, 5550 y 5580 de ASA no admiten estos algoritmos. Consulte las especificaciones del dispositivo VPN para asegurarse de que todos los algoritmos enumerados anteriormente son compatibles con los modelos de dispositivo VPN y las versiones de firmware.
 
 
 ### <a name="sample-device-configuration"></a>Ejemplo de configuración de dispositivo
@@ -310,5 +307,5 @@ Use los siguientes comandos de ASA para fines de depuración:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para configurar activo-activo entre entornos y las conexiones de red virtual a red virtual, consulte [Configuración de conexiones VPN activo-activo con puertas de enlace VPN](vpn-gateway-activeactive-rm-powershell.md).

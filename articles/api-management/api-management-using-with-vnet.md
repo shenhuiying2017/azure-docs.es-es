@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -28,7 +28,7 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 > Azure API Management admite redes virtuales clásicas y de Azure Resource Manager.
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -109,7 +109,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Comunicación de cliente con Administración de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Punto de conexión de administración para Azure Portal y Powershell |Interno |
-| * / 80, 443 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia de Azure Storage, Azure Service Bus y Azure Active Directory (donde corresponda).|Externa e interna | 
+| * / 80, 443 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Dependencia de Azure Storage**, Azure Service Bus y Azure Active Directory (cuando corresponda).|Externa e interna | 
 | * / 1433 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Acceso a los puntos de conexión de Azure SQL** |Externa e interna |
 | * / 5671, 5672 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |Externa e interna |
 | * / 445 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia del recurso compartido de archivos de Azure para Git |Externa e interna |

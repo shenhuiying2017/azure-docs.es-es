@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Problemas conocidos y preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics
 
@@ -148,10 +148,10 @@ La solución de copia de seguridad no puede recopilar datos si se instaló antes
 ## <a name="upgrade-process"></a>Proceso de actualización
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>Pregunta: Tengo varias áreas de trabajo. ¿Puedo actualizar todas las áreas de trabajo al mismo tiempo?  
-No.  La actualización se aplica a una sola área de trabajo cada vez. Actualmente no hay ninguna manera de actualizar muchas áreas de trabajo a la vez. Tenga en cuenta que otros usuarios del área de trabajo actualizada también se verán afectados.  
+Nº  La actualización se aplica a una sola área de trabajo cada vez. Actualmente no hay ninguna manera de actualizar muchas áreas de trabajo a la vez. Tenga en cuenta que otros usuarios del área de trabajo actualizada también se verán afectados.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>Pregunta: ¿Se modificarán los datos de los registros existentes recopilados en mi área de trabajo si la actualizo?  
-No. La actualización no afecta a los datos de los registros disponibles para las búsquedas en el área de trabajo. Las búsquedas, alertas y vistas guardadas se convertirán al nuevo lenguaje de búsqueda automáticamente.  
+Nº La actualización no afecta a los datos de los registros disponibles para las búsquedas en el área de trabajo. Las búsquedas, alertas y vistas guardadas se convertirán al nuevo lenguaje de búsqueda automáticamente.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Pregunta: ¿Qué sucede si no actualizo mi área de trabajo?  
 La búsqueda de registros heredada dejará de utilizarse en los próximos meses. Las áreas de trabajo que no se hayan actualizado en esa fecha se actualizarán automáticamente.
@@ -160,13 +160,12 @@ La búsqueda de registros heredada dejará de utilizarse en los próximos meses.
 Antes de la disponibilidad general, podía revertir el área de trabajo después de actualizar.  Ahora que el nuevo lenguaje alcanzó la disponibilidad general, se ha suprimido esta funcionalidad a medida que empezamos a retirar la plataforma anterior.
 
 
-
 ## <a name="views"></a>Vistas
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pregunta: ¿Cómo puedo crear una vista con el Diseñador de vistas?
-Antes de la actualización, podría crear una vista con el Diseñador de vistas de algún elemento del panel principal.  Cuando se actualiza el área de trabajo, este elemento se elimina.  Puede crear una vista con el Diseñador de vistas en el portal de OMS; para ello, haga clic en el botón + de color verde en el menú de la izquierda.
+Antes de la actualización, podría crear una vista con el Diseñador de vistas de algún icono del panel principal del Portal de OMS.  Cuando se actualiza el área de trabajo, este elemento se elimina.  Puede crear una vista con el Diseñador de vistas en el portal de OMS; para ello, haga clic en el botón + de color verde en el menú de la izquierda.  Continúe con la creación de una vista en Azure Portal; para ello, haga clic en el icono del Diseñador de vistas.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Obtenga más información sobre la [actualización del área de trabajo al nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md).

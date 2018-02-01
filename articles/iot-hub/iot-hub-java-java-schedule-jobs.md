@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
 
@@ -50,7 +50,7 @@ Al final de este tutorial, tendrá una aplicación de dispositivo de consola de 
 > [!NOTE]
 > En el artículo [SDK de IoT de Azure](iot-hub-devguide-sdks.md) se proporciona información sobre los SDK de IoT de Azure que se pueden usar para crear aplicaciones de dispositivo y de back-end.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -62,7 +62,7 @@ Para completar este tutorial, necesita:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Si prefiere crear la identidad del dispositivo mediante programación, lea la sección correspondiente en el artículo [Conexión del dispositivo en IoT Hub con Java](iot-hub-java-java-getstarted.md#create-a-device-identity). También puede usar la herramienta [iothub-explorer](https://github.com/Azure/iothub-explorer) para agregar un dispositivo a IoT Hub.
+Si prefiere crear la identidad del dispositivo mediante programación, lea la sección correspondiente en el artículo [Conexión del dispositivo en IoT Hub con Java](iot-hub-java-java-getstarted.md#create-a-device-identity). También puede usar la herramienta [extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) para agregar un dispositivo a su instancia de IoT Hub.
 
 ## <a name="create-the-service-app"></a>Creación de la aplicación de servicio
 
@@ -477,7 +477,7 @@ Ya está preparado para ejecutar las aplicaciones de consola.
 
     ![El cliente de dispositivo responde a los cambios](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Crea una aplicación de back-end para ejecutar dos trabajos. El primer trabajo establece los valores de la propiedad deseada, y el segundo llama a un método directo.
 

@@ -1,6 +1,6 @@
 ---
-title: "API de REST de búsqueda de registros de Log Analytics | Microsoft Docs"
-description: "Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de REST de búsqueda de Log Analytics en Operations Management Suite (OMS) y, además, brinda ejemplos que muestran cómo usar los comandos."
+title: "API de REST de búsqueda de registros de Azure Log Analytics | Microsoft Docs"
+description: "Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de REST de búsqueda de Azure Log Analytics con ejemplos que muestran cómo usar los comandos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,27 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API de REST de búsqueda de registros de Log Analytics
-Esta guía proporciona un tutorial básico, incluidos ejemplos, de cómo puede usar la API de REST de búsqueda de Log Analytics. Log Analytics forma parte de Operations Management Suite (OMS).
 
-> [!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), debe consultar la [documentación para la nueva versión de la API de búsqueda de registros](https://dev.loganalytics.io/).
+> [!IMPORTANT]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), debe consultar la [documentación para la nueva versión de la API de búsqueda de registros](https://dev.loganalytics.io/).  Esta API heredada puede funcionar aún con un área de trabajo actualizada, pero pronto quedará en desuso.  Debe modificar cualquier solución existente para utilizar la nueva API.
 
-> [!NOTE]
-> Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en el proveedor de recursos.
->
->
+Esta guía proporciona un tutorial básico, incluidos ejemplos, de cómo puede usar la API de REST de búsqueda de Log Analytics. 
+
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Información general sobre la API de REST de búsqueda de registros
-La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de Azure Resource Manager. En este artículo se proporcionan ejemplos de acceso a la API a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager. El uso de ARMClient es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Otra opción es utilizar el módulo Azure PowerShell para Operational Insights, que incluye cmdlets para obtener acceso a la búsqueda. Con estas herramientas, puede usar la API de Azure Resource Manager para realizar llamadas a las áreas de trabajo de OMS y ejecutar comandos de búsqueda dentro de ellas. La API genera resultados de búsqueda en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
+La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de Azure Resource Manager. En este artículo se proporcionan ejemplos de acceso a la API a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager. El uso de ARMClient es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Otra opción es utilizar el módulo Azure PowerShell para Operational Insights, que incluye cmdlets para obtener acceso a la búsqueda. Con estas herramientas, puede usar la API de Azure Resource Manager para realizar llamadas a las áreas de trabajo de Log Analytics y ejecutar comandos de búsqueda dentro de ellas. La API genera resultados de búsqueda en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 
 Azure Resource Manager se puede usar mediante una [biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) y la [API de REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Para más información, revise las páginas web vinculadas.
 
@@ -221,7 +218,7 @@ Métodos de colección admitidos: GET
 
 En la tabla siguiente se describen las propiedades que están disponibles.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Id |Identificador único. |
 | Etag |**Obligatoria para la revisión**. Actualizada por el servidor en cada escritura. El valor debe ser igual al valor actual almacenado o ' *' para actualizar. 409 devuelto para valores antiguos o no válidos. |
@@ -304,9 +301,9 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 
 | **Propiedad** | **Descripción** |
 | --- | --- |
-| name |Nombre del campo. |
+| Nombre |Nombre del campo. |
 | DisplayName |Nombre para mostrar del campo. |
-| type |Tipo del valor del campo. |
+| Tipo |Tipo del valor del campo. |
 | facetable |Combinación de las propiedades actuales ‘indexed’, ‘stored ‘y ‘facet’. |
 | display |Propiedad 'display' actual. True si el campo está visible en la búsqueda. |
 | ownerType |Se reduce a solo los tipos que pertenecen a las IP incorporadas. |
@@ -416,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [búsquedas de registros](log-analytics-log-searches.md) .

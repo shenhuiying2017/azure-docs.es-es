@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: ganesr
-ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -118,7 +118,7 @@ Con el emparejamiento de Microsoft se permite un número de sistema autónomo pr
 El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](expressroute-howto-routing-classic.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para más información sobre la configuración de las sesiones BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autónomo
-Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
+Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits. Requerimos un ASN registrado públicamente solo para el emparejamiento de Microsoft. Tanto el emparejamiento privado como el publico pueden usar ASN privados.
 
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
@@ -157,14 +157,14 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 | --- | --- |
 | **Norteamérica** | |
-| Este de EE. UU. | 12076:51004 |
+| Este de EE. UU | 12076:51004 |
 | Este de EE. UU. 2 | 12076:51005 |
-| Oeste de EE. UU. | 12076:51006 |
+| Oeste de EE. UU | 12076:51006 |
 | Oeste de EE. UU. 2 | 12076:51026 |
 | Centro occidental de EE.UU. | 12076:51027 |
 | Centro-Norte de EE. UU | 12076:51007 |
 | Centro-Sur de EE. UU | 12076:51008 |
-| Central EE. UU.: | 12076:51009 |
+| Central EE. UU: | 12076:51009 |
 | Centro de Canadá | 12076:51020 |
 | Este de Canadá | 12076:51021 |
 | **Sudamérica** | |
@@ -238,7 +238,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Dynamics 365 |12076:5140 |
 | Otros servicios en línea de Office 365 |12076:5200 |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Configure su conexión ExpressRoute.
   
   * [Creación y modificación de un circuito](expressroute-howto-circuit-arm.md)

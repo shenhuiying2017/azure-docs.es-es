@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: exploración de Azure Time Series Insights
 Esta guía de inicio rápido muestra cómo comenzar a trabajar con el explorador de Azure Time Series Insights en un entorno de demostración gratuito. Aprenderá a usar el explorador web para visualizar grandes volúmenes de datos de IoT y recorrerá las características clave del explorador de Time Series Insights. 
@@ -71,7 +71,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 Cuando termine la guía de inicio rápido, podrá experimentar con el conjunto de datos de ejemplo para crear visualizaciones distintas. 
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 Está listo para crear su propio entorno de Time Series Insights:
 > [!div class="nextstepaction"]
 > [Planeamiento del entorno de Time Series Insights](time-series-insights-environment-planning.md)

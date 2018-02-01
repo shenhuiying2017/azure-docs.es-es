@@ -1,9 +1,9 @@
 ---
-title: "Solución de problemas de Azure RBAC | Microsoft Docs"
+title: "Solución de problemas del control de acceso basado en rol (RBAC) de Azure | Microsoft Docs"
 description: Obtenga ayuda para los problemas o dudas que le surjan relativos a los recursos del control de acceso basado en roles.
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Solución de problemas del control de acceso basado en rol
+# <a name="troubleshooting-azure-role-based-access-control"></a>Solución de problemas del control de acceso basado en rol de Azure 
 
 En este artículo se responden preguntas comunes sobre de los derechos de acceso específicos que se conceden con roles, para que sepa qué esperar cuando usa los roles de Azure Portal y pueda solucionar problemas de acceso. Estos tres roles abarcan todos los tipos de recursos:
 
@@ -63,7 +64,7 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
 * Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-* Las reglas de alertas  
+* Reglas de alertas  
 * Opciones de escala automática  
 * Componentes de Application Insights  
 * Pruebas web  
@@ -75,16 +76,16 @@ Las máquinas virtuales están relacionadas con los nombres de dominio, las rede
 
 Estos elementos requieren acceso de **escritura** a la **máquina virtual**:
 
-* Extremos  
+* Puntos de conexión  
 * Direcciones IP  
 * Discos  
 * Extensiones  
 
 Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo de recursos** (junto con el nombre de dominio) donde se encuentran:  
 
-* El conjunto de disponibilidad  
+* Conjunto de disponibilidad  
 * El conjunto de carga equilibrada  
-* Las reglas de alertas  
+* Reglas de alertas  
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 

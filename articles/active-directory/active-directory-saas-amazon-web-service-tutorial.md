@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: integración de Azure Active Directory con Amazon Web Service (AWS)
 
@@ -32,7 +32,7 @@ La integración de Amazon Web Services (AWS) con Azure AD proporciona las siguie
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Amazon Web Services (AWS), necesita los siguientes elementos:
 
@@ -131,6 +131,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
     c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+
+    d. En el cuadro de texto **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
     
     d. Haga clic en **Aceptar**.
 
@@ -218,7 +220,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 21. Use credenciales de cuenta de servicio de AWS para obtener los roles de cuenta de AWS en aprovisionamiento de usuarios de Azure AD. Para ello, abra la página principal de la consola de AWS.
 
-22. Haga clic en **Services** -> **Security, Identity & Compliance** -> **IAM** (Servicios > Seguridad, Identidad y Cumplimiento > IAM).
+22. Haga clic en **Servicios** -> **Seguridad, identidad y cumplimiento** -> **IAM**.
 
     ![obtención de roles de la cuenta de AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
@@ -230,19 +232,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Creación de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Cree su propia directiva para obtener todos los roles de cuentas de AWS. En la sección **Create your own policy** (Creación de su propia directiva), haga clic en el botón **Select** (Seleccionar).
-    
+25. Cree su propia directiva para obtener todos los roles de las cuentas de AWS con estos pasos:
+
     ![Creación de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Siga estos pasos para definir la nueva directiva:
+    a. En la sección **"Crear directiva"**, haga clic en la pestaña **"JSON"**.
 
-    ![Definición de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. En **Policy Name** (Nombre de la directiva), especifique **AzureAD_SSOUserRole_Policy**.
-
-    b. En **Description** (Descripción), puede describir la directiva como **Esta directiva permitirá obtener los roles de cuentas de AWS**.
-    
-    c. En el documento de la directiva, agregue el siguiente JSON.
+    b. En el documento de la directiva, agregue el siguiente JSON.
     
     ```
     
@@ -271,13 +267,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     }
     
     ```
+
+    c. Haga clic en el botón **Revisar directiva** para validar la directiva.
+
+    ![Definición de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Defina la **directiva nueva** con estos pasos:
+
+    ![Definición de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. En **Policy Name** (Nombre de la directiva), especifique **AzureAD_SSOUserRole_Policy**.
+
+    b. En **Description** (Descripción), puede describir la directiva como **Esta directiva permitirá obtener los roles de cuentas de AWS**.
     
-    d. Asegúrese de seleccionar **Use autoformatting for policy editing** (Usar formato automático para edición de directiva).
-    
-    e. Haga clic en el botón **Validate Policy** (Validar directiva) situado en la parte inferior.
-    
-    f. Una vez que se ha validado correctamente la directiva, a continuación, puede hacer clic en el botón **Create Policy** (Crear directiva).
-    
+    c. Haga clic en el botón **"Crear directiva"**.
+        
 27. Cree una nueva cuenta de usuario en el servicio IAM de AWS mediante los pasos siguientes:
 
     a. Haga clic en el panel de navegación **Users** (Usuarios) en la consola de IAM de AWS.

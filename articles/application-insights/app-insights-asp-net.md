@@ -11,78 +11,74 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2017
+ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: d94abbd24aee5217cc460e0c48df177aaff80920
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
-Este procedimiento configura una aplicación web de ASP.NET para que envíe datos de telemetría al servicio [Azure Application Insights](app-insights-overview.md). Funciona en las aplicaciones ASP.NET que se hospedan en su propio servidor IIS o en la nube. Obtenga gráficos y un eficaz lenguaje de consulta que le ayudarán a conocer el rendimiento de la aplicación y cómo la usan las personas, más alertas automáticas cuando aparezcan errores o haya problemas de rendimiento. Muchos desarrolladores consideran que estas características son excelentes tal y como están, pero si necesita ampliar y personalizar la telemetría, puede hacerlo.
+Este procedimiento configura una aplicación web de ASP.NET para que envíe datos de telemetría al servicio [Azure Application Insights](app-insights-overview.md). Funciona en las aplicaciones ASP.NET que se hospedan en su propio servidor IIS local o en la nube. Obtenga gráficos y un eficaz lenguaje de consulta que le ayudarán a conocer el rendimiento de la aplicación y cómo la usan las personas, más alertas automáticas cuando aparezcan errores o haya problemas de rendimiento. Muchos desarrolladores consideran que estas características son excelentes tal y como están, pero si necesita ampliar y personalizar la telemetría, puede hacerlo.
 
 Su instalación se realiza desde Visual Studio con unos pocos clics. Tiene la opción para evitar cargos. Para ello, solo debe limitar el volumen de la telemetría. Esto le permite probar y depurar un sitio con no muchos usuarios, o incluso supervisarlo. Si decide que desea supervisar su sitio de producción, no le costará trabajo aumentar el límite más adelante.
 
-## <a name="before-you-start"></a>Antes de comenzar
-Necesita:
+## <a name="prerequisites"></a>requisitos previos
+Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
-* Visual Studio 2013, actualización 3 o superior. Es mejor que sea superior.
-* Una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarla a ella con su [cuenta Microsoft](http://live.com).
+- Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+    - ASP.NET y desarrollo web
+    - Desarrollo de Azure
 
-Si está interesado, puede examinar otros temas:
-
-* [Instrumentación de aplicaciones web en tiempo de ejecución con Application Insights](app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud Services](app-insights-cloudservices.md)
+Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="ide"></a>Paso 1: Agregue el SDK de Application Insights
 
-Haga clic con el botón derecho en su proyecto de aplicación web en el Explorador de soluciones y elija **Agregar** > **Telemetría de Application Insights...**  o **Configurar Application Insights**.
+Haga clic con el botón derecho en el nombre de la aplicación web en el Explorador de soluciones y seleccione **Configurar Application Insights**.
 
-![Captura de pantalla del Explorador de soluciones, con Agregar telemetría de Application Insights resaltado](./media/app-insights-asp-net/appinsights-03-addExisting.png)
+![Captura de pantalla del Explorador de soluciones, con Configurar Application Insights resaltado](./media/app-insights-asp-net/0001-configure-application-insights.png)
 
-(En Visual Studio 2015, también hay una opción para agregar Application Insights en el cuadro de diálogo Nuevo proyecto.)
+(En función de la versión del SDK de Application Insights que tenga, puede que se le solicite que actualice a la versión más reciente. Si se le solicita, seleccione **Actualizar SDK**.)
 
-Vaya a la página de configuración de Application Insights:
+![Hay una nueva versión disponible del SDK de Microsoft Application Insights. Actualización del SDK resaltado](./media/app-insights-asp-net/0002-update-sdk.png)
 
-![Captura de pantalla de la página Registre la aplicación en Application Insights](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+Pantalla Configuración de Application Insights:
 
-**a.** Seleccione la cuenta y la suscripción que usa para acceder a Azure.
+Seleccione **Comenzar gratis**.
 
-**b.** Seleccione el recurso de Azure en el que desea ver los datos de la aplicación. Por lo general:
+![Captura de pantalla de la página Registre la aplicación en Application Insights](./media/app-insights-asp-net/0004-start-free.png)
 
-* Use un [único recurso para diferentes componentes](app-insights-monitor-multi-role-apps.md) de una sola aplicación. 
-* Cree recursos independientes para las aplicaciones no relacionadas.
- 
 Si desea establecer el grupo de recursos o la ubicación en que se almacenan los datos, haga clic en **Parámetros de configuración**. Los grupos de recursos se utilizan para controlar el acceso a los datos. Por ejemplo, si tiene varias aplicaciones que forman parte del mismo sistema, puede poner sus datos de Application Insights en el mismo grupo de recursos.
 
-**c.** Para evitar cargos, ponga un tope en el límite de volumen de datos gratuito. Application Insights es gratuito hasta un volumen de telemetría determinado. Una vez que se crea el recurso, puede cambiar la opción seleccionadas en el portal. Para ello, es preciso abrir **Características y precios** >  **Administración de datos** > **Límite de volumen diario**.
+ Seleccione **Registrar**. 
 
-**d.** Haga clic en **Registrar** para avanzar y configurar Application Insights para su aplicación web. La telemetría se enviará a [Azure Portal](https://portal.azure.com), durante la depuración y después de que se haya publicado la aplicación.
+![Captura de pantalla de la página Registre la aplicación en Application Insights](./media/app-insights-asp-net/0005-register-ed.png)
 
-**e.** Si no desea enviar datos de telemetría al portal mientras se lleva a cabo una depuración, agregue el SDK de Application Insights a la aplicación, pero no configure ningún recurso en el portal. Durante la depuración podrá ver la telemetría en Visual Studio. Posteriormente, puede volver a esta página de configuración, o bien puede esperar hasta que haya implementado la aplicación y [activar la telemetría en tiempo de ejecución](app-insights-monitor-performance-live-website-now.md).
-
+ La telemetría se enviará a [Azure Portal](https://portal.azure.com), durante la depuración y después de que se haya publicado la aplicación.
+> [!NOTE]
+> Si no desea enviar datos de telemetría al portal mientras se lleva a cabo una depuración, agregue el SDK de Application Insights a la aplicación, pero no configure ningún recurso en el portal. Durante la depuración puede ver la telemetría en Visual Studio. Posteriormente, puede volver a esta página de configuración, o bien puede esperar hasta que haya implementado la aplicación y [activar la telemetría en tiempo de ejecución](app-insights-monitor-performance-live-website-now.md).
 
 ## <a name="run"></a>Paso 2: Ejecute la aplicación
 Ejecute la aplicación con F5. Abra distintas páginas para generar telemetría.
 
-En Visual Studio, aparece un recuento de los eventos que se han registrado.
+En Visual Studio, verá un recuento de los eventos que se han registrado.
 
-![Captura de pantalla de Visual Studio. El botón Application Insights se muestra durante la depuración.](./media/app-insights-asp-net/54.png)
+![Captura de pantalla de Visual Studio. El botón Application Insights se muestra durante la depuración.](./media/app-insights-asp-net/0006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>Paso 3: Vea su telemetría
 La telemetría se puede ver en Visual Studio o en el portal web de Application Insights. Busque telemetría en Visual Studio, ya que le ayudará a depurar la aplicación. Supervise el rendimiento y uso en el portal web cuando el sistema esté activo. 
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Visualización de datos de telemetría en Visual Studio
 
-En Visual Studio, abra la ventana de Application Insights. Haga clic en el botón **Application Insights** o haga clic con el botón derecho en el Explorador de soluciones, seleccione **Application Insights** y, después, haga clic en el proyecto en **Buscar telemetría activa**.
+En Visual Studio, para ver los datos de Application Insights.  Seleccione **Explorador de soluciones** > **Servicios conectados** > haga clic con el botón derecho en **Application Insights**y, a continuación, haga clic en **Buscar telemetría activa**.
 
-En la ventana de búsqueda de Application Insights de Visual Studio, en la vista de **datos de la sesión de depuración** encontrará la telemetría generada en el lado del servidor de la aplicación. Experimente con los filtros y haga clic en cualquier evento para ver más información al respecto.
+En la ventana de búsqueda de Application Insights de Visual Studio, puede ver los datos de la aplicación para la telemetría generada en el lado servidor de la aplicación. Experimente con los filtros y haga clic en cualquier evento para ver más información al respecto.
 
 ![Captura de pantalla de la vista de datos de la sesión de depuración en la ventana de Application Insights.](./media/app-insights-asp-net/55.png)
 
-> [!NOTE]
+> [!Tip]
 > Si no ve datos, asegúrese de que el intervalo de tiempo es correcto y haga clic en el icono de búsqueda.
 
 [Más información acerca de las herramientas de Application Insights en Visual Studio](app-insights-visual-studio.md).
@@ -92,12 +88,7 @@ En la ventana de búsqueda de Application Insights de Visual Studio, en la vista
 
 La telemetría también se puede ver en el portal web de Application Insights (salvo que se elija instalar solo el SDK). El portal tiene más gráficos, herramientas de análisis y vistas de componentes que Visual Studio. El portal también ofrece alertas.
 
-Abra el recurso de Application Insights. Inicie sesión en [Azure Portal](https://portal.azure.com/) y búsquelo allí, o haga clic en el proyecto en Visual Studio y deje que lo lleve allí.
-
-![Captura de pantalla de Visual Studio, en la que se muestra cómo abrir el portal de Application Insights](./media/app-insights-asp-net/appinsights-04-openPortal.png)
-
-> [!NOTE]
-> Si recibe un error de acceso, es posible que tenga más de un conjunto de credenciales de Microsoft y que haya iniciado sesión con el erróneo. En el portal, cierre la sesión y vuelva a iniciarla.
+Abra el recurso de Application Insights. Inicie sesión en [Azure Portal](https://portal.azure.com/) y búsquelo allí o seleccione **Explorador de soluciones** > **Servicios conectados** > haga clic con el botón derecho en  **Application Insights** > **Abrir portal de Application Insights** y deje que le lleve allí.
 
 El portal se abrirá en una vista de los datos de telemetría de su aplicación.
 
@@ -121,7 +112,7 @@ También puede seguir analizando la telemetría en [Visual Studio](app-insights-
 
 ## <a name="land"></a>Ya está listo
 
-¡Enhorabuena! Ha instalado el paquete de Application Insights en la aplicación y lo ha configurado para que envíe telemetría al servicio Application Insights en Azure.
+Felicidades. Ha instalado el paquete de Application Insights en la aplicación y lo ha configurado para que envíe telemetría al servicio Application Insights en Azure.
 
 ![Diagrama del movimiento de la telemetría](./media/app-insights-asp-net/01-scheme.png)
 
@@ -129,7 +120,7 @@ El recurso de Azure que recibe la telemetría de la aplicación se identifica me
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Actualización a futuras versiones del SDK
-Para actualizar a una [nueva versión del SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), vuelva a abrir el **Administrador de paquetes NuGet** y filtre por los paquetes instalados. Seleccione **Microsoft.ApplicationInsights.Web** y elija **Actualizar**.
+Para actualizar a una [nueva versión del SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), abra el **Administrador de paquetes NuGet** y filtre por los paquetes instalados. Seleccione **Microsoft.ApplicationInsights.Web** y elija **Actualizar**.
 
 Si ha hecho alguna personalización en ApplicationInsights.config, guarde una copia del mismo antes de realizar la actualización. Luego, combine los cambios en la nueva versión.
 
@@ -137,7 +128,12 @@ Si ha hecho alguna personalización en ApplicationInsights.config, guarde una co
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
+
+Si está interesado, puede examinar otros temas:
+
+* [Instrumentación de aplicaciones web en tiempo de ejecución con Application Insights](app-insights-monitor-performance-live-website-now.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
 ### <a name="more-telemetry"></a>Más telemetría
 

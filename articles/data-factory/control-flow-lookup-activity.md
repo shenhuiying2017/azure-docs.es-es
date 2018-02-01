@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
@@ -36,6 +36,8 @@ Actualmente se admiten los siguientes orígenes de datos para la actividad de b�
 - Azure SQL Data Warehouse (datos JSON convertidos desde una consulta)
 - SQL Server (datos JSON convertidos desde una consulta)
 - Azure Table Storage (datos JSON convertidos desde una consulta)
+
+El número máximo de filas devueltas por la actividad de búsqueda es **5000**, con un tamaño máximo de **10 MB**.
 
 ## <a name="syntax"></a>Sintaxis
 

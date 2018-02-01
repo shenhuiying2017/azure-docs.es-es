@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planeamiento de clústeres de Hadoop unidos a un dominio de Azure en HDInsight
 
@@ -47,16 +47,13 @@ En la siguiente captura de pantalla se muestra una unidad organizativa creada en
 
 ![Unidad organizativa de clústeres de HDInsight unidos a un dominio](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Tres formas de usar sus propios controladores de dominio de Active Directory
+### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Dos formas de usar sus propios controladores de dominio de Active Directory
 
-Hay tres formas de poder usar sus propios controladores de dominio de Active Directory para crear clústeres de HDInsight unidos a un dominio. 
+Existen dos formas de usar sus propios controladores de dominio de Active Directory para crear clústeres de HDInsight unidos a un dominio. 
 
 - **Azure Active Directory Domain Services**: este servicio proporciona un dominio de Active Directory administrado que es totalmente compatible con Windows Server Active Directory. Microsoft se encarga de administrar, aplicar revisiones y supervisar el dominio de Active Directory. Puede implementar el clúster sin preocuparse por mantener los controladores de dominio. Los usuarios, grupos y contraseñas se sincronizan desde su instalación de Microsoft Azure Active Directory, lo que permite a los usuarios iniciar sesión en el clúster con sus credenciales corporativas. Para más información, vea [Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 - **Active Directory en máquinas virtuales de IaaS de Azure**: en esta opción, implementa y administra su propio dominio de Windows Server Active Directory en máquinas virtuales de IaaS de Azure. Para más información, vea [Configuración de un entorno de espacio aislado unido a un dominio](./apache-domain-joined-configure.md).
-
-- **Active Directory local**: en esta opción, integra HDInsight con el controlador de dominio de Active Directory local.
-
 
 ## <a name="next-steps"></a>pasos siguientes
 * Para configurar un clúster de HDInsight unido a un dominio, consulte [Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)](apache-domain-joined-configure.md).

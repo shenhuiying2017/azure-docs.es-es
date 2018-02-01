@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -39,7 +39,7 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 ![imagen del panel de SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA.  
 * La solución es compatible con las versiones 2012, 2014 y 2016 de SQL Server.
@@ -65,7 +65,7 @@ SQL Health Check recopila datos de los siguientes orígenes mediante el agente h
 
 * Instrumental de administración de Windows (WMI) 
 * Registro 
-* Contadores de rendimiento
+* contadores de rendimiento
 * Resultados de la vista de administración dinámica de SQL Server 
 
 Los datos se recopilan en el servidor de SQL Server y se reenvían a Log Analytics cada siete días.
@@ -93,7 +93,7 @@ Utilice la siguiente información para establecer la cuenta de ejecución de Ope
    > El tipo de cuenta de ejecución debe ser Windows. La cuenta de ejecución también debe ser parte del grupo de administradores locales en todos los servidores de Windows que hospedan instancias de SQL Server.
    >
    >
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 6. Modifique y luego ejecute el siguiente ejemplo de T-SQL en cada instancia de SQL Server para conceder los permisos mínimos que necesita la cuenta de ejecución para realizar la comprobación de estado. Sin embargo, este paso no es necesario si una cuenta de ejecución ya forma parte del rol de servidor sysadmin en las instancias de SQL Server.
 
 ```
@@ -165,14 +165,14 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
 1. Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com). 
 2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
-3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en el icono de **Portal de OMS**.  
+3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y luego haga clic en el icono de **Información general**.  
 4. En la página **Información general**, haga clic en el icono de **SQL Health Check**. 
 5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
 6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registrarán las acciones recomendadas que se han realizado y aumentará su calificación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
-Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS usará para evitar que aparezcan recomendaciones en los resultados de la evaluación.
+Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log Analytics usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -246,7 +246,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 * Se recopilan los siguientes tipos de datos:
   * WMI
   * Registro
-  * Contadores de rendimiento
+  * contadores de rendimiento
   * Vistas de administración dinámica (DMV) de SQL
 
 *¿Se puede configurar el momento en que se recopilan los datos?*
@@ -265,5 +265,5 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Búsquedas de registros](log-analytics-log-searches.md) para aprender a analizar recomendaciones y datos de SQL Health Check.

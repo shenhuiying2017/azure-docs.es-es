@@ -14,11 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 8fe080aabe3079f571f5979245adfc453dfcd459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Uso del almacenamiento de colas de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Microsoft Azure. Los ejemplos están escritos usando la API Ruby de Azure.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Microsoft Azure Queue Storage. Los ejemplos están escritos usando la API Ruby de Azure.
 Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -34,7 +34,7 @@ Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-Cree una aplicación de Ruby. Para instrucciones, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Cree una aplicación de Ruby. Para obtener más instrucciones, consulte [Creación de una aplicación de Ruby en App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento
 Para usar el almacenamiento de Azure tendrá que descargar y usar el paquete Ruby azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
@@ -50,7 +50,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
+## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS_KEY** para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::QueueService** con el siguiente código:
 
 ```ruby
@@ -60,7 +60,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource Manager o clásica en el Portal de Azure:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
 4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
@@ -156,7 +156,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Visite el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* Visite el [blog del equipo de Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
 Podrá encontrar una comparación entre Azure Queue Service, que se explica en este artículo, y Azure Service Bus Queues, que se explican en el artículo [Utilización de las colas de Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus: comparación y diferencias](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).

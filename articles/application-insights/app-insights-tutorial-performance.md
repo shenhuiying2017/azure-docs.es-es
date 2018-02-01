@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 > * Analizar los detalles de las vistas de página mediante el lenguaje de consulta
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -63,6 +63,14 @@ Application Insights recopila datos de rendimiento de las distintas operaciones 
 5.  En este ejemplo, puede ver que un número considerable de solicitudes tardan más de un segundo en procesarse. Para ver los detalles de esta operación, haga clic en **Detalles de la operación**.
 
     ![Detalles de la operación](media/app-insights-tutorial-performance/operation-details.png)
+
+    > [!NOTE]
+    Habilite la experiencia de [versión preliminar](app-insights-previews.md) "Unified details: E2E Transaction Diagnostics" (Detalles unificados: Diagnóstico de transacciones E2E) para ver toda la telemetría relacionada con el lado servidor como, por ejemplo, las solicitudes, dependencias, excepciones, seguimientos, eventos, etc, en una única vista de pantalla completa. 
+
+    Con la versión preliminar habilitada, puede ver el tiempo empleado en llamadas de dependencia, junto con todos los errores o excepciones de una experiencia unificada. Para las transacciones entre componentes, el gráfico de Gantt junto con el panel de detalles pueden ayudarle a diagnosticar rápidamente la causa principal, la dependencia o la excepción. Puede expandir la sección inferior para ver la secuencia temporal de todos los seguimientos o eventos recopilados para la operación de componente seleccionada. [Más información acerca de la nueva experiencia](app-insights-transaction-diagnostics.md)  
+
+    ![Diagnósticos de la transacción](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
 
 6.  La información que ha recopilado hasta ahora solo confirma un ralentización del rendimiento, pero no ayuda mucho a conocer la causa principal.  **Profiler** ayuda mostrando el código real que se ejecutó para la operación y el tiempo necesario para cada paso. Es posible que no se pueda realizar un seguimiento de algunas operaciones, ya que el generador de perfiles se ejecuta periódicamente.  Con el tiempo, más operaciones deben tener seguimientos.  Para iniciar el generador de perfiles de la operación, haga clic en **Seguimientos de Profiler**.
 5.  El seguimiento muestra los eventos individuales de cada operación, por lo que puede diagnosticar la causa principal por la duración de la operación global.  Haga clic en uno de los ejemplos superiores, que son los que tienen una duración mayor.
@@ -120,7 +128,7 @@ Al igual que los datos recopilados relativos al rendimiento del servidor, Applic
     ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a crear alertas en respuesta a errores.
 
 > [!div class="nextstepaction"]

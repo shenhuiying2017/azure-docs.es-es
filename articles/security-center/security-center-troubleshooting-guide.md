@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/22/2018
 ms.author: yurid
-ms.openlocfilehash: e471f04a86cde73bbdb333826a5e0d25684a4547
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
@@ -76,7 +76,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 | Error de instalación: agente local ya instalado | No se pudo instalar Microsoft Monitoring Agent. Security Center identifica que un agente local (OMS o SCOM) ya está instalado en la máquina virtual. Para evitar la configuración del hospedaje múltiple, en la que la máquina virtual informa a dos áreas de trabajo independientes, se detiene la instalación de Microsoft Monitoring Agent. | Hay dos maneras de resolverlo: [instalar manualmente la extensión](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) y conectarla al área de trabajo deseada. O bien, establecer el área de trabajo deseada como el área de trabajo predeterminada y habilitar el aprovisionamiento automático del agente.  Consulte [Habilitación del aprovisionamiento automático](security-center-enable-data-collection.md). |
 | El agente no puede conectarse al área de trabajo | Microsoft Monitoring Agent se instaló pero se ha producido a un error debido a la conectividad de red.  Compruebe que el sistema tiene acceso a Internet o que se ha configurado un servidor proxy HTTP válido para el agente. | Consulte los [requisitos de red del agente de supervisión](#troubleshooting-monitoring-agent-network-requirements). |
 | Agente conectado a un área de trabajo desconocida o no encontrada | Security Center ha identificado que la instancia de Microsoft Monitoring Agent instalada en la máquina virtual está conectada a un área de trabajo a la que no tiene acceso. | Esto puede ocurrir en dos casos. El área de trabajo se ha eliminado y ya no existe. Vuelva a instalar al agente con el área de trabajo correcta o desinstale el agente y permita que Security Center complete la instalación de aprovisionamiento automático. El segundo caso se da cuando el área de trabajo forma parte de una suscripción para la que Security Center no tiene permisos. Security Center requiere que las suscripciones permitan el acceso al proveedor de recursos de seguridad de Microsoft. Para habilitarlo, registre la suscripción en el proveedor de recursos de seguridad de Microsoft. Esto se puede hacer mediante una API, PowerShell, el portal o, simplemente, filtrando por la suscripción en el panel **Información general** de Security Center. Para más información, consulte [Proveedores de recursos y sus tipos](../azure-resource-manager/resource-manager-supported-services.md#portal). |
-| El agente no responde o falta el identificador | Security Center no puede recuperar los datos de seguridad escaneados de la máquina virtual, incluso aunque el agente está instalado. | El agente no notifica ningún dato, incluidos los latidos. El agente puede estar dañado o algo está bloqueando el tráfico. O bien, el agente está informando de datos pero le falta un identificador de recurso de Azure por lo que es imposible relacionar los datos con la máquina virtual de Azure. |
+| El agente no responde o falta el identificador | Security Center no puede recuperar los datos de seguridad escaneados de la máquina virtual, incluso aunque el agente está instalado. | El agente no notifica ningún dato, incluidos los latidos. El agente puede estar dañado o algo está bloqueando el tráfico. O bien, el agente está informando de datos pero le falta un identificador de recurso de Azure por lo que es imposible relacionar los datos con la máquina virtual de Azure. Para solucionar problemas de Linux, consulte la [Guía de solución de problemas del Agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para solucionar problemas de Windows, consulte [Solución de problemas con máquinas virtuales Windows](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agente no instalado | La colección de datos está deshabilitada. | Active la colección de datos en la directiva de seguridad o instale manualmente Microsoft Monitoring Agent. |
 
 

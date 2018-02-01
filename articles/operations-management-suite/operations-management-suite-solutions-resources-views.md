@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vistas de las soluciones de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](operations-management-suite-solutions-creating.md) y la estructura de un archivo de solución.
 
 ## <a name="overview"></a>Información general
@@ -75,11 +75,10 @@ Agregue el siguiente recurso de vista al elemento **resources** del archivo de s
 
 Agregue las siguientes variables al elemento variables del archivo de solución y reemplace los valores por los de la solución.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Tenga en cuenta que podría copiar todo el recurso de vista desde el archivo de vista exportado, pero necesitaría realizar los siguientes cambios para que funcionara en su solución.  
 
@@ -89,6 +88,18 @@ Tenga en cuenta que podría copiar todo el recurso de vista desde el archivo de 
 * La propiedad **DisplayName** se debe agregar a la vista.  Los valores **Id**, **Name** y **DisplayName** deben coincidir.
 * Los nombres de parámetro deben cambiarse para coincidir con el conjunto de parámetros necesario.
 * Las variables deben definirse en la solución y usarse en las propiedades adecuadas.
+
+### <a name="log-analytics-api-version"></a>Versión de la API de Log Analytics
+Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para las vistas con consultas que usan el [lenguaje de consulta heredado y actualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ En la tabla siguiente se especifican las versiones de API de Log Analytics para las vistas en los espacios de trabajo heredados y actualizados: 
+
+| Versión del área de trabajo | Versión de API | Consultar |
+|:---|:---|:---|
+| v1 (heredado)   | 2015-11-01-preview | Formato heredado.<br> Ejemplo: Type=Event EventLevelName = Error  |
+| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; donde EventLevelName == "Error"  |
+| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; donde EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>Agregar los detalles de la vista
 El recurso de vista del archivo de vista exportado contendrá dos elementos en el elemento **properties** denominado **Dashboard** y **OverviewTile** que contienen la configuración detallada de la vista.  Copie los dos elementos y su contenido en el elemento **propiedades** del recurso de vista del archivo de solución.
@@ -176,6 +187,6 @@ Por ejemplo, en el ejemplo siguiente se muestra un archivo de solución simple c
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtener información detallada sobre cómo crear [soluciones de administración](operations-management-suite-solutions-creating.md).
 * Incluir [runbooks de Automation en la solución de administración](operations-management-suite-solutions-resources-automation.md).

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales
 
@@ -284,7 +284,7 @@ Hay una diferencia clave entre restaurar una máquina virtual mediante Azure Por
 >
 >
 
-Para crear una máquina virtual desde el disco, vea la sección sobre la [creación de la máquina virtual a partir de los discos almacenados](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Los pasos básicos para restaurar una máquina virtual de Azure son los siguientes:
+Para crear una máquina virtual desde el disco, consulte la sección sobre la [creación de la máquina virtual a partir de los discos almacenados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Los pasos básicos para restaurar una máquina virtual de Azure son los siguientes:
 
 * Selección de la máquina virtual
 * Elección de un punto de recuperación

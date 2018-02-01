@@ -4,7 +4,7 @@ description: "Explica cómo configurar el dispositivo para la administración re
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
 
@@ -84,7 +84,10 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 Realice los pasos siguientes en el cliente para habilitar la administración remota.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Para preparar al cliente para la conexión remota
-1. Iniciar una sesión de Windows PowerShell como administrador.
+1. Iniciar una sesión de Windows PowerShell como administrador. Si utiliza un cliente de Windows 10, el servicio de administración remota de Windows se establece en modo manual de forma predeterminada. Si necesita iniciar el servicio, escriba lo siguiente:
+
+    `Start-Service WinRM`
+    
 2. Escriba el siguiente comando para agregar la dirección IP del dispositivo StorSimple a la lista de hosts de confianza del cliente:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Use Windows PowerShell y SSL para iniciar una sesión de SSAdmin en el dispositi
 Realice el procedimiento siguiente en el equipo desde el que desea realizar la conexión remota de Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Para iniciar una sesión de SSAdmin en el dispositivo mediante el uso de Windows PowerShell y SSL
-1. Iniciar una sesión de Windows PowerShell como administrador.
+1. Iniciar una sesión de Windows PowerShell como administrador. Si utiliza un cliente de Windows 10, el servicio de Administración remota de Windows se establece en modo manual de forma predeterminada. Si necesita iniciar el servicio, escriba lo siguiente:
+
+    `Start-Service WinRM`
+
 2. Agregue la dirección IP del dispositivo a los hosts de confianza del cliente, escriba:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -230,15 +236,15 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Para el parámetro -ComputerName del cmdlet, escriba el <*número de serie del dispositivo de destino*>. Este número de serie se asigna a la dirección IP de DATA 0 en el archivo de hosts del host remoto; Por ejemplo, **SHX0991003G44MT** tal como se muestra en la siguiente imagen.
-5. Escriba:
+5. Escriba: 
    
      `Enter-PSSession $session`
 6. Deberá esperar unos minutos y, a continuación, se conectará al dispositivo a través de HTTPS con SSL. Verá un mensaje que indica que está conectado al dispositivo.
    
     ![Conexión remota de PowerShell mediante HTTP y SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
-* Más información sobre el [uso del servicio StorSimple Device Manager para administrar su dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

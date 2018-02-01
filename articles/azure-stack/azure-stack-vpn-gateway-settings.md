@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Valores de la configuración de una puerta de enlace VPN para Azure Stack
 
@@ -160,7 +160,7 @@ A diferencia de Azure, que admite varias ofertas como iniciador y respondedor, A
 |Versión de IKE |IKEv2 |
 |Cifrados y algoritmos hash (cifrado)     | GCMAES256|
 |Cifrados y algoritmos hash (autenticación) | GCMAES256|
-|Vigencia de SA (tiempo)  | 3.600 segundos |
+|Vigencia de SA (tiempo)  | 14 400 segundos |
 |Vigencia de SA (bytes) | 819 200       |
 |Confidencialidad directa perfecta (PFS) |PFS2048 |
 |Detección de cuellos del mismo nivel | Compatible|  

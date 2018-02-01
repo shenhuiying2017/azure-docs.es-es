@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Ejecute el comando siguiente:
 
 2. Haga clic en la flecha que hay junto al origen de la instalación.
 3. En **SENDER_ID**, si ya tiene un identificador numérico del proyecto para el proyecto de la consola para desarrolladores de Google, puede agregarlo aquí. En caso contrario, escriba un valor de marcador de posición, como 777777.  Si su objetivo es Android, puede actualizar este valor en el archivo config.xml más adelante.
+     Tenga en cuenta que, a partir de la versión 2.0.0, se ha quitado SENDER_ID del tiempo de instalación y se debe instalar google-services.json en la carpeta raíz del proyecto.  Consulte más detalles [aquí](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md).
 4. Haga clic en **Agregar**.
 
 Ahora ya está instalado el complemento de inserción.

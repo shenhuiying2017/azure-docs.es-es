@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Escalado de la capacidad de Power BI Embedded
 
@@ -26,7 +26,8 @@ Este artículo lo guía por el proceso de escalado de una capacidad de Power BI 
 
 Se da por hecho que ha creado una capacidad de Power BI Embedded. Si no lo ha hecho, consulte [Creación de una capacidad de Power BI Embedded en Azure Portal](create-capacity.md) para empezar a trabajar.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+> [!NOTE]
+> Una operación de escalado puede tardar un minuto, aproximadamente. Durante este tiempo, la capacidad no estará disponible. Puede que el contenido insertado no se cargue.
 
 ## <a name="scale-a-capacity"></a>Escalado de una capacidad
 
@@ -58,7 +59,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Confirmación del plan actual](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para hacer una pausa en la capacidad, o iniciarla, consulte [Pausado e inicio de la capacidad de Power BI Embedded en Azure Portal](pause-start.md).
 

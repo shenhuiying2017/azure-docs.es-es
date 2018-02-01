@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
@@ -118,9 +118,10 @@ No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicaci�
 
 **Corrección:**
 
-Compruebe si ha deshabilitado una aplicación con el identificador 00000002-0000-0000-c000-000000000000. Se trata de la aplicación de Microsoft Azure AD, que proporciona acceso al inquilino de Azure AD a la API Graph. Azure AD Domain Services necesita que esta aplicación esté habilitada para sincronizar el inquilino de Azure AD con el dominio administrado.
+Compruebe si ha deshabilitado una aplicación con el identificador 00000002-0000-0000-c000-000000000000. Se trata de la aplicación de Microsoft Azure AD, que proporciona acceso al inquilino de Azure AD a Graph API. Azure AD Domain Services necesita que esta aplicación esté habilitada para sincronizar el inquilino de Azure AD con el dominio administrado.
 
 Para resolver este error, habilite esta aplicación e intente habilitar Domain Services para su inquilino de Azure AD.
+
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Los usuarios no pueden iniciar sesión en el dominio administrado de los Servicios de dominio de Azure AD
 Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado creado recientemente, lleve a cabo los siguientes pasos de solución de problemas:
@@ -145,12 +146,17 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
     2. net start 'Microsoft Azure AD Sync'
 * **Cuentas de solo en la nube**: si la cuenta de usuario afectada es una cuenta de usuario de solo en la nube, asegúrese de que el usuario ha cambiado su contraseña después de habilitar Servicios de dominio de Azure AD. Este paso hace que se generen los hash de credenciales necesarios para los Servicios de dominio de Azure AD
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Hay una o varias alertas en el dominio administrado
+
+Consulte cómo resolverlas visitando el artículo de [Alertas de solución de problemas](active-directory-ds-troubleshoot-alerts.md).
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Los usuarios quitados del inquilino de Azure AD no se quitan de su dominio administrado
 Azure AD protege contra la eliminación accidental de objetos de usuario. Cuando elimina una cuenta de usuario del inquilino de Azure AD, se mueve el objeto de usuario correspondiente a la Papelera de reciclaje. Cuando esta operación de eliminación se sincroniza con el dominio administrado, hace que la cuenta de usuario correspondiente se marque como deshabilitada. Esta característica ayuda a recuperar o restaurar la cuenta de usuario más adelante.
 
 La cuenta de usuario permanece en estado deshabilitado en el dominio administrado, incluso si vuelve a crear una cuenta de usuario con la misma UPN en su directorio de Azure AD. Para quitar la cuenta de usuario de su dominio administrado, tiene que forzar su eliminación en el inquilino de Azure AD.
 
 Para quitar por completo la cuenta de usuario de su dominio administrado, elimine el usuario de forma permanente del inquilino de Azure AD. Use el cmdlet `Remove-MsolUser` de PowerShell con la opción `-RemoveFromRecycleBin`, tal como se describe en este [artículo de MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](active-directory-ds-contact-us.md).

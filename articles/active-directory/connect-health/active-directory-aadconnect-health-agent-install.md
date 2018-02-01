@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 Este documento le guiará en la instalación y configuración de los agentes de Azure AD Connect Health. Puede descargar los agentes [aquí](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -26,7 +26,7 @@ Este documento le guiará en la instalación y configuración de los agentes de 
 ## <a name="requirements"></a>Requisitos
 En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect Health.
 
-| Requisito | Description |
+| Requisito | DESCRIPCIÓN |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. </br></br>Para más información, consulte [Introducción a Azure Active Directory Premium](../active-directory-get-started-premium.md). </br>Para iniciar una evaluación gratuita de 30 días, consulte cómo [iniciar una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/). |
 | Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health |De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para más información, consulte [Administración del directorio de Azure AD](../active-directory-administer.md). <br><br> El uso de control de acceso basado en rol puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte cómo usar el [control de acceso basado en rol para Azure AD Connect Health](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control). </br></br>**Importante**: la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa. No puede ser una cuenta Microsoft. Para más información, consulte [Inicio de sesión en Azure como una organización](../sign-up-organization.md). |
@@ -103,32 +103,38 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 2. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 3. En la pestaña **Configuración de seguridad local** , compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
 4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>.
-5. Cierre **Directiva de seguridad local** y luego abra el complemento **Administración de AD FS**. Para abrir el complemento Administración de AD FS, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Administración de AD FS 2.0**.
-6. En el panel **Acciones**, haga clic en **Editar propiedades del servicio de federación**.
-7. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
-8. Active las casillas **Auditorías de aciertos** y **Auditorías de errores**.
-9. Haga clic en **Aceptar**.
+5. Cierre **Directiva de seguridad local**.
+<br>   -- **Los pasos siguientes solo son necesarios en los servidores principales de AD FS.** -- </br>
+6. Abra el complemento **Administración de AD FS**. Para abrir el complemento Administración de AD FS, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Administración de AD FS 2.0**.
+7. En el panel **Acciones**, haga clic en **Editar propiedades del servicio de federación**.
+8. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
+9. Active las casillas **Auditorías de aciertos** y **Auditorías de errores**.
+10. Haga clic en **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Para habilitar la auditoría de AD FS en Windows Server 2012 R2
 1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servidor en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 3. En la pestaña **Configuración de seguridad local** , compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
 4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. Cierre **Directiva de seguridad local** y luego abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
-6. En el panel Acciones, haga clic en **Editar propiedades del servicio de federación**.
-7. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **Eventos** .
-8. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
+5. Cierre **Directiva de seguridad local**.
+<br>   -- **Los pasos siguientes solo son necesarios en los servidores principales de AD FS.** -- </br>
+6. Abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
+7. En el panel **Acciones**, haga clic en **Editar propiedades del servicio de federación**.
+8. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
+9. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Para habilitar la auditoría de AD FS en Windows Server 2016
 1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servidor en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 3. En la pestaña **Configuración de seguridad local** , compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agregue la cuenta de servicio de AD FS a la lista y después haga clic en **Aceptar**.
 4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Cierre **Directiva de seguridad local** y luego abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
-6. En el panel Acciones, haga clic en **Editar propiedades del servicio de federación**.
-7. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **Eventos** .
-8. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**. Esto se debe habilitar de forma predeterminada.
-9. Abra una ventana de PowerShell y ejecute el siguiente comando: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. Cierre **Directiva de seguridad local**.
+<br>   -- **Los pasos siguientes solo son necesarios en los servidores principales de AD FS.** -- </br>
+6. Abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
+7. En el panel **Acciones**, haga clic en **Editar propiedades del servicio de federación**.
+8. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
+9. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**. Esto se debe habilitar de forma predeterminada.
+10. Abra una ventana de PowerShell y ejecute el siguiente comando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 Tenga en cuenta que el nivel de auditoría "básico" está habilitado de forma predeterminada. Obtenga más información en [Mejoras de auditoría de AD FS en Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016).
 
@@ -211,7 +217,7 @@ Si completó la configuración, estos servicios deben aparecer ya en ejecución.
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>Registro del agente con PowerShell
+## <a name="agent-registration-using-powershell"></a>Registro del agente con PowerShell
 Después de instalar el ejecutable setup.exe del agente adecuado, puede realizar el paso de registro del agente con los siguientes comandos de PowerShell en función del rol. Abra una ventana de PowerShell y ejecute el comando adecuado:
 
 ```

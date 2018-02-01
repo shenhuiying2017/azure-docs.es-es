@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos de Azure para la replicación de máquinas locales
 
@@ -46,9 +46,9 @@ El rol integrado "Colaborador de la máquina virtual" tiene estos permisos. Tamb
 Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquinas virtuales de Azure se crean desde el almacenamiento cuando se realiza la conmutación por error desde el entorno local en Azure.
 
 1. En el menú [Azure Portal](https://portal.azure.com), haga clic en **Nuevo** -> **Storage** -> **Cuenta de Storage**.
-2. Escriba un nombre para la cuenta de almacenamiento. En estos tutoriales, se usará el nombre **contosovmsacct1910171607**. El nombre debe ser único en Azure, tener entre 3 y 24 caracteres, y contener solo números y letras minúsculas.
+2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta. En estos tutoriales, se usará el nombre **contosovmsacct1910171607**. El nombre debe ser único en Azure, tener entre 3 y 24 caracteres, y contener solo números y letras minúsculas.
 3. Use el modelo de implementación de **Resource Manager**.
-4. Seleccione **Propósito general** > **Estándar**.
+4. Seleccione **Propósito general** > **Estándar**. No seleccione Blob Storage.
 5. Seleccione el valor predeterminado **RA-GRS** para la redundancia del almacenamiento.
 6. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 7. Especifique un nuevo grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En estos tutoriales, se usa el nombre **ContosoRG**.

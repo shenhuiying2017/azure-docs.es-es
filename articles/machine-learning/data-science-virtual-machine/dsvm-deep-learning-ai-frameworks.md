@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Marcos de aprendizaje profundo y de AI
 [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) y [Deep Learning VM](http://aka.ms/dsvm/deeplearning) admiten varios marcos de aprendizaje profundo para compilar aplicaciones de inteligencia artificial (AI) con capacidades de análisis predictivo y capacidades cognitivas, como la comprensión de imágenes y de lenguajes. 
@@ -57,7 +57,7 @@ A continuación se muestra la información de todos los marcos de aprendizaje pr
 | ¿Cómo se configura/instala en DSVM?  | Keras se instala en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_).   |
 | Vínculos a ejemplos      | https://github.com/fchollet/keras/tree/master/examples      |
 | Herramientas relacionadas en DSVM      | Microsoft Cognitive Toolkit, TensorFlow y Theano      |
-| ¿Cómo se usa/ejecuta?    | Descargue los ejemplos desde la ubicación de Github, cópielos en un directorio en ~/notebooks y ábralos en Jupyter   |
+| ¿Cómo se usa o ejecuta?    | Descargue los ejemplos desde la ubicación de Github, cópielos en un directorio en ~/notebooks y ábralos en Jupyter   |
 
 
 
@@ -117,9 +117,9 @@ En un terminal, active la versión de Python que quiera (_root_ o _py35_), ejecu
 | Ediciones compatibles de DSVM      | Linux     |
 | ¿Cómo se configura/instala en DSVM?  | Deep Water se instala en `/dsvm/tools/deep_water`.   |
 | Vínculos a ejemplos      | Los ejemplos están disponibles a través del servidor de Deep Water.      |
-| Herramientas relacionadas en DSVM      | H2o y Sparkling Water      |
+| Herramientas relacionadas en DSVM      | H2O y Sparkling Water      |
 
-### <a name="how-to-use--run-it"></a>¿Cómo se usa/ejecuta?  
+### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?  
 
 Conéctese a la máquina virtual con X2Go. En un terminal, inicie el servidor de Deep Water:
 
@@ -147,7 +147,7 @@ Luego, abra un explorador y conéctese a `http://localhost:54321`.
 | ¿Qué es?   | Sistema de aprendizaje profundo de NVIDIA para entrenar modelos de aprendizaje profundo de forma rápida      |
 | Ediciones compatibles de DSVM      | Linux     |
 | ¿Cómo se configura/instala en DSVM?  | DIGITS se instala en `/dsvm/tools/DIGITS` y hay disponible un servicio denominado _digits_.   |
-### <a name="how-to-use--run-it"></a>¿Cómo se usa/ejecuta?  
+### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?  
 
 Inicie sesión en la máquina virtual con X2Go. En un terminal, inicie el servicio:
 
@@ -164,7 +164,7 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 | ¿Qué es?   | Herramienta NVIDIA para consultar la actividad GPU      |
 | Ediciones compatibles de DSVM      | Windows, Linux     |
 | ¿Cómo se configura/instala en DSVM?  | _nvidia-smi_ está disponible en la ruta de acceso del sistema.   |
-| ¿Cómo se usa/ejecuta? | Inicie un símbolo del sistema (en Windows) o un terminal (en Linux) y ejecute _nvidia-smi_.
+| ¿Cómo se usa o ejecuta? | Inicie un símbolo del sistema (en Windows) o un terminal (en Linux) y ejecute _nvidia-smi_.
 
 
 

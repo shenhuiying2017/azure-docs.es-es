@@ -1,6 +1,6 @@
 ---
 title: "Invocación de programas Spark desde Azure Data Factory | Microsoft Docs"
-description: "Obtenga información sobre cómo invocar programas Spark desde Data Factory de Azure mediante la actividad MapReduce."
+description: "Obtenga información sobre cómo invocar programas Spark desde Azure Data Factory mediante la actividad MapReduce."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Actividad de Hive](data-factory-hive-activity.md)
 > * [Actividad de Pig](data-factory-pig-activity.md)
-> * [Actividad MapReduce](data-factory-map-reduce.md)
+> * [Actividad de MapReduce](data-factory-map-reduce.md)
 > * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Actividad de Spark](data-factory-spark.md)
 > * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
@@ -36,78 +36,98 @@ ms.lasthandoff: 11/03/2017
 > * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo acerca de la [transformación de datos mediante la actividad de Spark en Data Factory, versión 2](../transform-data-using-spark.md).
+> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo acerca de la [transformación de datos mediante la actividad de Apache Spark en Data Factory, versión 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introducción
-La actividad de Spark es una de las [actividades de transformación de datos](data-factory-data-transformation-activities.md) compatibles con Azure Data Factory. Esta actividad ejecuta el programa Spark especificado en el clúster de Apache Spark en Azure HDInsight.    
+La actividad de Spark es una de las [actividades de transformación de datos](data-factory-data-transformation-activities.md) compatibles con Data Factory. Esta actividad ejecuta el programa Spark especificado en el clúster de Spark en Azure HDInsight. 
 
 > [!IMPORTANT]
 > - La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
 > - La actividad de Spark admite solo los clústeres de HDInsight Spark existentes (los suyos propios). No admite un servicio vinculado de HDInsight a petición.
 
-## <a name="walkthrough-create-a-pipeline-with-spark-activity"></a>Tutorial: creación de una canalización con actividad de Spark
-Estos son los pasos habituales para crear una canalización de Data Factory con una actividad de Spark.  
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Creación de una canalización con actividad de Spark
+Estos son los pasos habituales para crear una canalización de Data Factory con una actividad de Spark: 
 
-1. Creación de una factoría de datos.
-2. Cree un servicio vinculado de Azure Storage para vincular la instancia de Azure Storage asociada con el clúster de HDInsight Spark a la instancia de Data Factory.     
-2. Cree un servicio vinculado de Azure HDInsight para vincular el clúster de Apache Spark en Azure HDInsight con la instancia de Data Factory.
-3. Cree un conjunto de datos que haga referencia al servicio vinculado de Azure Storage. Actualmente, debe especificar un conjunto de datos de salida para una actividad incluso si no se produce ninguna salida.  
-4. Cree una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight creado en el paso 2. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora, cada día, etc.). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
+* Creación de una factoría de datos.
+* Creación de un servicio vinculado de Azure Storage para vincular el almacenamiento asociado con el clúster de HDInsight Spark a la instancia de Data Factory.
+* Creación de un servicio vinculado de HDInsight para vincular el clúster de Spark en HDInsight con la instancia de Data Factory.
+* Creación de un conjunto de datos que haga referencia al servicio vinculado de Azure Storage. Actualmente, debe especificar un conjunto de datos de salida para una actividad incluso si no se produce ninguna salida. 
+* Creación de una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight que ha creado. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora o cada día). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
 
-### <a name="prerequisites"></a>Requisitos previos
-1. Cree una **cuenta de Azure Storage de uso general** siguiendo las instrucciones del tutorial: [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Cree un **clúster de Apache Spark en Azure HDInsight** siguiendo las instrucciones del tutorial: [Creación de un clúster de Apache Spark en Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de Azure Storage creada en el paso 1 con este clúster.  
-3. Descargue y revise el archivo de script de Python **test.py** ubicado en: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
-3.  Cargue **test.py** en la carpeta **pyFiles** del contenedor **adfspark** de Azure Blob Storage. Cree el contenedor y la carpeta si no existen.
+### <a name="prerequisites"></a>requisitos previos
+1. Cree una cuenta de almacenamiento de uso general siguiendo las instrucciones de [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-### <a name="create-data-factory"></a>Creación de Data Factory
-Comencemos con la creación de la factoría de datos en este paso.
+2. Cree un clúster de Spark en HDInsight siguiendo las instrucciones del tutorial: [Creación de un clúster de Spark en HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de almacenamiento creada en el paso 1 con este clúster.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En el menú de la izquierda, haga clic en **NUEVO**, en **Datos y Análisis** y en **Data Factory**.
-3. En la hoja **Nueva factoría de datos**, escriba **SparkDF** para el nombre.
+3. Descargue y revise el archivo de script de Python **test.py** ubicado en: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+
+4. Cargue **test.py** en la carpeta **pyFiles** del contenedor **adfspark** de Blob Storage. Cree el contenedor y la carpeta si no existen.
+
+### <a name="create-a-data-factory"></a>Crear una factoría de datos
+Para crear una factoría de datos, siga estos pasos:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+
+2. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
+
+3. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **SparkDF**.
 
    > [!IMPORTANT]
-   > El nombre de Azure Data Factory debe ser **único de forma global**. Si aparece el error: **El nombre "SparkDF" de factoría de datos no está disponible**. Cambie el nombre de la factoría de datos (por ejemplo, suNombreSparkDFdate) e intente crearla de nuevo. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.   
-4. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
-5. Seleccione un **grupo de recursos** de Azure existente o cree uno nuevo.
-6. Seleccione la opción **Anclar al panel**.  
-6. Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
+   > El nombre de la factoría de datos de Azure debe ser único global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory: reglas de nomenclatura).
+
+4. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
+
+5. Seleccione un grupo de recursos de Azure existente o cree uno nuevo.
+
+6. Seleccione la casilla **Anclar al panel**.
+
+7. Seleccione **Crear**.
 
    > [!IMPORTANT]
    > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
-7. Se ve que la factoría de datos se crea en el **panel** de Azure Portal de la manera siguiente:   
-8. Tras crear correctamente la factoría de datos, se ve la página de la factoría de datos, que muestra el contenido de la misma. Si no ve la página de la factoría de datos, haga clic en el icono de la factoría de datos en el panel.
+
+8. Verá que la factoría de datos se creará en el panel de Azure Portal.
+
+9. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido. Si no ve la página de la **factoría de datos**, seleccione el icono de la factoría de datos en el panel.
 
     ![Hoja de la Factoría de datos](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>Crear servicios vinculados
-En este paso, creará dos servicios vinculados, uno para vincular el clúster de Spark a la factoría de datos y el otro para vincular la instancia de Azure Storage a la factoría de datos.  
+En este paso, creará dos servicios vinculados. Un servicio vincula su clúster de Spark a su factoría de datos y el otro vincula el almacenamiento a la factoría de datos. 
 
-#### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
-En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. Un conjunto de datos creado en un paso más adelante en este tutorial hace referencia a este servicio vinculado. El servicio vinculado de HDInsight que se define en el paso siguiente también hace referencia a este servicio vinculado.  
+#### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
+En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. Un conjunto de datos creado en un paso más adelante en este tutorial hace referencia a este servicio vinculado. El servicio vinculado de HDInsight que se define en el paso siguiente también hace referencia a este servicio vinculado. 
 
-1. Haga clic en **Crear e implementar** en la hoja **Data Factory** de la factoría de datos. Esto inicia el Editor de Data Factory.
-2. Haga clic en **Nuevo almacén de datos** y elija **Azure Storage**.
+1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**. Aparecerá Data Factory Editor.
 
-   ![Nuevo almacén de datos - Azure Storage - menú](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
-3. Debería ver el **script JSON** para crear un servicio vinculado de Azure Storage en el editor.
+2. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
 
-   ![Servicio vinculado de Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Reemplace **nombre de cuenta** y **clave de cuenta** con el nombre y la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
-5. Para implementar el servicio vinculado, haga clic en **Implementar** en la barra de comandos. Una vez que el servicio vinculado se ha implementado correctamente, la ventana **Draft-1** (Borrador 1) debería desaparecer y, en la vista de árbol de la izquierda, debería aparecer **AzureStorageLinkedService**.
+   ![Nuevo almacén de datos](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
-#### <a name="create-hdinsight-linked-service"></a>Creación del servicio vinculado de HDInsight
-En este paso, se crea un servicio vinculado de Azure HDInsight para vincular el clúster de Apache Spark con la factoría de datos. El clúster de HDInsight se usa para ejecutar el programa Spark especificado en la actividad de Spark de la canalización en este ejemplo.  
+3. El script JSON que usa para crear un servicio vinculado de Storage aparece en el editor.
 
-1. Haga clic en **... Más** en la barra de herramientas, haga clic en **Nuevo proceso** y después haga clic en **Clúster de HDInsight**.
+   ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+
+4. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+
+5. Para implementar el servicio vinculado, seleccione **Implementar** en la barra de comandos. Después de que el servicio vinculado se haya implementado correctamente, la ventana Borrador-1 desaparece. **AzureStorageLinkedService** aparece en la vista de árbol de la izquierda.
+
+#### <a name="create-an-hdinsight-linked-service"></a>Creación de un servicio vinculado de HDInsight
+En este paso, se crea un servicio vinculado de HDInsight para vincular el clúster de HDInsight Spark con la factoría de datos. El clúster de HDInsight se usa para ejecutar el programa Spark especificado en la actividad de Spark de la canalización en este ejemplo. 
+
+1. En Data Factory Editor, seleccione **Más** > **Nuevo proceso** > **Clúster de HDInsight**.
 
     ![Creación del servicio vinculado de HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
-2. Copie y pegue el fragmento de código siguiente en la ventana **Borrador 1** . En el Editor de JSON, realice los siguientes pasos:
-    1. Especifique el identificador **URI** del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
-    2. Especifique el nombre del **usuario** que tiene acceso al clúster de Spark.
-    3. Especifique la **contraseña** para el usuario.
-    4. Especifique el **servicio vinculado de Azure Storage** asociado con el clúster de HDInsight Spark. En este ejemplo, es: **AzureStorageLinkedService**.
+
+2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el editor de JSON, realice los siguientes pasos:
+
+    a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+
+    b. Especifique el nombre del usuario que tiene acceso al clúster de Spark.
+
+    c. Especifique la contraseña del usuario.
+
+    d. Especifique el servicio vinculado de Storage asociado con el clúster de HDInsight Spark. En este ejemplo, es AzureStorageLinkedService.
 
     ```json
     {
@@ -126,16 +146,18 @@ En este paso, se crea un servicio vinculado de Azure HDInsight para vincular el 
 
     > [!IMPORTANT]
     > - La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
-    > - La actividad de Spark admite solo el clúster de HDInsight Spark existente (el suyo propio). No admite un servicio vinculado de HDInsight a petición.
+    > - La actividad de Spark admite solo los clústeres de HDInsight Spark existentes (los suyos propios). No admite un servicio vinculado de HDInsight a petición.
 
-    Vea [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obtener más información sobre el servicio vinculado de HDInsight.
-3.  Para implementar el servicio vinculado, haga clic en **Implementar** en la barra de comandos.  
+    Para más información sobre el servicio vinculado de HDInsight, consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
-El conjunto de datos de salida es lo que impulsa la programación (cada hora, cada día, etc.). Por lo tanto, debe especificar el conjunto de datos de salida para la actividad de Spark en la canalización aunque la actividad no produzca realmente una salida. Es opcional especificar un conjunto de datos de entrada para la actividad.
+3. Para implementar el servicio vinculado, seleccione **Implementar** en la barra de comandos. 
 
-1. En el **Editor de Data Factory**, haga clic en **... Más** en la barra de comandos y luego en **Nuevo conjunto de datos**; después, seleccione **Almacenamiento de blobs de Azure**.  
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. El fragmento de código JSON define un conjunto de datos denominado **OutputDataset**. Además, especifica que los resultados se almacenan en el contenedor de blobs llamado **adfspark** y en la carpeta llamada **pyFiles/output**. Como se mencionó anteriormente, este conjunto de datos es un conjunto de datos ficticio. El programa Spark de este ejemplo no genera ninguna salida. La sección **availability** especifica que el conjunto de datos de salida se genera diariamente.  
+### <a name="create-the-output-dataset"></a>Creación del conjunto de datos de salida
+El conjunto de datos de salida es lo que impulsa la programación (cada hora o cada día). Por lo tanto, debe especificar el conjunto de datos de salida para la actividad de Spark en la canalización aunque la actividad no produzca realmente una salida. Es opcional especificar un conjunto de datos de entrada para la actividad.
+
+1. En Data Factory Editor, seleccione **More** > **New dataset** > **Azure Blob Storage** (Más > Nuevo conjunto de datos > Azure Blob Storage).
+
+2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. El fragmento de código JSON define un conjunto de datos denominado **OutputDataset**. Además, especifica que los resultados se almacenan en el contenedor de blobs llamado **adfspark** y en la carpeta llamada **pyFiles/output**. Como se mencionó anteriormente, este conjunto de datos es un conjunto de datos ficticio. El programa Spark de este ejemplo no genera ninguna salida. La sección **availability** especifica que el conjunto de datos de salida se genera diariamente. 
 
     ```json
     {
@@ -158,13 +180,14 @@ El conjunto de datos de salida es lo que impulsa la programación (cada hora, ca
         }
     }
     ```
-3. Para implementar el conjunto de datos, haga clic en **Implementar** en la barra de comandos.
+3. Para implementar el conjunto de datos, haga clic en **Deploy** (Implementar) en la barra de comandos.
 
 
-### <a name="create-pipeline"></a>Creación de una canalización
-En este paso, crea una canalización con una actividad de **HDInsightSpark**. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Por lo tanto, no se especifica ningún conjunto de datos de entrada en este ejemplo.
+### <a name="create-a-pipeline"></a>Crear una canalización
+En este paso, crea una canalización con una actividad de HDInsightSpark. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Por lo tanto, no se especifica ningún conjunto de datos de entrada en este ejemplo.
 
-1. En **Data Factory Editor**, haga clic en **… Más** en la barra de comandos y después haga clic en **Nueva canalización**.
+1. En Data Factory Editor, seleccione **More** > **New pipeline** (Nueva canalización).
+
 2. Reemplace el script en la ventana Draft-1 con el siguiente script:
 
     ```json
@@ -194,68 +217,81 @@ En este paso, crea una canalización con una actividad de **HDInsightSpark**. Ac
     }
     ```
     Tenga en cuenta los siguientes puntos:
-    - La propiedad de **tipo** se establece en **HDInsightSpark**.
-    - El valor de **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de Azure Blob y pyFiles es la carpeta adecuada en ese contenedor. En este ejemplo, la instancia de Azure Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una instancia de Azure Storage diferente. Si lo hace, cree un servicio vinculado de Azure Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Consulte las [propiedades de la actividad de Spark](#spark-activity-properties) para más detalles sobre esta y otras propiedades que admite la actividad de Spark.  
-    - El valor de **entryFilePath** se establece en **test.py**, que es el archivo de Python.
-    - La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).
 
-        > [!IMPORTANT]
-        > Se recomienda que no establezca esta propiedad como `Always` en un entorno de producción, a menos que esté solucionando un problema.
-    - La sección de **salida** tiene un conjunto de datos de salida. Debe especificar un conjunto de datos de salida, incluso si el programa de Spark no genera ninguna salida. El conjunto de datos de salida impulsa la programación de la canalización (cada hora, cada día, etc.).  
+    a. La propiedad de **tipo** se establece en **HDInsightSpark**.
 
-        Para obtener información detallada sobre las propiedades que la actividad de Spark admite, vea [Propiedades de la actividad de Spark](#spark-activity-properties).
-3. Haga clic en **Implementar** en la barra de comandos para implementar la canalización.
+    b. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
 
-### <a name="monitor-pipeline"></a>Supervisión de la canalización
-1. Haga clic en el botón **X** para cerrar las hojas de Data Factory Editor y volver a página principal de Data Factory. Haga clic en **Supervisión y administración** para iniciar la aplicación de supervisión en otra pestaña.
+    c. La propiedad **entryFilePath** se establece en **test.py**, que es el archivo de Python.
+
+    d. La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).
+
+    > [!IMPORTANT]
+    > Se recomienda que no establezca esta propiedad como `Always` en un entorno de producción, a menos que esté solucionando un problema.
+
+    e. La sección de **salida** tiene un conjunto de datos de salida. Debe especificar un conjunto de datos de salida, incluso si el programa de Spark no genera ninguna salida. El conjunto de datos de salida impulsa la programación de la canalización (cada hora o cada día). 
+
+    Para más información sobre las propiedades que admite la actividad de Spark, consulte la sección [Propiedades de la actividad de Spark](#spark-activity-properties).
+
+3. Seleccione **Deploy** (Implementar) en la barra de comandos para implementar la canalización.
+
+### <a name="monitor-a-pipeline"></a>Supervisión de una canalización
+1. En la hoja **Factoría de datos**, seleccione **Supervisión y administración** para iniciar la aplicación de supervisión en otra pestaña.
 
     ![Icono Supervisión y administración](media/data-factory-spark/monitor-and-manage-tile.png)
-2. Cambie el filtro **Hora de inicio** en la parte superior por **2/1/2017** y haga clic en **Aplicar**.
-3. Debería ver solo una ventana de actividad, ya que solo hay un día entre las horas de inicio (2017-02-01) y fin (2017-02-02) de la canalización. Confirme que el estado del segmento de datos es **Listo**.
 
-    ![Supervisar la canalización](media/data-factory-spark/monitor-and-manage-app.png)    
-4. Seleccione la **ventana actividad** para ver los detalles sobre la ejecución de la actividad. Si se produce un error, puede ver detalles sobre él en el panel derecho.
+2. Cambie el filtro **Start time** (Hora de inicio) en la parte superior por **2/1/2017** y seleccione **Apply** (Aplicar).
+
+3. Solo se mostrará una ventana de actividad, ya que solo hay un día entre las horas de inicio (2017-02-01) y fin (2017-02-02) de la canalización. Confirme que el estado del segmento de datos es **Ready** (Listo).
+
+    ![Supervisar la canalización](media/data-factory-spark/monitor-and-manage-app.png)
+
+4. En la lista de **ventanas de actividad**, seleccione una ejecución de actividad para ver información sobre ella. Si se produce un error, puede ver detalles sobre él en el panel derecho.
 
 ### <a name="verify-the-results"></a>Verificación de los resultados
 
-1. Inicie **Jupyter Notebook** para el clúster de HDInsight Spark; para ello, navegue a: https://CLUSTERNAME.azurehdinsight.net/jupyter. También puede iniciar el panel del clúster de HDInsight Spark y después inicie **Jupyter Notebook**.
-2. Haga clic en **Nuevo** -> **PySpark** para iniciar un nuevo cuaderno.
+1. Inicie Jupyter Notebook para el clúster de HDInsight Spark desde [este sitio web](https://CLUSTERNAME.azurehdinsight.net/jupyter). También puede abrir un panel del clúster de HDInsight Spark y después iniciar Jupyter Notebook.
+
+2. Seleccione **Nuevo** > **PySpark** para iniciar una nueva instancia de Notebook.
 
     ![Nuevo Jupyter Notebook](media/data-factory-spark/jupyter-new-book.png)
-3. Ejecute el siguiente comando; para ello, copie y peque el texto y presione **MAYÚS + ENTRAR** al final de la segunda instrucción.  
+
+3. Ejecute el siguiente comando; para ello, copie y pegue el texto y presione Mayús + Entrar al final de la segunda instrucción:
 
     ```sql
     %%sql
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-4. Confirme que ve los datos de la tabla hvac:  
+4. Confirme que ve los datos de la tabla hvac. 
 
     ![Resultados de la consulta Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Vea la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) para obtener instrucciones detalladas. 
+Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>Solución de problemas
-Puesto que establece **getDebugInfo** en **Siempre**, aparece una subcarpeta de **registro** en la carpeta **pyFiles** del contenedor de Azure Blob. El archivo de registro en la carpeta de registro proporciona detalles adicionales. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, puede establecerlo en **Error**.
+### <a name="troubleshooting"></a>solución de problemas
+Puesto que establece getDebugInfo en **Siempre**, aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.
 
 Para solucionar problemas, realice los pasos siguientes:
 
 
 1. Vaya a `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
-    ![Aplicación de IU de YARN](media/data-factory-spark/yarnui-application.png)  
-2. Haga clic en **Registros** para uno de los intentos de ejecución.
+    ![Aplicación de IU de YARN](media/data-factory-spark/yarnui-application.png)
+
+2. Seleccione **Registros** para uno de los intentos de ejecución.
 
     ![Página de aplicación](media/data-factory-spark/yarn-applications.png)
-3. Debería ver información adicional sobre el error en la página de registro.
+
+3. Verá información adicional sobre el error en la página de registro:
 
     ![Error de registro](media/data-factory-spark/yarnui-application-error.png)
 
-En las secciones siguientes se proporciona información sobre las entidades de Data Factory para usar un clúster de Apache Spark y una actividad de Spark en su factoría de datos.
+En las secciones siguientes se proporciona información sobre las entidades de factoría de datos para usar un clúster de Spark y una actividad de Spark en su factoría de datos.
 
 ## <a name="spark-activity-properties"></a>Propiedades de la actividad de Spark
-Esta es la definición JSON de ejemplo de una canalización con la actividad de Spark:    
+Esta es la definición JSON de ejemplo de una canalización con una actividad de Spark: 
 
 ```json
 {
@@ -289,39 +325,39 @@ Esta es la definición JSON de ejemplo de una canalización con la actividad de 
 }
 ```
 
-En la siguiente tabla se describen las propiedades JSON que se usan en la definición de JSON:
+En la siguiente tabla se describen las propiedades JSON que se usan en la definición de JSON.
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| name | Nombre de la actividad en la canalización. | Sí |
-| Descripción | Texto que describe para qué se usa la actividad. | No |
-| type | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
+| Nombre | Nombre de la actividad en la canalización. | Sí |
+| Descripción | Texto que describe para qué se usa la actividad. | Sin  |
+| Tipo | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
 | linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | Sí |
-| rootPath | Contenedor de blobs de Azure y la carpeta que contiene el archivo de Spark. El nombre del archivo distingue mayúsculas de minúsculas. | Sí |
+| rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | Sí |
 | entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí |
-| className | Clase principal de Spark o Java de la aplicación. | No |
-| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | No |
-| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | No |
-| sparkConfig | Especifique valores para propiedades de configuración de Spark indicados en el tema [Spark Configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | No |
-| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento de Azure que usa el clúster de HDInsight que especifica sparkJobLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No |
-| sparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | No |
+| className | Clase principal de Spark o Java de la aplicación. | Sin  |
+| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | Sin  |
+| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin  |
+| sparkConfig | Especifique valores para las propiedades de configuración de Spark indicadas en el tema [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | Sin  |
+| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento que usa el clúster de HDInsight que especifica sparkJobLinkedService. Los valores permitidos son Ninguno, Siempre o Error. El valor predeterminado es Ninguno. | Sin  |
+| sparkJobLinkedService | El servicio vinculado de Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | Sin  |
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 La actividad de Spark no es compatible con un script en línea, al contrario que las actividades de Pig y Hive. Los trabajos de Spark también son más ampliable que los de Pig y Hive. En los trabajos de Spark, puede proporcionar varias dependencias como paquetes JAR (ubicados en la CLASSPATH de Java), archivos de Python (ubicados en la ruta PYTHONPATH) y cualquier otro archivo.
 
-Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en Azure Blob Storage:     
+Cree la siguiente estructura de carpetas en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en la instancia de Blob Storage: 
 
-| Ruta de acceso | Descripción | Obligatorio | Escriba |
+| Ruta de acceso | DESCRIPCIÓN | Obligatorio | type |
 | ---- | ----------- | -------- | ---- |
-| . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento.  | Sí | Carpeta |
+| . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |
-| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | No | Carpeta |
-| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | No | Carpeta |
-| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | No | Carpeta |
-| ./archives | Todos los archivos de esta carpeta están sin comprimir. | No | Carpeta |
-| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| No | Carpeta |
+| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin  | Carpeta |
+| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin  | Carpeta |
+| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin  | Carpeta |
+| ./archives | Todos los archivos de esta carpeta están sin comprimir. | Sin  | Carpeta |
+| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| Sin  | Carpeta |
 
-Este es un ejemplo de un almacenamiento que contiene dos archivos de trabajos de Spark en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight.
+Este es un ejemplo de un almacenamiento que contiene dos archivos de trabajos de Spark en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight:
 
 ```
 SparkJob1

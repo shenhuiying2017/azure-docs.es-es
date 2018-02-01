@@ -1,6 +1,6 @@
 ---
 title: "Filtros y manifiestos dinámicos | Microsoft Docs"
-description: "En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una transmisión. Media Services crea manifiestos dinámicos par lograr este streaming selectivo."
+description: "En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Media Services crea manifiestos dinámicos par lograr este streaming selectivo."
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 A partir de la versión 2.17, Media Services le permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo), o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las copias asociadas al activo). Este filtrado de sus activos se archiva a través de los **manifiestos dinámicos**que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
-En este tema se describen escenarios comunes en los que el uso de filtros resultaría muy beneficioso para los clientes y vínculos a temas que muestran cómo crear filtros mediante programación (actualmente solo puede crear filtros con las API de REST).
+En este tema se describen escenarios comunes en los que el uso de filtros resultaría muy beneficioso para los clientes y vínculos a temas que muestran cómo crear filtros mediante programación.
 
 ## <a name="overview"></a>Información general
 Cuando entregue su contenido a los clientes (transmisión de eventos en directo o vídeo bajo demanda), su objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Para lograr este objetivo, haga lo siguiente:
@@ -67,14 +67,14 @@ Este es un ejemplo de un archivo de manifiesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifiestos dinámicos
-Hay [escenarios](media-services-dynamic-manifest-overview.md#scenarios) cuando el cliente necesita mayor flexibilidad que lo que se describe en el archivo de manifiesto del activo predeterminado. Por ejemplo:
+Hay [escenarios](media-services-dynamic-manifest-overview.md#scenarios) cuando el cliente necesita mayor flexibilidad que lo que se describe en el archivo de manifiesto del activo predeterminado. Por ejemplo: 
 
 * Específico de dispositivo: entregue únicamente las representaciones y pistas de idioma especificadas que admite el dispositivo que se usa para la reproducción del contenido ("filtrado de representaciones"). 
 * Reduzca el manifiesto para mostrar un clip secundario de un evento en directo ("filtrado de vídeos secundarios").
 * Recorte el inicio de un vídeo ("recorte de un vídeo").
 * Ajuste la ventana de presentación (DVR) para ofrecer una longitud limitada de la ventana de DVR en el reproductor ("ventana de presentación de ajuste").
 
-Para lograr esta flexibilidad, los Media Services ofrecen **manifiestos dinámicos** basados en [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable compatibles con [empaquetado dinámico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH y Smooth Streaming. Por ejemplo:
+Para lograr esta flexibilidad, los Media Services ofrecen **manifiestos dinámicos** basados en [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable compatibles con [empaquetado dinámico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH y Smooth Streaming. Por ejemplo: 
 
 URL de MPEG DASH con filtro
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Incorporación de las búsquedas y las alertas guardadas de Log Analytics en la solución de administración de OMS (versión preliminar)
 
@@ -31,7 +31,7 @@ Las [soluciones de administración de OMS](operations-management-suite-solutions
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración y se describen en [Creating management solutions in Operations Management Suite (OMS) (Creación de soluciones de administración en Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](operations-management-suite-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../resource-group-authoring-templates.md) y un archivo de solución.
 
 
@@ -45,17 +45,14 @@ El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  E
 ## <a name="log-analytics-api-version"></a>Versión de la API de Log Analytics
 Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para los recursos que usan el [lenguaje de consulta heredado y actualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- En la tabla siguiente se especifican las versiones de la API de Log Analytics para áreas de trabajo heredadas y actualizadas y una consulta de ejemplo para especificar una sintaxis diferente para cada una. 
+ En la tabla siguiente se especifican las versiones de API de Log Analytics para las búsquedas guardadas en los espacios de trabajo heredados y actualizados: 
 
-| Versión del área de trabajo | Versión de API | Consulta de ejemplo |
+| Versión del área de trabajo | Versión de API | Consultar |
 |:---|:---|:---|
-| v1 (heredado)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (actualizado) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1 (heredado)   | 2015-11-01-preview | Formato heredado.<br> Ejemplo: Type=Event EventLevelName = Error  |
+| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; donde EventLevelName == "Error"  |
+| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; donde EventLevelName == "Error"  |
 
-Tenga en cuenta lo siguiente para que las áreas de trabajo sean compatibles con versiones diferentes.
-
-- Las plantillas que usan el lenguaje de consulta heredado pueden instalarse en un área de trabajo heredada o actualizada.  Si se instalan en un área de trabajo actualizada, las consultas se convierten sobre la marcha al nuevo lenguaje cuando el usuario las ejecuta.
-- Las plantillas que usan el lenguaje de consulta actualizado solo pueden instalarse en un área de trabajo actualizada.
 
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
@@ -82,7 +79,7 @@ Los recursos de [búsquedas guardadas de Log Analytics](../log-analytics/log-ana
 
 En la tabla siguiente se describe cada una de las propiedades de una búsqueda guardada. 
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | categoría | Categoría de la búsqueda guardada.  Las búsquedas guardadas en la misma solución comparten a menudo una única categoría por lo que están agrupadas juntas en la consola. |
 | displayname | Nombre para mostrar de la búsqueda guardada en el portal. |
@@ -128,9 +125,9 @@ Una búsqueda guardada puede tener una o más programaciones y cada programació
 
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
+| Enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
 | interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
 | queryTimeSpan | Sí | Período de tiempo en minutos en el que se evalúan los resultados. |
 
@@ -187,18 +184,18 @@ Las acciones de alerta tienen la siguiente estructura.  Aquí se incluyen las va
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de alerta.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Tipo | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
-| Nombre | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| Descripción | No | Descripción opcional de la alerta. |
+| type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
+| NOMBRE | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
+| DESCRIPCIÓN | Sin  | Descripción opcional de la alerta. |
 | Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **Critical)** (Crítico)<br>**Warning (ADVERTENCIA)**<br>**Informational** (Informativo) |
 
 
 ##### <a name="threshold"></a>Umbral
 Esta sección es obligatoria.  Define las propiedades para el umbral de alerta.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
 | Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
 | Valor | Sí | Valor para comparar los resultados. |
@@ -210,7 +207,7 @@ Esta sección es opcional.  Inclúyala para una alerta de unidades métricas.
 > [!NOTE]
 > Las alertas de unidades métricas están actualmente en versión preliminar pública. 
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
 | TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
 | Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
@@ -219,32 +216,32 @@ Esta sección es opcional.  Inclúyala para una alerta de unidades métricas.
 ##### <a name="throttling"></a>Limitaciones
 Esta sección es opcional.  Incluya esta sección si desea suprimir alertas en la misma regla durante cierto tiempo después de crear una alerta.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
 | DurationInMinutes | Sí, si hay una limitación de elementos incluida | Número de minutos para suprimir alertas después de crear una en la misma regla de alerta. |
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta sección es opcional. Inclúyala si desea que la alerta envíe un mensaje de correo electrónico a uno o varios destinatarios.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
 | Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Asunto | Sí | Línea del asunto del mensaje de correo electrónico. |
-| Datos adjuntos | No | Los datos adjuntos no son compatibles actualmente.  Si este elemento está incluido, debe ser **None** (Ninguno). |
+| Datos adjuntos | Sin  | Los datos adjuntos no son compatibles actualmente.  Si este elemento está incluido, debe ser **None** (Ninguno). |
 
 
 ##### <a name="remediation"></a>Corrección
 Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respuesta a la alerta. |
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
 | RunbookName | Sí | Nombre del runbook que se va a iniciar. |
 | WebhookUri | Sí | URI del webhook para el runbook. |
-| Expiry | No | Fecha y hora a la que expira la corrección. |
+| Expiry | Sin  | Fecha y hora a la que expira la corrección. |
 
 #### <a name="webhook-actions"></a>Acciones de webhook
 
-Las acciones de webhook inician un proceso llamando a una dirección URL y, opcionalmente, proporcionando una carga que se va a enviar. Son similares a las acciones de corrección, salvo por el hecho de que están pensadas para webhooks que pueden invocar procesos que no tienen que ver con Runbooks de Automatización de Azure. También ofrecen la posibilidad extra de proporcionar una carga adicional para entregarla en el proceso remoto.
+Las acciones de webhook inician un proceso llamando a una dirección URL y, opcionalmente, proporcionando una carga que se va a enviar. Son similares a las acciones de corrección, salvo por el hecho de que están pensadas para webhooks que pueden invocar procesos que no tienen que ver con Runbooks de Azure Automation. También ofrecen la posibilidad extra de proporcionar una carga adicional para entregarla en el proceso remoto.
 
 Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo de **Webhook**, además del recurso de acción **Alert**.  
 
@@ -266,12 +263,12 @@ Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo d
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de Webhook.
 
-| Nombre del elemento | Obligatorio | Descripción |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| type | Sí | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
-| name | Sí | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
+| Tipo | Sí | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
+| Nombre | Sí | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
 | wehookUri | Sí | URI del webhook. |
-| customPayload | No | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
+| customPayload | Sin  | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 
 
@@ -520,7 +517,7 @@ El siguiente archivo de parámetros proporciona valores de ejemplo para esta sol
     }
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de Automation y otros recursos](operations-management-suite-solutions-resources-automation.md) a la solución de administración.
 

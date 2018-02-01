@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -44,7 +44,7 @@ Para obtener más información sobre los precios, consulte [Información sobre e
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión VPN que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
 
-No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
+Nº Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo aumentar la velocidad si quiero?
 
@@ -121,11 +121,11 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>¿Se pierde conectividad si se produce un error en uno de mis vínculos de ExpressRoute?
 
-No perderá conectividad si se produce un error en una de las conexiones cruzadas. Una conexión redundante está disponible para admitir la carga de la red. Asimismo, puede crear varios circuitos en una ubicación de emparejamiento diferente para lograr resistencia frente a errores.
+No perderá conectividad si se produce un error en una de las conexiones cruzadas. Hay disponible una conexión redundante para admitir la carga de la red y proporcionar alta disponibilidad del circuito ExpressRoute. Asimismo, puede crear un circuito en una ubicación de emparejamiento distinta para alcanzar la resistencia en el nivel de circuito.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
-Se puede lograr la alta disponibilidad mediante la conexión a la red virtual de varios circuitos ExpressRoute de diferentes ubicaciones de emparejamiento. Por ejemplo, si un sitio de ExpressRoute se bloquea, la conectividad conmutarán por error a otro sitio de ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para decantarse por una conexión u otra. Vea [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md) para obtener más detalles sobre el peso de la conexión.
+Se puede lograr la alta disponibilidad mediante la conexión de circuitos de ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Vea [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md) para obtener más detalles sobre el peso de la conexión.
 
 ### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 
@@ -135,7 +135,7 @@ Si su proveedor de servicios puede establecer dos circuitos virtuales de Etherne
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>¿Puedo extender una de mis VLAN a Azure mediante ExpressRoute?
 
-No. No admitimos ampliaciones de conectividad de la capa 2 en Azure.
+Nº No admitimos ampliaciones de conectividad de la capa 2 en Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>¿Se puede disponer de más de un circuito ExpressRoute en mi suscripción?
 
@@ -145,9 +145,12 @@ Sí. Puede disponer de más de un circuito ExpressRoute en su suscripción. El l
 
 Sí. Puede tener circuitos ExpressRoute de muchos otros proveedores de servicios. Cada circuito ExpressRoute estará asociado solo a un proveedor de servicios. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>¿Puede haber varios circuitos ExpressRoute en la misma ubicación?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Veo dos ubicaciones de emparejamiento ExpressRoute en el mismo metro, por ejemplo, Singapur y Singapur2. ¿Qué ubicación de emparejamiento debo elegir para crear el circuito ExpressRoute?
+Si el proveedor de servicios ofrece ExpressRoute en ambos sitios, puede trabajar con el proveedor y elegir cualquier sitio para configurar ExpressRoute. 
 
-Sí. Puede haber varios circuitos ExpressRoute, con los mismos o distintos proveedores de servicio, en la misma ubicación. Sin embargo, no puede vincular más de un circuito ExpressRoute a la misma red virtual desde la misma ubicación.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>¿Puedo tener varios circuitos ExpressRoute en el mismo metro? ¿Puedo vincularlos a la misma red virtual?
+
+Sí. Puede haber varios circuitos ExpressRoute con los mismos o distintos proveedores de servicios. Si el metro tiene varias ubicaciones de emparejamiento de ExpressRoute y los circuitos se crean en varias ubicaciones de emparejamiento, se pueden vincular a la misma red virtual. Si los circuitos se crean en la misma ubicación de emparejamiento, no puede vincularlos a la misma red virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>¿Cómo conecto mis redes virtuales a un circuito ExpressRoute?
 
@@ -181,7 +184,7 @@ Para obtener más información, vea [Uso compartido de un circuito ExpressRoute 
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>¿Las redes virtuales se conectan al mismo circuito aislado entre sí?
 
-No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
+Nº Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
 

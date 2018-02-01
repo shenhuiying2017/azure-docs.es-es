@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
 
@@ -63,6 +63,8 @@ Una vez iniciada la sesión, Docker almacena en caché las credenciales, por lo 
 
 Según la versión de Docker que haya instalado, puede aparecer una advertencia de seguridad en la que se recomiende el uso del parámetro `--password-stdin`. Cuando su uso esté fuera del ámbito de este artículo, recomendamos seguir este procedimiento recomendado. Para más información, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
+Para obtener más información sobre cómo se puede usar una entidad de servicio para la autenticación sin periféricos en ACR, consulte [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md) (Autenticación de Azure Container Registry con entidades de servicio).
+
 ## <a name="admin-account"></a>Cuenta de administrador
 
 Cada registro de contenedor incluye una cuenta de usuario administrador, que está deshabilitada de forma predeterminada. Puede habilitar el usuario administrador y administrar sus credenciales en [Azure Portal](container-registry-get-started-portal.md#create-a-container-registry) o mediante la CLI de Azure.
@@ -71,7 +73,7 @@ Cada registro de contenedor incluye una cuenta de usuario administrador, que est
 > La cuenta de administrador está diseñada para que un solo usuario acceda al registro, principalmente con fines de prueba. No se recomienda compartir las credenciales de cuenta de administrador con varios usuarios. Todos los usuarios que se autentican con la cuenta de administrador aparecen como un único usuario con acceso de inserción y extracción en el registro. Al cambiar o deshabilitar esta cuenta se deshabilita el acceso de registro para todos los usuarios que utilizan sus credenciales. Se recomienda la identidad individual para usuarios y entidades de servicio para escenarios desatendidos.
 >
 
-A la cuenta de administrador se le proporcionan dos contraseñas, y las dos se pueden regenerar. Las dos contraseñas le permiten mantener la conexión con el registro mediante una contraseña mientras se regenera la otra. Si la cuenta de administrador está habilitada, puede pasar el nombre de usuario y cualquier contraseña al comando `docker login` para la autenticación básica en el registro. Por ejemplo:
+A la cuenta de administrador se le proporcionan dos contraseñas, y las dos se pueden regenerar. Las dos contraseñas le permiten mantener la conexión con el registro mediante una contraseña mientras se regenera la otra. Si la cuenta de administrador está habilitada, puede pasar el nombre de usuario y cualquier contraseña al comando `docker login` para la autenticación básica en el registro. Por ejemplo: 
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
@@ -89,7 +91,7 @@ Puede habilitar el usuario administrador en Azure Portal dirigiéndose al regist
 
 ![Activación de la interfaz de usuario administrador en Azure Portal][auth-portal-01]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md) (Inserción de la primera imagen mediante la CLI de Azure)
 

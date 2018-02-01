@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Preguntas más frecuentes sobre la solución preconfigurada de fábrica conectada a Conjunto de aplicaciones de IoT
 
@@ -117,7 +117,7 @@ La misma simulación registra los siguientes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/azure/iothub-explorer), puede comprobar qué dispositivos están registrados en la instancia IoT Hub que usa la solución. Para usar estas herramientas, necesita la cadena de conexión para la instancia de IoT Hub de la implementación.
+Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [la extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension), puede comprobar qué dispositivos están registrados con la instancia de IoT Hub que la solución usa. Para usar el explorador de dispositivos, necesita la cadena de conexión para la instancia de IoT Hub en la implementación. Para usar la extensión de IoT para la CLI de Azure 2.0, necesita el nombre de la instancia de IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>¿Cómo se pueden obtener datos de registro de los componentes de simulación?
 
@@ -146,7 +146,13 @@ Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. 
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>¿Cómo se habilita un mapa interactivo en una solución de factoría conectada?
 
-Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise. Si tiene un plan de Bing Maps API for Enterprise al implementar la solución de factoría conectada desde www.azureiotsuite.com, el mapa interactivo se habilita automáticamente.
+Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise.
+
+Cuando se implementa desde [www.azureiotsuite.com](http://www.azureiotsuite.com), el proceso de implementación comprueba que la suscripción tiene un plan de Bing Maps API for Enterprise e implementa automáticamente un mapa interactivo en Fábrica conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
+
+Cuando realiza la implementación con el script `build.ps1` en el repositorio GitHub de Fábrica conectada y tiene un plan de Bing Maps API for Enterprise, establezca la variable de entorno `$env:MapApiQueryKey` en la ventana de compilación a la clave de consulta del plan. El mapa interactivo se habilita de manera automática.
+
+Si no tiene un plan de Bing Maps API for Enterprise, implemente la solución Fábrica conectada desde [www.azureiotsuite.com](http://www.azureiotsuite.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Fábrica conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>¿Cómo se crea una cuenta de Bing Maps API for Enterprise?
 

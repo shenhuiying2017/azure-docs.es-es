@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
 Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
@@ -120,7 +120,7 @@ La última causa de los posibles problemas puede residir en la propia máquina v
 
 ![Diagrama que resalta la máquina virtual de Azure basada en Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Si aún no lo ha hecho, siga las instrucciones [para restablecer una contraseña o clave SSH para máquinas virtuales basadas en Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Si aún no lo ha hecho, siga las instrucciones [para restablecer una contraseña para máquinas virtuales basadas en Linux](reset-password.md).
 
 Pruebe de nuevo la conexión desde su equipo. Si sigue sin funcionar, estos son algunos de los posibles problemas:
 

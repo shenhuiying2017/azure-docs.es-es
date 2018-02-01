@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -43,11 +43,11 @@ Para obtener valores de parámetro, variables o la implementación actual, consu
 
 Devuelve los valores para cualquier tipo de recurso que admite la operación list. El uso más común es `listKeys`. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
+| resourceName o resourceIdentifier |Sí |cadena |Identificador único para el recurso. |
 | apiVersion |Sí |cadena |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -149,12 +149,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve información acerca de un proveedor de recursos y sus tipos de recursos admitidos. Si no proporciona un tipo de recurso, la función devuelve todos los tipos admitidos para el proveedor de recursos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sí |string |Espacio de nombres del proveedor |
-| resourceType |No |cadena |El tipo de recurso en el espacio de nombres especificado. |
+| providerNamespace |Sí |cadena |Espacio de nombres del proveedor |
+| resourceType |Sin  |cadena |El tipo de recurso en el espacio de nombres especificado. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -237,13 +237,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve un objeto que representa el estado de tiempo de ejecución de un recurso.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. |
-| apiVersion |No |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. |
-| 'Full' |No |cadena |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
+| resourceName o resourceIdentifier |Sí |cadena |Nombre o identificador único de un recurso. |
+| apiVersion |Sin  |cadena |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. |
+| 'Full' |Sin  |cadena |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -251,7 +251,7 @@ Cada tipo de recurso devuelve propiedades diferentes para la función de referen
 
 ### <a name="remarks"></a>Comentarios
 
-La función reference deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla. 
+La función reference deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla o [plantilla vinculada](resource-group-linked-templates.md#link-or-nest-a-template). No se puede utilizar en la sección de salidas de una [plantilla anidada](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada. 
 
 Mediante el uso de la función de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No tiene que usar también la propiedad dependsOn. La función no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
@@ -524,20 +524,20 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourceid" />
 
-## <a name="resourceid"></a>resourceId
+## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Devuelve el identificador único de un recurso. Utilice esta función cuando el nombre del recurso sea ambiguo o no esté aprovisionado dentro de la misma plantilla. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
-| resourceGroupName |No |cadena |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
-| resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
+| subscriptionId |Sin  |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
+| resourceGroupName |Sin  |cadena |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
+| resourceType |Sí |cadena |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |cadena |Nombre del recurso. |
-| resourceName2 |No |string |Siguiente segmento de nombre de recurso si el recurso está anidado. |
+| resourceName2 |Sin  |cadena |Siguiente segmento de nombre de recurso si el recurso está anidado. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -652,12 +652,12 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | string | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | string | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | string | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | string | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -721,7 +721,7 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).

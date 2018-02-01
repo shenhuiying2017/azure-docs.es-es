@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -74,31 +74,7 @@ Los gráficos que elija se muestran en los siguientes casos:
     * Al pasar el parámetro *whr* a la página de restablecimiento de contraseñas, como "https://login.microsoftonline.com/?whr=contoso.com".
     * Al pasar el parámetro *username* a la página de restablecimiento de contraseñas, como "https://login.microsoftonline.com/?username=admin@contoso.com".
 
-### <a name="graphics-details"></a>Detalles de gráficos
-
-Use las siguientes opciones de configuración para cambiar las características visuales de la página de inicio de sesión. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** > **Editar personalización de marca de empresa**:
-
-* La imagen de la página de inicio de sesión debe ser un archivo .png o .jpg de 1420 x 1200 píxeles y con un tamaño máximo de 500 KB. Para obtener los mejores resultados, le recomendamos que mantenga el tamaño en unos 200 KB.
-* El color de fondo de la página de inicio de sesión se usa en conexiones de alta latencia y debe tener el formato hexadecimal RGB.
-* La imagen del banner debe ser un archivo .png o .jpg de 60 x 280 píxeles y con un tamaño máximo de 10 KB.
-* El logotipo cuadrado (con tema oscuro y normal) debe ser un archivo .png o .jpg de 240 x 240 píxeles (tamaño variable) y con un tamaño máximo de 10 KB.
-
-### <a name="sign-in-text-options"></a>Opciones de texto de inicio de sesión
-
-La siguiente configuración le permite agregar texto a la página de inicio de sesión de la organización. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** > **Editar personalización de marca de empresa**:
-
-* **Sugerencia de nombre de usuario**: reemplaza el texto de ejemplo de *someone@example.com* con algo más adecuado para los usuarios. Se recomienda dejar la sugerencia predeterminada cuando se admitan usuarios internos y externos.
-* **Texto de la página de inicio de sesión**: puede tener una longitud máxima de 256 caracteres. Este texto aparece en cualquier lugar donde los usuarios inicien sesión en línea, así como en la experiencia de Azure AD Workplace Join en Windows 10. Use este texto para los términos de uso, las instrucciones y las sugerencias para los usuarios. 
-
-   >[!IMPORTANT]
-   >Cualquier usuario puede ver la página de inicio de sesión, por lo que no debe proporcionar ninguna información confidencial aquí.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Opción "Mantener la sesión iniciada incluso si se desactiva"
-
-Gracias a la opción **Mantener la sesión iniciada incluso si se desactiva**, los usuarios pueden permanecer con la sesión iniciada cuando se cierra y se vuelve a abrir la ventana del explorador. Esta opción no afecta a la duración de las sesiones. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** > **Editar personalización de marca de empresa**.
-
-Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si oculta esta opción, los usuarios pueden obtener solicitudes de inicio de sesión adicionales e inesperadas.
+Obtenga información detallada sobre cómo configurar la personalización de marca de empresa en el artículo [Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Nombre de directorio
 

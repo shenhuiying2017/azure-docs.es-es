@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -53,7 +53,7 @@ El servicio de metadatos de instancia tiene versiones. Las versiones son obligat
 > [!NOTE] 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
 
-A medida que agreguemos versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos. Pero tenga en cuenta que es posible que la versión preliminar anterior (2017-03-01) no esté disponible una vez que el servicio esté disponible con carácter general.
+A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos. No obstante, es posible que la versión preliminar anterior (2017-03-01) no esté disponible una vez que el servicio esté disponible con carácter general.
 
 ### <a name="using-headers"></a>Uso de encabezados
 Al consultar el servicio de metadatos de instancia, debe proporcionar el encabezado `Metadata: true` para asegurarse de que la solicitud no se ha redirigido de manera involuntaria.
@@ -62,7 +62,7 @@ Al consultar el servicio de metadatos de instancia, debe proporcionar el encabez
 
 Los metadatos de instancia están disponibles para ejecutar máquinas virtuales creadas o administradas mediante [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Para tener acceso a todas las categorías de datos de una instancia de máquina virtual, use la solicitud siguiente:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Formato predeterminado de datos | Otros formatos
 
 Para obtener acceso a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Seguridad
 El punto de conexión del servicio de metadatos de instancia solo es accesible desde la instancia de máquina virtual en ejecución en una dirección IP no enrutable. Además, el servicio rechaza cualquier solicitud que tenga un encabezado `X-Forwarded-For`.
-También es necesario que las solicitudes incluyan un encabezado `Metadata: true` para garantizar que la solicitud actual esté dirigida directamente y no como parte de un redireccionamiento accidental. 
+Las solicitudes tienen que incluir también un encabezado `Metadata: true` para garantizar que la solicitud actual esté dirigida directamente y no como parte de un redireccionamiento accidental. 
 
 ### <a name="error"></a>Error
 Si no se encuentra un elemento de datos o hay una solicitud con formato incorrecto, el servicio de metadatos de instancia devuelve errores HTTP estándar. Por ejemplo:
@@ -109,7 +109,7 @@ Código de estado HTTP | Motivo
 
 **Solicitud**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Recuperación de dirección IP pública
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Solicitud**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 O bien a través del cmdlet `Invoke-RestMethod`:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -302,7 +302,7 @@ subnet/address | Dirección de subred de la máquina virtual | 2017-04-02
 subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02 
 ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
 macAddress | Dirección de MAC de la VM | 2017-04-02 
-scheduledevents | Actualmente en Versión preliminar pública Vea [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Actualmente en versión preliminar pública. Consulte [Scheduled Events](scheduled-events.md). | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -312,7 +312,7 @@ Como proveedor de servicios, es posible que necesite hacer seguimiento de la can
 
 **Solicitud**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Puede consultar directamente estos datos a través del servicio de metadatos de 
 
 **Solicitud**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Como proveedor de servicios, es posible que reciba una llamada de soporte técni
 
 **Solicitud**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",

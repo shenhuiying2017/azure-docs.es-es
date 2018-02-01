@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Administración de una instancia de Integration Runtime de SSIS de Azure
 En el artículo [Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md) se muestra cómo crear una instancia de Integration Runtime (IR) de SSIS de Azure mediante Azure Data Factory. En este artículo se proporciona información acerca de cómo volver a configurar una instancia de Integration Runtime de SSIS de Azure.  
@@ -25,9 +25,28 @@ En el artículo [Creación de una instancia de Integration Runtime de SSIS de Az
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
+
+## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory 
+Puede usar la interfaz de usuario de Data Factory para detener, editar y volver a configurar o eliminar un entorno de ejecución de integración de SSIS de Azure. 
+
+1. En la **interfaz de usuario de Data Factory**, cambie a la pestaña **Edit** (Editar). Para iniciar la interfaz de usuario de Data Factory, haga clic en **Author & Monitor** (Creación y supervisión) en la página principal de su factoría de datos.
+2. En el panel izquierdo, haga clic en **Connections** (Conexiones).
+3. En el panel derecho, cambie a **Integration Runtimes** (Entornos de ejecución de integración). 
+4. Puede usar los botones de la columna Actions (Acciones) para **detener**, **editar**, o **eliminar** el entorno de ejecución de integración. El botón **Code** (Código) de la columna **Actions** (Acciones) le permite ver la definición de JSON asociada con el entorno de ejecución de integración.  
+    
+    ![Acciones para entornos de ejecución de integración de SSIS de Azure](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Para reconfigurar un entorno de ejecución de integración de SSIS de Azure
+1. Haga clic en **Stop** (Detener) en la columna **Actions** (Acciones) para detener el entorno de ejecución de integración. Para actualizar la vista de lista, haga clic en **Refresh** (Actualizar) en la barra de herramientas. Una vez detenida la instancia de IR, verá que la primera acción le permite iniciar el entorno de ejecución de integración. 
+
+    ![Acciones para entornos de ejecución de integración de SSIS de Azure después de la detención](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Edite o reconfigure el entorno de ejecución de integración, para lo que debe hacer clic en el botón **Edit** (Editar) de la columna **Actions** (Acciones). En la ventana **Integration Runtime Setup** (Configuración del entorno de ejecución), cambie la configuración (por ejemplo, el tamaño del nodo, el número de nodos o el máximo de ejecuciones en paralelo por nodo). 
+3. Para reiniciar el entorno de ejecución de integración, haga clic en el botón **Start** (Start) de la columna **Actions** (Acciones).     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Después de aprovisionar e iniciar una instancia de Integration Runtime de SSIS de Azure, puede volver a configurarla mediante la ejecución de una secuencia de los cmdlets `Stop` - `Set` - `Start` de PowerShell de forma consecutiva. Por ejemplo, el siguiente script de PowerShell cambia el número de nodos asignados a la instancia de Integration Runtime de SSIS de Azure a cinco.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar una instancia de IR de SSIS de Azure
+### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar una instancia de IR de SSIS de Azure
 
 1. En primer lugar, detenga la instancia de Integration Runtime de SSIS de Azure con el cmdlet [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Este comando libera todos sus nodos y detiene la facturación.
 
@@ -45,7 +64,7 @@ Después de aprovisionar e iniciar una instancia de Integration Runtime de SSIS 
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Eliminar una instancia de IR de SSIS de Azure
+### <a name="delete-an-azure-ssis-ir"></a>Eliminar una instancia de IR de SSIS de Azure
 1. En primer lugar, cree una lista de todas las instancias de IR de SSIS de Azure en la factoría de datos.
 
     ```powershell

@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido: API Graph con Python en Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar API Graph de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python."
+title: "Guía de inicio rápido: Graph API con Python en Azure Cosmos DB | Microsoft Docs"
+description: "Esta guía de inicio rápido muestra cómo usar Graph API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python."
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
@@ -13,22 +13,22 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Python y Azure Portal
 
-Esta guía de inicio rápido muestra cómo se usa Python y [API Graph](graph-introduction.md) de Azure Cosmos DB para crear una aplicación e consola mediante la clonación de un ejemplo de GitHub. Esta guía de inicio rápido también le guía a través de la creación de una cuenta de Azure Cosmos DB a través de Azure Portal en la web.   
+Esta guía de inicio rápido muestra cómo se usa Python y [Graph API](graph-introduction.md) de Azure Cosmos DB para crear una aplicación e consola mediante la clonación de un ejemplo de GitHub. Esta guía de inicio rápido también le guía a través de la creación de una cuenta de Azure Cosmos DB a través de Azure Portal en la web.   
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, tablas, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB.  
 
 > [!NOTE]
-> Esta guía de inicio rápido requiere una cuenta de base de datos de gráficos creada después del 27 de noviembre de 2017. Las cuentas existentes admitirán Python una vez que se hayan migrado a disponibilidad general.
+> Esta guía de inicio rápido requiere una cuenta de base de datos de grafos creada después del 20 de diciembre de 2017. Las cuentas existentes admitirán Python una vez que se hayan migrado a disponibilidad general.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -69,7 +69,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de API Graph desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.  
+Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de Graph API desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.  
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 

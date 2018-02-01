@@ -5,14 +5,14 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)
 
@@ -21,7 +21,7 @@ Azure Event Grid es un servicio de eventos para la nube. En este artículo, se u
 Por lo general, los eventos se envían a un punto de conexión que responde ante ellos, como un webhook o Azure Function. Para simplificar el ejemplo de este artículo, enviamos los eventos a una dirección URL que simplemente recopila los mensajes. Esta dirección URL se crea mediante una herramienta de código abierto de terceros llamada [RequestBin](https://requestb.in/).
 
 > [!NOTE]
-> **RequestBin** es una herramienta de código abierto que no está pensada para una utilización de alto rendimiento. El uso de la herramienta aquí es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+> **RequestBin** es una herramienta de código abierto que no está pensada para la utilización de alto rendimiento. El uso de la herramienta aquí es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
 
 Al completar los pasos descritos en este artículo, verá que los datos del evento se han enviado a un punto de conexión.
 
@@ -31,7 +31,7 @@ Al completar los pasos descritos en este artículo, verá que los datos del even
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de Azure localmente, para los fines de este artículo es preciso que ejecute la versión más reciente (2.0.14 o posterior). Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de Azure localmente, para los fines de este artículo, es preciso que ejecute la versión más reciente (2.0.24 o posterior). Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
 
 Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
@@ -70,20 +70,19 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
-Antes de suscribirse a los eventos desde la cuenta de Blob Storage, vamos a crear el punto de conexión para el mensaje del evento. En lugar de escribir código para responder al evento, crearemos un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin es una herramienta de código abierto de terceros que le permite crear un punto de conexión y ver las solicitudes que se envían a él. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear RequestBin).  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
+Antes de suscribirse a los eventos desde la cuenta de Blob Storage, vamos a crear el punto de conexión para el mensaje del evento. En lugar de escribir código para responder al evento, crearemos un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin es una herramienta de código abierto de terceros que permite crear un punto de conexión y ver las solicitudes que se le envían. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear RequestBin).  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
 
 ## <a name="subscribe-to-your-blob-storage-account"></a>Suscripción a una cuenta de Blob Storage
 
 Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se realiza la suscripción a la cuenta de Blob Storage que ha creado y se pasa la dirección URL de RequestBin como punto de conexión para la notificación de eventos. Reemplace `<event_subscription_name>` por un nombre único para la suscripción de eventos y `<URL_from_RequestBin>` por el valor de la sección anterior. Al especificar un punto de conexión cuando se suscribe, Event Grid controla el enrutamiento de los eventos a ese punto de conexión. En `<resource_group_name>` y `<storage_account_name>`, use los valores que creó anteriormente. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Desencadenamiento de un evento desde Blob Storage
@@ -122,7 +121,9 @@ Ha desencadenado el evento y Event Grid envió el mensaje al punto de conexión 
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```
@@ -136,7 +137,7 @@ Sustituya `<resource_group_name>` por el nombre del grupo de recursos que ha cre
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más información acerca de los eventos de Blob Storage y lo que Event Grid puede ayudarle a hacer:
 

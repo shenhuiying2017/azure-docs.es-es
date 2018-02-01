@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: definición de una estrategia de adopción de identidades híbridas| Microsoft Docs"
+title: "Diseño de identidades híbridas: estrategia de adopción en Azure | Microsoft Docs"
 description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, se definirá la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -154,7 +155,7 @@ Para realizar esta operación, es preciso que se den los siguientes factores:
 * Un dominio DNS solo se puede registrar en un único directorio de Azure AD, con el fin de que los UPN de los usuarios del entorno local de AD deban usar también espacios de nombres independientes.
 * Los usuarios de una instancia de Azure AD solo podrán ver los usuarios de su instancia.  No podrán ver los usuarios de las restantes instancias
 * Solo uno de los directorios de Azure AD puede habilitar la implementación híbrida de Exchange con el entorno local de Active Directory.
-* La exclusividad mutua también se aplica a la reescritura.  Esto hace que algunas de las características de la reescritura no sean compatibles con esta topología, ya que estas asumen una única configuración local.  En ella se incluye:
+* La exclusividad mutua también se aplica a la reescritura.  Esto hace que algunas de las características de la reescritura no sean compatibles con esta topología, ya que estas asumen una única configuración local.  Esto incluye:
   * Reescritura de grupos con la configuración predeterminada
   * Reescritura de dispositivos
 
@@ -178,11 +179,11 @@ Opciones de diseño multifactor:
 
 | Activo que se protege | MFA en la nube | MFA local |
 | --- | --- | --- |
-| Aplicaciones de Microsoft |yes |yes |
-| Aplicaciones de SaaS en la galería de aplicaciones |yes |yes |
-| Aplicaciones de IIS que se publican a través del proxy de aplicación de Azure AD |yes |yes |
-| Aplicaciones IIS que no se publican a través del proxy de aplicación de Azure AD |no |yes |
-| Acceso remoto como VPN o RDG |no |yes |
+| Aplicaciones de Microsoft |Sí |Sí |
+| Aplicaciones de SaaS en la galería de aplicaciones |Sí |Sí |
+| Aplicaciones de IIS que se publican a través del proxy de aplicación de Azure AD |Sí |Sí |
+| Aplicaciones IIS que no se publican a través del proxy de aplicación de Azure AD |no |Sí |
+| Acceso remoto como VPN o RDG |no |Sí |
 
 Aunque puede que eligiera una solución para su estrategia, será preciso que use la evaluación anterior en donde se encuentren los usuarios.  Esto puede provocar un cambio de solución.  La tabla siguiente puede ayudarle a decidirse:
 
@@ -207,7 +208,7 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Determinación de los requisitos de protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

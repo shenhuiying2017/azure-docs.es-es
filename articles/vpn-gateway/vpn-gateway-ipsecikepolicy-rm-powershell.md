@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -106,7 +106,7 @@ En la tabla siguiente se muestran los grupos Diffie-Hellman admitidos en la dire
 | 2                         | DHGroup2                 | PFS2         | MODP de 1024 bits  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP de 2048 bits  |
 | 19                        | ECP256                   | ECP256       | ECP de 256 bits    |
-| 20 |                        | ECP384                   | ECP284       | ECP de 384 bits    |
+| 20                         | ECP384                   | ECP284       | ECP de 384 bits    |
 | 24                        | DHGroup24                | PFS24        | MODP de 2048 bits  |
 
 Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) y [RFC5114](https://tools.ietf.org/html/rfc5114) para ver información más detallada.
@@ -195,20 +195,13 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, sin PFS, vigencia de SA de 7200 segundos y 102400000 KB
+* IPsec: AES256, SHA256, sin PFS, vigencia de SA de 14 400 segundos y 102 400 000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Si usa GCMAES para IPsec, debe usar el mismo algoritmo GCMAES y longitud de clave para la integridad y el cifrado IPsec, por ejemplo:
-
-* IKEv2: AES256, SHA384, DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, sin PFS, vigencia de SA de 7200 segundos y 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+Si usa GCMAES para IPsec, debe usar el mismo algoritmo GCMAES y longitud de clave para la integridad y el cifrado IPsec. En el ejemplo anterior, los parámetros correspondientes serán "-IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256" cuando se use GCMAES256.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Crear la conexión VPN de sitio a sitio con la directiva de IPsec o IKE
 
@@ -233,7 +226,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
 
 ![v2v-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
 
-Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y la puerta de enlace de VPN.
+Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y VPN Gateway.
 
 ### <a name="createvnet2"></a>Paso 1: Creación de la segunda red virtual y VPN Gateway
 
@@ -288,10 +281,10 @@ De forma similar a la conexión VPN de sitio a sitio, cree una directiva de IPse
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE diferente con los algoritmos y parámetros siguientes:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, vigencia de SA de 7200 segundos y 4096 KB
+* IPsec: GCMAES128, GCMAES128, PFS14, vigencia de SA de 14 400 segundos y 102 400 000 KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Crear conexiones de red virtual a red virtual con la directiva de IPsec o IKE
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-El último comando muestra la directiva de IPsec o IKE actual configurada en la conexión, si existe. La siguiente salida de ejemplo es para la conexión:
+El último comando muestra la directiva de IPsec o IKE actual configurada en la conexión, si existe. La siguiente es una salida de ejemplo para la conexión:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 Debería ver la salida de la última línea tal como se muestra en el ejemplo siguiente:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
@@ -411,7 +404,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Puede usar el mismo script para comprobar si la directiva se ha quitado de la conexión.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información sobre los selectores de tráfico basados en directivas, vea [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) (Conectar varios dispositivos VPN basados en directivas locales).
 

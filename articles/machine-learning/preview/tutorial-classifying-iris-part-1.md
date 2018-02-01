@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Parte 1 de la clasificación de Iris: preparación de los datos
 Azure Machine Learning Services (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
@@ -64,26 +64,30 @@ Puede seguir las instrucciones del artículo [Guía de inicio rápido de instala
 
    ![Vista de datos](media/tutorial-classifying-iris/data_view.png)
 
-3. Deje los valores predeterminados y, luego, seleccione **Siguiente**.  
+3. Seleccione **Archivos de texto (*.csv, .json, .txt.,...)**  y haga clic en **Siguiente**.
+   ![Origen de datos](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Vaya al archivo **iris.csv** y haga clic en **Siguiente**.  
  
    ![Selección de Iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Asegúrese de seleccionar el archivo **iris.csv** desde el directorio del proyecto actual de este ejercicio. De lo contrario, los pasos posteriores podrían dar error.
    
-4. Después de seleccionar el archivo, seleccione el botón **Finalizar**.
+5. Deje los valores predeterminados y haga clic en **Finalizar**.
 
-4. Se crea un nuevo archivo denominado **iris-1.dsource**. Se asigna un nombre único al archivo que contiene un guión seguido de un 1, porque el proyecto de ejemplo ya contiene un archivo **iris.dsource** sin enumerar.  
+6. Se crea un nuevo archivo denominado **iris-1.dsource**. Se asigna un nombre único al archivo que contiene "-1", porque el proyecto de ejemplo ya contiene un archivo **iris.dsource** sin numerar.  
 
    Se abre el archivo y se muestran los datos. De forma automática, se agrega una serie de encabezados de columna, de **Column1** a **Column5**, a este conjunto de datos. Desplácese hasta el final y observe que la última fila del conjunto de datos está vacía. La fila está vacía porque no hay un salto de línea adicional en el archivo CSV.
 
    ![Vista de datos de Iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Seleccione el botón **Métricas**. Observe los histogramas. Se ha calculado un conjunto completo de las estadísticas para cada columna. También puede hacer clic en el botón **Datos** para ver los datos de nuevo. 
+7. Seleccione el botón **Métricas**. Observe los histogramas. Se ha calculado un conjunto completo de las estadísticas para cada columna. También puede hacer clic en el botón **Datos** para ver los datos de nuevo. 
 
    ![Vista de datos de Iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Seleccione el botón **Preparar**. Se abre el cuadro de diálogo **Preparar**. 
+8. Seleccione el botón **Preparar**. Se abre el cuadro de diálogo **Preparar**. 
 
    El proyecto de ejemplo incluye un archivo **iris.dprep**. De forma predeterminada, le pide que cree un nuevo flujo de datos en el paquete de preparación de datos **iris.dprep** que ya existe. 
 
@@ -93,27 +97,27 @@ Puede seguir las instrucciones del artículo [Guía de inicio rápido de instala
 
    Se crea un nuevo paquete de preparación de datos denominado **iris-1.dprep** y se abre en el editor de preparación de datos.
 
-7. Ahora vamos a preparar algunos datos básicos. Cambie el nombre de las columnas. Seleccione cada encabezado de columna para poder modificar su texto. 
+9. Ahora vamos a preparar algunos datos básicos. Cambie el nombre de las columnas. Seleccione cada encabezado de columna para poder modificar su texto. 
 
    Escriba **Sepal Length** (Longitud del sépalo), **Sepal Width** (Anchura del sépalo), **Petal Length** (Longitud del pétalo), **Petal Width** (Anchura del pétalo) y **Species** (Especie) para las cinco columnas respectivamente.
 
    ![Cambio del nombre de las columnas](media/tutorial-classifying-iris/rename_column.png)
 
-8. Para contar valores distintos, seleccione la columna **Species** (Especie) y haga clic con el botón derecho en ella para seleccionarla. Seleccione **Value Counts** (Recuentos de valores) en el menú desplegable. 
+10. Para contar valores distintos, seleccione la columna **Species** (Especie) y haga clic con el botón derecho en ella para seleccionarla. Seleccione **Value Counts** (Recuentos de valores) en el menú desplegable. 
 
    ![Selección de Value Counts (Recuentos de valores)](media/tutorial-classifying-iris/value_count.png)
 
    De este modo se abre el panel **Inspectores** y se muestra un histograma con cuatro barras. La columna de destino tiene tres valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** y un valor **(null)**.
 
-9. Para filtrar los valores NULL, seleccione la barra del gráfico que representa el valor NULL. Hay una fila con un valor **(null)**. Para quitar esta fila, seleccione el signo menos (**-**).
+11. Para filtrar los valores NULL, seleccione la barra del gráfico que representa el valor NULL. Hay una fila con un valor **(null)**. Para quitar esta fila, seleccione el signo menos (**-**).
 
    ![Histograma de recuento de valores](media/tutorial-classifying-iris/filter_out.png)
 
-10. Tenga en cuenta los pasos individuales que se detallan en el panel **PASOS**. Mientras cambiaba el nombre de las columnas y filtraba las filas con el valor NULL, cada acción se registró como un paso de preparación de datos. Puede editar los pasos individuales para ajustar la configuración, volver a ordenar los pasos y eliminarlos.
+12. Tenga en cuenta los pasos individuales que se detallan en el panel **PASOS**. Mientras cambiaba el nombre de las columnas y filtraba las filas con el valor NULL, cada acción se registró como un paso de preparación de datos. Puede editar los pasos individuales para ajustar la configuración, volver a ordenar los pasos y eliminarlos.
 
    ![Pasos](media/tutorial-classifying-iris/steps.png)
 
-11. Cierre el editor de preparación de datos. Seleccione **Cerrar** (x) en la pestaña **iris-1** con el icono de gráfico. El trabajo se guarda automáticamente en el archivo **iris-1.dprep** que aparece bajo el encabezado **Preparaciones de datos**.
+13. Cierre el editor de preparación de datos. Seleccione **Cerrar** (x) en la pestaña **iris-1** con el icono de gráfico. El trabajo se guarda automáticamente en el archivo **iris-1.dprep** que aparece bajo el encabezado **Preparaciones de datos**.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Generación de código de Python/PySpark para invocar el paquete de preparación de datos
 

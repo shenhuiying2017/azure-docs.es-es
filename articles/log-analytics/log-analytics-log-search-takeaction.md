@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar acciones con un runbook de Automation desde un resultado de búsqueda de registros de Log Analytics
 
@@ -30,7 +30,7 @@ Desde un resultado de búsqueda de registros de Log Analytics de Azure, ahora pu
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar el runbook desde una búsqueda de registros
 
-Para realizar acciones en un evento e iniciar un runbook desde los resultados de búsqueda de registros, primero debe crear una búsqueda de registros y, desde los resultados, puede invocar un runbook a petición.  Esto se puede conseguir desde la característica de búsqueda de registros en Azure o el [portal de OMS](../log-analytics/log-analytics-log-searches.md).  En este ejemplo, llevamos a cabo una búsqueda de registros desde Azure Portal con una demostración básica de esta característica.
+Para realizar acciones en un evento e iniciar un runbook desde los resultados de búsqueda de registros, primero debe crear una búsqueda de registros y, desde los resultados, puede invocar un runbook a petición.  Esto se puede conseguir con la característica de búsqueda de registros de [Azure Portal](../log-analytics/log-analytics-log-search-new.md).  En este ejemplo, llevamos a cabo una búsqueda de registros desde Azure Portal con una demostración básica de esta característica.
 
 1. En Azure Portal, en el menú central, haga clic en **Más servicios** y seleccione **Log Analytics**.  
 2. En la hoja de Log Analytics, seleccione su área de trabajo de Log Analytics y, en la hoja del área de trabajo, seleccione **Búsqueda de registros**.  
@@ -46,7 +46,7 @@ Para realizar acciones en un evento e iniciar un runbook desde los resultados de
 
 Si selecciona un runbook que estaba configurado para que [se llame desde una alerta de Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), tendrá un parámetro de entrada denominado **WebhookData** de tipo **Object**.  Si el parámetro de entrada es obligatorio, debe pasar los resultados de la búsqueda al runbook para que pueda convertir la cadena con formato JSON en un tipo de objeto, lo que le permitirá filtrar los elementos específicos a los que hará referencia en las actividades de runbook.  Para ello, seleccione **Search result (Object)** (Resultado de búsqueda (objeto)) en la lista desplegable.<br><br> ![Seleccionar el objeto de datos de webhook para el parámetro de runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Revise la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md) para ver todos los campos de búsqueda y las facetas disponibles en Log Analytics.
-* Para obtener información sobre cómo invocar un runbook de Automation de manera automática, vea [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics de OMS](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Para obtener información sobre cómo invocar un runbook de Automation de manera automática, vea [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

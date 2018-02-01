@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la compilación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
@@ -35,10 +35,7 @@ Para más información acerca de los conjuntos de escalado, vea estos vídeos:
 ## <a name="creating-and-managing-scale-sets"></a>Creación y administración de conjuntos de escalado
 Para crear un conjunto de escalado en [Azure Portal](https://portal.azure.com), seleccione **nuevo** y escriba **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU. Para administrar el conjunto de escalado, puede usar Azure Portal, [cmdlets de Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o la CLI de Azure 2.0.
 
-Los conjuntos de escalado se pueden implementar en una [zona de disponibilidad](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> En la actualidad, los conjuntos de escalado de máquinas virtuales solo admiten la implementación en una zona de disponibilidad. Sin embargo, en el futuro se admitirá la implementación en varias zonas.
+Los conjuntos de escalado se pueden implementar en [zonas de disponibilidad](virtual-machine-scale-sets-use-availability-zones.md).
 
 Los conjuntos de escalado de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y [API de REST](https://msdn.microsoft.com/library/mt589023.aspx), igual que las máquinas virtuales individuales de Azure Resource Manager. Por tanto, puede utilizar cualquier método de implementación estándar de Azure Resource Manager. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ Para mantener el rendimiento de la aplicación coherente, puede aumentar o reduc
 
 Como reglas básicas de escalado automático, puede usar las métricas de rendimiento basadas en el host, como el uso de CPU o las E/S del disco. Estas métricas basadas en el host están disponibles de forma automática, sin agentes o extensiones adicionales que instalar y configurar. Las reglas de escalado automático que usan métricas basadas en el host se crean con una de las herramientas siguientes:
 
-- [Portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Si tiene que ver o editar la definición de JSON subyacente de un recurso de Azu
 En esta sección se enumeran algunos escenarios típicos de conjuntos de escalado. Algunos servicios de alto nivel de Azure (como Batch, Service Fabric y Container Service) usan estos escenarios.
 
 * **Uso de RDP o SSH para conectarse a instancias de conjuntos de escalado**: se crea un conjunto de escalado en una red virtual y no se asignan de forma predeterminada direcciones IP públicas a las máquinas virtuales individuales del conjunto de escalado. Esta directiva evita los costos y los gastos generales de administración de la asignación de direcciones IP públicas independientes para todos los nodos en la cuadrícula de proceso. Si necesita conexiones externas directas a máquinas virtuales del conjunto de escalado, puede configurar este para que asigne automáticamente direcciones IP públicas a nuevas máquinas virtuales. Como alternativa, puede conectarse a máquinas virtuales desde otros recursos de la red virtual a los que se puedan asignar direcciones IP públicas (por ejemplo, equilibradores de carga y máquinas virtuales independientes). 
-* **Conexión a máquinas virtuales mediante reglas NAT**: puede crear una dirección IP pública, asignarla a un equilibrador de carga y definir un grupo NAT entrante. Estas acciones asignan puertos de la dirección IP a un puerto de una máquina virtual del conjunto de escalado. Por ejemplo:
+* **Conexión a máquinas virtuales mediante reglas NAT**: puede crear una dirección IP pública, asignarla a un equilibrador de carga y definir un grupo NAT entrante. Estas acciones asignan puertos de la dirección IP a un puerto de una máquina virtual del conjunto de escalado. Por ejemplo: 
   
   | Origen | Puerto de origen | Destino | Puerto de destino |
   | --- | --- | --- | --- |

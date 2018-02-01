@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinar los requisitos de sincronización de directorios | Microsoft Docs"
+title: "Diseño de identidades híbridas: requisitos de sincronización de directorios en Azure | Microsoft Docs"
 description: "Identifique qué requisitos son necesarios para sincronizar todos los usuarios entre el entorno local y la nube en la empresa."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinación de los requisitos de sincronización de directorios
 La sincronización consiste en proporcionar a los usuarios una identidad en la nube en función de su identidad local. Tanto si usan una cuenta sincronizada para la autenticación como la autenticación federada, los usuarios deben tener una identidad en la nube.  Esta identidad se debe mantener y actualizar periódicamente.  Las actualizaciones pueden adoptar muchas formas, desde cambios en los títulos a cambios de contraseña.  
@@ -68,7 +69,7 @@ También deberá determinar los requisitos de seguridad y las restricciones de l
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Determinación de los requisitos de autenticación multifactor](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

@@ -13,52 +13,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: a13d9b360e2c43aa2a3d4f62215e4570ce42cd5b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegación de un dominio en DNS de Azure
 
-DNS de Azure le permite hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. Tenga en cuenta que DNS de Azure no es el registrador de dominios. En este artículo se explica cómo delegar el dominio a Azure DNS.
+Puede usar Azure DNS para hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. Para que las consultas DNS de un dominio lleguen a Azure DNS, es necesario haber delegado dicho dominio en Azure DNS desde el dominio primario. Tenga en cuenta que Azure DNS no es el registrador de dominios. En este artículo se explica cómo delegar el dominio a Azure DNS.
 
-Si se trata de dominios adquiridos a un registrador, este último ofrecerá la opción de configurar tales registros NS. No tiene que poseer un nombre de dominio para crear una zona DNS con dicho nombre de dominio en Azure DNS. No obstante, sí necesita disponer de un dominio para configurar la delegación en DNS de Azure con un registrador.
+Si se trata de dominios que se adquieren a un registrador, este último ofrecerá la opción de configurar tales registros NS. No tiene que poseer un nombre de dominio para crear una zona DNS con dicho nombre de dominio en Azure DNS. No obstante, sí necesita disponer de un dominio para configurar la delegación en DNS de Azure con un registrador.
 
-Por ejemplo, supongamos que adquiere el dominio “contoso.net” y que crea una zona con el nombre “contoso.net” en Azure DNS. Como propietario del dominio, el registrador le ofrecerá la opción de configurar las direcciones del servidor de nombres (es decir, los registros NS) para el dominio. El registrador almacena estos registros NS en el dominio primario, en este caso, “.net”. A los clientes de todo el mundo se les remitirá entonces al dominio en cuestión en la zona DNS de Azure al tratar de resolver registros DNS en “contoso.net”.
+Por ejemplo, supongamos que adquiere el dominio “contoso.net” y que crea una zona con el nombre “contoso.net” en Azure DNS. Como es el propietario del dominio, el registrador le ofrecerá la opción de configurar las direcciones del servidor de nombres (es decir, los registros NS) para el dominio. El registrador almacena estos registros NS en el dominio primario, .net. A los clientes de todo el mundo se les remitirá entonces al dominio en cuestión en la zona Azure DNS al tratar de resolver registros DNS en contoso.net.
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
-1. Inicie sesión en Azure Portal.
-1. En el menú central, haga clic en **Nuevo > Redes >** y en **Zona DNS** para abrir la página **Crear zona DNS**.
+1. Inicie sesión en el Portal de Azure.
+1. En el menú **central**, seleccione **Nuevo** > **Redes** > **Zona DNS** para abrir la página **Crear zona DNS**.
 
-    ![Zona DNS](./media/dns-domain-delegation/dns.png)
+   ![Zona DNS](./media/dns-domain-delegation/dns.png)
 
-1. En la página **Crear zona DNS**, escriba los valores siguientes y haga clic en **Crear**:
+1. En la página **Crear zona DNS**, escriba los valores siguientes y seleccione **Crear**:
 
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|contoso.net|El nombre de la zona DNS|
+   |**Name**|contoso.net|Proporcione el nombre de la zona DNS.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción donde se va a crear la puerta de enlace de la aplicación.|
-   |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Ubicación**|Oeste de EE. UU.||
+   |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Ubicación**|Oeste de EE. UU||
 
 > [!NOTE]
-> El grupo de recursos se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
+> La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
 
 ## <a name="retrieve-name-servers"></a>Recuperación de los servidores de nombres
 
-Antes de poder delegar la zona DNS a DNS de Azure, primero debe conocer los nombres del servidor de nombres de la zona. El DNS de Azure asigna los servidores de nombres de un grupo cada vez que se crea una zona.
+Antes de poder delegar la zona DNS a Azure DNS, primero debe conocer el servidor de nombres de la zona. El DNS de Azure asigna los servidores de nombres de un grupo cada vez que se crea una zona.
 
-1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la zona DNS **contoso.net** en la página **Todos los recursos**. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **contoso.net** en el cuadro Filtrar por nombre… para acceder fácilmente a la puerta de enlace de la aplicación. 
+1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos**. En la página **Todos los recursos**, seleccione la zona DNS **contoso.net**. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **contoso.net** en el cuadro **Filtrar por nombre** para acceder fácilmente a la puerta de enlace de la aplicación. 
 
-1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona “contoso.net” se le han asignado los servidores de nombres “ns1-01.azure-dns.com”, “ns2-01.azure-dns.net”, “ns3-01.azure-dns.org” y “ns4-01.azure-dns.info”’:
+1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona contoso.net se le han asignado los servidores de nombres ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org y ns4-01.azure-dns.info:
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
+   ![Lista de servidores de nombres](./media/dns-domain-delegation/viewzonens500.png)
 
-El DNS de Azure crea automáticamente los registros NS autoritativos en la zona que contiene los servidores de nombres asignados.  Para ver los nombres del servidor de nombres mediante Azure PowerShell o CLI de Azure, simplemente necesita recuperar estos registros.
+Azure DNS crea automáticamente los registros NS autoritativos en la zona para contener los servidores de nombres asignados. Para ver los servidores de nombres mediante Azure PowerShell o la CLI de Azure, recupere estos registros.
 
-Los siguientes ejemplos también proporcionan los pasos para recuperar los servidores de nombres para una zona de Azure DNS con PowerShell y la CLI de Azure.
+Los siguientes ejemplos proporcionan los pasos para recuperar los servidores de nombres para una zona de Azure DNS con PowerShell y la CLI de Azure.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -68,7 +68,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
 ```
 
-El ejemplo siguiente es la respuesta.
+El ejemplo siguiente es la respuesta:
 
 ```
 Name              : @
@@ -82,13 +82,13 @@ Records           : {ns1-07.azure-dns.com., ns2-07.azure-dns.net., ns3-07.azure-
 Metadata          :
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
-El ejemplo siguiente es la respuesta.
+El ejemplo siguiente es la respuesta:
 
 ```json
 {
@@ -118,17 +118,17 @@ El ejemplo siguiente es la respuesta.
 
 ## <a name="delegate-the-domain"></a>Delegación del dominio
 
-Ahora que se crea la zona DNS y que tiene los servidores de nombres, el dominio primario debe actualizarse con los servidores de nombres de Azure DNS. Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos con los que DNS de Azure ha creado.
+Ahora que se crea la zona DNS y que tiene los servidores de nombres, debe actualizar el dominio primario con los servidores de nombres de Azure DNS. Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos por los que Azure DNS ha creado.
 
-Al delegar un dominio a DNS de Azure, debe usar los nombres de servidor DNS proporcionados por DNS de Azure. Es recomendable usar siempre los cuatro nombres de servidor de nombres, independientemente del nombre de su dominio. La delegación de dominios no requiere que el nombre del servidor de nombres use el mismo dominio de primer nivel que su dominio.
+Al delegar un dominio a Azure DNS, debe usar los servidores de nombres proporcionados por Azure DNS. Recomendamos usar siempre los cuatro servidores de nombres, independientemente del nombre de su dominio. La delegación de dominios no requiere que el servidor de nombres use el mismo dominio de primer nivel que su dominio.
 
-No use "registros de adherencia" para apuntar a direcciones IP del servidor de nombres de Azure DNS, ya que estas direcciones IP pueden cambiar en el futuro. Las delegaciones que usan nombres de servidor en su propia zona (a veces denominados "servidores DNS personalizados") no se admiten de momento en DNS de Azure.
+No use *registros de adherencia* para apuntar a direcciones IP del servidor de nombres de Azure DNS, ya que estas direcciones IP pueden cambiar en el futuro. De momento, no se admiten en Azure DNS las delegaciones que usan servidores de nombres en su propia zona (a veces denominados *servidores DNS personalizados*).
 
-## <a name="verify-name-resolution-is-working"></a>Comprobación del funcionamiento de la resolución de nombres
+## <a name="verify-that-name-resolution-is-working"></a>Comprobación del funcionamiento de la resolución de nombres
 
-Cuando finalice la delegación, puede verificar que la resolución de nombres funciona usando una herramienta como “nslookup” para consultar el registro SOA para su zona (que también se crea automáticamente cuando se crea la zona).
+Cuando finalice la delegación, puede comprobar que la resolución de nombres funciona usando una herramienta como “nslookup” para consultar el registro SOA para su zona (que también se crea automáticamente cuando se crea la zona).
 
-No es necesario especificar los servidores de nombres DNS de Azure, ya que el proceso de resolución DNS normal encontrará los servidores de nombres automáticamente si la delegación se ha configurado correctamente.
+No es necesario especificar los servidores de nombres de Azure DNS. Si la delegación está configurada correctamente, el proceso de resolución DNS normal busca automáticamente los servidores de nombres.
 
 ```
 nslookup -type=SOA contoso.com
@@ -150,77 +150,77 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## <a name="delegate-sub-domains-in-azure-dns"></a>Delegación de subdominios en Azure DNS
+## <a name="delegate-subdomains-in-azure-dns"></a>Delegación de subdominios en Azure DNS
 
-Si desea configurar una zona secundaria independiente, puede delegar un subdominio en DNS de Azure. Por ejemplo, después de configurar y delegar "contoso.net" en Azure DNS, suponga que desea configurar una zona secundaria independiente, "partners.contoso.net".
+Si desea configurar una zona secundaria independiente, puede delegar un subdominio en Azure DNS. Por ejemplo, suponga que ha configurado y delegado contoso.net en Azure DNS. Ahora desea configurar una zona secundaria independiente, partners.contoso.net.
 
-1. Cree la zona secundaria "partners.contoso.net" en Azure DNS.
-2. Busque los registros NS autoritativos en la zona secundaria para obtener los servidores de nombres que hospedan la zona secundaria en DNS de Azure.
-3. Delegue la zona secundaria mediante la configuración de los registros NS de la zona principal que apuntan a la zona secundaria.
+1. Cree la zona secundaria partners.contoso.net en Azure DNS.
+2. Busque los registros NS autoritativos en la zona secundaria para obtener los servidores de nombres que hospedan la zona secundaria en Azure DNS.
+3. Delegue la zona secundaria mediante la configuración de los registros NS de la zona primaria que apuntan a la zona secundaria.
 
 ### <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
 1. Inicie sesión en el Portal de Azure.
-1. En el menú central, haga clic en **Nuevo > Redes >** y en **Zona DNS** para abrir la página Crear zona DNS.
+1. En el menú **central**, seleccione **Nuevo** > **Redes** > **Zona DNS** para abrir la página **Crear zona DNS**.
 
-    ![Zona DNS](./media/dns-domain-delegation/dns.png)
+   ![Zona DNS](./media/dns-domain-delegation/dns.png)
 
-1. En la página **Crear zona DNS**, escriba los valores siguientes y haga clic en **Crear**:
+1. En la página **Crear zona DNS**, escriba los valores siguientes y seleccione **Crear**:
 
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|partners.contoso.net|El nombre de la zona DNS|
+   |**Name**|partners.contoso.net|Proporcione el nombre de la zona DNS.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción donde se va a crear la puerta de enlace de la aplicación.|
-   |**Grupos de recursos**|**Usar existente:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Ubicación**|Oeste de EE. UU.||
+   |**Grupos de recursos**|**Usar existente:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Ubicación**|Oeste de EE. UU||
 
 > [!NOTE]
-> El grupo de recursos se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
+> La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
 
 ### <a name="retrieve-name-servers"></a>Recuperación de los servidores de nombres
 
-1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la zona DNS **partners.contoso.net** en la página **Todos los recursos**. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **partners.contoso.net** en el cuadro Filtrar por nombre… para acceder fácilmente a la zona DNS.
+1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos**. Seleccione la zona DNS **partners.contoso.net** en la página **Todos los recursos**. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **partners.contoso.net** en el cuadro **Filtrar por nombre** para acceder fácilmente a la zona DNS.
 
-1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona “contoso.net” se le han asignado los servidores de nombres “ns1-01.azure-dns.com”, “ns2-01.azure-dns.net”, “ns3-01.azure-dns.org” y “ns4-01.azure-dns.info”’:
+1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona contoso.net se le han asignado los servidores de nombres ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org y ns4-01.azure-dns.info:
 
- ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
+   ![Lista de servidores de nombres](./media/dns-domain-delegation/viewzonens500.png)
 
-El DNS de Azure crea automáticamente los registros NS autoritativos en la zona que contiene los servidores de nombres asignados.  Para ver los nombres del servidor de nombres mediante Azure PowerShell o CLI de Azure, simplemente necesita recuperar estos registros.
+Azure DNS crea automáticamente los registros NS autoritativos en la zona para contener los servidores de nombres asignados.  Para ver los servidores de nombres mediante Azure PowerShell o la CLI de Azure, recupere estos registros.
 
-### <a name="create-name-server-record-in-parent-zone"></a>Creación de un registro de servidor de nombres en la zona primaria
+### <a name="create-a-name-server-record-in-the-parent-zone"></a>Creación de un registro de servidor de nombres en la zona primaria
 
-1. Navegue hasta la zona DNS **contoso.net** en Azure Portal.
-1. Haga clic en **+ Conjunto de registros**.
-1. En la página **Agregar conjunto de registros**, escriba los valores siguientes y haga clic en **Aceptar**:
+1. En Azure Portal, vaya a la zona DNS **contoso.net**.
+1. Seleccione **+ Conjunto de registros**.
+1. En la página **Agregar conjunto de registros**, escriba los valores siguientes y seleccione **Aceptar**:
 
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|asociados|El nombre de la zona DNS secundaria|
+   |**Name**|asociados|Escriba el nombre de la zona DNS secundaria.|
    |**Tipo**|NS|Utilice NS para los registros del servidor de nombres.|
-   |**TTL**|1|Período de vida.|
-   |**Unidad de TTL**|Horas|establece la unidad de período de vida en horas|
+   |**TTL**|1|Especifique el período de vida.|
+   |**Unidad de TTL**|Horas|Establezca la unidad del período de vida en horas.|
    |**SERVIDOR DE NOMBRES**|{servidores de nombres de la zona partners.contoso.net}|Escriba los cuatro servidores de nombres en la zona partners.contoso.net. |
 
-   ![Dns-nameserver](./media/dns-domain-delegation/partnerzone.png)
+   ![Valores para el registro del servidor de nombres](./media/dns-domain-delegation/partnerzone.png)
 
 
-### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Delegación de subdominios en Azure DNS con otras herramientas
+### <a name="delegate-subdomains-in-azure-dns-by-using-other-tools"></a>Delegación de subdominios en Azure DNS mediante otras herramientas
 
-En los ejemplos siguientes se proporcionan los pasos para delegar subdominios en Azure DNS con PowerShell y la CLI:
+En los ejemplos siguientes se proporcionan los pasos para delegar subdominios en Azure DNS con PowerShell y la CLI de Azure.
 
 #### <a name="powershell"></a>PowerShell
 
-En el siguiente ejemplo de PowerShell se muestra cómo funciona. Los mismos pasos se pueden ejecutar mediante Azure Portal o mediante la CLI de Azure multiplataforma.
+En el siguiente ejemplo de PowerShell se muestra cómo funciona. Puede completar los mismos pasos mediante Azure Portal, o mediante la herramienta CLI de Azure multiplataforma.
 
 ```powershell
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 $parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 $child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
 
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This contains the name servers assigned to the child zone.
+# Retrieve the authoritative NS records from the child zone as shown in the next example. This information contains the name servers assigned to the child zone.
 $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name, in this case "partners".
+# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name (in this case, "partners").
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 $parent_ns_recordset.Records = $child_ns_recordset.Records
 Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
@@ -246,12 +246,12 @@ partners.contoso.com
     default TTL = 300 (5 mins)
 ```
 
-#### <a name="azure-cli"></a>CLI de Azure
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 #!/bin/bash
 
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
 az network dns zone create -g contosoRG -n contoso.net
 az network dns zone create -g contosoRG -n partners.contoso.net
 ```
@@ -286,7 +286,7 @@ Cree el conjunto de registros y los registros NS para cada servidor de nombres.
 # Create the record set
 az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
 
-# Create a ns record for each name server.
+# Create an NS record for each name server.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns1-09.azure-dns.com.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns2-09.azure-dns.net.
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns3-09.azure-dns.org.
@@ -297,11 +297,13 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
 
-1. En el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en el grupo de recursos **contosorg** en la página Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **contosorg** en el cuadro **Filtrar por nombre** para acceder fácilmente al grupo de recursos.
-1. En la página **contosorg**, haga clic en el botón **Eliminar**.
-1. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Escriba *contosorg* como nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
+1. En el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos**. En la página **Todos los recursos**, seleccione el grupo de recursos **contosorg**. Si la suscripción que ha seleccionado ya contiene varios recursos, puede escribir **contosoorg** en el cuadro **Filtrar por nombre** para acceder fácilmente al grupo de recursos.
+1. En la página **contosorg**, seleccione el botón **Eliminar**.
+1. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Escriba **contosorg** como nombre de grupo de recursos y seleccione **Eliminar**. 
 
-## <a name="next-steps"></a>Pasos siguientes
+Al eliminar un grupo de recursos, se eliminan todos los recursos del mismo. Asegúrese siempre de confirmar el contenido de un grupo de recursos antes de eliminarlo. El portal elimina todos los recursos del grupo de recursos y, después, elimina el mismo grupo de recursos. Este proceso tarda varios minutos.
+
+## <a name="next-steps"></a>pasos siguientes
 
 [Administración de zonas DNS](dns-operations-dnszones.md)
 

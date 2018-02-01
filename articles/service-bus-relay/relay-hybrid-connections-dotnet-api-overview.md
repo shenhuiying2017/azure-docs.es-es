@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 58451bae409c74c319f41c38a1cec5f051619e0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa1863a44f00ae17f63b02c7c247b2c9fd9925f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure
 
 En este artículo se resumen algunas de las [API de cliente](/dotnet/api/microsoft.azure.relay) estándar de .NET de conexiones híbridas de Retransmisión de Azure.
   
-## <a name="relay-connection-string-builder"></a>Generador de cadenas de conexión de retransmisión
+## <a name="relay-connection-string-builder-class"></a>Clase Generador de cadenas de conexión de retransmisión
 
 La clase [RelayConnectionStringBuilder][RelayConnectionStringBuilder] da formato a cadenas de conexión específicas de Conexiones híbridas de Relay. Puede usarla para comprobar el formato de una cadena de conexión o para crear una cadena de conexión desde el principio. El siguiente código es un ejemplo de ello:
 
 ```csharp
-var endpoint = "{Relay namespace}";
-var entityPath = "{Name of the Hybrid Connection}";
-var sharedAccessKeyName = "{SAS key name}";
-var sharedAccessKey = "{SAS key value}";
+var endpoint = "[Relay namespace]";
+var entityPath = "[Name of the Hybrid Connection]";
+var sharedAccessKeyName = "[SAS key name]";
+var sharedAccessKey = "[SAS key value]";
 
 var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
@@ -46,7 +46,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 También puede pasar una cadena de conexión directamente al método `RelayConnectionStringBuilder`. Esta operación permite comprobar que la cadena de conexión tiene un formato válido. Si cualquiera de los parámetros no es válido, el constructor genera una clase `ArgumentException`.
 
 ```csharp
-var myConnectionString = "{RelayConnectionString}";
+var myConnectionString = "[RelayConnectionString]";
 // Declare the connectionStringBuilder so that it can be used outside of the loop if needed
 RelayConnectionStringBuilder connectionStringBuilder;
 try
@@ -61,12 +61,14 @@ catch (ArgumentException ae)
 ```
 
 ## <a name="hybrid-connection-stream"></a>Flujo de conexión híbrida
+
 La clase [HybridConnectionStream][HCStream] clase es el objeto principal que se usa para enviar y recibir datos de un punto de conexión de Retransmisión de Azure, tanto si trabaja con [HybridConnectionClient][HCClient] como si lo hace con [HybridConnectionListener][HCListener].
 
 ### <a name="getting-a-hybrid-connection-stream"></a>Obtención de un flujo de conexión híbrida
 
 #### <a name="listener"></a>Agente de escucha
-Mediante [HybridConnectionListener][HCListener], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:
+
+Mediante un objeto [HybridConnectionListener][HCListener], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -78,7 +80,8 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>Cliente
-Mediante [HybridConnectionClient][HCClient], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:
+
+Mediante un objeto [HybridConnectionClient][HCClient], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -88,6 +91,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>Recibir datos
+
 La clase [HybridConnectionStream][HCStream] permite la comunicación bidireccional. En la mayoría de los casos, recibe datos continuamente de la secuencia. Si lee el texto de la secuencia, es posible que también desee usar un objeto [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx), que facilita el análisis de los datos. Por ejemplo, puede leer los datos como texto, en lugar de como `byte[]`.
 
 El siguiente código lee líneas individuales de texto de la secuencia hasta que se solicita una cancelación:
@@ -114,6 +118,7 @@ while (!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="sending-data"></a>Envío de datos
+
 Una vez que tenga una conexión establecida, podrá enviar un mensaje al punto de conexión de Retransmisión. Puesto que el objeto de conexión hereda [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), envíe los datos como `byte[]`. El ejemplo siguiente muestra cómo hacerlo:
 
 ```csharp
@@ -129,7 +134,8 @@ var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
+
 Para aprender más sobre Retransmisión de Azure, visite estos vínculos:
 
 * [Referencia de Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)

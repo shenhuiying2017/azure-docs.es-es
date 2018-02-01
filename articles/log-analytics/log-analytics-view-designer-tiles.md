@@ -1,6 +1,6 @@
 ---
-title: "Referencia de los iconos del Diseñador de vistas de Log Analytics (OMS) | Microsoft Docs"
-description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas."
+title: "Referencia de los iconos del Diseñador de vistas en Azure Log Analytics | Microsoft Docs"
+description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en Azure Portal que contengan diferentes visualizaciones de datos en el área de trabajo de Log Analytics. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referencia de los iconos del Diseñador de vistas de Log Analytics
-El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
+El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en Azure Portal que contengan diferentes visualizaciones de datos en el área de trabajo de Log Analytics. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
@@ -33,7 +33,7 @@ Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
 En la siguiente tabla se muestran los distintos tipos de iconos que se encuentran disponibles en el Diseñador de vistas.  En las secciones siguientes se describen en profundidad todos los tipos de iconos y sus propiedades.
 
-| Icono | Descripción |
+| Icono | DESCRIPCIÓN |
 |:--- |:--- |
 | [Number](#number-tile) |Un solo número que muestra la cantidad de registros de una consulta. |
 | [Dos números](#two-numbers-tile) |Dos números que muestra las cantidades de registros de dos consultas diferentes. |
@@ -47,15 +47,15 @@ El icono **Número** muestra un solo número que muestra la cantidad de registro
 
 ![Icono de Número](media/log-analytics-view-designer/tile-number.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | **Icono** | |
 | Leyenda |Texto que se muestra bajo el valor. |
 | Consultar |La consulta que se ejecutará.  Se mostrará la cantidad de registros que devuelva la consulta. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
@@ -65,10 +65,10 @@ El icono de **Dos números** muestra dos números que revelan la cantidad de reg
 
 ![Icono de Dos números](media/log-analytics-view-designer/tile-two-numbers.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | **Primer icono** | |
 | Leyenda |Texto que se muestra bajo el valor. |
 | Consultar |La consulta que se ejecutará.  Se mostrará la cantidad de registros que devuelva la consulta. |
@@ -76,7 +76,7 @@ El icono de **Dos números** muestra dos números que revelan la cantidad de reg
 | Leyenda |Texto que se muestra bajo el valor. |
 | Consultar |La consulta que se ejecutará.  Se mostrará la cantidad de registros que devuelva la consulta. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
@@ -86,10 +86,10 @@ El icono **Anillo** muestra un solo número resumido obtenido a partir de una co
 
 ![Icono Anillo](media/log-analytics-view-designer/tile-donut.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | **Anillo** | |
 | Consultar |Consulta que se ejecutará en el anillo.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados. |
 | **Anillo** |**&gt; Centro** |
@@ -100,7 +100,7 @@ El icono **Anillo** muestra un solo número resumido obtenido a partir de una co
 | Colores |Color que muestra en cada una de las tres propiedades principales.  Si quiere especificar colores alternativos para valores de propiedad concretos, utilice la característica Asignación de color avanzada. |
 | Asignación de color avanzada |Muestra un color para valores de propiedad concretos.  Si el valor especificado se encuentra en las tres principales, se muestra el color alternativo en lugar del estándar.  Si la propiedad no está en las tres principales, no se muestra el color. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
@@ -110,10 +110,10 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 
 ![Icono de Llamada de gráfico de líneas](media/log-analytics-view-designer/tile-line-chart.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecutará en el gráfico de líneas.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados.  Si la consulta utiliza la palabra clave **interval**, el eje X del gráfico empleará este intervalo de tiempo.  Si la consulta no incluye la palabra clave **interva**, se usarán intervalos horarios en el eje X. |
 | **Gráfico de líneas** |**&gt; Eje Y** |
@@ -121,7 +121,7 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 | Unidades |Especifica las unidades de los valores que devuelve la consulta.  Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos.  **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual**.  Si selecciona un valor en **Convertir en**, los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en**. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo de unidad.  Si no se especifica ninguna etiqueta, solo se mostrará el tipo de unidad. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
@@ -131,10 +131,10 @@ El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas co
 
 ![Icono de Llamada de gráfico de líneas](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecutará en el gráfico de líneas.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados.  Si la consulta utiliza la palabra clave **interval**, el eje X del gráfico empleará este intervalo de tiempo.  Si la consulta no incluye la palabra clave **interva**, se usarán intervalos horarios en el eje X. |
 | **Gráfico de líneas** |**&gt; Llamada** |
@@ -146,7 +146,7 @@ El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas co
 | Unidades |Especifica las unidades de los valores que devuelve la consulta.  Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos.  **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual**.  Si selecciona un valor en **Convertir en**, los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en**. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo de unidad.  Si no se especifica ninguna etiqueta, solo se mostrará el tipo de unidad. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
@@ -156,10 +156,10 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 
 ![Icono de Dos escalas de tiempo](media/log-analytics-view-designer/tile-two-timelines.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Texto que se muestra en la parte superior del icono. |
-| Descripción |Texto que se muestra bajo el nombre del icono. |
+| NOMBRE |Texto que se muestra en la parte superior del icono. |
+| DESCRIPCIÓN |Texto que se muestra bajo el nombre del icono. |
 | Primer gráfico | |
 | Leyenda |Texto que se muestra bajo la llamada de la primera serie. |
 | Color |Color que se utiliza para las columnas de la primera serie. |
@@ -171,11 +171,11 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | Consulta de gráfico |Consulta que se ejecutará en la segunda serie.  La cantidad de registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
 | Operación |Operación que se va a realizar en la propiedad value para resumir los resultados de la llamada en un solo valor.<br><br>- Average: promedio del valor de todos los registros.<br>- Count: cantidad total de los registros que devuelve la consulta.<br>- Last Sample: valor del último intervalo incluido en el gráfico.<br>- Max: valor máximo de los intervalos incluidos en el gráfico. |
 | **Avanzado** |**&gt; Comprobación del flujo de datos** |
-| Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
+| habilitado |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en iconos.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.

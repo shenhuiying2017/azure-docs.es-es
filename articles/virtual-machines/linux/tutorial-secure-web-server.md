@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Protección de un servidor web con certificados SSL en una máquina virtual Linux en Azure
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -33,7 +33,7 @@ Para proteger los servidores web, se puede utilizar un certificado Capa de socke
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la versión 2.0.22 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).  
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.22 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Información general
@@ -158,4 +158,5 @@ En este tutorial, protegió un servidor web NGINX con un certificado SSL almacen
 Siga este vínculo para ver ejemplos de scripts de máquina virtual creados previamente.
 
 > [!div class="nextstepaction"]
-> [Ejemplos de scripts de máquina virtual Windows](./cli-samples.md)
+> [Ejemplos de scripts de máquina virtual Linux](./cli-samples.md)
+

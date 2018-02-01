@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -157,6 +157,7 @@ Las vistas de los costos de Enterprise están actualmente en la versión prelimi
 - Los costos de suscripción se basan en el uso y no tienen en cuenta los importes de prepago, uso por encima del límite, cantidades incluidas, ajustes e impuestos. Los cargos reales se calculan en el nivel de inscripción. 
 - Los importes que se muestran en Azure Portal podrían estar retrasados con respecto a los valores del portal de Enterprise.  
 - Si no ve los costos, puede deberse a uno de los siguientes motivos:
+    - No tiene suficientes permisos de RBAC en el nivel de suscripción. Para ver las vistas de costos de la empresa, debe ser un lector de facturación, un lector, un colaborador o un propietario en el nivel de suscripción.
     - Es el propietario de la cuenta y su administrador de inscripción ha deshabilitado la opción para que el propietario de la cuenta vea los cargos.  Póngase en contacto con el administrador de inscripción para obtener acceso a los costos. 
     - Es el administrador del departamento y su administrador de inscripción ha deshabilitado la opción para que el administrador del departamento vea los cargos.  Póngase en contacto con el administrador de inscripción para obtener acceso. 
     - Adquirió Azure a través de un asociado de canal y el asociado no ha publicado la información de los precios.  

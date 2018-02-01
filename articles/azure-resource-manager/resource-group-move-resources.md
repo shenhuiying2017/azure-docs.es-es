@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -116,7 +116,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Data Lake Analytics
 * Almacén de Data Lake
 * DNS
-* Centros de eventos
+* Event Hubs
 * Clústeres de HDInsight: consulte [Limitaciones de HDInsight](#hdinsight-limitations).
 * IoT Hubs
 * Key Vault
@@ -129,17 +129,17 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Operational Insights
 * Operations Management
 * Power BI
-* Redis Cache
+* Caché en Redis
 * Scheduler
 * Search
 * Servidor de administración
-* Service Bus
+* Azure Service Bus
 * Service Fabric
 * Storage
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 * Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
-* Administrador de tráfico
+* Traffic Manager
 * Virtual Machines: no se pueden mover las máquinas virtuales con Managed Disks. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquinas virtuales; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
@@ -153,7 +153,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Servicios de dominio de AD
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
-* Servicios de BizTalk
+* BizTalk Services
 * Container Service
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
@@ -185,7 +185,7 @@ Para mover una red virtual emparejada, primero debe deshabilitar el emparejamien
 
 No puede mover una red virtual a otra suscripción distinta si la red virtual contiene una subred con vínculos de navegación de recursos. Por ejemplo, si un recurso de Redis Cache está implementado en una subred, esta contiene un vínculo de navegación de recursos.
 
-## <a name="app-service-limitations"></a>Limitaciones de App Service
+## <a name="app-service-limitations"></a>limitaciones de App Service
 
 Si se trabaja con aplicaciones de App Service, no se puede mover solo un plan de App Service. Para mover las aplicaciones de App Service, las opciones son:
 
@@ -208,7 +208,7 @@ Tendrá las siguientes opciones:
 
 Todas las demás combinaciones implican dejar un tipo de recurso que debe trasladarse al mover un plan de App Service (cualquier tipo de recurso de App Service).
 
-Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan de App Service, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
+Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan de App Service, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo: 
 
 * **web-a** reside en **web-group**.
 * **plan-a** reside en **plan-group**.
@@ -315,6 +315,12 @@ No se admite el traslado para recursos de Storage, Network o Compute que se usan
 
 Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure, Storage1, VM1 y Network1, en grupos de recursos dentro de la misma suscripción o entre suscripciones.
 
+Procedimiento para mover una máquina virtual inscrita en **Azure Backup** entre grupos de recursos:
+ 1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
+ 2. Traslade la máquina virtual al grupo de recursos de destino
+ 3. Vuelva a protegerla en el mismo almacén o en otro nuevo. Los usuarios pueden restaurar desde los puntos de restauración disponibles creados antes de la operación de traslado.
+Aunque el usuario traslade la máquina virtual de la que se ha realizado la copia de seguridad entre suscripciones, los pasos 1 y 2 serán los mismos. En el paso 3, el usuario necesita proteger la máquina virtual en un almacén que ya exista o que se haya creado en la suscripción de destino. El almacén de Recovery Services no admite copias de seguridad entre suscripciones.
+
 ## <a name="hdinsight-limitations"></a>Limitaciones de HDInsight
 
 Puede mover clústeres de HDInsight a una nueva suscripción o un nuevo grupo de recursos. Sin embargo, no puede mover entre suscripciones los recursos de red vinculados al clúster de HDInsight (por ejemplo, la red virtual, una NIC o un equilibrador de carga). Además, tampoco se puede mover a un nuevo grupo de recursos una NIC que está conectada a una máquina virtual del clúster.
@@ -380,7 +386,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los recursos a mover. Para obtener más información acerca de la operación REST de movimiento, consulte [Mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para obtener información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para obtener información sobre los comandos de la CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -68,10 +68,10 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Sur de Brasil | 104.41.11.5 | |
 | Centro de Canadá | 40.85.224.249 | |
 | Este de Canadá | 40.86.226.166 | |
-| Central EE. UU.: | 23.99.160.139 | 13.67.215.62 |
+| Central EE. UU: | 23.99.160.139 | 13.67.215.62 |
 | Asia oriental | 191.234.2.139 | 52.175.33.150 |
 | Este de EE. UU. 1 | 191.238.6.43 | 40.121.158.30 |
-| Este de EE. UU. 2 | 191.239.224.107 | 40.79.84.180 |
+| Este de EE. UU. 2 | 191.239.224.107 | 40.79.84.180 * |
 | India central | 104.211.96.159  | |
 | Sur de India | 104.211.224.146  | |
 | India occidental | 104.211.160.80 | |
@@ -92,6 +92,8 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Oeste de EE. UU. 1 | 23.99.34.75 | 104.42.238.205 |
 | Oeste de EE. UU. 2 | 13.66.226.202  | |
 ||||
+
+\* **NOTA:** La zona del *Este de EE. UU. 2* también tiene una dirección IP terciaria de `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Cambio de la directiva de conexión de Azure SQL Database
 
@@ -183,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener información sobre cómo cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, vea [Creación o actualización de la directiva de conexión de un servidor mediante la API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Para obtener información sobre el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior, vea [Puertos más allá de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

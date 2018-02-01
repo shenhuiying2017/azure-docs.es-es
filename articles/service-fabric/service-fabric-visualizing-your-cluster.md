@@ -1,10 +1,10 @@
 ---
-title: "Visualización del clúster mediante el Explorador de Service Fabric | Microsoft Docs"
-description: "El Explorador de Service Fabric es una herramienta basada en web para inspeccionar y administrar aplicaciones y nodos en la nube en un clúster de Service Fabric de Microsoft Azure."
+title: "Visualización del clúster mediante Azure Service Fabric Explorer | Microsoft Docs"
+description: "Service Fabric Explorer es una aplicación para inspeccionar y administrar nodos y aplicaciones en la nube en un clúster de Microsoft Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
-El Explorador de Service Fabric es una herramienta web para inspeccionar y administrar aplicaciones y nodos en un clúster de Azure Service Fabric. El Explorador de Service Fabric se hospeda directamente en el clúster para que siempre esté disponible, independientemente de dónde se ejecuta el clúster.
+
+Service Fabric Explorer (SFX) es una herramienta de código abierto para inspeccionar y administrar clústeres de Azure Service Fabric. Service Fabric Explorer es una aplicación de escritorio para Windows y Linux. La compatibilidad con Mac estará disponible próximamente.
+
+## <a name="service-fabric-explorer-download"></a>Descarga de Service Fabric Explorer
+
+Use los siguientes vínculos para descargar Service Fabric Explorer como una aplicación de escritorio:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> La versión de escritorio de Service Fabric Explorer puede tener más o menos características que la compatibilidad con clúster. Para garantizar la compatibilidad con todas las características, puede revertir a la versión de Service Fabric Explorer implementada en el clúster.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Ejecución de Service Fabric Explorer desde el clúster
+
+Service Fabric Explorer también se hospeda en el punto de conexión de administración de HTTP de un clúster de Service Fabric. Para iniciar SFX en un explorador web, vaya al punto de conexión HTTP del clúster desde cualquier explorador, por ejemplo, https://clusterFQDN:19080.
+
+Para la instalación de las estaciones de trabajo del desarrollador, puede iniciar Service Fabric Explorer en el clúster local; para ello, navegue a http://localhost:19080/Explorer. Examine este artículo para [preparar el entorno de desarrollo](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric
+Para conectarse a un clúster de Service Fabric, necesita el punto de conexión de administración de clústeres (FQDN/IP) y el puerto del punto de conexión de administración HTTP (de forma predeterminada,19080). Por ejemplo, https://mysfcluster.westus.cloudapp.azure.com:19080. Use la casilla "Connect to localhost" (Conectarse a localhost) para conectarse a un clúster local en la estación de trabajo.
+
+### <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
+Puede controlar el acceso de cliente a su clúster de Service Fabric con certificados o mediante Azure Active Directory (AAD).
+
+Si intenta conectarse a un clúster seguro, se le pedirá que presente un certificado de cliente o que inicie sesión mediante AAD, según la configuración del clúster.
 
 ## <a name="video-tutorial"></a>Tutorial en vídeo
 
 Para información sobre cómo usar Service Fabric Explorer, vea el siguiente vídeo de Microsoft Virtual Academy:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> En este vídeo se Service Fabric Explorer hospedado en un clúster de Service Fabric, no la versión de escritorio.
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Conexión al Explorador de Service Fabric
-Si ha seguido las instrucciones para [preparar el entorno de desarrollo](service-fabric-get-started.md), puede iniciar el Explorador de Service Fabric en el clúster local en http://localhost:19080/Explorer.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Información sobre el diseño del Explorador de Service Fabric
 Puede desplazarse por el Explorador de Service Fabric desde el árbol situado a la izquierda. En la raíz del árbol, el panel del clúster proporciona información general del clúster, incluido un resumen de la aplicación y del estado del nodo.
@@ -68,25 +101,6 @@ Por ejemplo, para eliminar una instancia de la aplicación, elija la aplicación
 > [!TIP]
 > Puede realizar las mismas acciones haciendo clic en los puntos suspensivos situados junto a cada elemento.
 >
->
-
-En la tabla siguiente se enumeran las acciones disponibles para cada entidad:
-
-| **Entidad** | **Acción** | **Descripción** |
-| --- | --- | --- |
-| Tipo de aplicación |Tipo de anulación de aprovisionamiento |Quita el paquete de aplicación del almacén de imágenes del clúster. Requiere que todas las aplicaciones de ese tipo se quiten en primer lugar. |
-| Application |Eliminar aplicación |Elimine la aplicación, incluidos todos sus servicios y su estado (si hubiera). |
-| Servicio |Eliminar servicio |Elimine el servicio y su estado (si hubiera). |
-| Nodo |Activar |Active el nodo. |
-| Nodo | Desactivar (pausa) | Pause el nodo en su estado actual. Los servicios siguen ejecutándose, pero Service Fabric no introduce ni saca nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. | |
-| Nodo | Desactivar (reiniciar) | Saque todos los servicios de la memoria de un nodo y cierre los servicios persistentes de forma segura. Suele usarse cuando es necesario reiniciar los procesos de host o el equipo. | |
-| Nodo | Desactivar (quitar datos) | Cierre todos los servicios que se ejecutan en el nodo después de la creación de suficientes réplicas de reserva con seguridad. Se utiliza normalmente cuando un nodo (o al menos su almacenamiento) se está sacando permanentemente de circulación. | |
-| Nodo | Quitar el estado del nodo | Quite información de las réplicas de un nodo del clúster. Se utiliza normalmente cuando un nodo con error ya se considera irrecuperable. | |
-| Nodo | Reiniciar | Reinicie el nodo para simular un error de nodo. Puede encontrar más información [aquí](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
-
-Como muchas acciones son destructivas, le pediremos que confirme su intención antes de que finalice la acción.
-
-> [!TIP]
 > Todas las acciones que pueden realizarse a través del Explorador de Service Fabric también pueden realizarse a través de PowerShell o una API de REST, para habilitar la automatización.
 >
 >
@@ -96,27 +110,11 @@ También puede utilizar el Service Fabric Explorer a fin de crear instancias de 
 ![Creación de una instancia de aplicación en Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> En la actualidad, no se pueden parametrizar las instancias de aplicaciones creadas mediante Service Fabric Explorer. Se crean utilizando los valores de parámetros predeterminados.
+> Service Fabric Explorer no admite parámetros cuando se crean instancias de aplicación. Las instancias de aplicación usan valores de parámetros predeterminados.
 >
 >
 
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric remoto
-Si conoce el punto de conexión del clúster y tiene los permisos suficientes, puede tener acceso a Service Fabric Explorer desde cualquier explorador. Esto se debe a que Service Fabric Explorer no es más que otro servicio que se ejecuta en el clúster.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Detección del punto de conexión del Explorador de Service Fabric para un clúster remoto
-Si desea tener acceso a Service Fabric Explorer para un clúster determinado, dirija el explorador a:
-
-http://&lt;su-punto-de-conexión-de-clúster&gt;:19080/Explorer
-
-En el caso de clústeres de Azure, la dirección URL completa también está disponible en el panel de elementos esenciales del clúster de Azure Portal.
-
-### <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
-Puede controlar el acceso de cliente a su clúster de Service Fabric con certificados o mediante Azure Active Directory (AAD).
-
-Si intenta conectarse a Service Fabric Explorer en un clúster seguro, se le pedirá presentar un certificado de cliente o iniciar sesión con AAD, según la configuración del clúster.
-
-## <a name="next-steps"></a>Pasos siguientes
-* [Información general sobre Testability](service-fabric-testability-overview.md)
+## <a name="next-steps"></a>pasos siguientes
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)
 

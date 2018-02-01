@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
@@ -34,7 +34,7 @@ Para resolver el problema, primero intente [restablecer la puerta de enlace de l
 
 Comprobación del tipo de la puerta de enlace de VPN de Azure.
 
-1. Vaya al [Portal de Azure](https://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 
 2. Compruebe la página **Información general** de la puerta de enlace de la VPN para obtener la información del tipo.
     
@@ -48,11 +48,11 @@ Comprobación del tipo de la puerta de enlace de VPN de Azure.
 
 ### <a name="step-2-verify-the-shared-key"></a>Paso 2: Compruebe la clave compartida
 
-Compare la clave compartida del dispositivo VPN local y la de la VPN de la red virtual de Azure para asegurarse de que las claves coinciden. 
+Compare la clave compartida del dispositivo VPN local y la de la VPN de la instancia de Azure Virtual Network para asegurarse de que las claves coinciden. 
 
 Para ver la clave compartida de la conexión VPN de Azure, use uno de los siguientes métodos:
 
-**Portal de Azure**
+**portal de Azure**
 
 1. Vaya a la conexión de sitio a sitio de la puerta de enlace VPN que ha creado.
 
@@ -87,12 +87,12 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Paso 6. Compruebe que las subredes coinciden exactamente (puertas de enlace basadas en directivas de Azure)
 
--   Compruebe que las subredes coinciden exactamente entre la red virtual de Azure y las definiciones locales para la red virtual de Azure.
+-   Compruebe que los espacios de direcciones de red virtual coinciden exactamente entre la red virtual de Azure y las definiciones locales.
 -   Compruebe que las subredes coinciden exactamente entre la **puerta de enlace de la red local** y las definiciones locales para la red local.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Paso 7. Compruebe el sondeo de estado de la puerta de enlace de Azure
 
-1. Vaya a [sondeo de estado](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Vaya a sondeo de estado.
 
 2. Haga clic en la advertencia de certificado.
 3. Si recibe una respuesta, se considera que la puerta de enlace de la VPN es correcta. Si no recibe una respuesta, puede que la puerta de enlace no sea correcta o que haya un NSG en la subred de puerta de enlace que provoque el problema. El siguiente texto es una respuesta de ejemplo:
@@ -103,7 +103,7 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 
 La característica confidencialidad directa perfecta puede provocar problemas de desconexión. Si el dispositivo VPN cuenta con la característica confidencialidad directa perfecta habilitada, deshabilítela. A continuación, actualice la directiva IPsec de puerta de enlace de VPN.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 -   [Configuración de una conexión de sitio a sitio en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configuración de una directiva IPsec/IKE para conexiones VPN de sitio a sitio](vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introducción a Azure Cosmos DB: API para MongoDB
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) es un servicio de base de datos con varios modelos distribuido globalmente de Microsoft para aplicaciones críticas. Azure Cosmos DB ofrece una [distribución global inmediata](distribute-data-globally.md), [escalado elástico de rendimiento y almacenamiento](partition-data.md) en todo el mundo, latencias inferiores a 10 milisegundos en el percentil 99, [cinco niveles de coherencia bien definidos](consistency-levels.md) y alta disponibilidad garantizada, todo ello respaldado por [acuerdos de nivel de servicio líderes del sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexa datos automáticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sin que haya que ocuparse de la administración de esquemas ni de índices. Sigue varios modelos y es compatible con los modelos de datos de documento, de clave-valor, de gráfico y de columnas. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) es un servicio de base de datos con varios modelos y distribución global de Microsoft para aplicaciones críticas. Azure Cosmos DB ofrece una [distribución global inmediata](distribute-data-globally.md), [escalado elástico de rendimiento y almacenamiento](partition-data.md) en todo el mundo, latencias inferiores a 10 milisegundos en el percentil 99, [cinco niveles de coherencia bien definidos](consistency-levels.md) y alta disponibilidad garantizada, todo ello respaldado por [acuerdos de nivel de servicio líderes del sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexa datos automáticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sin que haya que ocuparse de la administración de esquemas ni de índices. Sigue varios modelos y es compatible con los modelos de datos de documento, de clave-valor, de gráfico y de columnas. 
 
 ![Azure Cosmos DB: API de MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -58,12 +58,12 @@ Siga las guías de inicio rápido sobre MongoDB si desea crear una cuenta de Azu
 * [Compilar una aplicación web de API MongoDB con .NET y Azure Portal](create-mongodb-dotnet.md)
 * [Compilar una aplicación de consola de la API MongoDB con Java y Azure Portal](create-mongodb-java.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información sobre cómo la API de MongoDB de Azure Cosmos DB se integra en la documentación de Azure Cosmos DB global, pero hay algunos indicadores para empezar:
 
 * Para saber cómo obtener la información de la cadena de conexión de la cuenta, siga los pasos del tutorial [Conexión a una cuenta de MongoDB](connect-mongodb-account.md).
-* Para obtener información sobre cómo crear una conexión entre la base de datos de Azure Cosmos DB y la aplicación de MongoDB en MongoChef, siga los pasos del tutorial [Uso de MongoChef con Azure Cosmos DB](mongodb-mongochef.md).
+* Para obtener información sobre cómo crear una conexión entre la base de datos de Azure Cosmos DB y la aplicación de MongoDB en Studio 3T, siga los pasos del tutorial [Uso de Studio 3T (MongoChef) con Azure Cosmos DB](mongodb-mongochef.md).
 * Siga el tutorial [Migración de datos a Azure Cosmos DB compatible con los protocolos de MongoDB](mongodb-migrate.md) para importar los datos a una base de datos de la API de MongoDB.
 * Para conectarse a una cuenta de la API de MongoDB con [Robomongo](mongodb-robomongo.md).
 * Obtenga información sobre cuántas RU utilizan las operaciones con el [comando GetLastRequestStatistics y las métricas de Azure Portal](request-units.md#GetLastRequestStatistics).

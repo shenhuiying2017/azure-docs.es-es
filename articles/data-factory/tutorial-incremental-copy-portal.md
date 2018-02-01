@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -181,7 +181,7 @@ END
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
    ![Página principal Factoría de datos](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
+10. Haga clic en el icono **Author & Monitor** para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y un procedimiento almacenado encadenada en una canalización. 
@@ -311,7 +311,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | string | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ En este tutorial, realizó los pasos siguientes:
 En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server local a una base de datos SQL. 
 
 > [!div class="nextstepaction"]
->[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

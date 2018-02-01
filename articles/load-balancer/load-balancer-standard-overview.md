@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Introducción a Azure Load Balancer estándar (versión preliminar)
 
@@ -68,12 +68,12 @@ Ya no hay un requisito para conjuntos de disponibilidad. Puede usar conjuntos de
 
 Load Balancer estándar proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones de Load Balancer público e interno. Estas nuevas métricas se proporcionan a través de Azure Monitor (versión preliminar) y usan todas las funcionalidades relacionadas, como la posibilidad de integración con consumidores de nivel inferior.
 
-| Métrica | Descripción |
+| Métrica | DESCRIPCIÓN |
 | --- | --- |
 | Disponibilidad de VIP | Load Balancer estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos usada por los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.|
 | Disponibilidad de DIP | Load Balancer estándar usa un servicio de sondeo de estado distribuido que supervisa el estado del punto de conexión de la aplicación de acuerdo con lo que se ha configurado. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia individual del grupo de Load Balancer.  Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado.
-| Paquetes SYN | Load Balancer estándar no finaliza las conexiones TCP ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos paquetes SYN para comprender el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos. La métrica puede reflejar también los clientes que intentan establecer una conexión con el servicio.|
-| Conexiones SNAT | Load Balancer estándar informa del número de conexiones salientes enmascaradas al servidor front-end de dirección IP pública. Los puertos SNAT son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en las conexiones salientes originadas.|
+| Paquetes SYN | Load Balancer estándar no finaliza las conexiones TCP ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.|
+| Conexiones SNAT | Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos SNAT son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados.  Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.|
 | Contadores de bytes | Load Balancer estándar informa de los datos procesados por servidor front-end.|
 | Contadores de paquetes | Load Balancer estándar informa de los paquetes procesados por servidor front-end.|
 
@@ -217,7 +217,7 @@ Cuando se usan conexiones de salida con un servidor front-end con redundancia de
 
 El nuevo algoritmo en Load Balancer estándar asigna previamente los puertos SNAT a la NIC de cada máquina virtual. Cuando una NIC se agrega al grupo, los puertos SNAT se asignan previamente según el tamaño del grupo. En la tabla siguiente se muestran las asignaciones previas de puerto para los seis niveles de tamaños de grupo de servidores back-end:
 
-| Tamaño del grupo (instancias de máquina virtual) | Puertos SNAT asignados previamente |
+| Tamaño del grupo (instancias de máquina virtual) | Número de puertos SNAT asignado previamente |
 | --- | --- |
 | 1-50 | 1024 |
 | 51-100 | 512 |
@@ -327,7 +327,7 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 Load Balancer estándar está disponible actualmente en estas regiones:
 - Este de EE. UU. 2
-- Central EE. UU.:
+- Central EE. UU:
 - Europa del Norte
 - Centro occidental de EE.UU.
 - Europa occidental
@@ -339,7 +339,7 @@ Los [límites de servicio de red](https://docs.microsoft.com/azure/azure-subscri
 
 En la tabla siguiente se comparan los límites y capacidades de los SKU de Load Balancer básico y estándar:
 
-| Load Balancer | Básica | Standard |
+| Load Balancer | Básica | Estándar |
 | --- | --- | --- |
 | Tamaño del grupo de servidores back-end | hasta 100 | hasta 1000 |
 | Límite de grupo de servidores back-end | Conjunto de disponibilidad | red virtual, región |
@@ -355,7 +355,7 @@ En la tabla siguiente se comparan los límites y capacidades de los SKU de Load 
 
 En la tabla siguiente se comparan los límites y capacidades de SKU básica y estándar de la dirección IP pública:
 
-| Dirección IP pública | Básica | Standard |
+| Dirección IP pública | Básica | Estándar |
 | --- | --- | --- |
 | Escenarios de zonas de disponibilidad | Solo zonal | Con redundancia de zona (predeterminado), zonal (opcional) | 
 | Movilidad rápida de IP | No compatible | Disponible |
@@ -452,7 +452,7 @@ Las siguientes limitaciones se aplican al periodo de versión preliminar y está
 - En el contexto de zonas de disponibilidad, una dirección IP pública zonal no se puede mover de una zona a otra.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Aprenda más sobre [Load Balancer básico](load-balancer-overview.md).
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).

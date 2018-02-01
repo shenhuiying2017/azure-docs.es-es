@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ffb691b5c04457e5781934b18304fac7b3c43cbb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST
+# <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Operaciones de sistema de archivos en Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Con este artículo aprenderá a utilizar el SDK de Python para realizar operaciones de sistema de archivos en Azure Data Lake Store. Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Store con Python, consulte [Operaciones de administración de cuentas en Azure Data Lake Store con Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 

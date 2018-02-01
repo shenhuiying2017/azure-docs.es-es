@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/11/2018
 ms.author: tamram
-ms.openlocfilehash: 5fa4e35184b39bd672bfc8b19b2d41acb164abdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02ffd817f34ae7d5fa1557db0a74e8ff06ab69fc
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -38,7 +38,24 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 En esta guía, usará funciones del servicio Queue Storage a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
+### <a name="install-via-composer"></a>Instalación mediante el compositor
+1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/azure-storage-queue": "*"
+      }
+    }
+    ```
+2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
+3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
+   
+    ```
+    php composer.phar install
+    ```
+
+También puede ir a la [biblioteca de cliente de PHP de Azure Storage][download] en GitHub para clonar el código fuente.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento en cola
 Para usar las API de almacenamiento en cola de Azure, necesitará:
@@ -46,12 +63,11 @@ Para usar las API de almacenamiento en cola de Azure, necesitará:
 1. Hacer referencia al archivo autocargador mediante la instrucción [require_once].
 2. Hacer referencia a todas las clases que puede que use.
 
-En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder** .
+En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **QueueRestProxy**.
 
 ```php
 require_once 'vendor/autoload.php';
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
 En los ejemplos siguientes, la instrucción `require_once` se muestra siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
@@ -71,7 +87,7 @@ Para obtener acceso al emulador de almacenamiento:
 UseDevelopmentStorage=true
 ```
 
-Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder** . Puede usar cualquiera de las técnicas siguientes:
+Para crear un cliente del servicio Azure Queue, debe usar la clase **QueueRestProxy**. Puede usar cualquiera de las técnicas siguientes:
 
 * pasarle directamente la cadena de conexión, o bien
 * usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/web-sites-configure.md) para configurar cadenas de conexión.
@@ -80,10 +96,10 @@ En los ejemplos descritos aquí, la cadena de conexión se pasa directamente.
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## <a name="create-a-queue"></a>Creación de una cola
@@ -92,14 +108,14 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set queue metadata.
 $createQueueOptions = new CreateQueueOptions();
@@ -108,7 +124,7 @@ $createQueueOptions->addMetaData("key2", "value2");
 
 try    {
     // Create queue.
-    $queueRestProxy->createQueue("myqueue", $createQueueOptions);
+    $queueClient->createQueue("myqueue", $createQueueOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -131,19 +147,19 @@ Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El m�
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
     $builder = new ServicesBuilder();
-    $queueRestProxy->createMessage("myqueue", "Hello World!");
+    $queueClient->createMessage("myqueue", "Hello World!");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -161,21 +177,21 @@ Puede ojear uno o varios mensajes en la parte delantera de una cola, sin quitarl
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set peek message options.
 $message_options = new PeekMessagesOptions();
 $message_options->setNumberOfMessages(1); // Default value is 1.
 
 try    {
-    $peekMessagesResult = $queueRestProxy->peekMessages("myqueue", $message_options);
+    $peekMessagesResult = $queueClient->peekMessages("myqueue", $message_options);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -209,16 +225,16 @@ El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRes
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -232,7 +248,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Delete message.
-    $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+    $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -250,16 +266,16 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -273,7 +289,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Update message.
-    $queueRestProxy->updateMessage("myqueue",
+    $queueClient->updateMessage("myqueue",
                                 $messageId,
                                 $popReceipt,
                                 $new_message_text,
@@ -295,14 +311,14 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Set list message options.
 $message_options = new ListMessagesOptions();
@@ -311,7 +327,7 @@ $message_options->setNumberOfMessages(16);
 
 // Get messages.
 try{
-    $listMessagesResult = $queueRestProxy->listMessages("myqueue",
+    $listMessagesResult = $queueClient->listMessages("myqueue",
                                                      $message_options);
     $messages = $listMessagesResult->getQueueMessages();
 
@@ -326,7 +342,7 @@ try{
         $popReceipt = $message->getPopReceipt();
 
         // Delete message.
-        $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+        $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
     }
 }
 catch(ServiceException $e){
@@ -345,17 +361,17 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Get queue metadata.
-    $queue_metadata = $queueRestProxy->getQueueMetadata("myqueue");
+    $queue_metadata = $queueClient->getQueueMetadata("myqueue");
     $approx_msg_count = $queue_metadata->getApproximateMessageCount();
 }
 catch(ServiceException $e){
@@ -376,17 +392,17 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Delete queue.
-    $queueRestProxy->deleteQueue("myqueue");
+    $queueClient->deleteQueue("myqueue");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -398,7 +414,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 * Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](http://azure.github.io/azure-storage-php/).
@@ -409,4 +425,5 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
+[composer-phar]: http://getcomposer.org/composer.phar
 

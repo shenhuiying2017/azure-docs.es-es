@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Presentación de iDNS para Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 iDNS es una característica de Azure Stack que permite resolver nombres DNS externos (por ejemplo, http://www.bing.com).
 También permite registrar los nombres de redes virtuales internas. Al hacerlo, puede resolver las máquinas virtuales en la misma red virtual por nombre, en lugar de por dirección IP, sin tener que especificar entradas del servidor DNS personalizadas.
@@ -30,7 +30,7 @@ También permite registrar los nombres de redes virtuales internas. Al hacerlo, 
 Es algo con lo que siempre ha contado Azure, pero ahora también está disponible en Windows Server 2016 y Azure Stack.
 
 ## <a name="what-does-idns-do"></a>¿Para qué sirve iDNS?
-Con iDNS en Azure Stack, dispone de las siguientes funcionalidades sin tener que especificar entradas del servidor DNS personalizadas.
+Con iDNS en Azure Stack, dispone de las siguientes funcionalidades sin tener que especificar entradas del servidor DNS personalizadas:
 
 * Servicios de resolución de nombres Compartir los servicios de resolución de nombres DNS compartidos para las cargas de trabajo del inquilino.
 * Servicio DNS autoritativo para la resolución de nombres y el registro DNS en la red virtual del inquilino.

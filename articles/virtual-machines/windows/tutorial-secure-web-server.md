@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Protección de un servidor web IIS con certificados SSL en una máquina virtual de Windows en Azure
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Windows en Azure. En este tutorial, aprenderá a:
@@ -221,7 +221,7 @@ El sitio web IIS protegido se muestra ahora como en el ejemplo siguiente:
 ![Visualización del sitio IIS seguro en funcionamiento](./media/tutorial-secure-web-server/secured-iis.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, protegió un servidor web IIS con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
 

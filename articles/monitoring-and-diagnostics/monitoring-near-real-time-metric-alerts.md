@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Alertas de métricas casi en tiempo real (versión preliminar)
 Azure Monitor ahora admite un nuevo tipo de alerta de métricas denominada alertas de métricas casi en tiempo real (versión preliminar) Esta característica actualmente está en su versión preliminar pública.
@@ -74,6 +74,52 @@ Puede crear una alerta para métricas casi en tiempo real mediante los pasos que
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Administración de alertas de métricas casi en tiempo real
 Cuando haya creado una alerta **Near Real-Time Metric Alerts**, puede administrarla mediante los pasos que [aquí](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal) se describen.
+
+## <a name="payload-schema"></a>Esquema de carga
+
+La operación POST contiene el siguiente esquema y carga útil de JSON para todas las alertas de métricas casi en tiempo real.
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
 ## <a name="next-steps"></a>pasos siguientes
 

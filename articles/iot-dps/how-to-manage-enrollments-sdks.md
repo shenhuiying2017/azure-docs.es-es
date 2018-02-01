@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.
@@ -25,8 +25,9 @@ La *inscripción de un dispositivo* crea un registro de un único dispositivo o 
 En este artículo se revisan los conceptos de alto nivel para administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Las llamadas API exactas pueden ser diferentes debido a diferencias del lenguaje.  Revise los ejemplos que se proporcionan en GitHub para más información:
 * [Ejemplos de cliente del servicio de aprovisionamiento de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Ejemplos de cliente del servicio de aprovisionamiento de Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Ejemplos de cliente del servicio de aprovisionamiento de .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Cadena de conexión de una instancia del servicio Device Provisioning
 * Artefactos de seguridad de dispositivos:
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):

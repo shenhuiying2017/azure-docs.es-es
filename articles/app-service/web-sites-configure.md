@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -62,7 +62,7 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 **Depuración remota**. Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su aplicación web de Azure. La depuración remota permanecerá habilitada durante 48 horas. 
 
 ### <a name="app-settings"></a>Configuración de la aplicación
-Esta sección contiene las parejas de nombre y valor que la aplicación web cargará al inicio. 
+Esta sección contiene los pares de nombre y valor que la aplicación web cargará al inicio. 
 
 * En las aplicaciones .NET, estas configuraciones se insertarán en la sección de la configuración de .NET `AppSettings` en tiempo de ejecución y reemplazará la configuración existente. 
 * Las aplicaciones PHP, Python, Java y Node pueden acceder a estas configuraciones como variables de entorno en tiempo de ejecución. En cada configuración de aplicación se crean dos variables de entorno; una con el nombre especificado en el entrada de configuración de la aplicación y otra con el prefijo APPSETTING_. Ambas contienen el mismo valor.

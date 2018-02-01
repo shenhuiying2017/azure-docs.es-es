@@ -358,6 +358,8 @@
           href: spark-connector.md
         - name: Conexión a Spark GraphX
           href: spark-connector-graph.md
+        - name: Streaming con Kafka y Spark en HDInsight
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Implementación de un sitio web en Azure App Service
           href: create-website.md
         - name: Registro de aplicaciones con Logic Apps

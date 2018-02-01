@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones de diseño de identidad híbrida de Azure Active Directory - determinar los requisitos de protección de datos | Microsoft Docs"
+title: "Diseño de identidades híbridas: requisitos de protección de datos en Azure | Microsoft Docs"
 description: "Al planear la solución de identidad híbrida, identifique los requisitos de protección de datos de su empresa y las opciones disponibles que mejor satisfacen esos requisitos."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
 El primer paso para proteger los datos es identificar quién puede tener acceso a ellos. Como parte de este proceso, necesita contar con una solución de identidad que se pueda integrar con su sistema con el fin de proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son bastante diferentes, tal como se muestra en la ilustración siguiente:
@@ -79,7 +80,7 @@ Las normas, las leyes y los requisitos de cumplimiento normativo variarán segú
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  [Determinación de los requisitos de administración de contenido](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

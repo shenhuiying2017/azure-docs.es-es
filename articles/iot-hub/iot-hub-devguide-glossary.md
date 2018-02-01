@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -176,10 +176,10 @@ El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un l
 Puede usar la [API de REST del proveedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para administrar los centros de IoT en la [suscripción de Azure](#subscription) realizando operaciones como crear, actualizar y eliminar centros.
 
 ## <a name="iot-suite"></a>IoT Suite
-Paquetes del Conjunto de aplicaciones de IoT de Azure con distintos servicios de Azure con soluciones preconfiguradas. Estas soluciones preconfiguradas le permiten iniciar rápidamente escenarios comunes de IoT de un extremo a otro. Para más información, vea [¿Qué es el Conjunto de aplicaciones de IoT de Azure?](../iot-suite/iot-suite-overview.md)
+Paquetes de Azure IoT Suite con distintos servicios de Azure con soluciones preconfiguradas. Estas soluciones preconfiguradas le permiten iniciar rápidamente escenarios comunes de IoT de un extremo a otro. Para más información, vea [¿Qué es Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/azure/iothub-explorer) es una herramienta de línea de comandos multiplataforma. La herramienta permite administrar los dispositivos en el [registro de identidades](#identity-registry), enviar y recibir mensajes y archivos de los dispositivos, así como supervisar las operaciones del centro de IoT.
+## <a name="the-iot-extension-for-azure-cli-20"></a>La extensión de IoT para la CLI de Azure 2.0
+[La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una herramienta de la línea de comandos multiplataforma. La herramienta permite administrar los dispositivos en el [registro de identidades](#identity-registry), enviar y recibir mensajes y archivos de los dispositivos, así como supervisar las operaciones del centro de IoT.
 
 ## <a name="job"></a>Trabajo
 El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) para programar y realizar el seguimiento de actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). [IoT Hub](#iot-hub) también utiliza trabajos para [importar y exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) desde el [registro de identidades](#identity-registry).

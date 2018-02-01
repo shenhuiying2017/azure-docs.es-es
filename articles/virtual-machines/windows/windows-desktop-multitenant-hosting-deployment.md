@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Para más información, consulte [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hospedaje multiinquilino para Windows 10).
 
 > [!NOTE]
-> En este artículo se explica cómo implementar la ventaja de las licencias con las imágenes de Windows 10 Desktop. Puede consultar el siguiente artículo para más información sobre las [Ventajas de uso híbrido de Azure para imágenes de Windows Server](hybrid-use-benefit-licensing.md).
+> En este artículo se explica cómo implementar la ventaja de las licencias con las imágenes de Windows 10 Pro Desktop en Azure Marketplace.
+> - Para obtener las imágenes de Windows 7, 8.1 y 10 Enterprise (x64) en Azure Marketplace para suscripciones a MSDN, consulte [Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas](client-images.md).
+> - Para revisar las ventajas de licencias de Windows Server, consulte [Ventaja para uso híbrido de Azure para Windows Server](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementación de la imagen de Windows 10 desde Azure Marketplace 
@@ -34,6 +36,8 @@ Para las implementaciones de plantilla de Powershell, CLI y Azure Resource Manag
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Carga del disco duro virtual de Windows 10 en Azure
 Si va a cargar un disco duro virtual generalizado de Windows 10, tenga en cuenta que Windows 10 no tiene una cuenta de administrador integrada habilitada de forma predeterminada. Para habilitar la cuenta de administrador integrada, incluya el siguiente comando como parte de la extensión de script personalizada.

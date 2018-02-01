@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -36,7 +36,7 @@ Si el puerto 19080 no es accesible desde el proveedor de recursos de Service Fab
 
 ## <a name="templates"></a>Plantillas
 
-Todas las plantillas de Service Fabric están en [un archivo de descarga](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Debe poder implementar las plantillas tal como están con los siguientes comandos de PowerShell. Si va a implementar la plantilla existente de Azure Virtual Network o la de dirección IP pública estática, lea primero la sección [Configuración inicial](#initialsetup) de este artículo.
+Todas las plantillas de Service Fabric están en [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Debe poder implementar las plantillas tal como están con los siguientes comandos de PowerShell. Si va a implementar la plantilla existente de Azure Virtual Network o la de dirección IP pública estática, lea primero la sección [Configuración inicial](#initialsetup) de este artículo.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configuración inicial
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Plantilla de Service Fabric
 
-En los ejemplos de este artículo, usamos el archivo template.json de Service Fabric. Puede usar el asistente estándar del portal para descargar la plantilla desde el portal antes de crear un clúster. También puede emplear una de las plantillas de la [galería de plantillas](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), como la del [clúster de cinco nodos de Service Fabric](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+En los ejemplos de este artículo, usamos el archivo template.json de Service Fabric. Puede usar el asistente estándar del portal para descargar la plantilla desde el portal antes de crear un clúster. También puede usar una de las [plantillas de muestra](https://github.com/Azure-Samples/service-fabric-cluster-templates), como la del [clúster de cinco nodos de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Subred y red virtual existentes
@@ -596,5 +596,5 @@ En un clúster de dos tipos de nodo, un tipo de nodo está en el equilibrador de
 
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Creación de un clúster](service-fabric-cluster-creation-via-arm.md)

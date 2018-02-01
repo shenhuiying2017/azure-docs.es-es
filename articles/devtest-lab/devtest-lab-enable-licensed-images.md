@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs
 
@@ -29,7 +29,7 @@ El primer paso para permitir a los usuarios crear máquinas virtuales desde una 
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
 1. En la lista de laboratorios, seleccione el laboratorio que desee.  
 
@@ -53,7 +53,9 @@ Para asegurarse de que una imagen con licencia está disponible para los usuario
 
 Siga estos pasos para habilitar la implementación mediante programación para una imagen con licencia:
 
-1. En [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), en la lista de **imágenes de Marketplace**, identifique una imagen con licencia para la que desee que los usuarios tengan acceso, pero cuyos términos no se hayan aceptado. Por ejemplo, podría ver una máquina virtual de ciencia de datos que muestra un estado de **Términos aceptados** o **Revisión de términos necesaria**.
+1. En [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), vaya a la lista de **imágenes de Marketplace**.
+
+1. Identifique una imagen con licencia para la que desee que los usuarios tengan acceso, pero cuyos términos no se hayan aceptado. Por ejemplo, podría ver una máquina virtual de ciencia de datos que muestra un estado de **Términos aceptados** o **Revisión de términos necesaria**.
 
     ![Configuración de la ventana de implementación mediante programación](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
@@ -74,7 +76,15 @@ Siga estos pasos para habilitar la implementación mediante programación para u
    >
 
 
-1. Seleccione **Guardar**. En la lista de imágenes de Marketplace, la imagen ahora muestra **Términos aceptados** y está disponible para que los usuarios creen máquinas virtuales.
+1. Seleccione **Guardar**. 
+
+    En la lista de imágenes de Marketplace, la imagen ahora muestra **Términos aceptados** y está disponible para que los usuarios creen máquinas virtuales.
+
+> [!NOTE]
+> Los usuarios pueden crear una imagen personalizada desde una imagen con licencia. Consulte [Crear una imagen personalizada a partir de un archivo VHD](devtest-lab-create-template.md) para más información.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 
@@ -83,4 +93,6 @@ Siga estos pasos para habilitar la implementación mediante programación para u
 
 ## <a name="next-steps"></a>pasos siguientes
 
+- [Crear una imagen personalizada a partir de una máquina virtual](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Crear una imagen personalizada a partir de un archivo VHD](devtest-lab-create-template.md)
 - [Agregar una máquina virtual al laboratorio](devtest-lab-add-vm.md)

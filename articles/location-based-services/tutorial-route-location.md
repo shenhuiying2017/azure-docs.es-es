@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Ruta a un punto de interés mediante Azure Location Based Services
 
 En este tutorial se muestra cómo usar la cuenta de Azure Location Based Services y el SDK de Route Service para buscar la ruta al punto de interés. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Obtener las coordenadas de dirección
+> * Obtención de las coordenadas de dirección
 > * Consultar en Route Service direcciones a un punto de interés
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de continuar, asegúrese de [crear su cuenta de Azure Location Based Services](./tutorial-search-location.md#createaccount) y de [obtener la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey). También puede observar cómo usar las API de Control de mapa y Search Service en el tutorial [Búsqueda de un punto de interés cercano mediante Azure Location Based Services](./tutorial-search-location.md).
 
@@ -77,13 +77,13 @@ Use los pasos siguientes para crear una página HTML estática insertada con la 
     ```
     Observe cómo el encabezado HTML inserta las ubicaciones de recursos de los archivos CSS y JavaScript de la biblioteca de Azure Location Based Services. Observe también el segmento *script* en el cuerpo del archivo HTML, que contendrá el código JavaScript insertado para acceder a las API de Azure Location Based Service.
 
-3. Agregue el siguiente código JavaScript al bloque *script* del archivo HTML. Reemplace el marcador de posición *<insert-key>* por la clave principal de la cuenta de Location Based Services.
+3. Agregue el siguiente código JavaScript al bloque *script* del archivo HTML. Use la clave principal de la cuenta de Location Based Services en el script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** proporciona el control para un mapa web visual e interactivo, y es un componente de la API de Control de mapa de Azure.
@@ -179,25 +179,25 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    La solicitud anterior muestra los parámetros necesarios, que son la clave de suscripción de la cuenta y las coordenadas de los puntos inicial y final, en el orden especificado. 
+    La solicitud anterior muestra los parámetros necesarios, que son la clave de la cuenta y las coordenadas de los puntos inicial y final, en el orden especificado. 
 
 3. Guarde el archivo **MapRoute.html** localmente, ábralo en un explorador web de su elección y observe el resultado. Para que la conexión con las API de Location Based Services se realice correctamente, debe ver un mapa similar al siguiente. 
 
     ![Control de mapa y Route Service de Azure](./media/tutorial-route-location/lbs-map-route.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>pasos siguientes
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Obtener las coordenadas de dirección
+> * Obtención de las coordenadas de dirección
 > * Consultar en Route Service direcciones a un punto de interés
 
 Continúe con el tutorial [Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Location Based Services](./tutorial-prioritized-routes.md) para aprender a usar Azure Location Based Services para establecer prioridades sobre las rutas a un punto de interés, en función del modo de transporte. 

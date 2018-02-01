@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI mediante herramientas de visualización de datos con Azure HDInsight
 
 Obtenga información sobre cómo utilizar [Microsoft Power BI](http://powerbi.microsoft.com) y [Tableau](http://www.tableau.com) para visualizar datos en un clúster de Apache Spark en Azure HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-* **Complete [Ejecución de consultas interactivas en un clúster Spark de HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Complete el artículo [Ejecución de consultas interactivas en un clúster Spark de HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) y [suscripción de prueba de Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
 * **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) y [controlador ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -109,7 +109,7 @@ Los primeros pasos para trabajar con Spark pasan por conectarse al clúster de P
 
     ![Nombre de usuario y contraseña del clúster de Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Nombre de usuario y contraseña del clúster de Spark")
 
-    Power BI Desktop tiene toda la información necesaria para conectarse a los datos de carga y al clúster de Spark desde la tabla `hvac`. La tabla y las columnas que la forman se muestran en el panel **Campos**.  Vea la siguiente captura de pantalla.
+    Power BI Desktop tiene toda la información necesaria para conectarse a los datos de carga y al clúster de Spark desde la tabla `hvac`. La tabla y las columnas que la forman se muestran en el panel **Campos**.  Vea la siguiente captura de pantalla:
 
 6. Visualice la variación entre la temperatura objetivo y la real para cada edificio: 
 
@@ -212,7 +212,7 @@ El objeto visual se ancla al panel. Puede agregar otros elementos visuales al in
 6. Haga clic en la pestaña **Sheet1** (Hoja1) en la parte inferior izquierda. Realice una visualización que muestre el promedio de temperaturas objetivo y reales de todos los edificios para cada fecha. Arrastre **Date** (Fecha) y **Building ID** (Id. de edificio) a **Columns** (Columnas), y **Actual Temp**/**Target Temp** (Temperatura real/Temperatura objetivo) a **Rows** (Filas). En **Marks** (Marcas), seleccione **Area** (Área) para usar un mapa de áreas para visualización de datos de Spark.
 
      ![Incorporación de campos para la visualización de datos de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Incorporación de campos para la visualización de datos de Spark")
-7. De manera predeterminada, se muestran los campos de temperatura como agregado. Si desea mostrar el promedio de las temperaturas en su lugar, puede hacerlo en la lista desplegable, como se muestra en la siguiente captura de pantalla.
+7. De manera predeterminada, se muestran los campos de temperatura como agregado. Si desea mostrar el promedio de las temperaturas en su lugar, puede hacerlo en la lista desplegable, como se muestra en la siguiente captura de pantalla:
 
     ![Realización del promedio de temperatura para la visualización de datos de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Realización del promedio de temperatura para la visualización de datos de Spark")
 
@@ -225,7 +225,7 @@ El objeto visual se ancla al panel. Puede agregar otros elementos visuales al in
     ![Salida de Tableau para la visualización de datos de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Salida de Tableau para la visualización de datos de Spark")
 9. Haga clic en **Save** (Guardar) para guardar la hoja de cálculo. Puede crear paneles y agregarles una o varias hojas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Hasta ahora ha aprendido a crear un clúster, a crear tramas de datos de Spark para consultar los datos y luego a acceder a esos datos desde herramientas de BI. Ahora puede ver instrucciones sobre cómo administrar los recursos de clúster y depurar los trabajos que se ejecutan en un clúster de HDInsight Spark.
 

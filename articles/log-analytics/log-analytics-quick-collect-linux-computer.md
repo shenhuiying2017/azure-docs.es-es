@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Recopilación de datos de equipos Linux hospedados en el entorno
 [Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales y otros recursos del entorno en un único repositorio para una correlación y análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Linux con unos pasos sencillos.  Para máquinas virtuales Linux de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
@@ -75,7 +75,7 @@ Los pasos siguientes configuran la instalación del agente de Log Analytics en A
 
 ## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>Configurar el agente para que se comunique con un servidor proxy
 
-Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy con Log Analytics.  El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`.
+Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy con Log Analytics.  El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`.  La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy.    
 
 1. Edite el archivo `/etc/opt/microsoft/omsagent/proxy.conf`. Para ello, ejecute los comandos siguientes y cambie los valores según su configuración específica.
 

@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo ejecutar copias de seguridad y re
 keywords: "copias de seguridad y restauración, copia de seguridad en línea"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
 Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
@@ -27,7 +27,7 @@ Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a i
 Este artículo comienza con un resumen rápido de la disponibilidad y redundancia de datos en Cosmos DB y, luego, analiza las copias de seguridad. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Resumen de la alta disponibilidad con Cosmos DB
-Cosmos DB está diseñado para su [distribución global](distribute-data-globally.md): le permite escalar el rendimiento en varias regiones de Azure junto con API transparentes de hospedaje múltiple y conmutación por error controlada por directivas. Azure Cosmos DB ofrece [Acuerdos de Nivel de Servicio con disponibilidad del 99,99 %](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas las cuentas de una sola región y todas las cuentas de varias regiones con coherencia moderada, y disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones. Todas las escrituras de Azure Cosmos DB se confirman de forma duradera en los discos locales mediante un cuórum de réplicas dentro de un centro de datos local antes de informar al cliente. Tenga en cuenta que la alta disponibilidad de Cosmos DB se basa en el almacenamiento local y no depende de ninguna tecnología de almacenamiento externo. Además, si la cuenta de base de datos está asociada con más de una región de Azure, las escrituras se replicarán también en otras regiones. Para escalar el rendimiento y los datos de acceso a bajas latencias, puede tener todas las regiones de lectura asociadas que desee con la cuenta de base de datos. En cada región de lectura, los datos (replicados) persisten de forma duradera en un conjunto de réplicas.  
+Cosmos DB está diseñado para su [distribución global](distribute-data-globally.md): le permite escalar el rendimiento en varias regiones de Azure junto con API transparentes de hospedaje múltiple y conmutación por error controlada por directivas. Azure Cosmos DB ofrece [Acuerdos de Nivel de Servicio con disponibilidad del 99,99 %](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas las cuentas de una sola región y todas las cuentas de varias regiones con coherencia moderada, y disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones. Todas las escrituras de Azure Cosmos DB se confirman de forma duradera en los discos locales mediante un cuórum de réplicas dentro de un centro de datos local antes de informar al cliente. Tenga en cuenta que la alta disponibilidad de Cosmos DB se basa en el almacenamiento local y no depende de ninguna tecnología de almacenamiento externo. Además, si la cuenta de base de datos está asociada con más de una región de Azure, las escrituras se replicarán también en otras regiones. Para escalar el rendimiento y los datos de acceso a bajas latencias, puede tener todas las regiones de lectura asociadas que desee con la cuenta de base de datos. En cada región de lectura, los datos (replicados) persisten de forma duradera en un conjunto de réplicas.  
 
 Tal como aparece en el diagrama siguiente, un único contenedor de Cosmos DB tiene [particiones horizontales](partition-data.md). En el siguiente diagrama, las "particiones" se indican con un círculo y cada una de ellas tiene alta disponibilidad a través de un conjunto de réplicas. Esta es la distribución local dentro de una región de Azure (se indica mediante el eje X). Además, cada partición (con su conjunto de réplicas correspondiente) se distribuye globalmente en varias regiones asociadas con su cuenta de base de datos (por ejemplo, en esta ilustración, las tres regiones: este de EE. UU., oeste de EE. UU. y centro de la India). El "conjunto de particiones" es una entidad distribuida globalmente que consta de varias copias de los datos en cada región (se indica mediante el eje Y). Puede asignar prioridad a las regiones asociadas con su cuenta de base de datos y Cosmos DB realizará una conmutación por error de forma transparente a la región siguiente en caso de desastre. También puede simular manualmente una conmutación por error para probar la disponibilidad completa de la aplicación.  
 
@@ -59,7 +59,7 @@ En caso de que elimine accidentalmente su base de datos o colección, puede [pre
 ## <a name="handling-data-corruption"></a>Control de los datos dañados
 Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en la cuenta de la base de datos. Este modelo funciona bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haberse escrito en las copias de seguridad existentes. En cuanto se detectan daños, el usuario debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para replicar la base de datos en varios centros de datos, consulte [Distribución global de datos con Cosmos DB](distribute-data-globally.md). 
 

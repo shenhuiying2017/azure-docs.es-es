@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importación de datos de Azure Log Analytics en Power BI
 
@@ -86,12 +86,12 @@ Si configura Power BI con un [área de trabajo heredada de Log Analytics](log-an
 ![Log Analytics a Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Programaciones de Power BI
-Una *programación de Power BI* incluye una búsqueda de registros que exporta un conjunto de datos desde el repositorio de OMS al conjunto de datos correspondiente de Power BI y una programación que define la frecuencia de ejecución de esta búsqueda para mantener el conjunto de datos actualizado.
+Una *programación de Power BI* incluye una búsqueda de registros que exporta un conjunto de datos desde Log Analytics al conjunto de datos correspondiente de Power BI, y una programación que define la frecuencia de ejecución de esta búsqueda para mantener el conjunto de datos actualizado.
 
 Los campos del conjunto de datos se corresponderán con las propiedades de los registros devueltos por la búsqueda de registros.  Si la búsqueda devuelve registros de diferentes tipos, el conjunto de datos incluirá todas las propiedades de cada uno de los tipos incluidos.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Conexión del área de trabajo de OMS a Power BI
-Para poder exportar desde Log Analytics a Power BI, debe conectar el área de trabajo de OMS a la cuenta de Power BI mediante el siguiente procedimiento.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Conectar el área de trabajo de Log Analytics a Power BI
+Para poder exportar desde Log Analytics a Power BI, debe conectar el área de trabajo a la cuenta de Power BI mediante el siguiente procedimiento.  
 
 1. En la consola de OMS, haga clic en el icono **Configuración** .
 2. Seleccione **Cuentas**.
@@ -106,9 +106,9 @@ Cree una programación de Power BI para cada conjunto de datos mediante el sigui
 3. Haga clic en el botón **Power BI** situado en la parte superior de la página para abrir el cuadro de diálogo **Power BI**.
 4. Proporcione la información en la tabla siguiente y haga clic en **Guardar**.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Nombre para identificar la programación cuando consulte la lista de programaciones de Power BI. |
+| NOMBRE |Nombre para identificar la programación cuando consulte la lista de programaciones de Power BI. |
 | Búsqueda guardada |La búsqueda de registros que desea ejecutar.  Puede seleccionar la consulta actual u otra búsqueda guardada existente en el cuadro desplegable. |
 | Schedule |La frecuencia con la que se ejecutará la búsqueda guardada y la exportación al conjunto de datos de Power BI.  El valor debe estar comprendido entre 15 minutos y 24 horas. |
 | Nombre del conjunto de datos |El nombre del conjunto de datos de Power BI.  Se creará si no existe y se actualizará si ya existe. |
@@ -169,6 +169,6 @@ Para guardar el informe, haga clic en el botón Guardar situado en la parte supe
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga información sobre de las [búsquedas de registro](log-analytics-log-searches.md) para crear consultas que se puedan exportar a Power BI.
 * Obtenga más información sobre [Power BI](http://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de Log Analytics.

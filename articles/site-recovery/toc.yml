@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Adición de runbooks de Azure a los planes de recuperación
           href: site-recovery-runbook-automation.md
+        - name: Adición de scripts de VMM a los planes de recuperación
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Conmutación por error
           items:
             - name: Acerca de la conmutación por error

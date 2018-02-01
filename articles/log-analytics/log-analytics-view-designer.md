@@ -1,6 +1,6 @@
 ---
-title: "Creación de vistas para analizar datos en Log Analytics (OMS) | Microsoft Docs"
-description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas que se muestran en OMS y Azure Portal y que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas."
+title: "Creación de vistas para analizar datos en Azure Log Analytics | Microsoft Docs"
+description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos del área de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a84f40503c1b9778c496461ebbf6864f99bd1c4b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Uso del Diseñador de vistas para crear vistas personalizadas en Log Analytics
-El Diseñador de vistas de [Log Analytics](log-analytics-overview.md) permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio de OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+El Diseñador de vistas de [Log Analytics](log-analytics-overview.md) permite crear vistas personalizadas en Azure Portal que contienen diferentes visualizaciones de datos en el espacio de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
@@ -32,54 +32,44 @@ Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 ## <a name="concepts"></a>Conceptos
+Las vistas aparecen en la página de **información general** del área de trabajo de Log Analytics en Azure Portal.  El icono de cada vista personalizada se mostrará en orden alfabético con los iconos de las soluciones instaladas en la misma área de trabajo.
+
+![Página de información general](media/log-analytics-view-designer/overview-page.png)
+
 Las vistas creadas con el Diseñador de vistas contienen los elementos de la siguiente tabla.
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 |:--- |:--- |
-| Icono |Se muestra en el panel principal de información general de Log Analytics.  Incluye un resumen visual de los datos que contiene la vista personalizada.  Los distintos tipos de iconos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en el icono para abrir la vista personalizada. |
+| Icono |Aparece en la página de información general del área de trabajo de Log Analytics.  Incluye un resumen visual de los datos que contiene la vista personalizada.  Los distintos tipos de iconos proporcionan diferentes visualizaciones de los registros.  Haga clic en el icono para abrir la vista personalizada. |
 | Vista personalizada |Se muestra cuando el usuario hace clic en el icono.  Contiene uno o varios elementos de visualización. |
-| Elementos de visualización |La visualización de los datos del repositorio de OMS se basa en una o varias [búsquedas de registros](log-analytics-log-searches.md).  Muchos de los elementos incluirán un encabezado que proporciona una visualización general y una lista de los principales resultados.  Los distintos tipos de elementos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en los elementos para realizar una búsqueda de registro que proporcione registros detallados. |
+| Elementos de visualización |La visualización de los datos del área de trabajo de Log Analytics se basa en una o varias [búsquedas de registros](log-analytics-log-searches.md).  Muchos de los elementos incluirán un encabezado que proporciona una visualización general y una lista de los principales resultados.  Los distintos tipos de elementos proporcionan diferentes visualizaciones de los registros del área de trabajo de Log Analytics.  Haga clic en los elementos para realizar una búsqueda de registro que proporcione registros detallados. |
 
-![Información general del Diseñador de vistas](media/log-analytics-view-designer/overview.png)
 
-## <a name="add-view-designer-to-your-workspace"></a>Incorporación del Diseñador de vistas al área de trabajo
-Mientras la versión del Diseñador de vistas siga siendo la preliminar, debe agregarlo al área de trabajo seleccionando la opción **Características de vista previa** de la sección **Configuración** del portal OMS.
+## <a name="work-with-an-existing-view"></a>Uso de una vista existente
+Cuando abre una vista creada con el Diseñador de vistas, tendrá un menú con las opciones que aparecen en la tabla siguiente.
 
-![Habilitación de la versión preliminar](media/log-analytics-view-designer/preview.png)
+![Menú de información general](media/log-analytics-view-designer/overview-menu.png)
 
-## <a name="creating-and-editing-views"></a>Creación y edición de vistas
-### <a name="create-a-new-view"></a>Creación de vistas
-Abra una nueva vista en el **Diseñador de vistas** haciendo clic en el icono del Diseñador de vistas del panel principal de OMS.
+
+| Opción | DESCRIPCIÓN |
+|:--|:--|
+| Actualizar   | Actualice la vista con los datos más recientes. | 
+| Análisis | Abra el [portal de análisis avanzado](log-analytics-log-search-portals.md#advanced-analytics-portal) para analizar los datos con las búsquedas de registros.(log-analytics-log-search-portals.md#advanced-analytics-portal). |
+| Filtrar    | Establezca un filtro de tiempo para los datos incluidos en la vista. |
+| Edit      | Abra la vista en el Diseñador de vistas para editar el contenido y la configuración.   |
+| Clon     | Cree una vista nueva y ábrala en el Diseñador de vistas.  La vista nueva tiene el mismo nombre que la original con la palabra "Copia" agregada al final. |
+
+
+## <a name="create-a-new-view"></a>Creación de vistas
+Cree una vista en el **Diseñador de vistas** con un clic en el icono del Diseñador de vistas en la página de información general del área de trabajo de Log Analytics en Azure Portal.
 
 ![Icono del Diseñador de vistas](media/log-analytics-view-designer/view-designer-tile.png)
 
-### <a name="edit-an-existing-view"></a>Edición vistas existentes
-Para editar una vista existente en el Diseñador de vistas, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Editar** para abrir la vista en el Diseñador de vistas.
-
-![Edición de un icono](media/log-analytics-view-designer/menu-edit.png)
-
-### <a name="clone-an-existing-view"></a>Clonación de vistas existentes
-Cuando se clona una vista, se crea una nueva y se abre en el Diseñador de vistas.  La nueva vista tendrá el mismo nombre que la original con la palabra "Copia" agregada al final.  Para clonar una vista existente, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Clonar** para abrir la vista en el Diseñador de vistas.
-
-![Clonación de una vista](media/log-analytics-view-designer/edit-menu-clone.png)
-
-### <a name="delete-an-existing-view"></a>Eliminación de vistas existentes
-Para eliminar una vista existente, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Editar** para abrir la vista en el Diseñador de vistas y en **Eliminar vista**.
-
-![Eliminación de una vista](media/log-analytics-view-designer/edit-menu-delete.png)
-
-### <a name="export-an-existing-view"></a>Exportación de vistas existentes
-Puede exportar una vista a un archivo JSON, que puede importar a otra área de trabajo o usarse en una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Para exportar una vista existente, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Exportar** para crear un archivo en la carpeta de descargas del explorador.  El nombre del archivo será el de la vista con la extensión *omsview*.
-
-![Exportación de una vista](media/log-analytics-view-designer/edit-menu-export.png)
-
-### <a name="import-an-existing-view"></a>Importación de vistas existentes
-Puede importar un archivo *omsview* que haya exportado desde otro grupo de administración.  Para importar una vista existente, cree primero una nueva.  Después, haga clic en el botón **Importar** y seleccione el archivo *omsview*.  La configuración en el archivo se copiará en la vista existente.
-
-![Exportación de una vista](media/log-analytics-view-designer/edit-menu-import.png)
 
 ## <a name="working-with-view-designer"></a>Uso del Diseñador de vistas
-El Diseñador de vistas tiene tres paneles.  El panel **Diseño** representa la vista personalizada.  Cuando agregue iconos y elementos desde el panel **Control** a **Diseño**, se reflejarán en la vista.  El panel **Propiedades** muestra las propiedades del icono o el elemento seleccionado.
+Trabajará con el Diseñador de vistas ya sea que esté creando una vista nueva o editando una existente.  
+
+El Diseñador de vistas tiene tres paneles.  El panel **Diseño** contiene la vista personalizada que crea o edita.  Puede agregar iconos y elementos desde el panel **Control** al panel **Diseño**.  El panel **Propiedades** muestra las propiedades del icono o el elemento seleccionado.
 
 ![Ver diseñador](media/log-analytics-view-designer/view-designer-screenshot.png)
 
@@ -89,12 +79,26 @@ Una vista personalizada solo puede tener un único icono.  Haga clic en la pesta
 ### <a name="configure-visualization-parts"></a>Configuración de elementos de visualización
 Una vista puede incluir cualquier número de elementos de visualización.  Seleccione la pestaña **Vista** y, luego, un elemento de visualización para agregarlo a la vista.  El panel **Propiedades** muestra las propiedades del elemento seleccionado.  Configure las propiedades de las vistas según la información detallada del artículo [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md) y haga clic en **Aplicar** para guardar los cambios.
 
-### <a name="delete-a-visualization-part"></a>Eliminación de elementos de visualización
-Puede quitar un elemento de visualización de la vista haciendo clic en el botón **X** de la esquina superior derecha del elemento.
-
-### <a name="rearrange-visualization-parts"></a>Reorganización de elementos de visualización
 Las vistas solo tienen una fila de elementos de visualización.  Los elementos de una vista pueden reorganizarse haciendo clic en ellos y arrastrándolos a una nueva ubicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+Puede quitar un elemento de visualización de la vista haciendo clic en el botón **X** de la esquina superior derecha del elemento.
+
+
+### <a name="menu-options"></a>Opciones del menú
+Cuando trabaja con una vista en el modo de edición, tiene las opciones de menú que aparecen en la tabla siguiente.
+
+![Menú Edición](media/log-analytics-view-designer/edit-menu.png)
+
+| Opción | DESCRIPCIÓN |
+|:--|:--|
+| Save        | Guarde los cambios y cierre la vista. |
+| Cancelar      | Descarte los cambios y cierre la vista. |
+| Eliminar vista | Elimine la vista. |
+| Exportación      | Exporte la vista a una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) que pueda importar en otra área de trabajo.  El nombre del archivo será el de la vista con la extensión *omsview*. |
+| Importar      | Importe un archivo *omsview* que haya exportado de otra área de trabajo.  Con esto se sobrescribirá la configuración de la vista existente. |
+| Clon       | Cree una vista nueva y ábrala en el Diseñador de vistas.  La vista nueva tiene el mismo nombre que la original con la palabra "Copia" agregada al final. |
+| Publicar     | Exporte la vista a un archivo JSON que se pueda insertar en una [solución de administración](../operations-management-suite/operations-management-suite-solutions-resources-views.md).  El nombre del archivo será el nombre de la vista con la extensión *json*. Se crea un segundo archivo con la extensión *resjson* que incluye los valores de los recursos definidos en el archivo JSON.
+
+## <a name="next-steps"></a>pasos siguientes
 * Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.

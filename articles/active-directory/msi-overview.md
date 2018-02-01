@@ -3,7 +3,7 @@ title: Managed Service Identity (MSI) para Azure Active Directory
 description: "Información general de Managed Service Identity para recursos de Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service Identity (MSI) para recursos de Azure
 
@@ -63,6 +63,7 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 |                    | [Acceder a un recurso ajeno a Azure AD con Managed Service Identity en una máquina virtual Linux y Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Función de Azure     | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Uso de identidades de servicio administradas con Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>¿Qué servicios de Azure son compatibles con Managed Service Identity?
 

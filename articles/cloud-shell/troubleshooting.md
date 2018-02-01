@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Solución de problemas de Azure Cloud Shell
 
 Entre las resoluciones conocidas de problemas en Azure Cloud Shell, se incluyen las siguientes:
 
 ## <a name="general-resolutions"></a>Resoluciones generales
+
+### <a name="early-timeouts-in-firefox"></a>Tiempos de expiración tempranos en Firefox
+- **Detalles**: Cloud Shell usa una conexión Websocket abierta para pasar la entrada/salida al explorador. Firefox tiene directivas preestablecidas que pueden cerrar la conexión WebSocket prematuramente, lo que genera tiempos de expiración tempranos en Cloud Shell.
+- **Resolución**: abra FireFox y escriba "about:config" en el cuadro de dirección URL. Busque "network.websocket.timeout.ping.request" y cambie el valor de 0 a 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Cuadro de diálogo de Storage. Error: 403 RequestDisallowedByPolicy
 - **Detalles**: al crear una cuenta de almacenamiento a través de Cloud Shell se produce un error debido a una directiva de Azure creada por el administrador. El mensaje de error incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

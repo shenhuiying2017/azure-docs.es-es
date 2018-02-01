@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento de usuarios
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en Workplace by Facebook y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Workplace by Facebook.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Workplace by Facebook, necesita los siguientes elementos:
 
@@ -75,7 +75,7 @@ Azure AD admite la capacidad de sincronizar automáticamente los detalles de la 
 
     ![Aprovisionamiento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador**, escriba el token del secreto y la dirección URL del inquilino de su administrador de Workplace by Facebook.
+5. En la sección **Credenciales de administrador**, escriba el token secreto de administrador de Workplace by Facebook y establezca el valor de la dirección URL de inquilino en `https://www.facebook.com/scim/v1/`.
 
 6. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador de equipo.
 
@@ -100,4 +100,3 @@ Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configuración del inicio de sesión único](active-directory-saas-workplacebyfacebook-tutorial.md)
-

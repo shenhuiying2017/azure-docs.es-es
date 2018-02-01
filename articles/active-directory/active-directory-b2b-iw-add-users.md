@@ -1,5 +1,5 @@
 ---
-title: "¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory? | Microsoft Docs"
+title: "Incorporación de usuarios de colaboración B2B como trabajadores de la información a Azure Active Directory | Microsoft Docs"
 description: "La colaboración B2B permite a los trabajadores de la información agregar usuarios de su organización para el acceso a Azure AD | Microsoft Docs"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?
 
@@ -37,7 +37,7 @@ Los trabajadores de la información pueden agregar del mismo modo usuarios de co
 > No puede agregar usuarios de colaboración B2B a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
@@ -48,7 +48,7 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
-* [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
+* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

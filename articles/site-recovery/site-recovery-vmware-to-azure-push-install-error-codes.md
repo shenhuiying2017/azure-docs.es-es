@@ -2,23 +2,18 @@
 title: "Solución de problemas de Azure Site Recovery de VMware a Azure | Microsoft Docs"
 description: "Solución de problemas y errores al replicar máquinas virtuales de Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
@@ -74,7 +69,7 @@ Este error lo puede producir el servicio por distintos motivos. Elija el error d
 
 **Código de error** | **Causas posibles:** | **Recomendaciones específicas para el error**
 --- | --- | ---
-95108 </br>**Mensaje:** Error en la instalación de inserción de Mobility Service en la máquina de origen con el código de error **EP0859**. <br>| Las credenciales proporcionadas para instalar el servicio de movilidad son incorrectas o la cuenta de usuario no tiene privilegios suficientes <br>| Asegúrese de que las credenciales proporcionadas son las credenciales **raíz** de la cuenta. Para [agregar o modificar las credenciales del usuario](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), vaya al servidor de configuración y haga clic en el icono de acceso directo "Cspsconfigtool" del escritorio. Haga clic en "Administrar cuenta" para agregar o modificar las credenciales.|
+95108 </br>**Mensaje:** Error en la instalación de inserción de Mobility Service en la máquina de origen con el código de error **EP0859**. <br>| Las credenciales proporcionadas para instalar el servicio de movilidad son incorrectas o la cuenta de usuario no tiene privilegios suficientes <br>| Asegúrese de que las credenciales proporcionadas son las credenciales **raíz** de la cuenta. Para agregar o modificar las credenciales del usuario, vaya al servidor de configuración y haga clic en el icono de acceso directo "Cspsconfigtool" del escritorio. Haga clic en "Administrar cuenta" para agregar o modificar las credenciales.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Error 95265: No se pudo habilitar la protección (EP0902)
 
@@ -92,13 +87,14 @@ Este error lo puede producir el servicio por distintos motivos. Elija el error d
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Recursos para solucionar problemas de instalación de la inserción
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Solucionar problemas de uso compartido de impresoras y archivos
-*  [Enable or disable File sharing with Group Policy](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx) (Habilitar o deshabilitar el uso compartido de archivos con directiva de grupo)
-* [Cómo habilitar el uso compartido de archivos e impresoras a través del firewall de Windows](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Enable or disable File sharing with Group Policy](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx) (Habilitar o deshabilitar el uso compartido de archivos con directiva de grupo)
+* [Cómo habilitar el uso compartido de archivos e impresoras a través del firewall de Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Solución de problemas de WMI
 * [Basic WMI Testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) (Pruebas básicas de WMI)
-* [WMI Troubleshooting](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx) (Solución de problemas de WMI)
-* [Troubleshooting problems with WMI scripts and WMI Services](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22) (Solución de problemas con los scripts y servicios de WMI)
+* [WMI Troubleshooting](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx) (Solución de problemas de WMI)
+* [Troubleshooting problems with WMI scripts and WMI Services](https://technet.microsoft.com/library/ff406382.aspx#H22) (Solución de problemas con los scripts y servicios de WMI)
 
-## <a name="next-steps"></a>Pasos siguientes
-- [Habilitación de la replicación de máquinas virtuales VMware](vmware-walkthrough-enable-replication.md)
+## <a name="next-steps"></a>pasos siguientes
+
+[Aprenda cómo](tutorial-vmware-to-azure.md) configurar la recuperación ante desastres para máquinas virtuales de VMware.

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Personalización de la solución preconfigurada de supervisión remota
 
@@ -24,6 +24,10 @@ En este artículo se proporciona información sobre cómo puede acceder al códi
 
 * Los repositorios de GitHub que contienen el código fuente y los recursos para los microservicios que conforman la solución preconfigurada.
 * Escenarios comunes de personalización, como agregar un tipo de dispositivo nuevo.
+
+En el siguiente vídeo se presenta información general de las opciones para personalizar la solución preconfigurada de supervisión remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Información general del proyecto
 
@@ -42,7 +46,7 @@ En esta tabla se resume la disponibilidad actual de cada microservicio para cada
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| Microservicio      | Descripción | Java | .NET |
+| Microservicio      | DESCRIPCIÓN | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | UI Web            | Aplicación web para la solución de supervisión remota. Implementa la UI mediante el marco React.js. | [N/D(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/D(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | Administrador de IoT Hub   | Controla la comunicación con IoT Hub.        | [Disponible](https://github.com/Azure/iothub-manager-java) | [Disponible](https://github.com/Azure/iothub-manager-dotnet)   |
@@ -78,13 +82,13 @@ La implementación predeterminada usa el logotipo y el nombre de la empresa Cont
     CONTOSO: 'Contoso',
     ```
 
-1. Reemplace `Contoso` por el nombre de la empresa. Por ejemplo:
+1. Reemplace `Contoso` por el nombre de la empresa. Por ejemplo: 
 
     ```js
     CONTOSO: 'YourCo',
     ```
 
-1. Guarde el archivo .
+1. Guarde el archivo.
 
 1. Para actualizar el logotipo, agregue un archivo SVG nuevo en la carpeta `assets/icons`. El logotipo existente es el archivo `assets/icons/Contoso.svg`.
 
@@ -96,7 +100,7 @@ La implementación predeterminada usa el logotipo y el nombre de la empresa Cont
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. Reemplace `Contoso.svg` por el nombre del archivo del logotipo. Por ejemplo:
+1. Reemplace `Contoso.svg` por el nombre del archivo del logotipo. Por ejemplo: 
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,13 +112,13 @@ La implementación predeterminada usa el logotipo y el nombre de la empresa Cont
     alt="ContosoIcon"
     ```
 
-1. Reemplace `ContosoIcon` por el texto `alt`. Por ejemplo:
+1. Reemplace `ContosoIcon` por el texto `alt`. Por ejemplo: 
 
     ```js
     alt="YourCoIcon"
     ```
 
-1. Guarde el archivo .
+1. Guarde el archivo.
 
 1. Para probar los cambios, puede ejecutar el elemento `webui` actualizado en la máquina local. Para información sobre cómo compilar y ejecutar localmente la solución `webui`, consulte la sección de [compilación, ejecución y prueba locales](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) en el archivo Léame del repositorio `webui` de GitHub.
 
@@ -249,7 +253,7 @@ Para modificar la infraestructura en la solución de supervisión remota, puede 
 * [Adaptador de almacenamiento (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
 * [Adaptador de almacenamiento (Java)](https://github.com/Azure/pcs-storage-adapter-java)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la solución preconfigurada.
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Azure Backup con la información incluida en la tabla siguiente.
@@ -28,7 +28,7 @@ Puede solucionar los errores detectados al usar Azure Backup con la información
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Error: No se admite la configuración de disco especificada
 
 > [!NOTE]
-> Tenemos una vista previa privada para admitir las copias de seguridad para las VM con discos no administrados de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+> Tenemos una versión preliminar privada para admitir las copias de seguridad de las VM con discos de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
 >
 >
 

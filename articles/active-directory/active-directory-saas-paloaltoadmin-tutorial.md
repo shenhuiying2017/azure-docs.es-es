@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks: interfaz de usuario de administración
 
@@ -32,12 +32,12 @@ La integración de Palo Alto Networks: interfaz de usuario de administración co
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Palo Alto Networks: interfaz de usuario de administración, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción con inicio de sesión único de Palo Alto Networks: interfaz de usuario de administración
+- Un panorama o firewall de nueva generación de Palo Alto Networks (sistema de administración centralizado para los firewalls).
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregación de Palo Alto Networks: interfaz de usuario de administración
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -72,7 +72,7 @@ Para configurar la integración de Palo Alto Networks: interfaz de usuario de ad
 
 4. En el cuadro de búsqueda, escriba **Palo Alto Networks: interfaz de usuario de administración**, seleccione **Palo Alto Networks: interfaz de usuario de administración** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Palo Alto Networks: interfaz de usuario de administración en la lista de resultados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto Networks: interfaz de usuario de administración en la lista de resultados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -84,10 +84,10 @@ Para establecer la relación de vínculo, en Palo Alto Networks: interfaz de usu
 
 Para configurar y probar el inicio de sesión único de Azure AD con Palo Alto Networks: interfaz de usuario de administración, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Palo Alto Networks: interfaz de usuario de administración](#create-a-palo-alto-networks---admin-ui-test-user)**: para tener un homólogo de Britta Simon en Palo Alto Networks: interfaz de usuario de administración que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -108,9 +108,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de inicio de sesión único con Dominio y direcciones URL de Palo Alto Networks: interfaz de usuario de administración](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall URL>/php/login.php`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall FQDN>/php/login.php`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall URL>/SAML20/SP`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con [el equipo de soporte técnico del cliente de Palo Alto Networks: interfaz de usuario de administración](https://support.paloaltonetworks.com/support) para obtener estos valores. 
@@ -123,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
         
     | Nombre del atributo | Valor de atributo |
     | --- | --- |    
-    | nombre de usuario | user.userprincipalname |
+    | Nombre de usuario | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
@@ -149,9 +149,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 7. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Abra el sitio de Palo Alto como administrador en otra ventana del explorador.
+8. Abra la interfaz de usuario de administración de firewalls de Palo Alto Networks como administrador en otra ventana del explorador.
 
 9. Haga clic en **Dispositivo**.
 
@@ -205,7 +205,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Creación de un usuario de prueba de Palo Alto Networks: usuario de prueba de la interfaz de usuario de administrador
 
@@ -215,11 +215,11 @@ Palo Alto Networks: interfaz de usuario de administrador admite el aprovisionami
 
 En esta sección, habilitará a Britta Simon para usar el inicio de sesión único de Azure al concederle acceso a Palo Alto Networks: interfaz de usuario de administrador.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar a Britta Simon a Palo Alto Networks: interfaz de usuario de administrador, siga estos pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

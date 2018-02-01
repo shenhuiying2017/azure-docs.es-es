@@ -53,14 +53,14 @@ Estos son los tamaños de disco disponibles para un disco administrado premium:
 
 | **Tipo de disco <br>administrado premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamaño del disco        | 32 GiB   | 64 GiB   | 128 GB  | 256 GiB  | 512 GB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Estos son los tamaños de disco disponibles para un disco administrado estándar:
 
 | **Tipo de disco <br>administrado estándar** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamaño del disco        | 32 GiB   | 64 GiB   | 128 GB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Número de transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar. Las transacciones de un disco administrado premium no tienen coste.
@@ -72,7 +72,7 @@ Para obtener información detallada acerca de los precios de Managed Disks, cons
 
 ## <a name="managed-disk-snapshots"></a>Instantáneas de disco administradas
 
-Una instantánea administrada es una copia completa de solo lectura de un disco administrado que se almacena como disco administrado estándar de forma predeterminada. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para una instancia de Managed Disks. Se facturan según el tamaño usado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GB y el tamaño de datos usado real es de 10 GB, solo se le cobrará por el tamaño de datos usado de 10 GB.  
+Una instantánea administrada es una copia completa de solo lectura de un disco administrado que se almacena como disco administrado estándar de forma predeterminada. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para una instancia de Managed Disks. Se facturan según el tamaño usado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobrará por el tamaño de datos usado de 10 GiB.  
 
 Actualmente, las [instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md) no son compatibles con Managed Disks, pero lo serán en el futuro.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -184,6 +184,15 @@ PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de St
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoría de blobs de Azure SQLDB
 La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica VENT de puntos de conexión de servicio, la conectividad entre Azure SQLDB y la cuenta de almacenamiento se interrumpirá.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
+
+Mucho antes de mejorar esta característica, era necesario activar los puntos de conexión de servicio de VNET para poder implementar una regla dinámica de VNET en el firewall. Los punto de conexión relacionaban una subred de VNET determinada con una base de datos de Azure SQL Database. Pero a partir de enero de 2018, puede evitar este requisito si establece la marca **IgnoreMissingServiceEndpoint**.
+
+Si solo establece una regla de firewall, no tendrá el servidor protegido. Por lo tanto, también debe activar los puntos de conexión de servicio de VNET para que la seguridad surta efecto. Al activar los puntos de conexión de servicio, la subred de VNET experimenta cierto tiempo de inactividad hasta que estos puntos se activan totalmente. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
+
+Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante PowerShell. Para obtener más detalles, consulte [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d] (PowerShell para crear una regla y un punto de conexión del servicio de Virtual Network para Azure SQL Database).
 
 
 ## <a name="errors-40914-and-40615"></a>Errores 40914 y 40615

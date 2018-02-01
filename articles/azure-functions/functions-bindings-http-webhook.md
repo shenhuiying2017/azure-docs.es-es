@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
@@ -527,6 +527,10 @@ La autorización de webhook se controla mediante el componente receptor de webho
 
 - **Cadena de consulta**: el proveedor pasa el nombre de la clave en el parámetro de la cadena de consulta `clientid`, como `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Encabezado de solicitud**: el proveedor pasa el nombre de clave en el encabezado `x-functions-clientid`.
+
+## <a name="trigger---limits"></a>Desencadenador: límites
+
+La longitud de la solicitud HTTP está limitada a 100 000 (102 400) bytes y la longitud de la dirección URL, a 4000 (4096) bytes. El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
 
 ## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
 

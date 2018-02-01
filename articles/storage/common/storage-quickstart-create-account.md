@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva
+# <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 Una cuenta de Azure Storage proporciona un espacio de nombres único en la nube para almacenar los objetos de datos en Azure Storage y acceder a ellos. Contiene los blobs, los archivos, las colas, las tablas y los discos que se crean en esa cuenta. 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Creación de una cuenta de almacenamiento de uso general
+## <a name="create-a-general-purpose-storage-account"></a>Creación de una cuenta de almacenamiento de uso general
 
-Una cuenta de almacenamiento de uso general proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue y Table. Puede crearse en el nivel Estándar o Premium. Los ejemplos de este artículo muestran cómo crear una cuenta de almacenamiento de uso general en el nivel Estándar (la opción predeterminada). Para más información sobre las opciones de cuentas de almacenamiento, consulte [Introducción a Microsoft Azure Storage](storage-introduction.md).
+Una cuenta de almacenamiento de uso general proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue y Table. Puede crearse en el nivel Estándar o Premium. Los ejemplos de este artículo muestran cómo crear una cuenta de almacenamiento de uso general en el nivel Estándar (la opción predeterminada).
+
+Azure Storage ofrece dos tipos de cuentas de almacenamiento general de uso general:
+
+- Cuentas de uso general v2. 
+- Cuentas de uso general v1. 
+
+> [!NOTE]
+> Para aprovechar las últimas características disponibles para las **cuentas uso general v2**, cuando desee crear nuevas cuentas de almacenamiento es aconsejable elegir estas.  
+
+Para más información acerca de los tipos de cuentas de almacenamiento, consulte [Opciones de la cuenta de Azure Storage](storage-account-options.md).
 
 Al poner nombre a la cuenta de almacenamiento, tenga en cuenta estas reglas:
 
@@ -149,43 +159,72 @@ Al poner nombre a la cuenta de almacenamiento, tenga en cuenta estas reglas:
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Para crear una cuenta de almacenamiento de uso general en Azure Portal, siga estos pasos:
+Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
+1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 2. Escriba un nombre para la cuenta de almacenamiento.
-3. Deje estos campos con sus valores predeterminados: **Modelo de implementación**, **Tipo de cuenta**, **Rendimiento**, **Replicación** y **Se requiere transferencia segura**.
-4. Elija la suscripción en la que desea crear la nueva cuenta de almacenamiento.
-5. En la sección **Grupo de recursos**, seleccione **Use existing** (Usar existente) y, a continuación, elija el grupo de recursos que creó en la sección anterior.
-6. Elija la ubicación para la nueva cuenta de almacenamiento.
-7. Haga clic en **Crear** para crear la cuenta de almacenamiento.      
+3. En el campo **Tipo de cuenta**, elija **StorageV2 (uso general v2)**.
+4. En el campo **Replicación**, deje la opción **Almacenamiento con redundancia local (LRS)**. Como alternativa, puede elegir **Almacenamiento con redundancia de zona (ZRS clásico)**, **Almacenamiento con redundancia geográfica (GRS)** o **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**.
+5. Deje estos campos con sus valores predeterminados: **Modelo de implementación**, **Rendimiento** y **Se requiere transferencia segura**.
+6. Elija la suscripción en la que desea crear la nueva cuenta de almacenamiento.
+7. En la sección **Grupo de recursos**, seleccione **Use existing** (Usar existente) y, a continuación, elija el grupo de recursos que creó en la sección anterior.
+8. Elija la ubicación para la nueva cuenta de almacenamiento.
+9. Haga clic en **Crear** para crear la cuenta de almacenamiento.      
 
 ![Captura de pantalla que muestra la creación de una cuenta de almacenamiento en Azure Portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Para crear una cuenta de almacenamiento de uso general en PowerShell, use el comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Para crear una cuenta de almacenamiento de uso general v2 en PowerShell con almacenamiento con redundancia local (LRS), use el comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (versión preliminar de ZRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**. 
+
+|Opción Replicación  |Parámetro SkuName  |
+|---------|---------|
+|Almacenamiento con redundancia local (LRS)     |Standard_LRS         |
+|Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
+|Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
+|Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear una cuenta de almacenamiento de uso general en la CLI de Azure, use el comando [az storage account create](/cli/azure/storage/account#create).
+Para crear una cuenta de almacenamiento de uso general v2 en la CLI de Azure con almacenamiento con redundancia local, use el comando [az storage account create](/cli/azure/storage/account#create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (versión preliminar de ZRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **sku**. 
+
+|Opción Replicación  |Parámetro sku  |
+|---------|---------|
+|Almacenamiento con redundancia local (LRS)     |Standard_LRS         |
+|Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
+|Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
+|Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [Almacenamiento con redundancia de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) está actualmente en versión preliminar y solo está disponible en las siguientes ubicaciones:
+>    - Este de EE. UU. - 2
+>    - Centro de EE. UU.
+>    - Centro de Francia (esta región está actualmente en versión preliminar. Para solicitar acceso, consulte [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Versión preliminar de Microsoft Azure con las zonas de disponibilidad que están abiertas en Francia) para solicitar acceso.
+    
+Para más información acerca de los distintos tipos de replicación disponibles, consulte [Opciones de replicación de Storage](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

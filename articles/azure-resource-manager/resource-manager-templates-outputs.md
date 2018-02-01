@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sección de salidas en plantillas de Azure Resource Manager
 En la sección de salidas, especifique valores que se devuelven de la implementación. Por ejemplo, podría devolver el URI para acceder a un recurso implementado.
@@ -56,6 +56,8 @@ Por ejemplo, puede establecer la dirección IP en un equilibrador de carga media
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+No se puede utilizar la función `reference` en la sección de salidas de una [plantilla anidada](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
 ## <a name="available-properties"></a>Propiedades disponibles
 

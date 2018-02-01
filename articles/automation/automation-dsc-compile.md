@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
@@ -299,7 +299,7 @@ Puede descubrir cómo firmar configuraciones de nodo en https://msdn.microsoft.c
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importación de una configuración de nodo en Azure Portal
 
-1. En su cuenta de Automation, haga clic en **DSC node configurations** (Configuraciones de nodo DSC).
+1. En la cuenta de Automation, haga clic en **Configuraciones de nodos de DSC** en **Administración de configuración**.
 
     ![Configuraciones de nodo DSC](./media/automation-dsc-compile/node-config.png)
 2. En la hoja **Configuraciones de nodo DSC**, haga clic en **Agregar NodeConfiguration**.
@@ -307,7 +307,7 @@ Puede descubrir cómo firmar configuraciones de nodo en https://msdn.microsoft.c
 
     ![Buscar archivo local](./media/automation-dsc-compile/import-browse.png)
 4. Escriba un nombre en el cuadro de texto **Nombre de la configuración**. Este nombre debe coincidir con el de la configuración desde la que se compiló la configuración del nodo.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>Importación de una configuración de nodo con PowerShell
 

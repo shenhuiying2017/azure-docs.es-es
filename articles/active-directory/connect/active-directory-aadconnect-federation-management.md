@@ -1,5 +1,5 @@
 ---
-title: "Administración y personalización de Servicios de federación de Active Directory con Azure AD Connect | Microsoft Docs"
+title: "Azure AD Connect: administración y personalización de AD FS | Microsoft Docs"
 description: "Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell."
 keywords: "AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
 En este artículo se describe cómo administrar y personalizar Servicios de federación de Active Directory (AD FS) con Azure Active Directory (Azure AD) Connect. También se incluyen otras tareas comunes de AD FS que podría tener que hacer para configurar completamente una granja de servidores de AD FS.
@@ -48,7 +49,7 @@ Puede usar Azure AD Connect para comprobar el estado actual de la confianza de A
    ![Reparar AAD y confianza de ADFS](media/active-directory-aadconnect-federation-management/RepairADTrust1.PNG)
 
 2. En la página **Conectar con Azure AD**, proporcione las credenciales de administrador global de Azure AD y haga clic en **Siguiente**.
-   ![Conectarse a Azure](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
+   ![Conectarse a Azure AD](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
 
 3. En la página **Credenciales de acceso remoto** , proporcione las credenciales del administrador de dominio.
 
@@ -172,7 +173,7 @@ Es fácil agregar un dominio para la federación con Azure AD mediante Azure AD 
 
     Después de elegir el dominio, se le proporcionará información adecuada sobre otras acciones que el asistente vaya a llevar a cabo y cómo afectarán a la configuración. En algunos casos, si selecciona un dominio que aún no está comprobado en Azure AD, el asistente le proporcionará información para comprobarlo. Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory-domains-add-azure-portal.md) para más información.
 
-5. Haga clic en **Siguiente**. En la página **Listo para configurar** se muestra la lista de acciones que realizará Azure AD Connect. Haga clic en **Instalar** para finalizar la configuración.
+5. Haga clic en **Next**. En la página **Listo para configurar** se muestra la lista de acciones que realizará Azure AD Connect. Haga clic en **Instalar** para finalizar la configuración.
 
    ![Listo para configurar](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
 
@@ -269,5 +270,5 @@ Para tener solo el dominio raíz en el valor de notificación del emisor, cambie
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre las [opciones de inicio de sesión del usuario](active-directory-aadconnect-user-signin.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -133,7 +133,7 @@ Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-Azu
 
 * Las **etiquetas** asignadas a la cuenta de almacenamiento. Las etiquetas se suelen usar para categorizar recursos de facturación.
 
-* La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar ZRS estándar o LRS premium a otra SKU ni cambiar otras SKU a estos niveles. 
+* La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar Standard\_ZRS o Premium\_LRS a otra SKU, ni cambiar otras SKU a estos niveles.
 
 * El **nivel de acceso** para las cuentas de Blob Storage. El valor del nivel de acceso se establece en **frecuente** o **esporádico** y permite minimizar los costes gracias a la selección del nivel de acceso que mejor se adapta a la forma de utilizar la cuenta de almacenamiento. Para más información, vea [Niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
@@ -223,7 +223,7 @@ La API Table de Azure Cosmos DB proporciona características premium para el alm
 * Para obtener más información, vea [API Table de Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
 * Para obtener información sobre cómo usar PowerShell para realizar operaciones de la API Table de Azure Cosmos DB, vea [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md) (Realizar operaciones de la API Table de Azure Cosmos DB con PowerShell).
 
-## <a name="azures-independently-deployed-clouds"></a>Nubes implementadas de forma independiente de Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Implementaciones de Azure independientes en la nube
 
 La mayoría de los usuarios utiliza la nube pública de Azure para una implementación global. También hay algunas implementaciones independientes de Microsoft Azure por motivos de soberanía, etc. Estas implementaciones independientes se conocen como "entornos". Estos son los entornos disponibles:
 
@@ -240,7 +240,7 @@ Si ha creado un nuevo grupo de recursos y una cuenta de almacenamiento para este
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo de ayuda se tratan las operaciones comunes con los cmdlets del plano de administración para administrar las cuentas de almacenamiento. Ha aprendido a: 
 

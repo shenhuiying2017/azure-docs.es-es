@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -68,9 +68,9 @@ Ahora que tiene el código fuente de ejemplo, lo siguiente que debe hacer es obt
 Hay varias herramientas de código abierto que le ayudan a administrar IoT Hub.
 
 * Una aplicación de Windows llamada [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Una herramienta de la CLI de node.js multiplataforma llamada [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Una herramienta de CLI de Python multiplataforma denominada como [la extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-En este tutorial se utiliza la herramienta gráfica *device explorer*. Sin embargo, si prefiere usar una herramienta CLI también puede usar la herramienta *iothub-explorer*.
+En este tutorial se utiliza la herramienta gráfica *device explorer*. También puede usar la herramienta *extensión de IoT para la CLI de Azure 2.0* si prefiere usar una herramienta de la CLI.
 
 La herramienta device explorer usa las bibliotecas del servicio Azure IoT para realizar varias funciones en IoT Hub, entre las que se incluye la adición de dispositivos. Si usa la herramienta device explorer para agregar un dispositivo, obtiene una cadena de conexión para el dispositivo. Esta cadena de conexión se necesita para ejecutar las aplicaciones de ejemplo.
 

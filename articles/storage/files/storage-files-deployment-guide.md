@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
 
 Se recomienda encarecidamente leer [Planning for an Azure Files deployment](storage-files-planning.md) (Planear una implementación de Azure Files) antes de seguir los pasos descritos en este artículo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ya ha completado los siguientes pasos:
 
 - Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Un script de Bash simple combinado con SSH puede producir el mismo resultado en el ejemplo siguiente. De forma similar, la variable `$computer` se deja para que la rellene el usuario:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)
 - [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)

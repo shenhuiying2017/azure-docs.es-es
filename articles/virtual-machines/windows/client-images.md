@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
-Puede usar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). En este artículo se describen los requisitos de idoneidad para ejecutar el cliente Windows en Azure y usar las imágenes de la galería de Azure.
+Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). En este artículo se describen los requisitos de idoneidad para ejecutar Windows 7, Windows 8.1 o Windows 10 Enterprise en Azure y usar las siguientes imágenes de la galería de Azure.
+
+![Detalles de la imagen de Azure Portal](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Para la imagen de Windows 10 Pro y Windows 10 Pro N en la galería de Azure, consulte [Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino](windows-desktop-multitenant-hosting-deployment.md)
+>![Detalles de la imagen profesional de Azure Portal](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>Idoneidad de la suscripción
 Los suscriptores activos de Visual Studio (es decir, las personas que adquirieron una licencia de suscripción de Visual Studio) pueden usar el cliente Windows para desarrollo y pruebas. El cliente Windows se puede usar en su propio hardware y en máquinas virtuales de Azure que se ejecutan en cualquier tipo de suscripción de Azure. El cliente Windows no se puede implementar ni usar en Azure para un uso de producción normal. Tampoco lo pueden usar quienes no son suscriptores activos de Visual Studio.

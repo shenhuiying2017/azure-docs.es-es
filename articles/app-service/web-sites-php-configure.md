@@ -1,6 +1,6 @@
 ---
 title: "Configuración de PHP en Azure App Service Web Apps | Microsoft Docs"
-description: "Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Aplicaciones web en el Servicio de aplicaciones de Azure."
+description: "Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Web Apps en Azure App Service."
 services: app-service
 documentationcenter: php
 author: rmcmurray
@@ -14,25 +14,25 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="configure-php-in-azure-app-service-web-apps"></a>Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure
+# <a name="configure-php-in-azure-app-service-web-apps"></a>Configuración de PHP en Azure App Service Web Apps
 ## <a name="introduction"></a>Introducción
-En esta guía se explica cómo configurar el tiempo de ejecución de PHP integrado en Aplicaciones web en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714), ofrecer un tiempo de ejecución de PHP personalizado y habilitar extensiones. Para utilizar el Servicio de aplicaciones, regístrese para obtener acceso a la [evaluación gratuita]. Para obtener el máximo partido de esta guía, primero debe crear una aplicación web PHP en el Servicio de aplicaciones.
+En esta guía se explica cómo configurar el tiempo de ejecución de PHP integrado en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps, ofrecer un tiempo de ejecución de PHP personalizado y habilitar extensiones. Para utilizar App Service, regístrese para obtener acceso a la [evaluación gratuita]. Para obtener el máximo partido de esta guía, primero debe crear una aplicación web PHP en App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Cómo: Cambiar la versión de PHP integrada
-PHP 5.5 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de App Service. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
+PHP 5.6 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de App Service. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
 
 Las versiones de PHP 5.6 y PHP 7.0 también están disponibles, pero no están habilitadas de forma predeterminada. Para actualizar la versión de PHP, siga uno de estos métodos:
 
-### <a name="azure-portal"></a>Portal de Azure
-1. Vaya a la aplicación web en el [Portal de Azure](https://portal.azure.com) y haga clic en el botón **Configuración** .
+### <a name="azure-portal"></a>Azure Portal
+1. Vaya a la aplicación web en el [Azure Portal](https://portal.azure.com) y haga clic en el botón **Configuración** .
    
     ![Configuración de aplicaciones web][settings-button]
 2. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y elija la nueva versión de PHP.
@@ -123,7 +123,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 1. Agregue un directorio `bin` al directorio raíz.
 2. Coloque los archivos con extensión `.dll` en el directorio `bin` (por ejemplo, `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP y que sean compatibles con VC9 y no seguras para subprocesos (nts).
 3. Implemente la aplicación web.
-4. Vaya a la aplicación web en el Portal de Azure y haga clic en el botón **Configuración** .
+4. Vaya a la aplicación web en Azure Portal y haga clic en el botón **Configuración** .
    
     ![Configuración de aplicaciones web][settings-button]
 5. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y desplácese a la sección **Configuración de aplicaciones**.
@@ -137,14 +137,14 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 También se pueden usar las extensiones Zend mediante una clave **PHP_ZENDEXTENSIONS**. Para habilitar varias extensiones, incluya una lista separada por comas de los archivos `.dll` como valor de configuración de aplicaciones.
 
 ## <a name="how-to-use-a-custom-php-runtime"></a>Cómo: Usar un tiempo de ejecución de PHP personalizado
-En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplicaciones puede usar un tiempo de ejecución de PHP facilitado por el usuario para ejecutar scripts PHP. El tiempo de ejecución que facilita se puede configurar mediante un archivo `php.ini` que también usted facilita. Para usar un tiempo de ejecución de PHP personalizado en Aplicaciones web, siga estos pasos.
+En lugar del tiempo de ejecución de PHP, App Service Web Apps puede usar un tiempo de ejecución de PHP facilitado por el usuario para ejecutar scripts PHP. El tiempo de ejecución que facilita se puede configurar mediante un archivo `php.ini` que también usted facilita. Para usar un tiempo de ejecución de PHP personalizado en Web Apps, siga estos pasos.
 
 1. Obtenga una versión compatible con VC9 y VC11 no segura para subprocesos de PHP para Windows. Las versiones recientes de PHP para Windows se pueden encontrar aquí: [http://windows.php.net/download/]. Las versiones anteriores pueden encontrarse archivadas aquí: [http://windows.php.net/downloads/releases/archives/].
-2. Modifique el archivo `php.ini` para el tiempo de ejecución. Tenga en cuenta que Aplicaciones web omitirá cualquier configuración que se corresponda con directivas que sean solo de nivel de sistema. (Para obtener información acerca de las directivas solo a nivel de sistema, consulte la [lista de directivas de php.ini]).
+2. Modifique el archivo `php.ini` para el tiempo de ejecución. Tenga en cuenta que Web Apps omitirá cualquier configuración que se corresponda con directivas que sean solo de nivel de sistema. (Para obtener información acerca de las directivas solo a nivel de sistema, consulte la [lista de directivas de php.ini]).
 3. También puede agregar extensiones al tiempo de ejecución de PHP y habilitarlas en el archivo `php.ini` .
 4. Agregue un directorio `bin` al directorio raíz y coloque en él el directorio que contiene el tiempo de ejecución de PHP (por ejemplo, `bin\php`).
 5. Implemente la aplicación web.
-6. Vaya a la aplicación web en el Portal de Azure y haga clic en el botón **Configuración** .
+6. Vaya a la aplicación web en Azure Portal y haga clic en el botón **Configuración** .
    
     ![Configuración de aplicaciones web][settings-button]
 7. En la hoja **Configuración**, seleccione **Configuración de aplicaciones** y desplácese a la sección **Asignaciones de controlador**. Agregue `*.php` al campo Extensión y agregue la ruta de acceso al ejecutable `php-cgi.exe`. Si coloca el tiempo de ejecución de PHP en el directorio `bin` de la raíz de la aplicación, la ruta de acceso será `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
@@ -157,16 +157,16 @@ En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplic
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Procedimiento para habilitar la automatización de Composer en Azure
-De forma predeterminada, el Servicio de aplicaciones no responde con composer.json, si tiene uno en el proyecto PHP. Si usa la [implementación de Git](app-service-deploy-local-git.md), puede habilitar el procesamiento de composer.json durante `git push` mediante la habilitación de la extensión de Composer.
+De forma predeterminada, App Service no responde con composer.json, si tiene uno en el proyecto PHP. Si usa la [implementación de Git](app-service-deploy-local-git.md), puede habilitar el procesamiento de composer.json durante `git push` mediante la habilitación de la extensión de Composer.
 
 > [!NOTE]
-> Aquí puede [votar por soporte técnico de primera clase para Composer en el Servicio de aplicaciones](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip).
+> Aquí puede [votar por soporte técnico de primera clase para Composer en App Service](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip).
 > 
 > 
 
 1. En la hoja de la aplicación web de PHP, en [Azure Portal](https://portal.azure.com), haga clic en **Herramientas** > **Extensiones**.
    
-    ![Hoja de configuración del Portal de Azure para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+    ![Hoja de configuración de Azure Portal para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 2. Haga clic en **Agregar** y, luego, en **Compositor**.
    
     ![Agregar la extensión Composer para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-add.png)
@@ -178,11 +178,11 @@ De forma predeterminada, el Servicio de aplicaciones no responde con composer.js
    
     ![Implementación de GIT con la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información, vea el [Centro para desarrolladores de PHP](/develop/php/).
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 

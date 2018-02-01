@@ -3,8 +3,8 @@ title: "Resolución de máquinas virtuales e instancias de rol"
 description: "Escenarios de resolución de nombres para IaaS de Azure, soluciones híbridas, entre servicios en la nube diferentes, Active Directory y con su propio servidor DNS  "
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Resolución de nombres para las máquinas virtuales e instancias de rol
 Dependiendo de cómo utilice Azure para hospedar la IaaS, la PaaS y las soluciones híbridas, puede que necesite permitir que las máquinas virtuales y las instancias de rol creadas se comuniquen entre sí. Aunque este tipo de comunicación puede realizarse mediante las direcciones IP, es mucho más sencillo usar nombres ya que podrá recordarlos con más facilidad y no cambiarlos. 
@@ -35,6 +35,7 @@ El tipo de resolución de nombres que tenga que usar dependerá de cómo se comu
 | **Escenario** | **Solución** | **Sufijo** |
 | --- | --- | --- |
 | Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en el mismo servicio en la nube o red virtual. |[Resolución de nombres de Azure](#azure-provided-name-resolution) |Nombre de host o FQDN |
+| Resolución de nombres de Azure App Service (aplicación web, función, bot, etc.) mediante la integración de red virtual con instancias de rol o máquinas virtuales ubicadas en la misma red virtual |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS).  Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server) |Solo FQDN |
 | Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en diferentes redes virtuales |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS).  Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server) |Solo FQDN |
 | Resolución de nombres de servicios y de equipos locales desde instancias de rol o máquinas virtuales en Azure |Servidores DNS administrados por el cliente (por ejemplo, controlador de dominio local, controlador de dominio de solo lectura local o un DNS secundario sincronizado usando transferencias de zona).  See [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server) |Solo FQDN |
 | Resolución de nombres de host de Azure desde equipos locales |Reenvío de consultas a un servidor proxy DNS administrado por el cliente en la red virtual correspondiente: el servidor proxy reenvía consultas a Azure para su resolución. See [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server) |Solo FQDN |
@@ -65,7 +66,7 @@ Junto con la resolución de nombres DNS públicos, Azure proporciona una resoluc
 * No se pueden registrar manualmente los registros propios.
 * No se admiten ni WINS ni NetBIOS. (Las máquinas virtuales no se pueden ver en el Explorador de Windows).
 * Los nombres de host deben ser compatibles con el DNS (solamente pueden usar los caracteres 0-9, a-z y “-” y no pueden comenzar ni terminar con un “-”. Consulte la sección 2 de RFC 3696).
-* El tráfico de consultas de DNS está limitado por cada máquina virtual. Esto no debería afectar a la mayoría de las aplicaciones.  Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente.  Para obtener más información, consulte [Obtención del máximo partido de la resolución de nombres de Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+* El tráfico de consultas de DNS está limitado por cada máquina virtual. Esto no debería afectar a la mayoría de las aplicaciones.  Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente.  Para más información, consulte [Obtención del máximo partido de la resolución de nombres de Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 * En un modelo de implementación clásico, solo se registran las máquinas virtuales de los 180 primeros servicios en la nube para cada red virtual clásica. Esto no se aplica a las redes virtuales en los modelos de implementación de Resource Manager.
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>Obtención del máximo partido de la resolución de nombres de Azure
@@ -75,7 +76,7 @@ No todas las consultas DNS deben enviarse a través de la red.  El almacenamient
 
 El cliente DNS de Windows predeterminado tiene una memoria caché DNS integrada.  Algunas distribuciones Linux no incluyen el almacenamiento en caché de forma predeterminada; se recomienda que se agregue una a cada máquina virtual Linux (después de comprobar que aún no hay una memoria caché local).
 
-Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles, p. ej., dnsmasq; estos son los pasos para instalar dnsmasq en las distribuciones más comunes:
+Hay una serie de diferentes paquetes de caché DNS disponibles. Por ejemplo, dnsmasq. En los pasos siguientes se muestra cómo instalar dnsmasq en las distribuciones más habituales:
 
 * **Ubuntu (usa resolvconf)**:
   * instalar únicamente el paquete dnsmasq ("sudo apt-get install dnsmasq")
@@ -102,9 +103,9 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 DNS es principalmente un protocolo UDP.  Como el protocolo UDP no garantiza la entrega de mensajes, la lógica de reintento se controla en el mismo protocolo DNS.  Cada cliente DNS (sistema operativo) puede presentar una lógica de reintento diferente, dependiendo de la preferencia de los creadores:
 
 * Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros 2, 4 y otros 4 segundos. 
-* El programa de instalación predeterminado de Linux lo intenta después de 5 segundos.  Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.  
+* El programa de instalación predeterminado de Linux lo intenta después de cinco segundos.  Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.  
 
-Para comprobar la configuración actual en una máquina virtual Linux, 'cat /etc/resolv.conf' y busque la línea 'options', p. ej.:
+Use el comando 'cat /etc/resolv.conf' para comprobar la configuración actual en una máquina virtual Linux y vea luego la línea 'options', por ejemplo:
 
     options timeout:1 attempts:5
 
@@ -125,7 +126,7 @@ Hay una serie de situaciones donde sus necesidades de resolución de nombres pue
 
 Los servidores DNS de una red virtual pueden reenviar consultas DNS a resoluciones recursivas de Azure para resolver los nombres de host en la red virtual.  Por ejemplo, un controlador de dominio (DC) que se ejecute en Azure puede responder a las consultas DNS referidas a sus dominios y reenviar todas las demás consultas a Azure.  Esto permite que las máquinas virtuales vean sus recursos locales (mediante el controlador de dominio) y los nombres de host proporcionados por Azure (mediante el reenviador).  El acceso a las resoluciones recursivas de Azure se proporciona a través de la IP virtual 168.63.129.16.
 
-El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite que los equipos locales resuelvan nombres de host proporcionados por Azure.  Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure.  Como el sufijo DNS es diferente en cada red virtual, puede usar las reglas de reenvío condicional para enviar consultas DNS a la red virtual correcta para su resolución.  En la imagen siguiente se muestran dos redes virtuales y una red local que está realizando la resolución DNS entre redes virtuales con este método.  Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite que los equipos locales resuelvan nombres de host proporcionados por Azure.  Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure.  Como el sufijo DNS es diferente en cada red virtual, puede usar las reglas de reenvío condicional para enviar consultas DNS a la red virtual correcta para su resolución.  En la imagen siguiente se muestran dos redes virtuales y una red local que están realizando la resolución de DNS entre redes virtuales con este método.  Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS entre redes virtuales](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
@@ -165,7 +166,7 @@ Cuando se usa el modelo de implementación clásico, los servidores DNS de la re
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Modelo de implementación de Resource Manager:
 
 * [Creación o actualización de una red virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx)
@@ -176,6 +177,6 @@ Modelo de implementación de Resource Manager:
 Modelo de implementación clásico:
 
 * [Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
+* [Esquema de configuración de Virtual Network](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md) 
 

@@ -4,7 +4,7 @@ description: "La seguridad de Azure Search se basa en el cumplimiento de SOC 2, 
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Seguridad de datos y acceso controlado en las operaciones de Azure Search
+# <a name="security-and-controlled-access-in-azure-search"></a>Seguridad y acceso controlado en Azure Search
 
 Azure Search es [compatible con SOC 2](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), con una arquitectura de seguridad completa que incluye seguridad física, transmisiones cifradas, almacenamiento cifrado y medidas de seguridad de software en toda la plataforma. Azure Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Search.
 
 ![Diagrama de bloques de las capas de seguridad](media/search-security-overview/azsearch-security-diagram.png)
-
-Aunque Azure Search hereda las protecciones y medidas de seguridad de la plataforma de Azure, el mecanismo principal usado por el propio servicio es la autenticación basada en claves, donde el tipo de clave determina el nivel de acceso. Una clave puede ser una clave de administración o una clave de consulta para el acceso de solo lectura.
-
-El acceso al servicio se basa en una sección transversal de los permisos concedidos por la clave (completos o solo de lectura), además de un contexto que define un ámbito de las operaciones. Todas las solicitudes se componen de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos y el contexto son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. 
 
 ## <a name="physical-security"></a>Seguridad física
 
@@ -38,11 +34,17 @@ Los centros de datos de Microsoft proporcionan una seguridad física líder en l
 
 ## <a name="encrypted-transmission-and-storage"></a>Transmisión y almacenamiento cifrados
 
-Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. 
+El cifrado se extiende a lo largo de la canalización de indización: desde las conexiones, pasando por la transmisión y hasta los datos indizados almacenados en Azure Search.
 
-En el almacenamiento de back-end utilizado para índices y otras construcciones, Azure Search aprovecha las funcionalidades de cifrado de estas plataformas. El [cumplimiento de SOC 2 de AICPA](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) completo está disponible para todos los servicios de búsqueda (nuevos y existentes) en todos los centros de datos que ofrecen Azure Search. Para revisar el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government).
+| Nivel de seguridad | DESCRIPCIÓN |
+|----------------|-------------|
+| Cifrado en tránsito | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. |
+| Cifrado en reposo | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.|
+| [Cumplimiento normativo de SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Todos los servicios de búsqueda de los centros que proporcionan Azure Search cumplen con la normativa AICPA SOC 2. Para revisar el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government). |
 
-El cifrado es transparente, con claves de cifrado administradas internamente y aplicadas universalmente. No se puede desactivar para servicios de búsqueda o índices específicos, ni administrar las claves directamente, ni proporcionar sus propias claves. 
+El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación. 
+
+El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluidos los servicios (gratis) compartidos, y en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.
 
 ## <a name="azure-wide-logical-security"></a>Seguridad lógica en todo Azure
 
@@ -53,15 +55,15 @@ Hay disponibles varios mecanismos de seguridad en Azure Stack que, por tanto, es
 
 Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) para establecer niveles de acceso de forma coherente en todos los servicios. Por ejemplo, ver información confidencial como la clave de administración está restringido a los roles de Colaborador y Propietario, mientras que la visualización del estado del servicio está disponible para los miembros de cualquier rol. RBAC proporciona los roles de Propietario, Colaborador y Lector. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario.
 
-## <a name="service-authentication"></a>Autenticación del servicio
+## <a name="service-access-and-authentication"></a>Autenticación y acceso al servicio
 
-Azure Search proporciona su propia metodología de autenticación. La autenticación se produce en cada solicitud y se basa en una clave de acceso que determina el ámbito de las operaciones. Una clave de acceso válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
+Mientras Azure Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
 
-La autenticación por servicio existe en dos niveles: derechos completos y solo consulta. El tipo de clave determina el nivel de acceso que está en vigor.
+Se requiere autenticación en cada solicitud, y cada solicitud se compone de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos (completo y de solo lectura) y el contexto son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. 
 
 |Clave|DESCRIPCIÓN|límites|  
 |---------|-----------------|------------|  
-|Administración|Concede derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar **índices**, **indexadores** y **orígenes de datos**.<br /><br /> Dos **claves de api** de administración, conocidas como claves *principal* y *secundaria* en el portal, que se generan cuando se crea el servicio y pueden volver a generarse individualmente a petición. Tener dos claves le permite la rotación de una clave mientras se usa la segunda clave para un acceso continuado al servicio.<br /><br /> Las claves de administración solo se especifican en los encabezados de la solicitud HTTP. No se puede colocar una **clave de api** de administración en una dirección URL.|Máximo 2 por servicio|  
+|Administración|Concede derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar índices, indexadores y orígenes de datos.<br /><br /> Dos **claves de api** de administración, conocidas como claves *principal* y *secundaria* en el portal, que se generan cuando se crea el servicio y pueden volver a generarse individualmente a petición. Tener dos claves le permite la rotación de una clave mientras se usa la segunda clave para un acceso continuado al servicio.<br /><br /> Las claves de administración solo se especifican en los encabezados de la solicitud HTTP. No se puede colocar una clave de API de administración en una dirección URL.|Máximo 2 por servicio|  
 |Consultar|Conceden acceso de solo lectura a índices y documentos y, normalmente, se distribuyen entre las aplicaciones cliente que emiten solicitudes de búsqueda.<br /><br /> Las claves de consulta se crean bajo petición. Puede crearlas manualmente en el portal o mediante programación con la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Las claves de consulta se pueden especificar en un encabezado de solicitud HTTP para operaciones de búsqueda y sugerencias. Como alternativa, puede pasar una clave de consulta como un parámetro en una dirección URL. En función de cómo formule la solicitud la aplicación cliente, puede resultar más fácil pasar la clave como un parámetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 por servicio|  
 
  Visualmente, no hay distinción entre las claves de administración y de consulta. Ambas claves son cadenas formadas por 32 caracteres alfanuméricos generados aleatoriamente. Si necesita saber qué tipo de clave se especifica en la aplicación, puede [comprobar los valores de las claves en el portal](https://portal.azure.com) o usar la [API de REST](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver el valor y el tipo de clave.  

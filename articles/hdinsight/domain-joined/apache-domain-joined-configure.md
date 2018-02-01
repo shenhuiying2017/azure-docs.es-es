@@ -4,7 +4,7 @@ description: "Aprenda a configurar y definir clústeres de HDInsight unidos a un
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configuración de un entorno de espacio aislado de HDInsight unido a un dominio
 
@@ -29,7 +29,6 @@ Sin un clúster de HDInsight unido a un dominio, cada clúster solo puede tener 
 
 -   Una instancia de Active Directory independiente que se ejecute en Azure IaaS.
 -   Azure Active Directory.
--   Active Directory ejecutándose en el entorno local del cliente.
 
 El uso de un Active Directory independiente que se ejecute en Azure IaaS se trata en este artículo. Es la arquitectura más sencilla de que un cliente puede usar para poder utilizar varios usuario en HDInsight. En este artículo se explican dos enfoques para esta configuración:
 
@@ -71,9 +70,10 @@ En esta sección se abre una plantilla de administración de recursos de Azure d
     - **Nombre de usuario de administrador**: escriba el nombre de usuario del administrador del dominio.
     - **Contraseña de administrador**: escriba la contraseña del administrador del dominio.
     - **Nombre de dominio**: el nombre predeterminado es *contoso.com*.  Si cambia el nombre de dominio, también debe actualizar los campos **Certificado de LDAP seguro** y **DN de unidad organizativa**.
+    - **Prefijo de DNS**: escriba el prefijo de DNS para la dirección IP pública que usa Load Balancer.
     - **Nombre de clúster**: escriba el nombre del clúster de HDInsight.
     - **Tipo de clúster**: no cambie este valor. Si desea cambiar el tipo de clúster, use la plantilla específica en el último paso.
-
+    - **Proteger la contraseña del certificado LDAP**: use el valor predeterminado a menos que cambie el campo del certificado de LDAP seguro.
     Algunos de los valores están codificados de forma rígida en la plantilla, por ejemplo, el número de instancias del nodo de trabajo es dos.  Para cambiar los valores codificados de forma rígida, haga clic en **Editar plantilla**.
 
     ![Plantilla de edición de clústeres unidos a un dominio de HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
@@ -95,7 +95,7 @@ La plantilla de Azure Resource Manager facilita la creación de recursos de Azur
 
 **Para crear un dominio con dos controladores de dominio**
 
-1. Haga clic en la imagen siguiente para abrir la plantilla en Azure Portal.
+1. Haga clic en la imagen siguiente para abrir la plantilla en el Portal de Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -125,7 +125,7 @@ El protocolo ligero de acceso a directorios (LDAP) se usa para leer de AD y escr
 
 **Para conectarse al controlador de dominio principal través de Escritorio remoto**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Abra el grupo de recursos y, después, abra la máquina virtual del controlador de dominio principal (PDC). El nombre de controlador de dominio principal predeterminado es adPDC. 
 3. Haga clic en **Conectar** para conectarse al controlador de dominio principal través de Escritorio remoto.
 

@@ -3,7 +3,7 @@ title: "Configuración de clústeres de HDInsight unidos a un dominio con Azure 
 description: "Aprender a configurar y definir clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 
 Los clústeres unidos a un dominio proporcionan funcionalidades de seguridad empresarial multiusuario en HDInsight. Los clústeres de HDInsight unidos a un dominio se conectan a dominios de Active Directory, lo que permite a los usuarios del dominio usar sus credenciales de dominio para autenticarse en los clústeres y ejecutar trabajos de macrodatos. 
 
-Hay tres formas de configurar un controlador de dominio para que un clúster de HDInsight unidos a un dominio puede conectarse a:
+Hay dos formas de configurar un controlador de dominio para que un clúster de HDInsight unido a un dominio pueda conectarse a:
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory local
 - Controlador de dominio de Active Directory en máquinas virtuales IaaS de Azure
 
 En este artículo, aprenderá a configurar un clúster de HDInsight unido a un dominio con Azure Active Directory Domain Services.
@@ -37,7 +36,7 @@ En este artículo, aprenderá a configurar un clúster de HDInsight unido a un d
 Es necesario crear una instancia de Azure AD DS para poder crear un clúster de HDInsight. Para crear una instancia de Azure AD DS, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Solo los administradores de inquilinos tienen privilegios para crear servicios de dominio. 
+> Solo los administradores de inquilinos tienen privilegios para crear servicios de dominio. Si usa Azure Data Lake Storage (ADLS) como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de ADLS es el mismo que el del dominio del clúster de HDInsight. 
 
 Después de aprovisionar el servicio de dominio, debe crear una cuenta de servicio en el grupo **Administradores de controladores de dominio de AAD** para crear el clúster de HDInsight. La cuenta de servicio debe ser un administrador global en Azure AD.
 

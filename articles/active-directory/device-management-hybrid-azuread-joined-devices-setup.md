@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -41,7 +41,7 @@ Para mejorar la legibilidad de las descripciones, en este tema se utiliza el té
 
 ### <a name="windows-current-devices"></a>Dispositivos de Windows actuales
 
-- Para los dispositivos en los que se ejecuta el sistema operativo de escritorio Windows, se recomienda usar la Actualización de aniversario de Windows 10 (versión 1607), o una versión posterior. 
+- Para dispositivos que ejecutan el sistema operativo de escritorio de Windows, la versión admitida es la Actualización de aniversario de Windows 10 (versión 1607), o una versión posterior. 
 - El registro de los dispositivos de Windows actuales **se** admite en entornos de no federadas, como las configuraciones de sincronización de hash de contraseña.  
 
 
@@ -58,7 +58,7 @@ Para mejorar la legibilidad de las descripciones, en este tema se utiliza el té
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar a configurar dispositivos híbridos unidos a un dominio de Active AD en su organización, es preciso asegurarse de que se ejecuta una versión actualizada de Azure AD Connect.
 

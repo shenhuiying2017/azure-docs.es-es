@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 IoT Hub ofrece la posibilidad de invocar métodos directos en dispositivos desde la nube. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Este enfoque es útil para escenarios en los que la línea de acción inmediata difiere en función de si el dispositivo respondió, por ejemplo, enviando una reactivación por SMS a un dispositivo si este está sin conexión (enviar un SMS cuesta más que una llamada de método).
-
 Cada método de dispositivo se dirige a un único dispositivo. Los [trabajos][lnk-devguide-jobs] proporcionan una manera de invocar métodos directos en varios dispositivos y de programar la invocación de métodos para los dispositivos desconectados.
 
 Cualquier persona con permisos de **conexión de servicio** en IoT Hub pueden invocar un método en un dispositivo.
@@ -44,7 +43,7 @@ Los métodos directos son sincrónicos y se completan correctamente o producen u
 
 Los métodos directos son solo HTTP desde el lado de la nube y MQTT o AMQP desde el lado del dispositivo.
 
-La carga útil de solicitudes y respuestas del método es un documento JSON de hasta 8 KB.
+La carga útil de solicitudes y respuestas del método es un documento JSON de hasta 128 KB.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Invocación de un método directo desde una aplicación de back-end
 ### <a name="method-invocation"></a>Invocación de método

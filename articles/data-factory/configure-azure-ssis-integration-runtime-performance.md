@@ -2,18 +2,18 @@
 title: "Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento | Microsoft Docs"
 description: Aprenda a configurar las propiedades de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -26,7 +26,7 @@ En este artículo se describe cómo configurar una instancia de Integration Runt
 
 La parte siguiente de un script de configuración muestra las propiedades que puede configurar al crear una instancia de Integration Runtime de SSIS de Azure. Si quiere ver el script completo de PowerShell y una descripción, consulte [Implementación de paquetes de SSIS en Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -39,10 +39,10 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ Si tiene que ejecutar muchos paquetes y lo que más le preocupa es el rendimient
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/windows/sizes-general.md).
+Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. En el caso de los nodos Standard_D1_v2, se admiten ejecuciones en paralelo 1-4 por nodo. Para el resto de tipos de nodos, se admiten ejecuciones en paralelo 1-8 por nodo.
+Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/windows/sizes-general.md).
 
 | Tamaño             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. NIC / rendimiento de red esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -120,5 +121,5 @@ También puede ajustar el plan de tarifa de base de datos en función de la info
 ## <a name="design-for-high-performance"></a>Diseño para alto rendimiento
 Diseñar un paquete SSIS para que se ejecute en Azure no es lo mismo que diseñar un paquete para la ejecución local. En lugar de combinar varias tareas independientes en el mismo paquete, sepárelas en varios paquetes para una ejecución más eficiente en IR de SSIS de Azure. Cree una ejecución de paquete para cada paquete, así no tiene que esperar a que el otro finalice. Este enfoque se beneficia de la escalabilidad de Integration Runtime de SSIS de Azure y mejora el rendimiento global.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Aprenda sobre Integration Runtime de SSIS de Azure. Consulte [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).

@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
 Azure Functions permite ejecutar el código en un entorno [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) sin necesidad de crear una máquina virtual o publicar una aplicación web.
 
-En este tema, aprenderá a usar las herramientas de Visual Studio 2017 para Azure Functions con el fin de crear y probar una función de "Hola mundo" localmente. Luego publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2017 (versión 15.3 o posteriores).
+En este artículo, aprenderá a usar las herramientas de Visual Studio 2017 para Azure Functions con el fin de crear y probar localmente una función "Hola mundo". Luego, publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2017.
 
 ![Código Azure Functions en un proyecto de Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-Si lo prefiere, puede [ver el vídeo](#watch-the-video) en su lugar.
+Este tema incluye [un vídeo](#watch-the-video) que muestra los mismos pasos básicos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Para completar este tutorial, instale:
+Para completar este tutorial:
 
-* [Visual Studio 2017 versión 15.4](https://www.visualstudio.com/vs/) o una versión posterior, que incluya las cargas de trabajo de **desarrollo de Azure**.
+* Instale [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) o una versión posterior, que incluya la carga de trabajo de **desarrollo de Azure**.
 
     ![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Asegúrese de que ha actualizado a la versión más reciente de Azure Functions y herramientas de WebJobs. Para realizar esto, vaya a **Actualizaciones** > **Visual Studio Marketplace**, **Extensiones y actualizaciones**.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Creación de un proyecto de Azure Functions en Visual Studio
+## <a name="create-a-function-app-project"></a>Creación de un proyecto de aplicación de función
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Ahora que ha creado el proyecto, puede crear la primera función.
+Visual Studio crea un proyecto y dentro de él una clase que contiene código reutilizable para el tipo de función seleccionada. El atributo **FunctionName** en el método establece el nombre de la función. El atributo **HttpTrigger** especifica que una solicitud HTTP desencadena la función. El código reutilizable envía una respuesta HTTP que incluye un valor del cuerpo de la solicitud o de la cadena de consulta. Puede agregar enlaces de entrada y de salida a una función mediante la aplicación de los atributos adecuados al método. Para más información, consulte la sección [Desencadenadores y enlaces](functions-dotnet-class-library.md#triggers-and-bindings) de la [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="create-the-function"></a>Creación de la función
+![Archivo de código de función](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Función de Azure**, escriba `HttpTriggerCSharp.cs` en **Nombre** y haga clic en **Agregar**.
-
-2. Seleccione **HttpTrigger**, seleccione **Anónimo** en **Derechos de acceso** y haga clic en **Aceptar**. Cualquier cliente puede acceder a la función que se crea mediante una solicitud HTTP. 
-
-    ![Crear una nueva función de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    Un archivo de código se agrega al proyecto que contiene una clase que implementa el código de función. Este código se basa en una plantilla, que recibe un valor de nombre y lo transmite de nuevo. El atributo **FunctionName** establece el nombre de la función. El atributo **HttpTrigger** indica el mensaje que desencadena la función. 
-
-    ![Archivo de código de función](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Ahora que ha creado una función desencadenada por HTTP, puede probarla en el equipo local.
+Ahora que ha creado un proyecto de función y una función desencadenada por HTTP, puede probarla en el equipo local.
 
 ## <a name="test-the-function-locally"></a>Prueba local de la función
 
 Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio.  
 
-1. Para probar la función, presione F5. Si se le solicita, acepte la solicitud de Visual Studio para descargar e instalar las herramientas de Azure Functions Core (CLI).  También es preciso que habilite una excepción de firewall para que las herramientas para controlen las solicitudes de HTTP.
+1. Para probar la función, presione F5. Si se le solicita, acepte la solicitud de Visual Studio para descargar e instalar las herramientas de Azure Functions Core (CLI). También es preciso que habilite una excepción de firewall para que las herramientas para controlen las solicitudes de HTTP.
 
 2. Copie la dirección URL de la función de los resultados del runtime de Azure Functions.  
 
@@ -91,7 +83,7 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 1. Copie la URL base de la aplicación de función de la página de perfil de publicación. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Como antes, asegúrese de que agrega la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud.
 
-    La dirección URL que llama a la función desencadenada por HTTP es similar a la siguiente:
+    La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
@@ -103,7 +95,7 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha usado Visual Studio para crear una aplicación de función en C# con una función simple desencadenada por HTTP. 
 

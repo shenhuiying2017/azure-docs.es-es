@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importación y publicación de la primera API 
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 ![Nueva API](./media/api-management-get-started/created-api.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
@@ -52,7 +52,7 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
 
     Puede establecer los valores de API durante la creación o luego accediendo a la pestaña **Configuración**.  
 
-    |Configuración|Valor|Descripción|
+    |Configuración|Valor|DESCRIPCIÓN|
     |---|---|---|
     |**Especificación OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Hace referencia al servicio que implementa la API. Administración de API envía las solicitudes a esta dirección.|
     |**Nombre para mostrar**|*API de conferencia de demostración* (API de conferencia de demostración)|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON. <br/>El nombre se muestra en el Portal para desarrolladores.|
@@ -66,13 +66,10 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
 
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
-1. Seleccione API que creó en los pasos anteriores.
-2. Presione la pestaña **Prueba**.
-
-    ![Prueba de la API](./media/api-management-get-started/test-api.png)
+1. Seleccione la API que creó en los pasos anteriores.
+2. Presione la pestaña **Prueba**.  ![Prueba de API](./media/api-management-get-started/test-api.png)
 3. Haga clic en **GetSpeakers**.
-
-    La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente. 
+    La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. La clave se rellena automáticamente.
 4. Presione **Enviar**.
 
     Back-end responde con **200 Aceptar** y algunos datos.
@@ -99,7 +96,7 @@ También se pueden llamar a las operaciones desde **portal para desarrolladores*
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Importación de la primera API

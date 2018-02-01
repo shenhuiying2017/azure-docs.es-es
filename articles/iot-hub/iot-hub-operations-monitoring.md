@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>Supervisión de operaciones de IoT Hub
 
 La supervisión de operaciones de IoT Hub permite supervisar el estado de las operaciones de su centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
 >[!NOTE]
->La supervisión de operaciones de IoT Hub está en desuso y, por tanto, se quitará de IoT Hub en el futuro. Para supervisar las operaciones y el mantenimiento de IoT Hub, vea [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente][lnk-monitor]. Para más información sobre la escala de tiempo de desuso, vea [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement] (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
+>La supervisión de operaciones de IoT Hub está en desuso y se quitará de IoT Hub el 10 de octubre de 2018. Para supervisar las operaciones y el mantenimiento de IoT Hub, vea [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente][lnk-monitor]. Para más información sobre la escala de tiempo de desuso, vea [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement] (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
 
 IoT Hub supervisa seis categorías de eventos:
 
@@ -287,7 +287,7 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]

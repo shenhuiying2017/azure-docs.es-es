@@ -5,19 +5,19 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
-Comprender cómo se crean y administran las directivas en Azure es importante para mantener el cumplimiento de los estándares corporativos y los contratos de nivel de servicio. En este tutorial, aprenderá a usar Azure Policy para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de las directivas en toda la organización, como:
+Comprender cómo se crean y administran las directivas en Azure es importante para mantener el cumplimiento de los estándares corporativos y los contratos de nivel de servicio. En este tutorial, aprenderá a usar Azure Policy para realizar algunas de las tareas más comunes relacionadas con la creación, la asignación y la administración de directivas en toda la organización, por ejemplo:
 
 > [!div class="checklist"]
 > * Asignar una directiva para aplicar una condición a los recursos que se creen en el futuro
@@ -25,11 +25,11 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 > * Resolver un recurso que no cumpla o que sea denegado
 > * Implementar una nueva directiva en toda la organización
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si desea asignar una directiva para identificar el estado de cumplimiento actual de los recursos existentes, en los artículos de inicio rápido se examina cómo hacerlo. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="assign-a-policy"></a>Asignación de una directiva
 
-El primer paso para aplicar cumplimientos con Azure Policy es asignar una definición de directiva. Una definición de directiva precisa en qué condiciones se aplica una directiva y qué acción se debe realizar. En este ejemplo, asignamos una definición de directiva integrada denominada *Require SQL Server Version 12.0* (Requerir SQL Server versión 12.0), para aplicar la condición de que todas las bases de datos de SQL Server tienen que ser v12.0 para que cumplan.
+El primer paso para aplicar cumplimientos con Azure Policy es asignar una definición de directiva. Una definición de directiva precisa en qué condiciones se aplica una directiva y qué acción se debe realizar. En este ejemplo, asigne una definición de directiva integrada denominada *Require SQL Server Version 12.0* (Requerir SQL Server 12.0), para aplicar la condición de que todas las bases de datos SQL Server tengan que ser v12.0 para que satisfagan los requisitos de cumplimiento.
 
 1. Inicie el servicio Azure Policy en Azure Portal buscando y seleccionando **Policy** (Directiva) en el panel izquierdo.
 
@@ -40,28 +40,29 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Asignación de una definición de directiva](media/create-manage-policy/select-assign-policy.png)
 
-4. En la página **Assign Policy** (Asignar directiva), haga clic en el ![botón Policy definition](media/assign-policy-definition/definitions-button.png) (Definición de directiva) junto al campo **Policy** (Directiva) para abrir la lista de las definiciones disponibles.
+4. En la página **Assign Policy** (Asignar directiva), haga clic en el ![botón Policy definition](media/assign-policy-definition/definitions-button.png) (Definición de directiva) junto al campo **Policy** (Directiva) para abrir la lista de las definiciones disponibles. Puede filtrar el **tipo** de la definición de directiva por *BuiltIn* (Integrada) para verlas todas y leer sus descripciones.
 
    ![Apertura de las definiciones de directiva disponibles](media/create-manage-policy/open-policy-definitions.png)
 
-5. Seleccione **Require SQL Server Version 12.0** (Requerir SQL Server 12.0).
+5. Seleccione **Require SQL Server Version 12.0** (Requerir SQL Server 12.0). Si no la encuentra inmediatamente, escriba **Require SQL Server Version 12.0** (Requerir SQL Server 12.0) en el cuadro de búsqueda y presione ENTRAR.
 
    ![Búsqueda de una directiva](media/create-manage-policy/select-available-definition.png)
 
-6. Proporcione un **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción proporciona detalles sobre cómo esta asignación de directiva garantiza que todos los servidores SQL Server creados en este entorno tengan la versión 12.0.
+6. El **nombre** para mostrar se rellena automáticamente, pero puede cambiarlo. En este ejemplo, use *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción proporciona detalles sobre cómo esta asignación de directiva garantiza que todos los servidores SQL Server creados en este entorno tengan la versión 12.0.
+
 7. Cambie el plan de tarifa a **Standard** (Estándar) para asegurarse de que la directiva se aplique a los recursos existentes.
 
-   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página sobre [precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como Azure Policy se encuentra en versión preliminar, aún no se dispone de un modelo de precios publicado, por lo que no recibirá una factura por seleccionar *Standard* (Estándar). Para más información sobre los precios, vea la página sobre [precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Seleccione una opción en **Scope** (Ámbito): la suscripción o el grupo de recursos que registró anteriormente. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 
-   En este ejemplo, se usa la suscripción **Azure Analytics Capacity Dev**. Su suscripción variará.
+   En este ejemplo se usa la suscripción **Azure Analytics Capacity Dev**. Su suscripción variará.
 
 10. Seleccione **Asignar**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementación de una nueva directiva personalizada
 
-Ahora que se ha asignado la definición de directiva, vamos a crear una directiva nueva para ahorrar costos, asegurando que las máquinas virtuales que se crean en su entorno no estén en la serie G. De este modo, cada vez que un usuario en su organización intenta crear la máquina virtual de la serie G, la solicitud le será denegada.
+Ahora que ha asignado una definición de directiva integrada, puede hacer más cosas con Azure Policy. A continuación, creará una nueva directiva personalizada para ahorrar costos, para lo cual se asegurará de que las máquinas virtuales creadas en el entorno no puedan estar en la serie G. De este modo, cada vez que un usuario de su organización intente crear una máquina virtual de la serie G, la solicitud le será denegada.
 
 1. Seleccione **Definition** (Definición) en **Authoring** (Creación) en el panel izquierdo.
 
@@ -72,7 +73,8 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
 
    - El nombre de la definición de directiva: *Require VM SKUs smaller than the G series* (Requerir SKU de máquina virtual inferiores a la serie G)
    - La descripción de para qué está diseñada la definición de directiva: esta definición de directiva exige que todas las máquinas virtuales creadas en este ámbito tengan SKU inferiores a la serie G para reducir el costo.
-   - La suscripción en la que residirá la definición de directiva: en este caso, la definición de directiva residirá en **Advisor Analytics Capacity Dev**. Su lista de suscripción variará.
+   - La suscripción en la que reside la definición de directiva. En este caso, la definición de directiva se encuentra en **Advisor Analytics Capacity Dev**. Su lista de suscripción variará.
+   - Elija de las opciones existentes o cree una nueva categoría para esta definición de directiva.
    - Copie el siguiente código json y, a continuación, actualícelo según sus necesidades con:
       - Los parámetros de directiva.
       - Las reglas/condiciones de la directiva, en este caso: tamaño de SKU de máquina virtual igual a la serie G
@@ -102,7 +104,9 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
 }
     ```
 
-    Para ver ejemplos de código de JSON, lea el artículo [Templates for Azure Policy](json-samples.md) (Plantillas para Azure Policy).
+    El valor de la *propiedad de campo* de la regla de directiva debe ser uno de los siguientes: nombre, tipo, ubicación, etiquetas o un alias. Por ejemplo, `"Microsoft.Compute/VirtualMachines/Size"`.
+
+    Para ver más ejemplos de código JSON, lea el artículo [Plantillas para Azure Policy](json-samples.md).
 
 4. Seleccione **Guardar**.
 
@@ -333,11 +337,11 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 2. Seleccione **Initiative Definition** (Definición de iniciativa) en la parte superior de la página, esta selección le lleva hasta el formulario **Initiative Definition** (Definición de iniciativa).
 3. Escriba el nombre y la descripción de la iniciativa.
 
-   En este ejemplo, queremos asegurarnos de que los recursos están en conformidad con las definiciones de directiva sobre la obtención de recursos seguros, el nombre de la iniciativa sería **Get Secure** (Obtener con seguridad), y la descripción sería: **This initiative has been created to handle all policy definitions associated with securing resources** (Esta iniciativa se ha creado para controlar todas las definiciones de directiva asociadas con la obtención segura de recursos).
+   En este ejemplo, se asegurará de que los recursos guarden conformidad con las definiciones de directiva sobre protección. Así que, el nombre de la iniciativa sería **Get Secure** (Estar protegido) y la descripción sería: **This initiative has been created to handle all policy definitions associated with securing resources** (Esta iniciativa se ha creado para administrar todas las definiciones de directiva asociadas con la protección de los recursos).
 
    ![Definición de iniciativa](media/create-manage-policy/initiative-definition.png)
 
-4. Examine la lista **Available Definitions** (Definiciones disponibles) y seleccione las definiciones de directiva que le gustaría agregar a esa iniciativa. Para nuestra iniciativa **Get secure** (Obtener con seguridad), agregue las siguientes definiciones de directiva integradas:
+4. Examine la lista **Available Definitions** (Definiciones disponibles) y seleccione las definiciones de directiva que le gustaría agregar a esa iniciativa. En nuestra iniciativa **Get secure** (Estar protegido), **agregue** las siguientes definiciones de directiva integrada:
    - Requisito de la versión 12.0 de SQL Server
    - Monitor unprotected web applications in Security Center (Supervisar las aplicaciones web no protegidas en Security Center).
    - Monitor permissive network across in Security Center (Supervisar la red permisiva en Security Center).
@@ -346,9 +350,9 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Definiciones de iniciativa](media/create-manage-policy/initiative-definition-2.png)
 
-   Después de seleccionar las definiciones de directiva de la lista las verá en **Policies and parameters** (Directivas y parámetros), como se muestra en la ilustración anterior.
+   Después de seleccionar las definiciones de directiva de la lista, las verá en **Policies and parameters** (Directivas y parámetros), como se muestra en la imagen anterior.
 
-5. Seleccione **Crear**.
+5. Use **Definition location** (Ubicación de definición) para seleccionar una suscripción para almacenar la definición. Seleccione **Guardar**.
 
 ### <a name="assign-an-initiative-definition"></a>Asignación de una definición de iniciativa
 
@@ -358,27 +362,27 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Asignación de una definición](media/create-manage-policy/assign-definition.png)
 
-4. Rellene el formulario **Assignment** (Asignación), escriba:
-   - name (nombre): Asignación Get secure
-   - description (descripción): esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva en la suscripción **Azure Advisor capacidad Dev**
-   - pricing tier (plan de tarifa): Standard
-   - scope you would like this assignment applied to (ámbito al que desea que se aplique esta asignación): **Azure Advisor Capacity Dev**
+4. Rellene el formulario **Assignment** (Asignación) con la siguiente información de ejemplo. Puede usar su propia información.
+   - Name (Nombre): asignación Get secure (Estar protegido)
+   - Description (Descripción): esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva en la suscripción **Azure Advisor capacidad Dev**
+   - Pricing Tier (Plan de tarifa): Standard
+   - Ámbito al que le gustaría que se aplicara esta asignación: **Azure Advisor Capacity Dev**. Puede elegir su propia suscripción y grupo de recursos.
 
 5. Seleccione **Asignar**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Resolución de un recurso que no cumpla o que sea denegado
 
-Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que se cree con una versión diferente será denegado. En esta sección vamos a describir la resolución de un intento denegado de crear un servidor SQL Server de una versión diferente solicitando una exclusión.
+Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que se cree con una versión diferente será denegado. En esta sección, se va a examinar cómo resolver un intento denegado de crear un servidor SQL Server de una versión diferente mediante la solicitud de una exclusión. La exclusión impide básicamente la aplicación de directivas. Se puede aplicar una exclusión a un grupo de recursos o se puede restringir la exclusión a recursos individuales.
 
 1. Seleccione **Assignments** (Asignaciones) en el panel izquierdo.
-2. Examine todas las asignaciones de directiva e inicie la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
-3. Solicite una exclusión para los grupos de recurso en los que está intentando crear el servidor SQL Server. En este caso, estamos excluyendo Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* y *baconandbeer/Chorizo*.
+2. Examine todas las asignaciones de directiva y abra la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
+3. **Seleccione** una exclusión para los recursos de los grupos de recursos donde intenta crear el servidor SQL Server. En este ejemplo, excluya Microsoft.Sql/servers/databases: *azuremetrictest/testdb* y *azuremetrictest/testdb2*.
 
    ![Solicitud de exclusión](media/create-manage-policy/request-exclusion.png)
 
    Otras maneras para resolver un recurso denegado incluyen: llegar al contacto asociado con la directiva si tiene algo que justifique claramente la necesidad de crear el servidor SQL Server y editar directamente la directiva si tiene acceso a ella.
 
-4. Seleccione **Guardar**.
+4. Haga clic en **Asignar**.
 
 En esta sección, se resuelve la denegación de su intento de crear un servidor SQL Server con la versión 12.0, solicitando una exclusión para los recursos.
 

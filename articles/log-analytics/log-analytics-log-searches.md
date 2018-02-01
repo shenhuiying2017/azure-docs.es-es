@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
 
@@ -30,7 +30,7 @@ La base de Log Analytics es la característica de búsqueda de registros que per
 
 En la página Buscar, puede crear una consulta y luego, al buscar, puede filtrar los resultados mediante controles de faceta. También puede crear consultas avanzadas para transformar, filtrar y informar sobre sus resultados.
 
-En la mayoría de las páginas de soluciones aparecen consultas de búsqueda comunes. En toda la consola de OMS, puede hacer clic en los iconos o explorar otros elementos para ver sus detalles mediante la búsqueda de registros.
+En la mayoría de las páginas de soluciones aparecen consultas de búsqueda comunes. En todo el portal de OMS, puede hacer clic en los iconos o explorar otros elementos para ver sus detalles mediante la búsqueda de registros.
 
 En este tutorial, usaremos ejemplos para cubrir todos los aspectos básicos del uso de la búsqueda de registros.
 
@@ -39,7 +39,7 @@ Comenzaremos con ejemplos sencillos y prácticos y luego construiremos sobre ell
 Cuando se haya familiarizado con las técnicas de búsqueda, puede repasar la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Uso de filtros básicos
-Lo primero que debe saber es que la primera parte de una consulta de búsqueda, antes de cualquier carácter de barra vertical "|", es siempre un *filtro*. Se puede considerar como una cláusula WHERE de TSQL en el sentido de que determina *qué* subconjunto de datos se va a extraer del almacén de datos de OMS. La búsqueda en el almacén de datos consiste en gran medida en especificar las características de los datos que quiere extraer, por lo que es natural que una consulta comience con la cláusula WHERE.
+Lo primero que debe saber es que la primera parte de una consulta de búsqueda, antes de cualquier carácter de barra vertical "|", es siempre un *filtro*. Se puede considerar como una cláusula WHERE de TSQL en el sentido de que determina *qué* subconjunto de datos se va a extraer del área de trabajo de Analytics. La búsqueda en el almacén de datos consiste en gran medida en especificar las características de los datos que quiere extraer, por lo que es natural que una consulta comience con la cláusula WHERE.
 
 Los filtros más básicos que puede usar son *palabras clave*, como 'error' o 'tiempo de espera', o un nombre de equipo. Estos tipos de consultas sencillas generalmente devuelven diversas formas de datos en el mismo conjunto de resultados. Este es el motivo de que Log Analytics tenga distintos *tipos* de datos en el sistema.
 
@@ -80,7 +80,7 @@ Esto se debe a que todos los filtros de la consulta se evalúan como que están 
 
 Por ejemplo, la consulta `Type=Event EventLog="Windows PowerShell"` es idéntica a `Type=Event AND EventLog="Windows PowerShell"`. Devuelve todos los eventos que se registraron y se recopilaron del registro de eventos de Windows PowerShell. Si agrega un filtro varias veces seleccionando de manera repetida la misma faceta, entonces el problema es meramente cosmético; podría desordenar la barra de búsqueda, pero seguiría devolviendo los mismos resultados porque el operador AND implícito siempre está ahí.
 
-Puede invertir fácilmente el operador AND implícito usando un operador NOT explícitamente. Por ejemplo:
+Puede invertir fácilmente el operador AND implícito usando un operador NOT explícitamente. Por ejemplo: 
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` o su equivalente `Type=Event EventLog!="Windows PowerShell"` devuelven todos los eventos de todos los registros, EXCEPTO el registro de Windows PowerShell.
 
@@ -126,7 +126,7 @@ Cada consulta se evalúa en el siguiente orden explícito. Observe los paréntes
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Al igual que el campo de registro de eventos, solo puede recuperar datos de un conjunto de equipos específicos agregando OR. Por ejemplo:
+Al igual que el campo de registro de eventos, solo puede recuperar datos de un conjunto de equipos específicos agregando OR. Por ejemplo: 
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -322,7 +322,7 @@ En segundo lugar, **Measure count** solo devuelve actualmente los 100 primeros r
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Uso de las funciones max y min con el comando measure
 Son varias las situaciones en las que **Measure Max()** y **Measure Min()** son útiles. Sin embargo, puesto que cada función es opuesta entre sí, ilustraremos Max() y usted puede experimentar con Min() por su cuenta.
 
-Si busca eventos de seguridad, tienen una propiedad **Level** que puede variar. Por ejemplo:
+Si busca eventos de seguridad, tienen una propiedad **Level** que puede variar. Por ejemplo: 
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Uso de la función avg con el comando measure
 La función estadística Avg() usada con measure le permite calcular el valor medio de algún campo y agrupar los resultados por el mismo campo u otro diferente. Esto resulta útil en muchos casos, por ejemplo, con los datos de rendimiento.
 
-Comenzaremos con los datos de rendimiento. Tenga en cuenta que OMS actualmente recopila contadores de rendimiento tanto para equipos Windows como Linux.
+Comenzaremos con los datos de rendimiento. Tenga en cuenta que Log Analytics actualmente recopila contadores de rendimiento tanto para máquinas Windows como Linux.
 
 Para buscar *todos* los datos de rendimiento, la consulta más básica es:
 
@@ -414,7 +414,7 @@ Ahora puede agregar equipos y contadores con el ejemplo siguiente:
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Como tiene una selección muy específica, el comando **measure Avg()** puede devolver el promedio no por equipo, sino en la granja de servidores, con solo agrupar por CounterName. Por ejemplo:
+Como tiene una selección muy específica, el comando **measure Avg()** puede devolver el promedio no por equipo, sino en la granja de servidores, con solo agrupar por CounterName. Por ejemplo: 
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -429,7 +429,7 @@ Puede usar fácilmente la consulta de búsqueda en un panel. Por ejemplo, puede 
 ![search avg dashboard](./media/log-analytics-log-searches/oms-search-avg05.png)
 
 ### <a name="use-the-sum-function-with-the-measure-command"></a>Uso de la función sum con el comando measure
-La función sum es similar a otras funciones del comando measure. Puede ver un ejemplo sobre cómo usar la función sum en [Búsqueda de registros de W3C IIS en Visión operativa de Microsoft Azure](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
+La función sum es similar a otras funciones del comando measure. Puede ver un ejemplo sobre cómo usar la función sum en [Búsqueda de registros de W3C IIS en Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 Puede usar Max() y Min() con cadenas de texto, números, fechas y horas. Con cadenas de texto, se ordenan alfabéticamente y obtiene la primera y la última.
 
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>Uso del comando where
 El comando where funciona como un filtro, pero se puede aplicar en la canalización para filtrar aún más los resultados agregados producidos por un comando measure, por oposición a los resultados sin formato que se filtran al principio de una consulta.
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer
@@ -592,7 +592,7 @@ Este es otro ejemplo:
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de las búsquedas de registros, consulte:
 
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) (Campos personalizados en Log Analytics) para ampliar las búsquedas de registros.

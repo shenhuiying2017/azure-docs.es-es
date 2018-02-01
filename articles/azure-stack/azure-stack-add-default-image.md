@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Adición de la imagen de máquina virtual de Windows Server 2016 a Marketplace de Azure Stack
 
@@ -42,7 +42,7 @@ Cuando finalice la descarga, la imagen estará disponible en **Marketplace Manag
 
 ## <a name="add-the-image-by-using-powershell"></a>Agregación de la imagen mediante el uso de PowerShell
 
-### <a name="prerequisites"></a>Requisitos previos 
+### <a name="prerequisites"></a>requisitos previos 
 
 Implemente los siguientes requisitos previos desde el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o desde un cliente externo basado en Windows, si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -135,19 +135,23 @@ Implemente los siguientes requisitos previos desde el [kit de desarrollo](azure-
 
 Para asegurarse de que la imagen de máquina virtual Windows Server 2016 tiene la actualización acumulativa más reciente, incluya el parámetro `IncludeLatestCU` al ejecutar el cmdlet `New-AzsServer2016VMImage`. Para más información sobre los parámetros permitidos para el cmdlet `New-AzsServer2016VMImage`, consulte [Parámetros](#parameters). Se tarda aproximadamente una hora en publicar la imagen en Marketplace de Azure Stack. 
 
-## <a name="parameters"></a>Parámetros
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parámetros de New-AzsServer2016VMImage
 
-|Parámetros de New-AzsServer2016VMImage|Requerido|DESCRIPCIÓN|
-|-----|-----|------|
-|ISOPath|Sí|La ruta de acceso completa a la imagen ISO de Windows Server 2016 descargada.|
-|Net35|Sin |Instale el entorno de tiempo de ejecución de .NET 3.5 en la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en **true**.|
-|Versión|Sin |Especifica la imagen de Windows Server 2016, que puede ser **Core** (Principal), **Full** (Completa) o **Both** (Ambas). De forma predeterminada, este valor se establece en **Full** (Completa).|
-|VHDSizeInMB|Sin |Establece el tamaño (en MB) de la imagen de disco duro virtual que se va a agregar a su entorno de Azure Stack. De forma predeterminada, este valor se establece en 40 960 MB.|
-|CreateGalleryItem|Sin |Especifica si se debe crear un elemento de Marketplace para la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en **true**.|
-|location |Sin  |Especifica la ubicación en la que se debe publicar la imagen de Windows Server 2016.|
-|IncludeLatestCU|Sin |Aplica la última actualización acumulativa de Windows Server 2016 al nuevo VHD (compruebe el script para asegurarse de que apunta a la actualización más reciente o utilice una de las dos opciones siguientes). |
-|CUUri |Sin  |Establece la actualización acumulativa de Windows Server 2016 para que se ejecute desde un identificador URI específico. |
-|CUPath |Sin  |Establece la actualización acumulativa de Windows Server 2016 para que se ejecute desde una ruta de acceso local. Esta opción es útil si ha implementado la instancia de Azure Stack en un entorno desconectado.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Crea y carga una nueva instancia de Server 2016 Core, o una imagen completa, y crea un elemento en Marketplace para ella.
+
+| Parámetros | Obligatorio | Ejemplo | DESCRIPCIÓN |
+|-----|-----|------|---- |
+|ISOPath|Sí| N:\ISO\en_windows_16_x64_dvd | La ruta de acceso completa a la imagen ISO de Windows Server 2016 descargada.|
+|Net35|Sin | True | Instale el entorno de tiempo de ejecución de .NET 3.5 en la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en **true**.|
+|Versión|Sin | Completo |  Especifica la imagen de Windows Server 2016, que puede ser **Core** (Principal), **Full** (Completa) o **Both** (Ambas). De forma predeterminada, este valor se establece en **Full** (Completa).|
+|VHDSizeInMB|Sin | 40 960 | Establece el tamaño (en MB) de la imagen de disco duro virtual que se va a agregar a su entorno de Azure Stack. De forma predeterminada, este valor se establece en 40 960 MB.|
+|CreateGalleryItem|Sin | True | Especifica si se debe crear un elemento de Marketplace para la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en **true**.|
+|location |Sin  | D:\ | Especifica la ubicación en la que se debe publicar la imagen de Windows Server 2016.|
+|IncludeLatestCU|Sin | False | Aplica la actualización acumulativa más reciente de Windows Server 2016 al nuevo disco duro virtual. Compruebe el script para asegurarse de que apunta a la actualización más reciente o utilice una de las dos opciones siguientes. |
+|CUUri |Sin  | https://yourupdateserver/winservupdate2016 | Establece la actualización acumulativa de Windows Server 2016 para que se ejecute desde un identificador URI específico. |
+|CUPath |Sin  | C:\winservupdate2016 | Establece la actualización acumulativa de Windows Server 2016 para que se ejecute desde una ruta de acceso local. Esta opción es útil si ha implementado la instancia de Azure Stack en un entorno desconectado.|
 
 ## <a name="next-steps"></a>pasos siguientes
 

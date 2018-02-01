@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollar e implementar un módulo IoT Edge C# en su dispositivo simulado: versión preliminar
 
@@ -28,7 +28,7 @@ Los módulos de IoT Edge se pueden usar para implementar código que, a su vez, 
 
 El módulo IoT Edge que se crea en este tutorial filtra los datos de temperatura generados por el dispositivo. Solo envía mensajes al siguiente nivel si la temperatura es superior al umbral especificado. Este tipo de análisis perimetral resulta útil para reducir la cantidad de datos que se comunican a la nube y se almacenan en ella. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * El dispositivo de Azure IoT Edge que creó en la guía de inicio rápido o en el primer tutorial.
 * La cadena de conexión de clave principal para el dispositivo de IoT Edge.  
@@ -70,6 +70,14 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
 5. En el explorador de VS Code, haga clic en **Program.cs** para abrirlo.
 
    ![Abrir Program.cs][1]
+
+6. En la parte superior del espacio de nombres **FilterModule**, agregue tres instrucciones `using` para los tipos que se usarán más adelante en:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Agregue la variable `temperatureThreshold` a la clase **Program**. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen a IoT Hub. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
 En este tema se describe el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior. 
@@ -32,17 +32,17 @@ En este tema se describe el comportamiento de conexión de Azure SQL Database pa
 Para las conexiones a Azure SQL Database, debemos preguntar si el programa cliente se ejecuta *fuera* o *dentro* del límite de la nube de Azure. En las subsecciones se describen dos escenarios comunes.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fuera:* el cliente se ejecuta en el equipo de escritorio
-El puerto 1433 es el único puerto que debe estar abierto en su equipo de escritorio que hospeda su aplicación de cliente de la Base de datos SQL.
+El puerto 1433 es el único puerto que debe estar abierto en su equipo de escritorio que hospeda su aplicación de cliente de la SQL Database.
 
 #### <a name="inside-client-runs-on-azure"></a>*Dentro:* el cliente se ejecuta en Azure
-Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de Base de datos SQL. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ningún proxy de middleware.
+Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de SQL Database. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ninguna instancia de Azure SQL Database Gateway.
 
 La secuencia es la siguiente:
 
 1. ADO.NET 4.5 (o posterior) inicia una breve interacción con la nube de Azure y recibe un número de puerto identificado dinámicamente.
    
    * El número de puerto identificado dinámicamente se encuentra en el intervalo de 11000-11999 o 14000-14999.
-2. Luego, ADO.NET se conecta al servidor de Base de datos SQL directamente, sin ningún middleware entre ellos.
+2. Luego, ADO.NET se conecta al servidor de SQL Database directamente, sin ningún middleware entre ellos.
 3. Las consultas se envían directamente a la base de datos y los resultados se devuelven directamente al cliente.
 
 Asegúrese de que los intervalos de puertos de 11000 a 11999 y de 14000 a 14999 en el equipo cliente de Azure queden disponibles para las interacciones de cliente de ADO.NET 4.5 con SQL Database.
@@ -65,7 +65,7 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
   
   * Hay una entrada de blog sobre ADO.NET 4.5.1 disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 * [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
-* [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
-* [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md)
-* [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
+* [Información general de desarrollo de SQL Database](sql-database-develop-overview.md)
+* [Firewall de Azure SQL Database](sql-database-firewall-configure.md)
+* [Configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md)
 

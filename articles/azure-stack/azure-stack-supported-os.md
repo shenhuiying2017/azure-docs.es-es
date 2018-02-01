@@ -3,8 +3,8 @@ title: Sistemas operativos invitados compatibles con Azure Stack | Microsoft Doc
 description: Estos sistemas operativos invitados pueden usarse en Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: Brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGoldner
-ms.openlocfilehash: 0a31da6cbc2c245b959825a4e715d0dc7511ba99
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.date: 01/18/2018
+ms.author: Brenduns
+ms.reviewer: JeffGoldner
+ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos invitados compatibles con Azure Stack
 
@@ -37,14 +38,18 @@ Durante la implementación, Azure Stack se asegurará de que se aplica una versi
 | Windows Server 2016 | 64 bits | Microsoft | Windows | Datacenter, Datacenter Core, Datacenter con Containers |
 | Windows 7 | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
 | Windows 8.1 | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
-| Windows 10 | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
+| Windows 10 *(vea la nota 1)* | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
+
+***Nota 1:***  *Para implementar sistemas operativos cliente Windows 10 en Azure Stack, debe tener una [licencia por usuario de Windows](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) o adquirirlo a través de un proveedor de servicios de hosting cualificado multiinquilino ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+
 
 ## <a name="linux"></a>Linux
 
-Las distribuciones Linux que se indican aquí incluyen el agente Linux de Microsoft Azure (WALA). 
+Las distribuciones Linux que se indican aquí incluyen el agente Linux de Microsoft Azure (WALA).
 
-> [!NOTE]
-> Las imágenes creadas con versiones de WALA posteriores a la 2.2.3 *no* son compatibles y es poco probable que se puedan implementar.
+> [!NOTE]   
+> Las imágenes creadas con versiones de WALA posteriores a la 2.2.3 *no* son compatibles y es poco probable que se puedan implementar. Se sabe que algunas versiones de agente WALA no funcionan en máquinas virtuales de Azure Stack, incluidas las versiones 2.2.12 y 2.2.13.
+
 
 | Distribución | DESCRIPCIÓN | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -62,7 +67,3 @@ Las distribuciones Linux que se indican aquí incluyen el agente Linux de Micros
 | Ubuntu 16.04 LTS | 64 bits | Canonical | Sí |
 
 Puede que otras distribuciones Linux sean compatibles en el futuro.
-
-
-
-

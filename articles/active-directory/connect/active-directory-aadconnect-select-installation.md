@@ -3,7 +3,7 @@ title: "Azure AD Connect: selección del tipo de instalación | Microsoft Docs"
 description: "En este tema se explica cómo seleccionar el tipo de instalación que se usará para Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selección del tipo de instalación que se usará para Azure AD Connect
 Azure AD Connect tiene dos tipos de instalación para la nueva instalación: rápida y personalizada. Este tema le ayudará a decidir qué opción utilizar durante la instalación.
@@ -41,7 +41,7 @@ Obtendrá:
 
 Opciones en las que puede continuar utilizando la instalación rápida:
 
-- Si no desea sincronizar todas las unidades organizativas, puede usar la instalación rápida y, en la última página, anule la selección de **Inicie el proceso de sincronización...***. Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
+- Si no desea sincronizar todas las unidades organizativas, puede usar la opción Rápido y, en la última página, anule la selección de **Inicie el proceso de sincronización...***. Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
 - Desea habilitar una de las características de Azure AD Premium, como la Escritura diferida de contraseñas. Utilice primero la instalación rápida para completar la instalación inicial. Después, vuelva a ejecutar el Asistente para instalación y cambie las [opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado
@@ -71,5 +71,5 @@ Si actualmente utiliza Sincronización de Azure AD, puede seguir los [mismos pas
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migración desde FIM2010 o MIM2016
 Si actualmente utiliza Forefront Identity Manager 2010 o Microsoft Identity Manager 2016 con el conector de Azure AD, la única opción es una migración. Siga los pasos descritos en [migración oscilante](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). En los pasos, reemplace cualquier mención de Sincronización de Azure AD con FIM2010/MIM2016.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Dependiendo de la opción seleccionada, use la tabla de contenido a la izquierda para encontrar su artículo con los pasos detallados.

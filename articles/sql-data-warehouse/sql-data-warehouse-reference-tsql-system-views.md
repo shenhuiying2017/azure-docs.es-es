@@ -1,9 +1,9 @@
 ---
 title: Vistas de sistema de SQL Data Warehouse | Microsoft Docs
-description: "Vínculos al contenido de las vistas de sistema para Almacenamiento de datos de SQL."
+description: "Vínculos al contenido de las vistas de sistema para SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Vistas de sistema
-## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo de almacenamiento de datos SQL
+## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo de SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vistas de administración dinámica (DMV) de almacenamiento de datos SQL
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vistas de administración dinámica (DMV) de SQL Data Warehouse
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -59,10 +59,10 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMV de SQL Server aplicables a Almacenamiento de datos SQL
-Las siguientes DMV son aplicables a Almacenamiento de datos SQL, pero para ejecutarlas, es necesario conectarse a la base de datos **maestra** .
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMV de SQL Server aplicables a SQL Data Warehouse
+Las siguientes DMV son aplicables a SQL Data Warehouse, pero para ejecutarlas, es necesario conectarse a la base de datos **maestra** .
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -134,19 +134,17 @@ Las siguientes DMV son aplicables a Almacenamiento de datos SQL, pero para ejecu
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMV del servidor SQL disponibles en Almacenamiento de datos SQL
-El almacenamiento de datos SQL expone gran parte de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en Almacenamiento de datos SQL, están informando del estado de las bases de datos SQL que se ejecuta en las distribuciones.
+## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMV del servidor SQL disponibles en SQL Data Warehouse
+SQL Data Warehouse expone gran parte de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en SQL Data Warehouse, están informando del estado de las instancias de SQL Database que se ejecuta en las distribuciones.
 
-Puesto que el almacenamiento de datos SQL se basa en tecnología MPP de Microsoft, tanto el almacenamiento de datos SQL, como el almacenamiento de datos paralelos (PDW) del sistema de la plataforma de análisis, utilizan las mismas vistas de sistema.
-
-Es por esto que cada una de estas DMV tiene una columna específica denominada pdw_node_id. Se trata del identificador para el nodo de cálculo. En PDW el nodo de cálculo es un concepto más fuerte para la arquitectura. En el almacenamiento de datos de SQL, la arquitectura se basa más en las distribuciones.
+SQL Data Warehouse y el almacenamiento de datos paralelos (PDW) de Analytics Platform System utilizan las mismas vistas de sistema. Cada DMV tiene una columna llamada pdw_node_id, que es el identificador del nodo de ejecución. 
 
 > [!NOTE]
-> Para utilizar estas vistas, inserte 'pdw_nodes_' en el nombre, como se muestra en la tabla siguiente.
+> Para utilizar estas vistas, inserte "pdw_nodes_" en el nombre, como se muestra en la tabla siguiente:
 > 
 > 
 
-| Cambio del nombre de DMV en el almacenamiento de datos SQL | Vínculo al tema de Transact-SQL de SQL Server en MSDN |
+| Cambio del nombre de DMV en SQL Data Warehouse | Artículo de Transact-SQL de SQL Server|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -210,7 +208,7 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>DMV de PolyBase de SQL Server 2016 disponibles en Almacenamiento de datos SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>DMV de PolyBase de SQL Server 2016 disponibles en SQL Data Warehouse
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -233,8 +231,8 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información de referencia, vea [Información general de referencia de Almacenamiento de datos SQL][SQL Data Warehouse reference overview].
+## <a name="next-steps"></a>pasos siguientes
+Para obtener más información de referencia, vea [Información general de referencia de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
 

@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: de67512a9b03095b793fc82f3b0c348577511d5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric con Linux en una instancia de Azure Virtual Network
-Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar un clúster de Service Fabric con Linux en una instancia existente de Azure Virtual Network (VNET) y en una subred mediante la CLI de Azure. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster con Windows mediante PowerShell, consulte la información sobre la [creación de un clúster con Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Este tutorial es la primera parte de una serie. En él aprenderá a implementar un clúster de Service Fabric de Linux en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) mediante la CLI de Azure y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster con Windows mediante PowerShell, consulte la información sobre la [creación de un clúster con Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 En este tutorial, aprenderá a:
 
@@ -37,10 +37,10 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Crear un clúster seguro en Azure
 > * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
-> * [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale la [CLI de Service Fabric](service-fabric-cli.md).
@@ -48,98 +48,111 @@ Antes de empezar este tutorial:
 
 Los siguientes procedimientos crean un clúster de Service Fabric de cinco nodos. Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="introduction"></a>Introducción
-Este tutorial implementa un clúster de cinco nodos en un tipo de nodo único en una red virtual en Azure.
-
+## <a name="key-concepts"></a>Conceptos clave
 Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos. Cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan nodo. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación.
 
 Un tipo de nodo define el tamaño, el número y las propiedades de un conjunto de máquinas virtuales en el clúster. Cada tipo de nodo definido se configura como un [conjunto de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/), un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Los tipos de nodo se utilizan para definir los roles para un conjunto de nodos de clúster, por ejemplo, "front-end" o "back-end".  El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal debe tener al menos cinco máquinas virtuales para los clústeres de producción (o al menos tres máquinas virtuales en clústeres de prueba).  [Los servicios del sistema de Service Fabric](service-fabric-technical-overview.md#system-services) se colocan en los dos del tipo de nodo principal.
 
-## <a name="cluster-capacity-planning"></a>Planeamiento de la capacidad de clúster
-Este tutorial implementa un clúster de cinco nodos en un tipo de nodo único.  En cualquier implementación del clúster de producción, el planeamiento de la capacidad es un paso importante. Esto es algo que hay que tener en cuenta como parte de ese proceso.
+El clúster está protegido mediante un certificado de clúster. Un certificado de clúster es un certificado X.509 que se usa para proteger la comunicación de nodo a nodo y autenticar los puntos de conexión de administración del clúster en un cliente de administración.  El certificado de clúster también proporciona SSL para la API de administración de HTTPS y para Service Fabric Explorer a través de HTTPS. Los certificados autofirmados son útiles para clústeres de prueba.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster.
 
-- El número de tipos de nodos con que necesita el clúster 
-- Propiedades de cada tipo de nodo (por ejemplo, tamaño, principal, accesible desde Internet, número de máquinas virtuales)
-- Características de confiabilidad y durabilidad del clúster
-
-Para más información, consulte [Consideraciones de planeación de capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md).
-
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Inicio de sesión en Azure y selección de la suscripción
-En esta guía se usa la CLI de Azure. Al iniciar una nueva sesión, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
- 
-Ejecute el siguiente script para iniciar sesión en su cuenta de Azure y seleccione su suscripción:
-
-```azurecli
-az login
-az account set --subscription <guid>
-```
-
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Cree un nuevo grupo de recursos para su implementación y asígnele un nombre y una ubicación.
-
-```azurecli
-ResourceGroupName="sflinuxclustergroup"
-Location="southcentralus"
-az group create --name $ResourceGroupName --location $Location
-```
-
-## <a name="deploy-the-network-topology"></a>Implementación de la topología de red
-A continuación, configure la topología de la red de implementación de API Management y el clúster de Service Fabric. La plantilla de Resource Manager [network.json][network-arm] está configurada para crear una red virtual (VNET) y también una subred y un grupo de seguridad de red (NSG) para Service Fabric, además de una subred y un grupo de seguridad de red para API Management. Obtenga más información sobre redes virtuales, subredes y grupos de seguridad de red [aquí](../virtual-network/virtual-networks-overview.md).
-
-El archivo de parámetros [network.parameters.json][network-parameters-arm] contiene los nombres de las subredes y los grupos de seguridad de red donde se implementan Service Fabric y API Management.  API Management se implementa en el [siguiente tutorial](service-fabric-tutorial-deploy-api-management.md). En esta guía, los valores de los parámetros no deben cambiarse. Las plantillas de Resource Manager para Service Fabric usan estos valores.  Si los valores se modifican aquí, debe modificarlos en las otras plantillas de Resource Manager usadas en este tutorial y el [tutorial de implementación de API Management](service-fabric-tutorial-deploy-api-management.md). 
-
-Descargue la plantilla de Resource Manager y el archivo de parámetros siguientes:
-- [network.json][network-arm]
-- [network.parameters.json][network-parameters-arm]
-
-Use el siguiente script para implementar la plantilla de Resource Manager y los archivos de parámetros para la configuración de la red:
-
-```azurecli
-az group deployment create \
-    --name VnetDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file network.json \
-    --parameters @network.parameters.json
-```
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>Implementación del clúster de Service Fabric
-Una vez implementados los recursos de red, el siguiente paso es implementar un clúster de Service Fabric a la red virtual, en la subred y el grupo de seguridad de red designados para el clúster de Service Fabric. La implementación de un clúster en una red virtual y subred (implementada anteriormente en este artículo) existentes requiere una plantilla de Resource Manager.  Para más información, vea [Creación de un clúster con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Para esta serie de tutoriales, la plantilla está preconfigurada para usar los nombres de la red virtual, la subred y el grupo de seguridad de red que configuró en un paso anterior.  
-
-Descargue la plantilla de Resource Manager y el archivo de parámetros siguientes:
-- [linuxcluster.json][cluster-arm]
-- [linuxcluster.parameters.json][cluster-parameters-arm]
-
-Use esta plantilla para crear un clúster seguro.  Un certificado de clúster es un certificado X.509 que se usa para proteger la comunicación de nodo a nodo y autenticar los puntos de conexión de administración del clúster en un cliente de administración.  El certificado de clúster también proporciona SSL para la API de administración de HTTPS y para Service Fabric Explorer a través de HTTPS. Azure Key Vault se usa para administrar certificados para clústeres de Service Fabric en Azure.  Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados de Key Vault y los instala en las máquinas virtuales del clúster. 
-
-Puede usar un certificado de una entidad de certificación (CA) como el certificado de clúster o, para realizar pruebas, crear un certificado autofirmado. El certificado de clúster debe:
+El certificado de clúster debe:
 
 - contener una clave privada.
 - crearse para el intercambio de claves, que se pueda exportar a un archivo Personal Information Exchange (.pfx).
 - tener un nombre de sujeto que coincida con el dominio que se usa para acceder al clúster de Service Fabric. Esta coincidencia es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio .cloudapp.azure.com. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
 
-Rellene estos parámetros vacíos en el archivo *linuxcluster.parameters.json* para su implementación:
+Azure Key Vault se usa para administrar certificados para clústeres de Service Fabric en Azure.  Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados de Key Vault y los instala en las máquinas virtuales del clúster.
 
-|Parámetro|Valor|
-|---|---|
-|adminPassword|Password#1234|
-|adminUserName|vmadmin|
-|clusterName|mysfcluster|
+Este tutorial implementa un clúster de cinco nodos en un tipo de nodo único. No obstante, en cualquier implementación del clúster de producción, el [planeamiento de la capacidad](service-fabric-cluster-capacity.md) es un paso importante. Esto es algo que hay que tener en cuenta como parte de ese proceso.
 
-Deje los parámetros **certificateThumbprint**, **certificateUrlValue** y **sourceVaultValue** en blanco para crear un certificado autofirmado.  Si desea usar un certificado existente cargado previamente en un almacén de claves, rellene esos valores del parámetro.
+- El número de nodos y de tipos de nodo que necesita el clúster 
+- Propiedades de cada tipo de nodo (por ejemplo, tamaño, principal, accesible desde Internet, número de máquinas virtuales)
+- Características de confiabilidad y durabilidad del clúster
 
-El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) y la plantilla para implementar un clúster nuevo en Azure. El cmdlet también crea un almacén de claves en Azure, agrega un certificado autofirmado nuevo en el almacén de claves y carga el certificado en el archivo de certificados de forma local. Puede especificar un certificado o un almacén de claves existente si usa otros parámetros del comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create).
+## <a name="download-and-explore-the-template"></a>Descarga y exploración de la plantilla
+Descargue los siguientes archivos de plantilla de Resource Manager:
+- [vnet-linuxcluster.json][template]
+- [vnet-linuxcluster.parameters.json][parameters]
+
+El archivo [vnet-linuxcluster.json][template] permite implementar varios recursos, incluido el siguiente.
+
+### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
+Se implementa un clúster de Linux con las siguientes características:
+- un tipo de nodo único 
+- cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla)
+- Sistema operativo: Ubuntu 16.04 LTS (configurable en los parámetros de la plantilla)
+- protección con certificado (configurable en los parámetros de la plantilla)
+- se habilita el [servicio DNS](service-fabric-dnsservice.md)
+- [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
+- [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
+- punto de conexión de la conexión de cliente: 19000 (configurable en los parámetros de la plantilla)
+- punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla)
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Se implementa un equilibrador de carga y se configuran sondeos y reglas para los siguientes puertos:
+- punto de conexión de la conexión de cliente: 19000
+- punto de conexión de la puerta de enlace HTTP: 19080 
+- puerto de la aplicación: 80
+- puerto de la aplicación: 443
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>Red virtual, subred y grupo de seguridad de red
+Los nombres de la red virtual, la subred y el grupo de seguridad de red se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred también se declaran en los parámetros de la plantilla:
+- espacio de direcciones de red virtual: 10.0.0.0/16
+- espacio de direcciones de subred de Service Fabric: 10.0.2.0/24
+
+Se habilitan las siguientes reglas de tráfico de entrada en el grupo de seguridad de red. Puede cambiar los valores de puerto cambiando las variables de la plantilla.
+- ClientConnectionEndpoint (TCP): 19000
+- HttpGatewayEndpoint (HTTP/TCP): 19080
+- SMB: 445
+- Comunicación entre nodos: 1025, 1026, 1027
+- Intervalo de puertos efímero: 49152 a 65534 (es necesario un mínimo de 256 puertos)
+- Puertos para el uso de las aplicaciones: 80 y 443
+- Intervalo de puertos de la aplicación: 49152 a 65534 (se usa para la comunicación de servicio a servicio y, a diferencia de otros, no se abre en Load Balancer)
+- Bloqueo de todos los puertos restantes
+
+Si se necesitan otros puertos de aplicación, debe ajustar el recurso Microsoft.Network/loadBalancers y el recurso Microsoft.Network/networkSecurityGroups para permitir el tráfico de entrada.
+
+## <a name="set-template-parameters"></a>Configuración de los parámetros de plantilla
+El archivo de parámetros [vnet-cluster.parameters.json][parameters] permite declarar muchos valores que se utilizan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
+
+|.|Valor de ejemplo|Notas|
+|---|---||
+|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. |
+|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster.|
+|clusterName|mysfcluster123| Nombre del clúster. |
+|location|southcentralus| Ubicación del clúster. |
+|certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3". </p>| 
+|certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|sourceVaultValue||<p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique el valor del almacén de claves de origen. Por ejemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>Implementación de la red virtual y el clúster
+A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla de Resource Manager [vnet-linuxcluster.json][template] permite crear una red virtual (VNET) y también una subred y un grupo de seguridad de red (NSG) para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
+
+El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) y una plantilla para implementar un clúster nuevo protegido con un certificado existente. El comando también crea un nuevo almacén de claves de Azure y carga el certificado.
 
 ```azurecli
+ResourceGroupName="sflinuxclustergroup"
+Location="southcentralus"  
 Password="q6D7nN%6ck@6"
-Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates\MyCertificate.pem"
+
+# sign in to your Azure account and select your subscription
+az login
+az account set --subscription <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
 az group create --name $ResourceGroupName --location $Location
 
+# Create the Service Fabric cluster.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
-   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+   --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
-
+   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Conexión al clúster seguro
@@ -165,8 +178,8 @@ Inicie sesión en Azure y seleccione el identificador de suscripción con el que
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>pasos siguientes
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de una red virtual en Azure mediante la CLI de Azure
@@ -180,8 +193,5 @@ Luego, avance hasta el tutorial siguiente para obtener información sobre cómo 
 > [Escalado de un clúster](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json

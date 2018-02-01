@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Ejemplos de Data Science Virtual Machines (DSVM)
 
@@ -28,13 +28,13 @@ Las instancias de DSVM incluyen ejemplos totalmente desarrollados en formato de 
 > Hacer referencia a la sección [Acceso a Jupyter](#access-jupyter) para habilitar Jupyter Notebooks en su instancia de DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Referencia rápida de muestras
-| Categoría de ejemplos | Descripción | Ubicaciones |
+| Categoría de ejemplos | DESCRIPCIÓN | Ubicaciones |
 | ------------- | ------------- | ------------- |
 | Lenguaje **R**  | Ejemplos en **R** que explican escenarios como la conexión con los almacenes de datos en la nube de Azure, comparación de R de código abierto y Microsoft R y puesta en marcha de modelos en Microsoft R Server o SQL Server. <br/> [Captura de pantalla](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Lenguaje **Python**  | Ejemplos de **Python** que explican escenarios como la conexión con los almacenes de datos en nube de Azure y el uso con **Azure Machine Learning**.  <br/> [Captura de pantalla](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Lenguaje **Julia**  | Ejemplo en **Julia** que ofrece detalles sobre el trazado en Julia, el aprendizaje profundo en Julia, llamar a C y Python desde Julia etc. <br/> [Captura de pantalla](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft Cognitive Toolkit)  | Los ejemplos de aprendizaje profundo publicados por el equipo de Cognitive Toolkit en Microsoft.  <br/> [Captura de pantalla](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** Notebooks  | Ejemplos de aprendizaje profundo usando las redes neuronales basadas en **MXnet**. Hay una variedad de blocs de notas que van desde escenarios principiantes hasta avanzados.  <br/> [Captura de pantalla](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** Notebooks  | Ejemplos de aprendizaje profundo usando las redes neuronales basadas en **MXNet**. Hay una variedad de blocs de notas que van desde escenarios principiantes hasta avanzados.  <br/> [Captura de pantalla](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interacción con **Azure Machine Learning Studio** y creación de puntos de conexión de servicio web a partir de modelos entrenados localmente, para los flujos de trabajo de puntuación basada en la nube. <br/> [Captura de pantalla](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Ejemplos de aprendizaje profundo usando las redes neuronales basadas en **caffe2**. Hay varios blocs de notas diseñados para que los usuarios se familiaricen con caffe2 y cómo utilizarlo de forma eficiente, incluidos ejemplos como la creación de conjuntos de datos de procesamiento previo de imagen, creación de conjuntos de datos, regresión y el uso de modelos previamente entrenados. <br/> [Captura de pantalla](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Ejemplos basados en Python que usan **H2O** para numerosos problemas de escenarios reales. <br/> [Captura de pantalla](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -83,7 +83,7 @@ Inicie sesión con la misma contraseña que ha usado para el inicio de sesión d
 <br/>![Ejemplos de CNTK](./media/cntk-samples2.png)<br/>
 <br/>![Ejemplos de CNTK](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![Ejemplos de MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 

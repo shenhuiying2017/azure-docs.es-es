@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.  
@@ -172,7 +172,7 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
   
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|  
 |----------------------|-------------------------------------------------------|  
-|contexto|Api: IApi<br /><br /> Implementación<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> La suscripción<br /><br /> Tracing: bool<br /><br /> Usuario<br /><br /> Variables:IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
+|contexto|Api: IApi<br /><br /> Implementación<br /><br /> Transcurrido: TimeSpan - intervalo de tiempo entre el valor de TimeSpan y la hora actual<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: Guid - identificador único de la solicitud<br /><br /> Response<br /><br /> La suscripción<br /><br /> Timestamp: DateTime - punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> Usuario<br /><br /> Variables: IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
 |context.Api|Id: cadena<br /><br /> IsRevisionCurrent: booleano<br /><br />  Name: cadena<br /><br /> Path: cadena<br /><br /> Revision: cadena<br /><br /> ServiceUrl: IUrl<br /><br /> Version: cadena |  
 |context.Deployment|Region: cadena<br /><br /> ServiceName: cadena<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|  

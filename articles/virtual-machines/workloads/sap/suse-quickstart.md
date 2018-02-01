@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
 En este artículo se describen diversos aspectos que deben considerarse al ejecutar SAP NetWeaver en máquinas virtuales (VM) con SUSE Linux de Microsoft Azure. A partir del 19 de mayo de 2016, SAP NetWeaver es compatible oficialmente con máquinas virtuales de SUSE Linux en Azure. Todos los detalles sobre las versiones de Linux, las versiones de kernel SAP y otros requisitos previos se encuentran en la nota de SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
@@ -84,7 +84,7 @@ El problema con el identificador del dispositivo es que puede cambiar y la máqu
 La única excepción al montaje a través de UUID consiste en conectar un disco del sistema operativo para solucionar problemas, tal como se describe en la sección siguiente.
 
 ## <a name="troubleshooting-a-suse-vm-that-isnt-accessible-anymore"></a>Solución de problemas con una máquina virtual de SUSE a la que ya no es posible tener acceso
-Puede haber situaciones en las que una máquina virtual de SUSE en Azure se bloquea en el proceso de arranque (por ejemplo, con un error relacionado con el montaje de los discos). Puede comprobar este problema mediante la característica de diagnóstico de arranque para las máquinas virtuales v2 de Azure en el Portal de Azure. Para más información, consulte [Boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)(Diagnóstico de arranque).
+Puede haber situaciones en las que una máquina virtual de SUSE en Azure se bloquea en el proceso de arranque (por ejemplo, con un error relacionado con el montaje de los discos). Puede comprobar este problema mediante la característica de diagnóstico de arranque para Azure Virtual Machines v2 en Azure Portal. Para más información, consulte [Boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)(Diagnóstico de arranque).
 
 Un modo de resolver el problema es conectando el disco del sistema operativo de la máquina virtual dañada a otra máquina virtual de SUSE en Azure. A continuación, realice los cambios adecuados (modificar /etc/fstab o quitar reglas de udev de red), como se describe en la sección siguiente.
 
@@ -162,5 +162,5 @@ Si desea usar el escritorio Gnome para instalar un sistema completo de demostrac
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Compatibilidad entre SAP y Oracle en Linux en la nube
-Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Aunque esta compatibilidad limitada es un tema específico de Azure, es importante saberlo. SAP no admite Oracle en SUSE ni en Red Hat en una nube pública como Azure. Para tratar este tema, póngase en contacto con Oracle directamente.
+Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Aunque esta compatibilidad limitada es un tema específico de Azure, es importante saberlo. SAP no admite Oracle en SUSE ni en Red Hat en una nube pública como Azure. Mientras se ejecuta, Oracle DB en Azure es totalmente compatible con SAP en Oracle Linux (consulte la de nota de SAP 1928533). Si se requieren otras combinaciones, póngase en contacto directamente con Oracle.
 

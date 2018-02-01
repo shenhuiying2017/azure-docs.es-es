@@ -1,9 +1,17 @@
 
-**Última actualización del documento**: 6 de enero a las 6:30 p. m. PST.
+
+
+**Última actualización del documento**: 22 de enero a las 15:00 h PST.
 
 La reciente divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
 La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida.  Esto significa que otros clientes que utilizan Azure no pueden atacar su aplicación mediante estas vulnerabilidades.
+
+> [!NOTE] 
+> Las [instrucciones actualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) de Intel no afectan a las mitigaciones de Azure que se anunciaron el 3 de enero de 2018. No habrá ninguna actividad de mantenimiento adicional en las máquinas virtuales del cliente como resultado de esta nueva información.
+>
+> A medida que vayamos recibiendo las actualizaciones de microcódigo de los proveedores de hardware iremos actualizando estos procedimientos recomendados. Compruebe esta información si quiere obtener la guía actualizada.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados los sistemas operativos
 
@@ -43,11 +51,6 @@ Si está usando Linux y hospeda código que no es de confianza, también debe ac
 
 
 
-
-
-
-
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información, consulte [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Proteger a los clientes de Azure de las vulnerabilidades de CPU).

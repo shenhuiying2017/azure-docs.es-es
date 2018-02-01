@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Documentación Azure Cosmos DB: API de MongoDB
 
 Este artículo contiene vínculos a todo el contenido de Azure Cosmos DB específico para la API de MongoDB.
 
-Estos artículos no se aplican a la API de SQL, API Graph o API de Table. 
+Estos artículos no se aplican a SQL API, Graph API o Table API. 
 
 ## <a name="introduction-and-concepts"></a>Introducción y conceptos
 
@@ -69,5 +69,5 @@ Estos tutoriales están un nivel más profundo de los inicios rápidos. En los t
 
 ## <a name="developers-guide"></a>Guía para desarrolladores
 
-- [Uso de MongoChef](mongodb-mongochef.md)
+- [Uso de Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [Conexión mediante Robomongo](mongodb-robomongo.md)

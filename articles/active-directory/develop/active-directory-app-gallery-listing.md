@@ -4,7 +4,7 @@ description: "Cómo mostrar una aplicación que admite el inicio de sesión úni
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,86 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory
-Para anunciar una aplicación compatible con inicio de sesión único con Azure Active Directory en la [galería de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), la aplicación primero debe implementar uno de los siguientes modos de integración:
 
-* **OpenID Connect** : integración directa con Azure AD mediante OpenID Connect para autenticación y la API de consentimiento de Azure AD para configuración. Si acaba de iniciar una integración y la aplicación no es compatible con SAML, este es el modo recomendado.
-* **SAML** : la aplicación ya tiene la capacidad de configurar proveedores de identidad de terceros mediante el protocolo SAML.
 
-A continuación se enumeran los requisitos para cada modo.
+##  <a name="what-is-azure-ad-app-gallery"></a>¿Qué es la galería de aplicaciones de Azure AD?
 
-## <a name="openid-connect-integration"></a>Integración mediante OpenID Connect
-Para integrar la aplicación con Azure AD, siga la [instrucciones para desarrolladores](active-directory-authentication-scenarios.md). Después, complete la siguiente información y envíela a waadpartners@microsoft.com.
+Azure AD es un servicio de identidad basado en la nube. [La galería de aplicaciones de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) es un almacén común donde se publican todos los conectores de aplicaciones para poder realizar el inicio de sesión único y el aprovisionamiento de usuarios. Los clientes que usan Azure AD como proveedor de identidades buscan los diversos conectores de aplicaciones de SaaS que se publican aquí. El administrador de TI se encarga de agregar el conector de la galería de aplicaciones y lo configura y usa para poder realizar el inicio de sesión único y el aprovisionamiento. Azure AD admite los principales protocolos de federación como SAML 2.0, OpenID Connect, OAuth y WS-Fed para poder llevar a cabo el inicio de sesión único. 
 
-* Proporcione credenciales para una cuenta o inquilino de prueba con la aplicación que el equipo de Azure AD puede usar para probar la integración.  
-* Proporcione instrucciones sobre cómo el equipo de Azure AD puede iniciar sesión y conectarse a una instancia de Azure AD para la aplicación mediante el [marco de consentimiento de Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Proporcione las instrucciones que sean necesarias para que el equipo de Azure AD pruebe el inicio de sesión único con la aplicación. 
-* Proporcione la información siguiente:
+## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>¿Qué ventajas tiene agregar la aplicación a la lista de la galería?
 
-> Nombre de la empresa:
-> 
-> Sitio web de la empresa:
-> 
-> Nombre de la aplicación:
-> 
-> Descripción de la aplicación (límite de 200 caracteres):
-> 
-> Sitio web de la aplicación (informativo):
-> 
-> Sitio web de soporte de técnico de la aplicación o información de contacto:
-> 
-> Identificador de aplicación de la aplicación, tal y como se muestra en los detalles de la aplicación en https://portal.azure.com:
-> 
-> Dirección URL de  suscripción a una aplicación donde van los clientes para suscribirse o adquirir la aplicación:
-> 
-> Elija hasta tres categorías donde desea que se anuncie la aplicación (para ver las categorías disponibles, consulte Azure Active Directory Marketplace):
-> 
-> Adjunte un icono pequeño de la aplicación (archivo PNG, 45 px por 45 px, color de fondo sólido):
-> 
-> Adjunte un icono grande de la aplicación (archivo PNG, 215 px por 215 px, color de fondo sólido):
-> 
-> Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
-> 
-> 
+*  Proporciona la mejor experiencia de inicio de sesión único a los clientes.
 
-## <a name="saml-integration"></a>Integración SAML
-Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con un inquilino de Azure AD mediante [estas instrucciones para agregar una aplicación personalizada](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Una vez que haya probado que la integración de la aplicación funciona con Azure AD, envíe la información siguiente a <mailto:waadpartners@microsoft.com>.
+*  Requiere una configuración de la aplicación simple y mínima.
 
-* Proporcione credenciales para una cuenta o inquilino de prueba con la aplicación que el equipo de Azure AD puede usar para probar la integración.  
-* Proporcione los valores de dirección URL de inicio de sesión de SAML, de dirección URL del emisor (identificador de entidad) y de dirección URL de respuesta (servicio de consumidor de aserciones) para la aplicación, tal y como se describe [aquí](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Si normalmente proporciona estos valores como parte de un archivo de metadatos SAML, envíelos también.
-* Proporcione una breve descripción de cómo configurar Azure AD como proveedor de identidades en la aplicación mediante SAML 2.0. Si la aplicación admite la configuración de Azure AD como proveedor de identidades a través de un portal administrativo de autoservicio, asegúrese de que las credenciales proporcionadas anteriormente incluyen la capacidad para configurar esto.
-* Proporcione la información siguiente:
+*  Los clientes pueden buscar la aplicación y encontrarla en la galería. 
 
-> Nombre de la empresa:
-> 
-> Sitio web de la empresa:
-> 
-> Nombre de la aplicación:
-> 
-> Descripción de la aplicación (límite de 200 caracteres):
-> 
-> Sitio web de la aplicación (informativo):
-> 
-> Sitio web de soporte de técnico de la aplicación o información de contacto:
-> 
-> Dirección URL de  suscripción a una aplicación donde van los clientes para suscribirse o adquirir la aplicación:
-> 
-> Elija hasta tres categorías donde quiere que se anuncie la aplicación (para ver las categorías disponibles, vea [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
-> 
-> Adjunte un icono pequeño de la aplicación (archivo PNG, 45 px por 45 px, color de fondo sólido):
-> 
-> Adjunte un icono grande de la aplicación (archivo PNG, 215 px por 215 px, color de fondo sólido):
-> 
-> Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
-> 
-> 
+*  Cualquier cliente puede usar esta integración con independencia de la versión de la SKU de Azure AD (Gratis, Básica o Premium).
+
+*  Tutorial de configuración paso a paso para clientes mutuos.
+
+*  Opción de habilitar el aprovisionamiento de usuarios para la misma aplicación si usa SCIM.
+
+
+##  <a name="what-are-the-pre-requisites"></a>¿Cuáles son los requisitos previos?
+
+Para agregar una aplicación a la galería de Azure AD, debe implementar uno de los protocolos de federación que admite Azure AD. Lea los términos y condiciones de la galería de aplicaciones de Azure AD aquí. Si está usando: 
+
+*   **OpenID Connect**: cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) para la aplicación. Envíe la solicitud de inicio de sesión al punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento en la aplicación. Puede controlar el acceso de usuario del cliente en función del identificador del inquilino y el UPN del usuario que se recibieron en el token. Para integrar la aplicación con Azure AD, siga las [instrucciones del desarrollador](active-directory-authentication-scenarios.md).
+
+*   **SAML 2.0 o WS-Fed**: la aplicación debe tener la capacidad de realizar la integración de SSO de SAML/WS-Fed en modo SP o IDP. Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con un inquilino de Azure AD mediante [estas instrucciones para agregar una aplicación personalizada](../active-directory-saas-custom-apps.md).
+
+*   **SSO de contraseña**: cree una aplicación web que tenga una página de inicio de sesión HTML para configurar el [inicio de sesión único basado en contraseña](../active-directory-appssoaccess-whatis.md). El SSO basado en contraseña, también conocido como almacenamiento de contraseñas, permite administrar el acceso y las contraseñas de los usuarios en aplicaciones web que no admiten la federación de identidades. También es útil para escenarios en los que varios usuarios necesitan compartir una sola cuenta, como las cuentas de aplicaciones de redes sociales de la organización. 
+
+## <a name="process-for-submitting-the-request-in-the-portal"></a>Proceso para enviar la solicitud en el portal
+
+Una vez haya comprobado que la integración de la aplicación funciona con Azure AD, debe enviar la solicitud de acceso a nuestro [Portal de red de aplicaciones](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si tiene una cuenta de Office 365, puede usarla para iniciar sesión en este portal; en caso contrario, use su id. de Microsoft (Live ID, Outlook, Hotmail, etc.) para iniciar sesión. A continuación, verá la siguiente página que le solicitará el acceso. Proporcione una justificación de negocios en el cuadro de texto y haga clic en **Solicitar acceso**. Nuestro equipo revisará todos los detalles y le proporcionará acceso según corresponda. Una vez hecho esto, puede acceder al portal y enviar la solicitud detallada de la aplicación.
+
+Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+![Solicitud de acceso en el portal de SharePoint](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## <a name="timelines"></a>Escalas de tiempo
+    
+*   Proceso para agregar la aplicación de SAML 2.0 o WS-Fed en la galería: **entre 7 y 10 días laborables**
+
+   ![Escala de tiempo para agregar la aplicación SAML a la lista de la galería](./media/active-directory-app-gallery-listing/timeline.png)
+
+*   Proceso para agregar la aplicación de OpenID Connect en la galería: **entre 2 y 5 días laborables**
+
+   ![Escala de tiempo para agregar la aplicación SAML a la lista de la galería](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## <a name="escalations"></a>Extensiones
+
+Si quiere tener una extensión, envíe un correo electrónico al [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) y nos pondremos en contacto con usted lo antes posible.
 

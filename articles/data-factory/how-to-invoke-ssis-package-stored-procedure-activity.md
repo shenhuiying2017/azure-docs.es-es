@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 713e9ad7a76c15cbde912954e00991a80b995683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -33,10 +33,114 @@ El tutorial de este artículo usa una instancia de Azure SQL Database que hosped
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de una instancia de Integration Runtime de SSIS de Azure
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial Implementación paquetes de SSIS en Azure](tutorial-deploy-ssis-packages-azure.md).
 
-### <a name="azure-powershell"></a>Azure PowerShell
+## <a name="data-factory-ui-azure-portal"></a>Interfaz de usuario de Data Factory (Azure Portal)
+En esta sección, se usa la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
+
+### <a name="create-a-data-factory"></a>Crear una factoría de datos
+El primer paso es crear una factoría de datos con Azure Portal. 
+
+1. Acceda a [Azure Portal](https://portal.azure.com). 
+2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
+   
+   ![New->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
+2. En la página **New data factory** (Nueva factoría de datos), escriba **ADFTutorialDataFactory** en **Name** (Nombre). 
+      
+     ![Página New data factory (Nueva factoría de datos)](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+ 
+   El nombre de Azure Data Factory debe ser **único de forma global**. Si ve el siguiente error en el campo del nombre, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory). Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+  
+     ![Error de nombre no disponible](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
+4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
+     
+      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
+      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+         
+    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+4. Seleccione **V2 (versión preliminar)** como **versión**.
+5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que admite Data Factory. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) utilizados por la factoría de datos pueden encontrarse en otras ubicaciones.
+6. Seleccione **Anclar al panel**.     
+7. Haga clic en **Create**(Crear).
+8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+
+    ![icono implementando factoría de datos](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
+   
+    ![Página principal Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente. 
+
+### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Crear una canalización con una actividad de procedimiento almacenado
+En este paso, usa la interfaz de Data Factory para crear una canalización. Agrega una actividad de procedimiento almacenado a la canalización y lo configura para ejecutar el paquete SSIS mediante el uso del procedimiento almacenado sp_executesql. 
+
+1. En la página de introducción, haga clic en **Create pipeline** (Crear canalización): 
+
+    ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+2. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
+
+    ![Operación de arrastrar y colocar la actividad de procedimiento almacenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
+3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la instancia de Azure SQL Database que hospeda el catálogo de SSIS (base de datos SSIDB). 
+   
+    ![Botón New linked service (Nuevo servicio vinculado)](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+4. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
+
+    1. Seleccione **Azure SQL Database** para **Type** (Tipo).
+    2. Seleccione la instancia de Azure SQL Server que hospeda la base de datos SSISDB para el campo **Server name** (Nombre del servidor).
+    3. Seleccione **SSISDB** para el campo **Database name** (Nombre de la base de datos).
+    4. En **User name** (Nombre de usuario), escriba el nombre del usuario que tiene acceso a la base de datos.
+    5. En **Password** (Contraseña), escriba la contraseña del usuario. 
+    6. Para probar la conexión con la base de datos, haga clic en el botón **Test connection** (Prueba de conexión).
+    7. Guarde el servicio vinculado con un clic en el botón **Save** (Guardar). 
+
+        ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+5. En la ventana de propiedades, cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) de la pestaña **SQL Account** (Cuenta de SQL) y lleve a cabo estos pasos: 
+
+    1. En el campo **Stored procedure name** (Nombre del procedimiento almacenado), escriba `sp_executesql`. 
+    2. Haga clic en **+ New** (+ Nuevo) en la sección **Stored procedure parameters** (Parámetros del procedimiento almacenado). 
+    3. En el **nombre** del parámetro, escriba **stmt**. 
+    4. En el **tipo** de parámetro, escriba **Cadena** . 
+    5. En el valor **value** del parámetro, escriba la consulta SQL siguiente.
+
+        En la consulta SQL, especifique los valores correctos para los parámetros **folder_name**, **project_name** y **package_name**. 
+
+        ```sql
+        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
+        ```
+
+        ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+6. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
+
+    ![Comprobar la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
+7. Publique la canalización en Data Factory con un clic en el botón **Publish All** (Publicar todo). 
+
+    ![Publicar](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+
+### <a name="run-and-monitor-the-pipeline"></a>Ejecución y supervisión de la canalización
+En esta sección, desencadena una ejecución de canalización y luego la supervisa. 
+
+1. Para desencadenar una ejecución de canalización, haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
+
+    ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+2. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información (como la hora de inicio de la ejecución). Para actualizar la vista, haga clic en **Refresh** (Actualizar).
+
+    ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+3. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Solo verá una ejecución de actividad porque la canalización solo tiene una actividad (actividad de procedimiento almacenado).
+
+    ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4. Puede ejecutar la **consulta** siguiente en la base de datos SSISDB en la instancia de Azure SQL Server para comprobar la ejecución del paquete. 
+
+    ```sql
+    select * from catalog.executions
+    ```
+
+    ![Comprobación de las ejecuciones del paquete](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+
+También puede crear un desencadenador programado para la canalización de manera que esta se ejecute según una programación (por hora, cada día, etc.). Para ver un ejemplo, consulte [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule) (Creación de una factoría de datos: interfaz de usuario de Data Factory).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+En esta sección, se usa Azure PowerShell para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS. 
+
 Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-## <a name="create-a-data-factory"></a>Crear una factoría de datos
+### <a name="create-a-data-factory"></a>Crear una factoría de datos
 Puede usar la misma factoría de datos que tiene el IR de SSIS de Azure o crear una factoría de datos independiente. El siguiente procedimiento detalla los pasos para crear una factoría de datos. Debe crear una canalización con una actividad de procedimiento almacenado en esta factoría de datos. La actividad de procedimiento almacenado ejecuta un procedimiento almacenado en la base de datos SSISDB para ejecutar el paquete de SSIS. 
 
 1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. Por ejemplo: `"adfrg"`. 
@@ -108,7 +212,7 @@ Cree un servicio vinculado para vincular su instancia de Azure SQL Database que 
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
-## <a name="create-a-pipeline-with-stored-procedure-activity"></a>Crear una canalización con una actividad de procedimiento almacenado 
+### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Crear una canalización con una actividad de procedimiento almacenado 
 En este paso, debe crear una canalización con una actividad de procedimiento almacenado. La actividad invoca el procedimiento almacenado sp_executesql para ejecutar su paquete de SSIS. 
 
 1. Cree un archivo JSON con el nombre **RunSSISPackagePipeline.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido:
@@ -159,14 +263,14 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-## <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
+### <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
 Use el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
 ```powershell
 $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
-## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
+### <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
 Ejecute el script de PowerShell siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos. Copie y pegue el siguiente script en la ventana de PowerShell y presione ENTRAR. 
 
@@ -187,7 +291,7 @@ while ($True) {
 }   
 ```
 
-## <a name="create-a-trigger"></a>Crear un desencadenador
+### <a name="create-a-trigger"></a>Crear un desencadenador
 En el paso anterior, invocó la canalización a petición. También puede crear un desencadenador de programación para ejecutar la canalización en una programación (cada hora, día, etc.).
 
 1. Cree un archivo JSON con el nombre **MyTrigger.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido: 
@@ -243,6 +347,7 @@ En el paso anterior, invocó la canalización a petición. También puede crear 
     ```sql
     select * from catalog.executions
     ```
+
 
 ## <a name="next-steps"></a>pasos siguientes
 También puede supervisar la canalización mediante Azure Portal. Para ver instrucciones paso a paso, consulte [Supervisar la canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Actualizar el certificado SSL para una granja de Servicios de federación de Active Directory (AD FS) | Microsoft Docs"
+title: "Azure AD Connect: actualización del certificado SSL para una granja de AD FS | Microsoft Docs"
 description: En este documento se detallan los pasos para actualizar el certificado SSL de una granja de AD FS mediante Azure AD Connect.
 services: active-directory
 keywords: "azure ad connect, actualizar ssl de adfs, actualizar certificado de adfs, cambiar certificado de adfs, nuevo certificado de adfs, certificado de adfs, actualizar certificado ssl de adfs, actualizar certificado ssl de adfs, configurar certificado ssl de adfs, adfs, ssl, certificado, certificado de comunicación de servicio de adfs, actualizar federación, configurar federación, aad connect"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Actualizar el certificado SSL para una granja de Servicios de federación de Active Directory (AD FS)
 
@@ -33,7 +34,7 @@ Puede realizar toda la operación de actualización del certificado SSL para la 
 >[!NOTE]
 >Para obtener más información sobre los certificados usados por AD FS, consulte el artículo [Descripción de los certificados usados por AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Granja de AD FS**: asegúrese de que la granja de AD FS se base en Windows Server 2012 R2 o una versión posterior.
 * **Azure AD Connect**: asegúrese de que la versión de Azure AD Connect sea 1.1.553.0 o posterior. Usará la tarea **Actualización del certificado SSL de AD FS**.
@@ -102,7 +103,7 @@ Una vez completada la configuración, Azure AD Connect muestra el mensaje que in
 
     Quitar el servidor de la lista en Azure AD Connect no lo quita de la configuración de AD FS. Azure AD Connect hace referencia a AD FS (Windows Server 2016 o posterior) para cualquier información sobre la granja. Si el servidor sigue estando presente en la configuración de AD FS, aparecerá de nuevo en la lista.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Azure AD Connect y la federación](active-directory-aadconnectfed-whatis.md)
 - [Servicios de federación de Active Directory y personalización con Azure AD Connect](active-directory-aadconnect-federation-management.md)

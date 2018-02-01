@@ -1,6 +1,6 @@
 ---
 title: "Solución de problemas de Azure Storage con diagnósticos y el analizador de mensajes | Microsoft Docs"
-description: "Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft."
+description: "Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Azure Storage, AzCopy y el analizador de mensajes de Microsoft."
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,53 +13,51 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución integral de problemas mediante los registros y las métricas de Azure Storage, AzCopy y el analizador de mensajes
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-Poder diagnosticar y solucionar problemas es una habilidad clave a la hora de crear y mantener aplicaciones de cliente con el servicio Almacenamiento de Microsoft Azure. Las aplicaciones de Azure suelen ser de naturaleza dispersa, de modo que diagnosticar y solucionar errores y problemas de rendimiento puede resultar más complicado que hacerlo en entornos tradicionales.
+Poder diagnosticar y solucionar problemas es una habilidad clave a la hora de crear y mantener aplicaciones de cliente con el servicio Microsoft Azure Storage. Las aplicaciones de Azure suelen ser de naturaleza dispersa, de modo que diagnosticar y solucionar errores y problemas de rendimiento puede resultar más complicado que hacerlo en entornos tradicionales.
 
 En este tutorial explicamos cómo reconocer algunos errores que pueden afectar al rendimiento y cómo solucionarlos completamente usando herramientas proporcionadas por Microsoft y por el servicio Azure Storage, todo ello para optimizar la aplicación cliente.
 
-Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de Azure Storage, vea [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Herramientas para solucionar problemas de aplicaciones de Almacenamiento de Azure
-Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Microsoft Azure, puede usar una combinación de herramientas que permita saber cuándo se produjo un problema y cuál puede ser la causa. Estas herramientas son:
+## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Herramientas para solucionar problemas de aplicaciones de Azure Storage
+Para solucionar problemas en aplicaciones cliente que usan Microsoft Azure Storage, puede usar una combinación de herramientas que permita saber cuándo se produjo un problema y cuál puede ser la causa. Estas herramientas son:
 
-* **Análisis de almacenamiento de Azure**. [Análisis de almacenamiento de Azure](/rest/api/storageservices/Storage-Analytics) proporciona las métricas y registros del servicio Almacenamiento de Azure.
+* **Análisis de Azure Storage**. [Análisis de Azure Storage](/rest/api/storageservices/Storage-Analytics) proporciona las métricas y registros del servicio Azure Storage.
   
-  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas del análisis de almacenamiento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento el análisis de almacenamiento.
-  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](/rest/api/storageservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
+  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento de Storage Analytics.
+  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Azure Storage. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros de Storage Analytics.
 
 > [!NOTE]
-> En este momento, las cuentas de almacenamiento con un tipo de replicación de almacenamiento con redundancia de zona (ZRS) no tienen habilitadas las métricas o la funcionalidad de registro. 
-> 
-> 
+> Las cuentas de almacenamiento que tienen una replicación de tipo "Almacenamiento con redundancia de zona" (ZRS) son compatibles con las métricas y el registro. Las cuentas de almacenamiento de ZRS Classic no admiten ni las métricas ni el registro. Para obtener más información acerca de ZRS, consulte [Almacenamiento con redundancia de zona](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure Portal**. Puede configurar las métricas y el registro de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
   
     Consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en Azure Portal.
-* **AzCopy**. Los registros del servidor de Almacenamiento de Azure se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
+* **AzCopy**. Los registros del servidor de Azure Storage se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
 * **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
 
 ## <a name="about-the-sample-scenario"></a>Acerca del escenario de ejemplo
-Para este tutorial, analizaremos un escenario donde las métricas de Almacenamiento de Azure indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Almacenamiento de Azure. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en [Azure Portal](https://portal.azure.com) y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, analizaremos un escenario donde las métricas de Azure Storage indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Azure Storage. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en [Azure Portal](https://portal.azure.com) y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
-Como parte de su funcionalidad habitual, es posible que las operaciones de Almacenamiento de Azure devuelvan códigos de estado HTTP mayores que 299. Aun así, en algunos casos estos errores indicarán que es posible que pueda optimizar su aplicación cliente para mejorar el rendimiento.
+Como parte de su funcionalidad habitual, es posible que las operaciones de Azure Storage devuelvan códigos de estado HTTP mayores que 299. Aun así, en algunos casos estos errores indicarán que es posible que pueda optimizar su aplicación cliente para mejorar el rendimiento.
 
 En este escenario, todo aquello que esté por debajo del 100% será considerado como una tasa de bajo porcentaje de éxito. Pero siempre puede elegir un nivel de métricas diferente acorde a sus necesidades. Le recomendamos que, mientras esté probando la aplicación, establezca una tolerancia de línea de base de las métricas de rendimiento clave. Según las pruebas que haga, puede establecer que la aplicación tenga una tasa de porcentaje de éxito constante de, por ejemplo, un 90% o de un 85%. Si los datos de las métricas arrojan que la aplicación se desvía de ese porcentaje, puede investigar para saber cuál es la causa del aumento.
 
 En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de tasa de porcentaje de éxito por debajo del 100%, revisaremos los registros para buscar los errores que guardan relación con las métricas y usarlos para averiguar cuál es la causa de la tasa de bajo porcentaje de éxito. En concreto, revisaremos los errores del intervalo 400. Después, revisaremos con más detalle los errores 404 (no encontrado).
 
 ### <a name="some-causes-of-400-range-errors"></a>Algunas de las causas de los errores del intervalo 400
-En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 400 para solicitudes de almacenamiento de blobs de Azure, así como sus posibles causas. Cualquiera de estos errores, además de los errores en el intervalo 300 y el intervalo 500, pueden ser la razón de una tasa de bajo porcentaje de éxito.
+En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 400 para solicitudes de Azure Blob Storage, así como sus posibles causas. Cualquiera de estos errores, además de los errores en el intervalo 300 y el intervalo 500, pueden ser la razón de una tasa de bajo porcentaje de éxito.
 
-Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
+Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Azure Storage y sobre los errores específicos de cada uno de los servicios de almacenamiento.
 
 **Ejemplos de código de estado 404 (no encontrado)**
 
@@ -82,12 +80,12 @@ Se produce cuando una operación de lectura en un contenedor o un blob falla por
 ## <a name="generate-log-files-for-analysis"></a>Generar archivos de registro para el análisis
 En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipos diferentes de archivos de registro, aunque también puede trabajar con cualquiera de los siguientes elementos:
 
-* El **registro del servidor**, que se crea cuando se habilita el registro de Almacenamiento de Azure. El registro del servidor contiene datos sobre cada operación a la que haya llamado alguno de los servicios de Almacenamiento de Azure: blob, cola, tabla y archivo. El registro del servidor indica a qué operación se llamó y qué código de estado fue devuelto, así como otros detalles sobre la solicitud y la respuesta.
+* El **registro del servidor**, que se crea cuando se habilita el registro de Azure Storage. El registro del servidor contiene datos sobre cada operación a la que haya llamado alguno de los servicios de Azure Storage: blob, cola, tabla y archivo. El registro del servidor indica a qué operación se llamó y qué código de estado fue devuelto, así como otros detalles sobre la solicitud y la respuesta.
 * El **registro de cliente de .NET**, que se crea cuando se habilita el registro del lado cliente desde la aplicación .NET. El registro de cliente contiene información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
-* El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Almacenamiento de Azure. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
+* El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Azure Storage. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
-Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
+Primero, necesitaremos configurar el registro y las métricas de Azure Storage para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
 
 **Mediante Azure Portal**
 
@@ -119,13 +117,13 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
-4. Habilite el registro de almacenamiento para el servicio BLOB:
+4. Habilite el registro de almacenamiento para Blob service:
    
     ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
-5. Habilite las métricas de almacenamiento del servicio BLOB, procurando establecer **-MetricsType** en `Minute`:
+5. Habilite las métricas de almacenamiento de Blob service, procurando establecer **-MetricsType** en `Minute`:
    
     ```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
@@ -161,7 +159,7 @@ En este tutorial, primero deberá recopilar y guardar un seguimiento de red en e
     storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
     ```
 
-7. Salga del cuadro de diálogo y haga clic en **Restart** (Reiniciar) para empezar a recopilar el seguimiento con el filtro de nombre de host activado, de modo que solo se incluya en el seguimiento el tráfico de red de Almacenamiento de Azure.
+7. Salga del cuadro de diálogo y haga clic en **Restart** (Reiniciar) para empezar a recopilar el seguimiento con el filtro de nombre de host activado, de modo que solo se incluya en el seguimiento el tráfico de red de Azure Storage.
 
 > [!NOTE]
 > Una vez finalizada la recopilación del seguimiento de red, le recomendamos restablecer la configuración inicial de Fiddler para descifrar el tráfico HTTPS. En el cuadro de diálogo de opciones de Fiddler, desactive las casillas **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS).
@@ -185,7 +183,7 @@ Para obtener más información sobre cómo agregar y personalizar gráficos de m
 > 
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Usar AzCopy para copiar registros del servidor en un directorio local
-Almacenamiento de Azure escribe datos de registro del servidor en blobs, mientras que las métricas se escriben en tablas. Los blobs de registro se encuentran disponibles en el conocido contenedor `$logs` de su cuenta de almacenamiento. Estos blobs de registro se pueden identificar de forma jerárquica por año, mes, día y hora, lo que hace que se pueda localizar fácilmente el intervalo de tiempo que quiera examinar. Por ejemplo, en la cuenta `storagesample`, el contenedor para los blobs de registro del 01/02/2015 de 8:00 a 9:00 de la mañana es `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Los blobs individuales en este contenedor poseen nombres secuenciales y comienzan por `000000.log`.
+Azure Storage escribe datos de registro del servidor en blobs, mientras que las métricas se escriben en tablas. Los blobs de registro se encuentran disponibles en el conocido contenedor `$logs` de su cuenta de almacenamiento. Estos blobs de registro se pueden identificar de forma jerárquica por año, mes, día y hora, lo que hace que se pueda localizar fácilmente el intervalo de tiempo que quiera examinar. Por ejemplo, en la cuenta `storagesample`, el contenedor para los blobs de registro del 01/02/2015 de 8:00 a 9:00 de la mañana es `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Los blobs individuales en este contenedor poseen nombres secuenciales y comienzan por `000000.log`.
 
 Puede usar la herramienta de línea de comandos AzCopy para descargar estos archivos de registro del lado servidor en una ubicación de su elección en el equipo local. Por ejemplo, puede usar el siguiente comando para descargar en la carpeta `C:\Temp\Logs\Server` los archivos de registro de las operaciones de blob que tuvieron lugar el 2 de enero de 2015; reemplace `<storageaccountname>` por el nombre de su cuenta de almacenamiento y `<storageaccountkey>`, por su clave de acceso de cuenta:
 
@@ -199,24 +197,24 @@ Para obtener más información sobre cómo descargar los registros del lado serv
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Usar el analizador de mensajes de Microsoft para analizar los datos de registro
 El analizador de mensajes de Microsoft es una herramienta para capturar, mostrar y analizar el protocolo del tráfico de mensajes, eventos y otros mensajes del sistema o de una aplicación, usando para ello escenarios de diagnóstico y de solución de problemas. El analizador de mensajes también permite cargar, agregar y analizar los datos procedentes de registros y de archivos de seguimiento guardados. Para más información sobre el analizador de mensajes, vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx).
 
-El analizador de mensajes incluye herramientas del servicio Almacenamiento de Azure que hacen más fácil analizar los registros de red, de cliente y de servidor. En esta sección, abordaremos el uso de estas herramientas para solucionar el problema del bajo porcentaje de éxito en los registros de almacenamiento.
+El analizador de mensajes incluye herramientas del servicio Azure Storage que hacen más fácil analizar los registros de red, de cliente y de servidor. En esta sección, abordaremos el uso de estas herramientas para solucionar el problema del bajo porcentaje de éxito en los registros de almacenamiento.
 
-### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Descargar e instalar el analizador de mensajes y las herramientas de Almacenamiento de Azure
+### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Descargar e instalar el analizador de mensajes y las herramientas de Azure Storage
 1. Descargue el [analizador de mensajes](http://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
 2. Inicie el analizador de mensajes.
-3. En el menú **Herramientas**, seleccione **Administrador de activos**. En el cuadro de diálogo **Administrador de activos**, seleccione **Descargas** y filtre por **Azure Storage**. Verá las herramientas de Almacenamiento de Azure como se muestra en la imagen de abajo.
-4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Almacenamiento de Azure. Tiene disponibles los siguientes recursos:
-   * **Reglas de color de Almacenamiento Azure:** las reglas de color de Almacenamiento de Azure permiten definir filtros especiales que usan estilos de color, texto y fuente para resaltar los mensajes que contengan información específica en un seguimiento.
-   * **Gráficos de Almacenamiento de Azure:** los gráficos de Almacenamiento de Azure son gráficos predefinidos que en los que se trazan datos de los registro de servidor. Tenga en cuenta que, actualmente, el uso de los gráficos de Almacenamiento de Azure se reduce únicamente a cargar el registro del servidor en la cuadrícula de análisis.
-   * **Analizadores de Almacenamiento de Azure:** los analizadores de Almacenamiento de Azure analizan los registros de cliente, servidor y HTTP del Almacenamiento de Azure para mostrarlos en la cuadrícula de análisis.
-   * **Filtros de Almacenamiento de Azure:** los filtros de Almacenamiento de Azure son criterios predefinidos que sirven para consultar los datos en la cuadrícula de análisis.
-   * **Diseños de vista de Almacenamiento Azure:** los diseños de vista de Almacenamiento de Azure son diseños y agrupaciones de columna predefinidos en la cuadrícula de análisis.
+3. En el menú **Herramientas**, seleccione **Administrador de activos**. En el cuadro de diálogo **Administrador de activos**, seleccione **Descargas** y filtre por **Azure Storage**. Verá las herramientas de Azure Storage como se muestra en la imagen de abajo.
+4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Azure Storage. Tiene disponibles los siguientes recursos:
+   * **Reglas de color de Azure Storage:** las reglas de color de Azure Storage permiten definir filtros especiales que usan estilos de color, texto y fuente para resaltar los mensajes que contengan información específica en un seguimiento.
+   * **Gráficos de Azure Storage:** los gráficos de Azure Storage son gráficos predefinidos que en los que se trazan datos de los registro de servidor. Tenga en cuenta que, actualmente, el uso de los gráficos de Azure Storage se reduce únicamente a cargar el registro del servidor en la cuadrícula de análisis.
+   * **Analizadores de Azure Storage:** los analizadores de Azure Storage analizan los registros de cliente, servidor y HTTP de Azure Storage para mostrarlos en la cuadrícula de análisis.
+   * **Filtros de Azure Storage:** los filtros de Azure Storage son criterios predefinidos que sirven para consultar los datos en la cuadrícula de análisis.
+   * **Diseños de vista de Azure Storage:** los diseños de vista de Azure Storage son diseños y agrupaciones de columna predefinidos en la cuadrícula de análisis.
 5. Reinicie el analizador de mensajes después de haber instalado estas herramientas.
 
 ![Administrador de activos del analizador de mensajes](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [!NOTE]
-> Instale todas las herramientas de Almacenamiento de Azure que se muestran para poder realizar este tutorial.
+> Instale todas las herramientas de Azure Storage que se muestran para poder realizar este tutorial.
 > 
 > 
 
@@ -242,14 +240,14 @@ Si, aun así, la cantidad de datos de registro es demasiado grande, conviene del
 Para más información sobre cómo importar datos de registro al analizador de mensajes de Microsoft, vea el tema de [recuperación de datos de mensajes](http://technet.microsoft.com/library/dn772437.aspx) en TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Usar el identificador de solicitud de cliente para poner en correlación los datos de los archivos de registro
-La biblioteca de cliente de Almacenamiento de Azure crea de forma automática un identificador único de solicitud de cliente para cada solicitud. Este valor se escribe en los registros de cliente, de servidor y de seguimiento de red para que se pueda usar para poner en correlación los datos de los tres registros en el analizador de mensajes. Vea [Id. de solicitud de cliente](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) para más información sobre este identificador.
+La biblioteca de cliente de Azure Storage crea de forma automática un identificador único de solicitud de cliente para cada solicitud. Este valor se escribe en los registros de cliente, de servidor y de seguimiento de red para que se pueda usar para poner en correlación los datos de los tres registros en el analizador de mensajes. Vea [Id. de solicitud de cliente](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) para más información sobre este identificador.
 
 En las siguientes secciones describiremos cómo usar las vistas de diseño personalizadas y configuradas previamente para poner en correlación y agrupar datos según el identificador de solicitud de cliente.
 
 ### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Seleccionar un diseño de vista para mostrarla en la cuadrícula de análisis
-Entre las herramientas de almacenamiento del analizador de mensajes encontramos los diseños de vista de Almacenamiento de Azure, que son vistas ya configuradas que sirven para visualizar los datos y distribuirlos en grupos y columnas de utilidad según el escenario. También puede crear diseños de vista personalizados y guardarlos para volver a usarlos.
+Entre las herramientas de almacenamiento del analizador de mensajes encontramos los diseños de vista de Azure Storage, que son vistas ya configuradas que sirven para visualizar los datos y distribuirlos en grupos y columnas de utilidad según el escenario. También puede crear diseños de vista personalizados y guardarlos para volver a usarlos.
 
-En la siguiente imagen se muestra el menú **View Layout** (Diseño de vista), al que puede tener acceso seleccionando **View Layout** (Diseño de vista) en la cinta de opciones de la barra de herramientas. Los diseños de vista de Almacenamiento de Azure están en el nodo **Almacenamiento de Azure** del menú. Puede buscar `Azure Storage` en el cuadro de búsqueda para filtrar únicamente por diseños de vista de Almacenamiento de Azure. Además, puede seleccionar el icono con forma de estrella al lado de cada diseño de vista para marcarlo como favorito y que, de este modo, se muestre en la parte superior del menú.
+En la siguiente imagen se muestra el menú **View Layout** (Diseño de vista), al que puede tener acceso seleccionando **View Layout** (Diseño de vista) en la cinta de opciones de la barra de herramientas. Los diseños de vista de Azure Storage están en el nodo **Azure Storage** del menú. Puede buscar `Azure Storage` en el cuadro de búsqueda para filtrar únicamente por diseños de vista de Azure Storage. Además, puede seleccionar el icono con forma de estrella al lado de cada diseño de vista para marcarlo como favorito y que, de este modo, se muestre en la parte superior del menú.
 
 ![Menú de diseño de vista](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
@@ -257,23 +255,23 @@ Para empezar, seleccione **Grouped by ClientRequestID and Module**(Agrupados por
 
 En la siguiente imagen puede ver el diseño aplicado a los datos de registro de ejemplo, junto con un subconjunto de columnas. Puede observar que, para un identificador de solicitud de cliente en particular, la cuadrícula de análisis muestra los datos del registro de cliente, de servidor y de seguimiento de red.
 
-![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
+![Diseño de vista de Azure Storage](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
 
 > [!NOTE]
 > Los diferentes archivos de registro tienen columnas distintas, así que cuando se muestran los datos de varios archivos de registro en la cuadrícula de análisis, es posible que varias columnas no contengan los datos de alguna fila en particular. Por ejemplo, en la imagen anterior, las filas del registro de cliente no muestran ningún dato en las columnas **Timestamp**, **TimeElapsed**, **Source** y **Destination**, ya que estas columnas no existen en el registro de cliente, pero sí en el de seguimiento de red. Del mismo modo, la columna **Timestamp** muestra los datos de marca de tiempo del registro de servidor, pero no hay datos para las columnas **TimeElapsed**, **Source** y **Destination**, ya que no forman parte del registro de servidor.
 > 
 > 
 
-Aparte de usar los diseños de vista de Almacenamiento de Azure, también puede desarrollar y guardar sus propios diseños de vista. Es más, puede seleccionar otros campos para agrupar los datos y guardar esta agrupación como parte de su diseño personalizado.
+Aparte de usar los diseños de vista de Azure Storage, también puede desarrollar y guardar sus propios diseños de vista. Es más, puede seleccionar otros campos para agrupar los datos y guardar esta agrupación como parte de su diseño personalizado.
 
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Aplicar reglas de color a la cuadrícula de análisis
 Las herramientas de almacenamiento incluyen una serie de reglas de color que ofrecen una forma más visual de identificar los diferentes tipos de errores que aparecen en la cuadrícula de análisis. Las reglas de color predefinidas se aplican a los errores HTTP, así que solo aparecerán en el registro de servidor y el seguimiento de red.
 
-Para aplicar reglas de color, seleccione **Color Rules** (Reglas de color) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Almacenamiento de Azure. Para el tutorial, seleccione **Client Errors (StatusCode between 400 and 499)**(Errores del cliente [StatusCode entre 400 y 499]), tal y como se muestra en esta imagen.
+Para aplicar reglas de color, seleccione **Color Rules** (Reglas de color) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Azure Storage. Para el tutorial, seleccione **Client Errors (StatusCode between 400 and 499)**(Errores del cliente [StatusCode entre 400 y 499]), tal y como se muestra en esta imagen.
 
-![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
+![Diseño de vista de Azure Storage](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
-Además de las reglas de color de Almacenamiento de Azure, también puede crear y guardar sus propias reglas de color.
+Además de las reglas de color de Azure Storage, también puede crear y guardar sus propias reglas de color.
 
 ### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>Agrupar y filtrar datos de registro para encontrar errores de intervalo 400
 Ahora agruparemos y filtraremos los datos de registro para encontrar todos los errores que estén dentro del intervalo 400.
@@ -289,7 +287,7 @@ Ahora agruparemos y filtraremos los datos de registro para encontrar todos los e
 
 En la siguiente imagen puede ver los resultados de la agrupación y filtrado. Si, por ejemplo, expande el campo **ClientRequestID** que se encuentra debajo de la agrupación del código de estado 409, podrá ver la operación resultante de ese código de estado.
 
-![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
+![Diseño de vista de Azure Storage](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
 Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode** . Para empezar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
 
@@ -316,7 +314,7 @@ Las herramientas de almacenamiento incluyen filtros predefinidos que puede usar 
     (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
     ```
 
-    ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
+    ![Diseño de vista de Azure Storage](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### <a name="analyze-your-log-data"></a>Analizar los datos de registro
 Ahora que tenemos los datos agrupados y filtrados, ya podemos pasar a examinar los detalles de las solicitudes que ocasionaron errores 404. En el diseño de vista actual, los datos están agrupados por identificador de solicitud de cliente y por origen del registro. Como estamos filtrando solicitudes cuyo campo StatusCode contenga 404, solo veremos los datos de los registros de servidor y de seguimiento de red, no los del registro de cliente.
@@ -329,7 +327,7 @@ Ahora, pondremos en correlación el identificador de solicitud de cliente con lo
 
 1. Primero, copie el valor del campo **ClientRequestId** en el portapapeles. Para ello, seleccione una fila, busque el campo **ClientRequestId**, haga clic con el botón secundario en el valor de datos y seleccione **Copy 'ClientRequestId'**.
 2. En la cinta de opciones de la barra de herramientas, seleccione **New Viewer** (Nuevo visor) y, luego, **Analysis Grid** (Cuadrícula de análisis) para abrir una nueva pestaña. En la nueva ficha se recogen todos los datos de sus archivos de registro sin agrupar ni filtrar o sin reglas de color.
-3. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** (Vista de diseño) y, después, **All .NET Client Columns** (Todas las columnas de cliente .NET) en la sección correspondiente a **Almacenamiento de Azure**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber** .
+3. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** (Vista de diseño) y, después, **All .NET Client Columns** (Todas las columnas de cliente .NET) en la sección correspondiente a **Azure Storage**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber** .
 4. Ahora, buscaremos el registro de cliente del identificador de solicitud de cliente. En la cinta de opciones de la barra de herramientas, seleccione **Find Messages** (Buscar mensajes) y especifique un filtro personalizado en el identificador de solicitud de cliente en el campo **Find** (Buscar). Use esta sintaxis para el filtro, indicando su propio identificador de solicitud de cliente:
 
     ```
@@ -365,11 +363,11 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Intervalo de tiempo en los registros de servidor y red |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |Servidor, red |
 | Intervalo de tiempo en registros de servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server |
 
-## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre los escenarios de solución integral de problemas en Almacenamiento de Azure, vea los siguientes recursos:
+## <a name="next-steps"></a>pasos siguientes
+Para más información sobre los escenarios de solución integral de problemas en Azure Storage, vea los siguientes recursos:
 
-* [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
+* [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
 * [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 * [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)

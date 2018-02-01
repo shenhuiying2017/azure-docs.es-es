@@ -5,20 +5,20 @@ Use otras herramientas y servicios de Azure. Cuando el dispositivo se ha conecta
 | Escenario                                                   | Herramienta o servicio de Azure              |
 |----------------------------------------------------------- |------------------------------------|
 | [Administración de mensajes de IoT Hub][Mg_IoT_Hub_Msg]                  | herramienta iothub-explorer               |
-| [Administración de su dispositivo IoT][Mg_IoT_Dv]                        | herramienta iothub-explorer               |
+| [Administración de su dispositivo IoT][Mg_IoT_Dv]                        | CLI de Azure 2.0 y la extensión de IoT|
 | [Guardado de los mensajes de IoT Hub en Azure Storage][Sv_IoT_Msg_Stor]  | Almacenamiento de tablas de Azure                |
 | [Visualización de datos de sensor][Vis_Data_PBI]                      | Microsoft Power BI                 |
-| [Visualización de datos de sensor][Vis_Data_Web]                      | Aplicaciones web de Azure                      |
-| [Previsión meteorológica con datos del sensor][Weather_Forecast]      | Aprendizaje automático de Azure             |
+| [Visualización de datos de sensor][Vis_Data_Web]                      | Azure Web Apps                     |
+| [Previsión meteorológica con datos del sensor][Weather_Forecast]      | Azure Machine Learning             |
 | [Detección de anomalías automática y reacción][Anomaly_Detect] | Azure Logic Apps                   |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Cuando se hayan completado estos tutoriales, puede explorar aún más las funcionalidades de IoT Hub mediante la [guía del desarrollador][lnk-dev-guide]. Puede encontrar más tutoriales en la sección [Cómo][lnk-how-to].
 
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
-[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iothub-explorer.md
+[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
 [Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md

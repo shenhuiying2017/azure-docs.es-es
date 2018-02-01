@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/11/2018
 ms.author: tamram
-ms.openlocfilehash: 9de2f7e81d75669267fe6448030c118d06b3f88a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc7fd799eddca14e728f965601acd244d88870c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-php"></a>Uso del almacenamiento de blobs de PHP
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos en PHP y usan la [biblioteca de cliente de Azure Storage para PHP][download]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar**, y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps) .
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos en PHP y usan la [biblioteca de cliente de Azure Storage Blob para PHP][download]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar**, y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps) .
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,24 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 En esta guía, usará funciones del servicio Blob Storage a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
+### <a name="install-via-composer"></a>Instalación mediante el compositor
+1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/azure-storage-blob": "*"
+      }
+    }
+    ```
+2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
+3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
+   
+    ```
+    php composer.phar install
+    ```
+
+También puede ir a la [biblioteca de cliente de PHP de Azure Storage][download] en GitHub para clonar el código fuente.
 
 ## <a name="configure-your-application-to-access-the-blob-service"></a>Configuración de la aplicación para obtener acceso al servicio BLOB
 Para usar las API del servicio BLOB de Azure, necesita:
@@ -48,11 +65,11 @@ Para usar las API del servicio BLOB de Azure, necesita:
 1. Hacer referencia al archivo autocargador mediante la instrucción [require_once] y
 2. Hacer referencia a todas las clases que utilice.
 
-En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder** .
+En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **BlobRestProxy**.
 
 ```php
 require_once 'vendor/autoload.php';
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 ```
 
 En los ejemplos que aparecen a continuación, la instrucción `require_once` se muestra siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
@@ -72,7 +89,7 @@ Para obtener acceso al emulador de almacenamiento:
 UseDevelopmentStorage=true
 ```
 
-Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder** . Puede:
+Para crear un cliente de Azure Blob service, debe usar la clase **BlobRestProxy**. Puede:
 
 * pasarle directamente la cadena de conexión, o bien
 * usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/web-sites-configure.md) para configurar cadenas de conexión.
@@ -82,11 +99,12 @@ En los ejemplos descritos aquí, la cadena de conexión se pasa directamente.
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 ```
 
 ## <a name="create-a-container"></a>Crear un contenedor
@@ -97,15 +115,15 @@ Un objeto **BlobRestProxy** le permite crear un contenedor de blobs mediante el 
 ```php
 require_once 'vendor\autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-use MicrosoftAzure\Storage\Common\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
-// Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 
 // OPTIONAL: Set public access policy and metadata.
@@ -134,7 +152,7 @@ $createContainerOptions->addMetaData("key2", "value2");
 
 try    {
     // Create container.
-    $blobRestProxy->createContainer("mycontainer", $createContainerOptions);
+    $blobClient->createContainer("mycontainer", $createContainerOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -148,7 +166,7 @@ catch(ServiceException $e){
 
 Si llama a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**, los datos del contenedor y los blobs pasan a ser accesibles mediante solicitudes anónimas. Si llama a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, solo los datos de los blobs pasan a ser accesibles mediante solicitudes anónimas. Para obtener más información sobre las ACL del contenedor, consulte [Set container ACL (API de REST)][container-acl].
 
-Para obtener más información sobre los códigos de error del servicio BLOB, consulte [Códigos de error de Blob Service][error-codes].
+Para obtener más información sobre los códigos de error de Blob service, consulte [Códigos de error de Blob Service][error-codes].
 
 ## <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
 Para cargar un archivo como blob, use el método **BlobRestProxy->createBlockBlob**. De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe. En el ejemplo de código siguiente, se asume que el contenedor ya se creó y se utiliza [fopen][fopen] para abrir el archivo como secuencia.
@@ -156,20 +174,20 @@ Para cargar un archivo como blob, use el método **BlobRestProxy->createBlockBlo
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 $content = fopen("c:\myfile.txt", "r");
 $blob_name = "myblob";
 
 try    {
     //Upload blob
-    $blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
+    $blobClient->createBlockBlob("mycontainer", $blob_name, $content);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -189,15 +207,15 @@ Para enumerar los blobs de un contenedor, utilice el método **BlobRestProxy->li
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // List blobs.
-    $blob_list = $blobRestProxy->listBlobs("mycontainer");
+    $blob_list = $blobClient->listBlobs("mycontainer");
     $blobs = $blob_list->getBlobs();
 
     foreach($blobs as $blob)
@@ -221,16 +239,16 @@ Para descargar un blob, llame al método **BlobRestProxy->getBlob** y, a continu
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 
 try    {
     // Get blob.
-    $blob = $blobRestProxy->getBlob("mycontainer", "myblob");
+    $blob = $blobClient->getBlob("mycontainer", "myblob");
     fpassthru($blob->getContentStream());
 }
 catch(ServiceException $e){
@@ -251,15 +269,15 @@ Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProx
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // Delete blob.
-    $blobRestProxy->deleteBlob("mycontainer", "myblob");
+    $blobClient->deleteBlob("mycontainer", "myblob");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -277,15 +295,15 @@ Finalmente, para eliminar un contenedor de blobs, pase el nombre del contenedor 
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // Delete container.
-    $blobRestProxy->deleteContainer("mycontainer");
+    $blobClient->deleteContainer("mycontainer");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -297,13 +315,11 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del servicio BLOB de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 * Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](http://azure.github.io/azure-storage-php/).
 * Consulte el [ejemplo de blob avanzado](https://github.com/Azure/azure-storage-php/blob/master/samples/BlobSamples.php).
-
-Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
@@ -312,3 +328,5 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[composer-phar]: http://getcomposer.org/composer.phar

@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Cómo buscar una dirección mediante el servicio de búsqueda Azure Location Based Services (versión preliminar)
 El servicio de búsqueda es un conjunto de RESTful de API diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud/longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por las API del servicio de búsqueda se pueden usar como parámetros en otros servicios Azure Location Based Services como las API de ruta y flujo de tráfico.
 
 ## <a name="prerequisites"></a>requisitos previos
-Instale la [aplicación Postman](https://www.getpostman.com/apps).
+* Instale la [aplicación Postman](https://www.getpostman.com/apps).
 
-Una cuenta y una clave de suscripción de Azure Location Based Services. Para obtener información sobre cómo crear una cuenta y recuperar una clave de suscripción, consulte [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md) (Cómo administrar la cuenta y las claves de Azure Location Based Services). 
+* Tener una cuenta y una clave de Azure Location Based Services. Para más información sobre cómo crear una cuenta y recuperar una clave, consulte [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md) (Administración de la cuenta y las claves de Azure Location Based Services). 
 
 ## <a name="using-fuzzy-search"></a>Uso de búsqueda aproximada
 
@@ -53,7 +53,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado 'maxF
     | Clave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *clave de suscripción* |
+    | subscription-key | \<su clave de Azure Location Based Services\> |
     | query | pizza |
 
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
@@ -103,7 +103,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     | Clave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *clave de suscripción* |
+    | subscription-key | \<su clave de Azure Location Based Services\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
@@ -143,7 +143,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     | Clave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *clave de suscripción* |
+    | subscription-key | \<su clave de Azure Location Based Services\> |
     | query | 47.59093,-122.33263 |
     
 3. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
@@ -209,7 +209,7 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     | Clave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *clave de suscripción* |
+    | subscription-key | \<su clave de Azure Location Based Services\> |
     | query | 47.59093,-122.33263 |
     
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 

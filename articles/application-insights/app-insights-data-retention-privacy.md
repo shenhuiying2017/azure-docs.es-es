@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -99,16 +99,16 @@ Los puede exportar tanto usted como los miembros del equipo y pueden copiarse a 
 Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 
 ## <a name="where-is-the-data-held"></a>¿Donde se conservan los datos?
-* En los Estados Unidos o en Europa. Puede seleccionar la ubicación cuando se crea un nuevo recurso de Application Insights. 
+* En EE. UU., Europa o el Sudeste Asiático. Puede seleccionar la ubicación cuando se crea un nuevo recurso de Application Insights. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos o Europa?
-* No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales en la nube.
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos, Europa o el Sudeste Asiático?
+* Nº La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales en la nube.
 
 ## <a name="how-secure-is-my-data"></a>¿Están seguros mis datos?
 Application Insights es un servicio de Azure. Las directivas de seguridad se describen en las [notas del producto de seguridad, privacidad y cumplimiento de Azure](http://go.microsoft.com/fwlink/?linkid=392408).
 
-Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas del Portal de Azure, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://go.microsoft.com/fwlink/?linkid=392408).
+Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas de Azure Portal, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://go.microsoft.com/fwlink/?linkid=392408).
 
 El acceso a los datos por parte del personal de Microsoft está restringido. El acceso a los datos solo se realiza con su permiso y si es necesario para prestarle soporte en el uso de Application Insights. 
 
@@ -158,7 +158,7 @@ Los SDK varían entre las distintas plataformas y hay varios componentes que se 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Clases de datos que se envían en distintos escenarios
 | Acción del usuario | Clases de datos recopilados (ver tabla siguiente) |
 | --- | --- |
-| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>users |
+| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Requests<br/>**Excepciones**<br/>Sesión<br/>users |
 | [Instalar el Monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
 | [Incorporar el SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>users |
 | [Incorporar el SDK de JavaScript a una página web][client] |ClientContext  <br/>Inferidos<br/>Page<br/>ClientPerf<br/>Ajax |
@@ -166,7 +166,7 @@ Los SDK varían entre las distintas plataformas y hay varios componentes que se 
 | [Llamar a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
 | [Llamar a Track*][api] |Nombre del evento<br/>**Propiedades** |
 | [Llamar a TrackException][api] |**Excepciones**<br/>Volcado de la pila<br/>**Propiedades** |
-| El SDK no puede recopilar datos. Por ejemplo: <br/> - no se puede acceder a los contadores de rendimiento<br/> - excepción en el inicializador de telemetría |Diagnóstico de SDK |
+| El SDK no puede recopilar datos. Por ejemplo:  <br/> - no se puede acceder a los contadores de rendimiento<br/> - excepción en el inicializador de telemetría |Diagnóstico de SDK |
 
 Para los [SDK de otras plataformas][platforms], consulte los documentos correspondientes.
 
@@ -184,7 +184,7 @@ Para los [SDK de otras plataformas][platforms], consulte los documentos correspo
 | PageViews |URL y nombre de página o nombre de pantalla |
 | Rendimiento del cliente |URL o nombre de página, tiempo de carga del explorador |
 | Ajax |Llamadas HTTP de la página web al servidor |
-| Solicitudes |URL, duración, código de respuesta |
+| Requests |URL, duración, código de respuesta |
 | Dependencias |Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado) |
 | **Excepciones** |Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso |
 | Bloqueos |Identificador de proceso, identificador de proceso principal, identificador de subproceso de bloqueo; revisión de aplicación, identificador, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de cpu |

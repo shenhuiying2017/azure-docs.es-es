@@ -1,6 +1,6 @@
 ---
-title: "Creación de un equilibrador de carga con conexión a Internet: plantilla de Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos mediante una plantilla"
+title: "Creación de un equilibrador de carga público: plantilla de Azure | Microsoft Docs"
+description: "Aprenda a crear un equilibrador de carga público en Resource Manager con una plantilla"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 10d96920d3aa3cae19750d7c2437b88bac1c8cda
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Creación de un equilibrador de carga orientado a Internet mediante una plantilla
+# <a name="creating-a-public-load-balancer-using-a-template"></a>Creación de un equilibrador de carga público mediante una plantilla
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -73,7 +73,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 

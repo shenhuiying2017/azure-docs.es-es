@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -30,7 +30,7 @@ El cifrado de discos con el sistema operativo Linux debe desmontar la unidad del
 
 Este error suele ocurrir cuando se intenta el cifrado del disco del sistema operativo en un entorno de máquina virtual de destino que se ha modificado o cambiado desde su imagen de la galería admitida. Estos son algunos ejemplos de desviaciones de la imagen admitida, que pueden interferir con la capacidad de la extensión de desmontar la unidad del sistema operativo, por ejemplo:
 - Imágenes personalizadas que ya no coinciden con un sistema de archivos o esquema de particiones compatibles.
-- Se instalan aplicaciones grandes, como SAP, MongoDB o Apache Casandra, y se ejecutan en el sistema operativo antes del cifrado. La extensión no puede cerrar correctamente estas aplicaciones. Si estas aplicaciones mantienen abiertos controladores de archivo en la unidad del sistema operativo, la unidad no se puede desmontar, lo que provoca un error.
+- Las aplicaciones grandes, como SAP, MongoDB, Apache Casandra y Docker, no se admiten cuando se instalan y ejecutan en el sistema operativo antes del cifrado.  Azure Disk Encryption no puede apagar con seguridad estos procesos tal como se requiere en la preparación de la unidad del sistema operativo para el cifrado de disco.  Si hay procesos que siguen activos y que contienen identificadores de archivos abiertos en la unidad del sistema operativo, dicha unidad no se podrá desmontar y se producirá un error al cifrarla. 
 - Se ejecutan scripts personalizados casi al mismo tiempo que se deshabilita el cifrado, o si se hace algún otro cambio en la máquina virtual durante el proceso de cifrado. Este conflicto puede ocurrir cuando una plantilla de Azure Resource Manager define varias extensiones para ejecutarse al mismo tiempo o cuando una extensión de script personalizada u otra acción se ejecutan simultáneamente que el cifrado del disco. La serialización y el aislamiento de estos pasos podría resolver el problema.
 - Linux con seguridad mejorada (SELinux) no se ha deshabilitado antes de habilitar el cifrado, de modo que se produce un error en el paso de desmontaje. SELinux puede habilitarse de nuevo después de completarse el cifrado.
 - El disco del sistema operativo utiliza un esquema de administrador de volúmenes lógicos (LVM). Aunque hay compatibilidad limitada con los discos de datos LVM, no se admite el disco del sistema operativo LVM.
@@ -44,7 +44,7 @@ En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensa
 
 La secuencia de cifrado del disco del sistema operativo Linux desmonta la unidad del sistema operativo temporalmente. A continuación, realiza el cifrado de bloque a bloque de todo el disco del sistema operativo, antes de que vuelva a montarse en su estado cifrado. A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso. Las características de rendimiento de la máquina virtual pueden suponer una diferencia significativa en el tiempo necesario para el cifrado completo. Estas características incluyen el tamaño del disco y si la cuenta de almacenamiento es almacenamiento premium (SSD) o estándar.
 
-Para comprobar el estado de cifrado, sondee el campo **ProgressMessage** devuelto por el comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo:
+Para comprobar el estado de cifrado, sondee el campo **ProgressMessage** devuelto por el comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo: 
 
 
 ```
@@ -105,7 +105,7 @@ Para solucionar este problema, copie los cuatro archivos siguientes de una máqu
 
    4. Use DiskPart para comprobar los volúmenes y, a continuación, siga.  
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 DISKPART> list vol
@@ -116,7 +116,11 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="troubleshooting-encryption-status"></a>Solución de problemas de estado del cifrado
+
+Si el estado del cifrado esperado no coincide con lo que se está notifica en el portal, consulte el siguiente artículo de asistencia técnica: [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) (El estado de cifrado se muestra incorrectamente en el Portal de administración de Azure).
+
+## <a name="next-steps"></a>pasos siguientes
 
 En este documento, aprendió más acerca de algunos problemas comunes de Azure Disk Encryption y cómo solucionarlos. Para más información acerca de este servicio y su funcionalidad, consulte los artículos siguientes:
 

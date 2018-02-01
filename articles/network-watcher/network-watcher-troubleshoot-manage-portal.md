@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de conexiones y puerta de enlace de Azure Virtual Network: PowerShell | Microsoft Docs"
-description: "En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con el cmdlet de PowerShell"
+title: "Solución de problemas de conexiones y puerta de enlace de Azure Virtual Network: Portal | Microsoft Docs"
+description: "En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con Portal"
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante PowerShell de Azure Network Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Solución de problemas de conexiones y puerta de enlace de red virtual con Network Watcher de Azure Portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
-> - [API DE REST](network-watcher-troubleshoot-manage-rest.md)
+> - [API de REST](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher proporciona numerosas funcionalidades con relación a los recursos de red de Azure. Una de estas funcionalidades es la solución de problemas de recursos. Se puede llamar a la solución de problemas de recursos mediante el portal, PowerShell, la CLI o la API de REST. Cuando se llama a Network Watcher, este inspecciona el estado de una puerta de enlace de Virtual Network o de una conexión y devuelve sus conclusiones.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
+En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red.
 
 Para obtener una lista de los tipos de puerta de enlace compatibles, vea el artículo sobre los [tipos de puerta de enlace compatibles](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
@@ -60,7 +60,7 @@ Cuando finalice, la columna de estado cambia a **Healthy** (Correcto) **Unhealth
 
 En la sección de **detalles** de la ventana, la pestaña **Estado** muestra la última ejecución de solución de problemas en el recurso seleccionado. Los resultados del diagnóstico más reciente se muestran xx minutos después de la última ejecución.
 
-|Propiedad  |Descripción  |
+|Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |Recurso     | Un vínculo al recurso.        |
 |Ruta de acceso de almacenamiento     |  Ruta de acceso a la cuenta de almacenamiento y el contenedor que contienen los registros (si durante la ejecución se generó alguno). Esta configuración no se conserva una vez que sale del portal.        |
@@ -72,7 +72,7 @@ En la sección de **detalles** de la ventana, la pestaña **Estado** muestra la 
 La pestaña **Acción** ofrece una guía general sobre cómo resolver el problema. Si se puede realizar una acción para el problema, se proporciona un vínculo con instrucciones adicionales. Si no hay instrucciones adicionales, la respuesta proporciona la dirección URL para abrir un caso de soporte técnico.  Para más información acerca de las propiedades de la respuesta y lo que incluye, consulte la [introducción a la solución de problemas en Network Watcher](network-watcher-troubleshoot-overview.md)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si se cambió la configuración y la conectividad de VPN se ha detenido, consulte [Administración de grupos de seguridad de red](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para realizar un seguimiento de los grupos de seguridad de red y las reglas de seguridad que pueden estar afectados.
 

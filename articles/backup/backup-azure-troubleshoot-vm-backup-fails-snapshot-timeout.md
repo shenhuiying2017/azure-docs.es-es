@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -78,7 +78,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>No se admite la configuración de disco especificada
 
 > [!NOTE]
-> Tenemos una vista previa privada para admitir las copias de seguridad para las VM con discos no administrados de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+> Tenemos una versión preliminar privada para admitir las copias de seguridad de las VM con discos de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
 >
 >
 
@@ -97,11 +97,14 @@ Para poder funcionar correctamente, la extensión de copia de seguridad requiere
 
 ####  <a name="solution"></a>Solución
 Para solucionar este problema, pruebe uno de los métodos siguientes:
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Permitir acceso a los intervalos IP del centro de datos de Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Permitir el acceso al almacenamiento de Azure correspondiente a la región
 
-1. Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) a la que se va a permitir el acceso.
-2. Desbloquee las direcciones IP mediante la ejecución del cmdlet **New-NetRoute** en la máquina virtual de Azure en una ventana de PowerShell con privilegios elevados. Ejecute el cmdlet como administrador.
-3. Para permitir el acceso a las direcciones IP, agregue reglas al grupo de seguridad de red, si dispone de uno.
+Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) puede permitir conexiones al almacenamiento de la región concreta. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tiene mayor prioridad que la que bloquea el acceso a Internet. 
+
+![NSG con etiquetas de almacenamiento para una región](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Las etiquetas del servicio de almacenamiento solo están disponibles en determinadas regiones y en versión preliminar. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Crear una ruta de acceso para el flujo del tráfico HTTP
 
@@ -166,8 +169,6 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | --- | --- |
 | La máquina virtual tiene una copia de seguridad de SQL Server configurada. | De forma predeterminada, la copia de seguridad de la máquina virtual ejecuta una copia de seguridad completa de VSS en máquinas virtuales Windows. En las máquinas virtuales que se ejecutan en servidores basados en SQL Server y en las que se configura la copia de seguridad de SQL Server, se pueden producir retrasos en la ejecución de instantáneas.<br><br>Si experimenta un error de Backup debido a problemas de instantáneas, establezca la siguiente clave del Registro:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | El estado de la máquina virtual se notifica incorrectamente porque la máquina virtual está apagada en RDP. | Si ha apagado la máquina virtual en Protocolo de escritorio remoto (RDP), compruebe el portal para determinar si ese estado de la máquina virtual es correcto. Si no es así, apague la máquina virtual en el portal mediante la opción **Apagar** en el panel de la máquina virtual. |
-| Muchas máquinas virtuales del mismo servicio en la nube están configuradas para efectuar la copia de seguridad al mismo tiempo. | Se recomienda propagar las programaciones de copia de seguridad para las máquinas virtuales del mismo servicio en la nube. |
-| La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90 %) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 | La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione.  Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información, consulte el artículo sobre el [establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>No se puede actualizar ni cargar la extensión de copia de seguridad
@@ -192,24 +193,6 @@ Para desinstalar la extensión, haga lo siguiente:
 6. Hacer clic en **Desinstalar**.
 
 Este procedimiento hace que la extensión se vuelva a instalar durante la siguiente copia de seguridad.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Es posible que sea necesario realizar algún paso adicional para completar el registro en máquinas virtuales clásicas de Azure
-El agente en máquinas virtuales clásicas de Azure debe registrarse para establecer conexión con el servicio de copia de seguridad e iniciar la copia de seguridad
-
-#### <a name="solution"></a>Solución
-
-Después de instalar el agente invitado de la máquina virtual, inicie Azure PowerShell. <br>
-1. Inicie sesión en la cuenta de Azure mediante <br>
-       `Login-AzureAsAccount`<br>
-2. Compruebe si la propiedad ProvisionGuestAgent de la máquina virtual se establece en True con los siguientes comandos. <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Si la propiedad se establece en FALSE, use los comandos siguientes para establecerla en TRUE.<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. A continuación, ejecute el comando siguiente para actualizar la máquina virtual. <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Intente iniciar la copia de seguridad. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>El servicio de copia de seguridad no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos
 Este problema es propio de máquinas virtuales administradas en las que el usuario bloquea el grupo de recursos, de forma que el servicio de copia de seguridad no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores ya que hay un límite de 18 puntos de restauración que impone el back-end.

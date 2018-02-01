@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-stored-proc-activity.md)
-> * [Versión 2: Versión preliminar](transform-data-using-stored-procedure.md)
+> * [Versión 2: versión preliminar](transform-data-using-stored-procedure.md)
 
 
 Las actividades de transformación en una [canalización](concepts-pipelines-activities.md) de Data Factory transforman y procesan sus datos sin procesar para convertirlos en predicciones y perspectivas. La actividad de procedimiento almacenado es una de las actividades de transformación que admite Data Factory. Este artículo se basa en el artículo sobre [transformación de datos](transform-data.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas en Data Factory.
@@ -34,8 +34,8 @@ Las actividades de transformación en una [canalización](concepts-pipelines-act
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure: 
 
-- Base de datos SQL de Azure
-- Almacenamiento de datos SQL de Azure
+- Azure SQL Database
+- Azure SQL Data Warehouse
 - Base de datos de SQL Server.  Si se usa SQL Server, se debe instalar el entorno de ejecución de integración autohospedado en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. El entorno de ejecución de integración autohospedado es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo sobre el [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md) para más información.
 
 > [!IMPORTANT]
@@ -70,16 +70,16 @@ Este es el formato JSON para definir una actividad de procedimiento almacenado:
 
 En la tabla siguiente se describen estas propiedades JSON:
 
-| Propiedad                  | Descripción                              | Obligatorio |
+| Propiedad                  | DESCRIPCIÓN                              | Obligatorio |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nombre de la actividad                     | Sí      |
-| Descripción               | Texto que describe para qué se usa la actividad. | No       |
-| type                      | Para la actividad de procedimiento almacenado, el tipo de actividad es SqlServerStoredProcedure | Sí      |
-| linkedServiceName         | Referencia a Azure SQL Database, Azure SQL Data Warehouse o SQL Server registrado como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| storedProcedureName       | Especifique el nombre del procedimiento almacenado de Azure SQL Database, Azure SQL Data Warehouse o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. | Sí      |
-| storedProcedureParameters | Especifique valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo nativo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use *"param1": {"value": null}* (todo en minúsculas). | No       |
+| Nombre                      | Nombre de la actividad                     | Sí      |
+| Descripción               | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo                      | Para la actividad de procedimiento almacenado, el tipo de actividad es **SqlServerStoredProcedure** | Sí      |
+| linkedServiceName         | Referencia a **Azure SQL Database**, **Azure SQL Data Warehouse** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| storedProcedureName       | Especifique el nombre del procedimiento almacenado que se invocará. | Sí      |
+| storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | Sin        |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad U-SQL](transform-data-using-data-lake-analytics.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Backup para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -31,9 +31,9 @@ ms.lasthandoff: 12/21/2017
 Automated Backup configura automáticamente [Automated Backup para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas las bases de datos existentes y nuevas en una máquina virtual de Azure que ejecuta SQL Server 2014 Standard y Enterprise. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure. Automated Backup se basa en la [Extensión Agente de IaaS de SQL Server](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para ver la versión de Resource Manager de este artículo, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Para ver la versión de Resource Manager de este artículo, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -48,9 +48,7 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL Server 2016 no se admite todavía para Automated Backup.
-> 
-> 
+> Automated Backup para SQL Server 2016 es compatible con las máquinas virtuales de Resource Manager. Para más información, consulte [Automated Backup v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Configuración de base de datos**:
 
@@ -64,10 +62,10 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 
 * [Instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup. Para las máquinas virtuales clásicas, debe usar PowerShell para configurar estas opciones.
 
-| Configuración | Intervalo (valor predeterminado) | Descripción |
+| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Automated Backup** |Habilitar/deshabilitar (deshabilitado) |Habilita o deshabilita Automated Backup para una máquina virtual de Azure que ejecuta SQL Server 2014 Standard o Enterprise. |
 | **Período de retención** |1-30 días (30 días) |El número de días para retener una copia de seguridad. |
@@ -106,7 +104,7 @@ Para deshabilitar la copia de seguridad automática, ejecute el script sin el pa
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Automated Backup configura Copia de seguridad administrada en Azure Virtual Machines. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
 Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en Azure Virtual Machines en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).

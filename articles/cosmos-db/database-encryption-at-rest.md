@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Cifrado de base de datos en reposo en Azure Cosmos DB
 
@@ -26,7 +26,7 @@ El cifrado en reposo es una frase que se refiere normalmente al cifrado de datos
 
 Como servicio de PaaS que es, Cosmos DB es muy sencillo de usar. Dato que todos los datos de usuario almacenados en Cosmos DB están cifrados en reposo y en tránsito, no es necesario hacer nada. Otra forma de decirlo es que el cifrado en reposo está "activado" de forma predeterminada. No hay ningún mando para activarlo o desactivarlo. Ofrecemos esta característica a la vez que continuamos cumpliendo con nuestros [Acuerdos de Nivel de Servicio con respecto a disponibilidad y rendimiento](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implementación de cifrado en reposo
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementación de cifrado en reposo para Azure Cosmos DB
 
 El cifrado en reposo se implementa mediante una serie de tecnologías de seguridad, como sistemas seguros de almacenamiento de claves, redes cifradas y API criptográficas. Los sistemas que descifran y procesan datos tienen que comunicarse con los sistemas que administran claves. En el diagrama se muestra cómo se separan el almacenamiento de datos cifrados y la administración de claves. 
 
@@ -64,7 +64,7 @@ R: No hay ningún impacto ni cambios en el rendimiento de los Acuerdos de Nivel 
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: ¿Admite el emulador local admite el cifrado en reposo?
 R: El emulador es una herramienta de desarrollo o prueba independiente y no emplea los servicios de administración de claves que usa el servicio de Cosmos DB. Nuestra recomendación es habilitar BitLocker en aquellas unidades de disco donde se almacenan los datos de prueba del emulador confidenciales. El [emulador admite los cambios de directorio de datos predeterminado](local-emulator.md), así como el uso de una ubicación conocida.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información general sobre la seguridad y las últimas mejoras de Cosmos DB, consulte [Seguridad de base de datos de Azure Cosmos DB](database-security.md).
 Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/en-us/support/trust-center/).

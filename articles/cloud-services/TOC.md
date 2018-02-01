@@ -44,12 +44,12 @@
 ### [Conexión a un controlador de dominio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Administración de servicios
-### [Mitigación de ejecución especulativa] (mitigate-se.md}
 ### [Tareas comunes de administración](cloud-services-how-to-manage-portal.md)
 ### [Configuración de un servicio en la nube](cloud-services-how-to-configure-portal.md)
 ### [Administración de un servicio en la nube con Azure Automation](automation-manage-cloud-services.md)
 ### [Configuración de escalado automático](cloud-services-how-to-scale-portal.md)
 ### [Uso de Python para administrar recursos de Azure](cloud-services-python-how-to-use-service-management.md)
+### [Mitigación de ejecución especulativa](mitigate-se.md)
 
 ### [Revisiones del SO invitado](cloud-services-guestos-msrc-releases.md)
 ### Retirada de SO invitado

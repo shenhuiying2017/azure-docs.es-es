@@ -1,6 +1,6 @@
 ---
-title: "Creación de un equilibrador de carga con conexión a Internet de Azure: PowerShell | Microsoft Docs"
-description: Aprenda a crear un equilibrador de carga accesible desde Internet en Resource Manager con PowerShell
+title: "Creación de un equilibrador de carga público: PowerShell | Microsoft Docs"
+description: "Aprenda a crear un equilibrador de carga público en Resource Manager con PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell
+# <a name="get-started"></a>Creación de un equilibrador de carga público en Resource Manager con PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,9 +36,9 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Implementación de la solución mediante Azure PowerShell
 
-Los siguientes procedimientos explican cómo crear un equilibrador de carga accesible desde Internet mediante Azure Resource Manager con PowerShell. Con Azure Resource Manager, cada recurso se crea y configura de forma individual, y luego se juntan para crear un equilibrador de carga.
+Los siguientes procedimientos explican cómo crear un equilibrador de carga público mediante Azure Resource Manager con PowerShell. Con Azure Resource Manager, cada recurso se crea y configura de forma individual, y luego se juntan para crear un equilibrador de carga.
 
-Para implementar un equilibrador de carga, debe crear y configurar los siguientes objetos:
+Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes:
 
 * Configuración de direcciones IP front-end: contiene direcciones IP públicas (PIP) para el tráfico de red entrante.
 * Grupo de direcciones de back-end: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
@@ -306,7 +306,7 @@ Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Puede usar el modificador opcional **-Force** para evitar la solicitud de eliminación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 

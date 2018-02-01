@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -35,7 +35,7 @@ Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
 
 ## <a name="requirements-constraints"></a>Requisitos y restricciones
 
-* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Antes de emparejar las redes virtuales en regiones diferentes, primero debe [registrar su suscripción](virtual-network-create-peering.md#register) para la versión preliminar. Se producirá un error al intentar crear un emparejamiento entre redes virtuales en diferentes regiones si no ha completado el registro para la versión preliminar.
+* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en su versión preliminar en las regiones Centro-oeste de EE. UU., Canadá Central, Oeste de EE. UU. 2, Sur de Corea, Sur de Reino Unido, Oeste de Reino Unido, Canadá Oriental, Sur de la India, Centro de la India y Oeste de la India. Antes de emparejar las redes virtuales en regiones diferentes, primero debe [registrar su suscripción](virtual-network-create-peering.md#register) para la versión preliminar. Se producirá un error al intentar crear un emparejamiento entre redes virtuales en diferentes regiones si no ha completado el registro para la versión preliminar.
     > [!WARNING]
     > Es posible que los emparejamientos de redes virtuales que se crean en entre regiones no tengan el mismo nivel de disponibilidad y confiabilidad que los emparejamientos de una versión de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
 

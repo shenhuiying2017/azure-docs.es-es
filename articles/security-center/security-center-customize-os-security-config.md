@@ -1,6 +1,6 @@
 ---
-title: "Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center [versión preliminar] | Microsoft Docs"
-description: "En este artículo se muestra cómo personalizar las evaluaciones del centro de seguridad."
+title: "Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar) | Microsoft Docs"
+description: "En este artículo se muestra cómo personalizar las valoraciones del centro de seguridad."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,119 +12,120 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 01/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 2fa63515d290e6700fbe4a90ae509f4635b19f29
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="customizing-os-security-configurations-in-azure-security-center-preview"></a>Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center [versión preliminar]
+# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
-Aprenda a personalizar las evaluaciones de configuración de seguridad del sistema operativo en Azure Security Center mediante este tutorial.
+Con esta guía detallada aprenderá a personalizar las valoraciones de configuración de seguridad del sistema operativo en Azure Security Center.
 
 ## <a name="what-are-os-security-configurations"></a>¿Cuáles son las configuraciones de seguridad del sistema operativo?
 
-Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de más de 150 reglas recomendadas para proteger el sistema operativo, incluidas, entre otras, las relacionadas con firewalls, auditoría y directivas de contraseña. Si se detecta que la configuración de una maquina es vulnerable, se genera una recomendación de seguridad.
+Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de más de 150 reglas recomendadas para proteger el sistema operativo, incluidas, entre otras, las relacionadas con firewalls, auditoría y directivas de contraseña. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad.
 
-La personalización de las reglas puede ayudar a las organizaciones a controlar qué opciones de configuración son las más adecuadas para su entorno. Esta característica permite a los usuarios establecer una directiva personalizada de evaluación y aplicarla a todas las máquinas aplicables de la suscripción.
+La personalización de las reglas puede ayudar a las organizaciones a controlar qué opciones de configuración son las más adecuadas para su entorno. Puede establecer una directiva personalizada de valoración y aplicarla a todas las máquinas aplicables de la suscripción.
 
 > [!NOTE]
-> - En este momento, la personalización de la configuración de seguridad del sistema operativo está disponible únicamente para Windows Server 2008, 2008R2, 2012 y 2012R2.
-- La configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción seleccionada.
-- La personalización de la configuración de seguridad del sistema operativo está disponible únicamente en el nivel estándar de Security Center.
+> - En este momento, la personalización de la configuración de seguridad del sistema operativo está disponible únicamente para Windows Server 2008, 2008 R2, 2012 y 2012 R2.
+> - La configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción seleccionada.
+> - La personalización de la configuración de seguridad del sistema operativo está disponible únicamente en el nivel estándar de Security Center.
 >
 >
 
-¿Cómo personalizar las reglas de configuración de seguridad del sistema operativo?
-
-Para personalizar las reglas de configuración de seguridad del sistema operativo, puede habilitar y deshabilitar una regla determinada, cambiar el valor deseado en una regla existente y agregar nuevas reglas basadas en los tipos de reglas admitidos (Registro, directiva de auditoría y directiva de seguridad). Actualmente, el valor deseado debe ser un valor exacto.
+Para personalizar las reglas de configuración de seguridad del sistema operativo, puede habilitar y deshabilitar una regla determinada, cambiar el valor deseado en una regla existente o agregar nuevas reglas basadas en los tipos de reglas admitidos (registro, directiva de auditoría y directiva de seguridad). Actualmente, el valor deseado debe ser un valor exacto.
 
 Las nuevas reglas deben tener el mismo formato y estructura que otras reglas existentes del mismo tipo.
 
 > [!NOTE]
-> Para personalizar las configuraciones de seguridad del sistema operativo, debe tener asignado el rol de propietario de la suscripción, colaborador de la suscripción o administrador de seguridad.
+> Para personalizar las configuraciones de seguridad del sistema operativo, debe tener asignado el rol de *propietario de la suscripción*, *colaborador de la suscripción* o *administrador de seguridad*.
 >
 >
 
-## <a name="customize-security-configuration"></a>Personalización de la configuración de seguridad
+## <a name="customize-the-default-os-security-configuration"></a>Personalizar la configuración de seguridad predeterminada del sistema operativo
 
 Para personalizar la configuración de seguridad predeterminada del sistema operativo en Security Center, siga estos pasos:
 
 1.  Abra el panel **Security Center**.
 
-2.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.  Se abre la página **Security Center - Directiva de seguridad**.
+2.  En el panel izquierdo, seleccione **Directiva de seguridad**.  
+    Se abre la ventana **Security Center - Security policy** (Security Center - Directiva de seguridad).
+
+    ![Lista de directivas de seguridad](media/security-center-customize-os-security-config/open-security-policy.png)
 
 3.  Seleccione la suscripción para la que desea realizar la personalización.
 
-    ![](media/security-center-customize-os-security-config/open-security-policy.png)
+4. En **Componentes de la directiva**, seleccione **Edit security configurations** (Editar configuraciones de seguridad).  
+    Se abre la ventana **Edit security configurations** (Editar configuraciones de seguridad). 
+    
+    ![Ventana "Edit security configurations" (Editar configuraciones de seguridad)](media/security-center-customize-os-security-config/blade.png)
 
-4. En **Componentes de la directiva**, seleccione **Edit security configurations** (Editar configuraciones de seguridad).
+5. En el panel derecho, siga los pasos para descargar, editar y cargar el archivo modificado.
 
-6.  Se abre la página **Edit security configurations** (Editar configuraciones de seguridad). Siga los pasos que se resaltan en la pantalla para descargar, editar y cargar el archivo modificado.
+   > [!NOTE]
+   > De forma predeterminada, el archivo de configuración que descarga está en formato *json*. Para obtener instrucciones sobre cómo modificar este archivo, vaya a [Customize the configuration file](#customize-the-configuration-file) (Personalizar el archivo de configuración).
+   >
 
-    ![](media/security-center-customize-os-security-config/blade.png)
+   Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción. El proceso normalmente tarda unos minutos, pero puede tardar más tiempo en función del tamaño de la infraestructura. 
 
-  > [!NOTE]
-  > De forma predeterminada, el archivo de configuración que descarga está en formato *json*. Para obtener instrucciones sobre cómo modificar este archivo, vaya a [Personalización del archivo de configuración](#customize-the-configuration-file).
-  >
+6. Para confirmar el cambio, seleccione **Guardar**. En caso contrario, no se almacenará la directiva.
 
-7. Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción seleccionada. Este proceso puede tardar algún tiempo, normalmente unos minutos, pero puede prolongarse ya que depende del tamaño de la infraestructura. Seleccione **Guardar** para confirmar el cambio, ya que, si no, la directiva no se almacena.
+    ![Botón Guardar](media/security-center-customize-os-security-config/save-successfully.png)
 
-    ![](media/security-center-customize-os-security-config/save-successfully.png)
+Puede restablecer la configuración de directiva actual a su estado predeterminado en cualquier momento. Para ello, en la ventana **Edición de reglas de configuración de la seguridad del SO**, seleccione **Restablecer**. Confirme esta opción seleccionando **Sí** en la ventana emergente de confirmación.
 
-En cualquier momento, puede restablecer la configuración actual de la directiva al estado predeterminado; para ello, seleccione la opción **Restablecer** en **Edición de reglas de configuración de la seguridad del SO**. Si elige esta opción, recibirá la siguiente alerta emergente. Seleccione **Sí** para confirmar la acción.
-
-![](media/security-center-customize-os-security-config/edit-alert.png)
+![Ventana de confirmación "Restablecer"](media/security-center-customize-os-security-config/edit-alert.png)
 
 ## <a name="customize-the-configuration-file"></a>Personalización del archivo de configuración
 
-En el archivo de personalización, cada versión de sistema operativo admitida tiene un conjunto de reglas. Cada conjunto de reglas tiene su propio nombre e identificador únicos, como se muestra en el ejemplo siguiente:
+En el archivo de personalización, cada versión de sistema operativo admitida tiene un conjunto de reglas. Cada conjunto de reglas tiene su propio nombre e identificador únicos, tal como se muestra en el ejemplo siguiente:
 
-![](media/security-center-customize-os-security-config/custom-file.png)
+![Nombre e id. del conjunto de reglas](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> Este archivo se ha editado con Visual Studio, pero también puede usar Bloc de notas siempre que tenga instalado el complemento de visor de JSON.
+> Este archivo de ejemplo se editó con Visual Studio, pero también puede usar el Bloc de notas siempre que tenga instalado el complemento de visor de JSON.
 >
 >
 
-Al editar este archivo, puede modificar una regla o todas ellas. Cada conjunto de reglas incluye una sección de *reglas* que contiene las reglas, divididas en tres categorías: Registro, Directiva de auditoría y Directiva de seguridad, como se muestra a continuación:
+Si edita el archivo de personalización, puede modificar una o todas las reglas. Cada conjunto de reglas incluye una sección denominada *Reglas* dividida en tres categorías denominadas Registro, Directiva de auditoría y Directiva de seguridad, tal como se muestra a continuación:
 
-![](media/security-center-customize-os-security-config/rules-section.png)
+![Tres categorías del conjunto de reglas](media/security-center-customize-os-security-config/rules-section.png)
 
-Cada categoría tiene su propio conjunto de atributos. En las reglas existentes, puede realizar cambios en los siguientes atributos:
+Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguientes atributos:
 
-- expectedValue: el tipo de datos de campo de este atributo debe coincidir con los valores admitidos por cada tipo de regla, por ejemplo:
+- **expectedValue**: el tipo de datos de campo de este atributo debe coincidir con los valores admitidos por cada *tipo de regla*, por ejemplo:
 
-  - baselineRegistryRules: el valor debe coincidir con el valor de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85) definido en esa regla.
+  - **baselineRegistryRules**: el valor debe coincidir con el valor de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) que se define en esa regla.
 
-  - baselineAuditPolicyRules: el valor debe ser una cadena, una de las siguientes:
+  - **baselineAuditPolicyRules**: use uno de los siguientes valores de cadena:
 
-    - Aciertos y errores
+    - *Success and Failure*
 
-    - Correcto
+    - *Success*
 
-  - baselineSecurityPolicyRules: el valor debe ser un valor de cadena, uno de los siguientes:
+  - **baselineSecurityPolicyRules**: use uno de los siguientes valores de cadena:
 
-    - "No one"
+    - *No one*
 
-    - Lista de grupos de usuario admitidos, por ejemplo: “Administrators, Backup Operators”
+    - Lista de grupos de usuarios admitidos, por ejemplo: *Administrators*, *Backup Operators*
 
--   state: cadena que puede contener las opciones “Disabled” o “Enabled”. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
+-   **state**: cadena que puede contener las opciones *Disabled* o *Enabled*. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
 
 Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. El siguiente mensaje de error se produce cuando no se puede procesar el archivo:
 
-![](media/security-center-customize-os-security-config/invalid-json.png)
+![Mensaje de error de la configuración de seguridad](media/security-center-customize-os-security-config/invalid-json.png)
 
-Consulte [Códigos de error](#error-codes) para obtener la lista de posibles errores.
+Para obtener una lista de otros posibles errores, consulte [Códigos de error](#error-codes).
 
-A continuación, encontrará ejemplos de estas reglas y los atributos (en negrita) que se pueden cambiar:
+Las tres secciones siguientes contienen ejemplos de las reglas anteriores. Los atributos *expectedValue* y *state* se pueden cambiar.
 
-**Sección de reglas:** baselineRegistryRules
+**baselineRegistryRules**
 ```
-{
-
+    {
     "hive": "LocalMachine",
     "regValueType": "Int",
     "keyPath":
@@ -136,54 +137,55 @@ A continuación, encontrará ejemplos de estas reglas y los atributos (en negrit
     "ruleName": "Network access: Restrict anonymous access to Named Pipes and
     Shares",
     "ruleType": "Registry",
-    "**expectedValue**": "1",
+    "expectedValue": "1",
     "severity": "Warning",
     "analyzeOperation": "Equals",
     "source": "Microsoft",
-    "**state**": "Disabled"
+    "state": "Disabled"
 
-}
+    }
 ```
 
-**Sección de reglas:** baselineAuditPolicyRules
+**baselineAuditPolicyRules**
 ```
-{
-"auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
-"ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
-"originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
-"cceId": "CCE-11001-5",
-"ruleName": "Audit Policy: Account Management: Other Account Management Events",
-"ruleType": "AuditPolicy",
-"**expectedValue**": "Success and Failure",
-"severity": "Critical",
-"analyzeOperation": "Equals",
-"source": "Microsoft",
-"**state**": "Enabled"
-},
-```
-
-**Secciones de reglas:** baselineSecurityPolicyRules
-```
-{
-"sectionName": "Privilege Rights",
-"settingName": "SeIncreaseWorkingSetPrivilege",
-"ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
-"originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
-"cceId": "CCE-10548-6",
-"ruleName": "Increase a process working set",
-"ruleType": "SecurityPolicy",
-"**expectedValue**": "Administrators, Local Service",
-"severity": "Warning",
-"analyzeOperation": "Equals",
-"source": "Microsoft", "**state**": "Enabled"
-},
+    {
+    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
+    "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
+    "originalId": "2ea0de1a-c71d-46c8-8350-a7dd4d447895",
+    "cceId": "CCE-11001-5",
+    "ruleName": "Audit Policy: Account Management: Other Account Management Events",
+    "ruleType": "AuditPolicy",
+    "expectedValue": "Success and Failure",
+    "severity": "Critical",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
 ```
 
-Hay algunas reglas que se repiten para los distintos tipos de sistema operativo. Las reglas duplicadas tienen el mismo valor de "originalId".
+**baselineSecurityPolicyRules**
+```
+    {
+    "sectionName": "Privilege Rights",
+    "settingName": "SeIncreaseWorkingSetPrivilege",
+    "ruleId": "b0ec9d5e-916f-4356-83aa-c23522102b33",
+    "originalId": "b61bd492-74b0-40f3-909d-36b9bf54e94c",
+    "cceId": "CCE-10548-6",
+    "ruleName": "Increase a process working set",
+    "ruleType": "SecurityPolicy",
+    "expectedValue": "Administrators, Local Service",
+    "severity": "Warning",
+    "analyzeOperation": "Equals",
+    "source": "Microsoft",
+    "state": "Enabled"
+    }
+```
 
-## <a name="adding-a-new-custom-rule"></a>Adición de una nueva regla personalizada
+Hay algunas reglas que se repiten en los distintos tipos de sistema operativo. Las reglas duplicadas tienen el mismo atributo *originalId*.
 
-También puede crear una nueva regla. Antes de hacerlo, tenga en cuenta las siguientes restricciones:
+## <a name="create-custom-rules"></a>Crear reglas personalizadas
+
+También puede crear nuevas reglas. Antes de hacerlo, tenga en cuenta las siguientes restricciones:
 
 -   La versión de esquema, *baselineId* y *baselineName* no se puede cambiar.
 
@@ -191,23 +193,23 @@ También puede crear una nueva regla. Antes de hacerlo, tenga en cuenta las sigu
 
 -   No se puede agregar el conjunto de reglas.
 
--   El número máximo de reglas permitidas (incluidas las reglas predeterminadas) es 1000 reglas.
+-   El número máximo de reglas permitidas (incluidas las reglas predeterminadas) es de 1000.
 
-Las nuevas reglas personalizadas se marcan con un nuevo origen personalizado (! = "Microsoft"). El campo *ruleId* puede ser nulo o estar vacío. Si está vacío, Microsoft genera uno. Si no está vacío, debe tener un GUID válido único entre todas las reglas (predeterminado y personalizado). Revise a continuación las restricciones con respecto a los campos principales:
+Las nuevas reglas personalizadas se marcan con un nuevo origen personalizado (! = "Microsoft"). El campo *ruleId* puede ser nulo o estar vacío. Si está vacío, Microsoft genera uno. Si no está vacío, debe tener un GUID válido que sea único entre todas las reglas (predeterminadas y personalizadas). Revise las siguientes restricciones para los campos básicos:
 
--   *originalId*: puede ser nulo o estar vacío. Si *originalId* no está vacío, debe ser un GUID válido.
+-   **originalId**: puede ser nulo o estar vacío. Si *originalId* no está vacío, debe ser un GUID válido.
 
--   *cceId*: puede ser nulo o estar vacío. Si *cceId* es no está vacío, debe ser único.
+-   **cceId**: puede ser nulo o estar vacío. Si *cceId* es no está vacío, debe ser único.
 
--   *ruleType*: Registry, AuditPolicy o SecurityPolicy.
+-   **ruleType**: (seleccione uno) Registry, AuditPolicy o SecurityPolicy.
 
--   *Severity*: Unknown, Critical, Warning o Informational.
+-   **Severity**: (seleccione uno) Unknown, Critical, Warning o Informational.
 
--   *analyzeOperation*: debe ser Equals.
+-   **analyzeOperation**: debe ser *Equals*.
 
--   *auditPolicyId*: debe ser un GUID válido.
+-   **auditPolicyId**: debe ser un GUID válido.
 
--   *regValueType*: debe ser Int, Long, String o MultipleString.
+-   **regValueType**: (seleccione uno) Int, Long, String o MultipleString.
 
 > [!NOTE]
 > Hive debe ser *LocalMachine*.
@@ -231,12 +233,11 @@ Ejemplo de una nueva regla personalizada:
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
     "state": "Enabled"
-   }
+    }
 ```
 **Directiva de seguridad**:
 ```
-{
-
+   {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
    "originalId": "",
@@ -249,7 +250,7 @@ Ejemplo de una nueva regla personalizada:
    "state": "Enabled"
    }
 ```
-**Directiva de auditoría**
+**Directiva de auditoría**:
 ```
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -265,59 +266,59 @@ Ejemplo de una nueva regla personalizada:
 
 ## <a name="file-upload-failures"></a>Errores de carga de archivos
 
-Si el archivo de configuración enviado no es válido debido a errores en los valores o el formato, se muestra un error. Puede descargar un informe detallado de errores en formato csv para solucionar y corregir los errores antes de volver a enviar un archivo de configuración corregido.
+Si el archivo de configuración enviado no es válido debido a errores en los valores o el formato, se muestra un error. Puede descargar un informe detallado de errores en formato .csv para solucionar y corregir los errores antes de volver a enviar un archivo de configuración corregido.
 
-![](media/security-center-customize-os-security-config/invalid-configuration.png)
+![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/invalid-configuration.png)
 
-Ejemplo del archivo de errores:
+Ejemplo de un archivo de error:
 
-![](media/security-center-customize-os-security-config/errors-file.png)
+![Ejemplo de un archivo de error](media/security-center-customize-os-security-config/errors-file.png)
 
 ## <a name="error-codes"></a>Códigos de error
 
-La lista siguiente tiene todos los errores posibles:
+Todos los posibles errores se mencionan en la siguiente tabla:
 
 | **Error**                                | **Descripción**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | Se encontró que la propiedad "schemaVersion" no era válida o estaba vacía. El valor se debe establecer en "{0}".                                                         |
-| BaselineInvalidStringError               | La propiedad "{0}" no puede contener '\\n'.                                                                                                         |
-| BaselineNullRuleError                    | La lista de reglas de configuración de línea de base contiene una regla con el valor "null".                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID "{0}" no es único.                                                                                                                  |
-| BaselineRuleEmptyProperty                | La propiedad: "{0}" falta o no es válida.                                                                                                       |
-| BaselineRuleIdNotInDefault               | La regla tiene una propiedad de origen "Microsoft" pero no se encontró en el conjunto de reglas predeterminado de Microsoft.                                                   |
+| BaselineConfiguratiohSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}*.                                                         |
+| BaselineInvalidStringError               | La propiedad *{0}* no puede contener *\\n*.                                                                                                         |
+| BaselineNullRuleError                    | La lista de reglas de configuración de línea de base contiene una regla con el valor *null*.                                                                         |
+| BaselineRuleCceIdNotUniqueError          | El valor de CCE-ID *{0}* no es único.                                                                                                                  |
+| BaselineRuleEmptyProperty                | La propiedad *{0}* falta o no es válida.                                                                                                       |
+| BaselineRuleIdNotInDefault               | La regla tiene una propiedad de origen *Microsoft*, pero no se encontró en el conjunto de reglas predeterminado de Microsoft.                                                   |
 | BaselineRuleIdNotUniqueError             | El identificador de regla no es único.                                                                                                                       |
-| BaselineRuleInvalidGuid                  | Se encontró que la propiedad "{0}" no era válida. El valor' no es un GUID válido.                                                                             |
-| BaselineRuleInvalidHive                  | Hive debe ser LocalMachine.                                                                                                                   |
+| BaselineRuleInvalidGuid                  | La propiedad *{0}* no es válida. El valor no es un GUID válido.                                                                             |
+| BaselineRuleInvalidHive                  | El subárbol debe ser LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | El nombre de la regla no es único.                                                                                                                 |
 | BaselineRuleNotExistInConfigError        | No se encontró la regla en la nueva configuración. No se puede eliminar la regla.                                                                     |
-| BaselineRuleNotFoundError                | La regla no se encontró en conjunto de reglas de línea de base predeterminado.                                                                                        |
+| BaselineRuleNotFoundError                | La regla no se encontró en el conjunto de reglas de línea de base predeterminado.                                                                                        |
 | BaselineRuleNotInPlace                   | La regla coincide con una regla predeterminada con el tipo {0} y aparece en la lista de {1}.                                                                       |
-| BaselineRulePropertyTooLong              | La propiedad "{0}" es demasiado larga. Longitud máxima permitida: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | El valor esperado "{0}" no coincide con el tipo de valor del Registro que se define.                                                              |
-| BaselineRulesetAdded                     | Se encontró un conjunto de reglas con el identificador "{0}" en la configuración predeterminada. No se puede agregar el conjunto de reglas.                                               |
-| BaselineRulesetIdMustBeUnique            | El conjunto de reglas de línea de base especificado "{0}" debe ser único.                                                                                           |
-| BaselineRulesetNotFound                  | No se encontró el conjunto de reglas con el identificador "{0}" y el nombre "{1}" en la configuración dada. No se puede eliminar el conjunto de reglas.                                |
-| BaselineRuleSourceNotMatch               | Ya hay una regla definida con el identificador "{0}".                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | El tipo de regla predeterminado es "{0}".                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | El tipo real de la regla es: {0}, pero la propiedad ruleType es: {1}.                                                                          |
-| BaselineRuleUnpermittedChangesError      | Solo se permite cambiar las propiedades "expectedValue" y "state".                                                                       |
-| BaselineTooManyRules                     | El número máximo permitido de reglas personalizadas es {0} reglas. La configuración dada contiene reglas de {1}. ({2} reglas predeterminadas + {3} reglas personalizadas. |
-| ErrorNoConfigurationStatus               | No se encontró ningún estado de configuración. Defina el estado de configuración deseado: "Default" o "Custom".                                    |
-| ErrorNonEmptyRulesetOnDefault            | El estado de configuración está establecido como predeterminado. La lista BaselineRulesets debe ser null o estar vacía.                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | El estado de configuración proporcionado es "Custom", pero la propiedad "baselineRulesets" es null o está vacía.                                             |
-| ErrorParsingBaselineConfig               | La configuración dada no es válida. Uno o varios de los valores definidos tienen un valor null o un tipo no válido.                                  |
-| ErrorParsingIsDefaultProperty            | El valor dado de "configurationStatus" "{0}" no es válido. El valor puede ser solo "Default" o "Custom".                                         |
-| InCompatibleViewVersion                  | Versión de visualización: {0} no se admite en este tipo de área de trabajo.                                                                                   |
+| BaselineRulePropertyTooLong              | La propiedad *{0}* es demasiado larga. Longitud máxima permitida: {1}.                                                                                        |
+| BaselineRuleRegTypeInvalidError          | El valor esperado *{0}* no coincide con el tipo de valor de registro que se define.                                                              |
+| BaselineRulesetAdded                     | No se encontró ningún conjunto de reglas con el identificador *{0}* en la configuración predeterminada. No se puede agregar el conjunto de reglas.                                               |
+| BaselineRulesetIdMustBeUnique            | El conjunto de reglas de línea de base determinado *{0}* debe ser único.                                                                                           |
+| BaselineRulesetNotFound                  | No se encontró el conjunto de reglas con el identificador *{0}* y el nombre *{1}* en la configuración establecida. No se puede eliminar el conjunto de reglas.                                |
+| BaselineRuleSourceNotMatch               | Ya hay una regla definida con el identificador *{0}*.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | El tipo de regla predeterminado es *{0}*.                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | El tipo real de la regla es *{0}*, pero la propiedad *ruleType* es *{1}*.                                                                          |
+| BaselineRuleUnpermittedChangesError      | Solo se pueden cambiar las propiedades *expectedValue* y *state*.                                                                       |
+| BaselineTooManyRules                     | El número máximo permitido de reglas personalizadas es de {0}. La configuración establecida contiene reglas de {1}, reglas predeterminadas de {2} y reglas personalizadas de {3}. |
+| ErrorNoConfigurationStatus               | No se encontró ningún estado de configuración. Defina el estado de configuración que quiere usar: *Default* o *Custom*.                                    |
+| ErrorNonEmptyRulesetOnDefault            | El estado de la configuración está establecido como predeterminado. La lista *BaselineRulesets* debe ser nula o estar vacía.                                                          |
+| ErrorNullRulesetsPropertyOnCustom        | El estado de configuración proporcionado es *Custom*, pero la propiedad *baselineRulesets* es nula o está vacía.                                             |
+| ErrorParsingBaselineConfig               | La configuración dada no es válida. Uno o varios de los valores definidos tienen un valor nulo o un tipo no válido.                                  |
+| ErrorParsingIsDefaultProperty            | El valor proporcionado de *configurationStatus* *{0}* no es válido. El valor puede ser solo *Default* o *Custom*.                                         |
+| InCompatibleViewVersion                  | La versión de visualización *{0}* *no* se admite en este tipo de área de trabajo.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | Se encontró la configuración de línea de base especificada con uno o varios errores de validación de tipo.                                                          |
-| ViewConversionError                      | La vista es de una versión más antigua que la que admite esa área de trabajo. Error de conversión de vista: {0}                                                                 |
+| ViewConversionError                      | La vista es una versión más antigua y el área de trabajo no la admite. Error de conversión de vista: {0}.                                                                 |
 
-Si no tiene permisos suficientes, puede que reciba un error general:
+Si no tiene permisos suficientes, puede que reciba un error general tal como se muestra aquí:
 
-![](media/security-center-customize-os-security-config/general-failure-error.png)
+![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>pasos siguientes
-En este artículo se ha mostrado cómo personalizar las evaluaciones de configuración de seguridad del sistema operativo en Security Center. Para más información sobre las reglas de configuración y la corrección, consulte:
+En este artículo se ha mostrado cómo personalizar las valoraciones de configuración de seguridad del sistema operativo en Security Center. Para más información sobre las reglas de configuración y la corrección, consulte:
 
 - [Security Center Common Configuration Identifiers and Baseline Rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (Identificadores y reglas de línea de base comunes de configuración de Security Center).
-- Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/config/cce/index) para obtener más información.
-- En [Corrección de configuración de seguridad](security-center-remediate-os-vulnerabilities.md) se muestra cómo resolver las vulnerabilidades cuando la configuración del sistema operativo no coincide con las reglas de configuración de seguridad recomendadas.
+- Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración. Para obtener más información, consulte [CCE](https://nvd.nist.gov/config/cce/index).
+- En [Corregir las configuraciones de seguridad](security-center-remediate-os-vulnerabilities.md) se muestra cómo resolver las vulnerabilidades cuando la configuración del sistema operativo no coincide con las reglas de configuración de seguridad recomendadas.

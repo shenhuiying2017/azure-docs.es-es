@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Logic Apps
 
@@ -39,7 +39,7 @@ Para seguir este ejemplo, necesita estos elementos:
 
 * Una suscripción de Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Una cuenta de correo electrónico con cualquier [proveedor de correo electrónico compatible con Azure Logic Apps](../connectors/apis-list.md)
 
@@ -85,11 +85,11 @@ La aplicación lógica remitente necesita saber dónde enviar los elementos, mie
 
    3. Seleccione esta acción para el conector: **{*proveedor de correo electrónico*} - Enviar un correo electrónico**
 
-      Por ejemplo:
+      Por ejemplo: 
 
       ![Seleccione la acción "Enviar un correo electrónico" para el proveedor de correo electrónico](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Si anteriormente no creó una conexión para su proveedor de correo electrónico, proporcione sus credenciales de correo electrónico para la autenticación cuando se le soliciten. Obtenga más información sobre la [autenticación de sus credenciales de correo electrónico](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Si anteriormente no creó una conexión para su proveedor de correo electrónico, proporcione sus credenciales de correo electrónico para la autenticación cuando se le soliciten. Obtenga más información sobre la [autenticación de sus credenciales de correo electrónico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Establezca las propiedades de la acción que acaba de agregar.
 
@@ -200,7 +200,7 @@ La aplicación lógica BatchSender se ejecuta cada minuto, genera un número ale
 > [!IMPORTANT]
 > Cuando haya terminado las pruebas, asegúrese de que deshabilita la aplicación lógica BatchSender para detener el envío de mensajes y evitar la sobrecarga de la bandeja de entrada.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Generar definiciones de aplicación lógica mediante el uso de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Cree una aplicación sin servidor en Visual Studio con Azure Logic Apps y Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)

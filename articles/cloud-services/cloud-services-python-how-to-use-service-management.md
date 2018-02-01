@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Uso de la administración de servicios con Python
 En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en [Azure Portal][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
@@ -106,11 +106,11 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Europa del Norte
 * Sudeste asiático
 * Asia oriental
-* Central EE. UU.:
+* Central EE. UU:
 * Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
-* Oeste de EE. UU.
-* Este de EE. UU.
+* Oeste de EE. UU
+* Este de EE. UU
 * Este de Japón
 * Oeste de Japón
 * Sur de Brasil
@@ -394,9 +394,9 @@ Para crear finalmente la máquina virtual con la imagen capturada, use el métod
         role_size='Small',
         vm_image_name = image_name)
 
-Para más información acerca de cómo capturar una máquina virtual Linux, consulte [Captura de una máquina virtual Linux.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Para más información sobre cómo capturar una máquina virtual Linux en el modelo de implementación clásica, vea [Captura de una máquina virtual Linux](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Para más información acerca de cómo capturar una máquina virtual Windows, consulte [Captura de una máquina virtual Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para más información sobre cómo capturar una máquina virtual Windows en el modelo de implementación clásica, vea [Captura de una máquina virtual Windows](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"></a>Pasos siguientes
 Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [Documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.

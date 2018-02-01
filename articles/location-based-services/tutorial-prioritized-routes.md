@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Location Based Services
 
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Location Based Service
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Antes de continuar, asegúrese de [crear su cuenta de Azure Location Based Services](./tutorial-search-location.md#createaccount) y de [obtener la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey). También puede observar cómo se usan las API de Control de mapa y Search Service en el tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md) (Búsqueda de puntos de interés cercanos mediante Azure Location Based Services), y conocer el uso básico de las API de Route Service en el tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md) (Ruta a un punto de interés mediante Azure Location Based Services).
+Antes de continuar, asegúrese de [crear su cuenta de Azure Location Based Services](./tutorial-search-location.md#createaccount) y de [obtener la clave de la cuenta](./tutorial-search-location.md#getkey). También puede observar cómo se usan las API de Control de mapa y Search Service en el tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md) (Búsqueda de puntos de interés cercanos mediante Azure Location Based Services), y conocer el uso básico de las API de Route Service en el tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md) (Ruta a un punto de interés mediante Azure Location Based Services).
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ Use los pasos siguientes para crear una página HTML estática insertada con la 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** proporciona el control para un mapa web visual e interactivo, y es un componente de la API de Control de mapa de Azure.
@@ -195,7 +195,7 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
     ```
     Este fragmento de código crea un elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para obtener una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y agrega la capa `truckRouteLayerName` del mapa. 
     
-    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de suscripción de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado.  
+    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado.  
         - Los parámetros `vehicleWidth`, `vehicleHeight` y `vehicleLength` especifican las dimensiones del vehículo en metros y solo se tienen en cuenta si el modo de desplazamiento es *camión*.  
         -El parámetro `vehicleLoadType` clasifica la carga como peligrosa y restringida en algunas carreteras. Actualmente, este parámetro solo se tiene en cuenta para el modo de desplazamiento *camión*.  
 
@@ -238,7 +238,7 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
     ```
     Este fragmento de código crea otro elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para obtener una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y agrega la capa `carRouteLayerName` del mapa. 
     
-    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de suscripción de la cuenta. Dado que no se usa ningún otro parámetro, se devuelve la ruta con el modo predeterminado de desplazamiento de *coche*. 
+    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de la cuenta. Dado que no se usa ningún otro parámetro, se devuelve la ruta con el modo predeterminado de desplazamiento de *coche*. 
 
 3. Guarde el archivo **MapTruckRoute.html** localmente, ábralo en un explorador web de su elección y observe el resultado. Para que la conexión con las API de Location Based Services se realice correctamente, debe ver un mapa similar al siguiente. 
 

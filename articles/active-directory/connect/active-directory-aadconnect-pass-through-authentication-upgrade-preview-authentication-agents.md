@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Autenticación de paso a través (actualización de la versión preliminar de los agentes de autenticación) | Microsoft Docs"
+title: "Azure AD Connect: autenticación de paso a través, actualización de los agentes de autenticación | Microsoft Docs"
 description: "En este artículo se describe cómo actualizar la configuración de la Autenticación de paso a través de Azure Active Directory (Azure AD)."
 services: active-directory
 keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticación de paso a través de Azure Active Directory: actualización de la versión preliminar de los agentes de autenticación
 
@@ -84,5 +85,5 @@ Siga estos pasos para actualizar los agentes de autenticación en otros servidor
 >[!NOTE]
 >Si activa la hoja Autenticación de paso a través en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) después de completar los pasos anteriores, verá dos entradas del agente de autenticación por servidor; una entrada en la que aparece el agente de autenticación como **activo** y otra, como **inactivo**. Se _espera_ que esto sea así. La entrada **Inactivo** se quita automáticamente después de unos días.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): información para resolver problemas habituales de esta característica.

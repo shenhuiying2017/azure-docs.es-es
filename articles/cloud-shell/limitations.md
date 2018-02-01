@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
 
@@ -56,7 +56,9 @@ Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las s
 ### <a name="user-permissions"></a>Permisos de usuario
 
 Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva cualquier instalación fuera del directorio `$Home`.
-Aunque algunos comandos del directorio `clouddrive`, como `git clone`, no tienen los permisos adecuados, el directorio `$Home` sí los tiene.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Permisos limitados de SMB de clouddrive
+Algunos comandos del directorio `clouddrive`, como `git clone`, no tienen los permisos adecuados para leer o escribir determinados archivos. Si se produce este problema, vuelva a intentarlo desde el directorio `$Home` que no tiene limitaciones de SMB.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
@@ -84,7 +86,7 @@ Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unida
 
 Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD` o `Login-AzureRMAccount`, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Solución de problemas de Cloud Shell](troubleshooting.md) <br>
 [Inicio rápido de Bash](quickstart.md) <br>

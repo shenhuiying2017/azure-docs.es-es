@@ -2,7 +2,7 @@
 title: "Compilación de una aplicación web .NET Core y SQL Database en Azure App Service en Linux | Microsoft Docs"
 description: "Aprenda a poner en funcionamiento una aplicación .NET Core en Azure App Service en Linux con conexión a una SQL Database."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
 editor: 
@@ -10,16 +10,16 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web .NET Core y SQL Database en Azure App Service en Linux
 
@@ -172,7 +172,7 @@ Para establecer las cadenas de conexión de la aplicación de Azure, use el coma
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-A continuación, establezca la configuración de la aplicación `ASPNETCORE_ENVIRONMENT` en _Producción_. Esta configuración permite saber si ejecuta Azure, porque usa SQLLite para el entorno de desarrollo local y SQL Database para el entorno de Azure.
+A continuación, establezca la configuración de la aplicación `ASPNETCORE_ENVIRONMENT` en _Producción_. Esta configuración permite saber si ejecuta Azure, porque usa SQLite para el entorno de desarrollo local y SQL Database para el entorno de Azure.
 
 En el ejemplo siguiente se configura una opción de configuración de aplicación `ASPNETCORE_ENVIRONMENT` en la aplicación web de Azure. Reemplace el marcador de posición *\<app_name>*.
 
@@ -192,23 +192,27 @@ services.AddDbContext<MyDatabaseContext>(options =>
 Reemplácelo por el código siguiente, que usa las variables de entorno que configuró anteriormente.
 
 ```csharp
-// Use SQL Database if in Azure, otherwise, use SQLLite
+// Use SQL Database if in Azure, otherwise, use SQLite
 if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
-    services.AddDbContext<DotNetCoreSqlDbContext>(options =>
+    services.AddDbContext<MyDatabaseContext>(options =>
             options.UseSqlite("Data Source=MvcMovie.db"));
 
 // Automatically perform database migration
-services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
+services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
 Si este código detecta que se ejecuta en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database.
 
 La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración. 
 
-Guarde los cambios.
+Guarde los cambios y confírmelos en el repositorio de Git. 
+
+```bash
+git commit -am "connect to SQLDB in Azure"
+```
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 

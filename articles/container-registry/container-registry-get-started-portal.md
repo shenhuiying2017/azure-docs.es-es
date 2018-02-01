@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor mediante Azure Portal
 
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. En esta guía de inicio rápido, creará un registro de contenedor con Azure Portal.
 
-Para realizar este manual de inicio rápido, debe Docker instalado localmente. Docker proporciona paquetes que permiten configurarlo fácilmente en cualquier sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
+Para realizar este manual de inicio rápido, debe Docker instalado localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -110,9 +110,9 @@ Cuando ya no lo necesite, elimine el grupo de recursos **myResourceGroup**. De e
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-08]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En esta guía de inicio rápido, creará una instancia de Azure Container Registry con la CLI de Azure. Si quiere usar Azure Container Registry con Azure Container Instances, continúe con el tutorial de Azure Container Instances.
+En esta guía de inicio rápido, creará una instancia de Azure Container Registry con Azure Portal. Si quiere usar Azure Container Registry con Azure Container Instances, continúe con el tutorial de Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Container Instances][container-instances-tutorial-prepare-app]

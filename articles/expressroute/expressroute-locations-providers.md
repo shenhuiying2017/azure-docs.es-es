@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 01/17/2018
 ms.author: kaanan
-ms.openlocfilehash: d7b7204f218cf67b1749e4fcdbc78d134e6d80e7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 679c3093a1feb4589ff96dab398d38a866c9ad2a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -44,7 +44,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Ciudad de Quebec, Toronto |
 | **Sudamérica** |Sur de Brasil |São Paulo |
 | **Europa** |Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
-| **Asia** |Este de Asia y Sudeste de Asia |Hong Kong y Singapur |
+| **Asia** |Este de Asia y Sudeste de Asia |Hong Kong, Singapur, Singapur2 |
 | **Japón** |Oeste de Japón y Este de Japón |Osaka, Tokyo |
 | **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
 | **India** |India occidental, India central, India del Sur |Chennai, Mumbai |
@@ -83,7 +83,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Los Ángeles** |CoreSite, Equinix, Megaport, NTT y Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC y Telstra Corporation |
 | **Miami** |C3ntro+, Megaport, Neutrona Networks |
-| **Montreal** |Bell Canada y Cologix |
+| **Montreal** |Bell Canada, Cologix, Telus |
 | **Mumbai (Bombay)** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **Nueva York** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
 | **Newport (Gales)** |Level 3 Communications, Next Generation Data |
@@ -96,6 +96,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Seúl** |KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapur2** |Megaport, SingTel |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Level 3 Communications, NTT Communications, Softbank, Verizon |
 | **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
@@ -178,7 +179,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 | **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Norteamérica** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Sudamérica** |Avanade Inc. |
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 * Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 

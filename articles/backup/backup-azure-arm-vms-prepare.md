@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -54,7 +54,7 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 * No se admite la copia de seguridad de máquinas virtuales cuyos discos de datos tengan un tamaño superior a 1023 GB.
 
   > [!NOTE]
-  > Tenemos una versión preliminar privada que admite copias de seguridad de máquinas virtuales con discos no administrados de 1 TB (o mayores). Para más información, consulte [Instant recovery point and large disk support for Azure Backup](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (Compatibilidad de punto de recuperación instantáneo y discos grandes con Azure Backup).
+  > Tenemos una versión preliminar privada para admitir las copias de seguridad de las VM con discos de más de 1 TB. Para más información, consulte [Instant recovery point and large disk support for Azure Backup](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (Compatibilidad de punto de recuperación instantáneo y discos grandes con Azure Backup).
   >
 
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
@@ -181,7 +181,7 @@ Después de habilitar correctamente la copia de seguridad, la directiva de copia
 Si surgen problemas al registrar la máquina virtual, consulte la siguiente información acerca de cómo instalar el agente de máquina virtual y de la conectividad de red. Probablemente no necesite la siguiente información si va a proteger máquinas virtuales creadas en Azure. Sin embargo, si ha migrado las máquinas virtuales a Azure, asegúrese de que ha instalado correctamente el agente de máquina virtual y que la máquina virtual se puede comunicar con la red virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalación del agente de máquina virtual en la máquina virtual
-Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual. 
+Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/windows/agent-user-guide.md) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual. 
 
 La siguiente información se proporciona para aquellas situaciones en las que *no* se usa una máquina virtual creada en Microsoft Azure Marketplace. Por ejemplo, ha migrado una máquina virtual desde un centro de datos local. En ese caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual.
 
@@ -219,7 +219,7 @@ Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-
 ![NSG con etiquetas de almacenamiento para una región](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Las etiquetas de almacenamiento solo están disponibles en determinadas regiones y lo están en versión preliminar. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
+> Las etiquetas del servicio de almacenamiento solo están disponibles en determinadas regiones y en versión preliminar. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Uso de un proxy HTTP para copias de seguridad de máquinas virtuales
 Cuando se realiza una copia de seguridad de una máquina virtual, la extensión de copia de seguridad de dicha máquina envía los comandos de administración de instantáneas a Azure Storage mediante una API de HTTPS. Enrute el tráfico de extensión de copia de seguridad a través del proxy HTTP, ya que es el único componente configurado para acceder a la red pública de Internet.

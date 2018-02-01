@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -58,7 +58,7 @@ Una vez agregada una oferta, tiene que definir e identificar sus SKU. Puede tene
 3. Si usa SKU basadas en Windows, siga los vínculos sugeridos para adquirir las versiones aprobadas de Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Creación de un VHD compatible con Azure (basado en Linux)
-Esta sección se centra en los procedimientos recomendados para crear una imagen de máquina virtual basada en Linux para Azure Marketplace. Vea un tutorial detallado en la documentación siguiente: [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Esta sección se centra en los procedimientos recomendados para crear una imagen de máquina virtual basada en Linux para Azure Marketplace. Para ver un tutorial paso a paso, consulte la documentación siguiente: [Creación de una imagen de VM Linux personalizada](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Creación de un VHD compatible con Azure (basado en Windows)
 En esta sección se indican los pasos necesarios para crear una SKU basada en Windows Server para Azure Marketplace.
@@ -112,7 +112,7 @@ Desde el Portal de Microsoft Azure, puede crear su máquina virtual basada en un
     b.    Si planea desarrollar la imagen en Azure, considere usar una de las regiones de Microsoft Azure en Estados Unidos desde el principio. Esto agiliza el proceso de copia del VHD que Microsoft realiza por usted cuando envía la imagen para certificarla.
 
     ![dibujo][img-portal-vm-location]
-7. Haga clic en **Crear**. La máquina virtual empieza a implementarse. En cuestión de minutos, dispondrá de una implementación correcta y podrá comenzar a crear la imagen para su SKU.
+7. Haga clic en **Create**(Crear). La máquina virtual empieza a implementarse. En cuestión de minutos, dispondrá de una implementación correcta y podrá comenzar a crear la imagen para su SKU.
 
 ### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3 Desarrollar el VHD en la nube
 Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocolo de escritorio remoto (RDP). La conexión a RDP se realiza con el nombre de usuario y la contraseña que especificó durante el aprovisionamiento.
@@ -522,8 +522,8 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 ## <a name="next-step"></a>Paso siguiente
 Cuando termine con los detalles de SKU, podrá continuar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.  
 
-## <a name="see-also"></a>Consulte también
-* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Otras referencias
+* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

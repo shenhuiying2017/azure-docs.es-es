@@ -7,7 +7,7 @@
 ## [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
 ## [Próximo salto](network-watcher-next-hop-overview.md)
 ## [Solución de problemas de conectividad VPN](network-watcher-troubleshoot-overview.md)
-## [Comprobación de conectividad](network-watcher-connectivity-overview.md)
+## [Solución de problemas de conexión](network-watcher-connectivity-overview.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Introducción
@@ -46,7 +46,7 @@
 ### [CLI de Azure 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Comprobación de la conectividad
+## Solución de problemas de conexiones
 ### [portal de Azure](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [CLI de Azure](network-watcher-connectivity-cli.md)

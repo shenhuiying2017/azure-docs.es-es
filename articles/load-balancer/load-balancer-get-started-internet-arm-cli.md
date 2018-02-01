@@ -1,6 +1,6 @@
 ---
-title: "Creación de un equilibrador de carga con conexión a Internet: CLI de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos con la CLI de Azure"
+title: "Creación de un equilibrador de carga público: CLI de Azure | Microsoft Docs"
+description: "Aprenda a crear un equilibrador de carga público mediante la CLI de Azure"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Creación de un equilibrador de carga interno mediante la CLI de Azure
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Creación de un equilibrador de carga público mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
+Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [aprender a crear un equilibrador de carga público mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Implementación de la solución mediante la CLI de Azure
 
-Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet mediante Azure Resource Manager con la CLI. Con Azure Resource Manager, cada recurso se crea y configura individualmente, y a continuación se colocan juntos para crear un recurso.
+Los pasos siguientes muestran cómo crear un equilibrador de carga público mediante Azure Resource Manager con la CLI. Con Azure Resource Manager, cada recurso se crea y configura individualmente, y a continuación se colocan juntos para crear un recurso.
 
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes:
 
@@ -304,7 +304,7 @@ Para quitar un equilibrador de carga, use el siguiente comando:
 azure network lb delete --resource-group nrprg --name nrplb
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)

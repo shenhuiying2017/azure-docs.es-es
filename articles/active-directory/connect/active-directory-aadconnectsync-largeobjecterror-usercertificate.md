@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect Sync: control de errores LargeObject causados por el atributo userCertificate | Microsoft Docs'
+title: 'Azure AD Connect: errores LargeObject causados por el atributo userCertificate | Microsoft Docs'
 description: "En este tema se proporcionan los pasos de corrección de errores LargeObject causados por atributo userCertificate."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: control de errores LargeObject causados por el atributo userCertificate
 
@@ -101,7 +102,7 @@ Debería haber una regla de sincronización existente que esté habilitada y con
 7. En la pantalla de edición, seleccione la pestaña **Scoping filter** (Filtro de ámbito).
 8. Anote la configuración del filtro de ámbito. Si se usa la regla de sincronización integrada, debe haber exactamente **un grupo de filtro de ámbito que contiene dos cláusulas**, incluido:
 
-    | Atributo | operador | Valor |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuario |
     | cloudMastered | NOTEQUAL | True |
@@ -113,8 +114,8 @@ La nueva regla de sincronización debe tener el mismo **filtro de ámbito** y un
 
     | Atributo | Valor | Detalles |
     | --- | --- | --- |
-    | Nombre | *Proporcione un nombre*. | Por ejemplo, *"Fuera de AAD – Reemplazo personalizado para userCertificate"* |
-    | Descripción | *Proporcione una descripción* | Por ejemplo, *"Si el atributo userCertificate tiene más de 15 valores, la exportación es NULL".* |
+    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, *"Fuera de AAD – Reemplazo personalizado para userCertificate"* |
+    | DESCRIPCIÓN | *Proporcione una descripción* | Por ejemplo, *"Si el atributo userCertificate tiene más de 15 valores, la exportación es NULL".* |
     | Sistema conectado | *Seleccione Azure AD Connector* |
     | Tipo de objeto de sistema conectado | **user** | |
     | Propiedades de objeto de metaverso | **person** | |
@@ -177,6 +178,6 @@ Ahora que el problema se ha resuelto, vuelva a habilitar el programador de sincr
 > [!Note]
 > Los pasos anteriores solo se aplican a las versiones más recientes (1.1.xxx.x) de Azure AD Connect con el programador integrado. Si usa versiones anteriores (1.0.xxx.x) de Azure AD Connect que utilizan el Programador de tareas de Windows, o que usa a su propio programador personalizado (no común) para desencadenar una sincronización periódica, debe deshabilitarlas según corresponda.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 

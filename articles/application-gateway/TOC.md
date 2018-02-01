@@ -13,37 +13,39 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introducción
-## Creación de una instancia de Application Gateway
-### [Portal de Azure](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
-### [CLI de Azure](application-gateway-create-gateway-cli.md)
-# Cómo
+## [portal de Azure](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [CLI de Azure](application-gateway-create-gateway-cli.md)
+# Procedimientos
+## Creación de una puerta de enlace de aplicaciones con VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [CLI de Azure](tutorial-create-vmss-cli.md)
+## [Uso de una plantilla](application-gateway-create-gateway-arm-template.md)
 ## Configuración de firewall de aplicación web
-### [Portal de Azure](application-gateway-web-application-firewall-portal.md)
+### [portal de Azure](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
 ### [CLI de Azure](application-gateway-web-application-firewall-cli.md)
 ## Personalización de reglas de firewall de aplicación web
-### [Portal de Azure](application-gateway-customize-waf-rules-portal.md)
+### [portal de Azure](application-gateway-customize-waf-rules-portal.md)
 ### [CLI de Azure](application-gateway-customize-waf-rules-cli.md)
 ## Configuración de SSL
-### [Portal de Azure](application-gateway-ssl-portal.md)
+### [portal de Azure](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [CLI de Azure](application-gateway-ssl-cli.md)
 ### [Directiva SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configuración de enrutamiento basado en ruta de acceso de URL
-### [Portal de Azure](application-gateway-create-url-route-portal.md)
+### [portal de Azure](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [CLI de Azure](application-gateway-create-url-route-cli.md)
 ## Configuración del hospedaje de varios sitios
-### [Portal de Azure](application-gateway-create-multisite-portal.md)
+### [portal de Azure](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configuración del redireccionamiento
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Configuración de aplicaciones web como miembros del grupo de back-end
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configuración de sondeos de mantenimiento
-### [Portal de Azure](application-gateway-create-probe-portal.md)
+### [portal de Azure](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Integración en Azure Security Center](application-gateway-integration-security-center.md)
 ## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
@@ -66,12 +68,12 @@
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquinas virtuales](/azure/virtual-machines/)
 ## [Equilibrador de carga](/azure/load-balancer/)
-## [Administrador de tráfico](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-application-gateway)

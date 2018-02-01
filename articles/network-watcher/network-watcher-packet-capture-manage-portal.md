@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Administración de capturas de paquetes con Azure Network Watcher mediante Azure Portal
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
+> - [portal de Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -83,7 +83,7 @@ Las propiedades que se pueden definir en una captura de paquetes son:
 - **Cuenta de almacenamiento**: determina si la captura de paquetes se guarda en una cuenta de almacenamiento.
 - **Archivo**: determina si una captura de paquetes se guarda localmente en la máquina virtual.
 - **Cuentas de almacenamiento**: la cuenta de almacenamiento seleccionada para guardar la captura de paquetes. La ubicación predeterminada es https://{nombre de la cuenta de almacenamiento}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{nombre del grupo de recursos}/providers/microsoft.compute/virtualmachines/{nombre de la máquina virtual}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Solo se habilita si está seleccionada la opción **Almacenamiento**)
-- **Ruta de acceso de archivo local**: la ruta de acceso local en una máquina virtual para guardar la captura de paquetes. (Solo se habilita si está seleccionada la opción **Archivo**). Se tiene que proporcionar una ruta de acceso válida
+- **Ruta de acceso de archivo local**: la ruta de acceso local en una máquina virtual para guardar la captura de paquetes. (Solo se habilita si está seleccionada la opción **Archivo**). Se debe proporcionar una ruta de acceso válida. Para una máquina virtual Linux, la ruta de acceso debe comenzar con */var/captures*.
 - **Número máximo de bytes por paquete**: el número de bytes de cada paquete que se captura, si se deja en blanco se capturan todos los bytes.
 - **Número máximo de bytes por sesión**: número total de bytes que se capturan, una vez que se alcanza este valor la captura de paquetes se detiene.
 - **Límite de tiempo (segundos)**: establece un límite de tiempo para detener la captura del paquete. El valor predeterminado es 18 000 segundos.
@@ -134,9 +134,9 @@ Si se especifica una cuenta de almacenamiento, los archivos de captura de paquet
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Aprenda a automatizar capturas de paquetes con las alertas de máquina virtual en el artículo sobre cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
 Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
 

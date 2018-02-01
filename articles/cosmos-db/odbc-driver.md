@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -38,9 +38,11 @@ Ahora empecemos con el controlador ODBC.
 
 1. Descargue los controladores para su entorno:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) para Windows de 32 bits en 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits
+    | Instalador | Sistemas operativos compatibles| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) para Windows de 32 bits en 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 y Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits|Versiones de 32 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP y Windows Vista.|
 
     Ejecute el archivo msi localmente, lo que iniciará el **Asistente para instalación del controlador ODBC de Microsoft Azure Cosmos DB**. 
 2. Complete el asistente para instalación con la entrada predeterminada para instalar el controlador ODBC.
@@ -58,9 +60,9 @@ Ahora empecemos con el controlador ODBC.
     ![Ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nombre del origen de datos**: su propio nombre descriptivo para el DSN de ODBC. Este nombre es único en su cuenta de Azure Cosmos DB, por lo que debe ser apropiado si tiene varias cuentas.
     - **Descripción**: breve descripción del origen de datos.
-    - **Host**: URI de la cuenta de Azure Cosmos DB. Puede recuperar esta información de la hoja Claves de Azure Cosmos DB en Azure Portal, como se muestra en la captura de pantalla siguiente. 
-    - **Clave de acceso**: clave principal o secundaria, de solo escritura o solo lectura de la hoja Claves de Azure Cosmos DB de Azure Portal, como se muestra en la captura de pantalla siguiente. Se recomienda usar la clave de solo lectura si DSN se utiliza para procesamiento e informes de datos de solo lectura.
-    ![Hoja Claves de Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
+    - **Host**: URI de la cuenta de Azure Cosmos DB. Puede recuperar esta información de la página Claves de Azure Cosmos DB en Azure Portal, como se muestra en la captura de pantalla siguiente. 
+    - **Clave de acceso**: clave principal o secundaria, de solo escritura o solo lectura de la página Claves de Azure Cosmos DB de Azure Portal, como se muestra en la captura de pantalla siguiente. Se recomienda usar la clave de solo lectura si DSN se utiliza para procesamiento e informes de datos de solo lectura.
+    ![Página Claves de Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
     - **Encrypt Access Key for** (Cifrar clave de acceso para): seleccione la mejor opción en función de los usuarios de esta máquina. 
 4. Haga clic en el botón **Probar** para asegurarse de que puede conectarse a su cuenta de Azure Cosmos DB. 
 5. Haga clic en **Opciones avanzadas** y establezca los siguientes valores:
@@ -109,7 +111,7 @@ Los pasos siguientes crean un esquema para los datos de una o varias colecciones
     b. Si solo desea definir el ámbito del muestreo a ciertos valores para el atributo que acaba de escribir, seleccione dicho atributo en el cuadro de selección, escriba un valor en el cuadro **Valor** (por ejemplo, Seattle) y presione Intro. Puede seguir agregando más valores para los atributos. Solo tiene que asegurarse de que se selecciona el atributo correcto cuando está escribiendo valores.
 
     Por ejemplo, si incluye Ciudad como un valor de **Atributos** y desea limitar la tabla para incluir solo filas con Nueva York y Dubai como valores de ciudad, tendría que escribir Ciudad en el cuadro Atributos, y Nueva York y luego Dubái en el cuadro **Valores**.
-4. Haga clic en **Aceptar**. 
+4. Haga clic en **OK**. 
 5. Después de completar las definiciones de asignación para las colecciones que desea muestrear, en la ventana **Editor de esquemas**, haga clic en **Ejemplo**.
      Para cada columna, puede modificar el nombre SQL de la columna, el tipo de SQL, la longitud SQL (si procede), la escala (si procede), la precisión (si procede) y si acepta valores NULL.
     - Puede establecer **Ocultar columna** en **true** si desea excluir esa columna de los resultados de la consulta. Las columnas marcadas con Ocultar columna = true no se devuelven para la selección y proyección, aunque aún forman parte del esquema. Por ejemplo, puede ocultar todas las propiedades necesarias del sistema de Azure Cosmos DB a partir de “_”.
@@ -140,12 +142,12 @@ Puede utilizar el nuevo DSN para conectar DocumentADB con cualquier herramienta 
 8. En Power BI Desktop, en el extremo izquierdo, seleccione la pestaña Datos ![Pestaña Datos en Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) para confirmar que los datos se importaron.
 9. Ahora puede crear objetos visuales con Power BI haciendo clic en la pestaña Informe ![Pestaña Informe en Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), haciendo clic en **Nuevo objeto visual** y, por último, personalizando el icono. Para más información sobre cómo crear visualizaciones en Power BI Desktop, consulte [Tipos de visualización en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Si recibe el siguiente error, asegúrese de que los valores de **Host** y **Clave de acceso** copiados de Azure Portal en el [paso 2](#connect) son correctos y luego vuelva a intentarlo. Utilice los botones de copia situados a la derecha de los valores de **Host** y **Clave de acceso** en Azure Portal para copiar los valores sin errores.
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Para más información acerca de Azure Cosmos DB, consulte [¿Qué es Azure Cosmos DB?](introduction.md).
+Para más información sobre Azure Cosmos DB, consulte [Bienvenido a Azure Cosmos DB](introduction.md).

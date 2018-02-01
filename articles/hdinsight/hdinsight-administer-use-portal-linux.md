@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -30,7 +30,7 @@ En el [portal de Azure][azure-portal], puede administrar clústeres de Hadoop en
 
 **Requisito previo**
 
-Para seguir los pasos de este artículo, necesitará una **suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Para seguir los pasos de este artículo, necesitará una **suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Abra Azure Portal.
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
@@ -60,14 +60,14 @@ Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight.
 
 - Para crear un nuevo grupo de recursos:
 
-    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+    1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
     2. Haga clic en **Suscripción** en el menú izquierdo. Tiene un icono amarillo de una llave amarilla. Verá una lista de suscripciones.
     3. Haga clic en la suscripción que usa para crear clústeres. 
     4. Haga clic en **Mis permisos**.  Muestra el [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
 
 - Para usar un grupo de recursos existente:
 
-    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+    1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
     2. Haga clic en **Grupos de recursos** en el menú izquierdo para ver los grupos de recursos.
     3. Haga clic en el grupo de recursos que desee usar para crear el clúster de HDInsight.
     4. Haga clic en **Control de acceso (IAM)** y compruebe que usted (o un grupo al que pertenezca) tenga al menos acceso de colaborador al grupo de recursos.
@@ -81,10 +81,10 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
 4. Haga clic en un clúster de la lista para ver la página de información general:
 
     ![Aspectos básicos de clústeres de HDInsight de Azure Portal](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)**Menú de información general:**
-    * **Panel**: abre el panel del clúster, que es la web de Ambari para clústeres basados en Linux.
+    * **Panel**: abre la interfaz de usuario web de Ambari para el clúster.
     * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
     * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
-    * **Mover**: mueva el clúster a otro grupo de recursos o suscripción.
+    * **Mover**: mueve el clúster a otro grupo de recursos o a otra suscripción.
     * **Eliminar**: elimina el clúster.
 
     **Menú de la izquierda:**
@@ -98,7 +98,7 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
     * **Herramientas para HDInsight**: información de ayuda para herramientas relacionadas con HDInsight.
     * **Subscription Core Usage** (Uso de núcleo de suscripción): mostrar los núcleos usados y disponibles para la suscripción.
     * **Escalar clúster**: aumente o disminuya el número de nodos de trabajo del clúster. Vea [Escalado de clústeres](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Inicio de sesión mediante Secure Shell y el clúster**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH). Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) y restablezca las credenciales de inicio de sesión del clúster.
+    * **Inicio de sesión mediante Secure Shell y el clúster**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH). Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Asociado de HDInsight**: agrega o quita el asociado actual de HDInsight.
     * **Tiendas de metadatos externas**: consulte las tiendas de metadatos de Hive y Oozie. Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster. Vea [Uso de Hive/Oozie Metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Acciones de script**: ejecuta scripts de Bash en el clúster. Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
@@ -158,7 +158,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
     Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Este comportamiento hace que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
-* HBase
+* hbase
 
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
@@ -226,6 +226,21 @@ Puede mover un clúster de HDInsight a otro grupo de recursos de Azure u otra su
 
 Vea [Actualización del clúster de HDInsight a una versión más reciente](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Apertura de la interfaz de usuario web de Ambari
+
+Ambari proporciona una intuitiva y sencilla interfaz de usuario web de administración de Hadoop respaldada por sus API RESTful. Ambari permite a los administradores de sistema administrar y supervisar clústeres de Hadoop.
+
+1. Abra un clúster de HDInsight en Azure Portal.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
+2. Haga clic en **Panel de clúster**.
+
+    ![Menú de clúster de Hadoop de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Escriba el nombre de usuario y la contraseña del clúster.  El nombre de usuario predeterminado del clúster es _admin_. La interfaz de usuario web de Ambari presentará el aspecto siguiente:
+
+    ![Interfaz de usuario web de Ambari para Hadoop de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Para más información, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Cambio de contraseñas
 Un clúster de HDInsight puede tener dos cuentas de usuario. La cuenta de usuario del clúster de HDInsight (también conocida como cuenta de usuario HTTP) y la cuenta de usuario SSH se crean durante el proceso de creación. Puede usar la interfaz de usuario web de Ambari para cambiar el nombre de usuario y la contraseña de la cuenta de usuario del clúster y las acciones de script para cambiar la cuenta de usuario de SSH
 
@@ -266,7 +281,7 @@ A continuación, Ambari cambia la contraseña en todos los nodos del clúster.
 
    | Campo | Valor |
    | --- | --- |
-   | Nombre |Cambio de contraseña de SSH |
+   | NOMBRE |Cambio de contraseña de SSH |
    | URI de script de Bash |El identificador URI del archivo changepassword.sh |
    | Nodos (principal, de trabajo, nimbus, supervisor, Zookeeper, etc.) |✓ para todos los tipos de nodo enumerados |
    | Parámetros |Escriba el nombre de usuario de SSH y la contraseña nueva. Debe haber un espacio entre el nombre de usuario y la contraseña. |
@@ -349,7 +364,7 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 * [Uso de Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo ha aprendido algunas funciones administrativas básicas. Para obtener más información, consulte los artículos siguientes:
 

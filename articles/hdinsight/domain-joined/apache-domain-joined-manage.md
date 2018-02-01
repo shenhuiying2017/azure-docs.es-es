@@ -3,7 +3,7 @@ title: "Administración de clústeres de HDInsight unidos a dominio - Azure | Mi
 description: "Aprenda a administrar clústeres de HDInsight unidos a dominio"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Administración de clústeres de HDInsight unidos a dominio
 Conozca los usuarios y los roles de HDInsight unido a un dominio y cómo administrar clústeres de HDInsight unidos a dominio.
@@ -81,9 +81,8 @@ Para buscar el nombre de dominio completo de un nodo principal, use la informaci
 Un clúster de HDInsight que no está unido a un dominio tiene dos cuentas de usuario que se crean durante la creación del clúster:
 
 * **Administrador de Ambari**: esta cuenta es también conocida como *usuario de Hadoop* o *usuario de HTTP*. Esta cuenta puede usarse para iniciar sesión en Ambari en https://&lt;nombreDeClúster >. azurehdinsight.net. También puede usarse para ejecutar consultas en vistas de Ambari, ejecutar trabajos mediante herramientas externas (por ejemplo, PowerShell, Templeton o Visual Studio) y autenticarse con el controlador ODBC de Hive y herramientas de BI (por ejemplo, Excel, PowerBI o Tableau).
-* **Usuario de SSH**: esta cuenta se puede usar con SSH y permite ejecutar comandos de sudo. Tiene privilegios raíz a las máquinas virtuales Linux.
 
-Un clúster de HDInsight unido a dominio tiene tres nuevos usuarios además de administrador de Ambari y usuario de SSH.
+Un clúster de HDInsight unido a un dominio tiene tres nuevos usuarios además del administrador de Ambari.
 
 * **Administrador de Ranger**: esta cuenta es la cuenta de administrador local de Apache Ranger. No es un usuario de dominio de Active Directory. Esta cuenta se puede usar para configurar directivas y crear otros administradores de usuarios o administradores delegados (para que esos usuarios puedan administrar directivas). De forma predeterminada, el nombre de usuario es *admin* y la contraseña es la misma que la contraseña de administrador de Ambari. En la página de configuración de Ranger se puede actualizar la contraseña.
 * **Usuario de dominio administrador de clúster**: esta cuenta es un usuario de dominio de Active Directory designado como administrador de clúster de Hadoop, por ejemplo Ambari y Ranger. Se deben proporcionar las credenciales del usuario durante la creación del clúster. Este usuario tiene los privilegios siguientes:
@@ -162,4 +161,3 @@ Los clústeres de HDInsight unidos a un dominio tienen los siguientes roles:
 ## <a name="next-steps"></a>pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
-* Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

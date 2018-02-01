@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -135,6 +135,8 @@ Si los archivos individuales no se podrán sincronizar:
 
     > [!NOTE]
     > Azure File Sync toma instantáneas de VSS periódicamente para sincronizar los archivos que tienen identificadores abiertos.
+
+Actualmente no se admite el movimiento de recursos a otra suscripción ni a un inquilino de Azure AD distinto.  Si la suscripción se mueve a un inquilino diferente, el recurso compartido de archivos de Azure deja de estar accesible a nuestro servicio debido al cambio de propiedad. Si se cambia el inquilino, debe eliminar los puntos de conexión del servidor y el punto de conexión en la nube (consulte la sección Administración de grupos de sincronización para obtener instrucciones sobre cómo limpiar el recurso compartido de archivos de Azure para su reutilización) y volver a crear el grupo de sincronización.
 
 ## <a name="cloud-tiering"></a>Niveles de nube 
 Los errores en la organización en niveles en la nube pueden producirse de dos formas:

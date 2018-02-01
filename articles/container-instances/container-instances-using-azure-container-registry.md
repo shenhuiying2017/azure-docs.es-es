@@ -1,21 +1,21 @@
 ---
 title: "Implementación en Azure Container Instances desde Azure Container Registry"
-description: "Implementación de Azure Container Instances desde Azure Container Registry"
+description: "Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante imágenes de contenedor de Azure Container Registry."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
 Azure Container Registry es un registro privado basado en Azure para imágenes de contenedor de Docker. En este artículo se describe cómo implementar imágenes de contenedor almacenadas en Azure Container Registry en Azure Container Instances.
 
@@ -51,17 +51,23 @@ Si se mantienen imágenes de contenedor en Azure Container Registry, se puede cr
 
 1. En Azure Portal, vaya al registro de contenedor.
 
-2. Seleccione **Repositorios**, elija el repositorio desde el que va a implementar, haga clic con el botón derecho en la etiqueta de la imagen de contenedor que desea implementar y seleccione **Ejecutar instancia**.
+1. Seleccione **Repositorios**, elija el repositorio desde el que va a implementar, haga clic con el botón derecho en la etiqueta de la imagen de contenedor que desea implementar y seleccione **Ejecutar instancia**.
 
     !["Ejecutar instancia" en Azure Container Registry de Azure Portal][acr-runinstance-contextmenu]
 
-3. Escriba un nombre para el contenedor y un nombre para el grupo de recursos. También puede cambiar los valores predeterminados si lo desea.
+1. Escriba un nombre para el contenedor y un nombre para el grupo de recursos. También puede cambiar los valores predeterminados si lo desea.
 
     ![Menú Crear para Azure Container Instances][acr-create-deeplink]
 
-4. Una vez completada la implementación, puede ir al grupo de contenedores desde el panel de notificaciones para buscar la dirección IP y otras propiedades.
+1. Una vez completada la implementación, puede ir al grupo de contenedores desde el panel de notificaciones para buscar la dirección IP y otras propiedades.
 
     ![Vista de detalles del grupo de contenedores de Azure Container Instances][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
+
+Si el usuario administrador de Azure Container Registry está deshabilitado, puede usar una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md) de Azure Active Directory para autenticarse en el registro al crear una instancia de contenedor. También se recomienda usar a una entidad de servicio para la autenticación en escenarios de equipos sin periféricos, como, por ejemplo, un script o una aplicación que crea instancias de contenedor en modo desatendido.
+
+Para obtener más información, consulte [Autenticación con Azure Container Registry desde Azure Container Instances](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>pasos siguientes
 

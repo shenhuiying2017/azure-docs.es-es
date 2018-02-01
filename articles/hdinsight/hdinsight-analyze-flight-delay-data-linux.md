@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Análisis de datos de retraso de vuelos mediante Hive en HDInsight basado en Linux
 
@@ -29,7 +29,7 @@ Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en L
 > [!IMPORTANT]
 > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de Azure HDInsight o en versiones posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Un clúster de HDInsight**. Consulte en [Introducción al uso de Hadoop con Hive en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) los pasos para crear un nuevo clúster de HDInsight basado en Linux.
 
@@ -43,7 +43,7 @@ Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en L
 
 2. En la página, seleccione los siguientes valores:
 
-   | Nombre | Valor |
+   | NOMBRE | Valor |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -63,7 +63,7 @@ Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en L
     Reemplace *FILENAME* por el nombre del archivo .zip. Reemplace *USERNAME* por el inicio de sesión SSH para el clúster de HDInsight. Reemplace *CLUSTERNAME* por el nombre del clúster de HDInsight.
 
    > [!NOTE]
-   > Si usa una contraseña para autenticar el inicio de sesión SSH, se le pedirá la contraseña. Si utiliza una clave pública, es posible que tenga que usar el parámetro `-i` y especificar la ruta de acceso a la clave privada correspondiente. Por ejemplo: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Si usa una contraseña para autenticar el inicio de sesión SSH, se le pedirá la contraseña. Si utiliza una clave pública, es posible que tenga que usar el parámetro `-i` y especificar la ruta de acceso a la clave privada correspondiente. Por ejemplo, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Cuando la carga haya finalizado, conéctese al clúster mediante SSH:
 
@@ -200,9 +200,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Creación de una inst
 > Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
 
 
-1. Use SSH para conectarse al clúster de HDInsight basado en Linux y ejecute los siguientes pasos en la sesión SSH.
-
-2. Use el siguiente comando para instalar FreeTDS:
+1. Para instalar FreeTDS, use el siguiente comando desde una conexión SSH al clúster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Si no dispone todavía de una base de datos SQL, consulte [Creación de una inst
 3. Cuando finalice la instalación, use el comando siguiente para conectarse al servidor de SQL Database. Reemplace **serverName** por el nombre del servidor de SQL Database. Reemplace **adminLogin** y **adminPassword** por el inicio de sesión de SQL Database. Reemplace **databaseName** por el nombre de la base de datos.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Cuando se le solicite, escriba la contraseña para el inicio de sesión del administrador de SQL Database.
 
     Recibirá una salida similar al texto siguiente:
 
@@ -286,7 +286,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Creación de una inst
 
     Debería ver una lista de los datos de la tabla. Escriba `exit` para salir de la utilidad de tsql.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para conocer otras formas de trabajar con datos en HDInsight, consulte los siguientes documentos:
 

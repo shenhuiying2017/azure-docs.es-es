@@ -1,6 +1,6 @@
 ---
 title: "Administración de dispositivos de Azure IoT con iothub-explorer | Microsoft Docs"
-description: "Use la herramienta de la CLI iothub-explorer para la administración de dispositivos de Azure IoT Hub, herramienta que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos."
+description: "Use la herramienta de la CLI iothub-explorer para la administración de dispositivos de Azure IoT Hub, que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Uso de iothub-explorer para la administración de dispositivos de Azure IoT Hub
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) es una herramienta de la CLI que se ejecuta en un equipo host para administrar identidades de dispositivo en el registro de IoT Hub. Incluye opciones de administración que puede usar para realizar varias tareas.
 
-| Opción de administración          | Tarea                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Opción de administración          | Task                                                                                                                            |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Métodos directos             | Hacer que un dispositivo actúe, por ejemplo, para iniciar o detener el envío de mensajes o reiniciar el dispositivo.                                        |
 | Propiedades deseadas de dispositivos gemelos    | Poner un dispositivo en determinados estados, como establecer un indicador LED en verde o establecer el intervalo de envío de telemetría en 30 minutos.         |
 | Propiedades notificadas de dispositivos gemelos   | Obtener el estado notificado de un dispositivo. Por ejemplo, el dispositivo informa de que el LED está parpadeando.                                    |
@@ -54,9 +54,9 @@ Ejecute iothub-explorer con distintas opciones de administración.
 ## <a name="what-you-need"></a>Lo que necesita
 
 - Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
-  - Una suscripción de Azure activa.
-  - Un centro de Azure IoT en su suscripción.
-  - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
+- Una suscripción de Azure activa.
+- Un centro de Azure IoT en su suscripción.
+- Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 - Asegúrese de que el dispositivo se está ejecutando con la aplicación de cliente durante este tutorial.
 - iothub-explorer, [instale iothub-explorer](https://github.com/azure/iothub-explorer) en la máquina de desarrollo.
 
@@ -82,7 +82,7 @@ Invoque el método `stop` en la aplicación de dispositivo para dejar de enviar 
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Use iothub-explorer con las propiedades deseadas de los dispositivos gemelos
+## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Uso de iothub-explorer con las propiedades deseadas de los dispositivos gemelos
 
 Establezca un intervalo de propiedad deseada = 3000 mediante la ejecución del comando siguiente:
 
@@ -92,7 +92,7 @@ iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"int
 
 El dispositivo puede leer esta propiedad.
 
-## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Use iothub-explorer con las propiedades notificadas de los dispositivos gemelos
+## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Uso de iothub-explorer con las propiedades notificadas de los dispositivos gemelos
 
 Obtenga las propiedades notificadas del dispositivo mediante la ejecución del comando siguiente:
 
@@ -114,7 +114,6 @@ Agregue un rol de campo = temperatura y humedad al dispositivo mediante la ejecu
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Uso de iothub-explorer con mensajes de la nube al dispositivo
@@ -141,7 +140,7 @@ Consulte todos los dispositivos excepto aquellos con una etiqueta de rol = "temp
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha aprendido a usar iothub-explorer con distintas opciones de administración.
 

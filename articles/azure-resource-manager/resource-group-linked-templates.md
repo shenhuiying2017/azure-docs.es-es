@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -82,7 +82,10 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 ]
 ```
 
-En las plantillas anidadas, no puede utilizar parámetros o variables definidos en la plantilla anidada. Puede usar parámetros y variables de la plantilla principal. En el ejemplo anterior, `[variables('storageName')]` recupera un valor de la plantilla principal, no de la plantilla anidada. Esta restricción no se aplica a las plantillas externas.
+> [!NOTE]
+> En las plantillas anidadas, no puede utilizar parámetros o variables definidos en la plantilla anidada. Puede usar parámetros y variables de la plantilla principal. En el ejemplo anterior, `[variables('storageName')]` recupera un valor de la plantilla principal, no de la plantilla anidada. Esta restricción no se aplica a las plantillas externas.
+>
+> No se puede utilizar la función `reference` en la sección de salidas de una plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
 ### <a name="external-template-and-external-parameters"></a>Plantilla externa y parámetros externos
 

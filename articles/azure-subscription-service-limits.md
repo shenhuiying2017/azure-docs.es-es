@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -50,8 +50,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
-* 
-            [Automation](#automation-limits)
+* [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
@@ -62,6 +61,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Cloud Services](#cloud-services-limits)
 * [Azure Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Container Service (AKS)](#container-service-aks-limits)
 * [Factoría de datos](#data-factory-limits)
 * [Análisis de Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -81,8 +81,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Network Watcher](#network-watcher-limits)
 * [Servicio Notification Hubs](#notification-hub-service-limits)
 * [Grupo de recursos](#resource-group-limits)
-* 
-            [Scheduler](#scheduler-limits)
+* [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
 * [Recuperación de sitios](#site-recovery-limits)
@@ -129,6 +128,9 @@ Los límites siguientes se aplican al usar Azure Resource Manager y los grupos d
 En la tabla siguiente se detallan las características y los límites de los [niveles de servicio](./container-registry/container-registry-skus.md) Básico, Estándar y Premium.
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Límites de Container Service (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Límites de red
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

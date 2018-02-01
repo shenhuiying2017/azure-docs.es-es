@@ -1,6 +1,6 @@
 ---
-title: "Referencia de los elementos del Diseñador de vistas de Log Analytics (OMS) | Microsoft Docs"
-description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los elementos de visualización que hay disponibles para usarse en las vistas personalizadas."
+title: "Referencia de los elementos del Diseñador de vistas de Azure Log Analytics | Microsoft Docs"
+description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en Azure Portal que contienen diferentes visualizaciones de datos en el espacio de trabajo de Log Analytics. En este artículo se proporciona una referencia de la configuración de cada uno de los elementos de visualización que hay disponibles para usarse en las vistas personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referencia de los elementos de visualización del Diseñador de vistas de Log Analytics
-El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los elementos de visualización que hay disponibles para usarse en las vistas personalizadas.
+El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en Azure Portal que contienen diferentes visualizaciones de datos del espacio de trabajo de Log Analytics. En este artículo se proporciona una referencia de la configuración de cada uno de los elementos de visualización que hay disponibles para usarse en las vistas personalizadas.
 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
@@ -33,7 +33,7 @@ Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
 En la siguiente tabla se describen los distintos tipos de iconos que se encuentran disponibles en el Diseñador de vistas.  En las secciones siguientes se describen en profundidad todos los tipos de iconos y sus propiedades.
 
-| Tipo de vista | Descripción |
+| Tipo de vista | DESCRIPCIÓN |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Muestra una lista de las consultas de búsqueda de registros.  El usuario puede hacer clic en cada una de las consultas para mostrar los resultados. |
 | [Number &amp; list](#number-amp-list-part) (Número y lista) |El encabezado tiene un solo número que muestra la cantidad de registros de una consulta de búsqueda de registros.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo. |
@@ -50,7 +50,7 @@ Muestra una lista de las consultas de búsqueda de registros.  El usuario puede 
 
 ![Vista Lista de consultas](media/log-analytics-view-designer/view-list-queries.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título |Texto que se muestra en la parte superior de la vista. |
@@ -66,7 +66,7 @@ El encabezado tiene un solo número que muestra la cantidad de registros de una 
 
 ![Vista Lista de consultas](media/log-analytics-view-designer/view-number-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior de la vista. |
@@ -84,7 +84,7 @@ El encabezado tiene un solo número que muestra la cantidad de registros de una 
 | Name & Value Separator (Separador de nombre y valor) |Delimitador de carácter único en caso de que quiera analizar la propiedad text en varios valores.  Consulte [Configuración común](#name-value-separator) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -94,7 +94,7 @@ El encabezado tiene dos números que muestran la cantidad de registros de consul
 
 ![Vista Dos números y lista](media/log-analytics-view-designer/view-two-numbers-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior de la vista. |
@@ -113,7 +113,7 @@ El encabezado tiene dos números que muestran la cantidad de registros de consul
 | Name & Value Separator (Separador de nombre y valor) |Delimitador de carácter único en caso de que quiera analizar la propiedad text en varios valores.  Consulte [Configuración común](#name-value-separator) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -123,7 +123,7 @@ El encabezado muestra un solo número resumido obtenido a partir de una columna 
 
 ![Vista Donut & list (Anillo y lista)](media/log-analytics-view-designer/view-donut-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -153,7 +153,7 @@ El encabezado muestra un solo número resumido obtenido a partir de una columna 
 | Name & Value Separator (Separador de nombre y valor) |Delimitador de carácter único en caso de que quiera analizar la propiedad text en varios valores.  Consulte [Configuración común](#name-value-separator) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -163,7 +163,7 @@ El encabezado muestra los resultados de dos consultas de registro en un periodo 
 
 ![Vista Dos escalas de tiempo y lista](media/log-analytics-view-designer/view-two-timelines-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -183,7 +183,7 @@ El encabezado muestra los resultados de dos consultas de registro en un periodo 
 | Operación |Operación que se realiza en el minigráfico.  Consulte [Configuración común](#sparklines) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -193,7 +193,7 @@ El encabezado muestra texto estático y un vínculo opcional.  La lista muestra 
 
 ![Vista Información](media/log-analytics-view-designer/view-information.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -214,7 +214,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 
 ![Vista Gráfico de líneas, llamada, lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -243,7 +243,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Name & Value Separator (Separador de nombre y valor) |Delimitador de carácter único en caso de que quiera analizar la propiedad text en varios valores.  Consulte [Configuración común](#name-value-separator) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -253,7 +253,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 
 ![Vista Gráfico de líneas y lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -278,7 +278,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Name & Value Separator (Separador de nombre y valor) |Delimitador de carácter único en caso de que quiera analizar la propiedad text en varios valores.  Consulte [Configuración común](#name-value-separator) para obtener más información. |
 | Consulta de navegación |La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Consulte [Configuración común](#navigation-query) para obtener más información. |
 | **Lista** |**&gt; Títulos de columna** |
-| Nombre |Texto que se muestra en la parte superior de la primera columna de la lista. |
+| NOMBRE |Texto que se muestra en la parte superior de la primera columna de la lista. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna de la lista. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
@@ -288,7 +288,7 @@ Muestra tres gráficos de líneas independientes con varias series de una consul
 
 ![Stack of line charts (Pila de gráficos de líneas)](media/log-analytics-view-designer/view-stack-line-charts.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -322,7 +322,7 @@ Un minigráfico es un pequeño gráfico de líneas que muestra el valor de una e
 
 En la tabla siguiente se describe la configuración de los minigráficos.
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione esta opción para mostrar los minigráficos en lugar de la barra horizontal. |
 | Operación |Si los minigráficos están habilitados, será la operación que se realizará en cada propiedad de la lista para calcular los valores del minigráfico.<br><br>- Last Sample: último valor de la serie en el intervalo de tiempo.<br>- Max: valor máximo de la serie en el intervalo de tiempo.<br>- Min: valor mínimo de la serie en el intervalo de tiempo.<br>- Sum: suma de los valores de la serie en el intervalo de tiempo.<br>- Summary: utiliza el mismo comando measure que la consulta del encabezado. |
@@ -336,12 +336,12 @@ Cada conjunto de umbral tiene un umbral con un valor de **Predeterminado**.  Est
 
 En la tabla siguiente se describe la configuración de los umbrales.
 
-| Configuración | Description |
+| Configuración | DESCRIPCIÓN |
 |:--- |:--- |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para mostrar un icono de color a la izquierda de cada valor que indica su estado en relación con los umbrales especificados. |
-| Nombre |Nombre para identificar el valor de umbral. |
+| NOMBRE |Nombre para identificar el valor de umbral. |
 | Umbral |Valor del umbral.  El color de estado de cada elemento de lista se establece en el color del valor de umbral máximo superado por el valor del elemento.  Hay un umbral Predeterminado, que es el color para los casos en que no se superen valores de umbral. |
 | Color |Color del valor del umbral. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en elementos de visualización.

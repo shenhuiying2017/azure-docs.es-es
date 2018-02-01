@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ Use discos de restauración para:
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>¿Puedo usar copias de seguridad de la VM de disco no administrada que se va a restaurar una vez que actualice mis discos a discos administrados?
 Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no administrados a administrados. De forma predeterminada, al restaurarse un trabajo de máquina virtual se creará una máquina virtual con discos no administrados. Puede usar la funcionalidad de restauración de discos para restaurar discos y usarlos para crear una máquina virtual en los discos administrados. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>¿Cuál es el procedimiento para restaurar una máquina virtual a un punto de restauración creado antes de que se realizara la conversión de discos no administrados a administrados para una máquina virtual?
+En este escenario, de forma predeterminada, al restaurar un trabajo de máquina virtual se creará una máquina virtual con discos no administrados. Para crear una máquina virtual con discos administrados:
+1. [Restaure a discos no administrados](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convierta los discos restaurados en discos administrados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Cree una máquina virtual con discos administrados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Para cmdlets de Powershell, consulte [aquí](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>¿Qué ocurre cuando se cambia una directiva de copia de seguridad en las máquinas virtuales?

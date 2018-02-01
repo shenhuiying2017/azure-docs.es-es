@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Introducción al conector de FTP
 Use el conector de FTP para supervisar, administrar y crear archivos en un servidor FTP. 
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Conexión a un FTP
 Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.  
@@ -35,7 +35,7 @@ Para que la aplicación lógica pueda acceder a un servicio, primero debe crear 
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Uso de un desencadenador de FTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > El conector de FTP necesita un servidor FTP que sea accesible desde Internet y que esté configurado para poder funcionar en modo PASIVO. Además, el conector de FTP **no es compatible con FTPS implícito (FTP por SSL)**. El conector de FTP solo admite FTPS explícito (FTP por SSL).  
@@ -61,7 +61,7 @@ En este punto, la aplicación lógica está configurada con un desencadenador qu
 > 
 
 ## <a name="use-a-ftp-action"></a>Uso de una acción de FTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una acción que obtendrá el contenido del archivo nuevo o modificado detectado por el desencadenador.    
 
@@ -73,7 +73,7 @@ Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una ac
    ![Imagen de acción de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    Se abrirá el control **Get file content (Obtener contenido del archivo)**. **Nota**: Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta del servidor FTP.  
    ![Imagen de acción de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Seleccione el control **Archivo** (el espacio en blanco situado bajo **ARCHIVO***). Aquí, podrá utilizar cualquiera de las propiedades del archivo nuevo o modificado detectado en el servidor FTP.  
+5. Seleccione el control **Archivo** (el espacio en blanco situado bajo ***ARCHIVO***). Aquí, podrá utilizar cualquiera de las propiedades del archivo nuevo o modificado detectado en el servidor FTP.  
 6. Seleccione la opción **Contenido del archivo**.  
    ![Imagen de acción de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. El control se actualiza, lo que indica que la acción **FTP - Get file content (FTP: obtener contenido del archivo)** obtendrá el *contenido del archivo* nuevo o modificado del servidor FTP.      
@@ -91,5 +91,5 @@ Puede agregar otra acción; por ejemplo, [SQL Server - insert row (SQL Server: i
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

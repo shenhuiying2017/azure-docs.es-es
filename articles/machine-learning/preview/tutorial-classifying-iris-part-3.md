@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -32,7 +32,7 @@ Este tutorial es la tercera de una serie de tres partes. Aquí se usará Azure M
 
  Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/iris_flower_data_set) atemporal. Las capturas de pantalla son específicas de Windows, pero la experiencia con MacOS es casi idéntica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete las dos primeras partes de esta serie de tutoriales:
 
    * Siga el [tutorial de preparación de datos](tutorial-classifying-iris-part-1.md) para crear recursos de Machine Learning e instalar la aplicación Azure Machine Learning Workbench.
@@ -134,37 +134,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
 
    Se abrirá el símbolo de la línea de comandos en la ubicación actual de la carpeta del proyecto **c:\temp\myIris>**.
 
-2. Asegúrese de que el proveedor de recursos de Azure **Microsoft.ContainerRegistry** esté registrado en su suscripción. Debe registrar este proveedor de recursos para poder crear un entorno en el paso 3. Puede comprobar si ya está registrado mediante el comando siguiente:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   La salida debería ser parecida a la que se muestra a continuación: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Si **Microsoft.ContainerRegistry** no está registrado, puede registrarlo con el comando siguiente:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   El registro puede tardar unos minutos. Puede comprobar su estado con el comando anterior **az provider list** o el siguiente comando:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   La tercera línea de la salida muestra **"registrationState": "Registering"** ("registrationState": "Registrando"). Espere unos minutos y repita el comando **show**, hasta que la salida muestre **"registrationState": "Registered"** ("registrationState": "Registrado").
-
-   >[!NOTE] 
-   Si va a realizar la implementación en un clúster de ACS, debe registrar el proveedor de recursos **Microsoft.ContainerService** y usar exactamente el mismo método.
-
-3. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
+2. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
 
    Tenga en cuenta que el siguiente comando de configuración requiere que tenga acceso de colaborador a la suscripción. Si no lo tiene, al menos necesita acceso de colaborador al grupo de recursos en el que va a realizar la implementación. Para hacer esto último, es preciso especificar el nombre del grupo de recursos como parte del comando de configuración mediante la marca `-g`. 
 
@@ -176,25 +146,25 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    
    El nombre del clúster es una forma de identificar el entorno. La ubicación debe ser la misma que la ubicación de la cuenta de Administración de modelos que creó en Azure Portal.
 
-4. Cree una cuenta de Administración de modelos. (Esta es una instalación que solo se realiza una vez).  
+3. Cree una cuenta de Administración de modelos. (Esta es una instalación que solo se realiza una vez).  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Establezca la cuenta de Administración de modelos.  
+4. Establezca la cuenta de Administración de modelos.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Configure el entorno.
+5. Configure el entorno.
 
-   Una vez finalizada la instalación, use el siguiente comando para establecer las variables de entorno necesarias para hacer funcionar el entorno. Use el mismo nombre de entorno que usó anteriormente en el paso 4. Use el mismo nombre de grupo de recursos que obtuvo en la ventana de comandos cuando se completó el proceso de instalación.
+   Una vez finalizada la instalación, use el siguiente comando para establecer las variables de entorno necesarias para hacer funcionar el entorno. Use el mismo nombre de entorno que usó anteriormente en el paso 2. Use el mismo nombre de grupo de recursos que obtuvo en la ventana de comandos cuando se completó el proceso de instalación.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Para comprobar que ha configurado correctamente su entorno de operacionalización para la implementación del servicio web local, escriba el siguiente comando:
+6. Para comprobar que ha configurado correctamente su entorno de operacionalización para la implementación del servicio web local, escriba el siguiente comando:
 
    ```azurecli
    az ml env show

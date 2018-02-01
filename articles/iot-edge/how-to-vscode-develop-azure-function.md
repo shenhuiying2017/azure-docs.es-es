@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar e implementar Azure Functions en Azure IoT Edge
 
 En este artículo se proporcionan instrucciones detalladas para usar [Visual Studio Code](https://code.visualstudio.com/) como la herramienta de desarrollo principal para desarrollar e implementar Azure Functions en IoT Edge. 
 
 ## <a name="prerequisites"></a>requisitos previos
-En este tutorial se asume que utiliza un equipo o una máquina virtual con Windows o Linux como el equipo de desarrollo. El dispositivo de IoT Edge podría ser otro dispositivo físico o se puede simular el dispositivo de IoT Edge en el equipo de desarrollo.
+En este tutorial se presupone que utiliza un equipo o una máquina virtual con Windows o Linux como máquina de desarrollo. El dispositivo de IoT Edge podría ser otro dispositivo físico o una simulación en la máquina de desarrollo.
 
 Asegúrese de haber completado los siguientes tutoriales antes de empezar con esta guía.
 - Implementación de Azure IoT Edge en un dispositivo simulado en [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) o [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -140,9 +140,13 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
 
 1. En el explorador de VS Code, expanda la carpeta **Docker**. Luego, seleccione la carpeta de la plataforma de contenedores, **linux-x64** o **windows-nano**.
 2. Haga clic con el botón derecho en el archivo **Dockerfile** y haga clic en **Build IoT Edge module Docker image** (Generar imagen de Docker del módulo de IoT Edge). 
+
+    ![Compilar una imagen de Docker](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
+
 3. Desplácese hasta la carpeta de proyecto **FilterFunction** y haga clic en **Select Folder as EXE_DIR** (Seleccionar carpeta como EXE_DIR). 
 4. En el cuadro de texto emergente de la parte superior de la ventana de VS Code, escriba el nombre de la imagen. Por ejemplo: `<your container registry address>/filterfunction:latest`. Si va a realizar la implementación en el registro local, debe ser `localhost:5000/filterfunction:latest`.
-5. Inserte la imagen en el repositorio de Docker. Use el comando **Edge: Push IoT Edge module Docker image** (Edge: insertar la imagen de Docker del módulo de IoT Edge) y escriba la dirección URL de la imagen en el cuadro de texto emergente de la parte superior de la ventana de VS Code. Use la misma dirección URL de la imagen utilizada en el paso anterior.
+5. Inserte la imagen en el repositorio de Docker. Use el comando **Edge: Push IoT Edge module Docker image** (Edge: insertar la imagen de Docker del módulo con IoT Edge) y escriba la dirección URL de la imagen en el cuadro de texto emergente de la parte superior de la ventana de VS Code. Use la misma dirección URL de la imagen que utilizó en el paso anterior.
+    ![Insertar una imagen de Docker](./media/how-to-vscode-develop-csharp-function/push-image.png)
 
 ### <a name="deploy-your-function-to-iot-edge"></a>Implementación de la función en IoT Edge
 
@@ -172,22 +176,28 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
 
 2. Reemplace la sección **routes** con el contenido siguiente:
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
    > Las reglas declarativas del runtime definen dónde fluyen esos mensajes. En este tutorial, necesita dos rutas. La primera transporta mensajes desde el sensor de temperatura hasta la función de filtro a través del punto de conexión "input1", que es el que configuró con el controlador FilterMessages. La segunda transporta mensajes desde la función de filtro hasta IoT Hub. En esta ruta, upstream es un destino especial que indica a Edge Hub que envíe mensajes a IoT Hub.
 
 3. Guarde este archivo.
 4. En la paleta de comandos, seleccione **Edge: Create deployment for Edge device** (Edge: crear implementación para dispositivo de Edge). A continuación, seleccione el identificador del dispositivo de IoT Edge para crear una implementación. También puede hacer clic con el botón derecho en el identificador del dispositivo en la lista de dispositivos y seleccionar **Create deployment for Edge device** (Crear implementación para dispositivo de Edge).
+
+    ![Creación de una implementación](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
 5. Seleccione el archivo `deployment.json` actualizado. En la ventana de salida, verá las salidas correspondientes a la implementación.
 6. Inicie el entorno de tiempo de ejecución de Edge en la paleta de comandos. **Edge: Start Edge** (Edge: iniciar Edge)
 7. Verá el inicio de la ejecución del entorno de tiempo de ejecución de IoT Edge en el explorador de Docker con el sensor simulado y la función de filtro.
+
+    ![Solución que se ejecuta](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
 8. Haga clic con el botón derecho en el identificador de dispositivo de Edge; también puede supervisar los mensajes de D2C en VS Code.
+
+    ![Controlar mensajes](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
 ## <a name="next-steps"></a>pasos siguientes

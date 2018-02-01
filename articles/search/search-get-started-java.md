@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introducción a Azure Search en Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Todas las llamadas de API de REST en Azure Search requieren que proporcione la d
 5. Copie la dirección URL del servicio y una clave de administración. Las necesitará más adelante para agregarlas al archivo **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Descarga de los archivos de ejemplo
-1. Vaya a [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) en GitHub.
+1. Vaya a [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) en GitHub.
 2. Haga clic en **Download ZIP**, guarde el archivo .zip en el disco y extraiga todos los archivos que contiene. Es recomendable que extraiga los archivos en su área de trabajo de Java para que le resulte más fácil encontrar el proyecto más adelante.
 3. Los archivos de ejemplo son de solo lectura. Haga clic con el botón secundario en las propiedades de la carpeta y borre el atributo de sólo lectura.
 
@@ -100,7 +100,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 2. Seleccione **Dynamic Web Module**, **Java** y **JavaScript**.
    
     ![][6]
-3. Haga clic en **Apply**.
+3. Haga clic en **Aplicar**.
 4. Seleccione **Ventana** > **Preferencias** > **Servidor** > **Entornos en tiempo de ejecución** > **Agregar...**.
 5. Expanda Apache y seleccione la versión del servidor Apache Tomcat que ha instalado anteriormente. En nuestro sistema, se instala la versión 8.
    
@@ -109,7 +109,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 7. Haga clic en **Finalizar**
 8. Seleccione **Ventana** > **Preferencias** > **Java** > **JRE instalados** > **Agregar**.
 9. En **Add JRE** (Agregar JRE), seleccione **Standard VM** (VM estándar).
-10. Haga clic en **Siguiente**.
+10. Haga clic en **Next**.
 11. En JRE Definition (Definición de JRE), en JRE home (Directorio de JRE), haga clic en **Directory**(Directorio).
 12. Vaya a **Archivos de programa** > **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
 13. En Installed JREs, elija el **JDK**. Su configuración debería ser similar a la siguiente captura de pantalla.
@@ -159,7 +159,7 @@ También puede probar con alguno de estos términos:
 * Pembroke
 * goose +cape
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Este es el primer tutorial de Azure Search basada en Java y en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial para mostrar otras características de búsqueda que podría querer usar en sus soluciones personalizadas.
 
 Si ya Tiene alguna experiencia con Azure Search, puede utilizar este ejemplo como punto de partida para experimentación adicional, por ejemplo, aumentando la [página de búsqueda](search-pagination-page-layout.md), o implementando la [navegación por facetas](search-faceted-navigation.md). También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.

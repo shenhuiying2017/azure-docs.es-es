@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -30,6 +30,12 @@ Hay dos tipos de pruebas de disponibilidad:
 * [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Enterprise y se carga en el portal.
 
 Puede crear hasta 100 pruebas de disponibilidad por recurso de aplicación.
+
+
+> [!NOTE] 
+> * Las ubicaciones de prueba de disponibilidad se han trasladado recientemente a los centros de datos de Azure. Este traslado permite agregar ubicaciones con la creciente red de centros de datos de Azure.  
+> * No es necesario actualizar las pruebas. Todas las pruebas se migran y se ejecutan en las nuevas ubicaciones. 
+>* Consulte la [actualización del servicio](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) para obtener más información.
 
 ## <a name="create"></a>Apertura de un recurso para los informes de pruebas de disponibilidad
 
@@ -118,7 +124,8 @@ Puede supervisar un escenario que implique una secuencia de direcciones URL. Por
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio Enterprise y, a continuación, cargue la grabación en Application Insights. Application Insights reproduce el escenario a intervalos y comprueba las respuestas.
 
 > [!NOTE]
-> No puede usar funciones codificadas ni bucles en las pruebas. La prueba debe estar contenida completamente en el script .webtest. Sin embargo, puede usar complementos estándar.
+> * No puede usar funciones codificadas ni bucles en las pruebas. La prueba debe estar contenida completamente en el script .webtest. Sin embargo, puede usar complementos estándar.
+> * En las pruebas web de varios pasos solo se admiten caracteres latinos. Si utiliza Visual Studio en otros idiomas, actualice el archivo de definición de la prueba web para convertir o excluir los caracteres no latinos.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Grabar un escenario
@@ -269,7 +276,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
     Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](app-insights-sampling.md).
 * *¿Puedo llamar el código desde mi prueba web?*
 
-    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
+    Nº Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
 * *¿Se admite HTTPS?*
 
     Admitimos TLS 1.1 y TLS 1.2.

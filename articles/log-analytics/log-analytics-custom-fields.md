@@ -1,6 +1,6 @@
 ---
-title: Campos personalizados de Log Analytics | Microsoft Docs
-description: "La característica Custom Fields (Campos personalizados) de Log Analytics le permite crear sus propios campos de búsqueda a partir de datos de OMS y agregarlos a las propiedades de un registro recopilado.  En este artículo, se describe el proceso que debe seguir para crear un campo personalizado y se incluye un tutorial detallado con un evento de ejemplo."
+title: Campos personalizados de Azure Log Analytics | Microsoft Docs
+description: "La característica Campos personalizados de Log Analytics le permite crear sus propios campos de búsqueda a partir de registros de Log Analytics y agregarlos a las propiedades de un registro recopilado.  En este artículo, se describe el proceso que debe seguir para crear un campo personalizado y se incluye un tutorial detallado con un evento de ejemplo."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados de Log Analytics
-La característica **Custom Fields** (Campos personalizados) de Log Analytics le permite ampliar los registros existentes en el repositorio de OMS agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
+La característica **Campos personalizados** de Log Analytics le permite ampliar los registros existentes de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
 
 ![Introducción a los campos personalizados](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Cuando se crea un campo personalizado, Log Analytics necesita saber qué datos d
 En las secciones siguientes, se describe el procedimiento necesario para crear un campo personalizado.  Al final de este artículo, encontrará un tutorial con una extracción de ejemplo.
 
 > [!NOTE]
-> El campo personalizado se rellena a medida que los registros que cumplen los criterios especificados se agregan al almacén de datos de OMS; por tanto, el campo personalizado solo aparecerá en los registros recopilados una vez que se haya creado.  El campo personalizado no se agregará a los registros que ya se encuentren en el almacén de datos en el momento de su creación.
-> 
+> El campo personalizado se rellena a medida que los registros que cumplen los criterios especificados se agregan a Log Analytics; por tanto, el campo personalizado solo aparecerá en los registros recopilados una vez que se haya creado.  El campo personalizado no se agregará a los registros que ya se encuentren en el almacén de datos en el momento de su creación.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Paso 1: Identificación de los registros que incluirán el campo personalizado
@@ -72,7 +71,7 @@ Una vez realizada la extracción inicial, Log Analytics mostrará los resultados
 7. Utilice el campo personalizado como cualquier otra propiedad del registro.  Puede usarlo para agregar y agrupar datos, e incluso para generar nueva información.
 
 ## <a name="viewing-custom-fields"></a>Presentación de los de campos personalizados
-Puede ver una lista de todos los campos personalizados en el grupo de administración del icono **Settings** (Configuración) del panel de OMS.  Seleccione **Datos** y después **Campos personalizados** para obtener una lista de todos los campos personalizados del área de trabajo.  
+Puede ver una lista de todos los campos personalizados en el grupo de administración del menú **Configuración avanzada** del área de trabajo de Log Analytics en Azure Portal.  Seleccione **Datos** y después **Campos personalizados** para obtener una lista de todos los campos personalizados del área de trabajo.  
 
 ![Custom Fields](media/log-analytics-custom-fields/list.png)
 
@@ -138,7 +137,7 @@ Ahora, podemos usar el campo personalizado como cualquier otra propiedad del reg
 
 ![Agrupar por consulta](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [búsquedas de registros](log-analytics-log-searches.md) .
 * Supervise los [archivos de registro personalizados](log-analytics-data-sources-custom-logs.md) que se analizan con campos personalizados.
 

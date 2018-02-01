@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones sobre el diseño de identidades híbridas de Azure Active Directory: definir la estrategia de protección de datos| Microsoft Docs"
+title: "Diseño de identidades híbridas: estrategia de protección de datos en Azure | Microsoft Docs"
 description: "Puede definir la estrategia de protección de datos para que su solución de identidad híbrida cumpla los requisitos empresariales que se indiquen."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -164,7 +165,7 @@ Además de la funcionalidad principal de generación de informes de Azure AD Pre
 
 Dado que las opciones para la respuesta ante incidentes usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saca provecho de todas las opciones disponibles para cada escenario que requiere que se use la capacidad de generación de informes de Azure AD como parte del proceso de respuesta ante incidentes de su compañía.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Determinación de las tareas de administración de identidades híbridas](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Otras referencias

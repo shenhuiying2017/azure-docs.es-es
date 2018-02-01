@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse
 Recomendaciones y optimizaciones de rendimiento para cargar datos en Azure SQL Data Warehouse. 
@@ -31,7 +31,7 @@ Recomendaciones y optimizaciones de rendimiento para cargar datos en Azure SQL D
 ## <a name="preparing-data-in-azure-storage"></a>Preparación de datos en Azure Storage
 Para minimizar la latencia, reubique la capa de almacenamiento y el almacenamiento de datos.
 
-Al exportar datos en formato de archivo ORC, las columnas de texto pesadas se pueden limitar a tan solo 50 columnas debido a errores de memoria insuficiente de Java. Para resolver este problema, exporte solo un subconjunto de las columnas.
+Al exportar datos en formato de archivo ORC, pueden producirse errores de falta de memoria de Java con las columnas de texto grandes. Para resolver este problema, exporte solo un subconjunto de las columnas.
 
 PolyBase no puede cargar filas que tengan más de un millón de bytes de datos. Cuando ponga datos en los archivos de texto de Azure Blob Storage o Azure Data Lake Store, estos tienen que tener menos de un millón de bytes de datos. Esta limitación de datos es cierta independientemente del esquema de tabla definido.
 
@@ -45,14 +45,22 @@ Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de c
 
 Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Asigne cada usuario de carga a una clase de recurso específica. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con la clase de recurso del usuario.  Este método es más sencillo que intentar cambiar la clase de recursos de un usuario para que se ajuste a la necesidad actual de clase de recurso.
 
-Este código crea un usuario de carga para la clase de recurso staticrc20. Se concede permiso de control de usuarios para una base de datos y, a continuación, se agrega al usuario como miembro del rol de base de datos staticrc20. Para ejecutar una carga con recursos de las clases de recursos staticRC20, simplemente inicie sesión como LoaderRC20 y ejecute la carga. 
+### <a name="example-of-creating-a-loading-user"></a>Ejemplo de creación de un usuario de carga
+En este ejemplo se crea un usuario de carga para la clase de recurso staticrc20. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Conéctese al almacenamiento de datos y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos denominada mySampleDataWarehouse. Muestra cómo crear un usuario llamado LoaderRC20 y concederle el permiso de control de usuario en una base de datos. A continuación, agrega el usuario como miembro del rol de base de datos staticrc20.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+Para ejecutar una carga con recursos de las clases de recursos staticRC20, simplemente inicie sesión como LoaderRC20 y ejecute la carga.
 
 Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso de clases de recursos estáticas garantiza los mismos recursos independientemente del [nivel de servicio](performance-tiers.md#service-levels). Si utiliza una clase de recursos dinámica, los recursos varían según el nivel de servicio. Para las clases dinámicas, un nivel de servicio inferior significa que probablemente necesita usar una clase de recursos más grande para el usuario de carga.
 
@@ -60,7 +68,7 @@ Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso d
 
 A menudo, es necesario que varios usuarios puedan cargar datos en un almacén de datos. La carga con [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas. Probablemente no desee que todos los usuarios de carga tengan control de acceso en todos los esquemas. Para limitar los permisos, use la instrucción DENY CONTROL.
 
-Por ejemplo: tenemos los esquemas de base de datos schema_A para el departamento A, schema_B para el departamento B y los usuarios de PolyBase user_A y user_B con cargas en los departamentos A y B respectivamente. A ambos se les ha concedido permiso de CONTROL sobre la base de datos. Los creadores de los esquemas A y B bloquean ahora dichos esquemas utilizando DENY:
+Por ejemplo: tenemos los esquemas de base de datos schema_A para el departamento A, schema_B para el departamento B y los usuarios de PolyBase user_A y user_B con cargas en los departamentos A y B respectivamente. A ambos se les ha concedido permiso de CONTROL sobre la base de datos. Ahora, los creadores de los esquemas A y B bloquean dichos esquemas utilizando DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -123,8 +131,8 @@ Después de migrar las tablas externas al nuevo origen de datos, realice estas t
 3. Inicie sesión en Azure y vuelva a generar la clave de acceso principal para que esté lista para la próxima rotación.
 
 
-## <a name="next-steps"></a>Pasos siguientes
-Para supervisar el proceso de carga, consulte [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md).
+## <a name="next-steps"></a>pasos siguientes
+Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md).
 
 
 

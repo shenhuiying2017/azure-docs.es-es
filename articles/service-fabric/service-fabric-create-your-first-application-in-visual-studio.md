@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Creación de su primera aplicación de Reliable Services con estado de Service Fabric en C#
 
 Aprenda a implementar su primera aplicación de Service Fabric para .NET en Windows en tan solo unos minutos. Cuando haya terminado, tendrá un clúster local que se ejecuta con una aplicación de servicio de confianza.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Esto incluye la instalación del SDK de Service Fabric SDK y Visual Studio 2017 o 2015.
 
@@ -82,7 +82,7 @@ Cuando se inicia la aplicación, Visual Studio muestra automáticamente el **vis
    
 ![Visor de eventos de diagnóstico][5]
 
-La plantilla del servicio con estado que se utilizó muestra simplemente un valor del contador, que se incrementa en el método `RunAsync` de **MyStatefulService.cs**.
+La plantilla del servicio con estado que se utilizó muestra un valor del contador, que se incrementa en el método `RunAsync` de **MyStatefulService.cs**.
 
 Expanda uno de los eventos para ver más detalles, incluido el nodo en que se ejecuta el código. En este caso, es \_Node\_0, aunque puede diferir en su máquina.
    
@@ -129,7 +129,7 @@ Elimine el clúster haciendo clic con el botón derecho en la aplicación de la 
 
 Si elige esta opción, Visual Studio volverá a implementar el clúster la próxima vez que ejecute la aplicación. Elija esta opción solo si no tiene intención de utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información sobre [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 

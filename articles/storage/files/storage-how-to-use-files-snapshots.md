@@ -3,7 +3,7 @@ title: "Uso de instantáneas de recursos compartidos (versión preliminar) | Mic
 description: "Una instantánea de recurso compartido es una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado como método para realizar una copia de seguridad del recurso compartido."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Uso de instantáneas de recursos compartidos (versión preliminar)
 Las instantáneas de recursos compartidos (versión preliminar) son una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado. Una vez se crea la instantánea de recurso compartido, puede leerla, copiarla o eliminarla, pero no modificarla. Las instantáneas de recursos compartidos son una forma de realizar una copia de seguridad del recurso compartido en el momento en que este aparece. 
@@ -246,7 +246,46 @@ En la salida, se ve que el contenido del archivo descargado y sus propiedades so
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operaciones de la instantánea del recurso compartido de archivos en Azure PowerShell
+Puede usar Azure Powershell para realizar las mismas operaciones, tales como enumerar instantáneas del recurso compartido, examinar el contenido de estas, restaurar o descargar archivos desde la instantánea del recurso compartido o eliminar instantáneas del recurso compartido.
+
+#### <a name="list-share-snapshots"></a>Enumerar instantáneas del recurso compartido
+
+Puede enumerar las instantáneas del recurso compartido de un recurso compartido determinado mediante `Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Examen de las instantáneas de recurso compartido
+También puede ir a un recurso compartido de una instantánea específica para ver su contenido mediante `Get-AzureStorageFile` con el valor de `-Share` que apunte a la instantánea determinada.
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Restauración desde instantáneas de recurso compartido
+
+Puede restaurar un archivo copiando o descargando un archivo desde la instantánea del recurso compartido mediante el comando `Get-AzureStorageFileContent`
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Eliminar la instantánea del recurso compartido de Azure Files
+=======
 ## <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Para eliminar instantáneas de recursos compartidos utilice Azure Portal, PowerShell, la CLI, la API de REST o cualquier SDK de Storage. En las siguientes secciones se describe cómo eliminar instantáneas de recursos compartidos mediante Azure Portal, la CLI y PowerShell.
 
@@ -294,6 +333,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Snapshot overview](storage-snapshots-files.md) (Introducción a las instantáneas)
 * [Preguntas más frecuentes sobre la instantánea](storage-files-faq.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics en IoT Edge (versión preliminar)
 
@@ -57,7 +57,12 @@ Los valores posibles se describen en la tabla siguiente. En las secciones siguie
 | 2   | **Creación de un contenedor de almacenamiento**   | Azure Portal       | Los contenedores de almacenamiento se utilizan para guardar la definición de trabajo donde pueden obtenerla sus dispositivos de IoT. <br>  Todos los contenedor de almacenamiento existente se pueden reutilizar.     |
 | 3   | **Configuración de un entorno de IoT Edge en dispositivos**   | Dispositivos      | Instrucciones para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implementación de ASA en dispositivos de IoT Edge**   | Azure Portal      |  La definición del trabajo ASA se exporta al contenedor de almacenamiento que creó anteriormente.       |
-Puede seguir [este tutorial paso a paso](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar su primer trabajo de ASA en IoT Edge.
+Puede seguir [este tutorial paso a paso](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar su primer trabajo de ASA en IoT Edge. El vídeo siguiente debería ayudarle a entender el proceso para ejecutar un trabajo de Stream Analytics en un dispositivo con IoT Edge:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Creación de un trabajo de Edge de ASA
 1. En Azure Portal, cree un nuevo "trabajo de Stream Analytics". [Vínculo directo para crear un nuevo trabajo de ASA aquí](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -201,11 +206,11 @@ Para más información, consulte la [documentación de Docker para Windows](http
 * [Licencia de versión preliminar de Azure Stream Analytics en IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Aviso de terceros para la versión preliminar de Azure Stream Analytics en IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Más información acerca de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Tutorial de ASA en IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

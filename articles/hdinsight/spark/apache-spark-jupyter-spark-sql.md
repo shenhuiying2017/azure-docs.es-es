@@ -15,19 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2017
+ms.date: 01/18/2018
 ms.author: jgao
-ms.openlocfilehash: 516c48424ef5d1256296240541fb544c1e5d9205
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Creación de un clúster de Apache Spark en Azure HDInsight
 
 Aprenda cómo crear clústeres de Apache Spark en Azure HDInsight y cómo ejecutar consultas SQL de Spark en tablas de Hive. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Una suscripción de Azure**. Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free).
 
@@ -50,7 +50,7 @@ Cree un clúster de Spark en HDInsight mediante una [plantilla de Azure Resource
     * **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es admin.
     * **Nombre de usuario y contraseña de SSH**.
 
-3. Seleccione **I agree to the terms and conditions stated above** (Acepto los términos y condiciones indicados anteriormente) y **Anclar al panel** y haga clic en **Purchase** (Comprar). Puede ver un icono nuevo llamado Envío de implementación para la implementación de plantilla. La creación del clúster tarda aproximadamente 20 minutos.
+3. Seleccione **I agree to the terms and conditions stated above** (Acepto los términos y condiciones indicados anteriormente) y **Anclar al panel** y haga clic en **Purchase** (Comprar). Verá un icono nuevo llamado **Deploying Template deployment** (Implementación de la plantilla de implementación). La creación del clúster tarda aproximadamente 20 minutos.
 
 Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
@@ -69,7 +69,7 @@ Si surge un problema con la creación de clústeres de HDInsight, podría debers
 
 2. Abra el clúster de Spark que creó. Para obtener instrucciones, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
-3. En **Quick links** (Vínculos rápidos), haga clic en **Cluster dashboards** (Paneles de clúster) y después en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+3. En el portal, haga clic en **Paneles de clúster** y después en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
    ![Abrir un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Abrir un cuaderno de Jupyter para ejecutar consultas Spark SQL interactivas")
 
@@ -99,18 +99,29 @@ Para ver un ejemplo de cómo leer datos desde un archivo csv en lugar de una tab
 
 **Para ejecutar Spark SQL**
 
-1.  Pegue el código siguiente del cuaderno en una celda vacía y presione **MAYÚS + ENTRAR** para ejecutar el código. 
+1. Al iniciar el cuaderno por primera vez, el kernel realiza tareas en segundo plano. Espere a que el kernel esté listo. El kernel está listo cuando aparece un círculo vacío junto al nombre del kernel en el cuaderno. Un círculo sólido indica que el kernel está ocupado.
+
+    ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta de Hive en HDInsight Spark")
+
+2. Cuando el kernel esté listo, pegue el código siguiente en una celda vacía y presione **MAYÚS + ENTRAR** para ejecutarlo. De forma predeterminada, la salida debe incluir un `hivesampletable` disponible en el clúster.
 
     ```PySpark
     %%sql
-    SELECT * FROM hivesampletable LIMIT 10
+    SHOW TABLES
     ```
 
     ![Consulta de Hive en HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Consulta de Hive en HDInsight Spark")
 
     Cuando se utiliza un cuaderno de Jupyter Notebook con el clúster de Spark en HDInsight, obtendrá un valor de `sqlContext` preestablecido que puede usar para ejecutar consultas de Hive con Spark SQL. `%%sql` indica a Jupyter Notebook que use el valor de `sqlContext` preestablecido para ejecutar la consulta de Hive. La consulta recupera las 10 primeras filas de una tabla de Hive (**hivesampletable**) que se incluye de forma predeterminada en todos los clústeres de HDInsight. Para más información sobre las `%%sql` instrucciones mágicas y los contextos preestablecidos, consulte [Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-    Cada vez que se ejecuta una consulta en Jupyter, el título de la ventana del explorador web muestra el estado **(Busy)** (Ocupado) junto con el título del Notebook. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha. Cuando finaliza el trabajo, cambia a un círculo vacío.
+    Cada vez que se ejecuta una consulta en Jupyter, el título de la ventana del explorador web muestra el estado **(Busy)** (Ocupado) junto con el título del Notebook. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha.
+    
+2. Ejecute otra consulta para ver los datos en `hivesampletable`.
+
+    ```PySpark
+    %%sql
+    SELECT * FROM hivesampletable LIMIT 10
+    ```
     
     Debe actualizar la pantalla para mostrar la salida de la consulta.
 
@@ -122,7 +133,7 @@ Para ver un ejemplo de cómo leer datos desde un archivo csv en lugar de una tab
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-step"></a>Paso siguiente 
+## <a name="next-steps"></a>pasos siguientes 
 
 En este artículo ha aprendido a crear un clúster de HDInsight Spark y a ejecutar una consulta básica de Spark SQL. Continúe hasta el siguiente artículo para obtener información sobre cómo usar un clúster de HDInsight Spark para ejecutar consultas interactivas en datos de ejemplo.
 
