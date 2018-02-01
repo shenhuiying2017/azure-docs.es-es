@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Azure Site Recovery
 
@@ -32,7 +32,7 @@ Con Azure Site Recovery, puede:
 En este artículo se explica cómo proteger las implementaciones de aplicaciones SAP NetWeaver mediante [Azure Site Recovery](site-recovery-overview.md). Este artículo aborda los procedimientos recomendados para proteger una implementación de SAP NetWeaver de tres niveles en Azure mediante la replicación en otro centro de datos Azure con Azure Site Recovery, las configuraciones y los escenarios admitidos, y cómo realizar conmutaciones por error, tanto de prueba (simulacros) como reales.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
 1. [Replicación de una máquina virtual en Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Si utiliza una dirección IP estática, puede especificar la dirección IP que d
 Los planes de recuperación permiten secuenciar la conmutación por error de los diferentes niveles de una aplicación de niveles múltiples y, por tanto, mantener la coherencia de la aplicación. Siga los pasos que se describen [aquí](site-recovery-create-recovery-plans.md) al crear un plan de recuperación para una aplicación web de múltiples niveles.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
-Para que las aplicaciones funcionen correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error (real o de prueba). Puede automatizar las operaciones posteriores a la conmutación por error, como la actualización de entradas DNS, la modificación de los enlaces o de las conexiones, incorporando los scripts correspondientes en el plan de recuperación, tal y como se detalla en [este artículo](site-recovery-create-recovery-plans.md#add-scripts).
+Para que las aplicaciones funcionen correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error (real o de prueba). Puede automatizar las operaciones posteriores a la conmutación por error, como la actualización de entradas DNS, la modificación de los enlaces o de las conexiones, incorporando los scripts correspondientes en el plan de recuperación, tal y como se detalla en [este artículo](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Actualización de DNS
 Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si desea incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue este [script para actualizar direcciones IP en DNS](https://aka.ms/asr-dns-update) como una acción posterior a los grupos del plan de recuperación.  
@@ -114,7 +114,7 @@ Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutaci
 3.  Haga clic en 'Conmutación por error'.
 4.  Seleccione el punto de recuperación en el que se va a iniciar el proceso de conmutación por error.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información acerca de cómo crear una solución de recuperación ante desastres para las implementaciones SAP NetWeaver con Azure Site Recovery en [estas notas del producto](http://aka.ms/asr-sap). Las notas del producto también incluyen recomendaciones para distintas arquitecturas SAP, listas de aplicaciones admitidas y los tipos de máquina virtual para SAP en Azure, y describen los posibles planes de pruebas para la solución de recuperación ante desastres.
 
 Obtenga más información sobre la [replicación de otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.

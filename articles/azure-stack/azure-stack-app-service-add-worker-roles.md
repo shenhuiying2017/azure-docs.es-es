@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service en Azure Stack: incorporación de más roles de trabajo o infraestructura
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
 
 Este documento proporciona instrucciones acerca de cómo escalar App Service en roles de trabajo y la infraestructura de Azure Stack. Contiene los pasos para crear roles de trabajo adicionales para admitir aplicaciones de cualquier tamaño.
 
@@ -40,15 +41,15 @@ Incorporación de roles de trabajo adicionales directamente desde el administrad
 2. Vaya a **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Haga clic en **Roles**. Aquí verá el desglose de los roles de App Service implementados.
 
 4. Haga clic con el botón derecho en la fila del tipo que desea escalar y, a continuación, haga clic en **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Haga clic en **Escalado**, seleccione el número de instancias a las que desea escalar y, a continuación, haga clic en **Guardar**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service en Azure Stack ahora incorporará máquinas virtuales adicionales, las configurará, instalará el software necesario y las marcará como listas cuando finalice el proceso, que puede tardar unos 80 minutos.
@@ -64,6 +65,6 @@ Cuando estén totalmente implementados y listos, los roles de trabajo estarán d
 
 Para escalar horizontalmente los roles de administración, front-end o publicador, siga los mismos pasos seleccionando el tipo de rol adecuado. Los controladores no se implementan como conjuntos de escalado y, por tanto, dos deben implementarse en tiempo de instalación para todas las implementaciones de producción.
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 
 [Configuración de orígenes de implementación](azure-stack-app-service-configure-deployment-sources.md)

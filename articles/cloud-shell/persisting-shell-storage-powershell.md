@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Cómo funciona PowerShell en Azure Cloud Shell (versión preliminar)
 PowerShell en Cloud Shell (versión preliminar) conserva los archivos a través del método siguiente: 
@@ -36,9 +36,9 @@ Puede desmontar un recurso compartido de archivos de Azure montado en Cloud Shel
 El comando `Dismount-CloudDrive` desmonta un recurso compartido de archivos de Azure desde la cuenta de almacenamiento actual. Desmontar Cloud Drive finaliza la sesión actual. Se le pedirá al usuario que cree y monte un recurso compartido de archivos de Azure nuevo durante la sesión siguiente.
 ![Ejecución de Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Guía de inicio rápido de PowerShell](quickstart-powershell.md) <br>
 [Información acerca de Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

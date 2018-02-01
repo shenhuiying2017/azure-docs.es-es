@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Transmisión de datos de Azure Storage Blob a Data Lake Store mediante Stream Analytics
 En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Azure Stream Analytics. Este artículo muestra un escenario simple que lee datos desde una instancia de Azure Storage Blob (entrada) y los escribe en Data Lake Store (salida).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -65,7 +65,7 @@ Primero debe crear un trabajo de Stream Analytics que incluya un origen de entra
     * En **Delimitador**, seleccione **tabulación**.
     * En **Codificación**, seleccione **UTF-8**.
 
-    Haga clic en **Crear**. El portal ahora agrega la entrada y prueba la conexión a ella.
+    Haga clic en **Create**(Crear). El portal ahora agrega la entrada y prueba la conexión a ella.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>Creación de una salida del Almacén de Data Lake para el trabajo
@@ -94,7 +94,7 @@ Primero debe crear un trabajo de Stream Analytics que incluya un origen de entra
     * En **Delimitador**, seleccione **tabulación**.
     * En **Codificación**, seleccione **UTF-8**.
     
-    Haga clic en **Crear**. El portal ahora agrega la salida y prueba la conexión a ella.
+    Haga clic en **Create**(Crear). El portal ahora agrega la salida y prueba la conexión a ella.
     
 ## <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 
@@ -120,5 +120,5 @@ Primero debe crear un trabajo de Stream Analytics que incluya un origen de entra
 
     En el panel del Explorador de datos, tenga en cuenta que la salida se escribe en una ruta de carpeta, según lo especificado en la configuración de salida de Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)

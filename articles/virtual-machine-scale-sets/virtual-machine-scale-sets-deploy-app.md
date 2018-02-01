@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.
@@ -103,7 +103,7 @@ En el shell actual, cree un archivo denominado *customConfig.json* y pegue la si
 }
 ```
 
-Aplique la configuración de la extensión de script personalizado a las instancias de máquinas virtuales del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension#set). En el siguiente ejemplo se aplica la configuración *customConfig.json* a las instancias de máquinas virtuales *myScaleSet* del grupo de recursos denominado *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
+Aplique la configuración de la extensión de script personalizado a las instancias de máquinas virtuales del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). En el siguiente ejemplo se aplica la configuración *customConfig.json* a las instancias de máquinas virtuales *myScaleSet* del grupo de recursos denominado *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
 
 ```azurecli
 az vmss extension set \
@@ -172,7 +172,7 @@ cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get
 
 Para obtener más información, incluido un archivo *cloud-init.txt* de ejemplo, consulte [Uso de cloud-init para personalizar máquinas virtuales de Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Para crear un conjunto de escalado y usar un archivo cloud-init, agregue el parámetro `--custom-data` al comando [az vmss create](/cli/azure/vmss#create) y especifique el nombre de un archivo cloud-int. En el siguiente ejemplo se crea un conjunto de escalado denominado *myScaleSet* en *myResourceGroup* y configuran instancias de máquinas virtuales con un archivo denominado *cloud-init.txt*. Escriba sus propios nombres, como se indica a continuación:
+Para crear un conjunto de escalado y usar un archivo cloud-init, agregue el parámetro `--custom-data` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) y especifique el nombre de un archivo cloud-int. En el siguiente ejemplo se crea un conjunto de escalado denominado *myScaleSet* en *myResourceGroup* y configuran instancias de máquinas virtuales con un archivo denominado *cloud-init.txt*. Escriba sus propios nombres, como se indica a continuación:
 
 ```azurecli
 az vmss create \
@@ -222,5 +222,5 @@ Si hay nuevas versiones del sistema operativo disponibles, puede usar o crear un
 Si usa una imagen de máquina virtual personalizada con la aplicación preinstalada, podría integrar las actualizaciones de la aplicación con una canalización de implementación para crear las nuevas imágenes e implementar actualizaciones del sistema operativo en el conjunto de escalado. Este enfoque permite a la canalización elegir las últimas compilaciones de aplicación, crear y validar una imagen de máquina virtual y, a continuación, actualizar las instancias de máquinas virtuales del conjunto de escalado. Para ejecutar una canalización de implementación que cree e implemente actualizaciones de la aplicación en imágenes de máquina virtual personalizadas, podría usar [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Al crear e implementar aplicaciones en los conjuntos de escalado, puede revisar [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) (Información general sobre el diseño del conjunto de escalado). Para obtener más información sobre cómo administrar el conjunto de escalado, consulte [Use PowerShell to manage your scale set](virtual-machine-scale-sets-windows-manage.md) (Uso de PowerShell para administrar el conjunto de escalado).

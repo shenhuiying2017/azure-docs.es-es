@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 6e3bab5356812c256cfd147e42f065f381e0f63d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Asignación a una identidad de servicio administrada (MSI) asignada por el usuario acceso a un recurso mediante la CLI de Azure
 
@@ -33,7 +33,7 @@ Una vez haya creado una identidad de servicio administrada asignada por el usuar
 Para ejecutar los ejemplos de script de la CLI de este tutorial, tiene dos opciones:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local. A continuación, inicie sesión en Azure mediante [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la MSI asignada por el usuario y la máquina virtual:
+- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local. A continuación, inicie sesión en Azure mediante [az login](/cli/azure/#az_login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la MSI asignada por el usuario y la máquina virtual:
 
    ```azurecli
    az login

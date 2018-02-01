@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
-ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)
 > [!div class="op_single_selector"]
@@ -46,14 +46,14 @@ Cuando se lleva a cabo una operación de escala o pausa, el sistema primero elim
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
-| 300  | 3                  | 20 |                           |
+| 300  | 3                  | 20                            |
 | 400  | 4                  | 15                           |
 | 500  | 5                  | 12                           |
 | 600  | 6                  | 10                           |
 | 1000 | 10                 | 6                            |
 | 1200 | 12                 | 5                            |
 | 1.500 | 15                 | 4                            |
-| 2000 | 20 |                 | 3                            |
+| 2000 | 20                  | 3                            |
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
@@ -75,9 +75,9 @@ La comprobación del estado de la base de datos a través de varios puntos de co
 
 |              | Pausar y reanudar | Escala | Comprobar el estado de la base de datos |
 | ------------ | ------------ | ----- | -------------------- |
-| Portal de Azure | Sí          | Sí   | **No**               |
+| Azure Portal | Sí          | Sí   | **No**               |
 | PowerShell   | Sí          | Sí   | Sí                  |
-| API de REST     | Sí          | Sí   | Sí                  |
+| API DE REST     | Sí          | Sí   | Sí                  |
 | T-SQL        | **No**       | Sí   | Sí                  |
 
 
@@ -167,7 +167,7 @@ Para escalar la base de datos, se requieren los permisos descritos en [ALTER DAT
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los artículos siguientes para comprender mejor algunos conceptos fundamentales adicionales sobre rendimiento:
 
 * [Administración de cargas de trabajo y simultaneidad][Workload and concurrency management]
@@ -189,11 +189,11 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
 [Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
 [Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 

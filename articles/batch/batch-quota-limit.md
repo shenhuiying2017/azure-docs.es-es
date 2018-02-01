@@ -3,8 +3,8 @@ title: "Límites y cuotas del servicio para Azure Batch | Microsoft Docs"
 description: "Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota."
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -47,7 +47,7 @@ Si usó una versión anterior de la API de Batch para crear una cuenta de Batch 
 | **Recurso** | **Límite máximo** |
 | --- | --- |
 | [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso |4 × número de núcleos de nodo |
-| [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20 | |
+| [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20  |
 | Paquetes de aplicación por aplicación |40 |
 | Tamaño del paquete de aplicación (cada uno) |Aprox. 195 GB<sup>1</sup> |
 | Tamaño máximo de la tarea de inicio | 32 768 caracteres<sup>2</sup> |
@@ -86,14 +86,14 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
    
     d. **Plan de soporte técnico** > **Compatibilidad con cuotas (incluida)**
    
-    Haga clic en **Siguiente**.
+    Haga clic en **Next**.
 4. En **Problema**:
    
     a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
    
     b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Batch y el nuevo límite.
    
-    Haga clic en **Siguiente**.
+    Haga clic en **Next**.
 5. En **Información de contacto**:
    
     a. Seleccione un valor en **Método de contacto preferido**.

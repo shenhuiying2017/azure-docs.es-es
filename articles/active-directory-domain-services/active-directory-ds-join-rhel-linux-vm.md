@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual de Red Hat Enterprise Linux (RHEL) 7 a un dominio administrado con Servicios de dominio de Azure AD.
@@ -34,7 +34,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Aprovisionamiento de una máquina virtual de Red Hat Enterprise Linux
 Aprovisione una máquina virtual RHEL 7 en Azure mediante cualquiera de los métodos siguientes:
-* [Portal de Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portal de Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -69,7 +69,7 @@ En este caso, "contoso100.com" es el nombre de dominio DNS del dominio administr
 A continuación, instale los paquetes necesarios para unirse a un dominio en la máquina virtual. En el terminal SSH, escriba el siguiente comando para instalar los paquetes necesarios:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 

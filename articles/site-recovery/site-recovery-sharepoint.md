@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicación de una aplicación de SharePoint de niveles múltiples para una recuperación ante desastres mediante Azure Site Recovery | Microsoft Docs
 
@@ -40,7 +40,7 @@ También puede ver el vídeo siguiente sobre la recuperación de una aplicación
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
@@ -71,6 +71,7 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Wi
 **Hyper-V** | Sí | Sí
 **VMware** | Sí | Sí
 **Servidor físico** | Sí | Sí
+**Las tablas de Azure** | N/D | Sí
 
 ### <a name="sharepoint-versions"></a>Versiones de SharePoint
 Se admiten las siguientes versiones de servidor de SharePoint.
@@ -116,7 +117,7 @@ Para sitios orientados a Internet, [cree un perfil de Traffic Manager de tipo Pr
 
 | **Where** | **Origen** | **Destino**|
 | --- | --- | --- |
-| DNS público | DNS público para sitios de SharePoint <br/><br/> Por ejemplo: sharepoint.contoso.com | Administrador de tráfico <br/><br/> contososharepoint.trafficmanager.net |
+| DNS público | DNS público para sitios de SharePoint <br/><br/> Por ejemplo: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | Dirección IP pública en la granja de servidores locales |
 
 
@@ -146,7 +147,7 @@ Los planes de recuperación permiten secuenciar la conmutación por error de los
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
 
-Puede implementar los scripts de Azure Site Recovery utilizados en su cuenta de automatización haciendo clic en el botón Implementar en Azure más abajo. Si utiliza un script publicado, asegúrese de seguir las instrucciones en el script.
+Puede implementar los scripts de Azure Site Recovery utilizados en su cuenta de Automation haciendo clic en el botón Implementar en Azure más abajo. Si utiliza un script publicado, asegúrese de seguir las instrucciones en el script.
 
 [![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -211,5 +212,5 @@ Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutaci
 3.  Haga clic en 'Conmutación por error'.
 4.  Seleccione el punto de recuperación en el que se va a iniciar el proceso de conmutación por error.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Puede obtener más información sobre la [replicación de otras aplicaciones](site-recovery-workload.md) a través de Site Recovery.

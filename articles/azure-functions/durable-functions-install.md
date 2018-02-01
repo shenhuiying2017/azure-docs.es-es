@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalación de la extensión Durable Functions y ejemplos (Azure Functions)
 
@@ -32,7 +32,7 @@ La extensión [Durable Functions](durable-functions-overview.md) para Azure Func
 
 Actualmente, Visual Studio proporciona la mejor experiencia para el desarrollo de aplicaciones que usan Durable Functions.  Las funciones se pueden ejecutar localmente y también se pueden publicar en Azure. Puede empezar con un proyecto vacío o con un conjunto de funciones de ejemplo.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 * Instale la [versión más reciente de Visual Studio](https://www.visualstudio.com/downloads/) (15.3 o posterior). Incluya la carga de trabajo del **desarrollo Azure** en las opciones de configuración.
 
@@ -58,7 +58,7 @@ Siga las mismas instrucciones que para empezar con el ejemplo, pero, en lugar de
 
 Visual Studio Code proporciona una experiencia de desarrollo local que abarca todas las principales plataformas: Windows, Mac OS y Linux.  Las funciones se pueden ejecutar localmente y también se pueden publicar en Azure. Puede empezar con un proyecto vacío o con un conjunto de funciones de ejemplo.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 * Instale la [versión más reciente de Visual Studio Code](https://code.visualstudio.com/Download). 
 
@@ -123,7 +123,7 @@ Si lo prefiere, puede usar Azure Portal para el desarrollo con Durable Functions
 
 1. Cree una nueva aplicación de función en [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configure la aplicación de la función para [usar la versión de tiempo de ejecución 2.0](functions-versions.md).
+2. Configure la aplicación de la función para [usar la versión de tiempo de ejecución 2.0](set-runtime-version.md).
 
 3. Cree una nueva función seleccionando **"Crear su propia función personalizada"**.
 
@@ -173,9 +173,9 @@ Si lo prefiere, puede usar Azure Portal para el desarrollo con Durable Functions
         }
     ```
 
-¡Enhorabuena! La primera función duradera está en funcionamiento en Azure Portal.
+Felicidades. La primera función duradera está en funcionamiento en Azure Portal.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ejecutar el ejemplo de encadenamiento de funciones](durable-functions-sequence.md)

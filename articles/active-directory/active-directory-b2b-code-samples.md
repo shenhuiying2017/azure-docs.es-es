@@ -7,19 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 6a75fdd6c6f8fc03945be4b7d843777286cc70a7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 672eda222a0fa7d0e05dd2fc75ac743ec330463d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Ejemplos de código y PowerShell para la colaboración B2B de Azure Active Directory
 
@@ -28,7 +28,7 @@ Puede invitar de forma masiva a usuarios externos a una organización desde dire
 
 1. Prepare el archivo: cree un archivo CSV y asígnele el nombre invitations.csv. En este ejemplo, el archivo se guarda en C:\data y contiene la información siguiente:
   
-  Nombre                  |  InvitedUserEmailAddress
+  NOMBRE                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Invitado de B2B de Gmail     | b2binvitee@gmail.com
   Invitado de B2B de Outlook   | b2binvitee@outlook.com
@@ -48,7 +48,7 @@ Puede invitar de forma masiva a usuarios externos a una organización desde dire
   ```
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-  $messageInfo.customizedMessageBody = “Hey there! Check this out. I created an invitation through PowerShell”
+  $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
@@ -58,7 +58,7 @@ Este cmdlet enviará una invitación a la dirección de correo electrónico de i
 - Envío de mensajes en copias o supresión de mensajes de correo electrónico por completo
 
 ## <a name="code-sample"></a>Código de ejemplo
-En este ejemplo se muestra cómo llamar a la API de invitación, en el modo de solo de aplicación, para obtener la URL de pago del recurso al que va a invitar al usuario B2B. El objetivo consiste en enviar un correo electrónico de invitación personalizado. Podrá ver cómo se puede redactar el correo electrónico con un cliente HTTP para que pueda personalizar su aspecto y enviarlo a través de la API Graph.
+En este ejemplo se muestra cómo llamar a la API de invitación, en el modo de solo de aplicación, para obtener la URL de pago del recurso al que va a invitar al usuario B2B. El objetivo consiste en enviar un correo electrónico de invitación personalizado. Podrá ver cómo se puede redactar el correo electrónico con un cliente HTTP para que pueda personalizar su aspecto y enviarlo a través de Graph API.
 
 ```
 namespace SampleInviteApp
@@ -231,7 +231,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

@@ -3,7 +3,7 @@ title: "Publicación de aplicaciones en redes y ubicaciones independientes media
 description: "Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 
@@ -32,7 +32,7 @@ Todas las aplicaciones se asignan a un grupo de conectores. Si no crea grupos, t
 >[!TIP] 
 >Si cuenta con una implementación del proxy de aplicación grande, no asigne ninguna aplicación al grupo de conectores predeterminado. De ese modo, los nuevos conectores no recibirán tráfico directo hasta que los asigne a un grupo de conectores activo. Esta configuración también permite poner los conectores en modo inactivo moviéndolos de nuevo al grupo predeterminado para que se pueda realizar el mantenimiento sin que esto afecte a los usuarios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](active-directory-application-proxy-enable.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado** .
 
 ## <a name="create-connector-groups"></a>Creación de grupos de conectores

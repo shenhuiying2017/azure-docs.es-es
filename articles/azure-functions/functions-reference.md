@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -53,9 +53,9 @@ La propiedad `bindings` es donde configura los enlaces y los desencadenadores. C
 
 | Propiedad | Valores/tipos | Comentarios |
 | --- | --- | --- |
-| `type` |string |Tipo de enlace. Por ejemplo: `queueTrigger`. |
+| `type` |cadena |Tipo de enlace. Por ejemplo: `queueTrigger`. |
 | `direction` |'in', 'out' |Indica si el enlace está disponible para recibir datos en la función o enviar datos de la función. |
-| `name` |string |El nombre que se usa para los datos enlazados en la función. En C# es un nombre de argumento; en JavaScript es la clave en una lista de clave-valor. |
+| `name` |cadena |El nombre que se usa para los datos enlazados en la función. En C# es un nombre de argumento; en JavaScript es la clave en una lista de clave-valor. |
 
 ## <a name="function-app"></a>Aplicación de función
 Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en Azure App Service. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Las funciones escritas en varios lenguajes pueden compartir la misma aplicación de función. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva. 
@@ -102,17 +102,14 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 
 ## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
 
-Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](functions-versions.md).
+Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositorios
 El código de Azure Functions es código abierto y está almacenado en repositorios de GitHub:
 
-* 
-            [Tiempo de ejecución de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/)
-* 
-            [Portal de Azure Functions](https://github.com/projectkudu/AzureFunctionsPortal)
-* 
-            [Plantillas de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [Tiempo de ejecución de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Portal de Azure Functions](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Plantillas de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-templates/)
 * [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
 * [Extensiones del SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
@@ -124,16 +121,13 @@ Esta es una tabla de todos los enlaces admitidos.
 ## <a name="reporting-issues"></a>Problemas de informes
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
-* 
-            [Referencia para desarrolladores de C# de Azure Functions](functions-reference-csharp.md)
+* [Referencia para desarrolladores de C# de Azure Functions](functions-reference-csharp.md)
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
-* 
-            [Referencia para desarrolladores de NodeJS de Azure Functions](functions-reference-node.md)
-* 
-            [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
+* [Referencia para desarrolladores de NodeJS de Azure Functions](functions-reference-node.md)
+* [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: trayectoria) en el blog del equipo de Azure App Service. Esta es la historia de cómo se desarrolló Azure Functions.
 

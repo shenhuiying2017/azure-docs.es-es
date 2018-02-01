@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual CentOS Linux en Azure a un dominio administrado de Azure AD Domain Services.
@@ -34,7 +34,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Aprovisionamiento de una máquina virtual CentOS Linux
 Aprovisione una máquina virtual CentOS Linux en Azure mediante cualquiera de los métodos siguientes:
-* [Portal de Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portal de Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -82,11 +82,11 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Solución de problemas:** Si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Solución de problemas:** Si la *detección de dominio kerberos* no puede encontrar el dominio administrado:  
+      * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).  
+      * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible. 
+      * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.  
       >
 
 2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando:

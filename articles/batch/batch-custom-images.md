@@ -2,17 +2,17 @@
 title: "Aprovisionamiento de grupos de Azure Batch desde imágenes personalizadas |Microsoft Docs"
 description: "Puede crear un grupo de Batch a partir de una imagen personalizada para aprovisionar los nodos de proceso que contienen el software y los datos que se necesitan para la aplicación. Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales 
 
@@ -33,7 +33,7 @@ El uso de una imagen personalizada configurada para su escenario puede proporcio
 - **Aumentar los grupos a cualquier tamaño.** Cuando usa una imagen personalizada administrada para crear un grupo, el grupo puede crecer a cualquier tamaño que solicite. No es necesario realizar copias de los discos duros virtuales del blob de imágenes para alojar la cantidad de máquinas virtuales. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - **Un recurso de imagen administrada**. Para crear un grupo de máquinas virtuales con una imagen personalizada, tiene que crear un recurso de imagen administrada en la misma suscripción y región de Azure que la cuenta de Batch. Para conocer las opciones para preparar una imagen administrada, vea la sección siguiente.
 - **Autenticación de Azure Active Directory (AAD)**. La API de cliente de Batch debe utilizar la autenticación de AAD. La compatibilidad de Azure Batch con AAD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).
@@ -93,6 +93,6 @@ Para comprobar si un grupo existente se basa en una imagen personalizada, consul
 
 Todas las imágenes personalizadas asociadas a un grupo se muestran en la ventana **Propiedades** del grupo.
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).

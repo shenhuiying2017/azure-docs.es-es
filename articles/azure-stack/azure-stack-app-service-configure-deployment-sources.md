@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Configuración de orígenes de implementación
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+
 
 App Service en Azure Stack admite la implementación a petición de varios proveedores de control de código fuente. Esta característica permite a los desarrolladores de aplicaciones implementar directamente desde sus repositorios de control de código fuente. Si los usuarios desean configurar App Service con el fin de conectarse a sus repositorios, en primer lugar, un operador en la nube debe configurar la integración entre App Service en Azure Stack y el proveedor de control de código fuente.  
 
@@ -55,7 +57,7 @@ Debe tener una cuenta de GitHub para completar esta tarea. Puede que desee usar 
 8.  Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).
 9. Haga clic en la **Source control configuration** (Configuración de control de código fuente).
 10. Copie y pegue el **identificador de cliente** y el **secreto del cliente** en los cuadros de entrada correspondientes de GitHub.
-11. Haga clic en **Guardar**.
+11. Haga clic en **Save**(Guardar).
 
 ## <a name="configure-bitbucket"></a>Configuración de BitBucket
 
@@ -72,13 +74,13 @@ Debe tener una cuenta de BitBucket para llevar a cabo esta tarea. Puede que dese
 7. Seleccione los **permisos** necesarios:
     - **Repositorios**: *Lectura*
     - **Webhooks**: *Lectura y escritura*
-8. Haga clic en **Guardar**.  Ahora verá esta nueva aplicación, junto con la **clave** y el **secreto** en **OAuth consumers** (Consumidores de OAuth).
+8. Haga clic en **Save**(Guardar).  Ahora verá esta nueva aplicación, junto con la **clave** y el **secreto** en **OAuth consumers** (Consumidores de OAuth).
     ![Lista de aplicaciones de BitBucket][9]
 9.  En una nueva pestaña o ventana del explorador, inicie sesión en el Portal de administración de Azure Stack (https://adminportal.local.azurestack.external) como administrador de servicios.
 10.  Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).
 11. Haga clic en la **Source control configuration** (Configuración de control de código fuente).
 12. Copie y pegue la **clave** en el cuadro de entrada de **identificador de cliente**, y el **secreto** en el cuadro de entrada de **secreto de cliente** de BitBucket.
-13. Haga clic en **Guardar**.
+13. Haga clic en **Save**(Guardar).
 
 
 ## <a name="configure-onedrive"></a>Configuración de OneDrive
@@ -100,12 +102,12 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![Aplicación de OneDrive - Permisos de Graph][13]
-9. Haga clic en **Guardar**.
+9. Haga clic en **Save**(Guardar).
 10.  En una nueva pestaña o ventana del explorador, inicie sesión en el Portal de administración de Azure Stack (https://adminportal.local.azurestack.external) como administrador de servicios.
 11.  Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).
 12. Haga clic en la **Source control configuration** (Configuración de control de código fuente).
 13. Copie y pegue el **identificador de aplicación** en el cuadro de entrada de **identificador de cliente**, y la **contraseña** en el cuadro de entrada de **secreto de cliente** de OneDrive.
-14. Haga clic en **Guardar**.
+14. Haga clic en **Save**(Guardar).
 
 ## <a name="configure-dropbox"></a>Configuración de Dropbox
 
@@ -129,7 +131,7 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
 10.  Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).
 11. Haga clic en la **Source control configuration** (Configuración de control de código fuente).
 12. Copie y pegue la **clave de aplicación** en el cuadro de entrada de **identificador de cliente**, y el **secreto de aplicación** en el cuadro de entrada de **secreto de cliente** de Dropbox.
-13. Haga clic en **Guardar**.
+13. Haga clic en **Save**(Guardar).
 
 
 <!--Image references-->
@@ -150,6 +152,6 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Los usuarios ahora pueden usar los orígenes de implementación para utilidades como la [implementación continua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), la [implementación de Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git) y la [sincronización de carpetas en la nube](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

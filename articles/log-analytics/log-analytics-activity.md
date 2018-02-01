@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recopilar y analizar los registros de actividad de Azure en Log Analytics
 
@@ -57,7 +57,7 @@ A diferencia de la mayoría de las demás soluciones Log Analytics, los agentes 
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
 | [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | La solución no recopila información de Azure Storage. |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Para acceder a la información del registro de actividad de Azure, debe tener una suscripción de Azure.
 
@@ -90,10 +90,10 @@ Los datos del registro de actividad solo aparecen *después* de haber configurad
 
 | Hoja | DESCRIPCIÓN |
 | --- | --- |
-| Entradas del registro de actividad de Azure | Muestra un gráfico de barras de los principales totales de registro de entrada de registro de actividad del intervalo de fechas seleccionado y una lista de los 10 principales llamadores de actividad. Haga clic en el gráfico de barras para ejecutar una búsqueda de registros de <code>Type=AzureActivity</code>. Haga clic en un elemento de llamador para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese elemento. |
-| Registros de actividad por estado | Muestra un gráfico de anillos del estado de registro de actividad de Azure para el intervalo de fechas seleccionado. También muestra una lista de los diez principales registros de estado. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Haga clic en un elemento de estado para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese registro de estado. |
-| Registros de actividad por recurso | Muestra el número total de recursos con registros de actividad y enumera los diez principales recursos con recuentos de registro para cada recurso. Haga clic en el área total para ejecutar una búsqueda de registros de <code>Type=AzureActivity &#124; measure count() by Resource</code>, que muestra todos los recursos de Azure disponibles para la solución. Haga clic en un recurso para ejecutar una búsqueda de registros que devuelva todos los registros de actividad de ese recurso. |
-| Registros de actividad por proveedor de recursos | Muestra el número total de proveedores de recursos que producen registros de actividad y enumera los diez principales. Haga clic en el área total para ejecutar una búsqueda de registros de <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que muestra todos los proveedores de recursos de Azure. Haga clic en un proveedor de recursos para ejecutar una búsqueda de registros que devuelva todos los registros de actividad para el proveedor. |
+| Entradas del registro de actividad de Azure | Muestra un gráfico de barras de los principales totales de registro de entrada de registro de actividad del intervalo de fechas seleccionado y una lista de los 10 principales llamadores de actividad. Haga clic en el gráfico de barras para ejecutar una búsqueda de registros de <code>AzureActivity</code>. Haga clic en un elemento de llamador para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese elemento. |
+| Registros de actividad por estado | Muestra un gráfico de anillos del estado de registro de actividad de Azure para el intervalo de fechas seleccionado. También muestra una lista de los diez principales registros de estado. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Haga clic en un elemento de estado para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese registro de estado. |
+| Registros de actividad por recurso | Muestra el número total de recursos con registros de actividad y enumera los diez principales recursos con recuentos de registro para cada recurso. Haga clic en el área total para ejecutar una búsqueda de registros de <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, que muestra todos los recursos de Azure disponibles para la solución. Haga clic en un recurso para ejecutar una búsqueda de registros que devuelva todos los registros de actividad de ese recurso. |
+| Registros de actividad por proveedor de recursos | Muestra el número total de proveedores de recursos que producen registros de actividad y enumera los diez principales. Haga clic en el área total para ejecutar una búsqueda de registros de <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, que muestra todos los proveedores de recursos de Azure. Haga clic en un proveedor de recursos para ejecutar una búsqueda de registros que devuelva todos los registros de actividad para el proveedor. |
 
 ![Panel Registros de actividad de Azure](./media/log-analytics-activity/activity-log-dash.png)
 

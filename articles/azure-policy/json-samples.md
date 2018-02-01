@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Plantillas para Azure Policy
 
@@ -55,7 +55,7 @@ En la tabla siguiente se incluyen vínculos a las plantillas de JSON para Azure 
 | [SKU permitidas de Load Balancer](scripts/allowed-lb-skus.md) | Requiere que Load Balancer use una SKU aprobada. Se especifica una matriz de las SKU permitidas. |
 | [Sin emparejamiento de red con la red de ER](scripts/no-peering-er-net.md) | Prohíbe que se asocie un emparejamiento de red con una red de un grupo de recursos especificado. Se usa para evitar la conexión con la infraestructura de red administrada central. Se especifica el nombre del grupo de recursos para evitar la asociación. |
 | [Sin tabla de rutas definida por el usuario](scripts/no-user-def-route-table.md)  |Prohíbe que se implementen redes virtuales con una tabla de rutas definida por el usuario. |
-| [SKU permitidas de Puerta de enlace de red virtual](scripts/no-user-def-route-table.md) | Requiere que las puertas de enlace de red virtual usen un tipo de puerta de enlace y SKU aprobadas. Se especifica una matriz de SKU aprobadas y una matriz de tipos de puertas de enlace aprobados. |
+| [SKU permitidas de Puerta de enlace de red virtual](scripts/allowed-vn-gate-sku.md) | Requiere que las puertas de enlace de red virtual usen un tipo de puerta de enlace y SKU aprobadas. Se especifica una matriz de SKU aprobadas y una matriz de tipos de puertas de enlace aprobados. |
 | [Usar subred aprobada para las interfaces de red de máquinas virtuales](scripts/use-approved-subnet-vm-nics.md) | Requiere que las interfaces de red usen una subred aprobada. Se especifica el identificador de la subred aprobada. |
 | [Usar red virtual aprobada para las interfaces de red de máquinas virtuales](scripts/use-approved-vnet-vm-nics.md) | Requiere que las interfaces de red usen una red virtual aprobada. Se especifica el identificador de la red virtual aprobada. |
 |**Etiquetas**||

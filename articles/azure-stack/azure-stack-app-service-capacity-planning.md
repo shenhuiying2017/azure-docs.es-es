@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Para proporcionar una implementación lista para producción de Azure App Service en Azure Stack, debe planear la capacidad que espera que el sistema admita.  Esta es una guía del número mínimo de SKU de proceso e instancias que debe usar para una implementación de producción.
 
@@ -88,7 +89,7 @@ Cuando decida el número de roles de trabajo web compartidos que utilizar, revis
 
 ## <a name="file-server-role"></a>Rol de servidor de archivos
 
-Para el rol de servidor de archivos, puede usar un servidor de archivos independiente para desarrollo y pruebas. Por ejemplo, cuando implemente Azure App Service en Azure Stack Development Kit puede usar esta plantilla: https://aka.ms/appsvconmasdkfstemplate. Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o que no sea de Windows.
+Para el rol de servidor de archivos, puede usar un servidor de archivos independiente para desarrollo y pruebas. Por ejemplo, cuando implemente Azure App Service en el Kit de desarrollo de Azure Stack puede usar esta plantilla: https://aka.ms/appsvconmasdkfstemplate. Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o que no sea de Windows.
 
 En entornos de producción, el rol de servidor de archivos experimenta una intensa actividad de E/S de disco. Puesto que contiene todos los archivos de contenido y de aplicación para los sitios web de usuario, debe configurar previamente uno de los elementos siguientes acciones para que ejerza este rol:
 - Servidor de archivos de Windows
@@ -97,6 +98,6 @@ En entornos de producción, el rol de servidor de archivos experimenta una inten
 - clúster de servidor de archivos
 - Dispositivo NAS (almacenamiento conectado a la red). Para más información, consulte [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md)

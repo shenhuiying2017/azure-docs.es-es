@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Uso de la identidad del servicio administrada (versión preliminar pública) en App Service y Azure Functions
 
@@ -42,7 +42,7 @@ Para configurar una identidad de servicio administrada en el portal, primero ten
 
 3. Seleccione **Identidad de servicio administrada**.
 
-4. Cambie **Registrar en Azure Active Directory** a **Activado**. Haga clic en **Guardar**.
+4. Cambie **Registrar en Azure Active Directory** a **Activado**. Haga clic en **Save**(Guardar).
 
 ![Identidad de servicio administrada en App Service](media/app-service-managed-service-identity/msi-blade.png)
 
@@ -56,7 +56,7 @@ Para configurar una identidad de servicio administrada mediante la CLI de Azure,
 
 Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante la CLI:
 
-1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desea implementar la aplicación:
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#az_login). Use una cuenta asociada a la suscripción de Azure en la que desea implementar la aplicación:
 
     ```azurecli-interactive
     az login
@@ -159,7 +159,7 @@ Una aplicación con una identidad de servicio administrada tiene dos variables d
 La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicación puede solicitar tokens. Para obtener un token para un recurso, realice una solicitud HTTP GET para este punto de conexión, incluyendo los parámetros siguientes:
 
 > [!div class="mx-tdBreakAll"]
-> |Nombre de parámetro|En el|Descripción|
+> |Nombre de parámetro|En el|DESCRIPCIÓN|
 > |-----|-----|-----|
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
@@ -169,7 +169,7 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 
 > [!div class="mx-tdBreakAll"]
-> |Nombre de propiedad|Descripción|
+> |Nombre de propiedad|DESCRIPCIÓN|
 > |-------------|----------|
 > |access_token|El token de acceso solicitado. El servicio web de llamada puede usar este token para autenticarse en el servicio web de recepción.|
 > |expires_on|La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché.|

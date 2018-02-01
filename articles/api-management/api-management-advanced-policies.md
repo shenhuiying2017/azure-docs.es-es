@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -122,7 +122,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |choose|Elemento raíz.|Sí|  
 |when|La condición que se va a usar para las partes `if` o `ifelse` de la directiva `choose`. Si la directiva `choose` tiene varias secciones `when`, se evalúan de forma secuencial. Una vez que la instancia de `condition` de un elemento when se evalúa en `true`, ya no se evalúan más condiciones `when`.|Sí|  
@@ -130,7 +130,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|  
+|Atributo|DESCRIPCIÓN|Obligatorio|  
 |---------------|-----------------|--------------|  
 |condition="Constante booleana &#124; Constante booleana"|La expresión o constante booleana que se evalúa cuando se evalúa la declaración de la directiva `when` que la contiene.|Sí|  
   
@@ -234,13 +234,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |forward-request|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |timeout="entero"|Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end.|Sin |300 segundos|  
 |follow-redirects="true &#124; false"|Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.|Sin |false|  
@@ -281,13 +281,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|    
 |límite de simultaneidad|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|--------------|  
 |key|Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas.|Sí|N/D|  
 |número máximo|Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.|Sí|N/D|  
@@ -331,13 +331,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|Elemento raíz. El valor de este elemento es la cadena que sirve para iniciar sesión en su centro de eventos.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|  
+|Atributo|DESCRIPCIÓN|Obligatorio|  
 |---------------|-----------------|--------------|  
 |logger-id|El identificador del registrador registrado con el servicio API Management.|Sí|  
 |partition-id|Especifica el índice de la partición desde donde se envían los mensajes.|Opcional. Este atributo no se puede utilizar cuando se usa `partition-key`.|  
@@ -374,13 +374,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |mock-response|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|Sin |200|  
 |content-type|Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|Sin |None|  
@@ -430,13 +430,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |retry|Elemento raíz. Puede contener cualquier otra directiva como elemento secundario.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |condition|[Expresión](api-management-policy-expressions.md) o literal booleanos que especifican si los reintentos se deben detener (`false`) o continuar (`true`).|Sí|N/D|  
 |count|Número positivo que especifica el número máximo de reintentos que deben realizarse.|Sí|N/D|  
@@ -485,7 +485,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |return-response|Elemento raíz.|Sí|  
 |set-header|Una declaración de directiva [set-header](api-management-transformation-policies.md#SetHTTPheader).|Sin |  
@@ -494,7 +494,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|  
+|Atributo|DESCRIPCIÓN|Obligatorio|  
 |---------------|-----------------|--------------|  
 |response-variable-name|Nombre de la variable de contexto a la que se hace referencia, por ejemplo, desde una directiva [send-request](api-management-advanced-policies.md#SendRequest) de canal de subida y que contiene un objeto `Response`.|Opcional.|  
   
@@ -551,7 +551,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|Elemento raíz.|Sí|  
 |URL|Dirección URL de la solicitud.|No si mode=copy; de lo contrario, sí.|  
@@ -561,7 +561,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |mode="cadena"|Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.|Sin |Nuevo|  
 |Nombre|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|  
@@ -630,7 +630,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |send-request|Elemento raíz.|Sí|  
 |URL|Dirección URL de la solicitud.|No si mode=copy; de lo contrario, sí.|  
@@ -640,7 +640,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |mode="cadena"|Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.|Sin |Nuevo|  
 |response-variable-name="cadena"|Si no está presente, se utiliza `context.Response`.|Sin |N/D|  
@@ -676,13 +676,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |proxy|Elemento raíz|Sí|  
 
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |url="string"|Dirección URL del proxy en forma de http://host:port.|Sí|N/D|  
 |username="string"|Nombre de usuario que se usará para la autenticación con el servidor proxy.|Sin |N/D|  
@@ -736,7 +736,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-method|Elemento raíz. El valor del elemento especifica el método HTTP.|Sí|  
   
@@ -776,13 +776,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-status|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |code="entero"|Código de estado HTTP que se devuelve.|Sí|N/D|  
 |reason="cadena"|Una descripción del motivo por el que se devuelve el código de estado.|Sí|N/D|  
@@ -811,13 +811,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-variable|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|  
+|Atributo|DESCRIPCIÓN|Obligatorio|  
 |---------------|-----------------|--------------|  
 |Nombre|El nombre de la variable.|Sí|  
 |value|El valor de la variable. Puede ser una expresión o un valor literal.|Sí|  
@@ -878,13 +878,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |trace|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |de origen|Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje.|Sí|N/D|  
   
@@ -945,13 +945,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|DESCRIPCIÓN|Requerido|  
+|Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
 |wait|Elemento raíz. Solo puede contener como elementos secundarios a las directivas `send-request`, `cache-lookup-value` y `choose`.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|DESCRIPCIÓN|Requerido|Valor predeterminado|  
+|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |for|Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> -   `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata.|Sin |todas|  
   
