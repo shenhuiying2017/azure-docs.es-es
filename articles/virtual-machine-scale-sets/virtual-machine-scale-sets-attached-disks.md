@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
 Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure ahora son compatibles con máquinas virtuales con discos de datos conectados. Los discos de datos se pueden definir en el perfil de almacenamiento para los conjuntos de escalado creados con Azure Managed Disks. Anteriormente, las únicas opciones de almacenamiento disponibles directamente conectadas a las máquinas virtuales en los conjuntos de escalado eran la unidad de sistema operativo y unidades de disco temporales.
@@ -28,14 +28,14 @@ Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-
 >  Cuando se crea un conjunto de escalado con discos de datos conectados definidos, deberá montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que para las máquinas virtuales de Azure independientes). Una manera cómoda de llevara cabo este proceso es utilizar una extensión de script personalizada que llama a un script estándar para crear una partición y dar formato a todos los discos de datos en una máquina virtual.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Creación de un conjunto de escalado con discos de datos conectados
-Una manera sencilla de crear un conjunto de escalado con discos conectados es usar el comando [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un grupo de recursos de Azure y un conjunto de escalado de máquina virtual de 10 máquinas virtuales Ubuntu, cada una con dos discos de datos asociados, de 50 GB y 100 GB, respectivamente.
+Una manera sencilla de crear un conjunto de escalado con discos conectados es usar el comando [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un grupo de recursos de Azure y un conjunto de escalado de máquina virtual de 10 máquinas virtuales Ubuntu, cada una con dos discos de datos asociados, de 50 GB y 100 GB, respectivamente.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Los valores predeterminados del comando [az vmss create](/cli/azure/vmss#create) incluyen determinados valores de configuración que se aplicarán si no los especifica. Para ver que las opciones disponibles que puede reemplazar, pruebe lo siguiente:
+Los valores predeterminados del comando [az vmss create](/cli/azure/vmss#az_vmss_create) incluyen determinados valores de configuración que se aplicarán si no los especifica. Para ver que las opciones disponibles que puede reemplazar, pruebe lo siguiente:
 
 ```bash
 az vmss create --help

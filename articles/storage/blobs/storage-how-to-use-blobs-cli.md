@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Realización de operaciones de Blob Storage con la CLI de Azure
 
@@ -44,7 +44,7 @@ Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI 
 
 Los contenedores son similares a los directorios en el equipo, gracias a ellos puede organizar los grupos de blobs en un contenedor de la misma forma que organiza los archivos en un directorio. Una cuenta de almacenamiento puede tener cualquier número de contenedores. Puede almacenar hasta 500 TB de datos de blob en un contenedor, que es la cantidad máxima de datos en una cuenta de almacenamiento.
 
-Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container#create).
+Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Un contenedor recién creado es privado de forma predeterminada. Es decir, nadie
 
 Al establecer acceso público a `blob` o `container`, se habilita el acceso de solo lectura para todos los usuarios de Internet. Por ejemplo, si desea mostrar imágenes almacenadas como blobs en su sitio web, tiene que habilitar el acceso de lectura público. Si desea habilitar el acceso de lectura/escritura, tiene que utilizar una [firma de acceso compartido (SAS)](#create-a-shared-access-signature-sas).
 
-Habilite el acceso de lectura público para el contenedor con el comando [az storage container set-permission](/cli/azure/storage/container#create).
+Habilite el acceso de lectura público para el contenedor con el comando [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son el tipo más común de blob almacenado en Azure Storage. Los blobs en anexos se usan cuando los datos tienen que agregarse a un blob existente sin modificar el contenido que ya tiene, como, por ejemplo, para realizar operaciones de registro. Los blobs en páginas respaldan los archivos VHD de máquinas virtuales IaaS.
 
-En este ejemplo, se carga un blob en el contenedor que creamos en el último paso con el comando [az storage blob upload](/cli/azure/storage/blob#upload).
+En este ejemplo, se carga un blob en el contenedor que creamos en el último paso con el comando [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Esta operación crea el blob si todavía no existe y lo sobrescribe si ya existe
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Enumere los blobs del contenedor con el comando [az storage blob list](/cli/azure/storage/blob#list).
+Enumere los blobs del contenedor con el comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Descarga de un blob
 
-Descargue el blob que cargó en un paso anterior mediante el comando [az storage blob download](/cli/azure/storage/blob#download).
+Descargue el blob que cargó en un paso anterior mediante el comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Eliminar un blob
 
-Elimine el blob del contenedor mediante el comando [az storage blob delete](/cli/azure/storage/blob#delete).
+Elimine el blob del contenedor mediante el comando [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Ver y editar propiedades y metadatos de blob
 
-Cada blob tiene varias propiedades definidas por el servicio que puede mostrar con el comando [az storage blob show](/cli/azure/storage/blob#show), que incluye su nombre, tipo, longitud y otros. También puede configurar un blob con sus propias propiedades y sus valores mediante el comando [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
+Cada blob tiene varias propiedades definidas por el servicio que puede mostrar con el comando [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show), que incluye su nombre, tipo, longitud y otros. También puede configurar un blob con sus propias propiedades y sus valores mediante el comando [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update).
 
-En este ejemplo, mostraremos primero las propiedades definidas por el servicio de un blob, y luego actualizaremos el blob con dos nuestras propias propiedades de metadatos. Por último, se muestran las propiedades de metadatos del blob y sus valores con el comando [az storage blob metadata show](/cli/azure/storage/blob/metadata#show).
+En este ejemplo, mostraremos primero las propiedades definidas por el servicio de un blob, y luego actualizaremos el blob con dos nuestras propias propiedades de metadatos. Por último, se muestran las propiedades de metadatos del blob y sus valores con el comando [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show).
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Comprobación del acceso privado
 
-Para comprobar que no hay ningún acceso de lectura público a los blobs en ese contenedor, obtenga la dirección URL para uno de sus blobs con el comando [az storage blob url](/cli/azure/storage/blob#url).
+Para comprobar que no hay ningún acceso de lectura público a los blobs en ese contenedor, obtenga la dirección URL para uno de sus blobs con el comando [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ Navegue a la dirección URL del blob en una ventana privada del explorador. Se l
 
 ### <a name="create-a-sas-uri"></a>Creación de un URI de SAS
 
-Ahora vamos a crear un URI de SAS que permita el acceso al blob. En el ejemplo siguiente, primero se rellena una variable con la dirección URL para el blob con [az storage blob url](/cli/azure/storage/blob#url), a continuación, se rellena otra variable con un token de SAS generado con el comando [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Por último, se saca el URI de SAS completo para el blob mediante la concatenación de los dos, separados por el separador de cadena de consulta `?`.
+Ahora vamos a crear un URI de SAS que permita el acceso al blob. En el ejemplo siguiente, primero se rellena una variable con la dirección URL para el blob con [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), a continuación, se rellena otra variable con un token de SAS generado con el comando [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Por último, se saca el URI de SAS completo para el blob mediante la concatenación de los dos, separados por el separador de cadena de consulta `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Espere el tiempo suficiente para que la dirección URL expire (dos minutos en es
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cuenta de almacenamiento que creó y cualquiera de los blobs que haya cargado en este tutorial, elimine el grupo de recursos con el comando [az group delete](/cli/azure/group#delete).
+Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cuenta de almacenamiento que creó y cualquiera de los blobs que haya cargado en este tutorial, elimine el grupo de recursos con el comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -288,7 +288,7 @@ En este tutorial ha aprendido los conceptos básicos de cómo trabajar con blobs
 
 Los siguientes recursos proporcionan información adicional acerca de cómo trabajar con la CLI de Azure y con los recursos de la cuenta de almacenamiento.
 
-* CLI de Azure
+* Azure CLI
   * [Inicie sesión con Azure CLI 2.0](/cli/azure/authenticate-azure-cli): obtenga información sobre los distintos métodos de autenticación con la CLI, incluido el inicio de sesión no interactivo a través de [entidad de servicio](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) para ejecutar scripts de la CLI de Azure desatendidos.
   * [Referencia de comandos de la CLI de Azure 2.0](/cli/azure/)
 * Explorador de Microsoft Azure Storage

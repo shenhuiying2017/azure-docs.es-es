@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 60154b9f0a27b1255022f455453cbc88bec63baf
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e1d96fe8cb06be08863bbcd1885080aaca8fbd61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB (parte 4): creación de una cuenta de Azure Cosmos DB mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ La parte 4 del tutorial se basa en la [parte 3](tutorial-develop-mongodb-nodejs-
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pasos descritos en la [parte 3](tutorial-develop-mongodb-nodejs-part3.md). 
 
@@ -52,7 +52,7 @@ En esta sección del tutorial, puede usar Azure Cloud Shell (en su explorador de
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
-Creación de una cuenta de Azure Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb#create).
+Creación de una cuenta de Azure Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -74,7 +74,7 @@ Una vez creada la cuenta de Azure Cosmos DB:
 
     ![La nueva cuenta de Azure Cosmos DB en Azure Portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta parte del tutorial, ha hecho lo siguiente:
 

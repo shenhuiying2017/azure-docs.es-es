@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -38,10 +38,10 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Import and publish your first API](import-and-publish.md) (Importación y publicación de la primera API).
++ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,7 +56,8 @@ Puede acceder a registros de actividad en el servicio API Management o a los reg
 
 Para ver los registros de actividad:
 
-1. En su instancia de **API Management** haga clic en **Registro de actividad**.
+1. Seleccione la instancia del servicio APIM.
+2. Haga clic en **Registro de actividad**.
 
 ## <a name="view-diagnostic-logs"></a>Visualización de los registros de diagnóstico
 
@@ -64,7 +65,8 @@ Los registros de diagnóstico proporcionan información valiosa acerca de las op
 
 Para acceder a los registros de diagnóstico:
 
-1. En su instancia de **API Management**, haga clic en **Registro de diagnóstico**.
+1. Seleccione la instancia del servicio APIM.
+2. Haga clic en **Registro de diagnóstico**.
 
 ## <a name="view-metrics-of-your-apis"></a>Visualización de las métricas de las API
 
@@ -108,9 +110,9 @@ Para configurar alertas:
 
     ![configurar alerta](./media/api-management-azure-monitor/set-up-alert.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Visualización de registros de actividad

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 05e6dbfbae3efd1dee39b87f32440b73da069f91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Implementación del clúster de Docker Swarm
 
@@ -25,7 +25,7 @@ Para realizar este tutorial de inicio rápido, es necesario ejecutar la versión
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus*.
 
@@ -50,7 +50,7 @@ Salida:
 
 ## <a name="create-docker-swarm-cluster"></a>Creación de un clúster de Docker Swarm
 
-Cree un clúster de Docker Swarm en Azure Container Service con el comando [az acs create](/cli/azure/acs#create). 
+Cree un clúster de Docker Swarm en Azure Container Service con el comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 En el ejemplo siguiente, se crea un clúster denominado *mySwarmCluster* con un nodo maestro de Linux y tres nodos de agente de Linux.
 
@@ -58,7 +58,7 @@ En el ejemplo siguiente, se crea un clúster denominado *mySwarmCluster* con un 
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
+En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 Después de varios minutos, el comando se completa y devuelve información en formato json sobre el clúster.
 
@@ -145,7 +145,7 @@ Busque la dirección IP del grupo de agentes de Swarm para probar la aplicación
 ![Imagen de la exploración hasta Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
-Cuando un clúster ya no se necesite, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
+Cuando un clúster ya no se necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -157,7 +157,7 @@ En este tutorial de inicio rápido, se han usado imágenes de un contenedor crea
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial de inicio rápido, implementará un clúster de Docker Swarm y, en él, una aplicación de varios contenedores.
 

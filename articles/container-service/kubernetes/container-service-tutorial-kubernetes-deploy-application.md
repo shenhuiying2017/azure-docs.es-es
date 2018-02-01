@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 46274241841d3fec475a9fb6172e68daaa1f6303
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Ejecución de aplicaciones en Kubernetes
 
@@ -42,7 +42,7 @@ Si no ha realizado estos pasos, pero desea continuar, vuelva al tutorial [Create
 
 En este tutorial se ha usado Azure Container Registry (ACR) para almacenar una imagen de contenedor. Antes de ejecutar la aplicación, hay que actualizar el nombre del servidor de inicio de sesión de ACR en el archivo de manifiesto de Kubernetes.
 
-El nombre del servidor de inicio de sesión de ACR se obtiene con el comando [az acr list](/cli/azure/acr#list).
+El nombre del servidor de inicio de sesión de ACR se obtiene con el comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -103,7 +103,7 @@ Para ver la aplicación, navegue hasta la dirección IP externa.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, se ha implementado la aplicación Azure Vote en un clúster de Kubernetes de Azure Container Service. Las tareas completadas incluyen:  
 

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d5364dbc1a155c7852b5581d563e4938ad116402
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 736d3977bb1aa092d6bdce70c852b52139ff2e2a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Creación de una aplicación web de .NET Core en App Service en Linux
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 01/24/2018
 
 Estos pasos se pueden realizar con un equipo Mac, Windows o Linux.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido:
 
 * <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
 * <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Instalación del SDK 1.1 de .NET Core</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-app-locally"></a>Creación de la aplicación localmente
 

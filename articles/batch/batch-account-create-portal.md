@@ -3,8 +3,8 @@ title: "Creación de una cuenta de Batch en Azure Portal | Microsoft Docs"
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebda2f11f93b04a5592d18f8e15c8fc3b560aac3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](batch-account-create-portal.md)
+> * [portal de Azure](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 >
 >
@@ -148,7 +148,7 @@ Además de usar Azure Portal, las cuentas de Batch se pueden crear y administrar
 * [CLI de Azure](batch-cli-get-started.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información acerca de los conceptos y las características del servicio de Batch, consulte la [descripción de las características de Batch](batch-api-basics.md). El artículo describe los principales recursos de Batch como grupos, nodos de proceso, trabajos y tareas, y proporciona información general acerca de las características del servicio específicas para las cargas de trabajo de proceso a gran escala.
 * Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](batch-dotnet-get-started.md) o [Python](batch-python-tutorial.md). Estos artículos introductorios le guían a través de una aplicación activa que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 

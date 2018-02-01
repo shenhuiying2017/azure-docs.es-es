@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Azure Container Service - Administrar DC/OS
 
@@ -33,7 +33,7 @@ Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI 
 
 ## <a name="create-dcos-cluster"></a>Creación del clúster de DC/OS
 
-En primer lugar, cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+En primer lugar, cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westeurope*.
 
@@ -41,7 +41,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location westeurope
 ```
 
-A continuación, cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#create).
+A continuación, cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#az_acs_create).
 
 En el ejemplo siguiente se crea un clúster de DC/OS denominado *myDCOSCluster* y las claves SSH si aún no existen. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
@@ -239,13 +239,13 @@ Esta dirección dirige al sitio de NGINX predeterminado.
 
 En los ejemplos anteriores, una aplicación se ha escalado a varias instancias. También se puede escalar la infraestructura de DC/OS para proporcionar más o menos capacidad de proceso. Esto se realiza con el comando [az acs scale](). 
 
-Para ver el recuento actual de agentes de DC/OS, use el comando [az acs show](/cli/azure/acs#show).
+Para ver el recuento actual de agentes de DC/OS, use el comando [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Para aumentar el total a 5, utilice el comando [az acs scale](/cli/azure/acs#scale). 
+Para aumentar el total a 5, utilice el comando [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -253,13 +253,13 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Eliminación del clúster de DC/OS
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha aprendido sobre tareas básicas de administración de DC/OS, incluidas las siguientes. 
 

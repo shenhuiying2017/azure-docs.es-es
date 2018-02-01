@@ -3,8 +3,8 @@ title: "Introducción a Azure Batch para desarrolladores | Microsoft Docs"
 description: "Conozca las características del servicio Batch y sus API desde el punto de vista del desarrollo."
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -242,7 +242,7 @@ La programación de trabajos entre los grupos es independiente. Entre grupos dif
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 Las [programaciones de trabajos][rest_job_schedules] permiten crear trabajos recurrentes dentro del servicio Batch. Una programación de trabajo especifica cuándo se deben ejecutar los trabajos e incluye las especificaciones de los trabajos que se van a ejecutar. Puede especificar la duración de la programación (cuánto dura y cuándo está vigente), y con qué frecuencia se crean trabajos durante el período programado.
 
-## <a name="task"></a>Tarea
+## <a name="task"></a>Task
 Una tarea es una unidad de cálculo que está asociada con un trabajo. Se ejecuta en un nodo. Las tareas se asignan a un nodo para su ejecución o se ponen en cola hasta que quede libre un nodo. Es decir, una tarea ejecuta uno o más programas o scripts en un nodo de proceso para llevar a cabo el trabajo necesario.
 
 Cuando crea una tarea, puede especificar:
@@ -318,7 +318,7 @@ El servicio Batch proporciona la tarea de preparación del trabajo para la confi
 
 Tanto para la tarea de preparación del trabajo como para las de liberación, puede especificar una línea de comandos que se ejecute cuando se invoque la tarea. Las tareas ofrecen características tales como descarga de archivos, ejecución con elevación de privilegios, variables de entorno personalizadas, duración máxima de ejecución, número de reintentos y tiempo de retención de archivo.
 
-Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de ejecución de Azure Batch](batch-job-prep-release.md).
+Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de proceso de Azure Batch](batch-job-prep-release.md).
 
 ### <a name="multi-instance-task"></a>Tarea de instancias múltiples
 Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento que requieren tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única como, por ejemplo, la interfaz de paso de mensajes (MPI).
@@ -501,7 +501,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Recorra paso a paso una aplicación de Batch de ejemplo en [Introducción a la biblioteca de Azure Batch para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
 * Descargue e instale la herramienta [BatchLabs][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use BatchLabs para crear, depurar y supervisar aplicaciones de Azure Batch. 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -274,7 +274,10 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 
 ![Reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-[comentario]: <> (![reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comentario]: <> (![reglas de acceso INT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+<!--
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
+[comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Protección de la subred DMZ**
 

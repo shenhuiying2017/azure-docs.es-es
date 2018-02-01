@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Crear imágenes de contenedor para Service Fabric
 
@@ -188,7 +188,7 @@ Los comandos de inserción de Docker tardan un par de minutos en completarse.
 
 ## <a name="list-images-in-registry"></a>Lista de imágenes en el registro
 
-Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list](/cli/azure/acr/repository#list). Actualice el comando con el nombre de instancia de ACR.
+Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Actualice el comando con el nombre de instancia de ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table

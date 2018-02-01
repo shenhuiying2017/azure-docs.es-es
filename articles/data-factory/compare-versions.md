@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparación de Azure Data Factory V1 y V2
 En este artículo se comparan las versiones 2 y 1 de Azure Data Factory. Para ver una introducción a la versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). Para ver una introducción a la versión 2, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -86,7 +86,7 @@ Use Azure-SSIS si desea mover las cargas de trabajo de SSIS a la nube, crear fac
 
 Azure-SSIS Integration Runtime es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Después de aprovisionar Azure-SSIS Integration Runtime, puede usar las mismas herramientas que para implementar paquetes SSIS en un entorno de SSIS local. 
 
-Por ejemplo, puede usar SQL Server Data Tools o SQL Server Management Studio para implementar paquetes de SSIS en este runtime de Azure. Para obtener instrucciones detalladas, consulte el tutorial [Implementación de paquetes de SQL Server Integration Services en Azure](tutorial-deploy-ssis-packages-azure.md). 
+Por ejemplo, puede usar SQL Server Data Tools o SQL Server Management Studio para implementar paquetes de SSIS en este runtime de Azure. Para obtener instrucciones detalladas, consulte el tutorial [Implementación de paquetes de SQL Server Integration Services en Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Programación flexible
 En la versión 2 de Data Factory, no es preciso definir las programaciones de disponibilidad de los conjuntos de datos. Se puede definir un recurso de desencadenador que puede programar las canalizaciones a partir de un paradigma de programador de reloj. También puede pasar parámetros a canalizaciones desde un desencadenador para un modelo de programación o ejecución. 

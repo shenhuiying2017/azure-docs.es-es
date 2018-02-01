@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilación de una aplicación ASP.NET en Azure con SQL Database
 
@@ -30,14 +30,16 @@ ms.lasthandoff: 10/27/2017
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL en Azure
+> * Crear una base de datos Azure SQL Database
 > * Conectar una aplicación ASP.NET a SQL Database
 > * Implementación de la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -46,8 +48,6 @@ Para completar este tutorial:
   - **Desarrollo de Azure**
 
   ![ASP.NET y desarrollo web y desarrollo de Azure (en web y en la nube)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
@@ -63,7 +63,7 @@ Abra el archivo *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* en Visual Stud
 
 Escriba `Ctrl+F5` para ejecutar la aplicación sin depurarla. La aplicación se muestra en el explorador predeterminado. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de *tareas pendientes*. 
 
-![Cuadro de diálogo New ASP.NET Project](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
+![Cuadro de diálogo Nuevo proyecto de ASP.NET](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
 Pruebe los vínculos **Editar**, **Detalles** y **Eliminar**.
 
@@ -116,7 +116,7 @@ Junto a **Plan de App Service**, haga clic en **Nuevo**.
 
 En el cuadro de diálogo **Configurar el plan de App Service**, configure el nuevo plan de App Service con los valores siguientes:
 
-![Creación de un plan de Servicio de aplicaciones](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+![Creación de un plan de App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
 | Configuración  | Valor sugerido | Para obtener más información |
 | ----------------- | ------------ | ----|
@@ -146,9 +146,9 @@ Recuerde este nombre de usuario y esta contraseña. Los necesitará más adelant
 
 ![Creación de una instancia de SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-Haga clic en **Aceptar**. No cierre aún el cuadro de diálogo **Configurar base de datos SQL**.
+Haga clic en **OK**. No cierre aún el cuadro de diálogo **Configurar base de datos SQL**.
 
-### <a name="create-a-sql-database"></a>una Base de datos SQL
+### <a name="create-a-sql-database"></a>Creación de una instancia de SQL Database
 
 En el cuadro de diálogo **Configurar SQL Database**: 
 
@@ -158,7 +158,7 @@ En el cuadro de diálogo **Configurar SQL Database**:
 
 ![Configuración de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha creado. Haga clic en **Crear**. 
+El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha creado. Haga clic en **Create**(Crear). 
 
 ![Se muestran los recursos que ha creado.](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -168,7 +168,7 @@ Agregue algunos elementos de tareas pendientes.
 
 ![Aplicación ASP.NET publicada en la aplicación web de Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-¡Enhorabuena! La aplicación ASP.NET orientada a datos se ejecuta en directo en Azure App Service.
+Felicidades. La aplicación ASP.NET orientada a datos se ejecuta en directo en Azure App Service.
 
 ## <a name="access-the-sql-database-locally"></a>Acceso local a la instancia de SQL Database
 
@@ -182,7 +182,7 @@ En la parte superior del **Explorador de objetos de SQL Server**, haga clic en e
 
 ### <a name="configure-the-database-connection"></a>Configuración de la conexión de base de datos
 
-En el cuadro de diálogo **Conectar**, expanda el nodo **Azure**. Aquí se muestran todas las instancias de SQL Database de Azure.
+En el cuadro de diálogo **Conectar**, expanda el nodo **Azure**. Aquí se muestran todas las instancias de Azure SQL Database.
 
 Seleccione la instancia de SQL Database que creó anteriormente. La conexión que creó anteriormente se rellena automáticamente en la parte inferior.
 
@@ -367,7 +367,7 @@ Para cambiar los niveles de seguimiento para generar otros mensajes de seguimien
 
 Haga clic con el botón derecho en la aplicación web de Azure de nuevo y seleccione **Ver configuración**.
 
-En la lista desplegable **Registro de la aplicación (sistema de archivos)**, seleccione **Detallado**. Haga clic en **Guardar**.
+En la lista desplegable **Registro de la aplicación (sistema de archivos)**, seleccione **Detallado**. Haga clic en **Save**(Guardar).
 
 ![Cambiar el nivel de seguimiento a Detallado](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -413,12 +413,12 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL en Azure
+> * Crear una base de datos Azure SQL Database
 > * Conectar una aplicación ASP.NET a SQL Database
 > * Implementación de la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desarrolladores
 Azure Active Directory (Azure AD) es un servicio de identidad en la nube que permite a los desarrolladores iniciar la sesión de los usuarios en una cuenta profesional o educativa de Microsoft de forma segura. En esta documentación se muestra cómo agregar compatibilidad con Azure AD a una aplicación mediante los protocolos estándar del sector: OAuth 2.0 y OpenID Connect.
@@ -64,4 +64,4 @@ En los siguientes artículos se proporciona información detallada sobre las API
 > Si necesita iniciar la sesión de cuentas personales de Microsoft, puede que quiera considerar el uso del [punto de conexión de Azure AD v2.0](active-directory-appmodel-v2-overview.md). El punto de conexión de Azure AD v2.0 es la unión de las cuentas personales de Microsoft y las cuentas profesionales de Microsoft (de Azure AD) en un único sistema de autenticación.
 
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

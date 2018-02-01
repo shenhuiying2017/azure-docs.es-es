@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: de00137be84bb6f068c2f6f50a34ec827c5326a3
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creación de una aplicación web ASP.NET Core en Azure
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 01/24/2018
 > El artículo de información acerca de cómo compilar e implementar una aplicación web ASP.NET Framework está disponible [aquí](app-service-web-get-started-dotnet-framework.md). 
 >
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
@@ -42,8 +44,6 @@ Para completar este tutorial:
     - **Desarrollo de Azure**
 
     ![ASP.NET y desarrollo web y desarrollo de Azure (en web y en la nube)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
@@ -171,7 +171,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core con SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)

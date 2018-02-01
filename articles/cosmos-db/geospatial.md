@@ -245,7 +245,7 @@ Azure Cosmos DB también admite la realización de consultas inversas; es decir,
 
 ST_ISVALID y ST_ISVALIDDETAILED pueden usarse para comprobar si un objeto espacial es válido. Por ejemplo, la consulta siguiente comprueba la validez de un punto con un valor de latitud fuera del intervalo (-132,8). ST_ISVALID devuelve solo un valor booleano y ST_ISVALIDDETAILED devuelve el valor booleano y una cadena que contiene el motivo por el que se considera no válida.
 
-** Consultar \**
+** Consultar \** 
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

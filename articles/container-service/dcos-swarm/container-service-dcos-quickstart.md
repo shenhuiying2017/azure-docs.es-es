@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 69f8f415ce851a5d8034d8196ab541e8491dc417
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b81dc61e61f97e34ace21c1239681c1254efb7be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-dcos-cluster"></a>Implementación de un clúster de DC/OS
 
@@ -25,7 +25,7 @@ Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI 
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
 
-Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#az_login) y siga las instrucciones de la pantalla.
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Creación del clúster de DC/OS
 
-Cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#create).
+Cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#az_acs_create).
 
 En el ejemplo siguiente se crea un clúster de DC/OS denominado *myDCOSCluster* y las claves SSH si aún no existen. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
@@ -51,7 +51,7 @@ En el ejemplo siguiente se crea un clúster de DC/OS denominado *myDCOSCluster* 
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
+En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 Después de varios minutos, el comando se completa y muestra la información sobre la implementación.
 
@@ -156,13 +156,13 @@ Esta dirección dirige al sitio de NGINX predeterminado.
 
 ## <a name="delete-dcos-cluster"></a>Eliminación del clúster de DC/OS
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado un clúster de DC/OS y ha ejecutado un contenedor de Docker simple en el clúster. Para más información sobre Azure Container Service, continúe con el tutorial de ACS.
 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a datos de Administración de costos
 
@@ -74,9 +74,9 @@ Para ver un vídeo tutorial acerca de cómo crear una jerarquía de entidades de
 
 Si es un usuario de contrato Enterprise de Azure, vea un vídeo tutorial acerca de cómo asociar cuentas y las suscripciones a las entidades en [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) (Conexión a Azure Resource Manager con Azure Cost Management de Cloudyn).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un usuario con acceso de administrador

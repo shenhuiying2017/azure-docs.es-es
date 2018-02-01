@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fdd3e621ac97da86897b8cc8b20466fab0b0a42
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Actualización de una aplicación en Azure Container Service (AKS)
 
@@ -77,7 +77,7 @@ Vaya a http://localhost:8080 para ver la aplicación actualizada.
 
 Etiquete la imagen `azure-vote-front` con el loginServer del registro de contenedor. 
 
-El nombre del servidor de inicio de sesión se obtiene con el comando [az acr list](/cli/azure/acr#list).
+El nombre del servidor de inicio de sesión se obtiene con el comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

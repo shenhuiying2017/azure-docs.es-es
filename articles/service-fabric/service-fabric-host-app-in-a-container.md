@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Inclusión de una aplicación existente en un contenedor
 > * Configuración de la integración continua con Visual Studio y VSTS
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 1. Instale [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) para poder ejecutar contenedores en Windows 10.
 2. Familiarícese con el [inicio rápido de contenedores de Windows 10][link-container-quickstart].
@@ -209,9 +209,9 @@ Vaya a la aplicación de Fabrikam Call Center mediante la dirección URL del cl�
 
 Ahora que ya ha incluido la solución Fabrikam CallCenter en un contenedor y la ha implementado, puede abrir [Azure Portal][link-azure-portal] y ver la aplicación en ejecución en Service Fabric. Para probar la aplicación, abra un explorador web y vaya a la dirección URL del clúster de Service Fabric.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de un proyecto de Docker en Visual Studio

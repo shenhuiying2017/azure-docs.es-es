@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 30456a30c12d39ceb14dec6cd60015916cb7ae27
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
 En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network (VNet). En este tutorial, realizará los siguientes pasos:
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>requisitos previos
 - **Cuenta de Azure Storage**. Cree un script de Hive y cárguelo en Azure Storage. La salida desde el script de Hive se almacena en esta cuenta de almacenamiento. En este ejemplo, el clúster de HDInsight usa esta cuenta de Azure Storage como el almacenamiento principal. 
-- **Azure Virtual Network.** Si no tiene ninguna instancia de Azure Virtual Network, cree una siguiendo [estas instrucciones](../virtual-network/virtual-network-get-started-vnet-subnet.md). En este ejemplo, HDInsight se encuentra en una instancia de Azure Virtual Network. A continuación, puede ver una configuración de ejemplo de Azure Virtual Network. 
+- **Azure Virtual Network.** Si no tiene ninguna instancia de Azure Virtual Network, cree una siguiendo [estas instrucciones](../virtual-network/quick-create-portal.md). En este ejemplo, HDInsight se encuentra en una instancia de Azure Virtual Network. A continuación, puede ver una configuración de ejemplo de Azure Virtual Network. 
 
     ![Creación de una red virtual](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **Clúster de HDInsight.** Siga este artículo: [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) para crear un clúster de HDInsight y unirlo a la red virtual que creó en el paso anterior. A continuación, puede ver una configuración de ejemplo de HDInsight en una red virtual. 
@@ -150,7 +150,7 @@ En esta sección, creará una instancia de Integration Runtime autohospedada y l
    }
    ```
     Anote el valor de **AuthKey1** sin comillas. 
-3. Cree una máquina virtual de Azure y únala a la misma red virtual que contiene el clúster de HDInsight. Para obtener más información, consulte [Creación de máquinas virtuales](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Únalas a una instancia de Azure Virtual Network. 
+3. Cree una máquina virtual de Azure y únala a la misma red virtual que contiene el clúster de HDInsight. Para obtener más información, consulte [Creación de máquinas virtuales](../virtual-network/quick-create-portal.md#create-virtual-machines). Únalas a una instancia de Azure Virtual Network. 
 4. En la máquina virtual de Azure, descargue la [instancia de Integration Runtime autohospedada](https://www.microsoft.com/download/details.aspx?id=39717). Use la clave de autenticación que obtuvo en el paso anterior para registrar manualmente la instancia de Integration Runtime autohospedada. 
 
    ![Registro de Integration Runtime](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)

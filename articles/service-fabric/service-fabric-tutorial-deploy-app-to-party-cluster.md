@@ -15,28 +15,28 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implementación de una aplicación en un clúster de entidad en Azure
 Este tutorial es la segunda parte de una serie y le muestra cómo implementar una aplicación de Azure Service Fabric en un Party Cluster en Azure.
 
 En la segunda parte de la serie de tutoriales, se aprende a:
 > [!div class="checklist"]
-> * Implementar una aplicación en un clúster remoto con Visual Studio
-> * Eliminar una aplicación de un clúster mediante de Service Fabric Explorer
-
-En esta serie de tutoriales, se aprende a:
-> [!div class="checklist"]
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * Implementar la aplicación en un clúster remoto
 > * [Configurar CI/CD con Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+En esta serie de tutoriales, se aprende a:
+> [!div class="checklist"]
+> * Implementar una aplicación en un clúster remoto con Visual Studio
+> * Eliminar una aplicación de un clúster mediante de Service Fabric Explorer
+
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Instale Visual Studio 2017](https://www.visualstudio.com/) y las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
@@ -102,8 +102,8 @@ Para más información sobre el modelo de aplicación de Service Fabric, consult
 
 De este modo se finaliza el tutorial.
 
-## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>pasos siguientes
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Implementar una aplicación en un clúster remoto con Visual Studio

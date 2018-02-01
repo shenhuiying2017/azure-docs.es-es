@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 4fed181a004ba6a5ea35dcbe1366e7d48342c96d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar una suscripción individual de Azure y ver los datos de costo
 
@@ -44,7 +44,7 @@ Para ver un vídeo tutorial sobre cómo registrar su suscripción de Azure, cons
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, se usa la información de su suscripción de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Administración de costos de Azure de Cloudyn, continúe con el tutorial de Administración de costos.
 

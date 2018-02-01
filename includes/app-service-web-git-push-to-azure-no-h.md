@@ -1,4 +1,4 @@
-En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. Este repositorio remoto de Azure se ha creado automáticamente en [Creación de una aplicación web](#create-a-web-app).
+En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _&lt;paste\_copied\_url\_here>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de una aplicación web](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

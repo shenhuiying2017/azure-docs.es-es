@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
-ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6e8e2c1c3a65aa88dae75fcb8a7d670d6f4c278
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Migrar una aplicación web MongoDB de Node.js 
 
@@ -36,7 +36,7 @@ Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y
 
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>requisitos previos 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -67,7 +67,7 @@ La aplicación intentará conectarse a un origen de MongoDB y producirá un erro
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-Si usa una CLI de Azure instalada, inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla. Puede omitir este paso si usa Azure Cloud Shell.
+Si usa una CLI de Azure instalada, inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#az_login) y siga las instrucciones de la pantalla. Puede omitir este paso si usa Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -81,7 +81,7 @@ Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
+Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
 
 En el ejemplo siguiente se crea un grupo de recursos en la región de Europa Occidental. Elija un nombre único para el grupo de recursos.
 
@@ -93,7 +93,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
-Cree una cuenta de Azure Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#create).
+Cree una cuenta de Azure Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 En el comando siguiente, sustituya su propio nombre único de la cuenta de Azure Cosmos DB donde vea el marcador de posición `<cosmosdb-name>`. Este nombre único se usará como parte del punto de conexión de Azure Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`), por lo que debe ser único entre todas las cuentas de Azure Cosmos DB de Azure. 
 
@@ -238,9 +238,9 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y a crear una colección de MongoDB mediante el Explorador de datos. Ahora puede migrar los datos de MongoDB a Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importar datos de MongoDB en Azure Cosmos DB](mongodb-migrate.md)
+> [Importación de datos de MongoDB a Azure Cosmos DB](mongodb-migrate.md)

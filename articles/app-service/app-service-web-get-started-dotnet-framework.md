@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4cde427115df5bb7cd80acd676c6788ff3a379e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creación de una aplicación web de ASP.NET Framework en Azure
 
@@ -29,7 +29,9 @@ Vea el vídeo para ver este inicio rápido en acción y, a continuación, siga l
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -38,8 +40,6 @@ Para completar este tutorial:
     - **Desarrollo de Azure**
 
     ![ASP.NET y desarrollo web y desarrollo de Azure (en web y en la nube)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-web-app"></a>Creación de una aplicación web de ASP.NET
 
@@ -55,7 +55,7 @@ Puede implementar cualquier tipo de aplicación web de ASP.NET en Azure. Para es
       
 Seleccione **Aceptar**.
 
-![Cuadro de diálogo New ASP.NET Project](./media/app-service-web-get-started-dotnet-framework/select-mvc-template.png)
+![Cuadro de diálogo Nuevo proyecto de ASP.NET](./media/app-service-web-get-started-dotnet-framework/select-mvc-template.png)
 
 En el menú, seleccione **Depurar > Iniciar sin depurar** para ejecutar la aplicación web localmente.
 
@@ -102,10 +102,10 @@ En el cuadro de diálogo **Configurar plan de App Service**, use la configuraci�
 
 ![Creación de un plan de App Service](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Configuración | Valor sugerido | Descripción |
+| Configuración | Valor sugerido | DESCRIPCIÓN |
 |-|-|-|
 |Plan de App Service| myAppServicePlan | Nombre del plan de App Service. |
-| Ubicación | Europa occidental | El centro de datos donde se hospeda la aplicación web. |
+| La ubicación | Europa occidental | El centro de datos donde se hospeda la aplicación web. |
 | Tamaño | Gratuito | [Plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina las características de hospedaje. |
 
 Seleccione **Aceptar**.
@@ -163,7 +163,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [ASP.NET con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

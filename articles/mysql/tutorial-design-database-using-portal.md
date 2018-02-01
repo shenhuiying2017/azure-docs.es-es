@@ -6,15 +6,15 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 76cccf9e2ce0a1e59b43646c43ac165d46dade4a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Diseño de la primera base de datos de Azure Database for MySQL
 Azure Database for MySQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de MySQL de alta disponibilidad en la nube. Con Azure Portal puede administrar fácilmente el servidor y diseñar una base de datos.
@@ -152,7 +152,7 @@ Imagine que ha eliminado accidentalmente una tabla de base de datos importantes 
    
 3. Haga clic en **Aceptar** para restaurar el servidor a un [momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Al restaurar un servidor, se crea una nueva copia del servidor a partir del momento dado que especifique. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial uso Azure Portal para aprender a hacer lo siguiente:
 
 > [!div class="checklist"]

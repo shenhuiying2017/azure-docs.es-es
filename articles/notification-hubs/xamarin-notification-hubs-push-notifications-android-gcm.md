@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Introducción a Notification Hubs para las aplicaciones Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ En este tutorial se demuestra el escenario de difusión sencillo con Notificatio
 
 El código completo de este tutorial se puede encontrar en GitHub [aquí][GitHub].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Este tutorial requiere lo siguiente:
 
 * [Visual Studio con Xamarin] en Windows o [Visual Studio para Mac] en OS X.
@@ -208,7 +208,7 @@ En primer lugar, cree un nuevo proyecto.
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
-        public class MyFirebaseIIDService : FirebaseMessagingService
+        public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
     
 14. Agregue el código siguiente a **MyFirebaseMessagingService.cs**:

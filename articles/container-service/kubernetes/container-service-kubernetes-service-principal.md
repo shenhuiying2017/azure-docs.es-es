@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4114093802d7e56eaeb64c0998d3fc675d9baa87
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2017
 En Azure Container Service, un clúster de Kubernetes requiere una [entidad de servicio de Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario](../../virtual-network/virtual-networks-udr-overview.md) y [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) de nivel 4.
 
 
-Este artículo muestra distintas opciones para configurar una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
+Este artículo muestra distintas opciones para configurar una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](/cli/azure/acs#az_acs_create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos de la entidad de servicio
@@ -76,7 +76,7 @@ En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI
 
 1. [Descargue](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) el archivo de parámetros de plantilla `azuredeploy.parameters.json` de GitHub.
 
-2. Para especificar la entidad de servicio, especifique los valores de `servicePrincipalClientId` y `servicePrincipalClientSecret` en el archivo. (También tendrá que especificar sus propios valores para `dnsNamePrefix` y `sshRSAPublicKey`. El segundo es la clave pública de SSH para acceder al clúster.) Guarde el archivo .
+2. Para especificar la entidad de servicio, especifique los valores de `servicePrincipalClientId` y `servicePrincipalClientSecret` en el archivo. (También tendrá que especificar sus propios valores para `dnsNamePrefix` y `sshRSAPublicKey`. El segundo es la clave pública de SSH para acceder al clúster.) Guarde el archivo.
 
     ![Pasar los parámetros de la entidad de servicio](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -95,7 +95,7 @@ En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opción 2: Generación de una entidad de servicio al crear el clúster con `az acs create`
 
-Si ejecuta el comando [`az acs create`](/cli/azure/acs#create) para crear el clúster de Kubernetes, tiene la opción para generar automáticamente una entidad de servicio.
+Si ejecuta el comando [`az acs create`](/cli/azure/acs#az_acs_create) para crear el clúster de Kubernetes, tiene la opción para generar automáticamente una entidad de servicio.
 
 Al igual que sucede con otras opciones de creación de clústeres de Kubernetes, al ejecutar `az acs create` se pueden especificar los parámetros de una entidad de servicio existente. Sin embargo, cuando se omiten estos parámetros, la CLI de Azure crea una automáticamente para usarla con Container Service. Esta operación se realiza de forma transparente durante la implementación.
 
@@ -164,7 +164,7 @@ Salida:
 
 A continuación, actualice `/etc/kubernetes/azure.json` con las nuevas credenciales en todos los nodos de clúster y reinicie los nodos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Introducción a Kubernetes](container-service-kubernetes-walkthrough.md) en el clúster de Container Service.
 

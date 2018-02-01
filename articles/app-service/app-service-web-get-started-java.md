@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creación de su primera aplicación web de Java en Azure
 
@@ -29,14 +29,14 @@ Cuando haya completado esta guía de inicio rápido, la aplicación se parecerá
 
 !["Hello Azure!" aplicación web de ejemplo](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido necesita instalar:
 
 * El entorno gratuito <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. Este guía de inicio rápido utiliza Eclipse Neon.
 * El <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">kit de herramientas de Azure para Eclipse</a>.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Creación de un proyecto web dinámico en Eclipse
 
@@ -149,7 +149,7 @@ Cuando finalice la publicación, seleccione el enlace **Publicado** en el cuadro
 
 ![Cuadro de diálogo Registro de actividad de Azure](./media/app-service-web-get-started-java/aal.png)
 
-¡Enhorabuena! Ha implementado correctamente la aplicación web en Azure. 
+Felicidades. Ha implementado correctamente la aplicación web en Azure. 
 
 !["Hello Azure!" aplicación web de ejemplo](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -197,7 +197,7 @@ Aparece la página **Información general**. Esta página proporciona una visió
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain.md)

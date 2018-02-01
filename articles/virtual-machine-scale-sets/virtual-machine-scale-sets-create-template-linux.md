@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Creación de un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este artículo introductorio, debe crear un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure Resource Manager. También puede crear un conjunto de escalado mediante la [CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Puede implementar la plantilla [Servidor HTTP de Python en Linux](https://github
 
 [![Implementación de plantillas en Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-También puede utilizar la CLI de Azure 2.0 para instalar el servidor HTTP de Python en Linux con [az group deployment create](/cli/azure/group/deployment#create) como se indica a continuación:
+También puede utilizar la CLI de Azure 2.0 para instalar el servidor HTTP de Python en Linux con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) como se indica a continuación:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Responda a los avisos para proporcionar un nombre para el conjunto de escalado, 
 
 
 ## <a name="test-your-sample-application"></a>Prueba de la aplicación de ejemplo
-Para ver la aplicación en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip list](/cli/azure/network/public-ip#show) según se indica a continuación:
+Para ver la aplicación en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) según se indica a continuación:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Escriba la dirección IP pública del equilibrador de carga en un explorador web
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación:
+Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

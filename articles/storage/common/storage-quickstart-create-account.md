@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -120,7 +120,7 @@ $location = "westus"
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear un grupo de recursos con la CLI de Azure, use el comando [az group create](/cli/azure/group#create). 
+Para crear un grupo de recursos con la CLI de Azure, use el comando [az group create](/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive
 az group create \
@@ -128,7 +128,7 @@ az group create \
     --location westus
 ```
 
-Si no está seguro de qué región especificar para el parámetro `--location`, puede recuperar una lista de regiones admitidas para la suscripción con el comando [az account list-locations](/cli/azure/account#list).
+Si no está seguro de qué región especificar para el parámetro `--location`, puede recuperar una lista de regiones admitidas para la suscripción con el comando [az account list-locations](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -161,7 +161,7 @@ Al poner nombre a la cuenta de almacenamiento, tenga en cuenta estas reglas:
 
 Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
+1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 2. Escriba un nombre para la cuenta de almacenamiento.
 3. En el campo **Tipo de cuenta**, elija **StorageV2 (uso general v2)**.
 4. En el campo **Replicación**, deje la opción **Almacenamiento con redundancia local (LRS)**. Como alternativa, puede elegir **Almacenamiento con redundancia de zona (ZRS clásico)**, **Almacenamiento con redundancia geográfica (GRS)** o **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**.
@@ -196,7 +196,7 @@ Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear una cuenta de almacenamiento de uso general v2 en la CLI de Azure con almacenamiento con redundancia local, use el comando [az storage account create](/cli/azure/storage/account#create).
+Para crear una cuenta de almacenamiento de uso general v2 en la CLI de Azure con almacenamiento con redundancia local, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -248,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [az group delete](/cli/azure/group#delete).
+Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

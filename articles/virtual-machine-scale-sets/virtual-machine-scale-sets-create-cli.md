@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 222bfa1c3070fa4634cf5c48d934a6387c48a4b0
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8794ea7d998293e7ea88ba780f67ef8a021f2298
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este artículo introductorio, debe crear un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0. También puede crear un conjunto de escalado mediante [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -32,13 +32,13 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet* y se generan claves SSH si estas no existen aún:
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet* y se generan claves SSH si estas no existen aún:
 
 ```azurecli-interactive 
 az vmss create \
@@ -70,7 +70,7 @@ az vmss extension set \
 
 
 ## <a name="allow-web-traffic"></a>Permitir tráfico web
-Para permitir que el tráfico llegue al servidor web, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
+Para permitir que el tráfico llegue al servidor web, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -86,7 +86,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-web-server"></a>Prueba del servidor web
-Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
+Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -102,7 +102,7 @@ Escriba la dirección IP pública del equilibrador de carga en un explorador web
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación:
+Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

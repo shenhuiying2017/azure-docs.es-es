@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: Clúster MATLAB
           href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
         - name: Informática de alto rendimiento (HPC)
           href: hpcpack-cluster-options.md
           items:
@@ -422,7 +424,7 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs

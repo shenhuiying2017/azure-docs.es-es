@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conexión de productos de seguridad a la solución Seguridad y auditoría de Operations Management Suite (OMS) 
 Este documento le ayuda a conectar sus productos de seguridad en la solución Seguridad y auditoría de OMS. Se admiten los siguientes orígenes:
@@ -95,7 +95,7 @@ En el equipo del agente, los eventos tienen que enviarse desde el demonio syslog
 
 ## <a name="reviewing-collected-security-events"></a>Revisión de eventos de seguridad recopilados
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Una vez finalizada la configuración, Seguridad de OMS iniciará la ingesta del evento de seguridad. Para visualizar esos eventos, abra la búsqueda de registros, escriba el comando *Type=CommonSecurityLog* en el campo de búsqueda y presione ENTRAR. En el ejemplo siguiente se muestra el resultado de este comando, tenga en cuenta que en este caso Seguridad OMS ya ha ingerido los registros de seguridad en varios proveedores:
    
@@ -106,7 +106,7 @@ Puede refinar la búsqueda para un proveedor único, por ejemplo, para visualiza
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Acceso a equipos sin evaluación de línea base
 OMS admite el perfil de línea base de miembros de dominio en Windows Server 2008 R2 y hasta Windows Server 2012 R2. La línea base de Windows Server 2016 todavía no está finalizada y se agregará en cuanto se publique. Todos los demás sistemas operativos examinados mediante la evaluación de línea base de Seguridad y auditoría de OMS aparecen en la sección **Acceso a equipos sin evaluación de línea base**.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este documento, ha aprendido a conectar su solución CEF a OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)

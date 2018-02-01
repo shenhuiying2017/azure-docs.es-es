@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de .NET
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API DE REST](data-lake-store-data-operations-rest-api.md)
+> * [API de REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
@@ -32,10 +32,10 @@ Con este artículo aprenderá a realizar operaciones de sistema de archivos en D
 
 Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Store con el SDK de .NET, consulte [Account management operations on Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md) (Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cuenta del Almacén de Azure Data Lake**. Para obtener instrucciones acerca de cómo crear una cuenta, consulte [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md)
 
@@ -50,7 +50,7 @@ El ejemplo de código disponible [en GitHub](https://github.com/Azure-Samples/da
    | --- | --- |
    | Categoría |Plantillas/Visual C#/Windows |
    | Plantilla |Aplicación de consola |
-   | Nombre |CreateADLApplication |
+   | NOMBRE |CreateADLApplication |
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
@@ -85,7 +85,7 @@ El ejemplo de código disponible [en GitHub](https://github.com/Azure-Samples/da
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
             }
         }
 
@@ -179,5 +179,5 @@ Aquí se muestran un par de ejemplos sobre cómo usar el SDK de Filesystem de Da
 * [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)

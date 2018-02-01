@@ -1,6 +1,6 @@
 # Información general
 ## [Información acerca de redes de Azure](networking-overview.md)
-## Arquitectura
+## Architecture
 ### [Centros de datos virtuales](networking-virtual-datacenter.md)
 ### [Enrutamiento asimétrico con varias rutas de acceso de red](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Protección de diseños de redes](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -24,7 +24,7 @@
 ### [Conexión local: Dedicada](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Introducción
-## [Creación de su primera red virtual](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Creación de su primera red virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Procedimientos
 ## Conectividad de Internet
@@ -71,6 +71,6 @@
 ## [Precios](https://azure.microsoft.com/pricing)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 
