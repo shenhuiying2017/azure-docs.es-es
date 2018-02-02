@@ -31,7 +31,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |500 KB |
 | Interfaces de red (NIC) |350 |20000 |
 | Grupos de seguridad de red (NSG) |100 |5000 |
-| Reglas de NSG por NSG |200 |500 |
+| Reglas de NSG por NSG |200 |1000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |2000 |4000 |
 | Grupos de seguridad de aplicaciones |200 |500 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |10 |20  |
@@ -55,7 +55,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Configuraciones de direcciones IP de front-end, básico | 10 | ponerse en contacto con el servicio de soporte técnico |
 | Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
 | Grupo de back-end, básico | 100, conjunto de disponibilidad único | - |
-| Grupo de back-end, estándar | 1000, red virtual única | ponerse en contacto con el servicio de soporte técnico |
+| Grupo de back-end, estándar | 1000, red virtual única | - |
 | Puertos de alta disponibilidad, estándar | 1 por front-end interno | - |
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).

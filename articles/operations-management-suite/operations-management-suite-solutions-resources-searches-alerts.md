@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Incorporación de las búsquedas y las alertas guardadas de Log Analytics en la solución de administración de OMS (versión preliminar)
 
@@ -36,7 +36,7 @@ En este artículo se supone que ya está familiarizado con la manera de [crear u
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de OMS y la cuenta de Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
+Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de OMS y la cuenta de Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
 
 El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  Esto se hace en la solución con el parámetro **workspace** tal como se muestra en el siguiente ejemplo de un recurso de savedsearch.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Cree un estándar de equilibrador de carga público con redundancia de zona en el front-end mediante la CLI de Azure
 
@@ -37,11 +37,11 @@ Si decide instalar y usar la CLI en el sitio local, para este tutorial es precis
 La [SKU estándar de Load Balancer](https://aka.ms/azureloadbalancerstandard) se encuentra actualmente en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use la [SKU básica de Load Balancer](load-balancer-overview.md) disponible con carácter general con sus servicios de producción. 
 
 > [!NOTE]
-> Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obtener soporte técnico, puede consultar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [abrir un vale de soporte de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 Antes de seleccionar una zona o una opción con redundancia de zona para la dirección IP pública de front-end de Load Balancer, primero debe completar los pasos descritos en el [registro para la versión preliminar de zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y de que ha iniciado sesión en una cuenta de Azure con [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y de que ha iniciado sesión en una cuenta de Azure con [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -86,7 +86,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Aprenda a [crear una dirección IP pública en una zona de disponibilidad](../virtual-network/create-public-ip-availability-zone-cli.md).
 
 

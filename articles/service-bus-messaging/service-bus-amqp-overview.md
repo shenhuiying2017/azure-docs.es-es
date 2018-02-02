@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="amqp-10-support-in-service-bus"></a>Soporte de AMQP 1.0 en el Bus de servicio
-Tanto el servicio en la nube de Azure Service Bus como el [Service Bus para Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local, admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar al Bus de servicio e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
+# <a name="amqp-10-support-in-service-bus"></a>Soporte de AMQP 1.0 en Service Bus
+Tanto el servicio en la nube de Azure Service Bus como el [Service Bus para Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local, admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar a Service Bus e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introducción: ¿Qué es AMQP 1.0 y por qué es tan importante?
 Tradicionalmente, los productos de middleware orientados a mensajes utilizaban protocolos propietarios para la comunicación entre las aplicaciones cliente y los agentes. Esto significa que una vez seleccionado el agente de mensajes de un proveedor particular, usted debía utilizar las bibliotecas de dicho proveedor para conectar las aplicaciones cliente con ese agente. Esto ocasionaba un cierto grado de dependencia de ese proveedor, ya que la portabilidad de una aplicación a otro producto requería cambios en la codificación de todas las aplicaciones relacionadas. 
@@ -59,16 +59,16 @@ Algunos de los beneficios que se mencionan con más frecuencia de los estándare
 * Disponibilidad de personal experto
 * Menor riesgo y más controlable
 
-## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 y Bus de servicio
-La compatibilidad con AMQP 1.0 en el Bus de servicio de Azure implica que ahora puede sacar partido de sus características de encolamiento del Bus de servicio y de la publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
+## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 y Service Bus
+La compatibilidad con AMQP 1.0 en Azure Service Bus implica que ahora puede sacar partido de sus características de encolamiento de Service Bus y de la publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
-En la siguiente ilustración se muestra una implementación de ejemplo en el que clientes de Java que se ejecutan en Linux, escritos usando la API estándar Java Message Service (JMS), y clientes .NET que se ejecutan en Windows, intercambian mensajes a través del Bus de servicio mediante AMQP 1.0.
+En la siguiente ilustración se muestra una implementación de ejemplo en el que clientes de Java que se ejecutan en Linux, escritos usando la API estándar Java Message Service (JMS), y clientes .NET que se ejecutan en Windows, intercambian mensajes a través de Service Bus mediante AMQP 1.0.
 
 ![][0]
 
 **Figura 1: Escenario de implementación de ejemplos que muestran mensajes entre plataformas mediante Service Bus y AMQP 1.0**
 
-En este momento las siguientes bibliotecas de cliente están trabajando con el Bus de servicio:
+En este momento las siguientes bibliotecas de cliente están trabajando con Service Bus:
 
 | Idioma | Biblioteca |
 | --- | --- |
@@ -82,9 +82,9 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 
 ## <a name="summary"></a>Resumen
 * AMQP 1.0 es un protocolo de mensajes confiable y abierto que se puede utilizar para crear aplicaciones híbridas, entre plataformas. AMQP 1.0 es un estándar de OASIS.
-* La compatibilidad con AMQP 1.0 ahora está disponible en el Bus de servicio de Azure, así como en el Bus de servicio para Windows Server (Bus de servicio 1.1). El precio es el mismo que el de los protocolos existentes.
+* La compatibilidad con AMQP 1.0 ahora está disponible en Azure Service Bus, así como en Service Bus para Windows Server (Service Bus 1.1). El precio es el mismo que el de los protocolos existentes.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 * [Uso de Service Bus desde .NET con AMQP]

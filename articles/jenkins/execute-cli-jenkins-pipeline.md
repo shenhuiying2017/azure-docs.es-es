@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementación en Azure App Service con Jenkins y la CLI de Azure
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
@@ -55,14 +55,14 @@ sudo apt-get install -y maven
 
 Para ejecutar la CLI de Azure se necesita una credencial de Azure.
 
-* En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Global credentials(unrestricted)**  [Credenciales (sin restricción) globales].
+* En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Credenciales (sin restricción) globales**.
 * Haga clic en **Add Credentials** (Agregar credenciales) para agregar una nueva [entidad de servicio de Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) rellenando los datos correspondientes a Subscription ID (Identificador de suscripción), Client ID (Identificador de cliente), Client Secret (Secreto de cliente) y OAuth 2.0 Token Endpoint (Punto de conexión de token OAuth 2.0). Proporcione un identificador para usarlo en el paso posterior.
 
 ![Adición de credenciales](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Creación de una instancia de Azure App Service para implementar la aplicación web de Java
 
-Cree un plan de Azure App Service con el plan de tarifa **GRATIS** mediante el comando [az appservice plan create](/cli/azure/appservice/plan#create) de la CLI. Un plan de servicio de aplicaciones define los recursos físicos que se usan para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de servicio de aplicaciones comparten los recursos, lo que permite ahorrar costos al hospedar varias aplicaciones. 
+Cree un plan de Azure App Service con el plan de tarifa **GRATIS** mediante el comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) de la CLI. Un plan de servicio de aplicaciones define los recursos físicos que se usan para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de servicio de aplicaciones comparten los recursos, lo que permite ahorrar costos al hospedar varias aplicaciones. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Cuando está preparada la definición de la aplicación web, la CLI de Azure mue
 
 ### <a name="configure-java"></a>Configuración de Java 
 
-Establezca la configuración del sistema en tiempo de ejecución de Java que necesita la aplicación con el comando [az appservice web config update](/cli/azure/appservice/web/config#update).
+Establezca la configuración del sistema en tiempo de ejecución de Java que necesita la aplicación con el comando [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update).
 
 El siguiente comando configura la aplicación web para que se ejecute en una versión reciente de Java 8 JDK y en [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -153,7 +153,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="create-jenkins-pipeline"></a>Creación de una canalización de Jenkins
 Abra Jenkins en un explorador web, haga clic en **New Item** (Nuevo elemento). 
 
-* Proporcione un nombre para el trabajo y seleccione **Pipeline** (Canalización). Haga clic en **Aceptar**.
+* Proporcione un nombre para el trabajo y seleccione **Pipeline** (Canalización). Haga clic en **OK**.
 * Haga clic en la pestaña **Pipeline** (Canalización) a continuación. 
 * En **Definition** (Definición), seleccione **Pipeline script from SCM** (Script de canalización del SCM).
 * En **SCM**, seleccione **Git**.
@@ -221,7 +221,7 @@ La aplicación web en Linux es compatible con otra forma de realizar la implemen
 
     Vaya a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sustituya &lt;x> e &lt;y> con cualquier número) para obtener la suma de x e y
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha configurado una canalización de Jenkins que extrae del repositorio GitHub el código fuente. Se ejecuta Maven para generar un archivo war y, a continuación, se utiliza la CLI de Azure para implementarlo en Azure App Service. Ha aprendido a:
 
 > [!div class="checklist"]

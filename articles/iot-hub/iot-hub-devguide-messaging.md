@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4a7f545f1af2904f47808fe8b1d7d3aab3afff84
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7fd89bebf9d7497ad5b13c438b362256d3408219
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Mensajería de dispositivo a nube y de nube a dispositivo con IoT Hub
 
@@ -38,7 +38,7 @@ Los mensajes de dispositivo a nube se utilizan para enviar telemetría y alertas
 * Si duda entre el uso de mensajes de dispositivo a nube, propiedades notificadas o carga de archivos, consulte la [Guía de comunicación de dispositivo a nube][lnk-d2c-guidance].
 * Si duda entre el uso de mensajes de nube a dispositivo, propiedades deseadas o métodos directos, consulte la [Guía de comunicación de nube a dispositivo][lnk-c2d-guidance].
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga más información acerca de la [mensajería de dispositivo a nube][lnk-d2c] de IoT Hub.
 * Obtenga más información acerca de la [mensajería de nube a dispositivo][lnk-c2d] de IoT Hub.

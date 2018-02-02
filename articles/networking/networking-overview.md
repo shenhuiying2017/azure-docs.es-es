@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Redes de Azure
 
@@ -35,7 +35,7 @@ Azure proporciona una variedad de funcionalidades de red que se pueden usar conj
 
 ## <a name="Connectivity"></a>Conectividad entre recursos de Azure
 
-Los recursos de Azure como Virtual Machines, Cloud Services, conjuntos de escalado de máquinas virtuales y Azure App Service Environment pueden comunicarse de forma privada entre sí a través de una red virtual de Azure. Una red virtual es un aislamiento lógico de la nube de Azure dedicada a su [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Puede implementar varias redes virtuales dentro de cada suscripción y [región](https://azure.microsoft.com/regions) de Azure. Cada red virtual está aislada de otras redes virtuales. Para cada red virtual, puede:
+Los recursos de Azure como Virtual Machines, Cloud Services, conjuntos de escalado de máquinas virtuales y Azure App Service Environment pueden comunicarse de forma privada entre sí a través de una instancia de Azure Virtual Network. Una red virtual es un aislamiento lógico de la nube de Azure dedicada a su [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Puede implementar varias redes virtuales dentro de cada suscripción y [región](https://azure.microsoft.com/regions) de Azure. Cada red virtual está aislada de otras redes virtuales. Para cada red virtual, puede:
 
 - Especificar un espacio de direcciones IP privado personalizado mediante direcciones públicas y privadas (RFC 1918). Azure asigna recursos conectados a la red virtual a una dirección IP privada desde el espacio de direcciones que asigne.
 - Segmentar la red virtual en una o varias subredes y asignar una parte del espacio de direcciones de redes virtuales para cada subred.
@@ -157,8 +157,8 @@ Puede implementar y configurar los recursos de red de Azure con cualquiera de la
 
 Algunos de los servicios de red de Azure tienen un cargo, mientras que otros son gratis. Consulte las páginas de precios de [Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer), [Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) y [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) para más información.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-- Cree su primera red virtual y conecte algunas máquinas virtuales a ella, siguiendo los pasos descritos en el artículo [Creación de su primera red virtual](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Cree su primera red virtual y conecte algunas máquinas virtuales a ella, siguiendo los pasos descritos en el artículo [Creación de su primera red virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Conecte su equipo a una red virtual siguiendo los pasos descritos en el artículo [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Equilibre la carga de tráfico de Internet en los servidores públicos siguiendo los pasos descritos en el artículo [Creación de un equilibrador de carga con conexión a Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

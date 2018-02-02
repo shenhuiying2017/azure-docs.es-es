@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Antes de implementar Azure App Service en Azure Stack, debe completar los requisitos previos de este artículo.
 
@@ -37,7 +38,7 @@ Antes de implementar Azure App Service en Azure Stack, debe completar los requis
    - Remove-AppService.ps1
    - Módulos
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>Preparación para lograr alta disponibilidad
 
 Azure App Service en Azure Stack no puede ofrecer alta disponibilidad actualmente porque Azure Stack solo implementa cargas de trabajo en un dominio de error individual.
@@ -47,7 +48,7 @@ Para preparar Azure App Service en Azure Stack para que proporcione alta disponi
 
 ## <a name="get-certificates"></a>Obtención de certificados
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necesarios para el Azure Stack Development Kit
+### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necesarios para el Kit de desarrollo de Azure Stack
 
 Este primer script funciona con la entidad de certificación de Azure Stack para crear cuatro certificados que necesita App Service:
 
@@ -244,7 +245,7 @@ Para implementaciones del Kit de desarrollo de Azure Stack, puede usar SQL Serve
 
 Para entornos de producción y para ofrecer alta disponibilidad, debe usar una versión completa de SQL Server 2014 SP2 o versiones posteriores, habilitar la autenticación de modo mixto y realizar la implementación en una [configuración de alta disponibilidad](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-La instancia de SQL Server para Azure App Service en Azure Stack debe ser accesible desde todos los roles de App Service. SQL Server se puede implementar en la suscripción del proveedor predeterminada en Azure Stack. O bien, puede usar la infraestructura existente en su organización (siempre y cuando haya conectividad con Azure Stack). Si va a usar una imagen de Azure Marketplace, no olvide configurar el firewall adecuadamente. 
+La instancia de SQL Server para Azure App Service en Azure Stack debe ser accesible desde todos los roles de App Service. SQL Server se puede implementar en la suscripción del proveedor predeterminada en Azure Stack. O bien, puede usar la infraestructura existente en su organización (siempre y cuando haya conectividad con Azure Stack). Si va a usar una imagen de Azure Marketplace, no olvide configurar el firewall adecuadamente.
 
 Para cualquiera de los roles de SQL Server, puede utilizar una instancia predeterminada o una instancia con nombre. Si usa una instancia con nombre, asegúrese de iniciar manualmente el servicio SQL Server Browser y abrir el puerto 1434.
 

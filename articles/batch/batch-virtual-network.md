@@ -2,17 +2,17 @@
 title: Aprovisionamiento de un grupo de Azure Batch en una red virtual | Microsoft Docs
 description: "Puede crear un grupo de Batch en una red virtual para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -28,7 +28,7 @@ Un grupo de Azure Batch tiene una configuración para permitir que los nodos de 
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Autenticación**. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md). 
 
@@ -67,7 +67,7 @@ Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada pref
 
 ![Ruta definida por el usuario](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
 - Para más información sobre cómo crear una ruta definida por el usuario, consulte [Creación de una ruta definida por el usuario - Azure Portal](../virtual-network/create-user-defined-route-portal.md).

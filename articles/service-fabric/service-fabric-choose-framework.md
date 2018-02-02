@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Información general del modelo de programación de Service Fabric
 Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden optar por usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje o código que se ejecute en un contenedor hospedado simplemente en un clúster de Service Fabric.
@@ -45,7 +45,7 @@ Reliable Services también pueden tener estado, exclusivo de Service Fabric, don
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear aplicaciones conectadas a Internet modernas y basadas en la nube, como aplicaciones web, aplicaciones de IoT y back-ends móviles. Service Fabric se integra con ASP.NET para que pueda escribir aplicaciones ASP.NET Core sin estado y con estado que aproveche las funcionalidades de orquestación avanzada de Reliable Collections y Service Fabric.
 
-[Más información sobre ASP.NET Core en Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) o comience a [escribir su primera aplicación Service Fabric de ASP.NET Core](service-fabric-add-a-web-frontend.md).
+[Más información sobre ASP.NET Core en Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) o comience a [escribir su primera aplicación Service Fabric de ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Basado en Reliable Services, el marco de Reliable Actor es un marco de aplicación que implementa el diseño de Virtual Actor, basado en el patrón de diseño del actor. El marco de Reliable Actor usa unidades independientes del proceso y el estado con la ejecución de subproceso único denominadas actores. El marco de Reliable Actor proporciona comunicaciones integradas para actores y las configuraciones de escalado horizontal y persistencia de estado establecidas previamente.
@@ -55,9 +55,9 @@ Como Reliable Actors es en sí mismo un marco de aplicación basado en Reliable 
 [Aprenda más sobre Reliable Actors](service-fabric-reliable-actors-introduction.md) o comience por [escribir el primer servicio de Reliable Actor](service-fabric-reliable-actors-get-started.md).
 
 
-[Crear un servicio de front-end mediante ASP.NET Core](service-fabric-add-a-web-frontend.md)
+[Crear un servicio de front-end mediante ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Información general sobre Service Fabric y contenedores](service-fabric-containers-overview.md)
 
 [Información general sobre Reliable Services](service-fabric-reliable-services-introduction.md)

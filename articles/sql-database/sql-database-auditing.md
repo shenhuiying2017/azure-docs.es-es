@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 La auditoría de base de datos SQL de Azure realiza el seguimiento de eventos de base de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría también:
@@ -63,7 +63,7 @@ Puede definirse una directiva de auditoría para una base de datos específica o
 ## <a id="subheading-2"></a>Configuración de la auditoría para su base de datos
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
-1. Vaya al [Portal de Azure](https://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a la hoja **Configuración** de la base de datos SQL o el servidor SQL que quiere auditar. En la hoja **Configuración**, seleccione **Auditoría y detección de amenazas**.
 
     <a id="auditing-screenshot"></a>![Panel de navegación][1]
@@ -75,14 +75,14 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
     Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
 
     ![Panel de navegación][3]
-5. Para abrir la hoja **Almacenamiento de registros de auditoría**, seleccione **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. y, a continuación, haga clic en **Aceptar**.
+5. Para abrir la hoja **Almacenamiento de registros de auditoría**, seleccione **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. A continuación, haga clic en **Aceptar**.
    >[!TIP]
    >Con el fin de obtener el máximo rendimiento de las plantillas de informes de auditorías, use la misma cuenta de almacenamiento para todas las bases de datos auditadas.
 
     <a id="storage-screenshot"></a>![Panel de navegación][4]
 6. Si quiere personalizar los eventos auditados, puede hacerlo a través de PowerShell o de la API de REST. 
 7. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
-8. Haga clic en **Guardar**.
+8. Haga clic en **Save**(Guardar).
 
 
 
@@ -175,8 +175,6 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 

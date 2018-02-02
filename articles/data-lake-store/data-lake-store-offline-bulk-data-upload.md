@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Store
 En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Azure Data Lake Store mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
 
 El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a Azure Blob Storage mediante el envío de unidades de disco duro a un centro de datos de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar, debe disponer de lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**.
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Preparación de los datos
+
 Antes de usar el servicio Import/Export, divida el archivo de datos para transferirlo **en copias de menos de 200 GB**. La herramienta de importación no funciona con archivos con un tamaño superior a 200 GB. En este tutorial, el archivo se divide en fragmentos de 100 GB. Puede hacerlo si utiliza [Cygwin](https://cygwin.com/install.html). Cygwin admite comandos de Linux. En este caso, ejecute el siguiente comando:
 
     split -b 100m 319GB.tsv
@@ -207,7 +208,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

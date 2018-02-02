@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -31,7 +31,7 @@ En este artículo se describe cómo invocar un paquete de SSIS desde una canaliz
 El tutorial de este artículo usa una instancia de Azure SQL Database que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL (versión preliminar privada).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creación de una instancia de Integration Runtime de SSIS de Azure
-Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial Implementación paquetes de SSIS en Azure](../tutorial-deploy-ssis-packages-azure.md). Debe crear una factoría de datos de la versión 2 para crear una instancia de Integration Runtime de SSIS de Azure. 
+Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial Implementación paquetes de SSIS en Azure](../tutorial-create-azure-ssis-runtime-portal.md). Debe crear una factoría de datos de la versión 2 para crear una instancia de Integration Runtime de SSIS de Azure. 
 
 ## <a name="azure-portal"></a>Azure Portal
 En esta sección, se usa Azure Portal para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
@@ -199,7 +199,7 @@ El siguiente procedimiento detalla los pasos para crear una factoría de datos. 
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de la factoría de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+* El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
 
     ```
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.

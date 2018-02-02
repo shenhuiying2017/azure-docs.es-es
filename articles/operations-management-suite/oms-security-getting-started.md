@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5832d46636cce5ceeda7f42d2e87b5a3a633bfe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introducción a la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a empezar a trabajar rápidamente con las funcionalidades de la solución Seguridad y auditoría de Operations Management Suite (OMS) al guiarle a través de cada opción.
@@ -72,7 +72,7 @@ Los escenarios de investigación forense y de respuesta a incidentes se benefici
 
 Al hacer clic en este icono, se abrirá la hoja de **Buscar** con el resultado de una consulta para **Eventos de seguridad** (Type=SecurityEvents) con datos basados en los últimos siete días, como se muestra a continuación:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Registros de seguridad con el paso del tiempo](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

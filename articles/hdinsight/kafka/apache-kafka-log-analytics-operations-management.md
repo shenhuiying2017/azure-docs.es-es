@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 440133da32f4565aa247b273984b3affe18379ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
@@ -62,7 +62,7 @@ Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos 
 
     También puede escribir `*` para buscar todos los tipos registrados. Actualmente están disponibles los registros siguientes para las consultas:
 
-    | Tipo de registro | Descripción |
+    | Tipo de registro | DESCRIPCIÓN |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
@@ -70,7 +70,7 @@ Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos 
 
     ![Imagen de la búsqueda de uso de CPU](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## <a name="next-steps"></a>Pasos siguientes
+ ## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre Log Analytics, consulte el documento [Introducción a un área de trabajo de Log Analytics](../../log-analytics/log-analytics-get-started.md).
 

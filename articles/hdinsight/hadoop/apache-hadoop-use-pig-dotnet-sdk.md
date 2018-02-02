@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
 
@@ -30,7 +30,7 @@ Aprenda a usar el SDK de .NET de Hadoop para enviar trabajos de Apache Pig a Had
 
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight en .NET. Pig le permite crear operaciones de MapReduce al modelar una serie de transformaciones de datos. En este documento, aprenderá a utilizar una aplicación básica de C# para enviar un trabajo de Pig para un clúster de HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
@@ -53,7 +53,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
    | ------ | ------ |
    | Categoría | Plantillas/Visual C#/Windows |
    | Plantilla | Aplicación de consola |
-   | Nombre | SubmitPigJob |
+   | NOMBRE | SubmitPigJob |
 
 3. Haga clic en **Aceptar** para crear el proyecto.
 
@@ -70,7 +70,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {
@@ -122,7 +122,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 8. Presione **ENTRAR** para salir de la aplicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información sobre Pig en HDInsight, vea [Usar Pig con Hadoop en HDInsight](hdinsight-use-pig.md).
 

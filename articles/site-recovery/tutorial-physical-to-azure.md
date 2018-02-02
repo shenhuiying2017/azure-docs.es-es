@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -33,7 +33,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 > * Creación de una directiva de replicación
 > * Habilitar la replicación para un servidor
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -64,13 +64,13 @@ Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máq
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
-Configure una [red de Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configure una [red de Azure](../virtual-network/quick-create-portal.md).
 
 - Las VM de Azure se colocarán en esta red cuando se creen después de la conmutación por error.
 - La red debe estar en la misma región que el almacén de Recovery Services.
 
 
-## <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de almacenamiento de Azure
+## <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de Azure Storage
 
 Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
@@ -168,7 +168,7 @@ Habilite la replicación para cada servidor.
 1. Haga clic en **Replicar la aplicación** > **Origen**.
 2. En **Origen**, seleccione el servidor de configuración.
 3. En **Tipo de máquina**, seleccione **Máquinas físicas**.
-4. Seleccione el servidor de procesos (el servidor de configuración). y, a continuación, haga clic en **Aceptar**.
+4. Seleccione el servidor de procesos (el servidor de configuración). A continuación, haga clic en **Aceptar**.
 5. En **Destino**, seleccione la suscripción y el grupo de recursos donde quiere crear las máquinas virtuales de Azure después de la conmutación por error. Elija el modelo de implementación que quiere usar en Azure (clásico o administración de recursos).
 6. Seleccione la cuenta de Azure Storage que desea usar para los datos de replicación. 
 7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
@@ -181,6 +181,6 @@ Habilite la replicación para cada servidor.
 
 Para supervisar los servidores que agregue, puede comprobar la última hora de detección en **Servidores de configuración** > **Último contacto**. Para agregar equipos sin esperar a una hora de detección programada, resalte el servidor de configuración (sin hacer clic en él) y haga clic en **Actualizar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-[Obtención de detalles de recuperación ante desastres](tutorial-dr-drill-azure.md)
+[Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)

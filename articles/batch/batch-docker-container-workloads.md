@@ -2,19 +2,19 @@
 title: Cargas de trabajo de contenedor en Azure Batch | Microsoft Docs
 description: "Aprenda a ejecutar aplicaciones desde imágenes de contenedor en Azure Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -25,7 +25,7 @@ El uso de contenedores proporciona una manera sencilla para ejecutar tareas por 
 En este artículo se da por supuesto que está familiarizado con los conceptos de contenedor de Docker y cómo crear un grupo y un trabajo de Batch mediante el SDK de .NET. Los fragmentos de código están pensados para usarse en una aplicación cliente similar a la del [ejemplo DotNetTutorial](batch-dotnet-get-started.md) y son ejemplos de código que se necesitan para admitir aplicaciones de contenedor en Batch.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Versiones de SDK: los SDK de Batch admiten las imágenes de contenedor en las siguientes versiones:
     * API de REST de Batch versión 2017-09-01.6.0
@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Obtenga más información sobre el tipo del próximo salto con la funcionalidad Next Hop de Azure Network Watcher mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-check-next-hop-portal.md)
+> - [portal de Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Próximo salto es una característica de Network Watcher que permite obtener el tipo del próximo salto y la dirección IP para una máquina virtual especificada. Esta característica es útil para determinar si el tráfico que sale de una máquina virtual atraviesa una puerta de enlace, Internet o redes virtuales para llegar a su destino.
 
-En este artículo se usa la CLI de próxima generación para el modelo de implementación de Resource Manager, la CLI de Azure 2.0, que está disponible para Windows, Mac y Linux.
+En este artículo se usa la CLI de próxima generación para el modelo de implementación de administración de recursos, la CLI de Azure 2.0, que está disponible para Windows, Mac y Linux.
 
 Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
@@ -43,14 +43,14 @@ En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Cre
 
 ## <a name="scenario"></a>Escenario
 
-El escenario descrito en este artículo usa Next Hop, una característica de Network Watcher, para averiguar el tipo de próximo salto y la dirección IP de un recurso. Para más información acerca de Next Hop, consulte la [introducción a Next Hop](network-watcher-next-hop-overview.md).
+El escenario descrito en este artículo usa Next Hop, una característica de Network Watcher, para averiguar el tipo de próximo salto y la dirección IP de un recurso. Para más información sobre Próximo salto, vea [introducción a Próximo salto](network-watcher-next-hop-overview.md).
 
 
 ## <a name="get-next-hop"></a>Obtención del próximo salto
 
 Para obtener el próximo salto, llamamos al cmdlet `az network watcher show-next-hop`. Pasamos al cmdlet el grupo de recursos de Network Watcher, NetworkWatcher, el identificador de la máquina virtual, la dirección IP de origen y dirección IP de destino. En este ejemplo, la dirección IP de destino es una máquina virtual en otra red virtual. Hay una puerta de enlace de red virtual entre las dos redes virtuales.
 
-Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login). Luego, ejecute el siguiente comando:
+Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login). Luego, ejecute el siguiente comando:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
@@ -84,6 +84,6 @@ La lista siguiente muestra los valores de NextHopType disponibles actualmente:
 * VnetPeering
 * None
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda cómo revisar la configuración del grupo de seguridad de red mediante programación en [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Auditoría de NSG con Network Watcher).

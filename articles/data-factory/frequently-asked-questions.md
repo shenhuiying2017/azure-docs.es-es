@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo se aplica a la versión 2 del servicio de Azure Data Factory. Proporciona respuestas a las preguntas más frecuentes acerca de Data Factory.  
@@ -68,7 +68,7 @@ Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la i
 Para más información, consulte el siguiente [tutorial: flujos de control](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Implementación de paquetes SSIS en Azure 
-Si desea mover las cargas de trabajo de SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de Integration Runtime de SSIS de Azure. Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). 
+Si desea mover las cargas de trabajo de SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de Integration Runtime de SSIS de Azure. Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 
 ### <a name="sdks"></a>SDK

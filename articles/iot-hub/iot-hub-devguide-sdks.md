@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96dad8917f4483c3d7c74ea0462b96d89286f549
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>SDK de IoT de Azure
 
@@ -35,7 +35,7 @@ Los SDK se incluyen para admitir varios lenguajes de programación.
 
 ## <a name="azure-iot-device-sdks"></a>SDK de dispositivos IoT de Azure
 
-Los SDK de dispositivos IoT de Microsoft Azure contienen código que facilita la creación dispositivos y aplicaciones que se conectan a servicios del Centro de IoT de Azure y que este administra.
+Los SDK de dispositivos IoT de Microsoft Azure contienen código que facilita la creación dispositivos y aplicaciones que se conectan a servicios de Azure IoT Hub y que este administra.
 
 Los siguientes SDK de dispositivos IoT de Azure están disponibles para su descarga desde GitHub:
 
@@ -88,12 +88,12 @@ La siguiente lista contiene vínculos a documentación en línea de referencia d
 * [REST de IoT Hub][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints] (Puntos de conexión de IoT Hub)
-* [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query] (Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes)
 * [Cuotas y limitación][lnk-devguide-quotas]
 * [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt]
 

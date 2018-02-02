@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -545,8 +545,7 @@ Para comprender el concepto de conjuntos de disponibilidad de Azure y la relaci�
 
 Para definir conjuntos de disponibilidad para ARM mediante una plantilla de json, consulte las [especificaciones de la API de REST](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) y busque "disponibilidad".
 
-### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f">
-            </a>Almacenamiento: Microsoft Azure Storage y discos de datos
+### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Almacenamiento: Microsoft Azure Storage y discos de datos
 Microsoft Azure Virtual Machines usa varios tipos de almacenamiento. Al implementar SAP en los servicios de máquina virtual de Azure, es importante comprender las diferencias entre estos dos tipos principales de almacenamiento:
 
 * Almacenamiento volátil, no persistente.
@@ -608,9 +607,7 @@ El almacenamiento estándar de Azure era el tipo de almacenamiento disponible cu
 
 Los discos almacenados en las cuentas de Azure Standard Storage se cobran según los datos reales que se almacenan, el volumen de las transacciones de almacenamiento, las transferencias de datos salientes y la opción de redundancia seleccionada. Pueden crearse varios discos con el tamaño máximo de 1 TB, pero, mientras permanezcan vacíos, no se realiza ningún cobro. Si después se llena un disco duro virtual con 100 GB, se cobra el almacenamiento de 100 GB y no el tamaño nominal con el que se creó.
 
-#### 
-            <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92">
-            </a>Azure Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
 En abril de 2015, Microsoft presentó Azure Premium Storage. Premium Storage se introdujo con el objetivo de proporcionar lo siguiente:
 
 * Mejor latencia de E/S
@@ -1968,9 +1965,7 @@ En la siguiente figura se ilustra el mismo entorno con la utilización de discos
 ![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Alta disponibilidad en Linux
-La arquitectura de alta disponibilidad de SAP en Linux en Azure es básicamente la misma que la descrita anteriormente para Windows. Desde enero de 2016, no hay ninguna solución de alta disponibilidad de SAP (A)SCS compatible con Linux en Azure.
-
-Como consecuencia, desde enero de 2016, un sistema SAP-Linux-Azure no puede alcanzar la misma disponibilidad que un sistema SAP-Windows-Azure debido a falta de alta disponibilidad en la instancia de (A)SCS y en la base de datos de SAP ASE de una sola instancia.
+La arquitectura de alta disponibilidad de SAP en Linux en Azure es básicamente la misma que la descrita anteriormente para Windows. Consulte la nota de SAP [1928533] para obtener una lista de soluciones compatibles y de alta disponibilidad.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Uso de Autostart en las instancias de SAP
 SAP ofrecía una funcionalidad para iniciar las instancias de SAP inmediatamente después de iniciar el sistema operativo en la máquina virtual. Los pasos exactos están documentados en el artículo de Knowledge Base sobre SAP [1909114]. Sin embargo, SAP recomienda dejar de utilizar esta configuración, ya que no hay ningún control del orden en el que se reinicia la instancia en el caso de que se vean afectadas más de una máquina virtual o que se ejecuten varias instancias por máquina virtual. Si se presupone un escenario de Azure típico de una instancia del servidor de aplicaciones de SAP en una máquina virtual y la circunstancia de que solo acabe reiniciándose una sola máquina virtual, Autostart no planteará ningún verdadero problema, por lo que podrá habilitarse agregando este parámetro:
@@ -2012,7 +2007,7 @@ Hay que asegurarse de instalar una nueva licencia de SAP, ya que al restaurar un
 ### <a name="online-backup-of-an-sap-system"></a>Copia de seguridad en línea de un sistema SAP
 Las copias de seguridad de DBMS se realizan mediante métodos específicos para DBMS descritos en la [Guía de DBMS][dbms-guide].
 
-Se puede efectuar una copa de seguridad de otras máquinas virtuales dentro del sistema SAP mediante la funcionalidad de copia de seguridad de máquinas virtuales de Azure. Esta funcionalidad se introdujo a principios de 2015 y, desde entonces, es un método estándar para la realización de una copia de seguridad de una máquina virtual completa en Azure. Azure Backup almacena las copias de seguridad en Azure y permite volver a restaurarlas.
+Se puede efectuar una copa de seguridad de otras máquinas virtuales dentro del sistema SAP mediante la funcionalidad de copia de seguridad de Azure Virtual Machines. Esta funcionalidad se introdujo a principios de 2015 y, desde entonces, es un método estándar para la realización de una copia de seguridad de una máquina virtual completa en Azure. Azure Backup almacena las copias de seguridad en Azure y permite volver a restaurarlas.
 
 > [!NOTE]
 > Desde diciembre de 2015, la copia de seguridad de máquinas virtuales NO conserva el identificador único de VM que se utiliza para la concesión de licencias de SAP. Esto significa que restaurar la copia de seguridad de una máquina virtual requiere instalar una clave de licencia de SAP nueva, ya que se considera que la máquina virtual restaurada es una máquina virtual nueva en lugar de una sustitución de la anterior que estaba guardada.

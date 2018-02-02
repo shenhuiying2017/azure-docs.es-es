@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-cost-reports"></a>Descripción de los informes de costos
 
@@ -132,6 +132,6 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice Actions para guardar, exportar o programar el informe.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Si aún no ha completado el primer tutorial de Cost Management, léalo en [Revisión del uso y los costos](tutorial-review-usage.md).

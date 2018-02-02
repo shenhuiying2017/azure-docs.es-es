@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -36,7 +36,7 @@ En este artículo se describe cómo crear, cambiar y eliminar redes virtuales me
 
 Antes de comenzar las tareas que se describen en este artículo, lleve a cabo las siguientes tareas previas necesarias:
 
-- Si no está familiarizado con el trabajo con redes virtuales, se recomienda que revise el ejercicio de [Creación de su primera red virtual](virtual-network-get-started-vnet-subnet.md). Este ejercicio puede ayudarle a familiarizarse más con las redes virtuales.
+- Si no está familiarizado con el trabajo con redes virtuales, se recomienda que revise el ejercicio de [Creación de su primera red virtual](quick-create-portal.md). Este ejercicio puede ayudarle a familiarizarse más con las redes virtuales.
 - Para obtener información sobre los límites de las redes virtuales, revise los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Inicie sesión con la cuenta de Azure en Azure Portal, en la interfaz de la línea de comandos (CLI de Azure) de Azure o en Azure PowerShell. Si no tiene una cuenta de Azure, regístrese para obtener una [cuenta de prueba gratuita](https://azure.microsoft.com/free).
 - Si tiene pensado usar comandos de PowerShell para realizar las tareas descritas en este artículo, primero debe [instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Asegúrese de que tiene instalada la versión más reciente de los cmdlets de Azure PowerShell. Para obtener ayuda para los comandos de PowerShell de los ejemplos, escriba `get-help <command> -full`.
@@ -79,7 +79,7 @@ Para crear una red virtual:
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
 |CLI de Azure|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -109,13 +109,13 @@ Para ver las redes virtuales y la configuración:
         *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Etiquetas](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
         *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-        *   [Script de automatización](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+        *   [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
-|CLI de Azure|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Azure CLI|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -138,20 +138,20 @@ Para agregar o quitar un espacio de direcciones:
 5. En la hoja que aparece para el espacio de direcciones, realice una de las siguientes opciones:
     - **Agregar un espacio de direcciones**: escriba el nuevo espacio de direcciones. El espacio de direcciones no puede superponerse a un espacio de direcciones existente definido para la red virtual.
     - **Quitar un espacio de direcciones**: haga clic con el botón derecho en un espacio de direcciones y, después, haga clic en **Quitar**. Si existe una subred en el espacio de direcciones, no se puede quitar el espacio de direcciones. Para quitar un espacio de direcciones, es necesario eliminar primero las subredes que existen en ese espacio (y todos los recursos conectados a las subredes).
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
-|CLI de Azure|Solo Resource Manager|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|Solo Resource Manager|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Agregar, cambiar o quitar un servidor DNS
 
 Todas las máquinas virtuales que están conectadas a la red virtual se registran con los servidores DNS que especifique para la red virtual. También usan el servidor DNS especificado para la resolución de nombres. Cada interfaz de red (NIC) en una máquina virtual puede tener su propia configuración de servidor DNS. Si una NIC tiene su propia configuración de servidor DNS, esta invalida la configuración del servidor DNS para la red virtual. Para obtener más información sobre la configuración de DNS de NIC, vea [Configuración y tareas de la interfaz de red](virtual-network-network-interface.md#change-dns-servers). Para obtener más información sobre la resolución de nombres para las máquinas virtuales y las instancias de rol de Azure Cloud Services, vea [Resolución de nombres para las máquinas virtuales e instancias de rol](virtual-networks-name-resolution-for-vms-and-role-instances.md). Para agregar, cambiar o quitar un servidor DNS:
 
-1. Inicie sesión en el [portal](https://portal.azure.com) con una cuenta que, como mínimo, tenga asignados los permisos del rol Colaborador de la red para la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, vea [Roles integrados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+1. Inicie sesión en el [portal](https://portal.azure.com) con una cuenta que, como mínimo, tenga asignados los permisos del rol Colaborador de la red para la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, consulte [Roles integrados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. En el cuadro de búsqueda del portal, escriba **redes virtuales**. En los resultados de la búsqueda, seleccione **Redes virtuales**.
 3. En la hoja **Redes virtuales**, haga clic en la red virtual en la que quiere cambiar la configuración DNS.
 4. En la hoja de la red virtual, en **CONFIGURACIÓN**, haga clic en **Servidores DNS**.
@@ -162,21 +162,21 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
         - **Quitar una dirección**: haga clic en la **X** junto al servidor que quiere quitar. Eliminar el servidor solo lo quita de esta lista de redes virtuales. El servidor DNS seguirá registrado en Azure para que lo usen otras redes virtuales.
         - **Reordenar direcciones de servidor DNS**: es importante comprobar que se enumeran los servidores DNS en el orden correcto para su entorno. Las listas de servidores DNS se usan en el orden en que se especifican. No funcionan como una instalación round robin. Si se puede acceder al primer servidor DNS de la lista, el cliente usa ese servidor DNS, con independencia de si el servidor DNS funciona correctamente. Quite todos los servidores DNS que aparecen y vuelva a agregarlos en el orden que desee.
         - **Cambiar una dirección**: resalte el servidor DNS en la lista y después escriba el nuevo nombre.
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 7. Reinicie las máquinas virtuales conectadas a la red virtual para que se les asigne la nueva configuración de servidor DNS. Hasta que se reinicien, las máquinas virtuales seguirán usando la configuración de DNS que consideran actual.
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
-|CLI de Azure|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Eliminación de una red virtual
 
 Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay recursos conectados a cualquier subred dentro de la red virtual, primero tiene que eliminarlos. Los pasos necesarios para eliminar un recurso varían según el recurso. Para obtener más información sobre cómo eliminar los recursos conectados a una subred, lea la documentación de cada tipo de recurso que quiera eliminar. Para eliminar una red virtual:
 
-1. Inicie sesión en el [portal](https://portal.azure.com) con una cuenta que, como mínimo, tenga asignados los permisos del rol Colaborador de la red para la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, vea [Roles integrados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+1. Inicie sesión en el [portal](https://portal.azure.com) con una cuenta que, como mínimo, tenga asignados los permisos del rol Colaborador de la red para la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, consulte [Roles integrados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. En el cuadro de búsqueda del portal, escriba **redes virtuales**. En los resultados de la búsqueda, haga clic en **Redes virtuales**.
 3. En la hoja **Redes virtuales**, seleccione la red virtual que quiere eliminar.
 4. En la hoja de la red virtual, para confirmar que no hay ningún dispositivo conectado a la red virtual, en **CONFIGURACIÓN**, haga clic en **Dispositivos conectados**. Si hay dispositivos conectados, primero debe eliminarlos antes de poder eliminar la red virtual. Si no hay ningún dispositivo conectado, haga clic en **Información general**.
@@ -186,15 +186,15 @@ Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay r
 
 **Comandos**
 
-|Herramienta|Comando|
+|Herramienta|Get-Help|
 |---|---|
-|CLI de Azure|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure CLI|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear una máquina virtual y después conectarla a una red virtual, vea [Crear una red virtual y conectar máquinas virtuales](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Para crear una máquina virtual y después conectarla a una red virtual, vea [Crear una red virtual y conectar máquinas virtuales](quick-create-portal.md#create-virtual-machines).
 - Para filtrar el tráfico de red entre subredes dentro de una red virtual, vea [Creación de grupos de seguridad de red con Azure Portal](virtual-networks-create-nsg-arm-pportal.md).
 - Para emparejar una red virtual con otra, vea [Crear un emparejamiento de red virtual](virtual-network-create-peering.md#portal).
 - Para obtener información sobre las opciones para conectar una red virtual a una red local, vea [Acerca de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

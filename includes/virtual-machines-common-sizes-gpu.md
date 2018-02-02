@@ -31,10 +31,10 @@ Las instancias de NCv2 son la próxima generación de las máquinas de la serie 
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Número máximo de discos de datos |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2* |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = una tarjeta P100.
 
@@ -50,10 +50,10 @@ Las máquinas virtuales de serie ND son una novedad incorporada a la familia GPU
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Número máximo de discos de datos |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r* |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = una tarjeta de P40.
 
