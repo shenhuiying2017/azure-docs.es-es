@@ -40,10 +40,11 @@
 
 # Guías de procedimientos
 ## Plan
-### [Comparación de IoT Hub con Event Hubs](iot-hub-compare-event-hubs.md)
+### [Comparación entre IoT Hub y Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Escalado de la solución](iot-hub-scaling.md)
 ### [Alta disponibilidad y recuperación ante desastres](iot-hub-ha-dr.md)
 ### [Compatibilidad con otros protocolos](iot-hub-protocol-gateway.md)
+### [Comparación entre el enrutamiento de mensajes y el de eventos](iot-hub-event-grid-routing-comparison.md)
 ## [Desarrollo](iot-hub-how-to.md)
 ### [Guía del desarrollador](iot-hub-devguide.md)
 #### [Guía de características de dispositivo a nube](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Envío y recepción de mensajes](iot-hub-devguide-messaging.md)
 ##### [Envío de mensajes de dispositivos a la nube a IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Lectura de mensajes de dispositivos a la nube desde el punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md)
+##### [Reacción a eventos de IoT Hub](iot-hub-event-grid.md)
 ##### [Uso de puntos de conexión y reglas de enrutamiento personalizados para mensajes de dispositivos a la nube](iot-hub-devguide-messages-read-custom.md)
 ##### [Envío de mensajes de nube a dispositivo desde IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Creación y lectura de mensajes de IoT Hub](iot-hub-devguide-messages-construct.md)

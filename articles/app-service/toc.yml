@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java con MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python con PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 - Creación de API de RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Asignación de dominios personalizados
@@ -51,7 +53,7 @@
       href: app-service-web-tutorial-content-delivery-network.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
@@ -171,7 +173,7 @@
           href: websites-dotnet-deploy-webjobs.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell

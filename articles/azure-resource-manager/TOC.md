@@ -20,8 +20,6 @@
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
 ### [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
-
 
 ## Implementación
 ### Azure PowerShell

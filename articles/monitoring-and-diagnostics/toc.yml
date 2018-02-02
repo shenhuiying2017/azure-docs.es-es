@@ -2,8 +2,8 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Azure Monitor
-      href: monitoring-overview-azure-monitor.md
+    - name: Supervisión en Azure
+      href: monitoring-overview.md
 - name: Inicios rápidos
   expanded: true
   items:
@@ -27,8 +27,8 @@
       href: monitoring-partners.md
     - name: Información general adicional
       items:
-        - name: Herramientas de supervisión en Azure
-          href: monitoring-overview.md
+        - name: Azure Monitor
+          href: monitoring-overview-azure-monitor.md
         - name: Métricas
           href: monitoring-overview-metrics.md
         - name: Alertas
@@ -92,7 +92,7 @@
       items:
         - name: Información acerca de la configuración de escalado automático
           href: monitoring-understanding-autoscale-settings.md
-        - name: Prácticas recomendadas
+        - name: Procedimientos recomendados
           href: insights-autoscale-best-practices.md
         - name: Métricas comunes
           href: insights-autoscale-common-metrics.md
@@ -158,7 +158,7 @@
           href: azure-diagnostics-configure-application-insights.md
         - name: Envío a Event Hubs
           href: azure-diagnostics-streaming-event-hubs.md
-        - name: Solución de problemas
+        - name: solución de problemas
           href: azure-diagnostics-troubleshooting.md
     - name: Creación de gráficos de métricas en el Explorador de métricas
       href: monitoring-metric-charts.md
@@ -168,7 +168,7 @@
       href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/azurerm.insights

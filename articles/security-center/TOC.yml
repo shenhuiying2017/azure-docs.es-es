@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Integración de registro de Azure
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Exportación de datos a SIEM
+      href: security-center-export-data-to-siem.md
     - name: Escenarios
       items:
         - name: Respuesta a los incidentes

@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
-  ms.openlocfilehash: 76d18c2966b52c508ec959074c976e84ab5e9bdf
-  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.openlocfilehash: 0eb34f3b8cd287624e4a8a6930e8cc145d5e8fbb
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/24/2018
+  ms.lasthandoff: 02/01/2018
 abstract:
   description: "Aprenda a usar Data Factory, un servicio de integración de datos en la nube, para crear servicios de almacenamiento, traslado y procesamiento de datos en canalizaciones de datos automatizadas. En los tutoriales y otra documentación, se muestra cómo configurar y administrar canalizaciones de datos, además de cómo mover y transformar datos para el análisis. <p>Actualmente, la versión V2 de Data Factory se encuentra en su versión preliminar. La versión V1 tiene disponibilidad general. Si va a usar la versión V1 del servicio Data Factory, consulte la <a href=/azure/data-factory/v1/data-factory-introduction>documentación sobre V1.</a></p>"
   aside:
@@ -73,13 +73,13 @@ sections:
     style: ordered
     items:
     - html: "Implementación de paquetes SSIS en Azure: <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Interfaz de usuario de Data Factory</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
-    - html: 'Copia de datos en la nube: <a href="/azure/data-factory/tutorial-copy-data-tool">herramienta Copiar datos</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">Azure PowerShell</a>'
+    - html: 'Copia de datos en la nube: <a href="/azure/data-factory/tutorial-copy-data-tool">herramienta Copiar datos</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>'
     - html: 'Copia de datos locales en la nube: <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">herramienta Copiar datos | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>'
     - html: 'Copia de datos de forma masiva: <a href="/azure/data-factory/tutorial-bulk-copy-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>'
     - html: 'Copia de datos de forma incremental: <a href="/azure/data-factory/tutorial-incremental-copy-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>'
     - html: "Transformación de datos en la nube mediante Spark: <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Interfaz de usuario de Data Factory</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
     - html: "Transformación de datos en una red virtual: <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Interfaz de usuario de Data Factory</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
-    - html: 'Flujo de control: <a href="/azure/data-factory/tutorial-control-flow-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">Azure PowerShell</a>'
+    - html: 'Flujo de control: <a href="/azure/data-factory/tutorial-control-flow-portal">Interfaz de usuario de Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>'
 - title: Muestras
   items:
   - type: paragraph

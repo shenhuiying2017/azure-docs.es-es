@@ -1,5 +1,5 @@
 # Información general
-## [¿Qué es Aplicaciones móviles?](app-service-mobile-value-prop.md)
+## [¿Qué es Mobile Apps?](app-service-mobile-value-prop.md)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Introducción
@@ -16,7 +16,7 @@
 
 ## Planeamiento y diseño
 ### [Autenticación y autorización en Azure Mobile Apps](app-service-mobile-auth.md)
-### [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md)
+### [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Procedimientos recomendados para Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Información detallada de los planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Hospedaje de alta densidad](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -91,7 +91,7 @@
 #### [Escalado de aplicaciones en un entorno de App Service](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Escalado automático de aplicaciones en un entorno de App Service](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Administrar
+## administración
 ### [Configuración](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Dominios personalizados
 #### [Compra y configuración de dominios personalizados](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -99,8 +99,8 @@
 #### [Dominios personalizados con Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Clonación de una aplicación existente](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Red virtual de Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Grupos de recursos](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Grupos de recursos](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Ejecución de tareas en segundo plano con WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Configuración](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -173,7 +173,7 @@
 ## [Precios](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Muestras
 ### [Ingeniero de campo](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

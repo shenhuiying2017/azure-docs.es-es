@@ -176,6 +176,16 @@
 ##### [Actualización de configuración del registro](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Descripción de la seguridad y privacidad](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](active-directory-saas-app-provisioning.md)
+#### [Tutoriales de integración de aplicaciones](active-directory-saas-tutorial-list.md)
+#### [Automatización del aprovisionamiento para aplicaciones habilitadas con SCIM](active-directory-scim-provisioning.md)
+#### [Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)
+#### [Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Uso de filtros de ámbito](active-directory-saas-scoping-filters.md)
+#### [Notificación del aprovisionamiento automático de usuarios](active-directory-saas-provisioning-reporting.md)
+#### [Solución de problemas de aprovisionamiento de usuarios](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Acceso remoto a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-get-started.md)
 #### Introducción
@@ -219,7 +229,7 @@
 #### [Firma avanzada de certificados para aplicaciones SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Ocultar una aplicación de una experiencia de usuario](active-directory-coreapps-hide-third-party-app.md)
 ### [Configuración de la aceleración automática del inicio de sesión mediante la directiva de HRD](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migración de aplicaciones de AD FS a Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Administración del acceso a aplicaciones](active-directory-managing-access-to-apps.md)
 #### [Acceso con SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Administración del acceso a los recursos
 ### [Roles de administrador](active-directory-assign-admin-roles-azure-portal.md)
-#### [Asignación de roles de administrador](active-directory-users-assign-role-azure-portal.md)
+#### [Asignación de un rol de administrador a un usuario](active-directory-users-assign-role-azure-portal.md)
+#### [Comparación de permisos para miembros y para usuarios invitados](users-default-permissions.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 ### [Administración de cuentas administrativas de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)
@@ -284,7 +295,7 @@
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
 #### [Condición de ubicación](active-directory-conditional-access-locations.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
@@ -306,7 +317,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
+#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integración de otros servicios con Azure AD]()
-### [Habilitación de la integración con LinkedIn](linkedin-integration.md)
+## Integración de otros servicios con Azure AD
+### [Integración de LinkedIn con Azure AD](linkedin-integration.md)
 
 ## [Implementación de AD DS en máquinas virtuales de Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory en máquinas virtuales de Azure](active-directory-deploying-ws-ad-guidelines.md)

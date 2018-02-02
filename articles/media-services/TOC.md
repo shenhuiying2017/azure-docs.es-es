@@ -117,6 +117,7 @@
 ### [Configuración de codificadores locales para usarlos con un codificador en la nube](media-services-live-encoders-overview.md)
 #### [Codificador Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Codificador FMLE](media-services-configure-fmle-live-encoder.md)
+#### [Codificador Haivision KB](media-services-configure-kb-live-encoder.md)
 #### [Codificador NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)
 #### [Codificador Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Control de operaciones de larga ejecución](media-services-dotnet-long-operations.md)

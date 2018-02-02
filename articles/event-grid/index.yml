@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre Azure Event Grid
+title: "Documentación sobre Azure Event Grid"
 metadata:
-  title: 'Documentación sobre Azure Event Grid: tutoriales y referencia de API'
+  title: "Documentación sobre Azure Event Grid: tutoriales y referencia de API"
   description: Utilice Azure Event Grid para reaccionar a los eventos pertinentes tanto de servicios de Azure como de servicios que no lo son casi en tiempo real.
   services: event-grid
   author: czeumault
@@ -13,47 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/01/2018
 abstract:
-  description: 'Azure Event Grid es un servicio de enrutamiento de eventos inteligente completamente administrado que permite el consumo de eventos uniforme mediante un modelo de publicación-suscripción. Utilice Azure Event Grid para reaccionar a los eventos pertinentes tanto de servicios de Azure como de servicios que no lo son casi en tiempo real. Aprenda a usar Azure Event Grid con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: "Azure Event Grid es un servicio de enrutamiento de eventos inteligente completamente administrado que permite el consumo de eventos uniforme mediante un modelo de publicación-suscripción. Utilice Azure Event Grid para reaccionar a los eventos pertinentes tanto de servicios de Azure como de servicios que no lo son casi en tiempo real. Aprenda a usar Azure Event Grid con nuestros inicios rápidos, tutoriales y ejemplos."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: Aprenda a crear eventos personalizados y a suscribirse a ellos.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a crear eventos personalizados y a suscribirse a ellos.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: CLI de Azure
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Tutoriales detallados
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: Aprenda a enrutar eventos de Blob Storage.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a desarrollar aplicaciones que permitan reaccionar a eventos.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Cambio de tamaño de las imágenes cargadas</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integración de Azure Automation con Event Grid</a>
-  - title: Referencia
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: CLI de Azure
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a desarrollar aplicaciones que permitan reaccionar a eventos.
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/eventgrid">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: API de REST
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Esquemas
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema de suscripción</a></p><p><a href="/azure/event-grid/event-schema">Esquema del evento</a></p>
+    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Cambio de tamaño de las imágenes cargadas</a>"
+    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Integración de Azure Automation con Event Grid</a>"
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Línea de comandos"
+      html: <p><a href="/cli/azure/eventgrid">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: API de REST
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: Esquemas
+      html: "<p><a href=\"/azure/event-grid/subscription-creation-schema \">Esquema de suscripción</a></p><p><a href=\"/azure/event-grid/event-schema\">Esquema del evento</a></p>"

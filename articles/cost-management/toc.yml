@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: Guías de procedimientos
   items:
+    - name: Activación de suscripciones y cuentas de Azure
+      href: activate-subs-accounts.md
+    - name: Incorporación de métricas extendidas para las máquinas virtuales
+      href: azure-vm-extended-metrics.md
     - name: Uso de los informes de Cost Management
       href: use-reports.md
 - name: Recursos
@@ -41,5 +45,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/en-us/regions/services/'
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: cost-mgt-faq.md

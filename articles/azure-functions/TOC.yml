@@ -59,10 +59,12 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: functions-cli-samples.md
 - name: Conceptos
   items:
+    - name: Comparación entre 1.x y 2.x
+      href: functions-versions.md
     - name: Escalado y hospedaje
       href: functions-scale.md
     - name: Desencadenadores y enlaces
@@ -146,7 +148,7 @@
         - name: Administración de una aplicación de función
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Establecimiento de la versión del entorno de ejecución
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Supervisión
       href: functions-monitoring.md
     - name: Integrate
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Archivo externo

@@ -42,7 +42,7 @@
 ## Memoria caché
 ### [Adición de almacenamiento en caché para mejorar el rendimiento](api-management-howto-cache.md)
 ## Proteger el back-end
-### [Protección del back-end de API web con AAD](api-management-howto-protect-backend-with-aad.md)
+### [Protección del back-end de API web con Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Conexión a una red virtual](api-management-using-with-vnet.md)
 ### [Conexión a una red virtual interna](api-management-using-with-internal-vnet.md)
 ### [Integración de Application Gateway en una red virtual interna](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Personalizar la experiencia para desarrolladores
 ### [Modificación del diseño y el contenido de la página](api-management-modify-content-layout.md)
 ### [Personalización de páginas del sistema mediante plantillas](api-management-developer-portal-templates.md)
-### [Autenticación con AAD](api-management-howto-aad.md)
-### [Autenticación con AAD B2C](api-management-howto-aad-b2c.md)
+### [Autenticación con Azure AD](api-management-howto-aad.md)
+### [Autenticación con Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Autenticación delegada](api-management-howto-setup-delegation.md)
 ### [Plantillas y notificaciones de correo electrónico](api-management-howto-configure-notifications.md)
 ### [Habilitación de OAuth en la consola](api-management-howto-oauth2.md)
@@ -75,7 +75,7 @@
 ### [API](api-management-api-templates.md)
 ### [Productos](api-management-product-templates.md)
 ### [Aplicaciones](api-management-application-templates.md)
-### [Problemas](api-management-issue-templates.md)
+### [Issues](api-management-issue-templates.md)
 ### [Perfil de usuario](api-management-user-profile-templates.md)
 ### [Páginas](api-management-page-templates.md)
 ### [Recursos de plantilla](api-management-template-resources.md)
@@ -98,7 +98,7 @@
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 # Recursos
-## [Preguntas más frecuentes](api-management-faq.md)
+## [P+F](api-management-faq.md)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
 ## [Guía de diseño de una API](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [Guía de implementación de API](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
