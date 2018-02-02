@@ -17,6 +17,8 @@
 # Ejemplos
 ## [Implementación de recursos de Azure con Terraform en Bash](example-terraform-bash.md)
 
+## [Ejecutar Ansible en Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Inserción de Cloud Shell](embed-cloud-shell.md)
 
 # [Solución de problemas](troubleshooting.md)

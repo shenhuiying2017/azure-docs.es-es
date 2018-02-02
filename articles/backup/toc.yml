@@ -183,6 +183,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Solución de problemas de Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Solución de problemas de System Center Data Protection Manager
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Solución de problemas del agente de Azure Backup
           href: backup-azure-mars-troubleshoot.md
 - name: Referencia
