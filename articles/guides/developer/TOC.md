@@ -1,7 +1,5 @@
 # Información general
 ## [Guía del desarrollador](azure-developer-guide.md) 
-## [Introducción a los servicios de Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Introducción a Azure Portal](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK y herramientas](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Guía de inicio rápido
@@ -27,7 +25,7 @@
 ## [Aplicación web de implementación de Docker en Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
 # Muestras
-## CLI de Azure
+## Azure CLI
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
@@ -111,5 +109,5 @@
 ## [Regiones de Azure](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-## [Ejemplos](https://azure.microsoft.com/resources/samples/)
+## [Muestras](https://azure.microsoft.com/resources/samples/)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/home/)

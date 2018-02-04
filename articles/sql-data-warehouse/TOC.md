@@ -9,6 +9,10 @@
 ## Pausa y reanudación de proceso
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Escalado de proceso
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Tutoriales
@@ -113,8 +117,6 @@
 ### [Análisis de la carga de trabajo](analyze-your-workload.md)
 
 ## Escalado horizontal
-### [Administración de procesos: portal](sql-data-warehouse-manage-compute-portal.md)
-### [Administración de procesos: PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Administración de procesos: API de REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatización de los niveles de proceso](manage-compute-with-azure-functions.md)
 

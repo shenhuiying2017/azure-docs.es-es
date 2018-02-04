@@ -1,14 +1,15 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
-featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+featureFlags:
+- clicktale
+ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -155,7 +156,7 @@ ms.lasthandoff: 01/18/2018
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/">
+                                                        <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -800,19 +801,19 @@ ms.lasthandoff: 01/18/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Blob Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
+                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Almacenamiento en disco</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
                                             </a>
@@ -991,7 +992,7 @@ ms.lasthandoff: 01/18/2018
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Conjunto de aplicaciones de IoT de Azure</p>
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1047,7 +1048,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1304,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Conjuntos de escalado de máquina virtual</h3>
-                                                    <p>Administre y escale de decenas a millares de máquinas virtuales Linux y Windows</p>
+                                                    <p>Administrar y escalar verticalmente hasta miles de máquinas virtuales Linux y Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1342,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Implementación de aplicaciones web en Linux con contenedores</p>
+                                                    <p>Creación de aplicaciones eficaces en la nube con rapidez para la web y móviles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1380,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Ejecutar aplicaciones en contenedores a escala mediante Kubernetes</p>
+                                                    <p>Simplificación de la implementación, la administración y las operaciones de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1455,7 +1456,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>Cree aplicaciones en la nube y API de alta disponibilidad y escalabilidad infinita</p>
+                                                    <p>Creación de aplicaciones en la nube y API de alta disponibilidad y escalabilidad infinita</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1537,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y control de entrega </p>
+                                                    <p>Creación de front-ends web seguros, escalables y de alta disponibilidad en Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1594,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Suministre contenido a los usuarios finales mediante una red robusta de centros de datos globales</p>
+                                                    <p>Garantía de una entrega de contenido segura y confiable con alcance global amplio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1670,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Supervisión y diagnóstico de condiciones en un nivel de escenario de red</p>
+                                                    <p>Solución de diagnósticos y supervisión del rendimiento de la red</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1713,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Almacenamiento de objetos escalable de forma masiva para datos no estructurados</p>
+                                                    <p>Almacenamiento de objetos basado en REST para datos no estructurados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1732,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Almacenamiento en disco</h3>
-                                                    <p>Almacenamiento en disco para máquinas virtuales</p>
+                                                    <p>Opciones de almacenamiento en disco seguro y permanente para máquinas virtuales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1751,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Colas duraderas para servicios en la nube de gran volumen</p>
+                                                    <p>Escalar aplicaciones de forma eficaz según el tráfico</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1770,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Sistema de archivos entre plataformas, distribuido y sencillo</p>
+                                                    <p>Recursos compartidos de archivos que utilizan el protocolo SMB 3.0 estándar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1808,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Almacenamiento híbrido en la nube para empresas que mejora la seguridad de los datos</p>
+                                                    <p>Menos costos con una solución de almacenamiento en la nube híbrida empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1846,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Coordine la recuperación ante desastres de máquinas virtuales de Azure, máquinas virtuales locales y servidores físicos</p>
+                                                    <p>Coordine la protección y recuperación de nubes privadas</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1927,7 +1927,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
-                                                    <p>Compile y consuma fácilmente una API en la nube</p>
+                                                    <p>Creación y consumo de API en la nube con facilidad</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1946,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Suministre contenido a los usuarios finales mediante una red robusta de centros de datos globales </p>
+                                                    <p>Garantía de una entrega de contenido segura y confiable con alcance global amplio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2022,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Un motor escalable de notificaciones push para enviar rápidamente millones de mensajes</p>
+                                                    <p>Envío de notificaciones push a cualquier plataforma desde cualquier back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2046,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Ejecutar aplicaciones en contenedores a escala mediante Kubernetes</p>
+                                                    <p>Simplificación de la implementación, la administración y las operaciones de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2165,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Base de datos como servicio relacional administrada</p>
+                                                    <p>SQL Database relacional administrada como servicio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2279,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Base de datos multimodelo distribuida globalmente para cualquier escala</p>
+                                                    <p>Almacén de clave-valor NoSQL mediante conjuntos de datos semiestructurados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2298,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Caché en Redis</h3>
-                                                    <p>Acceso a datos de baja latencia y alto rendimiento para compilar aplicaciones rápidas y escalables</p>
+                                                    <p>Aplicaciones versátiles con acceso a datos de baja latencia y alto rendimiento</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2322,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Aprovisione clústeres de Hadoop, Spark, R Server, HBase y Storm en la nube</p>
+                                                    <p>Aprovisionamiento de clústeres de Hadoop, Spark, R Server, HBase y Storm en la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2398,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modelado de datos de clase empresarial en la nube</p>
+                                                    <p>Motor de análisis de nivel empresarial como servicio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2474,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Una eficaz herramienta de análisis predictivo basada en la nube para habilitar el mantenimiento predictivo</p>
+                                                    <p>Creación, implementación y administración fácil de soluciones de análisis predictivo</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2493,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Habilite la detección de orígenes de datos de autoservicio en toda la empresa</p>
+                                                    <p>Obtención de más valor de sus activos de datos empresariales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2558,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servicios de Machine Learning</h3>
-                                                    <p>Una eficaz herramienta de análisis predictivo basada en la nube para habilitar el mantenimiento predictivo</p>
+                                                    <p>Ponga la inteligencia artificial al alcance de todos con una plataforma integral, de confianza y escalable que incluye Experimentación y Administración de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2596,7 +2596,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Inteligencia artificial de Azure Batch</h3>
-                                                    <p>Experimente y entrene con facilidad los modelos de aprendizaje en profundidad e inteligencia artificial, en paralelo y a escala</p>
+                                                    <p>Experimentación y entrenamiento fácil de los modelos de aprendizaje en profundidad e inteligencia artificial, en paralelo y a escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2872,13 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Mapas, direcciones, búsqueda y otros servicios geoespaciales sólidos</p>
+                                                    <p>API de ubicación sencillas y seguras para dotar de contexto geoespacial a los datos</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2929,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servicios de Machine Learning</h3>
-                                                    <p>Una eficaz herramienta de análisis predictivo basada en la nube para habilitar el mantenimiento predictivo</p>
+                                                    <p>Ponga la inteligencia artificial al alcance de todos con una plataforma integral, de confianza y escalable que incluye Experimentación y Administración de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2948,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Un motor escalable de notificaciones push para enviar rápidamente millones de mensajes</p>
+                                                    <p>Envío de notificaciones push a cualquier plataforma desde cualquier back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3030,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3105,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Almacenamiento híbrido en la nube para empresas que mejora la seguridad de los datos</p>
+                                                    <p>Menos costos con una solución de almacenamiento en la nube híbrida empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3143,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Habilite la detección de orígenes de datos de autoservicio en toda la empresa</p>
+                                                    <p>Obtención de más valor de sus activos de datos empresariales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3224,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Evite y detecte amenazas, y responda a ellas, con mayor visibilidad</p>
+                                                    <p>Unificación de la administración de seguridad y habilitación de la protección contra amenazas avanzada para cargas de trabajo en la nube híbrida</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3262,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Aprenda a administrar claves criptográficas y secretos</p>
+                                                    <p>Protección y mantenimiento del control de las claves y otros secretos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3338,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Proteja el acceso a sus datos y aplicaciones con un nivel adicional de autenticación</p>
+                                                    <p>Adición de seguridad para sus datos y aplicaciones sin crear problemas a los usuarios</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3500,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Cree, asigne y administre definiciones de directiva </p>
+                                                    <p>Implementación de gobierno corporativo y estándares a escala para sus recursos de Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3519,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cost Management</h3>
-                                                    <p>Realice el seguimiento del uso y los gastos de la nube</p>
+                                                    <p>Optimización del gasto que hace en la nube al tiempo que maximiza el potencial que obtiene de ella</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3576,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Aprenda a convertir datos del equipo en inteligencia operativa</p>
+                                                    <p>Recopilación, búsqueda y visualización de datos de equipos desde entornos locales y la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3690,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Mejore la rentabilidad, el rendimiento, la alta disponibilidad y la seguridad de los recursos de Azure</p>
+                                                    <p>Su motor personalizado de procedimientos recomendados para Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3709,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Proporciona información orientativa y soporte técnico personalizados cuando surgen problemas en los servicios de Azure que le afectan.</p>
+                                                    <p>Obtenga información orientativa y soporte técnico personalizados cuando surjan problemas en los servicios de Azure que le afecten</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3728,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplicaciones administradas</h3>
-                                                    <p>Administración de soluciones implementadas para los clientes</p>
+                                                    <p>Simplificación de la administración de sus ofertas en la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3915,10 +3915,10 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     <a href="/javascript/azure/node-sdk-azure-get-started">Obtención de bibliotecas de Azure para Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">Primeros pasos</a>
+                                                    <a href="/javascript/azure/">Primeros pasos</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/nodejs/api/overview/azure">Referencia de API</a>
+                                                    <a href="/javascript/api/overview/azure/">Referencia de API</a>
                                                 </p>
                                             </div>
                                         </div>
