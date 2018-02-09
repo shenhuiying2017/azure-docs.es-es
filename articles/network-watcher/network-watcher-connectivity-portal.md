@@ -1,10 +1,10 @@
 ---
-title: "Comprobación de la conectividad con Azure Network Watcher: Azure Portal | Microsoft Docs"
-description: "Esta página explica cómo usar la comprobación de conectividad con Network Watcher usando Azure Portal"
+title: "Solución de problemas de conexiones con Azure Network Watcher: Azure Portal | Microsoft Docs"
+description: "Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con Azure Portal."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
-ms.openlocfilehash: 1f19da71731039e1a39c4440f925b1369886a993
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8d3a537523cce3457c18c7563e885a3f7348326f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Comprobación de la conectividad con Azure Network Watcher usando Azure Portal
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Solución de problemas de conexiones con Azure Network Watcher mediante Azure Portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,26 +27,25 @@ ms.lasthandoff: 12/21/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API de REST de Azure](network-watcher-connectivity-rest.md)
 
-Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual a un punto de conexión determinado.
+Obtenga información sobre cómo usar la solución de problemas de conexiones para comprobar si se puede establecer una conexión TCP directa desde una máquina virtual a un punto de conexión determinado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se da por hecho que tiene los siguientes recursos:
 
-* Una instancia de Network Watcher en la región cuya conectividad quiere comprobar.
-
-* Máquinas virtuales con las que comprobar la conectividad.
+* Una instancia de Network Watcher en la región en la que desea solucionar los problemas de una conexión.
+* Las máquinas virtuales con las cuales solucionar los problemas de las conexiones.
 
 > [!IMPORTANT]
-> La comprobación de conectividad requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La solución de problemas de conexiones requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 
 En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80.
 
-Vaya a Network Watcher y haga clic en **Comprobación de conectividad (versión preliminar)**. Seleccione la máquina virtual para la que desea comprobar la conectividad. En la sección **Destino** elija **Seleccione una máquina virtual** y elija la máquina virtual correcta y el puerto para probar.
+Vaya a Network Watcher y haga clic en **Solución de problemas de conexiones**. Seleccione la máquina virtual para la que desea comprobar la conectividad. En la sección **Destino** elija **Seleccione una máquina virtual** y elija la máquina virtual correcta y el puerto para probar.
 
-Una vez que pulse **Comprobar**, se comprueba la conectividad entre las máquinas virtuales en el puerto especificado. En el ejemplo, la máquina virtual de destino es inaccesible y se muestra una lista de saltos.
+Una vez que haga clic en **Comprobar**, se comprueba la conectividad entre las máquinas virtuales en el puerto especificado. En el ejemplo, la máquina virtual de destino es inaccesible y se muestra una lista de saltos.
 
 ![Resultados de la comprobación de la conectividad de una máquina virtual][1]
 
@@ -56,9 +55,9 @@ Para comprobar la conectividad y la latencia de un punto de conexión remoto, el
 
 ![Resultados de la comprobación de conectividad para un sitio web][2]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Aprenda a automatizar capturas de paquetes con las alertas de máquina virtual en el artículo sobre cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
 Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
 

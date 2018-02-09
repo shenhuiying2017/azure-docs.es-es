@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Transformación Dividir columna por ejemplo
 Esta transformación divide de forma predictiva el contenido de una columna en límites significativos sin que sea necesaria la intervención del usuario. El algoritmo de división selecciona los límites después de analizar el contenido de la columna. Estos límites se podrían definir por:
@@ -52,6 +52,11 @@ El usuario puede **eliminar una columna** o **insertar columnas nuevas** haciend
 El usuario puede copiar y pegar los valores de una celda a otra con el fin de proporcionar un ejemplo de división.
 
 El usuario puede alternar entre el **modo básico** y el **modo avanzado**. Para ello, debe hacer clic en los vínculos del Editor de transformación.
+
+### <a name="transform-editor-send-feedback"></a>Editor de transformación: enviar comentarios
+
+Si hace clic en el vínculo **Enviar comentarios**, se abre el cuadro de diálogo **Comentarios** con el cuadro de comentarios ya rellenado con las selecciones de parámetros y los ejemplos que proporcionó el usuario. El usuario debe revisar el contenido del cuadro de comentarios y proporcionar más detalles que nos ayuden a comprender el problema. Si el usuario no desea compartir datos con Microsoft, deberá eliminar los datos de ejemplo rellenados anteriormente antes de hacer clic en el botón **Enviar comentarios**. 
+
 
 ### <a name="editing-an-existing-transformation"></a>Editar una transformación existente
 

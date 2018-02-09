@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de Azure Files para su uso en producción dentro de la organización.
@@ -64,7 +64,7 @@ Azure Files tiene varias opciones integradas para garantizar la seguridad de los
     * Los clientes que no admiten SMB 3.0, pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. Tenga en cuenta que no se permite a los clientes comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
     * Los clientes pueden comunicarse a través de REST de archivo con HTTP o HTTPS.
 * Cifrado en reposo ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): estamos a punto de habilitar el proceso de habilitación de Storage Service Encryption (SSE) en la plataforma de Azure Storage subyacente. Esto significa que el cifrado se habilitará de forma predeterminada para todas las cuentas de almacenamiento. Si va a crear una nueva cuenta de almacenamiento en una región con el cifrado en reposo de forma predeterminada, no tiene que hacer nada. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
-* Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files no permite el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado. 
+* Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files rechaza el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado. 
 
     > [!Important]  
     > La exigencia de transferencia segura de datos hace que los clientes SMB más antiguos que no son capaces de comunicarse con SMB 3.0 con cifrado experimenten un error. Vea [Montaje en Windows](storage-how-to-use-files-windows.md), [Montaje en Linux](storage-how-to-use-files-linux.md) y [Montaje en macOS](storage-how-to-use-files-mac.md) para más información.
@@ -74,10 +74,13 @@ Para lograr la máxima seguridad, se recomienda encarecidamente habilitar siempr
 Si usa Azure File Sync para acceder al recurso compartido de Azure Files, use siempre HTTPS y SMB 3.0 con cifrado para sincronizar los datos en los servidores de Windows Server, independientemente de si se exige cifrado de datos en reposo.
 
 ## <a name="data-redundancy"></a>Redundancia de datos
-Azure Files admite dos opciones de redundancia de datos: almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). En las siguientes secciones se explican las diferencias entre el almacenamiento con redundancia local y el almacenamiento con redundancia geográfica:
+Azure Files admite tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica (GRS). En las siguientes secciones se describen las diferencias entre las diferentes opciones de redundancia:
 
 ### <a name="locally-redundant-storage"></a>Almacenamiento con redundancia local
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Almacenamiento con redundancia de zona
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Almacenamiento con redundancia geográfica
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -95,7 +98,7 @@ Existen muchas opciones sencillas para la transferencia masiva de datos desde un
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy es una utilidad de línea de comandos diseñada para copiar datos en y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. AzCopy está disponible para Windows y Linux.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

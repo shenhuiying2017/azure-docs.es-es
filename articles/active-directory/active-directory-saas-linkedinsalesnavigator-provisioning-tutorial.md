@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 8fafda2687e81a226bdc91a642cebc9ec97d8cbe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
 
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en LinkedIn Sales Navigator y Azure AD para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de Azure AD automáticamente para LinkedIn Sales Navigator. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -107,7 +107,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 12) Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-13) Haga clic en **Guardar**. 
+13) Haga clic en **Save**(Guardar). 
 
 14) En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Sales Navigator. Tenga en cuenta que los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de LinkedIn Sales Navigator para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
@@ -115,7 +115,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 15) Para habilitar el servicio de aprovisionamiento de Azure AD para LinkedIn Sales Navigator, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-16) Haga clic en **Guardar**. 
+16) Haga clic en **Save**(Guardar). 
 
 Esta acción iniciará la sincronización inicial de todos los usuarios y grupos asignados a LinkedIn Sales Navigator en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación LinkedIn Sales Navigator.
 

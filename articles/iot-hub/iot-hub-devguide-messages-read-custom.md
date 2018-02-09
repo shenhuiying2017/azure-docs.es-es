@@ -11,24 +11,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
 
-IoT Hub le permite enrutar [mensajes de dispositivo a nube][lnk-device-to-cloud] a puntos de conexión orientados al servicio de IoT Hub según las propiedades de mensaje. Las reglas de enrutamiento proporcionan la flexibilidad necesaria para enviar los mensajes donde deben ir sin la necesidad de servicios adicionales para procesar mensajes o escribir código adicional. Cada regla de enrutamiento que configure tiene las siguientes propiedades:
+IoT Hub le permite enrutar [mensajes de dispositivo a nube][lnk-device-to-cloud] a puntos de conexión orientados al servicio de IoT Hub según las propiedades de mensaje. Las reglas de enrutamiento proporcionan la flexibilidad para enviar los mensajes donde deben ir sin la necesidad de servicios adicionales o de código personalizado. Cada regla de enrutamiento que configure tiene las siguientes propiedades:
 
-| Propiedad      | Descripción |
+| Propiedad      | DESCRIPCIÓN |
 | ------------- | ----------- |
 | **Name**      | Nombre único que identifica la regla. |
 | **Origen**    | El origen del flujo de datos sobre el que se debe actuar. Por ejemplo, telemetría de dispositivo. |
-| **Condition** | La expresión de consulta para la regla de enrutamiento que se ejecuta en el cuerpo y los encabezados del mensaje y se usa para determinar si se trata de una coincidencia para el punto de conexión. Para más información sobre cómo crear una condición de ruta, consulte [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-devguide-query-language]. |
-| **Extremo**  | El nombre del punto de conexión donde IoT Hub envía mensajes que cumplen la condición. Los puntos de conexión deben estar en la misma región que IoT Hub, ya que, de lo caso contrario, se puede cobrar por escrituras entre regiones. |
+| **Condition** | La expresión de consulta para la regla de enrutamiento que se ejecuta en el cuerpo y los encabezados del mensaje y determina si se trata de una coincidencia para el punto de conexión. Para más información sobre cómo crear una condición de ruta, consulte [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-devguide-query-language]. |
+| **Punto de conexión**  | El nombre del punto de conexión donde IoT Hub envía mensajes que cumplen la condición. Los puntos de conexión deben estar en la misma región que IoT Hub, ya que, de lo caso contrario, se puede cobrar por escrituras entre regiones. |
 
 Un solo mensaje puede cumplir la condición en varias reglas de enrutamiento, en cuyo caso IoT Hub entrega el mensaje al punto de conexión asociado a cada regla coincidente. IoT Hub también desduplica automáticamente la entrega de mensajes, por lo que si un mensaje cumple varias reglas que tienen el mismo destino, solo se escribe en ese destino una vez.
 
@@ -51,7 +51,7 @@ Para obtener más información sobre la lectura de puntos de conexión personali
 * Leer de [colas de Service Bus][lnk-getstarted-queue].
 * Leer de [temas de Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
 

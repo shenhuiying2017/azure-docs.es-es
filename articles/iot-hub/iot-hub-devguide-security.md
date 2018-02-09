@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -72,7 +72,7 @@ Consulte el artículo [Tokens de seguridad][lnk-sas-tokens] para más informaci�
 
 Cada protocolo admitido, como MQTT, AMQP y HTTPS, transporta tokens de diferentes maneras.
 
-Al utilizar MQTT, el paquete CONNECT tiene deviceId como ClientId, {iothubhostname}/{deviceId} en el campo Nombre de usuario y un token SAS en el campo Contraseña. {iothubhostname} debe ser el CName completo del centro de IoT (por ejemplo, contoso.azure-devices.net).
+Al utilizar MQTT, el paquete CONNECT tiene deviceId como ClientId, `{iothubhostname}/{deviceId}` en el campo Nombre de usuario y un token SAS en el campo Contraseña. `{iothubhostname}` debe ser el CName completo de la instancia de IoT Hub (por ejemplo, contoso.azure-devices.net).
 
 Al usar [AMQP][lnk-amqp], IoT Hub admite [SASL PLAIN][lnk-sasl-plain] y [seguridad basada en notificaciones AMQP][lnk-cbs].
 

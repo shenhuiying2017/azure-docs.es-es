@@ -12,20 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
 ## <a name="quotas-and-throttling"></a>Cuotas y limitación
 Cada suscripción de Azure puede tener como máximo 10 centros de IoT y al menos un centro gratuito.
 
-Cada centro de IoT se aprovisiona con un determinado número de unidades en una SKU específica (para más información, consulte [Precios de Azure IoT Hub][lnk-pricing]). El valor de SKU y el número de unidades determinan la cuota diaria máxima de mensajes que puede enviar.
+Cada instancia de IoT Hub se aprovisiona con un determinado número de unidades en una SKU específica. Para más información, consulte [Precios de Azure IoT Hub][lnk-pricing]. El valor de SKU y el número de unidades determinan la cuota diaria máxima de mensajes que puede enviar.
 
 El valor de SKU también determina los valores de limitación que aplica Azure IoT Hub a las operaciones.
 
@@ -48,17 +48,18 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Resultado de operaciones por dispositivo de trabajos | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 
-<sup>1</sup>La limitación de tamaño del medidor es de 8 KB
+<sup>1</sup>La limitación de tamaño del medidor es de 8 KB.
 
-Es importante aclarar que la limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con un IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
+> [!IMPORTANT]
+> La limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con una instancia de IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Por lo tanto, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad.
 
 Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitación de IoT Hub) para ver una explicación detallada del comportamiento de limitación de IoT Hub.
 
 > [!NOTE]
-> En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
-> 
+> En cualquier momento, puede aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en una instancia de IoT Hub.
+
 > [!IMPORTANT]
 > Las operaciones de registro de identidad están diseñadas para usarse en tiempo de ejecución en escenarios de administración y aprovisionamiento de dispositivos. La lectura o actualización de un gran número de identidades de dispositivo se realiza mediante [trabajos de importación y exportación][lnk-importexport].
 > 
@@ -77,7 +78,7 @@ IoT Hub exige otros límites operativos:
 | Mensajería de un dispositivo a la nube | Tamaño máximo del mensaje 256 KB |
 | Mensajería de la nube a un dispositivo | Tamaño máximo del mensaje 64 KB |
 | Mensajería de la nube a un dispositivo | El número máximo de mensajes pendientes para la entrega es 50 |
-| Método directo | El tamaño de carga máximo del método directo es de 128 KB |
+| Método directo | El tamaño de carga máximo del método directo es de 128 KB. |
 
 > [!NOTE]
 > Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).

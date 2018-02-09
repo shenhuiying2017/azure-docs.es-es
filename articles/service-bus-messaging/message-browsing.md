@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Exploración de mensajes
 
-La exploración de mensajes ("inspección") permite a un cliente enumerar todos los mensajes que residen en una cola o una suscripción, normalmente con fines de diagnóstico o depuración.
+La exploración de mensajes ("inspección") permite a un cliente de Service Bus enumerar todos los mensajes que residen en una cola o una suscripción, normalmente con fines de diagnóstico o depuración.
 
-Las operaciones de inspección devuelven todos los mensajes que existen en el registro de mensajes de la cola o suscripción, no solo aquellos disponibles para la adquisición inmediata con *Receive()* o el bucle *OnMessage()*. La propiedad *State* de cada mensaje indica si el mensaje está activo (disponible para su recuperación), se ha aplazado (consulte Aplazamiento [vínculo de TBD]) o está programado (consulte Mensajes programados [vínculo de TBD]).
+Las operaciones de inspección devuelven todos los mensajes que existen en el registro de mensajes de la cola o suscripción, no solo aquellos disponibles para la adquisición inmediata con `Receive()` o el bucle `OnMessage()`. La propiedad `State` de cada mensaje indica si el mensaje está activo (disponible para su recepción), se ha [aplazado](message-deferral.md) o está [programado](message-sequencing.md).
 
-Los mensajes consumidos y expirados se limpian mediante la ejecución asincrónica de la "recolección de elementos no utilizados" y no necesariamente de forma exacta cuando los mensajes expiran; por lo tanto, Peek puede devolver de hecho mensajes que ya han expirado y se eliminarán o se considerarán fallidos cuando se invoque una operación de recepción en la cola o la suscripción.
+Los mensajes consumidos y expirados se limpian mediante una ejecución asincrónica de "recolección de elementos no utilizados" y no necesariamente justo cuando los mensajes expiran; por lo tanto, `Peek` puede devolver mensajes que ya han expirado y se eliminarán o se considerarán fallidos cuando se invoque una operación de recepción en la cola o la suscripción.
 
 Es especialmente importante tener esto en cuenta al intentar recuperar los mensajes aplazados de la cola. Un mensaje en el que el instante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) ha pasado ya no es apto para la recuperación normal por algún otro medio, incluso cuando se devuelve mediante Peek. Estos mensajes se devuelven a propósito dado que Peek es una herramienta de diagnóstico que refleja el estado actual del registro.
 
@@ -41,7 +41,7 @@ Cuando se llama de manera repetida, el método Peek enumera todos los mensajes q
 
 También puede inicializar una sobrecarga del método con un valor de [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) con el que comenzar y, luego, llamar a la sobrecarga del método sin parámetros para enumerar más. **PeekBatch** funciona de forma equivalente, pero recupera un conjunto de mensajes a la vez.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

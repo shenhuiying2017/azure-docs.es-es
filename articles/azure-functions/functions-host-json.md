@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referencia de host.json para Azure Functions
 
@@ -49,6 +49,13 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -108,7 +115,7 @@ Especifica cuántas llamadas a funciones se agregan cuando se [calculan las mét
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |batchSize|1000|Número máximo de solicitudes para agregar.| 
 |flushTimeout|00:00:30|Período máximo de tiempo para agregar.| 
@@ -130,7 +137,7 @@ Controla la [característica de muestreo de Application Insights](functions-moni
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |isEnabled|false|Habilita o deshabilita el muestreo.| 
 |maxTelemetryItemsPerSecond|5|Umbral donde comienza el muestreo.| 
@@ -160,6 +167,30 @@ Indica la duración del tiempo de espera para todas las funciones. En los planes
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+Configuración del [monitor de estado de host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|---------|---------|---------| 
+|Enabled|true|Si está habilitada la característica. | 
+|healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
+|healthCheckWindow|2 minutes|Una ventana de tiempo deslizante usada en combinación con el valor `healthCheckThreshold`.| 
+|healthCheckThreshold|6|Número máximo de veces que puede producirse un error en la comprobación de mantenimiento antes de que se inicie un reciclaje del host.| 
+|counterThreshold|0.80|El umbral en el que un contador de rendimiento se considerará incorrecto.| 
 
 ## <a name="http"></a>http
 
@@ -196,7 +227,7 @@ Controla el filtrado de los registros escritos por un [objeto ILogger](functions
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |categoryFilter|N/D|Especifica el filtrado por categoría| 
 |defaultLevel|Información|Para las categorías no especificadas en la matriz `categoryLevels`, envía registros en este nivel y superiores a Application Insights.| 
@@ -218,7 +249,7 @@ Opciones de configuración para los [desencadenadores y enlaces de la cola de St
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Intervalo máximo, en milisegundos, entre sondeos de la cola.| 
 |visibilityTimeout|0|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje.| 
@@ -247,7 +278,7 @@ Opciones de configuración para el comportamiento de bloqueo Singleton. Para má
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Período durante el cual se producen los bloqueos de nivel de función. Los bloqueos se renuevan automáticamente.| 
 |listenerLockPeriod|00:01:00|Período durante el cual se producen los bloqueos de agente de escucha.| 
@@ -268,7 +299,7 @@ Opciones de configuración para los registros que se crean mediante un objeto `T
 }
 ```
 
-|Propiedad  |Valor predeterminado | Descripción |
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |consoleLevel|info|Nivel de seguimiento para el registro de la consola. Las opciones son: `off`, `error`, `warning`, `info` y `verbose`.|
 |fileLoggingMode|debugOnly|Nivel de seguimiento para el registro de archivos. Las opciones son `never`, `always`, `debugOnly`.| 
@@ -298,7 +329,7 @@ Nombre de la [central de tareas](durable-functions-task-hubs.md) para [Durable F
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Vea cómo actualizar el archivo host.json](functions-reference.md#fileupdate)

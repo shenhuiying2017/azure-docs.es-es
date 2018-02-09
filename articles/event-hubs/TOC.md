@@ -7,12 +7,10 @@
 ## [Creación de un centro de eventos](event-hubs-create.md)
 ## Envío de eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Recepción de eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Captura de eventos
@@ -30,12 +28,14 @@
 ### [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md)
 ### [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
 ## Desarrollo
+### [Envío de eventos mediante .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Recepción de eventos mediante .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [API disponibles](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Registros de diagnóstico](event-hubs-diagnostic-logs.md)
 ### [Guía del protocolo AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## Administrar
+## administración
 ### [Supervisión de Event Hubs con Azure Monitoring](event-hubs-metrics-azure-monitor.md)
 ### [Bibliotecas de administración de Event Hubs](event-hubs-management-libraries.md)
 ### Captura
@@ -67,5 +67,5 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=event-hubs)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

@@ -3,24 +3,23 @@ title: 'Actions y NotActions: control de acceso basado en roles (RBAC) de Azure 
 description: "En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC). Los roles se agregan continuamente, así que compruebe que la documentación esté actualizada."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
 El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
@@ -68,7 +67,9 @@ Este artículo solo trata los distintos roles que existen actualmente. Sin embar
 | [Colaborador de la memoria caché de Redis](#redis-cache-contributor) |Puede administrar memorias caché en Redis |
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) |Puede administrar las colecciones de trabajo de Programador |
 | [Colaborador del servicio Search](#search-service-contributor) |Puede administrar los servicios de búsqueda |
-| [Administrador de seguridad](#security-manager) |Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
+| [Administrador de seguridad](#security-administrator) | Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones |
+| [Administrador de seguridad](#security-manager) | Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
+| [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
 | [Colaborador de Site Recovery](#site-recovery-contributor) | Puede administrar Site Recovery en el almacén de Recovery Services |
 | [Operador de Site Recovery](#site-recovery-operator) | Puede administrar operaciones de conmutación por error y conmutación por recuperación de Site Recovery en el almacén de Recovery Services |
 | [Lector de Site Recovery](#site-recovery-reader) | Puede ver todas las operaciones de administración de Site Recovery  |
@@ -506,21 +507,50 @@ Puede administrar los servicios de búsqueda
 | Microsoft.Search/searchServices/* |Crear y administrar servicios de búsqueda |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
+### <a name="security-administrator"></a>Administrador de seguridad
+Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones
+
+| **Acciones** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
+| Microsoft.Authorization/policyAssignments/* | Crear y administrar asignaciones de directivas |
+| Microsoft.Authorization/policySetDefinitions/* | Crear y administrar conjuntos de directivas |
+| Microsoft.Authorization/policyDefinitions/* | Crear y administrar definiciones de directivas |
+| Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
+| Microsoft.operationalInsights/workspaces/*/read | Ver datos de Log Analytics |
+| Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
+| Microsoft.Security/*/read | Leer directivas y componentes de seguridad |
+| Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
+
 ### <a name="security-manager"></a>Administrador de seguridad
 Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales
 
 | **Acciones** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
-| Microsoft.ClassicCompute/*/read |Leer información de configuración para máquinas virtuales de proceso clásico |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Escribir configuración para máquinas virtuales |
+| Microsoft.ClassicCompute/*/read |Leer información de configuración de máquinas virtuales clásicas |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Escribir configuración de máquinas virtuales clásicas |
 | Microsoft.ClassicNetwork/*/read |Leer información de configuración acerca de la red clásica |
-| Microsoft.Insights/alertRules/* |Crear y administrar reglas de alertas |
+| Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Security/* |Crear y administrar las directivas y los componentes de seguridad |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
+
+### <a name="security-reader"></a>Lector de seguridad
+Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios
+
+| **Acciones** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
+| Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
+| Microsoft.operationalInsights/workspaces/*/read | Ver datos de Log Analytics |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
+| Microsoft.Security/*/read | Leer directivas y componentes de seguridad |
+| Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
 
 ### <a name="site-recovery-contributor"></a>Colaborador de Site Recovery
 Puede administrar todas las acciones de administración de Site Recovery, excepto la creación del almacén de Recovery Services y la asignación de acceso a otros usuarios
@@ -872,3 +902,4 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 * [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 * [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
 * [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
+* [Permisos en Azure Security Center](../security-center/security-center-permissions.md)

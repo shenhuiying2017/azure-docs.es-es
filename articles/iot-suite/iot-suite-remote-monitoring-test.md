@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Prueba de la solución con dispositivos simulados
 
@@ -78,6 +78,10 @@ En este tutorial, aprenderá a:
 > * Agregar un tipo de dispositivo nuevo al panel
 > * Enviar telemetría personalizada desde un tipo de dispositivo existente
 
+En el vídeo siguiente se muestra un tutorial sobre cómo conectar dispositivos simulados y reales a la solución de supervisión remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
+
 ## <a name="prerequisites"></a>requisitos previos
 
 Para utilizar este tutorial, necesitará:
@@ -127,24 +131,24 @@ Los siguientes comandos usan el comando `az` de la [CLI de Azure 2.0](https://do
 1. Para habilitar el acceso SSH en la máquina virtual, ejecute el comando siguiente mediante el nombre del grupo de seguridad de red que obtuvo en el paso anterior:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Para ver la lista de reglas entrantes de la red, ejecute el siguiente comando:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Para cambiar la contraseña de la máquina virtual y establecer una contraseña que ya conozca, ejecute el siguiente comando. Utilice el nombre de la máquina virtual que anotó en el paso anterior y escriba una contraseña de su elección:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Para buscar la dirección IP de la máquina virtual, use el comando siguiente y tome nota de la dirección IP pública:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Puede elegir cualquier herramienta SSH para conectarse a la máquina virtual. El comando `ssh` viene preinstalado en Cloud Shell. Use la dirección IP pública del paso anterior y, cuando se le solicite, escriba la contraseña configurada para la máquina virtual:
@@ -470,7 +474,7 @@ Ya está listo para probar el nuevo tipo de bombilla simulada; para ello, ejecut
 
     ![Número de dispositivos conectados](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **temperatura**. La temperatura de los dos dispositivos simulados se muestra en el gráfico:
+1. En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de los dos dispositivos simulados se muestra en el gráfico:
 
     ![Telemetría de temperatura](media/iot-suite-remote-monitoring-test/telemetry.png)
 

@@ -1,125 +1,251 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL y la CLI de Azure 2.0 | Microsoft Docs"
-description: "En esta página se proporcionan instrucciones sobre cómo crear y configurar una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL."
-documentationcenter: na
+title: "Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con la CLI de Azure | Microsoft Docs"
+description: "Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante la CLI de Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Creación de una puerta de enlace de aplicaciones con enrutamiento basado en rutas de acceso con la CLI de Azure 2.0
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con la CLI de Azure
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-url-route-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [CLI de Azure 2.0](application-gateway-create-url-route-cli.md)
+Puede usar la CLI de Azure para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de servidores back-end mediante un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento que garanticen que el tráfico web llega a los servidores adecuados de los grupos.
 
-Con el enrutamiento basado en ruta de dirección URL puede asociar rutas a partir de la ruta de dirección URL de solicitudes HTTP. Comprueba si hay una ruta a un grupo de servidores back-end configurada para la dirección URL indicada en la puerta de enlace de aplicaciones y, luego, envía el tráfico de red al grupo definido. Un uso habitual del enrutamiento basado en ruta de dirección URL es el equilibrio de carga de las solicitudes de diferentes tipos de contenido entre diferentes grupos de servidores back-end.
+En este artículo, aprenderá a:
 
-Azure Application Gateway usa dos tipos de reglas: básicas y basadas en ruta de dirección URL. El tipo de regla básico proporciona un servicio round robin para los grupos de servidores back-end. Las reglas basadas en ruta de acceso, además de la distribución round robin, también usan el patrón de ruta de acceso de la dirección URL de solicitud al elegir el grupo de servidores back-end adecuado.
+> [!div class="checklist"]
+> * Configuración de la red
+> * Crear una puerta de enlace de aplicaciones con asignación de direcciones URL
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de servidores back-end
 
-## <a name="scenario"></a>Escenario
+![Ejemplo de enrutamiento de direcciones URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-En el siguiente ejemplo, una puerta de enlace de aplicaciones atiende el tráfico de contoso.com con dos grupos de servidores de back-end: un grupo de servidores predeterminado y un grupo de servidores de imagen.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Las solicitudes para http://contoso.com/image* se enrutan al grupo de servidores de imagen (**imagesBackendPool**). Si el patrón de ruta de acceso no coincide, la puerta de enlace de aplicaciones selecciona el grupo de servidores predeterminado (**appGatewayBackendPool**).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Ruta de dirección URL](./media/application-gateway-create-url-route-cli/scenario.png)
+Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Abra el **símbolo del sistema de Microsoft Azure** e inicie sesión:
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Para crear un grupo de recursos, use [az group create](/cli/azure/group#create).
 
-```azurecli
-az login -u "username"
+En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> También puede usar `az login` sin el modificador de inicio de sesión de dispositivo que exigirá que se escriba un código en aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Crear recursos de red 
 
-Después de escribir el comando anterior recibirá un código. Vaya a https://aka.ms/devicelogin en un explorador para continuar con el proceso de inicio de sesión.
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az_net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
-![Cmd que muestra el inicio de sesión del dispositivo][1]
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
-En el explorador, escriba el código que recibió. Se le redirigirá a una página de inicio de sesión.
+## <a name="create-the-application-gateway-with-url-map"></a>Creación de la puerta de enlace de aplicaciones con asignación de direcciones URL
 
-![Explorador para escribir el código][2]
+Puede usar [az network application-gateway create](/cli/azure/application-gateway#create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente. 
 
-Escriba el código para iniciar sesión y cierre el explorador para continuar.
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+```
 
-![Inicio de sesión correcto][3]
+ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>Incorporación de una regla basada en ruta de acceso a una puerta de enlace de aplicaciones existente
+- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+- *appGatewayHttpListener*: el agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
-Con los siguientes pasos se describe cómo agregar una regla basada en ruta de acceso a una puerta de enlace de aplicaciones existente.
-### <a name="create-a-new-back-end-pool"></a>Creación de un nuevo grupo de back-end
 
-Configure la opción de la puerta de enlace de aplicaciones **imagesBackendPool** para el tráfico de red de carga equilibrada del grupo de back-end. En este ejemplo, se configuran distintas opciones de configuración para el nuevo grupo de back-end. Cada grupo de servidores back-end puede tener su propia configuración. Las reglas basadas en ruta de acceso usan la configuración de HTTP de los servidores back-end para enrutar el tráfico hacia los miembros del grupo de servidores back-end correctos. Esto determina el protocolo y el puerto empleados cuando se envía tráfico a los miembros del grupo de servidores back-end. La configuración de HTTP de los servidores back-end determina las sesiones basadas en cookies.  Si está habilitada, la afinidad de sesión basada en cookies envía el tráfico al mismo servidor back-end que las solicitudes anteriores para cada paquete.
+### <a name="add-image-and-video-backend-pools-and-port"></a>Adición de un puerto de back-end y grupos de servidores back-end de imágenes y vídeo
+
+Puede agregar los grupos back-end llamados *imagesBackendPool* y *videoBackendPool* a la puerta de enlace de aplicaciones mediante [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). El puerto de front-end de los grupos se agrega mediante [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
---gateway-name AdatumAppGateway \
---name imagesBackendPool  \
---resource-group myresourcegroup \
---servers 10.0.0.6 10.0.0.7
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name imagesBackendPool
+az network application-gateway address-pool create \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name videoBackendPool
+az network application-gateway frontend-port create \
+  --port 8080 \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name port8080
 ```
 
-### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>Crear un puerto front-end de una puerta de enlace de aplicaciones
+### <a name="add-backend-listener"></a>Adición del agente de escucha de back-end
 
-Un agente de escucha usa el objeto de configuración de puerto front-end para definir en qué puerto escucha la puerta de enlace de aplicaciones el tráfico en el agente de escucha.
+Agregue el agente de escucha de back-end llamado *backendListener* que es necesario para enrutar el tráfico mediante [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+
 
 ```azurecli-interactive
-az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
+az network application-gateway http-listener create \
+  --name backendListener \
+  --frontend-ip appGatewayFrontendIP \
+  --frontend-port port8080 \
+  --resource-group myResourceGroupAG \
+  --gateway-name myAppGateway
 ```
 
-### <a name="create-a-new-listener"></a>Creación de un nuevo agente de escucha
+### <a name="add-url-path-map"></a>Adición de asignación de ruta de URL
 
-En este paso se configura el agente de escucha para la dirección IP pública y el puerto que se utiliza para recibir el tráfico de red entrante. En el ejemplo siguiente se toma la configuración de la dirección IP de front-end configurada anteriormente, la configuración del puerto front-end y un protocolo http o https (distinguen mayúsculas de minúsculas). Luego, se configura el agente de escucha. En este ejemplo, el agente escucha el tráfico HTTP en el puerto 82 en la dirección IP pública creada anteriormente en este escenario.
-
-```azurecli-interactive
-az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
-```
-
-### <a name="create-the-url-path-map"></a>Crear la asignación de rutas de direcciones URL
-
-En este paso, se configura la ruta de acceso de dirección URL relativa que usa la puerta de enlace de aplicaciones para definir la asignación entre la ruta de acceso y el grupo de back-end asignados para administrar el tráfico entrante.
-
-> [!IMPORTANT]
-> Cada una de las rutas debe comenzar por "/" y el único lugar donde se permite un asterisco es al final. Algunos ejemplos válidos son /xyz, /xyz* o /xyz/*. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. 
-
-En el siguiente ejemplo se crea una regla para la ruta de acceso /images/* que enruta el tráfico al back-end **imagesBackendPool**. Esta regla garantiza que el tráfico se enruta al back-end para cada conjunto de direcciones URL. Por ejemplo, http://adatum.com/images/figure1.jpg va a **imagesBackendPool**. Si la ruta de acceso no coincide con ninguna de las reglas de ruta de acceso predefinidas, la configuración de asignación de ruta de acceso de regla también configura un grupo de direcciones de back-end predeterminado. Por ejemplo, http://adatum.com/shoppingcart/test.html irá a **pool1** ya que es el grupo predeterminado del tráfico no coincidente.
+Las asignaciones de ruta de URL se aseguran de que las direcciones URL específicas se enrutan a grupos de servidores back-end específicos. Puede crear las asignaciones de ruta de URL llamadas *imagePathRule* y *videoPathRule* mediante [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) y [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
---gateway-name AdatumAppGateway \
---name imagespathmap \
---paths /images/* \
---resource-group myresourcegroup2 \
---address-pool imagesBackendPool \
---default-address-pool appGatewayBackendPool \
---default-http-settings appGatewayBackendHttpSettings \
---http-settings appGatewayBackendHttpSettings \
---rule-name images
+  --gateway-name myAppGateway \
+  --name myPathMap \
+  --paths /images/* \
+  --resource-group myResourceGroupAG \
+  --address-pool imagesBackendPool \
+  --default-address-pool appGatewayBackendPool \
+  --default-http-settings appGatewayBackendHttpSettings \
+  --http-settings appGatewayBackendHttpSettings \
+  --rule-name imagePathRule
+az network application-gateway url-path-map rule create \
+  --gateway-name myAppGateway \
+  --name videoPathRule \
+  --resource-group myResourceGroupAG \
+  --path-map-name myPathMap \
+  --paths /video/* \
+  --address-pool videoBackendPool
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="add-routing-rule"></a>Adición de reglas de enrutamiento
 
-Si quiere obtener información sobre la descarga de Capa de sockets seguros (SSL), consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager](application-gateway-ssl-cli.md).
+La regla de enrutamiento asocia las asignaciones de URL con el agente de escucha que ha creado. Puede agregar la regla llamada *rule2* mediante [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
 
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name rule2 \
+  --resource-group myResourceGroupAG \
+  --http-listener backendListener \
+  --rule-type PathBasedRouting \
+  --url-path-map myPathMap \
+  --address-pool appGatewayBackendPool
+```
 
-[scenario]: ./media/application-gateway-create-url-route-cli/scenario.png
-[1]: ./media/application-gateway-create-url-route-cli/figure1.png
-[2]: ./media/application-gateway-create-url-route-cli/figure2.png
-[3]: ./media/application-gateway-create-url-route-cli/figure3.png
+## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
+
+En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de servidores back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  if [ $i -eq 1 ]
+  then
+    poolName="appGatewayBackendPool" 
+  fi
+  if [ $i -eq 2 ]
+  then
+    poolName="imagesBackendPool"
+  fi
+  if [ $i -eq 3 ]
+  then
+    poolName="videoBackendPool"
+  fi
+  az vmss create \
+    --name myvmss$i \
+    --resource-group myResourceGroupAG \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password Azure123456! \
+    --instance-count 2 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --vm-sku Standard_DS2 \
+    --upgrade-policy-mode Automatic \
+    --app-gateway myAppGateway \
+    --backend-pool-name $poolName
+done
+```
+
+### <a name="install-nginx"></a>Instalación de NGINX
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroupAG \
+    --vmss-name myvmss$i \
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+done
+```
+
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
+
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+
+Cambie la dirección URL a http://<dirección ip>:8080/video/test.html al final de la dirección URL base y verá algo parecido al ejemplo siguiente:
+
+![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
+
+Cambie la dirección URL a http://<dirección ip>:8080/video/test.html y verá algo parecido al ejemplo siguiente.
+
+![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
+
+## <a name="next-steps"></a>pasos siguientes
+
+En este tutorial aprendió lo siguiente:
+
+> [!div class="checklist"]
+> * Configuración de la red
+> * Crear una puerta de enlace de aplicaciones con asignación de direcciones URL
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de servidores back-end
+
+Para más información sobre las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

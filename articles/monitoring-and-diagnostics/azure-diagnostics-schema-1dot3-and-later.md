@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
 > La extensión Azure Diagnostics es el componente que se usa para recopilar los contadores de rendimiento y otras estadísticas de los siguientes recursos:
-> - Máquinas virtuales de Azure 
+> - Azure Virtual Machines 
 > - Conjuntos de escalado de máquina virtual
 > - Service Fabric 
 > - Cloud Services 
@@ -380,9 +380,9 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
-|**PublicConfig**|Obligatorio. Consulte la descripción en cualquier parte de esta página.|  
+|**PublicConfig**|Necesario. Consulte la descripción en cualquier parte de esta página.|  
 |**PrivateConfig**|Opcional. Consulte la descripción en cualquier parte de esta página.|  
 |**IsEnabled**|Booleano. Consulte la descripción en cualquier parte de esta página.|  
 
@@ -391,9 +391,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Describe la configuración de diagnóstico pública.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
-|**WadCfg**|Obligatorio. Consulte la descripción en cualquier parte de esta página.|  
+|**WadCfg**|Necesario. Consulte la descripción en cualquier parte de esta página.|  
 |**StorageAccount**|El nombre de la cuenta de Azure Storage en la que se van a almacenar los datos. También se puede especificar como un parámetro al ejecutar el cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Puede ser *Table*, *Blob* o *TableAndBlob*. Table es el valor predeterminado. Cuando se elige TableAndBlob, los datos de diagnóstico se escriben dos veces: una vez en cada tipo.|  
 |**LocalResourceDirectory**|El directorio en la máquina virtual donde Monitoring Agent almacena los datos del evento. Si no se establece, se usa el directorio predeterminado:<br /><br /> Para un rol de trabajo o web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para una máquina virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Los atributos necesarios son:<br /><br /> - **path**: el directorio del sistema que va a usar Diagnósticos de Azure.<br /><br /> - **expandEnvironment**: controla si se expanden las variables de entorno en el nombre de ruta de acceso.|  
@@ -409,14 +409,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Obligatorio 
 
-|Attributes|Descripción|  
+|Atributos|DESCRIPCIÓN|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | La cantidad máxima de espacio en disco local que se puede utilizar en los distintos tipos de datos de diagnóstico que recopila Azure Diagnostics. La configuración predeterminada es 5120 MB.<br />
+| **overallQuotaInMB** | La cantidad máxima de espacio en disco local que se puede utilizar en los distintos tipos de datos de diagnóstico que recopila Azure Diagnostics. La configuración predeterminada es 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics para utilizar la configuración del servidor proxy tal como se estableció en la configuración de Internet Explorer.|  
 
 <br /> <br />
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**CrashDumps**|Consulte la descripción en cualquier parte de esta página.|  
 |**DiagnosticInfrastructureLogs**|Habilite la recopilación de registros generados por Diagnósticos de Azure. Los registros de infraestructura de diagnóstico son útiles para solucionar problemas del mismo sistema de diagnóstico. Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: configura el nivel de gravedad mínimo de los registros recopilados.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/schema/schema_dtypes_date.asp). |  
@@ -434,15 +434,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  
  Habilita la recopilación de volcados de memoria.  
 
-|Atributos|Descripción|  
+|Atributos|DESCRIPCIÓN|  
 |----------------|-----------------|  
 |**containerName**|Opcional. El nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los volcados de memoria.|  
 |**crashDumpType**|Opcional.  Configura Diagnósticos de Azure para recopilar volcados de memoria parciales o completos.|  
 |**directoryQuotaPercentage**|Opcional.  Configura el porcentaje de **overallQuotaInMB** que se va a reservar para los volcados de memoria en la máquina virtual.|  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Obligatorio. Define los valores de configuración para cada proceso.<br /><br /> También se necesita el atributo siguiente:<br /><br /> **processName**: el nombre del proceso para el que desea que Diagnósticos de Azure recopile un volcado de memoria.|  
+|**CrashDumpConfiguration**|Necesario. Define los valores de configuración para cada proceso.<br /><br /> También se necesita el atributo siguiente:<br /><br /> **processName**: el nombre del proceso para el que desea que Diagnósticos de Azure recopile un volcado de memoria.|  
 
 ## <a name="directories-element"></a>Elemento Directories 
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**IISLogs**|La inclusión de este elemento en la configuración habilita la recopilación de registros de IIS:<br /><br /> **containerName**: el nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los registros de IIS.|   
 |**FailedRequestLogs**|La inclusión de este elemento en la configuración habilita la recopilación de registros sobre las solicitudes erróneas en un sitio o aplicación de IIS. También debe habilitar las opciones de seguimiento en **system.WebServer** de **Web.config**.|  
@@ -465,9 +465,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Una lista de directorios que se van a supervisar.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Obligatorio. Atributo necesario:<br /><br /> **containerName**: el nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los archivos de registro.|  
+|**DirectoryConfiguration**|Necesario. Atributo necesario:<br /><br /> **containerName**: el nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los archivos de registro.|  
 
 
 
@@ -478,7 +478,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Puede incluir el elemento **Absolute** o el elemento **LocalResource**, pero no ambos.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**Absolute**|La ruta de acceso absoluta al directorio que se va a supervisar. Los atributos siguientes son necesarios:<br /><br /> - **Path**: la ruta de acceso absoluta al directorio que se va a supervisar.<br /><br /> - **expandEnvironment**: configura si se expanden las variables de entorno en Path.|  
 |**LocalResource**|La ruta de acceso relativa a un recurso local que se va a supervisar. Los atributos necesarios son:<br /><br /> - **Name**: el recurso local que contiene el directorio que se va a supervisar<br /><br /> - **relativePath**: la ruta de acceso relativa al nombre que contiene el directorio que se va a supervisar|  
@@ -490,7 +490,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configura la recopilación de eventos ETW en EventSource o el manifiesto de ETW en función de los proveedores.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Configura la recopilación de eventos generados a partir de la [clase EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necesario:<br /><br /> **provider**: el nombre de clase del evento EventSource.<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/schema/schema_dtypes_date.asp). |  
 |**EtwManifestProviderConfiguration**|Atributo necesario:<br /><br /> **provider**: el GUID del proveedor de eventos<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/schema/schema_dtypes_date.asp). |  
@@ -502,7 +502,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configura la recopilación de eventos generados a partir de la [clase EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
 |**Evento**|Atributo necesario:<br /><br /> **id**: el identificador del evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
@@ -512,7 +512,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
 |**Evento**|Atributo necesario:<br /><br /> **id**: el identificador del evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
@@ -526,7 +526,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** -> **<Nombre\>**. Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Atributo necesario:<br /><br /> **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/schema/schema_dtypes_date.asp). |  
 
@@ -541,9 +541,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.
 
-|Elemento secundario|Descripción|  
+|Elemento secundario|DESCRIPCIÓN|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Los atributos siguientes son necesarios:<br /><br /> - **counterSpecifier**: el nombre del contador de rendimiento. Por ejemplo: `\Processor(_Total)\% Processor Time`. Para obtener una lista de contadores de rendimiento en el host, ejecute el comando `typeperf`.<br /><br /> - **sampleRate**: la frecuencia de muestreo del contador.<br /><br /> Atributo opcional:<br /><br /> **unit**: la unidad de medida del contador.|  
+|**PerformanceCounterConfiguration**|Los atributos siguientes son necesarios:<br /><br /> - **counterSpecifier**: el nombre del contador de rendimiento. Por ejemplo, `\Processor(_Total)\% Processor Time`. Para obtener una lista de contadores de rendimiento en el host, ejecute el comando `typeperf`.<br /><br /> - **sampleRate**: la frecuencia de muestreo del contador.<br /><br /> Atributo opcional:<br /><br /> **unit**: la unidad de medida del contador.|  
 
 
 
@@ -555,9 +555,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.  
 
-|Elemento secundario|Descripción|  
+|Elemento secundario|DESCRIPCIÓN|  
 |-------------------|-----------------|  
-|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
+|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo: <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
 
 
 
@@ -569,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define la configuración del búfer para los registros básicos de Azure.  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilterr**|**cadena**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
@@ -581,7 +581,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Se agregó en la versión 1.9.
 
-|Nombre del elemento|Descripción|  
+|Nombre del elemento|DESCRIPCIÓN|  
 |------------------|-----------------|  
 |**Stats**|Indica al sistema para recopilar estadísticas de los contenedores de Docker.|  
 
@@ -590,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Una lista de ubicaciones donde enviar datos de diagnóstico y la configuración asociada a estas ubicaciones.  
 
-|Nombre del elemento|Descripción|  
+|Nombre del elemento|DESCRIPCIÓN|  
 |------------------|-----------------|  
 |**Sink**|Consulte la descripción en cualquier parte de esta página.|  
 
@@ -601,11 +601,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributo|Tipo|Descripción|  
+|Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|string|Cadena que identifica el nombre de receptor.|  
+|**name**|cadena|Cadena que identifica el nombre de receptor.|  
 
-|Elemento|Escriba|Descripción|  
+|Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
 |**Application Insights**|cadena|Se usa solo al enviar datos a Application Insights. Contiene la clave de instrumentación para una cuenta activa de Application Insights a la que tiene acceso.|  
 |**Channels**|cadena|Uno para cada filtrado adicional transmitido|  
@@ -617,9 +617,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define los filtros para los flujos de datos de registro que se pasan a través de un receptor.  
 
-|Elemento|Escriba|Descripción|  
+|Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
-|**Channel**|string|Consulte la descripción en cualquier parte de esta página.|  
+|**Channel**|cadena|Consulte la descripción en cualquier parte de esta página.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -628,7 +628,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributos|Escriba|Descripción|  
+|Atributos|type|DESCRIPCIÓN|  
 |----------------|----------|-----------------|  
 |**logLevel**|**cadena**|Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**name**|**cadena**|Un nombre único del canal al que se hace referencia|  
@@ -643,7 +643,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Almacena los detalles privados de la cuenta de almacenamiento (nombre, clave y punto de conexión). Esta información se envía a la máquina virtual, pero no se puede recuperar de ella.  
 
-|Elementos secundarios|Descripción|  
+|Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
 |**StorageAccount**|La cuenta de almacenamiento que se va a usar. Los atributos siguientes son necesarios<br /><br /> - **name**: el nombre de la cuenta de almacenamiento.<br /><br /> - **key**: la clave de la cuenta de almacenamiento.<br /><br /> - **endpoint**: el punto de conexión para acceder a la cuenta de almacenamiento. <br /><br /> -**sasToken** (se agregó en la versión 1.8.1): puede especificar un token de SAS en lugar de una clave de cuenta de almacenamiento en la configuración privada. Si se proporciona, se omite la clave de cuenta de almacenamiento. <br />Requisitos del token de SAS: <br />- Solo admite el token de SAS de la cuenta. <br />Se requieren los tipos de servicio - *b* y *t*. <br /> Se requieren los permisos - *a*, *c*, *u* y *w*. <br /> Se requieren los tipos de recursos - *c* y *o*. <br /> - Solo admite únicamente el protocolo HTTPS. <br /> - La hora de inicio y de expiración debe ser válida.|  
 

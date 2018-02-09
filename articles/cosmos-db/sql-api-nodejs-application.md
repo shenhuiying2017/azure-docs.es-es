@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] versión v0.10.29 o superior.
+* [Node.js][Node.js] versión v0.10.29 o superior. Se recomienda Node.js 6.10 o superior.
 * [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 * [Git][Git].
 
@@ -80,7 +80,7 @@ Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el ma
    
     ![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    A continuación, para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **y** para finalizar el trabajo por lotes.
+    A continuación, para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **y** para finalizar el trabajo por lotes (solo en máquinas Windows).
 
 ## <a name="_Toc395783179"></a>Paso 3: Instalación de módulos adicionales
 El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Posteriormente, cuando implemente esta aplicación en Azure Websites, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Todavía hay que instalar dos paquetes más para este tutorial.
@@ -91,29 +91,6 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
 2. Instale el módulo **documentdb** mediante npm. En este módulo es donde ocurre toda la magia de Azure Cosmos DB.
    
         npm install documentdb --save
-3. Una comprobación rápida del archivo **package.json** de la aplicación debe mostrar los módulos adicionales. Este archivo indicará a Azure qué paquetes debe descargar e instalar cuando ejecute la aplicación. El aspecto debe ser similar al siguiente.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    Esto indica a Node (y a Azure más tarde) que la aplicación depende de estos módulos adicionales.
 
 ## <a name="_Toc395783180"></a>Paso 4: Uso del servicio Azure Cosmos DB en una aplicación de nodo
 Se encarga de toda la configuración e instalación iniciales; ahora volvamos a la razón por la que estamos aquí, que es escribir código con Azure Cosmos DB.
@@ -384,13 +361,13 @@ Se encarga de toda la configuración e instalación iniciales; ahora volvamos a 
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY con los valores de la hoja Claves de la cuenta de Azure Cosmos DB en [Microsoft Azure Portal](https://portal.azure.com).
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY con los valores de la página Claves de la cuenta de Azure Cosmos DB en [Microsoft Azure Portal](https://portal.azure.com).
 4. Guarde y cierre el archivo **config.js** .
 
 ### <a name="modify-appjs"></a>Modificar app.js
@@ -513,7 +490,7 @@ Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 3. La página debería actualizarse para mostrar el elemento recién creado en la lista ToDo.
    
     ![Captura de pantalla de la aplicación con un nuevo elemento en la lista de tareas pendientes](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**. Con ello, se actualizará el documento que ya haya creado.
+4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**. Con ello, se actualizará el documento que ya haya creado y lo quitará de la vista.
 
 5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **Y** para finalizar el trabajo por lotes.
 

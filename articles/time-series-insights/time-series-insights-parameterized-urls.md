@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 
@@ -63,14 +63,16 @@ Los valores aceptados corresponden al menú de **tiempo rápido** del explorador
 
 El parámetro `timeSeriesDefinitions=<collection of term objects>` especifica los términos de una vista de Time Series Insights, donde:
 
-- `name=<string>`
+- "name":"<string>"
   - El nombre del *término*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - El nombre de columna para *dividido por*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - El nombre de columna de *medida*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - La cláusula *where* para el filtrado en el lado del servidor.
+-  "useSum":"true"
+  - Se trata de un parámetro opcional que especifica el uso de sum para la medida.  Tenga en cuenta que si "Eventos" es la medida seleccionada, se selecciona de forma predeterminada el recuento.  Si "Eventos" no se selecciona, se selecciona la media de forma predeterminada.  
 
 El parámetro multiChartStack = <true/false>' permite el apilamiento en el gráfico, mientras que el parámetro 'multiChartSameScale = <true/false>' permite la misma escala del eje Y en los términos de un parámetro opcional.  
 
@@ -118,5 +120,5 @@ La vista completa (incluido el gráfico) tendría este aspecto:
 
 ![Vista de diagrama](media/parameterized-url/url2.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md)

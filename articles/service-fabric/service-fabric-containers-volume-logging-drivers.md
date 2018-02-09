@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Uso de complementos de volumen y controladores de registro de Docker en el contenedor
 Azure Service Fabric admite la especificación de [complementos de volumen de Docker](https://docs.docker.com/engine/extend/plugins_volume/) y [controladores de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) en el servicio de contenedor. Puede conservar los datos en [Azure Files](https://azure.microsoft.com/services/storage/files/) cuando el contenedor se mueve o se reinicia en un host diferente.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter no admite montajes de SMB en el host ([solo se admiten en Windows Server versión 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Esto impide el uso de ciertos controladores de volumen como los de Azure Files. En su lugar, se pueden montar los recursos compartidos directamente en el contenedor mediante **net use**. 
+> Windows Server 2016 Datacenter no admite montajes de SMB de asignación en contenedores ([solo se admiten en Windows Server versión 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Esto evita que haya asignaciones de volumen de red y controladores de volúmenes de Azure Files en versiones anteriores a 1709. 
 >   
 
 

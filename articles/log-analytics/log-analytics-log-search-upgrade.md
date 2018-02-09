@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Actualización de Azure Log Analytics para la nueva búsqueda de registros
 
@@ -45,14 +45,14 @@ La actualización se lanzarán en todas las regiones de Azure, por lo que puede 
 
 Si el área de trabajo se actualiza automáticamente, verá un banner que indicará que se ha actualizado, con un resumen en el que se identifica si se ha detectado algún problema.
 
- ![actualización automática](media/log-analytics-log-search-upgrade/auto-upgrade.png)
+ ![Actualización automática](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
 
 ## <a name="what-happens-after-the-upgrade"></a>¿Qué ocurre después de la actualización?
 Los siguientes cambios se realizan en el área de trabajo cuando se actualiza:
 
 - Las búsquedas guardadas, las reglas de alertas y las vistas creadas con el diseñador de vistas se convierten automáticamente al nuevo lenguaje.  Las búsquedas incluidas en las soluciones no se convierten automáticamente, pero sí se convierten sobre la marcha cuando las abre.  
-- [Mi panel](log-analytics-dashboards.md) quedará en desuso y se reemplazará por el [Diseñador de vistas](log-analytics-view-designer.md) y los [paneles de Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Los elementos agregados a Mi panel aún estarán disponibles, pero serán de solo lectura.
+- [Mi panel](log-analytics-dashboards.md) quedará en desuso y se reemplazará por el [Diseñador de vistas](log-analytics-view-designer.md) y los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).  Los elementos agregados a Mi panel aún estarán disponibles, pero serán de solo lectura.
 - La [Integración de Power BI](log-analytics-powerbi.md) se sustituye por un nuevo proceso.  Se deshabilitarán las programaciones de Power BI existentes que creó y deberá reemplazarlas por el nuevo proceso.
 - Las respuestas de [acciones de alerta](log-analytics-alerts-actions.md) utilizando webhooks y runbooks tienen un nuevo formato y, por ello, puede que necesite actualizar las reglas de alertas.
 - Eche un vistazo a la [preguntas más frecuentes sobre la búsqueda de registros](log-analytics-log-search-faq.md) para conocer las preguntas habituales sobre la actualización.
@@ -95,7 +95,7 @@ Si ya está familiarizado con el lenguaje de consulta heredado de Log Analytics,
 ![Convertidor de lenguaje](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Consulte un [tutorial sobre el nuevo lenguaje](https://go.microsoft.com/fwlink/?linkid=856078).
 - Consulte un [tutorial sobre cómo usar el portal de la búsqueda de registros](log-analytics-log-search-log-search-portal.md) con el nuevo lenguaje de consulta.
 - Obtenga una introducción al nuevo [Portal de análisis avanzado](https://go.microsoft.com/fwlink/?linkid=856587).

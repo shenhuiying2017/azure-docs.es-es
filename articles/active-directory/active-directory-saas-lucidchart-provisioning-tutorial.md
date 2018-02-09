@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configuración de LucidChart para aprovisionar automáticamente usuarios con Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configuración de LucidChart para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs"
 description: "Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de LucidChart."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: be93059111202deca2e0582112ab8f09508d6c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bbf62986a9e6e68149a1908d079d82e2faf4bd54
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configuración de LucidChart para aprovisionar a los usuarios automáticamente
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configuración de LucidChart para aprovisionar usuarios automáticamente
 
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en LucidChart y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en LucidChart. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -77,7 +77,7 @@ Esta sección le guía en la conexión de Azure AD a la API de aprovisionamiento
 
 7. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
-8. Haga clic en **Guardar**. 
+8. Haga clic en **Save**(Guardar). 
 
 9. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to LucidChart** (Sincronizar usuarios de Azure Active Directory con LucidChart).
 
@@ -85,7 +85,7 @@ Esta sección le guía en la conexión de Azure AD a la API de aprovisionamiento
 
 11. Para habilitar el servicio de aprovisionamiento de Azure AD para LucidChart, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**
 
-12. Haga clic en **Guardar**. 
+12. Haga clic en **Save**(Guardar). 
 
 Esta operación inicia la sincronización inicial de todos los usuarios y grupos asignados a LucidChart en la sección Usuarios y grupos. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos, si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento.
 
@@ -97,6 +97,6 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-enterprise-apps-manage-provisioning.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](active-directory-saas-provisioning-reporting.md)

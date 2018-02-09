@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -146,6 +146,17 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    
    El nombre del clúster es una forma de identificar el entorno. La ubicación debe ser la misma que la ubicación de la cuenta de Administración de modelos que creó en Azure Portal.
 
+   Para asegurarse de que dicho entorno se configura correctamente, use el siguiente comando para comprobar el estado:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Asegúrese de que "Estado de aprovisionamiento" tiene el valor "Correcto" (tal y como se muestra a continuación) antes de configurar el entorno en el paso 5.
+
+   ![Estado de aprovisionamiento](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Cree una cuenta de Administración de modelos. (Esta es una instalación que solo se realiza una vez).  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -258,8 +269,9 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
 
 2. Para probar el servicio, ejecute el comando de ejecución del servicio devuelto:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    La salida es **"2",**, que es la clase prevista. (Es posible que su resultado sea diferente). 
 

@@ -1,166 +1,171 @@
 ---
-title: "Creación o actualización de una puerta de enlace de aplicaciones con un firewall de aplicaciones web | Microsoft Docs"
-description: Aprenda a crear una puerta de enlace de aplicaciones con un firewall de aplicaciones web en el portal.
+title: "Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal| Microsoft Docs"
+description: Aprenda a crear una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal.
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web en el portal
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [CLI de Azure](application-gateway-web-application-firewall-cli.md)
+Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md) con un [firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión.
 
-Aprenda a crear una puerta de enlace de aplicaciones web habilitada para un firewall de aplicaciones web (WAF).
+En este artículo, aprenderá a:
 
-El WAF de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. El WAF sirve de protección frente a muchas de las vulnerabilidades web de OWASP Top 10.
+> [!div class="checklist"]
+> * Crear una puerta de enlace de aplicaciones con WAF habilitado
+> * Crear las máquinas virtuales que se utilizan como servidores back-end
+> * Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-## <a name="scenarios"></a>Escenarios
+![Ejemplo de firewall de aplicaciones web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-En este artículo se presentan dos escenarios. En el primer escenario, aprenderá a [crear una puerta de enlace de aplicaciones con un WAF](#create-an-application-gateway-with-web-application-firewall). En el segundo escenario, aprenderá a [agregar un WAF a una puerta de enlace de aplicaciones existente](#add-web-application-firewall-to-an-existing-application-gateway).
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-![Escenario de ejemplo][scenario]
+Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
 
-> [!NOTE]
-> Puede agregar sondeos de estado personalizados, direcciones del grupo de back-end y otras reglas a la puerta de enlace de aplicaciones. Estas aplicaciones se configuran después de la puerta de enlace de aplicaciones y no durante la implementación inicial.
+## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-## <a name="before-you-begin"></a>Antes de empezar
+Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
 
- Las puertas de enlace de aplicaciones necesitan su propia subred. Cuando cree una red virtual, asegúrese de dejar suficiente espacio de direcciones para tener varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred, solo se puedan agregar otras puertas de enlace de aplicaciones a dicha subred.
+1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
+3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Incorporación de un firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
+    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+    - *myResourceGroupAG*: para el nuevo grupo de recursos.
+    - Seleccione *WAF* para el nivel de la puerta de enlace de aplicaciones.
 
-En este ejemplo, se actualiza una puerta de enlace de aplicaciones existente para que admita un WAF en el modo **Prevención**.
+    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-1. En el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos**. En la hoja **Todos los recursos**, seleccione la puerta de enlace de aplicaciones existente. Si la suscripción seleccionada ya contiene varios recursos, puede escribir el nombre en **Filtrar por nombre** para acceder fácilmente a la zona DNS.
+4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-   ![Selección de una puerta de enlace de aplicaciones existente][1]
+    - *myVNet*: como nombre de la red virtual.
+    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+    - *myAGSubnet*: como nombre de subred.
+    - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-2. Seleccione **Firewall de aplicaciones web** y actualice la configuración de la puerta de enlace de aplicaciones. Cuando la actualización finalice, seleccione **Guardar**. 
+    ![Creación de una red virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-3. Utilice la siguiente configuración para actualizar una puerta de enlace de aplicaciones existente de forma que admita el uso de un WAF:
+6. Haga clic en **Aceptar** para crear la red virtual y la subred.
+7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+8. Acepte los valores predeterminados para la configuración del agente de escucha, deje el firewall de aplicaciones web deshabilitado y, a continuación, haga clic en **Aceptar**.
+9. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
-   | **Configuración** | **Valor** | **Detalles**
-   |---|---|---|
-   |**Actualizar al nivel WAF**| Activado | Esta opción establece el nivel de la puerta de enlace de aplicaciones en el nivel WAF.|
-   |**Estado de Firewall**| habilitado | Esta configuración habilita el firewall en el WAF.|
-   |**Modo de firewall** | Prevención | Esta opción determina cómo va a administrar el WAF el tráfico malintencionado. El modo **Detección** solo registra los eventos. El modo **Prevención** registra los eventos y detiene el tráfico malintencionado.|
-   |**Conjunto de reglas**|3.0|Esta opción determina el [conjunto de reglas básico](application-gateway-web-application-firewall-overview.md#core-rule-sets) que se usa para proteger a los miembros del grupo de back-end.|
-   |**Configurar reglas deshabilitadas**|Varía|Para evitar posibles falsos positivos, puede utilizar esta opción para deshabilitar algunas [reglas y grupos de reglas](application-gateway-crs-rulegroups-rules.md).|
+### <a name="add-a-subnet"></a>Incorporación de una subred
 
-    >[!NOTE]
-    > Cuando se actualiza una puerta de enlace de aplicaciones existente a la SKU de WAF, el tamaño de la SKU cambia a **medio**. Una vez que finalice la configuración, podrá configurar de nuevo esta opción.
+1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
+2. Haga clic en **Subredes** y, a continuación, haga clic en **Subred**.
 
-    ![Configuración básica][2-1]
+    ![Creación de una subred](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-    > [!NOTE]
-    > Para consultar los logs de WAF, habilite el diagnóstico y seleccione **ApplicationGatewayFirewallLog**. Solo debe elegir **1** como número de instancias para realizar pruebas. No es recomendable utilizar un número de instancias inferior a **2**, ya que no está cubierto por el SLA. Las puertas de enlace pequeñas no están disponibles cuando se usa un WAF.
+3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web
+## <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En este escenario:
+En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También se instala IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 
-* Creará una puerta de enlace de aplicaciones de WAF de tamaño medio con dos instancias.
-* Creará una red virtual denominada AdatumAppGatewayVNET con un bloque CIDR reservado de 10.0.0.0/16.
-* Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
-* Configurará un certificado para la descarga SSL.
+### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). Si aún no tiene una cuenta, puede registrarse para disfrutar de [una evaluación gratuita de un mes](https://azure.microsoft.com/free).
+1. Haga clic en **Nuevo**.
+2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+3. Especifique estos valores para la máquina virtual:
 
-2. En el panel **Favoritos** del portal, seleccione **Nuevo**.
+    - *myVM*: como nombre de la máquina virtual.
+    - *azureuser*: como nombre del usuario administrador.
+    - *Azure123456!* como contraseña.
+    - Seleccione **Usar existente** y *myResourceGroupAG*.
 
-3. En la hoja **Nuevo**, seleccione **Redes**. En la hoja **Redes**, seleccione **Azure Application Gateway**, tal y como se muestra en la siguiente imagen:
+4. Haga clic en **OK**.
+5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
+6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
+7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
+8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
 
-    ![Creación de puertas de enlace de aplicaciones][1]
+### <a name="install-iis"></a>Instalación de IIS
 
-4. En la hoja **Datos básicos** que aparece, escriba los valores siguientes y seleccione **Aceptar**:
+1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
 
-   | **Configuración** | **Valor** | **Detalles**
-   |---|---|---|
-   |**Name**|AdatumAppGateway|Nombre de la puerta de enlace de aplicaciones.|
-   |**Nivel**|WAF|Los valores disponibles son Estándar y WAF. Para más información sobre los WAF, consulte [Firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md).|
-   |**Tamaño de la SKU**|Mediano|Las opciones del nivel estándar son **Pequeño**, **Medio** y **Grande**. Las opciones del nivel WAF son exclusivamente **Medio** y **Grande**.|
-   |**Recuento de instancias**|2|Número de instancias de la puerta de enlace de aplicaciones para alta disponibilidad. Solo debe elegir 1 como número de instancias para realizar pruebas.|
-   |**Suscripción**|[Su suscripción]|Seleccione la suscripción que va a utilizar para crear la puerta de enlace de aplicaciones.|
-   |**Grupos de recursos**|**Crear nuevo:** AdatumAppGatewayRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
-   |**Ubicación**|Oeste de EE. UU.||
+    ![Instalación de la extensión personalizada](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-   ![Opciones de configuración básicas][2-2]
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
-5. En la hoja **Configuración** que aparece en **Red virtual**, seleccione **Elegir una red virtual**. En la hoja **Elegir red virtual**, haga clic en **Crear nuevo**.
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-   ![Opción de red virtual][2]
+3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* como nombre y como VMName en Set-AzureRmVMExtension.
 
-6. En la hoja **Crear red virtual**, escriba los valores siguientes y seleccione **Aceptar**. El campo **Subred** de la hoja **Configuración** se rellena con la subred elegida.
+### <a name="add-backend-servers"></a>Incorporación de servidores back-end
 
-   |**Configuración** | **Valor** | **Detalles** |
-   |---|---|---|
-   |**Name**|AdatumAppGatewayVNET|Nombre de la puerta de enlace de aplicaciones.|
-   |**Espacio de direcciones**|10.0.0.0/16| Este valor es el espacio de direcciones de la red virtual.|
-   |**Nombre de subred**|AppGatewaySubnet|Nombre de la subred de la puerta de enlace de aplicaciones.|
-   |**Intervalo de direcciones de subred**|10.0.0.0/28 | Esta subred permite más subredes en la red virtual para los miembros del grupo de back-end.|
+1. Haga clic en **Todos los recursos** y en **myAppGateway**.
+2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGateayBackendPool**.
+3. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
 
-7. En la hoja **Configuración**, en **Configuración de IP de front-end**, seleccione **Pública** como **Tipo de dirección IP**.
+    ![Incorporación de servidores back-end](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-8. En la hoja **Configuración**, en **Dirección IP pública**, seleccione **Elegir una dirección IP pública**. En la hoja **Elegir dirección IP pública**, seleccione **Crear nuevo**.
+4. Haga clic en **Save**(Guardar).
 
-   ![Opción de dirección IP pública][3]
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creación de una cuenta de almacenamiento y configuración de diagnósticos
 
-9. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y seleccione **Aceptar**. El campo **Dirección IP pública** se rellena con la dirección IP pública elegida.
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-10. En la hoja **Configuración**, en **Configuración de agente de escucha**, haga clic en la opción **HTTP** de **Protocolo**. Para usar **HTTPS**, se requiere un certificado. Se necesita la clave privada del certificado. Proporcione una exportación .pfx del certificado y escriba la contraseña del archivo.
+En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar Log Analytics o una instancia de Event Hubs para registrar los datos.
 
-11. Configure los valores específicos de **WAF**.
+1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Almacenamiento** y, a continuación, seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
+3. Escriba el nombre de la cuenta de almacenamiento, seleccione **Usar existente** para el grupo de recursos y, a continuación, seleccione **myResourceGroupAG**. En este ejemplo, el nombre de la cuenta de almacenamiento es *myagstore1*. Acepte los valores predeterminados para las demás opciones y haga clic en **Crear**.
 
-   |**Configuración** | **Valor** | **Detalles** |
-   |---|---|---|
-   |**Estado de Firewall**| habilitado| Esta opción activa o desactiva el WAF.|
-   |**Modo de firewall** | Prevención| Esta configuración determina las acciones que realiza el WAF sobre el tráfico malintencionado. El modo **Detección** solamente registra el tráfico. El modo **Prevención** registra y detiene el tráfico con una respuesta de tipo 403-No autorizado.|
+## <a name="configure-diagnostics"></a>Configuración de diagnóstico
 
+Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog.
 
-12. Consulte la página **Resumen** y seleccione **Aceptar**. La puerta de enlace de aplicaciones se pone en cola y se crea.
+1. En el menú izquierdo, haga clic en **Todos los recursos** y, a continuación, seleccione *myAppGateway*.
+2. En Supervisión, haga clic en **Registros de diagnóstico**.
+3. Haga clic en **Agregar configuración de diagnóstico**.
+4. Escriba *myDiagnosticsSettings* como el nombre de la configuración de diagnóstico.
+5. Seleccione **Archivar en una cuenta de almacenamiento** y, a continuación, haga clic en **Configurar** para seleccionar la cuenta de almacenamiento *myagstore1* que creó anteriormente.
+6. Seleccione los registros de la puerta de enlace de aplicaciones que se van a recopilar y conservar.
+7. Haga clic en **Save**(Guardar).
 
-13. Una vez creada la puerta de enlace de aplicaciones, navegue hasta ella en el portal para continuar con la configuración de la puerta de enlace de aplicaciones.
+    ![Configuración de diagnóstico](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-    ![Vista de los recursos de la puerta de enlace de aplicaciones][10]
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Este procedimiento permite crear una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración HTTP de back-end y las reglas. Una vez que la operación de aprovisionamiento finalice correctamente, podrá modificar esta configuración para adaptarla a su implementación.
+1. Busque la dirección IP pública de la puerta de enlace de aplicaciones en la pantalla de información general. Haga clic en **Todos los recursos** y en **myAGPublicIPAddress**.
 
-> [!NOTE]
-> Las puertas de enlace de aplicaciones creadas con la configuración básica de WAF se configuran con CRS 3.0 como medida de protección.
+    ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
-Si desea configurar un alias de dominio personalizado para la [dirección IP pública](../dns/dns-custom-domain.md#public-ip-address), puede utilizar Azure DNS u otro proveedor de DNS.
+    ![Prueba de la puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
-Si desea configurar un registro de diagnóstico para incluir todos los eventos que se detecten o se impidan con un WAF, consulte este artículo sobre [diagnósticos de Application Gateway](application-gateway-diagnostics.md).
+## <a name="next-steps"></a>pasos siguientes
 
-Si desea crear sondeos de estado personalizados, consulte este artículo sobre la [creación de un sondeo de estado personalizado](application-gateway-create-probe-portal.md).
+En este artículo, ha aprendido cómo:
 
-Si desea configurar la descarga SSL y eliminar la costosa suscripción a SSL de los servidores web, consulte este artículo sobre la [configuración de la descarga SSL](application-gateway-ssl-portal.md).
+> [!div class="checklist"]
+> * Crear una puerta de enlace de aplicaciones con WAF habilitado
+> * Crear las máquinas virtuales que se utilizan como servidores back-end
+> * Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-<!--Image references-->
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[2-1]: ./media/application-gateway-web-application-firewall-portal/figure2-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

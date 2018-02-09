@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Habilitación de Application Insights Profiler en Azure Virtual Machines, Service Fabric y Cloud Services
 
-En este artículo se muestra cómo habilitar Azure Application Insights Profiler en una aplicación ASP.NET hospedada por recursos de Azure Compute. 
+En este artículo se muestra cómo habilitar Azure Application Insights Profiler en una aplicación ASP.NET hospedada por recursos de Azure Compute.
 
 Los ejemplos de este artículo incluyen compatibilidad con Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Azure Service Fabric y Azure Cloud Services. Todos los ejemplos se basan en plantillas que admiten el modelo de implementación de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  
 
 
 ## <a name="overview"></a>Información general
 
-La siguiente imagen muestra cómo funciona Application Insights Profiler con los recursos de Azure. La imagen usa una máquina virtual de Azure como ejemplo.
+La siguiente imagen muestra cómo funciona Application Insights Profiler con los recursos de Azure Compute. Los recursos de Azure Compute incluyen Virtual Machines, Virtual Machine Scale Sets, Cloud Services y clústeres de Service Fabric. La imagen usa una máquina virtual de Azure como ejemplo.  
 
   ![Información general](./media/enable-profiler-compute/overview.png)
 
 Para habilitar completamente el generador de perfiles, debe cambiar la configuración en tres ubicaciones:
 
-* El panel de la instancia de Application Insights en Azure Portal.
+* La hoja de la instancia de Application Insights en Azure Portal.
 * El código fuente de la aplicación (por ejemplo, una aplicación web ASP.NET).
-* El código fuente de la definición de la implementación del entorno (por ejemplo, un archivo .json de la plantilla de implementación de máquina virtual).
+* El código fuente de la definición de la implementación del entorno (por ejemplo, una plantilla de Azure Resource Manager en un archivo .json).
 
 
 ## <a name="set-up-the-application-insights-instance"></a>Configuración de la instancia de Application Insights
 
-En Azure Portal, cree la instancia de Application Insights que desea usar, o bien vaya a ella si ya está creada. Anote la clave de instrumentación de la instancia. Use la clave de instrumentación en otros pasos de la configuración.
+[Cree un nuevo recurso de Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) o seleccione uno existente.
+Vaya al recurso de Application Insights y copie la clave de instrumentación.
 
   ![Ubicación de la clave de instrumentación](./media/enable-profiler-compute/CopyAIKey.png)
 
-Esta instancia debe ser la misma que la aplicación. Está configurada para enviar datos de telemetría en cada solicitud.
-Los resultados del generador de perfiles también están disponibles en esta instancia.  
-
-En Azure Portal, complete los pasos que se describen en [Habilitar el generador de perfiles](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) para finalizar la configuración de la instancia de Application Insights para el generador de perfiles. En el ejemplo de este artículo no es preciso vincular las aplicaciones web. Sólo hay que asegurarse de que el generador de perfiles está habilitado en el portal.
+Complete los pasos que se describen en [Habilitación de Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) para finalizar la configuración de la instancia de Application Insights para el generador de perfiles. No es necesario vincular las aplicaciones web, ya que son pasos específicos del recurso de App Services. Solo hay que asegurarse de que el generador de perfiles esté habilitado en la hoja de Profiler *Configurar*.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configuración del código fuente de la aplicación
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>Aplicaciones web ASP.NET, roles web de Cloud Services o front-end web ASP.NET de Service Fabric
 Configure la aplicación para que envíe datos de telemetría a una instancia de Application Insights en cada operación `Request`:  
 
-1. Agregue el [SDK de Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) al proyecto de aplicación. Asegúrese de que las versiones del paquete NuGet sean las siguientes:  
+Agregue el [SDK de Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) al proyecto de aplicación. Asegúrese de que las versiones del paquete NuGet sean las siguientes:  
   - Para aplicaciones ASP.NET: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 o cualquier versión posterior.
   - Para aplicaciones ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 o cualquier versión posterior.
   - Para otras aplicaciones .NET y .NET Core (por ejemplo, un servicio sin estado de Service Fabric o un rol de trabajo de Cloud Services): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) o [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0, o cualquier versión posterior.  
 
-2. Si la aplicación *no* es una aplicación ASP.NET o ASP.NET Core (por ejemplo, si es un rol de trabajo de Cloud Services, o API sin estado de Service Fabric), se requiere la siguiente configuración de instrumentación adicional:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Roles de trabajo de Cloud Services o back-end sin estado de Service Fabric
+Si la aplicación *no* es una aplicación ASP.NET o ASP.NET Core (por ejemplo, si es un rol de trabajo de Cloud Services o API sin estado de Service Fabric), se requiere la siguiente configuración de instrumentación adicional, además del paso anterior:  
 
   1. Agregue el código siguiente al principio de la duración de la aplicación:  
 
@@ -85,7 +85,7 @@ Configure la aplicación para que envíe datos de telemetría a una instancia de
     }
     ```
 
-  No se permite llamar a `StartOperation<RequestTelemetry>` dentro de otro ámbito de `StartOperation<RequestTelemetry>`. En su lugar, puede usar `StartOperation<DependencyTelemetry>` en el ámbito anidado. Por ejemplo:  
+  No se permite llamar a `StartOperation<RequestTelemetry>` dentro de otro ámbito de `StartOperation<RequestTelemetry>`. En su lugar, puede usar `StartOperation<DependencyTelemetry>` en el ámbito anidado. Por ejemplo:   
 
     ```csharp
     using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
@@ -204,7 +204,7 @@ Ejemplos completos:
   ```
 
 2. Si la aplicación deseada se ejecuta mediante [IIS](https://www.microsoft.com/web/platform/server.aspx), habilite la característica `IIS Http Tracing` de Windows:  
-  
+
   1. Establezca un acceso remoto al entorno y, después, use la ventana [Agregar características de Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) o ejecute el siguiente comando en PowerShell (como administrador):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,11 +217,11 @@ Ejemplos completos:
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>Habilitación del generador de perfiles en servidores locales
 
-La habilitación del generador de perfiles en un servidor local también es conocida como Application Insights Profiler en modo independiente (no está vinculada a las modificaciones de la extensión Azure Diagnostics). 
+La habilitación del generador de perfiles en un servidor local también es conocida como Application Insights Profiler en modo independiente (no está vinculada a las modificaciones de la extensión Azure Diagnostics).
 
 No está previsto proporcionar compatibilidad con el generador de perfiles oficialmente en servidores locales. Si está interesado en probar este escenario, puede [descargar el código de compatibilidad](https://github.com/ramach-msft/AIProfiler-Standalone). *No* somos responsables de mantener ese código ni de responder a problemas y solicitudes de características en relación con él.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Genere tráfico para su aplicación (por ejemplo, inicie una [prueba de disponibilidad](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). A continuación, espere de 10 a 15 minutos para que se empiecen a enviar seguimientos a la instancia de Application Insights.
 - Consulte [Seguimientos de Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) en Azure Portal.

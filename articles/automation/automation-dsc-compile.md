@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
@@ -40,14 +40,14 @@ Puede compilar las configuraciones de configuración de estado deseado (DSC) de 
 * Pasar ConfigurationData
 * Compilar configuraciones que usan credenciales
 
-Una vez que haya decidido un método de compilación, puede seguir los procedimientos correspondientes que se presentan a continuación para empezar a compilar.
+Una vez que haya elegido un método de compilación, siga estos procedimientos para comenzar a compilar.
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilación de una configuración de DSC con el Portal de Azure
 
 1. En su cuenta de Automation, haga clic en **DSC Configurations** (Configuraciones DSC).
 2. Haga clic en una configuración para abrir su hoja.
 3. Haga clic en **Compilar**.
-4. Si la configuración no tiene parámetros, se le pedirá que confirme si desea compilarla. Si la configuración tiene parámetros, se abrirá la hoja **Compilar configuración** para que pueda proporcionar valores de parámetro. Consulte más abajo la sección [**Parámetros básicos**](#basic-parameters) para más información sobre los parámetros.
+4. Si la configuración no tiene parámetros, se le pedirá que confirme si desea compilarla. Si la configuración tiene parámetros, se abrirá la hoja **Compilar configuración** para que pueda proporcionar valores de parámetro. Consulte más abajo la sección [**Parámetros básicos**](#basic-parameters) para más información acerca de los parámetros.
 5. La hoja **Trabajo de compilación** está abierta para que puede realizar un seguimiento de estado del trabajo de compilación y las configuraciones de nodo (documentos de configuración de MOF) que ocasiona que se colocará en el servidor de extracción de DSC de Azure Automation.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compilación de una configuración DSC con Windows PowerShell
@@ -131,10 +131,10 @@ Para obtener información acerca de cómo pasar PSCredentials como parámetros, 
 
 ## <a name="composite-resources"></a>Recursos compuestos
 
-Los **recursos compuestos** le permiten utilizar las configuraciones de DSC como recursos anidados dentro de una configuración. Esto le permite aplicar varias configuraciones a un solo recurso.  Consulte [Recursos compuestos: uso de una configuración de DSC como un recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para más información acerca de los **recursos compuestos**
+Los **recursos compuestos** le permiten utilizar las configuraciones de DSC como recursos anidados dentro de una configuración. Esto le permite aplicar varias configuraciones a un solo recurso. Consulte [Recursos compuestos: uso de una configuración de DSC como un recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para más información acerca de los **recursos compuestos**
 
 > [!NOTE]
-> Para que los **recursos compuestos** se compilen correctamente, primero debe asegurarse de que los recursos de DSC de los que depende el compuesto están antes instalados en el repositorio de módulos de cuenta de Azure Automation o no se importarán correctamente.
+> Para que los **recursos compuestos** se compilen correctamente, primero debe asegurarse de que los recursos de DSC de los que depende el compuesto están instalados previamente en el repositorio de módulos de cuentas de Azure Automation o no se importarán correctamente.
 
 Para agregar un **recurso compuesto** de DSC, debe agregar el módulo del recurso a un archivo (*.zip). Vaya al repositorio de módulos en su cuenta de Azure Automation. A continuación, haga clic en el botón "Agregar un módulo".
 
@@ -144,7 +144,7 @@ Desplácese al directorio donde se encuentra el archivo. Seleccione el archivo y
 
 ![Selección de módulo](./media/automation-dsc-compile/select_dscresource.png)
 
-A continuación, volverá al directorio de módulos, donde puede supervisar el estado de su **recurso compuesto** mientras se desempaqueta y se registra en Azure Automation.
+A continuación, volverá al directorio de módulos, donde podrá supervisar el estado del **recurso compuesto** mientras se desempaqueta y se registra en Azure Automation.
 
 ![Importación del recurso compuesto](./media/automation-dsc-compile/register_composite_resource.png)
 
@@ -174,12 +174,12 @@ A continuación, puede llamar al **recurso compuesto** en su configuración de e
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
-**ConfigurationData** le permite separar la configuración estructural de cualquier configuración específica del entorno al usar DSC de PowerShell. Consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para obtener más información sobre **ConfigurationData**.
+**ConfigurationData** le permite separar las opciones estructurales de cualquier configuración específica del entorno al usar DSC de PowerShell. Consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para obtener más información sobre **ConfigurationData**.
 
 > [!NOTE]
 > Puede usar **ConfigurationData** cuando compile en DSC de Azure Automation con Azure PowerShell, pero no en Azure Portal.
 
-En el siguiente ejemplo la configuración de DSC usa **ConfigurationData** a través de las palabras clave **$ConfigurationData** y **$AllNodes**. Para este ejemplo también necesitará el [módulo **xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/):
+En el siguiente ejemplo la configuración de DSC usa **ConfigurationData** a través de las palabras clave **$ConfigurationData** y **$AllNodes**. En este ejemplo, también necesitará el [módulo **xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/):
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -200,7 +200,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Puede compilar la configuración de DSC anterior con PowerShell. PowerShell agrega las configuraciones de dos nodos al servidor de extracción de DSC de Azure Automation: **ConfigurationDataSample.MyVM1** y **ConfigurationDataSample.MyVM3**:
+Puede compilar la configuración de DSC anterior con PowerShell. El siguiente código de PowerShell agrega las configuraciones de dos nodos al servidor de extracción de DSC de Automatización de Azure: **ConfigurationDataSample.MyVM1** y **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -238,7 +238,7 @@ Las referencias de recursos son las mismas en las configuraciones de DSC de Azur
 
 ### <a name="credential-assets"></a>Recursos de credenciales
 
-Mientras que las configuraciones DSC en Azure Automation pueden hacer referencia a los recursos de credenciales mediante **Get-AzureRmAutomationCredential**, los recursos de credenciales también se pueden pasar mediante parámetros, si se desea. Si una configuración toma un parámetro del tipo **PSCredential**, tendrá que pasar el nombre de cadena de un activo de credencial de Azure Automation como el valor de ese parámetro en lugar de como un objeto PSCredential. En segundo plano, se recuperará el recurso de credencial de Azure Automation con ese nombre y se pasará a la configuración.
+Mientras que las configuraciones DSC en Azure Automation pueden hacer referencia a los recursos de credenciales mediante **Get-AzureRmAutomationCredential**, los recursos de credenciales también se pueden pasar mediante parámetros, si se desea. Si una configuración toma un parámetro del tipo **PSCredential**, tendrá que pasar el nombre de cadena de un activo de credencial de Azure Automation como el valor de ese parámetro en lugar de como un objeto PSCredential. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Azure Automation va un poco más allá y cifra todo el archivo MOF. Sin embargo, actualmente tiene que indicar a DSC de PowerShell que no importa que las credenciales tengan salida como texto sin formato durante la generación del MOF de configuración de nodo, porque PowerShell DSC desconoce que Azure Automation cifrará todo el archivo MOF después de su generación a través de un trabajo de compilación.
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-Puede compilar la configuración de DSC anterior con PowerShell. PowerShell agrega las configuraciones de dos nodos al servidor de extracción de DSC de Azure Automation: **CredentialSample.MyVM1** y **CredentialSample.MyVM2**.
+Puede compilar la configuración de DSC anterior con PowerShell. El siguiente código de PowerShell agrega las configuraciones de dos nodos al servidor de extracción de DSC de Automatización de Azure: **CredentialSample.MyVM1** y **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{

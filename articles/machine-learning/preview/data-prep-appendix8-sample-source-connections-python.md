@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: 3ffe0e385f9dd71d8341305f42ceb10e0ea49af4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Ejemplo de conexiones de origen personalizadas (Python) 
 Antes de leer este apéndice, vea la [Introducción a la extensibilidad de Python](data-prep-python-extensibility-overview.md).
@@ -59,34 +59,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
-
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Carga de los datos de Azure Cosmos DB en la preparación de datos
-
-Cree un flujo de datos basado en script y use el script siguiente para cargar los datos de Azure Cosmos DB. (Las bibliotecas tienen que instalarse primero. Para más información, consulte el documento de referencia con vínculo anterior).
-
-```python
-import pydocumentdb
-import pydocumentdb.document_client as document_client
-
-import pandas as pd
-
-config = { 
-    'ENDPOINT': '<Endpoint>',
-    'MASTERKEY': '<Key>',
-    'DOCUMENTDB_DATABASE': '<DBName>',
-    'DOCUMENTDB_COLLECTION': '<collectionname>'
-};
-
-# Initialize the Python DocumentDB client.
-client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
-
-# Read databases and take first since id should not be duplicated.
-db = next((data for data in client.ReadDatabases() if data['id'] == config['DOCUMENTDB_DATABASE']))
-
-# Read collections and take first since id should not be duplicated.
-coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config['DOCUMENTDB_COLLECTION']))
-
-docs = client.ReadDocuments(coll['_self'])
-
-df = pd.DataFrame(list(docs))
-```
+## <a name="azure-cosmos-db-as-a-data-source-connection"></a>Azure Cosmos DB como una conexión de origen de datos
+Para un ejemplo de Azure Cosmos DB como una conexión de datos, lea el artículo sobre la [cargar de Azure Cosmos DB como una conexión de datos de origen](data-prep-load-azure-cosmos-db.md)

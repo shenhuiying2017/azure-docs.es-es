@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 540dca5416367f39d6132ae306dd1e44ec0561d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
@@ -95,9 +95,9 @@ El siguiente runbook de ejemplo genera un objeto de cadena e incluye una declara
        Write-Output $output
     }
 
-Para declarar un tipo de salida en Runbooks gráficos o de flujo de trabajo gráfico de PowerShell, puede seleccionar la opción de menú **Entrada y salida** y escribir el nombre del tipo de salida. Se recomienda que utilice el nombre completo de clase .NET para identificarlo fácilmente cuando haga referencia a él desde un Runbook primario. Esto permite exponer todas las propiedades de esa clase en el bus de datos del Runbook y proporciona mucha flexibilidad cuando se usan para la lógica condicional, el registro y la referencia como valores de otras actividades del Runbook.<br> ![Opción de entrada y salida de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+Para declarar un tipo de salida en Runbooks gráficos o de flujo de trabajo gráfico de PowerShell, puede seleccionar la opción de menú **Entrada y salida** y escribir el nombre del tipo de salida. Se recomienda que utilice el nombre completo de clase .NET para identificarlo fácilmente cuando haga referencia a él desde un runbook primario. Esto permite exponer todas las propiedades de esa clase en el bus de datos del runbook y proporciona mucha flexibilidad cuando se usan para la lógica condicional, el registro y la referencia como valores de otras actividades del runbook.<br> ![Opción de entrada y salida de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-En el siguiente ejemplo, tenemos dos Runbooks gráficos para demostrar esta característica. Si se aplica el modelo de diseño modular de runbook, tendremos un runbook que actúa como *plantilla de runbook de autenticación* que administra la autenticación con Azure mediante la cuenta de ejecución. El segundo Runbook, que normalmente realizaría la lógica básica para automatizar un escenario determinado, en este caso va a ejecutar la *plantilla de Runbook de autenticación* y a mostrar los resultados en el panel de salida **Prueba** .  En circunstancias normales, haríamos que este Runbook hiciera algo en un recurso que está aprovechando la salida del Runbook secundario.    
+En el siguiente ejemplo, tenemos dos runbooks gráficos para demostrar esta característica. Si se aplica el modelo de diseño modular de runbook, tendremos un runbook que actúa como *plantilla de runbook de autenticación* que administra la autenticación con Azure mediante la cuenta de ejecución. El segundo Runbook, que normalmente realizaría la lógica básica para automatizar un escenario determinado, en este caso va a ejecutar la *plantilla de Runbook de autenticación* y a mostrar los resultados en el panel de salida **Prueba** . En circunstancias normales, haríamos que este runbook hiciera algo en un recurso que está aprovechando la salida del runbook secundario.    
 
 Esta es la lógica básica del runbook **AuthenticateTo-Azure**.<br> ![Autenticar ejemplo de plantilla de Runbook](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
@@ -105,7 +105,7 @@ Incluye el tipo de salida *Microsoft.Azure.Commands.Profile.Models.PSAzureContex
 
 Aunque este runbook es muy simple, hay un elemento de configuración al que se debe llamar aquí. La última actividad está ejecutando el cmdlet **Write-Output** y escribe los datos de perfil en una variable $_ mediante una expresión de PowerShell para el parámetro **Inputobject** necesario para ese cmdlet.  
 
-Para el segundo runbook de este ejemplo, denominado *Test-ChildOutputType*, solo tenemos dos actividades.<br> ![Runbook de tipo de salida secundario de ejemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+Para el segundo runbook de este ejemplo, denominado *Test-ChildOutputType*, solo tiene dos actividades.<br> ![Runbook de tipo de salida secundario de ejemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
 La primera actividad llama al runbook **AuthenticateTo-Azure** y la segunda actividad está ejecutando el cmdlet **Write-Verbose** con el **origen de datos** de **Resultado de la actividad** y el valor de **Ruta de acceso de campo** es **Context.Subscription.SubscriptionName**, que especifica la salida de contexto del runbook **AuthenticateTo-Azure**.<br> ![Origen de datos de parámetro del cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
@@ -128,7 +128,7 @@ Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](h
     Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 
 ### <a name="verbose-stream"></a>Flujo detallado
-El flujo de mensajes detallados se usa para proporcionar información general acerca del funcionamiento del runbook. Como los runbooks no tienen disponible el [Flujo de depuración](#Debug) , debe usar mensajes detallados para proporcionar información referente a la depuración. De forma predeterminada, los mensajes detallados de los runbooks publicados no se almacenarán en el historial de trabajos. Para almacenar mensajes detallados, configure los runbooks publicados mediante la opción “Escribir registros detallados” que se encuentra en la pestaña “Configurar” del runbook, en el Portal de administración de Azure. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados de un runbook por motivos de rendimiento. Active esta opción solo para solucionar problemas o para depurar un runbook.
+El flujo de mensajes detallados se usa para proporcionar información general acerca del funcionamiento del runbook. Como los runbooks no tienen disponible el [Flujo de depuración](#Debug) , debe usar mensajes detallados para proporcionar información referente a la depuración. De forma predeterminada, los mensajes detallados de los runbooks publicados no se almacenan en el historial de trabajos. Para almacenar mensajes detallados, configure los runbooks publicados mediante la opción “Escribir registros detallados” que se encuentra en la pestaña “Configurar” del runbook, en el Portal de administración de Azure. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados de un runbook por motivos de rendimiento. Active esta opción solo para solucionar problemas o para depurar un runbook.
 
 Cuando se [prueba un runbook](automation-testing-runbook.md), los mensajes detallados no se muestran aunque el runbook esté configurado para escribir registros detallados. Para mostrar mensajes detallados al [probar un runbook](automation-testing-runbook.md), debe establecer la variable $VerbosePreference en “Continue”. Cuando esa variable está establecida, los mensajes detallados se muestran en el panel de salida de la prueba del Portal de Azure.
 
@@ -149,7 +149,7 @@ El cmdlet [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) n
 ## <a name="preference-variables"></a>Variables de preferencia
 Windows PowerShell usa [variables de preferencia](http://technet.microsoft.com/library/hh847796.aspx) para determinar cómo responder a los datos que se hayan enviado a diferentes flujos de salida. Puede establecer estas variables en un runbook para controlar cómo responderá a los datos que se hayan enviado a diferentes flujos.
 
-En la siguiente tabla se enumeran las variables de preferencia que pueden usarse en runbooks, junto con sus valores válidos y predeterminados. Tenga en cuenta que esta tabla solo incluye los valores que son válidos en un runbook Hay otros valores adicionales que son válidos para las variables de preferencia cuando se usan en Windows PowerShell fuera de Azure Automation.
+En la siguiente tabla se enumeran las variables de preferencia que pueden usarse en runbooks, junto con sus valores válidos y predeterminados. Esta tabla solo incluye los valores que son válidos en un runbook. Hay otros valores adicionales que son válidos para las variables de preferencia cuando se usan en Windows PowerShell fuera de Azure Automation.
 
 | Variable | Valor predeterminado | Valores válidos |
 |:--- |:--- |:--- |
@@ -170,7 +170,7 @@ En la siguiente tabla se muestra el comportamiento de los valores de las variabl
 Puede ver los detalles de un trabajo de runbook en el Portal de Azure de la pestaña llamada Trabajos de un runbook. La opción Resumen del trabajo le muestra los parámetros de entrada y el [Flujo de salida](#Output), además de información general sobre el trabajo y las excepciones que se han producido. En la opción Historial se incluyen los mensajes del [Flujo de salida](#Output) y los [Flujos de error y de advertencia](#WarningError), además del [Flujo detallado](#Verbose) y los [Registros de progreso](#Progress), si el runbook está configurado para escribir registros detallados y de progreso.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado Stream en el cual se especifica qué flujo hay que devolver. Puede elegir la opción “Cualquiera” para devolver todos los flujos del trabajo.
+En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado Stream en el cual se especifica qué flujo hay que devolver. Puede elegir la opción **Cualquiera** para devolver todos los flujos del trabajo.
 
 En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que finalice. Una vez completado, el flujo de salida se recopila del trabajo.
 
@@ -194,27 +194,27 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
     
 
 ### <a name="graphical-authoring"></a>Creación gráfica
-Para Runbooks gráficos, hay disponible un registro adicional en forma de seguimiento del nivel de actividad.  Hay dos niveles de seguimiento: básico y detallado.  En el seguimiento básico, puede ver la hora de inicio y de finalización de cada actividad en el Runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad.  En el seguimiento detallado, obtendrá un seguimiento básico y, además, datos de entrada y de salida para cada actividad.  Tenga en cuenta que actualmente los registros de seguimiento se escriben usando el flujo detallado, por lo que debe habilitar el registro detallado cuando habilite el seguimiento.  En el caso de los Runbooks gráficos con el seguimiento habilitado no es necesario registrar los registros de progreso, ya que el seguimiento básico tiene la misma finalidad y es más informativo.
+Para Runbooks gráficos, hay disponible un registro adicional en forma de seguimiento del nivel de actividad. Hay dos niveles de seguimiento: básico y detallado. En el seguimiento básico, puede ver la hora de inicio y de finalización de cada actividad en el Runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad. En el seguimiento detallado, obtendrá un seguimiento básico y, además, datos de entrada y de salida para cada actividad. Actualmente los registros de seguimiento se escriben usando el flujo detallado, por lo que debe habilitar el registro detallado cuando habilite el seguimiento. En el caso de los runbooks gráficos con el seguimiento habilitado no es necesario registrar los registros de progreso, ya que el seguimiento básico tiene la misma finalidad y es más informativo.
 
 ![Vista de secuencias de trabajos de creación de gráficos](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-Puede ver en la captura de pantalla anterior que, cuando se habilita el registro detallado y el seguimiento para los Runbooks gráficos, hay mucha más información disponible en la vista de secuencias de trabajos de producción.  Esta información adicional puede ser esencial para solucionar problemas de producción con un Runbook. Por lo tanto, solo debería habilitarlo con este fin, y no hacerlo como regla general. Los registros de seguimiento pueden ser especialmente numerosos.  Con el seguimiento de runbooks gráficos puede obtener de dos a cuatro registros por actividad, en función de si configuró el seguimiento básico o detallado.  A menos que necesite esta información para realizar un seguimiento del progreso de un Runbook para solucionar problemas, le conviene mantener el seguimiento desactivado.
+Puede ver en la captura de pantalla anterior que, cuando se habilita el registro detallado y el seguimiento para los runbooks gráficos, hay mucha más información disponible en la vista de secuencias de trabajos de producción. Esta información adicional puede ser esencial para solucionar problemas de producción con un Runbook. Por lo tanto, solo debería habilitarlo con este fin, y no hacerlo como regla general. Los registros de seguimiento pueden ser especialmente numerosos. Con el seguimiento de runbooks gráficos puede obtener de dos a cuatro registros por actividad, en función de si configuró el seguimiento básico o detallado. A menos que necesite esta información para realizar un seguimiento del progreso de un Runbook para solucionar problemas, le conviene mantener el seguimiento desactivado.
 
-**Para habilitar el seguimiento del nivel de actividad, siga estos pasos.**
+**Para habilitar el seguimiento del nivel de actividad, siga estos pasos:**
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
-3. En la hoja Runbooks, haga clic para seleccionar un Runbook gráfico de la lista.
-4. En la hoja Configuración del Runbook seleccionado, haga clic en **Registro y seguimiento**.
-5. En la hoja Registro y seguimiento, en Registrar registros detallados, haga clic en **Activar** para habilitar el registro detallado. En Seguimiento del nivel de actividad, cambie el nivel de seguimiento a **Básico** o **Detallado**, en función del nivel de seguimiento que necesite.<br>
+2. En **Automatización de procesos**, seleccione **Runbooks** para abrir la lista de runbooks.
+3. En la página Runbooks, haga clic para seleccionar un runbook gráfico de la lista.
+4. En **Configuración**, haga clic en **registro y seguimiento**.
+5. En la página Registro y seguimiento, en Registrar registros detallados, haga clic en **Activar** para habilitar el registro detallado. En Seguimiento del nivel de actividad, cambie el nivel de seguimiento a **Básico** o **Detallado**, en función del nivel de seguimiento que necesite.<br>
    
    ![Hoja de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) Log Analytics
-Automation puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo devLog Analytics de Microsoft Operations Management Suite (OMS).  Con Log Analytics puede:
+Automation puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo devLog Analytics de Microsoft Operations Management Suite (OMS). Con Log Analytics puede:
 
 * Obtener información sobre los trabajos de Automation 
-* Desencadenar un correo electrónico o una alerta en función de en el estado de trabajo del runbook (por ejemplo, error o en suspensión) 
+* Desencadenador de un correo electrónico o una alerta en función del estado de trabajo del runbook (por ejemplo, error o en suspensión) 
 * Escribir consultas avanzadas en las transmisiones de trabajos 
 * Correlacionar trabajos en cuentas de Automation 
 * Visualizar el historial de trabajos a lo largo del tiempo    

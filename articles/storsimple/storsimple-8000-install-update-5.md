@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
 
@@ -75,28 +75,28 @@ El método de revisión implica los tres pasos siguientes:
 
 Debe descargar e instalar las revisiones siguientes en el orden indicado y las carpetas sugeridas:
 
-| Orden | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Actualización de software<br> Descargar tanto _HcsSfotwareUpdate.exe_ como _CisMSDAgent.exe_ |Regular  <br></br>Sin interrupciones |~ 25 min |FirstOrderUpdate|
+| 1. |KB4037264 |Actualización de software<br> Descargar _HcsSoftwareUpdate.exe_ y _CisMSDAgent.exe_ |Normal <br></br>Sin interrupciones |~ 25 min |FirstOrderUpdate|
 
 Si actualiza desde un dispositivo que ejecuta Update 4, basta con instalar las actualizaciones acumulativas del sistema operativo como actualizaciones de segundo orden.
 
-| Orden | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Paquete de actualizaciones acumulativas de SO <br> Descargar la versión R2 de Windows Server 2012 |Regular  <br></br>Sin interrupciones |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Paquete de actualizaciones acumulativas de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
 
 Si la instalación se realiza desde un dispositivo que ejecuta Update 3 o versiones anteriores, instale los siguientes elementos además de las actualizaciones acumulativas.
 
-| Orden | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Actualizaciones de firmware y controlador LSI <br> Actualización de firmware de USM (versión 3.38) |Regular  <br></br>Sin interrupciones |~ 3 horas <br> (incluye 2A. + 2B. + 2C).|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Paquete de actualizaciones de seguridad de SO <br> Descargar la versión R2 de Windows Server 2012 |Regular  <br></br>Sin interrupciones |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Paquete de actualizaciones de SO <br> Descargar la versión R2 de Windows Server 2012 |Regular  <br></br>Sin interrupciones |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Actualizaciones de firmware y controlador LSI <br> Actualización de firmware de USM (versión 3.38) |Normal <br></br>Sin interrupciones |~ 3 horas <br> (incluye 2A. + 2B. + 2C).|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Paquete de actualizaciones de seguridad de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Paquete de actualizaciones de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
 
 
 Es posible que también necesite instalar actualizaciones de firmware de disco en la parte superior de todas las actualizaciones que se muestran en las tablas anteriores. Puede comprobar si las necesita actualizaciones de firmware de disco ejecutando el cmdlet `Get-HcsFirmwareVersion` . Si ejecuta estas versiones de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, no necesita instalar estas actualizaciones.
 
-| Orden | KB | Descripción | Tipo de actualización | Hora de instalación | Carpeta de instalación|
+| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware del disco |Mantenimiento  <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 
@@ -112,6 +112,6 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información sobre el [lanzamiento de Update 5](storsimple-update5-release-notes.md).
 

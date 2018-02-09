@@ -1,11 +1,24 @@
- ---
-title: Importación del entorno de Postman para llamadas REST de Azure Media Services description: En este tema se proporciona una definición del entorno de Postman para las llamadas de REST de Azure Media Services.
-services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: "Importación del entorno de Postman para llamadas REST de Azure Media Services"
+description: "En este tema se proporciona una definición del entorno de Postman para llamadas REST de Azure Media Services."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Importación del entorno de Postman 
 
 Este artículo contiene una definición de las variables de entorno de **Postman** que se usan en la [colección de Postman](postman-collection.md) que contiene solicitudes HTTP agrupadas que llaman a las API de REST de Media Services. El tutorial [Configuración de Postman para llamadas API de REST de Media Services](media-rest-apis-with-postman.md) usa los archivos de colección y de entorno.

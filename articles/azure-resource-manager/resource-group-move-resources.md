@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -53,7 +53,10 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Si los identificadores de inquilino para las suscripciones de origen y destino no son los mismos, debe ponerse en contacto con [soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para mover los recursos a un nuevo inquilino.
+  Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos: 
+
+  * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
+  * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. El servicio debe permitir la capacidad de traslado de recursos. En este artículo se enumeran los servicios que permiten mover recursos y los servicios que no permiten el traslado de recursos.
 3. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso.
@@ -93,7 +96,7 @@ Puede trasladar la mayoría de los recursos a través de las operaciones de auto
 
 Póngase en contacto con [soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) cuando necesite:
 
-* Mueva los recursos a una nueva cuenta de Azure (y el inquilino de Azure Active Directory).
+* Traslade los recursos a una nueva cuenta de Azure (e inquilino de Azure Active Directory) y si necesita ayuda consulte las instrucciones de la sección anterior.
 * Trasladar recursos clásicos, pero que tienen problemas con las limitaciones.
 
 ## <a name="services-that-enable-move"></a>Servicios que permiten el traslado
@@ -319,7 +322,7 @@ Procedimiento para mover una máquina virtual inscrita en **Azure Backup** entre
  1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
  2. Traslade la máquina virtual al grupo de recursos de destino
  3. Vuelva a protegerla en el mismo almacén o en otro nuevo. Los usuarios pueden restaurar desde los puntos de restauración disponibles creados antes de la operación de traslado.
-Aunque el usuario traslade la máquina virtual de la que se ha realizado la copia de seguridad entre suscripciones, los pasos 1 y 2 serán los mismos. En el paso 3, el usuario necesita proteger la máquina virtual en un almacén que ya exista o que se haya creado en la suscripción de destino. El almacén de Recovery Services no admite copias de seguridad entre suscripciones.
+Aunque el usuario traslade la máquina virtual de la que se ha realizado la copia de seguridad entre suscripciones, los pasos 1 y 2 serán los mismos. En el paso 3, el usuario necesita proteger la máquina virtual en un nuevo almacén presente o en uno creado en la suscripción de destino. El almacén de Recovery Services no admite copias de seguridad entre suscripciones.
 
 ## <a name="hdinsight-limitations"></a>Limitaciones de HDInsight
 

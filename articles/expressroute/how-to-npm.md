@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configuración de Network Performance Monitor para ExpressRoute (versión preliminar)
 
@@ -44,8 +44,9 @@ Puede:
 Puede supervisar circuitos ExpressRoute en cualquier parte del mundo mediante un área de trabajo que se hospeda en una de las siguientes regiones:
 
 * Europa occidental 
-* Este de EE. UU. 
+* Este de EE. UU 
 * Sudeste de Asia 
+* Sudeste de Australia
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -174,16 +175,13 @@ Para supervisar los servidores de agente que se encuentran en Azure, debe config
 
 Para más información, consulte [Grupos de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Paso 4: Solicitud de poner en la lista blanca el área de trabajo
-
 >[!NOTE]
 >Asegúrese de que ha instalado los agentes (tanto el agente de servidor local como el agente de servidor de Azure) y que ha ejecutado el script de PowerShell antes de continuar con este paso.
 >
 >
 
-Antes de empezar a usar la característica de supervisión de ExpressRoute de Network Performance Monitor, debe solicitar que el área de trabajo esté en la lista blanca. [Haga clic aquí para ir a la página y rellene el formulario de solicitud](https://aka.ms/npmcohort). (Sugerencia: Puede que desee abrir este vínculo en una nueva ventana o pestaña). El proceso de creación de listas blancas puede tardar un día laborable o más. Cuando se complete la creación de listas blancas, recibirá un correo electrónico.
 
-## <a name="setupmonitor"></a>Paso 5: Configuración de Network Performance Monitor para la supervisión de ExpressRoute
+## <a name="setupmonitor"></a>Paso 4: Configuración de Network Performance Monitor para la supervisión de ExpressRoute
 
 >[!WARNING]
 >No continúe hasta que el área de trabajo se encuentre en la lista blanca y reciba un correo electrónico de confirmación.
@@ -208,13 +206,13 @@ Después de completar las secciones anteriores y de comprobar que ha estado en l
 
   ![iconos de supervisión](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Paso 6: Visualización de los iconos de supervisión
+## <a name="explore"></a>Paso 5: Visualización de los iconos de supervisión
 
 ### <a name="dashboard"></a>Página Network Performance Monitor
 
 La página Network Performance Monitor contiene una página de ExpressRoute que muestra una introducción del estado de emparejamientos y circuitos de ExpressRoute.
 
-  ![Panel](.\media\how-to-npm\dashboard.png)
+  ![panel](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Lista de circuitos
 

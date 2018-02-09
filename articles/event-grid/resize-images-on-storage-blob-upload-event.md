@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Implementar código sin servidor con Azure Functions
 > * Crear una suscripción de eventos de Blob Storage en Event Grid
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -51,7 +51,7 @@ Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-Azure Functions necesita una cuenta de almacenamiento general. Cree una cuenta de almacenamiento general independiente en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#create).
+Azure Functions necesita una cuenta de almacenamiento general. Cree una cuenta de almacenamiento general independiente en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas. 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función  
 
-Debe tener una Function App para hospedar la ejecución de la función. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#create). 
+Debe tener una Function App para hospedar la ejecución de la función. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 En el siguiente comando, sustituya su propio nombre único de Function App donde vea el marcador de posición `<function_app>`. El `<function_app>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. En este caso, `<general_storage_account>` es el nombre de la cuenta de almacenamiento general creada.  
 
@@ -78,7 +78,7 @@ Ahora debe configurar la Function App para conectarse a Blob Storage.
 
 ## <a name="configure-the-function-app"></a>Configuración de la Function App
 
-La función necesita la cadena de conexión para conectarse a la cuenta de Blob Storage. En este caso, `<blob_storage_account>` es el nombre de la cuenta de Blob Storage creada en el tutorial anterior. Obtenga la cadena de conexión con el comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). El nombre del contenedor de la imagen en miniatura también debe establecerse en `thumbs`. Agregue esta configuración de aplicación a la Function App con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+La función necesita la cadena de conexión para conectarse a la cuenta de Blob Storage. En este caso, `<blob_storage_account>` es el nombre de la cuenta de Blob Storage creada en el tutorial anterior. Obtenga la cadena de conexión con el comando [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). El nombre del contenedor de la imagen en miniatura también debe establecerse en `thumbs`. Agregue esta configuración de aplicación a la Function App con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ Ahora puede implementar un proyecto de código de función en esta Function App.
 
 ## <a name="deploy-the-function-code"></a>Implementación del código de función 
 
-La función de C# que realiza el cambio de tamaño de la imagen está disponible en este [repositorio de GitHub de ejemplo](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+La función de C# que realiza el cambio de tamaño de la imagen está disponible en este [repositorio de GitHub de ejemplo](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este proyecto de código de Functions en la Function App mediante el comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
 
 En el siguiente comando, `<function_app>` es la misma Function App creada en el script anterior.
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 La función de cambio de tamaño de imagen se desencadena mediante una suscripción de eventos a un evento de blob creado. Los datos pasados al desencadenador incluyen la dirección URL del blob, que a su vez se pasa en el enlace de entrada para obtener la imagen cargada desde Blob Storage. La función genera una imagen en miniatura y escribe el flujo resultante en un contenedor independiente de Blob Storage. Para más información sobre esta función, vea el [archivo Léame en el repositorio de ejemplo](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
+
+Este proyecto usa `EventGridTrigger` para el tipo de desencadenador. Es recomendable usar el desencadenador de Event Grid antes que desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores de Event Grid Function. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
+
 El código de proyecto de función se implementa directamente desde el repositorio público de ejemplo. Para más información sobre las opciones de implementación de Azure Functions, vea [Implementación continua para Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-your-event-subscription"></a>Creación de la suscripción de eventos
@@ -129,8 +131,8 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | imageresizersub | Nombre que identifica a la nueva suscripción de eventos. | 
     | **Tipo de tema** |  Cuentas de almacenamiento | Elija el proveedor de eventos de las cuentas de almacenamiento. | 
-    | **Suscripción** | Su suscripción | De forma predeterminada, se debe seleccionar la suscripción actual.   |
-    | **Grupos de recursos** | myResourceGroup | Seleccione **Usar existente** y elija el grupo de recursos que se ha venido usando en este tema.  |
+    | **Suscripción** | Su suscripción de Azure | De forma predeterminada, se debe seleccionar la suscripción de Azure actual.   |
+    | **Grupos de recursos** | myResourceGroup | Seleccione **Usar existente** y elija el grupo de recursos que se ha venido usando en este tutorial.  |
     | **Instancia** |  `<blob_storage_account>` |  Elija la cuenta de Blob Storage que ha creado. |
     | **Tipos de evento** | Blob creado | Desactive todos los tipos que no sean **Blob creado**. Solo los tipos de evento de `Microsoft.Storage.BlobCreated` se pasan a la función.| 
     | **Punto de conexión de suscriptor** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. | 
@@ -150,9 +152,9 @@ Observe que después de que la imagen cargada desaparezca, se muestra una copia 
 
 ![Aplicación web publicada en el explorador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una cuenta general de Azure Storage

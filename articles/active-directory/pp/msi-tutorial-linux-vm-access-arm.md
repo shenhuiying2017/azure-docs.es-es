@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Uso de una identidad de servicio administrada (MSI) asignada por el usuario en una máquina virtual Linux para acceder a Azure Resource Manager
 
@@ -36,7 +36,7 @@ Aprenderá a:
 > * Conceder acceso a la MSI a un grupo de recursos en Azure Resource Manager 
 > * Obtener un token de acceso mediante la MSI y usarlo para llamar a Azure Resource Manager 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -73,7 +73,7 @@ En este tutorial, creará primero una nueva máquina virtual Linux. También pue
     az login
     ```
 
-2. Cree una MSI asignada por el usuario mediante [az identity create](/cli/azure/identity#az_identity_create). El parámetro `-g` especifica el grupo de recursos donde se creó la MSI, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<MSI NAME>` con sus propios valores:
+2. Cree una MSI asignada por el usuario mediante el cmdlet [az identity create](/cli/azure/identity#az_identity_create). El parámetro `-g` especifica el grupo de recursos donde se creó la MSI, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<MSI NAME>` por sus propios valores:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -100,7 +100,7 @@ En este tutorial, creará primero una nueva máquina virtual Linux. También pue
 
 A diferencia de una MSI asignada por el sistema, los clientes pueden usar una MSI asignada por el usuario en varios recursos de Azure. En este tutorial, la asignará a una sola máquina virtual. También puede asignarla a más de una máquina virtual.
 
-Asigne la MSI asignada por el usuario a la máquina virtual Linux con [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`:
+Asigne la MSI asignada por el usuario a la máquina virtual Linux con el cmdlet [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` por sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`:
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 La MSI proporciona el código con un token de acceso para autenticarse en API de recursos que admitan la autenticación de Azure AD. En este tutorial, el código accede a la API de Azure Resource Manager. 
 
-No obstante, antes de que el código pueda acceder a la API, debe conceder a la identidad de MSI acceso a un recurso en Azure Resource Manager. En este caso, se trata del grupo de recursos que contiene la máquina virtual. Asegúrese de reemplazar los valores de los parámetros `<CLIENT ID>`, `<SUBSCRIPTION ID>` y `<RESOURCE GROUP>` con sus propios valores. Reemplace `<CLIENT ID>` por la propiedad `clientId` devuelta por el comando `az identity create` en [Creación de una MSI asignada por el usuario](#create-a-user-assigned-msi): 
+No obstante, antes de que el código pueda acceder a la API, debe conceder a la identidad de MSI acceso a un recurso en Azure Resource Manager. En este caso, se trata del grupo de recursos que contiene la máquina virtual. Actualice los valores de `<SUBSCRIPTION ID>` y `<RESOURCE GROUP>` según sea adecuado para su entorno. Además, asegúrese de reemplazar `<MSI PRINCIPALID>` por la propiedad `principalId` devuelta por el comando `az identity create` en [Creación de una MSI asignada por el usuario](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 La respuesta contiene detalles de la asignación de roles que se ha creado, de forma similar al ejemplo siguiente:

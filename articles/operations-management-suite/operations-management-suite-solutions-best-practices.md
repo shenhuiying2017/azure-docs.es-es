@@ -1,5 +1,5 @@
 ---
-title: "Procedimientos recomendados para la solución de administración de OMS | Microsoft Docs"
+title: "Procedimientos recomendados para la solución de administración en Azure | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Procedimientos recomendados para crear soluciones de administración en Operations Management Suite (OMS) (versión preliminar)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedimientos recomendados para la creación de soluciones de administración en Azure (versión preliminar)
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
+> La versión de la documentación para crear soluciones de administración en Azure está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
 
-En este artículo se presentan procedimientos recomendados para [crear un archivo de solución de administración](operations-management-suite-solutions-solution-file.md) en Operations Management Suite (OMS).  Esta información se actualizará a medida que se detecten procedimientos recomendados adicionales.
+En este artículo se presentan procedimientos recomendados para [crear un archivo de solución de administración](operations-management-suite-solutions-solution-file.md) en Azure.  Esta información se actualizará a medida que se detecten procedimientos recomendados adicionales.
 
 ## <a name="data-sources"></a>Orígenes de datos
 - Los orígenes de datos se pueden [configurar con una plantilla de Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), pero no deben incluirse en un archivo de solución.  El motivo es que la configuración de orígenes de datos no es actualmente idempotente, lo que significa que la solución podría sobrescribir la configuración existente en el área de trabajo del usuario.<br><br>Por ejemplo, la solución podría requerir eventos de advertencia y error desde el registro de eventos de la aplicación.  Si se especifica esto como un origen de datos en la solución, corre el riesgo de quitar eventos de información si el usuario lo tuviera configurado en su área de trabajo.  Si incluyera todos los eventos, podría estar recopilando excesivos eventos de información en el área de trabajo del usuario.
@@ -48,7 +48,7 @@ En este artículo se presentan procedimientos recomendados para [crear un archiv
 - Configure la solución para que [haga referencia](operations-management-suite-solutions-solution-file.md#solution-resource) a reglas de alerta de manera que el usuario pueda cambiar su configuración.  Es posible que desee realizar cambios, como modificar la lista de destinatarios, cambiar el umbral de la alerta o deshabilitar la regla de alerta. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Recorra el proceso básico de [diseño y creación de una solución de administración](operations-management-suite-solutions-creating.md).
 * Aprenda a [crear un archivo de solución](operations-management-suite-solutions-solution-file.md).
 * [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.

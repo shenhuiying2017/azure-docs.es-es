@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
@@ -96,11 +96,11 @@ Los siguientes temas de referencia proporcionan más información sobre la carga
 
 ## <a name="file-upload-notifications"></a>Notificaciones de carga de archivos
 
-Opcionalmente, cuando el dispositivo notifica a IoT Hub que la carga ha finalizado, el servicio puede generar un mensaje de notificación que contiene el nombre y la ubicación de almacenamiento del archivo.
+Opcionalmente, cuando el dispositivo notifica a IoT Hub que la carga ha finalizado, el servicio genera un mensaje de notificación que contiene el nombre y la ubicación de almacenamiento del archivo.
 
 Como se ha explicado en [Puntos de conexión][lnk-endpoints], IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje][lnk-lifecycle]. Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | EnqueuedTimeUtc |Marca de tiempo que indica cuándo se creó la notificación. |
 | deviceId |**DeviceId** del dispositivo que ha cargado el archivo. |
@@ -126,7 +126,7 @@ Como se ha explicado en [Puntos de conexión][lnk-endpoints], IoT Hub entrega no
 
 Cada centro de IoT expone las siguientes opciones de configuración para las notificaciones de carga de archivos:
 
-| Propiedad | Description | Intervalo y valor predeterminado |
+| Propiedad | DESCRIPCIÓN | Intervalo y valor predeterminado |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controla si las notificaciones de carga de archivos se escriben en el punto de conexión de notificaciones de archivo. |Bool. Valor predeterminado: True. |
 | **fileNotifications.ttlAsIso8601** |TTL predeterminado para las notificaciones de carga de archivos. |Intervalo ISO_8601 hasta 48H (1 minuto como mínimo). Valor predeterminado: 1 hora. |
@@ -143,7 +143,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha aprendido a cargar los archivos desde dispositivos con IoT Hub, puede interesarle el siguiente tema de la Guía del desarrollador de IoT Hub:
 
@@ -153,7 +153,7 @@ Ahora que ha aprendido a cargar los archivos desde dispositivos con IoT Hub, pue
 * [Invocación de un método directo en un dispositivo][lnk-devguide-directmethods]
 * [Programación de trabajos en varios dispositivos][lnk-devguide-jobs]
 
-Si desea probar algunos de los conceptos descritos en este artículo, puede interesarle el siguiente tutorial de IoT Hub:
+Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
 * [Cómo cargar archivos desde dispositivos a la nube con IoT Hub][lnk-fileupload-tutorial]
 

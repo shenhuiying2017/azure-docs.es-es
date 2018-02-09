@@ -1,10 +1,10 @@
 ---
-title: "Comprobación de la conectividad con Azure Network Watcher: PowerShell | Microsoft Docs"
-description: "En esta página se explica cómo comprobar la conectividad con Network Watcher mediante PowerShell"
+title: "Solución de problemas de conexiones con Azure Network Watcher: PowerShell | Microsoft Docs"
+description: "Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con PowerShell."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Comprobación de la conectividad con Azure Network Watcher mediante PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Solución de problemas de conexiones con Azure Network Watcher mediante PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API de REST de Azure](network-watcher-connectivity-rest.md)
 
-Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual a un punto de conexión determinado.
+Obtenga información sobre cómo usar la solución de problemas de conexiones para comprobar si se puede establecer una conexión TCP directa desde una máquina virtual a un punto de conexión determinado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se da por hecho que tiene los siguientes recursos:
-
-* Una instancia de Network Watcher en la región cuya conectividad quiere comprobar.
-
-* Máquinas virtuales con las que comprobar la conectividad.
+* Una instancia de Network Watcher en la región en la que desea solucionar los problemas de una conexión.
+* Las máquinas virtuales con las cuales solucionar los problemas de las conexiones.
 
 > [!IMPORTANT]
-> La comprobación de conectividad requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La solución de problemas de conexiones requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 
-En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
+En este ejemplo se comprueba una conexión a una máquina virtual de destino a través del puerto 80. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Problemas de validación de enrutamiento
 
-En el ejemplo se comprueba la conectividad entre una máquina virtual y un punto de conexión remoto. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
+En este ejemplo se comprueba la conectividad entre una máquina virtual y un punto de conexión remoto. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -201,7 +198,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Comprobación de la latencia del sitio web
 
-En el siguiente ejemplo se comprueba la conectividad con un sitio web. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
+En el ejemplo siguiente se comprueba la conectividad con un sitio web. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -252,9 +249,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad con un punto de conexión de almacenamiento
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad a un punto de conexión de almacenamiento
 
-En el ejemplo siguiente se prueba la conectividad de una máquina virtual con una cuenta de almacenamiento de blog. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
+En el ejemplo siguiente se comprueba la conectividad de una máquina virtual con una cuenta de Blob Storage. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 El siguiente json es la respuesta de ejemplo que procede de la ejecución del cmdlet anterior. Como el destino es accesible, la propiedad `ConnectionStatus` se muestra como **Reachable** (accesible).  Se proporcionan los detalles sobre el número de saltos necesarios para llegar a la latencia y al blob de almacenamiento.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>pasos siguientes
 
-Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
+Para determinar si se permite cierto tráfico hacia o desde la máquina virtual, sepa cómo [consultar la comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md).
 
 Si se está bloqueando el tráfico y no debería ser así, vea [Administración de grupos de seguridad de red](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para realizar un seguimiento de las reglas del grupo de seguridad de red y de seguridad definidas.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 Con seguridad operativa de Azure, se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security) es una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
@@ -52,11 +52,11 @@ Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad p
 ### <a name="automation"></a>Automation
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) ofrece a los usuarios una manera de automatizar las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia que se realizan normalmente en un entorno empresarial y en la nube. Ahorra tiempo y aumenta la confiabilidad de las tareas administrativas periódicas e incluso las programa para que se realicen automáticamente a intervalos regulares. Puede automatizar procesos mediante runbooks o automatizar la administración de configuración mediante la configuración de estado deseado.
 
-### <a name="backup"></a>Copia de seguridad
+### <a name="backup"></a>Backup
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) es el servicio de Azure que puede usar para hacer una copia de seguridad de los datos (protegerlos) y restaurarlos en Microsoft Cloud. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Recovery Services de Azure. Vea la [tabla de componentes de Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidad del negocio a través de la organización de la replicación de máquinas virtuales y físicas locales en Azure, o en un sitio secundario. Si su sitio primario no está disponible, se realizará la conmutación por error a la ubicación secundaria para que los usuarios pueden seguir trabajando y se realizará una conmutación por recuperación cuando los sistemas vuelvan a las condiciones de funcionamiento normales. detección de amenazas inteligente y eficaz.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidad del negocio a través de la organización de la replicación de máquinas virtuales y físicas locales en Azure, o en un sitio secundario. Si su sitio primario no está disponible, se realizará la conmutación por error a la ubicación secundaria para que los usuarios pueden seguir trabajando y se realizará una conmutación por recuperación cuando los sistemas vuelvan a las condiciones de funcionamiento normales. Use Azure Security Center para realizar una detección de amenazas más inteligente y eficaz.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) es la solución completa de identidad como servicio (IDaaS) de Microsoft que:
@@ -154,7 +154,7 @@ Los profesionales de DevOps consolidados adoptarán algunos de los siguientes pr
 -   La [infraestructura como código (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de host de aplicaciones estables y seguras.
 -   La arquitectura de [microservicios](https://www.visualstudio.com/learn/what-are-microservices/) aprovecha el aislamiento de los casos de uso empresariales en servicios reusables reducidos.  Esta arquitectura permite la escalabilidad y la eficacia.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para aprender más acerca de la solución Security and Audit de OMS, vea los siguientes artículos:
 
 - [Operations Management Suite | Security &amp; Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)

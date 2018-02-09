@@ -1,10 +1,10 @@
 ---
-title: "Introducción a la comprobación de conectividad en Azure Network Watcher | Microsoft Docs"
-description: "En esta página se proporciona una introducción a la funcionalidad de conectividad de Network Watcher"
+title: "Introducción a la solución de problemas de conexiones en Azure Network Watcher | Microsoft Docs"
+description: "En esta página se proporciona información general de la funcionalidad de solución de problemas de conexiones en Network Watcher."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 16ceef9c923b6a933a5caf752991b466346e0ebc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Introducción a la comprobación de conectividad en Azure Network Watcher
+# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 
-La característica de conectividad de Network Watcher proporciona la capacidad de comprobar una conexión TCP directa de una máquina virtual con una máquina virtual (VM), un nombre de dominio completo (FQDN), un URI o una dirección IPv4. Los escenarios de red son complejos, se implementan mediante grupos de seguridad de red, firewalls, rutas definidas por el usuario y recursos proporcionados por Azure. Las configuraciones complejas dificultan la solución de problemas de conectividad. Network Watcher ayuda a reducir la cantidad de tiempo en buscar y detectar problemas de conectividad. Los resultados devueltos pueden proporcionar información sobre si un problema de conectividad se debe a una plataforma o a un problema de configuración del usuario. La conectividad se puede comprobar con [PowerShell](network-watcher-connectivity-powershell.md), la [CLI de Azure](network-watcher-connectivity-cli.md) y la [API de REST](network-watcher-connectivity-rest.md).
+La característica de solución de problemas de conexiones de Network Watcher proporciona la funcionalidad de comprobar una conexión TCP directa de una máquina virtual con una máquina virtual (VM), un nombre de dominio completo (FQDN), un URI o una dirección IPv4. Los escenarios de red son complejos, se implementan mediante grupos de seguridad de red, firewalls, rutas definidas por el usuario y recursos proporcionados por Azure. Las configuraciones complejas dificultan la solución de problemas de conectividad. Network Watcher ayuda a reducir la cantidad de tiempo en buscar y detectar problemas de conectividad. Los resultados devueltos pueden proporcionar información sobre si un problema de conectividad se debe a una plataforma o a un problema de configuración del usuario. La conectividad se puede comprobar con [PowerShell](network-watcher-connectivity-powershell.md), la [CLI de Azure](network-watcher-connectivity-cli.md) y la [API de REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> La comprobación de conectividad requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La solución de problemas de conexiones requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="response"></a>Response
 
-En la tabla siguiente se muestran las propiedades que se devuelven cuando una comprobación de conectividad ha terminado de ejecutarse.
+En la tabla siguiente se muestran las propiedades que se devuelven cuando la solución de problemas de conexiones terminó de ejecutarse.
 
-|Propiedad  |Descripción  |
+|Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |ConnectionStatus     | Estado de la comprobación de conectividad. Los resultados posibles son **Reachable** y **Unreachable**.        |
 |AvgLatencyInMs     | Promedio de latencia durante la comprobación de conectividad en milisegundos. (Solo se muestra si el estado de la comprobación es accesible).        |
@@ -71,9 +71,9 @@ A continuación, se muestra un ejemplo de un problema encontrado en un salto.
 ```
 ## <a name="fault-types"></a>Tipo de error
 
-La comprobación de conectividad devuelve tipos de error acerca de la conexión. En la tabla siguiente se proporciona una lista de los tipos de errores actuales devueltos.
+La solución de problemas de conexiones devuelve tipos de error sobre la conexión. En la tabla siguiente se proporciona una lista de los tipos de errores actuales devueltos.
 
-|Escriba  |Descripción  |
+|type  |DESCRIPCIÓN  |
 |---------|---------|
 |CPU     | Alta utilización de CPU.       |
 |Memoria     | Alta utilización de memoria.       |
@@ -82,10 +82,6 @@ La comprobación de conectividad devuelve tipos de error acerca de la conexión.
 |NetworkSecurityRule    | Una regla de NSG bloquea el tráfico (se devuelve la regla).        |
 |UserDefinedRoute|El tráfico se interrumpe debido a una ruta del sistema o definida por el usuario. |
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 
-Para información sobre cómo comprobar la conectividad con un recurso, visite: [Check connectivity with Azure Network Watcher](network-watcher-connectivity-powershell.md) (Comprobación de la conectividad con Azure Network Watcher).
-
-<!--Image references-->
-[1]: ./media/network-watcher-next-hop-overview/figure1.png
-
+Obtenga información sobre cómo solucionar problemas de conexiones mediante [Azure Portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), la [CLI de Azure](network-watcher-connectivity-cli.md) o la [API de REST](network-watcher-connectivity-rest.md).

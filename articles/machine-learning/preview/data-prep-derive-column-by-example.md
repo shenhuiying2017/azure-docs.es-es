@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
 
@@ -67,6 +67,10 @@ El modo avanzado ofrece una experiencia más completa para la transformación "D
 En el modo avanzado puede agregar cualquier fila como una fila de ejemplo haciendo doble clic en la fila de la cuadrícula. Una vez copiada una fila como fila de ejemplo, también puede editar los datos de las columnas de origen para crear un ejemplo sintético. Al hacerlo, puede agregar casos que no estén presentes en los datos de ejemplo.
 
 El usuario puede alternar entre el **modo básico** y el **modo avanzado**. Para ello, debe hacer clic en los vínculos del Editor de transformación.
+
+### <a name="transform-editor-send-feedback"></a>Editor de transformación: enviar comentarios
+
+Si hace clic en el vínculo **Enviar comentarios**, se abre el cuadro de diálogo **Comentarios** con el cuadro de comentarios ya rellenado con los ejemplos que proporcionó el usuario. El usuario debe revisar el contenido del cuadro de comentarios y proporcionar más detalles que nos ayuden a comprender el problema. Si el usuario no desea compartir datos con Microsoft, deberá eliminar los datos de ejemplo rellenados anteriormente antes de hacer clic en el botón **Enviar comentarios**. 
 
 ### <a name="editing-existing-transformation"></a>Editar la transformación existente
 

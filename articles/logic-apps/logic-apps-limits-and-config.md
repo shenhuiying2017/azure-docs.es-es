@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
@@ -85,12 +85,12 @@ Estos límites se aplican a una única ejecución de aplicación lógica.
 Estos límites se aplican a una única instancia de aplicación lógica.
 
 | NOMBRE | Límite | Notas | 
-| ---- | ----- | ----- | 
-| Ejecuciones de acciones cada 5 minutos | 100 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+| ----- | ----- | ----- | 
+| Ejecuciones de acciones cada 5 minutos | 100 000 |<p>El límite se puede aumentar hasta 300 000 mediante la ejecución de una aplicación lógica en el modo `High Througput` y, para hacerlo, establezca la propiedad `operationOptions` de `runtimeConfiguration` del recurso de flujo de trabajo en `OptimizedForHighThroughput`. <p>Tenga en cuenta que el modo de alto rendimiento está en versión preliminar. Además, una carga de trabajo se puede distribuir entre varias aplicaciones, según sea necesario. | 
 | Llamadas salientes simultáneas de acciones | Aproximadamente 2500 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas | ~1000 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos | 60 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas |~1000 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos  | 60 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos| 45 000 |Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
 |||| 
 
 Si desea superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.

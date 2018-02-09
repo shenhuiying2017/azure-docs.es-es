@@ -4,7 +4,7 @@ description: "Aprenda a usar Apache Maven para compilar una aplicación de Apach
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
 
@@ -31,7 +31,7 @@ En los pasos descritos en este documento se usa [Maven](http://maven.apache.org/
 > Los pasos descritos en este documento se han probado recientemente con HDInsight 3.6.
 
 > [!IMPORTANT]
-> Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -642,7 +642,7 @@ En los siguientes pasos se usa Azure PowerShell para cargar el archivo JAR en el
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Reemplace `hdinsightclustername` por el nombre del clúster. El comando carga el archivo `hbaseapp-1.0-SNAPSHOT.jar` en la ubicación `example/jars` en el almacenamiento principal del clúster.
+    Reemplace `hdinsightclustername` por el nombre del clúster. Cuando se le solicite, escriba el nombre de inicio de sesión del clúster (administrador) y su contraseña. El comando carga el archivo `hbaseapp-1.0-SNAPSHOT.jar` en la ubicación `example/jars` en el almacenamiento principal del clúster.
 
 5. Use el siguiente comando para crear una tabla mediante `hbaseapp`:
 
@@ -650,7 +650,7 @@ En los siguientes pasos se usa Azure PowerShell para cargar el archivo JAR en el
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Reemplace `hdinsightclustername` por el nombre del clúster.
+    Reemplace `hdinsightclustername` por el nombre del clúster. Cuando se le solicite, escriba el nombre de inicio de sesión del clúster (administrador) y su contraseña.
 
     Con este comando se crea una tabla denominada **people** en HBase en el clúster de HDInsight. Este comando no muestra ninguna salida en la ventana de la consola.
 
@@ -660,7 +660,7 @@ En los siguientes pasos se usa Azure PowerShell para cargar el archivo JAR en el
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Reemplace `hdinsightclustername` por el nombre del clúster.
+    Reemplace `hdinsightclustername` por el nombre del clúster. Cuando se le solicite, escriba el nombre de inicio de sesión del clúster (administrador) y su contraseña.
 
     Este comando usa la clase `SearchByEmail` para buscar filas donde la familia de columnas `contactinformation` y la columna `email` contengan la cadena `contoso.com`. Debe recibir los siguientes resultados:
 
@@ -689,6 +689,6 @@ __Desde Azure PowerShell__:
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Aprender a usar SQuirreL SQL con HBase](apache-hbase-phoenix-squirrel-linux.md)

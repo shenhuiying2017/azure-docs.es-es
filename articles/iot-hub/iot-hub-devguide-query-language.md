@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Esta consulta de agrupación devolverá un resultado similar al ejemplo siguiente. Aquí puede ver que tres dispositivos notificaron una configuración correcta, dos de ellos todavía están aplicándola y uno de ellos ha notificado un error. 
+Esta consulta de agrupación devolverá un resultado similar al ejemplo siguiente:
 
 ```json
 [
@@ -149,6 +149,8 @@ Esta consulta de agrupación devolverá un resultado similar al ejemplo siguient
     }
 ]
 ```
+
+En este ejemplo, puede ver que tres dispositivos notificaron una configuración correcta, dos de ellos todavía están aplicándola y uno de ellos ha notificado un error.
 
 Las consultas de proyección permiten a los desarrolladores devolver solo las propiedades que les interesen. Por ejemplo, para recuperar la hora de la última actividad de todos los dispositivos desconectados, use la consulta siguiente:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Observe cómo se crea una instancia del objeto **query** con un tamaño de página (de hasta 100); a continuación, se pueden recuperar varias páginas llamando a los métodos **GetNextAsTwinAsync** varias veces.
-Tenga en cuenta que el objeto "query" expone varios elementos **Next***, según la opción de deserialización que requiera la consulta, como objetos de trabajo, dispositivos gemelos o elementos JSON sin formato que se usarán cuando se utilicen las proyecciones.
+Se crea una instancia del objeto **query** con un tamaño de páginas (hasta 100). Después, se recuperan diversas páginas con varias llamadas a los métodos **GetNextAsTwinAsync**.
+
+El objeto query expone varios valores **Next**, en función de la opción de deserialización que requiera la consulta. Por ejemplo, objetos de trabajo o dispositivos gemelos, o JSON sin formato si se usan proyecciones.
 
 ### <a name="nodejs-example"></a>Ejemplo de Node.js
 El [SDK de servicios IoT de Azure para Node.js][lnk-hub-sdks] expone la funcionalidad de consulta en el objeto **Registry**.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Observe cómo se crea una instancia del objeto **query** con un tamaño de página (de hasta 100); a continuación, se pueden recuperar varias páginas llamando a los métodos **nextAsTwin** varias veces.
-Tenga en cuenta que el objeto "query" expone varios elementos **next***, según la opción de deserialización que requiera la consulta, como objetos de trabajo, dispositivos gemelos o elementos JSON sin formato que se usarán cuando se utilicen las proyecciones.
+Se crea una instancia del objeto **query** con un tamaño de páginas (hasta 100). Después, se recuperan diversas páginas con varias llamadas al método **nextAsTwin**.
+
+El objeto query expone varios valores **Next**, en función de la opción de deserialización que requiera la consulta. Por ejemplo, objetos de trabajo o dispositivos gemelos, o JSON sin formato si se usan proyecciones.
 
 ### <a name="limitations"></a>Limitaciones
+
 > [!IMPORTANT]
-> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si realiza consultas a dispositivos gemelos individuales por identificador, siempre resultará preferible utilizar la API de dispositivos gemelos de recuperación, que contendrá en todo momento los valores más recientes y cuenta con umbrales de limitación superiores.
+> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la API de recuperación de dispositivo gemelo. Esta API siempre contiene los últimos valores y tiene límites restrictivos más altos.
 
 Actualmente, las comparaciones solo se admiten entre tipos primitivos (no objetos), por ejemplo `... WHERE properties.desired.config = properties.reported.config` solo se admite si esas propiedades tienen valores primitivos.
 
 ## <a name="get-started-with-jobs-queries"></a>Introducción a las consultas de trabajos
+
 Los [trabajos][lnk-jobs] proporcionan una forma de ejecutar operaciones en conjuntos de dispositivos. Cada dispositivo gemelo contiene la información de los trabajos de los que forma parte en una colección denominada **jobs**.
 Lógicamente,
 
@@ -243,7 +249,7 @@ Lógicamente,
 Ahora, esta colección se puede consultar como **devices.jobs** en el lenguaje de consulta de IoT Hub.
 
 > [!IMPORTANT]
-> Actualmente, la propiedad jobs no se devuelve nunca cuando se consulta a dispositivos gemelos (es decir, las consultas que contienen "FROM devices"). Solo es accesible directamente con las consultas que utilizan `FROM devices.jobs`.
+> Actualmente, la propiedad jobs no se devuelve nunca cuando se consulta a dispositivos gemelos. Es decir, las consultas que contienen "FROM devices". Solo se puede acceder a la propiedad jobs directamente con consultas que usen `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Expresiones de consulta de rutas de mensajes de dispositivo a la nube
 
-Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede configurar IoT Hub para enviar mensajes de dispositivo a la nube en diferentes puntos de conexión en función de expresiones evaluadas frente a mensajes individuales.
+Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede configurar IoT Hub para enviar mensajes de dispositivo a la nube en diferentes puntos de conexión. El envío se basa en expresiones evaluadas en mensajes individuales.
 
-La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o tanto los encabezados como el cuerpo del mensaje. IoT Hub da por supuesto un esquema específico de los encabezados y el cuerpo del mensaje para poder llevar a cabo el enrutamiento de los mensajes. En las siguientes secciones se describe qué necesita IoT Hub para enrutar elementos correctamente.
+La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o ambos. IoT Hub da por supuesto un esquema específico de los encabezados y el cuerpo del mensaje para poder llevar a cabo el enrutamiento de los mensajes. En las siguientes secciones se describe qué necesita IoT Hub para enrutar elementos correctamente.
 
 ### <a name="routing-on-message-headers"></a>Enrutamiento en los encabezados del mensaje
 
@@ -311,7 +317,7 @@ IoT Hub da por supuesto la siguiente representación JSON de los encabezados del
 ```
 
 Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
-Siempre se accede a las propiedades de usuario con su nombre. Si sucede que un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$to`), se recuperará la propiedad de usuario con la expresión `$to`.
+Siempre se accede a las propiedades de usuario con su nombre. Si un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$to`), se recupera la propiedad de usuario con la expresión `$to`.
 Siempre puede acceder a la propiedad del sistema mediante corchetes `{}`: por ejemplo, puede usar la expresión `{$to}` para acceder a la propiedad del sistema `to`. Los nombres de propiedad entre corchetes siempre permiten recuperar la propiedad del sistema correspondiente.
 
 Recuerde que los nombres de propiedad no distinguen mayúsculas de minúsculas.
@@ -342,7 +348,7 @@ Consulte la sección [Expresiones y condiciones][lnk-query-expressions] para obt
 
 ### <a name="routing-on-message-bodies"></a>Enrutamiento en los cuerpos del mensaje
 
-IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Establezca el tipo de contenido del mensaje en `application/json` y la codificación del contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje. Si no se especifica cualquiera de los encabezados, IoT Hub no intentará evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensaje para enrutar el mensaje según los encabezados del mensaje.
+IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Defina el tipo de contenido del mensaje en `application/json`. Establezca la codificación del contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje. Si no se especifica cualquiera de los encabezados, IoT Hub no intenta evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensajes para enrutar el mensaje según los encabezados del mensaje.
 
 Puede usar `$body` en la expresión de consulta para enrutar el mensaje. Puede usar una referencia al cuerpo simple, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo con una referencia al encabezado del mensaje. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Conceptos básicos de una consulta de IoT Hub
-Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con las agregaciones, se agrupan los resultados de este paso como se especifica en la cláusula GROUP BY y, para cada grupo, se genera una fila como se especifica en la cláusula SELECT.
+Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con agregaciones, los resultados de este paso se agrupan según se especifique en la cláusula GROUP BY. Para cada grupo, se genera una fila de acuerdo con lo especificado en la cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ Las condiciones permitidas se describen en la sección [Expresiones y condicione
 
 ## <a name="select-clause"></a>Cláusula SELECT
 La cláusula **SELECT <select_list>** es obligatoria y especifica qué valores se recuperan de la consulta. Especifica los valores JSON que se usarán para generar nuevos objetos JSON.
-Para cada elemento del subconjunto filtrado (y, opcionalmente, agrupado) de la colección FROM, la fase de proyección genera un nuevo objeto JSON, construido con los valores especificados en la cláusula SELECT.
+Para cada elemento del subconjunto filtrado (y, opcionalmente, agrupado) de la colección FROM, la fase de proyección genera un nuevo objeto JSON. Este objeto se construye con los valores especificados en la cláusula SELECT.
 
 Esta es la gramática de la cláusula SELECT:
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Actualmente, las cláusulas de selección distintas a **SELECT** * solo se admiten en las consultas agregadas de dispositivos gemelos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
-La cláusula **GROUP BY <group_specification>** es un paso opcional que se puede ejecutar después del filtro especificado en la cláusula WHERE y antes de la proyección especificada en la cláusula SELECT. Agrupa los documentos según el valor de un atributo. Estos grupos se usan para generar valores agregados, como se especifica en la cláusula SELECT.
+La cláusula **GROUP BY <group_specification>** es un paso opcional que se ejecuta después del filtro especificado en la cláusula WHERE y antes de la proyección especificada en la cláusula SELECT. Agrupa los documentos según el valor de un atributo. Estos grupos se usan para generar valores agregados, como se especifica en la cláusula SELECT.
 
 Un ejemplo de consulta con GROUP BY es:
 
@@ -433,7 +439,7 @@ Brevemente, una *expresión*:
 * Se evalúa como una instancia de tipo JSON (como booleano, número, cadena, matriz u objeto).
 * Se define manipulando datos procedentes del documento JSON del dispositivo y constantes mediante funciones y operadores integrados.
 
-Las *condiciones* son expresiones que se evalúan como un valor booleano. Cualquier constante diferente del booleano **true** se considera **false** (incluidos **null**, **undefined**, cualquier instancia de objeto o matriz, cualquier cadena y, obviamente, el booleano **false**).
+Las *condiciones* son expresiones que se evalúan como un valor booleano. Cualquier constante distinta al booleano **true** se considera como **false**. Esta regla incluye **null**, **undefined**, cualquier instancia de objeto o matriz, cualquier cadena y el valor booleano **false**.
 
 La sintaxis de las expresiones es:
 

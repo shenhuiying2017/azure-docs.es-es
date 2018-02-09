@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creación de un espacio de nombres con Event Hubs y habilitación de la característica Capture mediante una plantilla
 
-En este artículo se muestra cómo usar una plantilla de Azure Resource Manager que crea un espacio de nombres de Event Hubs, con una instancia de centro de eventos, y también habilita la [característica Capture](event-hubs-capture-overview.md) en el centro de eventos. En este artículo se describe cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager que crea un espacio de nombres de [Event Hubs](event-hubs-what-is-event-hubs.md), con una instancia de centro de eventos, y también habilita la [característica Capture](event-hubs-capture-overview.md) en el centro de eventos. En este artículo se describe cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 En este artículo también se muestra cómo especificar los eventos que se capturan en instancias de Azure Storage Blob o de Azure Data Lake Store, basándose en el destino que elija.
 
@@ -42,11 +42,7 @@ Para ver las plantillas completas, haga clic en los siguientes vínculos de GitH
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 
-Con esta plantilla, implementará un espacio de nombres de Event Hubs con un centro de eventos y habilitará la [captura de Event Hubs](event-hubs-capture-overview.md).
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Event Hubs Capture le permite entregar automáticamente los datos de streaming de sus instancias de Event Hubs a una instancia de Azure Blob Storage o Azure Data Lake Store, en el tiempo especificado o el intervalo de tamaño que prefiera.
-
-Haga clic en el botón siguiente para habilitar Event Hubs Capture en Azure Storage:
+Con esta plantilla, implementará un espacio de nombres de Event Hubs con un centro de eventos y habilitará la [captura de Event Hubs](event-hubs-capture-overview.md). Event Hubs Capture le permite entregar automáticamente los datos de streaming de sus instancias de Event Hubs a una instancia de Azure Blob Storage o Azure Data Lake Store, en el tiempo especificado o el intervalo de tamaño que prefiera. Haga clic en el botón siguiente para habilitar Event Hubs Capture en Azure Storage:
 
 [![Implementación en Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ La plantilla define los parámetros siguientes.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-El nombre del [espacio de nombres de Event Hubs](event-hubs-create.md) que se va a crear.
+El nombre del espacio de nombres de Event Hubs que se creará.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ El nombre del [espacio de nombres de Event Hubs](event-hubs-create.md) que se va
 
 ### <a name="eventhubname"></a>eventHubName
 
-El nombre del centro de eventos creado en el [espacio de nombres de Event Hubs](event-hubs-create.md).
+El nombre del centro de eventos creado en el espacio de nombres de Event Hubs.
 
 ```json
 "eventHubName":{  
@@ -423,7 +419,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 También puede configurar la funcionalidad de captura de Event Hubs mediante [Azure Portal](https://portal.azure.com). Para más información, consulte [Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal](event-hubs-capture-enable-through-portal.md).
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -110,10 +110,11 @@ En este escenario uno (o más) bosques de recursos confían en todos los bosques
 Algunas cargas de trabajo de Office 365 presentan ciertas restricciones en cuanto a las topologías compatibles:
 
 | Carga de trabajo | Restricciones |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Para más información sobre las topologías híbridas que se admiten en Exchange Online, consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque de cuenta-recurso. Para más información, consulte los [requisitos de entorno de Skype para Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Si su organización es más grande, debería considerar la posibilidad de utilizar la característica [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md). Esta característica le permite definir en qué región del centro de datos se encuentran los recursos del usuario.
 
 ## <a name="staging-server"></a>Servidor provisional
 ![Servidor de ensayo en una topología](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

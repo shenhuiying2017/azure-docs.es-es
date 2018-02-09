@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador del Centro de IoT de Azure
+# <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador de Azure IoT Hub
 
 IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end.
 
@@ -42,10 +42,10 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
   * [Envío de mensajes de nube a dispositivo desde IoT Hub][devguide-messages-c2d].
   * [Creación y lectura de mensajes de IoT Hub][devguide-format].
 * En [Carga de archivos desde un dispositivo][devguide-upload] se describe cómo se cargan archivos desde un dispositivo. El artículo también incluye información acerca de temas como las notificaciones que el proceso de carga puede enviar.
-* En [Administrar identidades del dispositivo en IoT Hub][devguide-identities] se describe qué información almacena el registro de identidad de cada centro de IoT y cómo se accede a él y se modifica.
+* En [Administrar identidades del dispositivo en IoT Hub][devguide-identities] se describe qué información almacena el registro de identidades de cada instancia de IoT Hub. En el artículo también se describe cómo puede tener acceso y modificarlo.
 * En [Control de acceso a IoT Hub][devguide-security] se describe el modelo de seguridad que se usa para conceder acceso a la funcionalidad de IoT Hub tanto para los dispositivos como para los componentes de la nube. El artículo incluye información acerca del uso de tokens y certificados X.509, y los detalles de los permisos que puede conceder.
-* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones][devguide-device-twins] se describe el concepto de *dispositivo gemelo* y la funcionalidad que expone, como la sincronización de un dispositivo con su gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
-* En [Invocación de un método directo en un dispositivo][devguide-directmethods] se describe el ciclo de vida de un método directo y proporciona información sobre cómo invocar métodos en un dispositivo desde la aplicación back-end y controlar el método directo en el dispositivo.
+* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones][devguide-device-twins] se describe el concepto de *dispositivo gemelo*. En el artículo también se describe la funcionalidad que los dispositivos gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
+* En [Invocación de un método directo en un dispositivo][devguide-directmethods] se describe el ciclo de vida de un método directo. En el artículo se describe cómo invocar métodos en un dispositivo desde la aplicación de back-end y cómo controlar el método directo en el dispositivo.
 * En [Programación de trabajos en varios dispositivos][devguide-jobs] se describe cómo se programan trabajos en varios dispositivos. En el artículo se describe cómo enviar trabajos que realizan tareas como la ejecución de un método directo y la actualización de un dispositivo mediante un dispositivo gemelo. También describe cómo consultar el estado de un trabajo.
 * [Referencia: elegir un protocolo de comunicación][devguide-protocol] describe los protocolos de comunicación que IoT Hub admite para la comunicación de dispositivos y muestra los puertos que deben estar abiertos.
 * En la [reference de puntos de conexión de IoT Hub][devguide-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración. En el artículo también se describe cómo puede crear puntos de conexión adicionales en su IoT Hub y cómo usar una puerta de enlace de campo para habilitar la conectividad con los puntos de conexión de su IoT Hub en escenarios no estándar.

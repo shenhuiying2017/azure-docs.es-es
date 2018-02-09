@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 2/1/2018
 ms.author: tedway;garye
-ms.openlocfilehash: 4dbb1779bf36be74ee83aeed8e4940902915603a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec26a5ccd4620dd0dabc92f4655f5fdfaf62e20
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complemento de Excel para servicios web de Aprendizaje automático de Azure
+# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning
 Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Pasos para usar un servicio web existente en el libro
@@ -43,7 +43,7 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 
 **Uso de un servicio web clásico** 
 
-1. En el Estudio de aprendizaje automático, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
+1. En Machine Learning Studio, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
    
     ![Seleccionar un servicio web de Studio][04]
 2. Copie la clave de API del servicio web.

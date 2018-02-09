@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configuración de Slack para aprovisionar automáticamente usuarios con Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs"
 description: "Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Slack."
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar automáticamente usuarios
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en Slack y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Slack. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -81,7 +81,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 8) Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-9) Haga clic en **Guardar**. 
+9) Haga clic en **Save**(Guardar). 
 
 10) En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con Slack).
 
@@ -89,7 +89,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 12) Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Slack, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-13) Haga clic en **Guardar**. 
+13) Haga clic en **Save**(Guardar). 
 
 Esta acción iniciará la sincronización inicial de todos los usuarios y grupos asignados a Slack en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se duran aproximadamente cada 10 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Slack.
 
@@ -105,7 +105,7 @@ Si lo desea, puede habilitar el aprovisionamiento de objetos de grupo de Azure A
 
 3) En la sección **Asignaciones de atributos**, revise los atributos de grupo que se sincronizarán de Azure AD a Slack. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con los grupos de Slack con el objetivo de realizar operaciones de actualización. 
 
-4) Haga clic en **Guardar**.
+4) Haga clic en **Save**(Guardar).
 
 Como resultado, todos los objetos de grupo asignados a Slack en la sección **Usuarios y grupos** se sincronizarán por completo de Azure AD a Slack. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Slack.
 

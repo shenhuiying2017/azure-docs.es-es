@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ed4adfa0698eabe8994da95554377b4dad76b291
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
@@ -40,10 +40,10 @@ Una vez que haya decidido su método de comprobación, es el momento de registra
 ## <a name="how-to-get-going-with-two-step-verification"></a>Cómo empezar con la verificación en dos pasos
 Seleccione uno de estos temas para empezar.
 
-| Tema. | Description |
+| Tema. | DESCRIPCIÓN |
 |:--- |:--- |
 | [Experiencia de instalación](multi-factor-authentication-end-user-first-time.md) |Describe el proceso de configuración de la autenticación multifactor por primera vez. |
 | [Experiencia de inicio de sesión](multi-factor-authentication-end-user-signin.md) |Muestra lo que puede esperar con el inicio de sesión usando los distintos métodos, como teléfono o aplicación. |
 | [Cambio de la configuración](multi-factor-authentication-end-user-manage-settings.md) |Muestra cómo se puede cambiar los ajustes de la configuración, como el número de teléfono o el método de inscripción preferido. |
 | [Ayuda con las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) |Obtenga información sobre cómo crear y utilizar las contraseñas de aplicación. |
-| [Uso de la aplicación móvil](microsoft-authenticator-app-how-to.md) |La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Uso de la aplicación móvil](microsoft-authenticator-app-how-to.md) |La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |

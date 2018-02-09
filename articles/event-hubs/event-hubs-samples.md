@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Ejemplos de Event Hubs 
 
@@ -60,10 +60,6 @@ El ejemplo de [Event Hubs Getting Started](https://code.msdn.microsoft.com/Servi
 ### <a name="scale-out-event-processing"></a>Escalado horizontal del procesamiento de eventos 
 
 El ejemplo de [escalado horizontal del procesamiento de eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) muestra cómo utilizar el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) para distribuir la carga de trabajo del consumo de flujo de Event Hubs. Muestra cómo implementar los objetos **EventProcessor** y **EventProcessorFactory** para administrar el flujo de eventos. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Extracción de datos de SQL a un centro de eventos
-
-El ejemplo de [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) (Extracción de datos de SQL) muestra cómo extraer datos de una tabla SQL e insertarlos en un centro de eventos para usarlos como una entrada en las aplicaciones analíticas auxiliares.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Extracción de datos web a un centro de eventos 
 

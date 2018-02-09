@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Reemplazar un nodo de la unidad de escalado en un sistema integrado de Azure Stack
 
@@ -28,11 +28,11 @@ En este artículo se describe el proceso general para reemplazar un equipo físi
 
 En el siguiente diagrama de flujo se muestra el proceso general de FRU para reemplazar un nodo completo de la unidad de escalado.
 
-![Diagrama de flujo del proceso de reemplazo del nodo](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Diagrama de flujo del proceso de reemplazo del nodo](media/azure-stack-replace-node/replacenodeflow.png)
 
 *Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-## <a name="review-alert-information"></a>Revisar información de las alertas
+## <a name="review-alert-information"></a>Revisión de la información de las alertas
 
 Si un nodo de la unidad de escalado no está funcionando, recibirá las alertas críticas siguientes:
 
@@ -40,11 +40,11 @@ Si un nodo de la unidad de escalado no está funcionando, recibirá las alertas 
 - Node inaccessible for virtual machine placement (Nodo inaccesible para la colocación de la máquina virtual)
 - Scale unit node is offline (Nodo de la unidad de escalado desconectado)
 
-![Lista de alertas para cuando la unidad de escalado no funciona](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Lista de alertas para cuando la unidad de escalado no funciona](media/azure-stack-replace-node/nodedownalerts.png)
 
-Si abre la alerta "Scale unit node is offline" (Nodo de la unidad de escalado desconectado), en la descripción de la misma podrá consultar el nodo de la unidad de escalado que no es accesible. También puede recibir alertas adicionales en la solución de supervisión específica del OEM que se ejecuta en el host de ciclo de vida del hardware.
+Si abre la alerta **Scale unit node is offline** (Nodo de la unidad de escalado desconectado), en la descripción de la misma podrá consultar el nodo de la unidad de escalado que no es accesible. También puede recibir alertas adicionales en la solución de supervisión específica del OEM que se ejecuta en el host de ciclo de vida del hardware.
 
-![Detalles de la alerta de nodo sin conexión](media/azure-stack-replace-node/NodeOffline.PNG)
+![Detalles de la alerta de nodo sin conexión](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Proceso de reemplazo del nodo de la unidad de escalado
 
@@ -53,7 +53,7 @@ Los pasos siguientes se proporcionan como una descripción general del proceso d
 1. Use la acción [Purgar](azure-stack-node-actions.md#scale-unit-node-actions) para poner el nodo de la unidad de escalado en el modo de mantenimiento. Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
    > [!NOTE]
-   > En cualquier caso, solo se puede purgar y apagar un nodo al mismo tiempo sin que se interrumpan los Espacios de almacenamiento directo (SSD).
+   > En cualquier caso, solo se puede purgar y apagar un nodo al mismo tiempo sin que se interrumpan los Espacios de almacenamiento directo (S2D).
 
 2. Si el nodo aún está encendido, use la acción [Apagar](azure-stack-node-actions.md#scale-unit-node-actions). Es posible que esta acción no sea necesaria en función de la condición física del hardware.
  
@@ -68,4 +68,4 @@ Los pasos siguientes se proporcionan como una descripción general del proceso d
 ## <a name="next-steps"></a>pasos siguientes
 
 - Para información sobre cómo reemplazar un disco físico intercambiable directamente, consulte [Reemplazar un disco físico en Azure Stack](azure-stack-replace-disk.md). 
-- Para obtener información acerca de cómo reemplazar un componente de hardware no intercambiable en caliente, consulte [Replace a hardware component](azure-stack-replace-component.md) (Reemplazar un componente de hardware). 
+- Para obtener información acerca de cómo reemplazar un componente de hardware no intercambiable en caliente, consulte [Replace a hardware component](azure-stack-replace-component.md) (Reemplazar un componente de hardware).

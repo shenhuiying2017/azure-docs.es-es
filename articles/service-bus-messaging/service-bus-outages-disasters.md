@@ -12,49 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 
 Las aplicaciones esenciales deben funcionar de manera continua, incluso si se producen interrupciones imprevistas o desastres. En este tema se describen técnicas que puede usar para proteger las aplicaciones de Service Bus ante un posible desastre o una interrupción del servicio.
 
-Se define la interrupción como la falta temporal de disponibilidad del Bus de servicio de Azure. La interrupción puede afectar a algunos componentes del Bus de servicio, como a un almacén de mensajería, o incluso a todo el centro de datos. Una vez corregido el problema, el Bus de servicio vuelva a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de error de componente es la falta de disponibilidad de un determinado almacén de mensajería. Un ejemplo de interrupción de todo el centro de datos es un error de alimentación del centro de datos o un conmutador de red defectuoso en él. Una interrupción puede durar desde unos pocos minutos hasta varios días.
+Se define la interrupción como la falta temporal de disponibilidad de Azure Service Bus. La interrupción puede afectar a algunos componentes de Service Bus, como a un almacén de mensajería, o incluso a todo el centro de datos. Una vez corregido el problema, Service Bus vuelva a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de error de componente es la falta de disponibilidad de un determinado almacén de mensajería. Un ejemplo de interrupción de todo el centro de datos es un error de alimentación del centro de datos o un conmutador de red defectuoso en él. Una interrupción puede durar desde unos pocos minutos hasta varios días.
 
-Un desastre se define como la pérdida permanente de una unidad de escalado del Bus de servicio o un centro de datos. El centro de datos no volverá necesariamente a estar disponible. Normalmente, un desastre provoca la pérdida de algunos o todos los mensajes u otros datos. Algunos ejemplos de desastres son los incendios, las inundaciones o los terremotos.
+Un desastre se define como la pérdida permanente de una unidad de escalado de Service Bus o un centro de datos. El centro de datos no volverá necesariamente a estar disponible. Normalmente, un desastre provoca la pérdida de algunos o todos los mensajes u otros datos. Algunos ejemplos de desastres son los incendios, las inundaciones o los terremotos.
 
 ## <a name="current-architecture"></a>Arquitectura actual
 Service Bus usa varios almacenes de mensajería para conservar los mensajes que se envían a colas o temas. Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema.
 
-Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no permite la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres que abarque varios centros de datos.
-
-## <a name="protecting-against-acs-outages"></a>Protección contra interrupciones de ACS
-Si está usando credenciales de ACS y este deja de estar disponible, los clientes ya no pueden obtener tokens. Los clientes que posean un token en el momento en que ACS deje de funcionar pueden seguir usando el Bus de servicio hasta que expiren los tokens. La duración predeterminada del token es de 3 horas.
-
-Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso compartido (SAS). En este caso, el cliente se autentica directamente con el Bus de servicio firmando un token autogenerado con una clave secreta. Las llamadas a ACS ya no son necesarias. Para obtener más información sobre los tokens SAS, consulte [Autenticación y autorización de Service Bus][Service Bus authentication].
+Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. Ahora, Service Bus admite tanto la [*recuperación ante desastres con localización geográfica* como la *replicación geográfica*](service-bus-geo-dr.md) en el nivel del espacio de nombres.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protección de colas y temas contra errores en el almacén de mensajería
-Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, Service Bus escribe el mensaje en otro fragmento, si es posible. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protección contra desastres o interrupciones del centro de datos
-Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio de Service Bus **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de Estados Unidos, y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
+Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para Service Bus en cada centro de datos. Por ejemplo, el espacio de nombres de servicio de Service Bus **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de Estados Unidos, y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería de Service Bus debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
 
 Para obtener más información, consulte la sección "Error de Service Bus dentro de un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][Asynchronous messaging patterns and high availability].
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protección de los extremos de retransmisión contra desastres o interrupciones del centro de datos
-La replicación geográfica de los extremos de retransmisión permite que un servicio que exponga un extremo de retransmisión sea accesible en caso de interrupciones del Bus de servicio. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La replicación geográfica de los extremos de retransmisión permite que un servicio que exponga un extremo de retransmisión sea accesible en caso de interrupciones de Service Bus. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 A continuación, el servicio escucha en ambos extremos y un cliente puede invocar el servicio a través de cualquiera de ellos. Una aplicación cliente selecciona de forma aleatoria una de las retransmisiones como extremo principal y envía su solicitud al extremo activo. Si la operación da como resultado un código de error, este error indica que el extremo de retransmisión no está disponible. La aplicación abre un canal al extremo de reserva y vuelve a emitir la solicitud. En ese momento, el extremo activo y el de reserva intercambian roles: la aplicación cliente considera el anterior extremo activo como el nuevo extremo de reserva y el anterior extremo de reserva pasa a ser el nuevo extremo activo. Si ambas operaciones de envío generan un error, no se modifican los roles de las dos entidades y se devuelve un error.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protección de colas y temas contra desastres o interrupciones del centro de datos
 Para lograr resistencia frente a interrupciones del centro de datos al usar mensajería asincrónica, Service Bus admite dos enfoques: replicación *activa* y *pasiva*. Para cada enfoque, si una cola o un tema determinados deben permanecer accesibles en el caso de una interrupción del centro de datos, puede crear la entidad en ambos espacios de nombres. Ambas entidades pueden tener el mismo nombre. Por ejemplo, se puede acceder a una cola principal en **contosoPrimary.servicebus.windows.net/myQueue**, mientras que su equivalente secundaria resulta accesible en **contosoSecondary.servicebus.windows.net/myQueue**.
 
-Si la aplicación no requiere comunicación permanente entre remitente y receptor, esta puede implementar una cola del lado cliente duradera para evitar la pérdida de mensajes y proteger al remitente ante los errores transitorios del Bus de servicio.
+Si la aplicación no requiere comunicación permanente entre remitente y receptor, esta puede implementar una cola del lado cliente duradera para evitar la pérdida de mensajes y proteger al remitente ante los errores transitorios de Service Bus.
 
 ## <a name="active-replication"></a>Replicación activa
 La replicación activa usa entidades en ambos espacios de nombres para cada operación. Cualquier cliente que envíe un mensaje envía dos copias de él. La primera copia se envía a la entidad principal (por ejemplo, **contosoPrimary.servicebus.windows.net/sales**), y la segunda copia del mensaje se envía a la entidad secundaria (por ejemplo, **contosoSecondary.servicebus.windows.net/sales**).
@@ -78,13 +73,18 @@ En general, la replicación pasiva es más económica que la activa porque en la
 Cuando se usa la replicación pasiva, en los siguientes escenarios se pueden perder mensajes o recibirse dos veces:
 
 * **Demora o pérdida de mensajes**: se supone que el remitente envió correctamente un mensaje m1 a la cola principal y después la cola deja de estar disponible antes de que el receptor reciba m1. El remitente envía otro mensaje m2 a la cola secundaria. Si la cola principal no está disponible temporalmente, el receptor recibe m1 una vez que la cola esté disponible de nuevo. En caso de desastre, puede que el receptor no reciba nunca m1.
-* **Recepción duplicada**: supongamos que el remitente envía un mensaje m a la cola principal. El Bus de servicio procesa m correctamente , pero no envía una respuesta. Una vez que la operación de envío agota el tiempo de espera, el remitente envía una copia idéntica de m a la cola secundaria. Si el receptor puede recibir la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe ambas copias de m aproximadamente al mismo tiempo. Si el receptor no recibe la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe inicialmente solo la segunda copia de m pero, a continuación, recibe una segunda copia de m cuando la cola principal vuelve a estar disponible.
+* **Recepción duplicada**: supongamos que el remitente envía un mensaje m a la cola principal. Service Bus procesa m correctamente , pero no envía una respuesta. Una vez que la operación de envío agota el tiempo de espera, el remitente envía una copia idéntica de m a la cola secundaria. Si el receptor puede recibir la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe ambas copias de m aproximadamente al mismo tiempo. Si el receptor no recibe la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe inicialmente solo la segunda copia de m pero, a continuación, recibe una segunda copia de m cuando la cola principal vuelve a estar disponible.
 
 El ejemplo de [replicación geográfica con mensajes asincrónicos de Service Bus][Geo-replication with Service Bus Brokered Messages] muestra la replicación pasiva de entidades de mensajería.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="geo-replication"></a>Replicación geográfica
+
+Service Bus admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica en el nivel del espacio de nombres. Para obtener más información, consulte [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md). La característica de recuperación ante desastres, disponible solo para la [SKU premium](service-bus-premium-messaging.md), implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios.
+
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
+* [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md)
 * [Continuidad de negocio de SQL Database de Azure][Azure SQL Database Business Continuity]
 * [Diseño de aplicaciones resistentes de Azure][Azure resiliency technical guidance]
 

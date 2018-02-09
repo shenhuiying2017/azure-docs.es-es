@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir macrodatos a un almacenamiento de datos
 
@@ -74,7 +74,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 ## <a name="deploy-the-infrastructure"></a>Implementar la infraestructura
 
-Para hacer este artículo más sencillo, implementaremos la infraestructura que necesitamos con una plantilla de Resource Manager. Para ver los recursos que se van a implementar, vea la [plantilla](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). En la versión preliminar, Event Grid admite las regiones **westus2** y **westcentralus**. Use una de estas regiones como ubicación del grupo de recursos.
+Para hacer este artículo más sencillo, implementaremos la infraestructura que necesitamos con una plantilla de Resource Manager. Para ver los recursos que se van a implementar, vea la [plantilla](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use una de estas [regiones admitidas](overview.md) como ubicación del grupo de recursos.
 
 Para la CLI de Azure, utilice:
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: configuración de Workday para aprovisionar automáticamente usuarios con Active Directory y Azure Active Directory locales | Microsoft Docs"
+title: "Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
 description: Aprenda a usar Workday como origen de datos de identidad para Active Directory y Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configuración de Workday para aprovisionar automáticamente usuarios con Active Directory y Azure Active Directory locales
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
+
 El objetivo de este tutorial consiste en mostrarle los pasos que debe llevar a cabo para importar usuarios de Workday a Active Directory y Azure Active Directory, con la reescritura opcional de algunos atributos en Workday. 
 
 
@@ -51,7 +52,7 @@ El flujo de trabajo de aprovisionamiento de usuarios de Workday compatible con e
 
 Antes de iniciar la integración de Workday, compruebe los requisitos previos siguientes y lea las siguientes instrucciones sobre cómo ajustar su arquitectura actual de Active Directory y los requisitos de aprovisionamiento de usuarios con las soluciones proporcionadas por Azure Active Directory.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -176,7 +177,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 1. Escriba directivas de seguridad de dominio en el cuadro de búsqueda y, a continuación, haga clic en el vínculo **Domain Security Policies for Functional Area** (Directivas de seguridad de dominio para área funcional).  
    
     ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Directivas de seguridad de dominio")  
-2. Busque el sistema y seleccione el área funcional **Sistema** .  Haga clic en **Aceptar**.  
+2. Busque el sistema y seleccione el área funcional **Sistema** .  Haga clic en **OK**.  
    
     ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Directivas de seguridad de dominio")  
 3. En la lista de directivas de seguridad del área funcional System (Sistema), expanda **Security Administration** (Administración de seguridad) y seleccione la directiva de seguridad de dominio, **External Account Provisioning** (Aprovisionamiento de cuentas externas).  
@@ -254,7 +255,7 @@ Siga estas instrucciones para configurar el aprovisionamiento de cuentas de usua
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de Workday sean válidas en Workday. 
 
-![Portal de Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configuración de las asignaciones de atributos 
 
@@ -311,7 +312,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 6. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
-![Portal de Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
 
 **A continuación se muestran algunos ejemplos de asignaciones de atributos entre Workday y Active Directory, con algunas expresiones comunes**
 
@@ -445,7 +446,7 @@ Una vez que las partes 1-3 se han completado, puede volver a iniciar el servicio
 
 1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
-2. Haga clic en **Guardar**.
+2. Haga clic en **Save**(Guardar).
 
 3. Se iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en Workday.
 
@@ -568,7 +569,7 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
-2. Haga clic en **Guardar**.
+2. Haga clic en **Save**(Guardar).
 
 3. Se iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en Workday.
 
@@ -629,7 +630,7 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
-2. Haga clic en **Guardar**.
+2. Haga clic en **Save**(Guardar).
 
 3. Se iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en Workday.
 
@@ -648,6 +649,6 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

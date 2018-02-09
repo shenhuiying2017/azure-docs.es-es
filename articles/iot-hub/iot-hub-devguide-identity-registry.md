@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -74,11 +74,11 @@ Puede deshabilitar los dispositivos actualizando la propiedad **status** de una 
 
 ## <a name="import-and-export-device-identities"></a>Importar y exportar identidades de dispositivo
 
-Puede exportar identidades de dispositivo de forma masiva desde el registro de identidades de un centro de IoT mediante operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints]. Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de identidad del dispositivo que se leen en el registro de identidad.
+Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints] para exportar identidades de dispositivo de forma masiva desde un registro de identidades de una instancia de IoT Hub. Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de identidad del dispositivo que se leen en el registro de identidad.
 
-Puede importar identidades de dispositivo de forma masiva a un registro de identidades de un centro de IoT mediante operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints]. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
+Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints] para importar identidades de dispositivo de forma masiva en un registro de identidades de una instancia de IoT Hub. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
 
-Para más información sobre la importación y exportación de API, consulte [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
+Para más información sobre las API de importación y exportación, consulte [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 
@@ -180,7 +180,7 @@ Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden intere
 * [Invocación de un método directo en un dispositivo][lnk-devguide-directmethods]
 * [Programación de trabajos en varios dispositivos][lnk-devguide-jobs]
 
-Si desea probar algunos de los conceptos descritos en este artículo, puede interesarle el siguiente tutorial de IoT Hub:
+Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
 * [Introducción a Azure IoT Hub][lnk-getstarted-tutorial]
 

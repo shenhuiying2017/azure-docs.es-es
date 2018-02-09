@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con NetSuite | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Netsuite."
+title: "Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
+description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y NetSuite."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3de048a88b2a14936f7a49afefc8c96e56909c37
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en Netsuite y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en Netsuite.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 

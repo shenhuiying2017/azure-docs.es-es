@@ -1,91 +1,181 @@
 ---
-title: "Configuración de la descarga SSL para Azure Application Gateway mediante Azure Portal | Microsoft Docs"
-description: "Este artículo contiene instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante Azure Portal."
-documentationcenter: na
+title: "Creación de una puerta de enlace de aplicaciones con terminación SSL- Azure Portal | Microsoft Docs"
+description: "Aprenda a crear una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Portal
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-ssl-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
-> * [PowerShell clásico de Azure](application-gateway-ssl.md)
-> * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
+Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md) con un certificado para terminación SSL que use máquinas virtuales para servidores back-end.
 
-Azure Application Gateway puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
+En este artículo, aprenderá a:
 
-## <a name="scenario"></a>Escenario
+> [!div class="checklist"]
+> * Creación de un certificado autofirmado
+> * Crear una puerta de enlace de aplicaciones con el certificado
+> * Crear las máquinas virtuales que se utilizan como servidores back-end
 
-En el siguiente escenario, se explica cómo configurar la descarga SSL en una puerta de enlace de aplicaciones existente. En este escenario se presupone que ya se ha realizado el procedimiento para [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-Para configurar la descarga SSL con una puerta de enlace de aplicaciones, se requiere un certificado. Este certificado se carga en la puerta de enlace de aplicaciones y se usa para cifrar y descifrar el tráfico enviado a través de SSL. El certificado debe tener el formato Personal Information Exchange (.pfx). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
+Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="add-an-https-listener"></a>Incorporación de un agente de escucha HTTPS
+## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-El agente de escucha HTTPS busca el tráfico en función de su configuración y ayuda a enrutarlo a los grupos de back-end. Para agregar un agente de escucha HTTPS, siga estos pasos:
+En esta sección, utilice [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para crear un certificado autofirmado que carga en Azure Portal al crear el agente de escucha para la puerta de enlace de aplicaciones.
 
-   1. Vaya a Azure Portal y seleccione una puerta de enlace de aplicaciones existente.
+En el equipo local, abra una ventana de Windows PowerShell como administrador. Ejecute el siguiente comando para crear el certificado:
 
-   2. Para agregar un agente de escucha, seleccione **Agentes de escucha** y el botón **Agregar**.
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-   ![Panel de información general de Application Gateway][1]
+Debería ver algo parecido a esta respuesta:
 
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-   3. Rellene la información necesaria para el agente de escucha que se indica a continuación y cargue el certificado .pfx:
-      - **Nombre**: nombre descriptivo del agente de escucha.
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-      - **Configuración de IP de front-end**: configuración de IP de front-end que se usa en el agente de escucha.
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-      - **Puerto de front-end (nombre/puerto)**: nombre descriptivo del puerto que se utiliza en el front-end de la puerta de enlace de aplicaciones y número del puerto real utilizado.
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
-      - **Protocolo**: conmutador que determina si se va a utilizar HTTP o HTTPS en el front-end.
+## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-      - **Certificado (nombre/contraseña)**: si se usa la descarga SSL, esta configuración necesita un certificado .pfx. También será necesario especificar un nombre descriptivo y una contraseña.
+Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
 
-   4. Seleccione **Aceptar**.
+1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
+3. Escriba *myAppGateway* para el nombre de la puerta de enlace de aplicaciones y *myResourceGroupAG* para el nuevo grupo de recursos.
+4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-![Panel para agregar un agente de escucha][2]
+    - *myVNet*: como nombre de la red virtual.
+    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+    - *myAGSubnet*: como nombre de subred.
+    - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Creación de una regla y asociación de la misma al agente de escucha
+    ![Creación de una red virtual](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-Ahora se ha creado el agente de escucha. A continuación, debe crear una regla para controlar el tráfico procedente del agente de escucha. Las reglas determinan cómo se enruta el tráfico a los grupos de back-end en función de diversos valores de configuración. Entre estos valores se incluyen el protocolo, el puerto y los sondeos de estado y se indica si se va a utilizar la afinidad de sesiones basada en cookies. Para crear y asociar una regla al agente de escucha, siga estos pasos:
+6. Haga clic en **Aceptar** para crear la red virtual y la subred.
+7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+8. Haga clic en **HTTPS** para el protocolo del agente de escucha y asegúrese de que el puerto esté definido como **443**.
+9. Haga clic en el icono de la carpeta y busque el certificado *appgwcert.pfx* que creó anteriormente para cargarlo.
+10. Escriba *mycert1* para el nombre del certificado y *Azure123456!* para la contraseña y, después, haga clic en **Aceptar**.
 
+    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-   1. Seleccione la opción **Reglas** de la puerta de enlace de aplicaciones y después **Agregar**.
+11. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
-   ![Panel Reglas de la puerta de enlace de aplicaciones][3]
+### <a name="add-a-subnet"></a>Incorporación de una subred
 
+1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
+2. Haga clic en **Subredes** y en **Subred**.
 
-   2. En **Agregar regla básica**, escriba el nombre descriptivo de la regla en el campo **Nombre** y seleccione el **agente de escucha** que creó en el paso anterior. Elija el **grupo de back-end** y la **configuración de HTTP** adecuados y seleccione **Aceptar**.
+    ![Creación de una subred](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
-   ![Ventana de configuración de HTTPS][4]
+3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
 
-Ahora, la configuración está guardada en la puerta de enlace de aplicaciones. El proceso de guardar para esta configuración puede tardar un rato antes de que pueda verse a través del portal o de PowerShell. Una vez guardada, la puerta de enlace de aplicaciones controla el cifrado y descifrado del tráfico. Todo el tráfico entre la puerta de enlace de aplicaciones y los servidores web de back-end se va a controlar mediante HTTP. Todas las comunicaciones dirigidas al cliente, si se inician a través de HTTPS, se devolverán cifradas al cliente.
+## <a name="create-backend-servers"></a>Creación de servidores back-end
+
+En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También se instala IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
+
+### <a name="create-a-virtual-machine"></a>de una máquina virtual
+
+1. Haga clic en **Nuevo**.
+2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+3. Especifique estos valores para la máquina virtual:
+
+    - *myVM*: como nombre de la máquina virtual.
+    - *azureuser*: como nombre del usuario administrador.
+    - *Azure123456!* como contraseña.
+    - Seleccione **Usar existente** y *myResourceGroupAG*.
+
+4. Haga clic en **OK**.
+5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
+6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
+7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
+8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
+
+### <a name="install-iis"></a>Instalación de IIS
+
+1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
+
+    ![Instalación de la extensión personalizada](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
+
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
+
+3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* como nombre y como VMName en Set-AzureRmVMExtension.
+
+### <a name="add-backend-servers"></a>Incorporación de servidores back-end
+
+3. Haga clic en **Todos los recursos** y en **myAppGateway**.
+4. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGateayBackendPool**.
+5. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
+
+    ![Incorporación de servidores back-end](./media/application-gateway-ssl-portal/application-gateway-backend.png)
+
+6. Haga clic en **Save**(Guardar).
+
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
+
+1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
+
+    ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
+
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Para aceptar la advertencia de seguridad si usó un certificado autofirmado, seleccione Detalles y, a continuación, Acceder a la página web:
+
+    ![Advertencia de seguridad](./media/application-gateway-ssl-portal/application-gateway-secure.png)
+
+    El sitio web IIS protegido se muestra ahora como en el ejemplo siguiente:
+
+    ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar un sondeo de estado personalizado con Azure Application Gateway, consulte la sección sobre cómo [crear un sondeo de estado personalizado](application-gateway-create-gateway-portal.md).
+En este tutorial aprendió lo siguiente:
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
+> [!div class="checklist"]
+> * Creación de un certificado autofirmado
+> * Crear una puerta de enlace de aplicaciones con el certificado
+> * Crear las máquinas virtuales que se utilizan como servidores back-end
 
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

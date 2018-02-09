@@ -4,7 +4,7 @@ description: "Obtener información acerca de cómo usar firmas de acceso compart
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -216,7 +216,7 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
    > [!IMPORTANT]
    > Debe reiniciar varios servicios para que el cambio surta efecto.
 
-6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All** (Reiniciar todos) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione **Turn on maintenance mode** (Activar modo de mantenimiento) y, a continuación, "Confirm Restart All" ("Confirmar reiniciar todo").
+6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All Affected** (Reiniciar todas las entradas afectadas) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
 
     Repita este proceso para MapReduce2 y YARN.
 
@@ -278,7 +278,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 
     Esta vez, la operación debe completarse correctamente.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="a-task-was-canceled"></a>Se ha cancelado una tarea
 
@@ -300,7 +300,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 * Debe incluir al menos un carácter no alfanumérico.
 * Debe contener al menos una mayúscula o una minúscula.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 

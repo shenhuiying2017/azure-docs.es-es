@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Creación de un dispositivo de IoT Edge que actúa como una puerta de enlace transparente - versión preliminar
 
@@ -61,7 +61,7 @@ Puede usar los scripts de Powershell y Bash de ejemplo descritos en [ejemplo de 
 >Este ejemplo solo está pensado para fines de prueba. Para escenarios de producción, consulte [Protección de su implementación de IoT][lnk-iothub-secure-deployment] para obtener instrucciones de Azure IoT sobre cómo proteger la solución de IoT y aprovisionar el certificado en consecuencia.
 
 
-1. Clone los [SDK y bibliotecas de Microsoft Azure IoT para C] de GitHub:
+1. Clone las bibliotecas para C y los SDK de Microsoft Azure IoT de GitHub:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ Para configurar el dispositivo de IoT Edge como puerta de enlace, solo hay que c
 
 Asumimos los nombres de archivo siguientes de los scripts de ejemplo anteriores:
 
-| Salida | Script de Bash | PowerShell |
-| ------ | ----------- | ---------- |
-| Certificado de dispositivo | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Clave privada de dispositivo | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Cadena de certificados de dispositivo | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| Entidad de certificación del propietario de la instancia de IoT Hub | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Salida | Nombre de archivo |
+| ------ | --------- |
+| Certificado de dispositivo | `certs/new-edge-device.cert.pem` |
+| Clave privada de dispositivo | `private/new-edge-device.cert.pem` |
+| Cadena de certificados de dispositivo | `certs/new-edge-device-full-chain.cert.pem` |
+| Entidad de certificación del propietario de la instancia de IoT Hub | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Proporcione la información de dispositivo y certificado al runtime de IoT Edge. 
  
@@ -177,7 +177,7 @@ Esto se hace anexando la propiedad `GatewayHostName` a la cadena de conexión de
 
 Estos dos pasos permiten que la aplicación de dispositivo se conecte con el dispositivo de puerta de enlace.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -135,7 +135,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Recopilación de registros mediante una interfaz gráfica de usuario
+### <a name="bkmk_gui"></a>Recopilación de registros mediante una interfaz gráfica de usuario
 En lugar de proporcionar los parámetros necesarios para el cmdlet Get-AzureStackLog para recuperar registros de Azure Stack, también puede aprovechar las herramientas de Azure Stack de código abierto disponibles ubicadas en el repositorio de herramientas de GitHub de Azure Stack principal en http://aka.ms/AzureStackTools.
 
 El script de PowerShell **ERCS_AzureStackLogs.ps1** se almacena en el repositorio de herramientas de GitHub y se actualiza con frecuencia. Para asegurarse de que tiene la versión más reciente disponible, debe descargarlo directamente de http://aka.ms/ERCS. Iniciado desde una sesión de PowerShell administrativa, el script se conecta al punto de conexión con privilegios y ejecuta Get-AzureStackLog con los parámetros proporcionados. Si no se proporcionan parámetros, la acción predeterminada del script es solicitar parámetros a través de una interfaz gráfica de usuario.
@@ -159,3 +159,4 @@ Para más información acerca del script de PowerShell ERCS_AzureStackLogs.ps1 s
 
 ## <a name="next-steps"></a>pasos siguientes
 [Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md)
+

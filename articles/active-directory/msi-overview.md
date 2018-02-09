@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service Identity (MSI) para recursos de Azure
 
@@ -64,6 +64,7 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 | Azure App Service  | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Función de Azure     | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Uso de identidades de servicio administradas con Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Uso de la identidad de servicio administrada con Azure Event Hubs](../event-hubs/event-hubs-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>¿Qué servicios de Azure son compatibles con Managed Service Identity?
 

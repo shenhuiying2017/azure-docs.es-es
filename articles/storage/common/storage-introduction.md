@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 
@@ -131,21 +131,21 @@ Blob Service permite proporcionar acceso público a un contenedor y sus blobs, o
 
 ## <a name="encryption"></a>Cifrado
 
-Hay un par de tipos básicos de cifrado disponibles para los servicios de almacenamiento.
+Hay dos tipos básicos de cifrado disponibles para los servicios de almacenamiento. Para más información sobre la seguridad y el cifrado, consulte [Guía de seguridad de Azure Storage](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
-Puede habilitar el cifrado de servicio de almacenamiento (SSE) en File Service (versión preliminar) o en Blob Service para una cuenta de Azure Storage. Si está habilitado, todos los datos escritos en el servicio específico se cifran antes de la escritura. Cuando se leen los datos, se descifran antes de devolverlos.
+Cifrado del servicio Azure Storage (SSE) en reposo le ayuda a asegurar y proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, Azure Storage cifra automáticamente sus datos antes de continuar al almacenamiento y los descifra después de la recuperación. La administración de claves, el cifrado y el descifrado son completamente transparentes para los usuarios.
+
+Puede habilitar Cifrado del servicio Storage (SSE) para Blob Storage y Azure Files (versión preliminar). Si está habilitado, todos los datos escritos en el servicio específico se cifran antes de la escritura. Cuando se leen los datos, se descifran antes de devolverlos.
+
+Para más información sobre el cifrado de SSE en reposo, consulte [Cifrado del servicio Azure Storage para datos en reposo](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Cifrado de cliente
 
 Las bibliotecas de cliente de almacenamiento tienen métodos que puede llamar para cifrar los datos mediante programación antes de enviarlos por cable del cliente a Azure. Se almacenan cifrados, lo que significa que también se cifran en reposo. Cuando se leen los datos de nuevo, se descifra la información después de recibirla.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Cifrado durante el tránsito con recursos compartidos de Azure Files
-
-Para más información sobre firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md) . Consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md) y [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Autenticación para los servicios de Azure Storage) para más información sobre el acceso seguro a su cuenta de almacenamiento.
-
-Para más información acerca de cómo proteger la cuenta de almacenamiento y el cifrado, consulte [Azure Storage security guide](storage-security-guide.md) (Guía de seguridad de Azure Storage).
+Para más información sobre el cifrado en el lado cliente, consulte [Cifrado del lado cliente con .NET para Microsoft Azure Storage](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Replicación
 

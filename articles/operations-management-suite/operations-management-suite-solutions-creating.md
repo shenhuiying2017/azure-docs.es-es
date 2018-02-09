@@ -1,6 +1,6 @@
 ---
-title: "Compilación de una solución de administración en OMS | Microsoft Docs"
-description: "Las soluciones de administración amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes."
+title: "Compilación de una solución de administración en Azure | Microsoft Docs"
+description: "Las soluciones de administración incluyen escenarios de administración empaquetados en Azure que los clientes pueden agregar a su área de trabajo de Log Analytics.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Diseño y compilación de una solución de administración en Operations Management Suite (OMS) (versión preliminar)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
+> La versión de la documentación para crear soluciones de administración en Azure está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
 
-Las [soluciones de administración](operations-management-suite-solutions.md) amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  Este artículo presenta un proceso básico para diseñar y compilar una solución de administración que es adecuada para los requisitos más comunes.  Si no está familiarizado con la creación de soluciones de administración puede utilizar este proceso como punto de partida, y luego aprovechar los conceptos para soluciones más complejas a medida que sus requisitos evolucionan.
+Las [soluciones de administración](operations-management-suite-solutions.md) ofrecen escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de Log Analytics.  Este artículo presenta un proceso básico para diseñar y compilar una solución de administración que es adecuada para los requisitos más comunes.  Si no está familiarizado con la creación de soluciones de administración puede utilizar este proceso como punto de partida, y luego aprovechar los conceptos para soluciones más complejas a medida que sus requisitos evolucionan.
 
 ## <a name="what-is-a-management-solution"></a>¿Qué es una solución de administración?
 
-Las soluciones de administración contienen OMS y recursos de Azure que funcionan conjuntamente para lograr un escenario de supervisión determinado.  Se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
+Las soluciones de administración contienen recursos de Azure que funcionan conjuntamente para lograr un escenario de administración determinado.  Se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
 
 La estrategia básica consiste en iniciar la solución de administración mediante la creación de los componentes individuales en el entorno de Azure.  Una vez que tenga la funcionalidad funcionando correctamente, puede empezar a empaquetarlos en un [archivo de solución de administración](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ La estrategia básica consiste en iniciar la solución de administración median
 ## <a name="design-your-solution"></a>Diseño de la solución
 El modelo más común para una solución de administración se muestra en el diagrama siguiente.  Los distintos componentes en este modelo se describen a continuación.
 
-![Información general de la solución OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Información general sobre la solución de administración](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Orígenes de datos

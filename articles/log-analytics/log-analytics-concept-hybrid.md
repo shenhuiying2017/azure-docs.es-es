@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recopilar datos de equipos en su entorno con Log Analytics
 
@@ -42,7 +42,11 @@ El agente para Windows y Linux no es solo para conectarse con Log Analytics, sin
 
 Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, el agente se puede configurar para que se conecte a OMS Gateway a fin de recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado. Para obtener más información y pasos acerca de cómo configurar el agente de Linux o Windows para que se comuniquen por una puerta de enlace de OMS con el servicio Log Analytics, consulte [Conexión de equipos sin acceso a OMS mediante la puerta de enlace de OMS](log-analytics-oms-gateway.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> El Agente para Windows solo admite Seguridad de la capa de transporte (TLS) 1.0 y 1.1.  
+> 
+
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos mínimos del sistema.
 
 ### <a name="windows-operating-system"></a>Sistema operativo Windows
@@ -56,9 +60,9 @@ A continuación se muestra la información de configuración de proxy y firewall
 
 | Recurso del agente | Puertos | Omitir inspección de HTTPS|
 |----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Sí |
+|* .ods.opinsights.azure.com |443 | Sí |
 |*.oms.opinsights.azure.com | 443 | Sí | 
-|*.blob.core.windows.net | 443 | Sí | 
+|* .blob.core.windows.net | 443 | Sí | 
 |*.azure-automation.net | 443 | Sí | 
 
 ### <a name="linux-operating-systems"></a>Sistemas operativos Linux
@@ -78,9 +82,9 @@ A continuación se muestra la información de configuración de proxy y firewall
 |Recurso del agente| Puertos |  
 |------|---------|  
 |*.ods.opinsights.azure.com | Puerto 443|   
-|*.oms.opinsights.azure.com | Puerto 443|   
-|*.blob.core.windows.net | Puerto 443|   
-|*.azure-automation.net | Puerto 443|  
+|* .oms.opinsights.azure.com | Puerto 443|   
+|* .blob.core.windows.net | Puerto 443|   
+|* .azure-automation.net | Puerto 443|  
 
 El agente de Linux admite la comunicación a través de un servidor proxy o la puerta de enlace de OMS para el servicio Log Analytics mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  El servidor proxy se puede especificar durante la instalación o al modificar el archivo de configuración proxy.conf después de la instalación.  
 
@@ -91,9 +95,9 @@ El valor de configuración de proxy tiene la siguiente sintaxis:
 > [!NOTE]
 > Aunque el servidor proxy no requiera que se autentique, el agente de Linux sí que requerirá que proporcione un pseudousuario y contraseña. Puede ser cualquier nombre de usuario o contraseña.
 
-|Propiedad| Descripción |
+|Propiedad| DESCRIPCIÓN |
 |--------|-------------|
-|Protocol | https |
+|Protocolo | https |
 |user | Nombre de usuario opcional para la autenticación de proxy |
 |contraseña | Contraseña opcional para la autenticación de proxy |
 |proxyhost | Dirección o el FQDN de la puerta de enlace de OMS/servidor proxy |
@@ -107,16 +111,16 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Instalación y configuración del agente 
 Conectar los equipos locales directamente con Log Analytics puede realizarse mediante métodos diferentes según sus requisitos. En la tabla siguiente se resalta cada método para determinar cuál funciona mejor en su organización.
 
-|Origen | Método | Descripción|
+|Origen | Método | DESCRIPCIÓN|
 |-------|-------------|-------------|
 | Equipo de Windows|- [Instalación manual](log-analytics-agent-windows.md)<br>- [DSC de Azure Automation](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Plantilla de Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instale el agente de Microsoft Monitoring desde la línea de comandos o mediante un método automatizado, como DSC de Azure Automation, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), o con una plantilla de Azure Resource Manager si implementó Microsoft Azure Stack en su centro de datos.| 
 |Equipo con Linux| [Instalación manual](log-analytics-quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
 | System Center Operations Manager|[Integrar Operations Manager con Log Analytics](log-analytics-om-agents.md) | Configurar la integración entre Operations Manager y Log Analytics para reenviar datos procedentes de equipos Linux y Windows que informan a un grupo de administración.|  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Revise los [orígenes de datos](log-analytics-data-sources.md) para saber qué orígenes de datos hay disponibles para recopilar datos de su sistema Windows o Linux. 
 
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 
 * Obtenga información sobre las [soluciones](log-analytics-add-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos en el repositorio de OMS.

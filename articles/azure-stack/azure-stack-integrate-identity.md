@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
-
-*Se aplica a: sistemas integrados de Azure Stack*
-
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
 
 En la tabla siguiente se muestran las diferencias entre las dos opciones de identidad:
@@ -26,7 +24,7 @@ En la tabla siguiente se muestran las diferencias entre las dos opciones de iden
 |---------|---------|---------|
 |Facturación|Debe ser capacidad<br> Solo Contrato Enterprise (EA)|Capacidad o de pago por uso<br>EA o proveedor de soluciones en la nube (CSP)|
 |Identidad|Debe ser AD FS|Azure AD o AD FS|
-|Redifusión de Marketplace|No está disponible actualmente|Compatible<br>Licencias BYOL|
+|Redifusión de Marketplace|Compatible<br>Licencias BYOL|Compatible<br>Licencias BYOL|
 |Registro|Recomendado, requiere un medio extraíble<br> y un dispositivo conectado independiente.|Automatizado|
 |Revisiones y actualizaciones|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|El paquete de actualización se puede descargar directamente<br> de Internet a Azure Stack.|
 
@@ -64,7 +62,7 @@ Requisitos:
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
-|Parámetro|Description|Ejemplo|
+|.|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN del bosque de Active Directory de destino<br>que desee integrar con|Contoso.com|
 |CustomADAdminCredentials|Un usuario con permiso de lectura de LDAP|YOURDOMAIN\graphservice|
@@ -105,7 +103,7 @@ Para este procedimiento, use un equipo de la red del centro de datos que pueda c
 
 El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para comunicarse con la instancia de Active Directory de destino:
 
-|Tipo|Port|Protocol|
+|type|Port|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP y UDP|
 |SSL de LDAP|636|TCP|
@@ -116,7 +114,7 @@ El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para co
 
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
-|Parámetro|Description|Ejemplo|
+|.|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. <cr>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Vínculo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -155,7 +153,7 @@ Utilice este método si se cumple alguna de las condiciones siguientes:
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
-|Parámetro|Description|Ejemplo|
+|.|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomADFSFederationMetadataFile|Archivo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -287,7 +285,7 @@ Hay muchos escenarios que requieren el uso de un nombre de entidad de seguridad 
 Para más información sobre cómo crear un nombre de entidad de seguridad de servicio, consulte la sección [Crear una entidad de servicio para AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="configuration-rollback"></a>Reversión de la configuración
 
@@ -333,6 +331,6 @@ Si se produce un error en cualquiera de los cmdlets, puede recopilar registros a
    ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md)
+[Registrar Azure Stack](azure-stack-registration.md)

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight
 
@@ -35,7 +35,7 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 * **DATAIKU DDS on HDInsight** permite a los profesionales de datos crear prototipos, compilar e implementar servicios muy específicos que transforman datos sin procesar en predicciones de negocio de gran impacto.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) ofrece a los analistas una forma interactiva de detectar, analizar y visualizar los resultados sobre macrodatos. Reúna más orígenes de datos con facilidad para detectar nuevas relaciones y obtener las respuestas que necesita rápidamente.
 * **H2O Artificial Intelligence para HDInsight (Beta)** H2O Sparkling Water admite los siguientes algoritmos distribuidos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection y Autoencoders.
-* **Plataforma de análisis de Kyligence** La plataforma de análisis de Kyligence (KAP) es un almacén de datos preparado para la empresa con tecnología Apache Kylin y Apache Hadoop; permite la latencia de consultas en fracciones de segundo en el conjunto de datos de gran escala y simplifica el análisis de datos para usuarios empresariales y analistas. 
+* **Plataforma de análisis de Kyligence** La plataforma de análisis de Kyligence (KAP) es un almacén de datos preparado para la empresa con tecnología Apache Kylin y Apache Hadoop; proporciona la latencia de consultas en fracciones de segundo en el conjunto de datos de gran escala y simplifica el análisis de datos para usuarios empresariales y analistas. 
 * **Paxata Self-service Data Preparation**
 * **SnapLogic Hadooplex** SnapLogic Hadooplex que se ejecuta en HDInsight permite a los clientes obtener información empresarial más rápidamente al proporcionar una ingesta de datos de autoservicio, así como la preparación de prácticamente cualquier origen en la plataforma de nube de Microsoft Azure.
 * **Servidor de trabajo de Spark para KNIME Spark ejecutor** El servidor de trabajo de Spark para KNIME Spark Executor se utiliza para conectar la plataforma de análisis de KNIME a clústeres de HDInsight.
@@ -44,15 +44,15 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 
 Para las instrucciones proporcionadas en este artículo se usa Azure Portal. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y CLI de Azure para implementarla.  Vea [Creación de clústeres de Hadoop en HDInsight con plantillas de Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Si desea instalar aplicaciones de HDInsight en un clúster de HDInsight existente, debe tener un clúster de HDInsight. Para crearlo, consulte [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). También puede instalar aplicaciones de HDInsight al crear un clúster de HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Instalación de aplicaciones en clústeres existentes
 En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsight en un clúster de HDInsight existente.
 
-**Para instalar una aplicación de HDInsight**
+**Instalación de una aplicación HDInsight**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.
 3. Haga clic en un clúster de HDInsight.  Si no tiene ninguno, debe crearlo primero.  Consulte [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Haga clic en **Aplicaciones** en la categoría **Configuraciones**. Verá una lista de aplicaciones instaladas. Si no encuentra aplicaciones, significa que no hay aplicaciones para esta versión del clúster de HDInsight.
@@ -75,9 +75,9 @@ Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Dur
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Lista de las aplicaciones de HDInsight instaladas y sus propiedades
 El portal muestra una lista de las aplicaciones de HDInsight instaladas para un clúster y las propiedades de cada una.
 
-**Para ver una lista de las aplicaciones de HDInsight y mostrar sus propiedades**
+**Lista de las aplicaciones de HDInsight y visualización de sus propiedades**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda. 
 3. Haga clic en un clúster de HDInsight.
 4. En **Configuración**, haga clic en **Aplicaciones** en la categoría **General**. Las aplicaciones instaladas se muestran a la derecha. 
@@ -93,14 +93,14 @@ El portal muestra una lista de las aplicaciones de HDInsight instaladas para un 
 6. Para eliminar una aplicación, haga clic con el botón derecho en ella y haga clic en **Eliminar** en el menú contextual.
 
 ## <a name="connect-to-the-edge-node"></a>Conexión con el nodo perimetral
-Puede conectar con el nodo perimetral mediante HTTP y SSH. Encontrará la información de punto de conexión en el [portal](#list-installed-hdinsight-apps-and-properties). Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Puede conectar con el nodo perimetral mediante HTTP y SSH. Encontrará la información de punto de conexión en el [portal](#list-installed-hdinsight-apps-and-properties). Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Las credenciales del punto de conexión HTTP son las credenciales de usuario HTTP que ha configurado para el clúster de HDInsight; las del punto de conexión SSH son las credenciales SSH que ha configurado para el clúster de HDInsight.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 Consulte [Solución de problemas de instalación](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.
 * [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md): aprenda a publicar aplicaciones de HDInsight personalizadas en Azure Marketplace.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: instalación de una aplicación de HDInsight): aprenda a definir aplicaciones de HDInsight.

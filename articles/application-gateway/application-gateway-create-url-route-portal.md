@@ -1,92 +1,180 @@
 ---
-title: Crear una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante Azure Portal | Microsoft Docs
-description: Aprenda a crear una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante Azure Portal.
+title: "Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal | Microsoft Docs"
+description: "Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante Azure Portal."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Crear una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante Azure Portal
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-url-route-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [CLI de Azure 2.0](application-gateway-create-url-route-cli.md)
+Puede usar Azure Portal para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante el uso de máquinas virtuales. A continuación, creará reglas de enrutamiento que garantizan que el tráfico web llega a los servidores adecuados de los grupos.
 
-Con el enrutamiento basado en ruta de dirección URL puede asociar rutas a partir de la ruta de dirección URL de solicitudes HTTP. Comprueba si hay una ruta a un grupo de servidores back-end configurada para la dirección URL indicada en la puerta de enlace de aplicaciones y, luego, envía el tráfico de red al grupo definido. Un uso habitual del enrutamiento basado en ruta de dirección URL es el equilibrio de carga de las solicitudes de diferentes tipos de contenido entre diferentes grupos de servidores back-end.
+En este artículo, aprenderá a:
 
-Las puertas de enlace de aplicaciones tienen dos tipos de reglas: básicas y basadas en ruta de dirección URL. El tipo de regla básico proporciona un servicio round robin para los grupos de servidores back-end. Las reglas basadas en ruta de acceso, además de la distribución round robin, también usan el patrón de ruta de acceso de la dirección URL de solicitud al elegir el grupo de servidores back-end adecuado.
+> [!div class="checklist"]
+> * Creación de una puerta de enlace de aplicaciones
+> * Crear máquinas virtuales para servidores back-end
+> * Crear grupos de back-end con los servidores back-end
+> * Crear un agente de escucha de back-end
+> * Crear una regla de enrutamiento basada en la ruta de acceso
 
-## <a name="scenario"></a>Escenario
+![Ejemplo de enrutamiento de direcciones URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-En el siguiente escenario se crea una regla basada en ruta de acceso en una puerta de enlace de aplicaciones existente.
-En este escenario se presupone que ya ha seguido los pasos descritos en [Creación de una puerta de enlace de aplicaciones con el portal](application-gateway-create-gateway-portal.md).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-![Ruta de dirección URL][scenario]
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-## <a name="createrule"></a>Creación de la regla basada en ruta de acceso
+Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
 
-Una regla basada en ruta de acceso necesita su propio agente de escucha. Antes de crear la regla, compruebe que tiene un agente de escucha disponible para su uso.
+## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-### <a name="step-1"></a>Paso 1
+Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
 
-Vaya a [Azure Portal](http://portal.azure.com) y seleccione una puerta de enlace de aplicaciones existente. Haga clic en **Reglas**.
+1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
+3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-![Introducción a Application Gateway][1]
+    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+    - *myResourceGroupAG*: como nuevo grupo de recursos.
 
-### <a name="step-2"></a>Paso 2
+    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Haga clic en el botón **Basada en ruta de acceso** para agregar una nueva regla basada en ruta de acceso.
+4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-### <a name="step-3"></a>Paso 3
+    - *myVNet*: como nombre de la red virtual.
+    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+    - *myAGSubnet*: como nombre de subred.
+    - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-La hoja **Add path-based rule** (Agregar regla basada en ruta de acceso) tiene dos secciones. La primera sección es donde se define el agente de escucha, el nombre de la regla y la configuración predeterminada de la ruta de acceso. La configuración predeterminada de la ruta de acceso se aplica a las rutas que no entran en la regla personalizada basada en la ruta de acceso. La segunda sección de la hoja **Add path-based rule** (Agregar regla basada en ruta de acceso) es donde se definen las propias reglas basadas en ruta de acceso.
+    ![Creación de una red virtual](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Configuración básica**
+6. Haga clic en **Aceptar** para crear la red virtual y la subred.
+7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+8. Acepte los valores predeterminados para la configuración del agente de escucha, deje el firewall de aplicaciones web deshabilitado y haga clic en **Aceptar**.
+9. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
-* **Nombre**: Nombre descriptivo para la regla accesible en el portal.
-* **Agente de escucha**: Agente de escucha que se usa para la regla.
-* **Grupo de back-end predeterminado**: Servidor back-end que se usará para la regla predeterminada.
-* **Configuración de HTTP predeterminada**: Configuración HTTP que se usará para la regla predeterminada.
+### <a name="add-a-subnet"></a>Incorporación de una subred
 
-**Configuración de la regla basada en ruta de acceso**
+1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
+2. Haga clic en **Subredes** y, a continuación, haga clic en **Subred**.
 
-* **Nombre**: Nombre descriptivo para la regla basada en ruta de acceso.
-* **Rutas de acceso**: Ruta de acceso que buscará la regla al reenviar el tráfico.
-* **Grupo de back-end**: Servidor back-end que se usará para la regla.
-* **Configuración de HTTP**: Configuración HTTP que se usará para la regla.
+    ![Creación de una subred](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> La opción **Rutas de acceso** es la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada patrón debe comenzar con una barra diagonal y solo se permiten los asteriscos al final. Ejemplos válidos: /xyz, /xyz*, y /xyz/*.  
+3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
 
-![Agregar hoja de regla basada en ruta de acceso con información completada][2]
+## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-La incorporación de una regla basada en ruta de acceso a una puerta de enlace de aplicaciones existente es un proceso que se lleva a cabo fácilmente en Azure Portal. Después de crear una regla basada en ruta de acceso, puede editarla para incluir más reglas. 
+En este ejemplo, se crean tres máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También se instala IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 
-![Agregar más reglas basadas en ruta de acceso][3]
+1. Haga clic en **Nuevo**.
+2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+3. Especifique estos valores para la máquina virtual:
 
-Este paso configura una regla basada en la ruta de acceso. Es importante saber que las solicitudes no se vuelven a escribir. Según van llegando, la puerta de enlace de aplicaciones las inspecciona y, en función del patrón de dirección URL, las envía al grupo de servidores back-end adecuado.
+    - *myVM1*: para el nombre de la máquina virtual.
+    - *azureuser*: como nombre del usuario administrador.
+    - *Azure123456!* como contraseña.
+    - Seleccione **Usar existente** y *myResourceGroupAG*.
 
-## <a name="next-steps"></a>Pasos siguientes
+4. Haga clic en **OK**.
+5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
+6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
+7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
+8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
 
-Para aprender a configurar la descarga de SSL con Azure Application Gateway, vea [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Portal](application-gateway-ssl-portal.md).
+### <a name="install-iis"></a>Instalación de IIS
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
+
+    ![Instalación de la extensión personalizada](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Cree dos máquinas virtuales más e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *myVM2* y *myVM3* para los nombres y los valores de VMName en Set-AzureRmVMExtension.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
+
+1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAppGateway**.
+2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGateayBackendPool**.
+3. Haga clic en **Agregar destino** para agregar *myVM1* a appGatewayBackendPool.
+
+    ![Incorporación de servidores back-end](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Haga clic en **Save**(Guardar).
+5. Haga clic en **Grupos de back-end** y, a continuación, haga clic en **Agregar**.
+6. Escriba un nombre para *imagesBackendPool* y agregue *myVM2* con **Agregar destino**.
+7. Haga clic en **OK**.
+8. Haga clic de nuevo en **Agregar** para agregar otro grupo de servidores back-end con el nombre *videoBackendPool* y agregue *myVM3* a dicho grupo.
+
+## <a name="create-a-backend-listener"></a>Crear un agente de escucha de back-end
+
+1. Haga clic en **Agentes de escucha** y, a continuación, haga clic en **Básico**.
+2. Escriba *myBackendListener* para el nombre, *myFrontendPort* para el nombre del puerto de front-end y, a continuación, *8080* como el puerto para el agente de escucha.
+3. Haga clic en **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Crear una regla de enrutamiento basada en la ruta de acceso
+
+1. Haga clic en **Reglas** y, a continuación, haga clic en **Basada en ruta de acceso**.
+2. Escriba *rule2* para el nombre.
+3. Escriba *Images* para el nombre de la primera ruta de acceso. Escriba */images /** para la ruta de acceso. Seleccione **imagesBackendPool** para el grupo de servidores back-end.
+4. Escriba *Video* para el nombre de la segunda ruta de acceso. Escriba */video/** para la ruta de acceso. Seleccione **videoBackendPool** para el grupo de servidores back-end.
+
+    ![Creación de una regla basada en ruta de acceso](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Haga clic en **OK**.
+
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
+
+1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
+
+    ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http: / / 40.121.222.19.
+
+    ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+
+    ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+
+    ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
+
+## <a name="next-steps"></a>pasos siguientes
+
+En este artículo, ha aprendido cómo
+
+> [!div class="checklist"]
+> * Creación de una puerta de enlace de aplicaciones
+> * Crear máquinas virtuales para servidores back-end
+> * Crear grupos de back-end con los servidores back-end
+> * Crear un agente de escucha de back-end
+> * Crear una regla de enrutamiento basada en la ruta de acceso
+
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
 El [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) se puede transmitir casi en tiempo real a cualquier aplicación mediante la opción Exportar integrada en el portal o habilitando el identificador de regla de Service Bus en un perfil de registro por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
@@ -35,16 +35,17 @@ Puede habilitar el streaming del registro de actividad mediante programación o 
 El espacio de nombres del centro de eventos o el bus de servicio no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 
 ### <a name="via-azure-portal"></a>Mediante el Portal de Azure
-1. Vaya a la hoja de **registro de actividad** mediante el menú en el lado izquierdo del portal.
+1. Vaya a la hoja de **registro de actividad** mediante la búsqueda de todos los servicios en el menú del lado izquierdo del portal.
    
-    ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
+    ![Ir al registro de actividad en el portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Haga clic en el botón **Exportar** en la parte superior de la hoja de registro de actividad.
    
-    ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. En la hoja que aparece, puede seleccionar las regiones para las que transmitir eventos y el espacio de nombres de Service Bus donde desea que se cree un centro de eventos para transmitirlos.
+    ![Botón Exportar en el portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. En la hoja que aparece, puede seleccionar las regiones para las que transmitir eventos y el espacio de nombres de Service Bus donde desea que se cree un centro de eventos para transmitirlos. Seleccione **Todas las regiones**.
    
-    ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    ![Exportar en hoja de registro de actividad](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
+5. Si tiene varias suscripciones, debe repetir esta acción y enviar todos los datos al mismo centro de datos.
 
 ### <a name="via-powershell-cmdlets"></a>Mediante cmdlets de PowerShell
 Si ya existe un perfil de registro, primero debe quitarlo.
@@ -53,8 +54,10 @@ Si ya existe un perfil de registro, primero debe quitarlo.
 2. Si es así, use `Remove-AzureRmLogProfile` para quitarlo.
 3. Use `Set-AzureRmLogProfile` para crear un perfil:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 El identificador de regla de Service Bus es una cadena con este formato: por ejemplo, {Id. de recurso de Service Bus}/authorizationrules/{nombre de clave}. 
@@ -66,7 +69,7 @@ Si ya existe un perfil de registro, primero debe quitarlo.
 2. Si es así, use `azure insights logprofile delete` para quitarlo.
 3. Use `azure insights logprofile add` para crear un perfil:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

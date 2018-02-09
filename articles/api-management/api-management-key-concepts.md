@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>¿Qué es Administración de API?
 
@@ -30,7 +30,7 @@ Vea el siguiente vídeo para más información sobre Azure API Management y apre
 > 
 > 
 
-Este tema proporciona información general de escenarios comunes que implican a APIM.  También ofrece una breve descripción de los componentes principales del sistema de APIM. El tema, a continuación, proporciona una descripción más detallada de cada uno.
+Este artículo proporciona información general de escenarios comunes que implican a APIM.  También ofrece una breve descripción de los componentes principales del sistema de APIM. El artículo, a continuación, proporciona una descripción más detallada de cada uno.
 
 ## <a name="overview"></a>Información general
 
@@ -50,7 +50,7 @@ El sistema consta de los siguientes componentes:
   * Transforma la API sobre la marcha sin modificaciones de código.
   * Almacena en caché las respuestas de back-end donde se instalaron.
   * Registra los metadatos de llamada para fines de análisis.
-* El **portal para editores** es la interfaz administrativa donde se configura el programa de API. Utilícelo para:
+* **Azure Portal** es la interfaz administrativa donde se configura el programa de API. Utilícelo para:
   
   * definir o importar el esquema de API
   * empaquetar las API en productos
@@ -104,7 +104,7 @@ Cuando los desarrolladores se suscriben a un producto, se les concede la clave p
 Para más información, consulte [Creación o invitación de desarrolladores][How to create or invite developers] y [Asociación de grupos a desarrolladores][How to associate groups with developers].
 
 ## <a name="policies"></a> Directivas
-Las directivas son una poderosa funcionalidad de API Management que permite al publicador cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir el número de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
+Las directivas son una eficaz funcionalidad de API Management que permite a Azure Portal cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir el número de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
 
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) y [Establecer variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) y [Expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

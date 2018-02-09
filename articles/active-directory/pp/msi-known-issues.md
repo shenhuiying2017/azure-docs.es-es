@@ -3,7 +3,7 @@ title: "Preguntas más frecuentes y problemas conocidos sobre una identidad de s
 description: Problemas conocidos con Managed Service Identity para Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Preguntas más frecuentes y problemas conocidos sobre una identidad de servicio administrada (MSI) para Azure Active Directory
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Donde: 
 - El nombre y tipo de la extensión para Windows es: ManagedIdentityExtensionForWindows
 - El nombre y tipo de la extensión para Linux es: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>¿Existen roles de RBAC para las identidades asignadas por el usuario?
+Sí:
+1. Colaborador de MSI: 
+
+- Puede: realizar una acción CRUD en las identidades asignadas por el usuario. 
+- No puede: asignar una identidad asignada por el usuario a un recurso. (Por ejemplo, asignar la identidad a una máquina virtual).
+
+2. Operador de MSI: 
+
+- Puede: asignar una identidad asignada por el usuario a un recurso. (Por ejemplo, asignar la identidad a una máquina virtual).
+- No puede: realizar una acción CRUD en las identidades asignadas por el usuario.
+
+Nota: El rol de colaborador integrado puede realizar todas las acciones descritas anteriormente: 
+- CRUD en identidades asignadas por el usuario
+- Asignar una identidad asignada por el usuario a un recurso. (Por ejemplo, asignar la identidad a una máquina virtual).
+
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -104,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - La única forma de quitar todas las MSI asignadas por el usuario es habilitar la MSI asignada por el sistema. 
 - Se puede producir un error con el aprovisionamiento de la extensión de máquina virtual en una máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo. 
-- CLI de Azure: se producirá un error de `Az resource show` y `Az resource list` en una máquina virtual con una MSI asignada por el usuario. Como solución alternativa, use `az vm/vmss show`.
+- Al agregar un MSI "no existente", se puede producir un error en la máquina virtual. *Nota: La solución al error en la asignación de identidades cuando no existe MSI está en proceso de implementación*.
 - El tutorial de Azure Storage solo está disponible en EUAP de centro de EE. UU. en este momento. 
-- Cuando a una MSI asignada por el usuario se le concede acceso a un recurso, en la hoja IAM de dicho recurso aparece "No se puede acceder a los datos". Como solución alternativa, utilice la CLI para ver o editar asignaciones de roles para dicho recurso.
-- No se admite la creación de una MSI asignada por el usuario con un guión bajo en el nombre.
+- No se admite la creación de un MSI asignado por el usuario con caracteres especiales (por ejemplo, guion bajo) en el nombre.
 - Al agregar una segunda identidad asignada por el usuario, el identificador de cliente puede no estar disponible para sus solicitudes de tokens. Como una mitigación, reinicie la extensión MSI para máquina virtual con los dos comandos de bash siguientes:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

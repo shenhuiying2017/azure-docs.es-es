@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Controles en el acceso condicional de Azure Active Directory 
 
@@ -107,7 +107,7 @@ Estos controles permiten el uso de ciertos servicios externos o personalizados c
 
 Los proveedores que actualmente ofrecen un servicio compatible incluyen:
 
-- Duo Security
+- [Duo Security](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -161,7 +161,7 @@ Para más información sobre cómo requerir el acceso limitado con SharePoint co
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 

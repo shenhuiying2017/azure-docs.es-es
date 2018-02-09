@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>¿Qué es Event Hubs?
 
@@ -44,7 +44,7 @@ Event Hubs proporciona una funcionalidad de control del flujo de mensajes pero t
 
 ## <a name="event-hubs-features"></a>Características de Event Hubs
 
-Event Hubs contiene los siguientes elementos clave:
+Event Hubs ofrece los siguientes elementos clave:
 
 - [**Productores/publicadores de eventos**](event-hubs-features.md#event-publishers): una entidad que envía datos a un centro de eventos. Se publica un evento mediante AMQP 1.0 o HTTPS.
 - [**Capturar**](event-hubs-features.md#capture): permite capturar los datos de transmisión de Event Hubs y almacenarlos en una cuenta de Azure Blob Storage.
@@ -56,7 +56,7 @@ Event Hubs contiene los siguientes elementos clave:
 
 Para detalles técnicos sobre estas y otras características de Event Hubs, consulte [Event Hubs features overview](event-hubs-features.md) (Introducción a las características de Event Hubs). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

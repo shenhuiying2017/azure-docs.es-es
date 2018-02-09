@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
 *Esta característica de Application Insights está disponible generalmente para Azure App Service y se encuentra en versión preliminar para los recursos de proceso de Azure.*
 
-Averigüe cuánto tiempo se dedica a cada método en la aplicación web activa con [Azure Application Insights Profiler](app-insights-overview.md). La herramienta de generación de perfiles de Application Insights muestra perfiles detallados de las solicitudes en vivo que atendió su aplicación, y destaca la *ruta de acceso activa* que se usa la mayor parte del tiempo. Profiler selecciona automáticamente ejemplos que tienen diferentes tiempos de respuesta y, luego, usa diversas técnicas para reducir la sobrecarga.
+Averigüe cuánto tiempo se dedica a cada método en la aplicación web activa con [Application Insights](app-insights-overview.md). La herramienta de generación de perfiles de Application Insights muestra perfiles detallados de las solicitudes en vivo que atendió su aplicación, y destaca la *ruta de acceso activa* que se usa la mayor parte del tiempo. El perfil de las solicitudes con diferentes tiempos de respuesta se genera por muestreo. Se minimiza la sobrecarga de la aplicación mediante diversas técnicas.
 
-Actualmente funciona en aplicaciones web ASP.NET que se ejecutan en Azure App Service, en al menos el plan de tarifa Básico.
+Actualmente, el generador de perfiles funciona en aplicaciones web ASP.NET y ASP.NET Core que se ejecutan en Azure App Service, en al menos el nivel de servicio **Básico**.
 
-## <a id="installation"></a> Habilitación de Profiler
+## <a id="installation"></a> Habilitación del generador de perfiles para la aplicación web de App Services
+Si ya tiene la aplicación publicada en App Services pero no ha hecho nada en el código fuente para utilizar Application Insights, vaya al panel de App Services en Azure Portal, vaya a **Supervisión | Application Insights** y siga las instrucciones que aparecen en el panel a fin de crear un nuevo recurso de Application Insights o seleccionar uno existente para supervisar la aplicación web. Tenga en cuenta que Profiler solo funciona con el plan de App Services **Básico** o superior.
 
-Instale [Application Insights](app-insights-asp-net.md) en el código. Si ya está instalado, asegúrese de que tiene la última versión. Para comprobar la versión más reciente, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, a continuación, seleccione **Administrar paquetes NuGet** > **Actualizaciones** > **Actualizar todo paquetes**. A continuación, vuelva a implementar la aplicación.
+![Habilitación de App Insights en el portal de App Services][appinsights-in-appservices]
 
-*¿Usa ASP.NET Core? Obtenga [más información](#aspnetcore).*
+Si tiene acceso al código fuente del proyecto, [instale Application Insights](app-insights-asp-net.md). Si ya está instalado, asegúrese de que tiene la última versión. Para comprobar la versión más reciente, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, a continuación, seleccione **Administrar paquetes NuGet** > **Actualizaciones** > **Actualizar todo paquetes**. A continuación, implemente la aplicación.
+
+La aplicación ASP.NET Core necesita instalar el paquete de NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o posterior para funcionar con Profiler. A partir del 27 de junio de 2017, no se admiten versiones anteriores.
 
 En [https://portal.azure.com](https://portal.azure.com), abra el recurso Application Insights para su aplicación web. Seleccione **Rendimiento** > **Habilitar Application Insights Profiler**.
 
 ![Selección del banner Habilitar Profiler][enable-profiler-banner]
 
-Como alternativa, puede seleccionar **Configurar** para ver el estado y habilitar o deshabilitar Profiler.
+Como alternativa, puede seleccionar la configuración de **Profiler** para ver el estado y habilitar o deshabilitar el generador de perfiles.
 
-![En Rendimiento, seleccione Configurar.][performance-blade]
+![En Rendimiento, selección de la configuración de Profiler][performance-blade]
 
-Las aplicaciones web que se configuran con Application Insights se muestran en **Configurar**. Siga las instrucciones para instalar al agente de Profiler si es necesario. Si no hay ninguna aplicación web configurada con Application Insights, seleccione **Agregar aplicaciones vinculadas**.
+Las aplicaciones web que se configuran con Application Insights se muestran en el panel de configuración de **Profiler**. Si ha seguido los pasos descritos anteriormente, el agente del generador de perfiles ya debe estar instalado. Seleccione **Habilitar Profiler** en el panel de configuración de **Profiler**.
 
-Para controlar Profiler y todas las aplicaciones web vinculadas, en el panel **Configurar**, seleccione **Habilitar Profiler** o **Deshabilitar Profiler**.
+Siga las instrucciones para instalar al agente de Profiler si es necesario. Si no hay ninguna aplicación web configurada con Application Insights, seleccione **Agregar aplicaciones vinculadas**.
 
 ![Configuración de las opciones del panel][linked app services]
 
 A diferencia de las aplicaciones web hospedadas mediante planes de App Service, las que se hospedan en recursos de proceso de Azure (por ejemplo, Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Azure Service Fabric o Azure Cloud Services) no se administran directamente mediante Azure. En este caso, no hay ninguna aplicación web a la que vincularlas. En lugar de vincularlas a una aplicación, seleccione el botón **Habilitar Profiler**.
 
-## <a name="disable-the-profiler"></a>Deshabilitar Profiler
-Para detener o reiniciar Profiler para una instancia de App Services, en **Trabajos web**, vaya al recurso de App Service. Para eliminar Profiler, vaya a **Extensiones**.
-
-![Deshabilitación de Profiler para los trabajos web][disable-profiler-webjob]
-
-Se recomienda tener habilitado Profiler en todas las aplicaciones web para detectar cualquier problema de rendimiento lo antes posible.
-
-Si usa WebDeploy para implementar cambios en la aplicación web, asegúrese de excluir la carpeta App_Data de la eliminación durante la implementación. De lo contrario, los archivos de la extensión de Profiler se eliminan la próxima vez que implemente la aplicación web en Azure.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Uso de Profiler con máquinas virtuales de Azure y recursos de proceso de Azure (versión preliminar)
-
-Cuando se [habilita Application Insights para Azure App Service en tiempo de ejecución](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler está disponible automáticamente. Si ya ha habilitado Application Insights para el recurso, puede que deba actualizar a la versión más reciente a mediante el asistente de configuración.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Habilitación de Profiler para recursos de Azure Compute (versión preliminar)
 
 Obtenga información sobre una [versión preliminar de Profiler para los recursos de proceso de Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## <a name="limitations"></a>Limitaciones
-
-La retención de datos predeterminada es de cinco días. El número máximo de datos ingerido al día es de 10 GB.
-
-No hay ningún cargo por el uso del servicio Profiler. Para usar el servicio Profiler, la aplicación web se debe hospedar al menos en el nivel Básico de App Service.
-
-## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga y algoritmo de muestreo
-
-Profiler se ejecuta de manera aleatoria dos minutos cada hora en cada máquina virtual que hospede la aplicación que tiene habilitado Profiler para capturar seguimientos. Cuando Profiler se ejecuta, supone entre un 5 y un 15 % de sobrecarga de CPU en el servidor.
-Cuantos más servidores haya disponibles para hospedar la aplicación, menor será el impacto de Profiler en el rendimiento general de la aplicación. El motivo es que el algoritmo de muestreo da lugar a que Profiler se ejecute únicamente en un 5 % de los servidores en cualquier momento. Para compensar la sobrecarga del servidor ocasionada por la ejecución de Profiler, hay más servidores disponibles para atender las solicitudes web.
-
-
 ## <a name="view-profiler-data"></a>Visualización de datos de Profiler
 
-Vaya al panel **Rendimiento** y desplácese a la lista de operaciones.
+**Asegúrese de que la aplicación está recibiendo tráfico**. Si está realizando un experimento, puede generar las solicitudes a la aplicación web mediante [Pruebas de rendimiento de Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Si acaba de habilitar Profiler, puede ejecutar una prueba de carga corta de unos 15 minutos y debería obtener seguimientos del generador de perfiles. Si tiene Profiler habilitado desde hace un tiempo, tenga en cuenta que se ejecuta de forma aleatoria dos veces cada hora, con una duración de dos minutos cada vez. Se recomienda ejecutar la prueba de carga durante una hora para asegurarse de que se obtienen los seguimientos de ejemplo del generador de perfiles.
 
-![Columna de ejemplos del panel Rendimiento de Application Insights][performance-blade-examples]
-
-La tabla de operaciones tiene las siguientes columnas:
-
-* **RECUENTO**: el número de estas solicitudes en el intervalo de tiempo del panel **RECUENTO**.
-* **MEDIANA**: tiempo típico que tarda la aplicación en responder a una solicitud. La mitad de todas las respuestas fueron más rápidas que este valor.
-* **PERCENTIL 95**: el 95 % de las respuestas fueron más rápidas que este valor. Si esta cifra se aleja mucho de la mediana, puede que haya un problema intermitente con la aplicación. (También es posible que el problema venga dado por una característica de diseño, como el almacenamiento en caché).
-* **SEGUIMIENTOS DE PROFILER**: icono que indica que Profiler ha capturado seguimientos de la pila para esta operación.
-
-Seleccione **Ver** para abrir el explorador de seguimiento. El explorador muestra varios muestras capturadas por el generador de perfiles, clasificadas por tiempo de respuesta.
-
-Si usa el panel de **vista previa de rendimiento**, vaya a la sección **Realizar acción** de la página para ver los seguimientos de Profiler. Seleccione el botón **Seguimientos de Profiler**.
+Cuando la aplicación reciba tráfico, vaya a la hoja **Rendimiento** y luego a la sección **Take actions** (Tomar acciones) de la página para ver los seguimientos del generador de perfiles. Seleccione el botón **Seguimientos de Profiler**.
 
 ![Seguimientos de Profiler de vista previa del panel Rendimiento de Application Insights][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ Profiler de servicio de Microsoft usa una combinación de método de muestreo e 
 La pila de llamadas que se muestra en la vista de escala de tiempo es el resultado del muestreo y la instrumentación. Como cada muestra captura la pila de llamadas completa del subproceso, incluye código de Microsoft .NET Framework y de otros marcos a los que se haga referencia.
 
 ### <a id="jitnewobj"></a>Asignación de objetos (clr!JIT\_New o clr!JIT\_Newarr1)
-**clr!JIT\_New** y **clr!JIT\_Newarr1** son funciones auxiliares de .NET Framework que asignan memoria desde un salto administrado. **clr!JIT\_New** se invoca cuando se asigna un objeto. **clr!JIT\_Newarr1** se invoca cuando se asigna una matriz de objetos. Estas dos funciones suelen ser muy rápidas y tardar una cantidad relativamente corta de tiempo. Si observa que **clr!JIT\_New** o **clr!JIT\_Newarr1** tardan más de lo normal, significa que el código podría estar asignando muchos objetos y consumiendo una importante cantidad de memoria.
+**clr!JIT\_New** y **clr!JIT\_Newarr1** son funciones auxiliares de .NET Framework que asignan memoria desde un salto administrado. **clr!JIT\_New** se invoca cuando se asigna un objeto. **clr!JIT\_Newarr1** se invoca cuando se asigna una matriz de objetos. Estas dos funciones suelen ser rápidas y tardan relativamente poco tiempo. Si observa que **clr!JIT\_New** o **clr!JIT\_Newarr1** tardan más de lo normal, significa que el código podría estar asignando muchos objetos y consumiendo una importante cantidad de memoria.
 
 ### <a id="theprestub"></a>Código de carga (clr!ThePreStub)
 **clr!ThePreStub** es una función auxiliar de .NET Framework que prepara el código para ejecutarse por primera vez. Suele incluir, pero sin limitarse a ello, la compilación JIT (Just-In-Time). Para cada método de C#, se debe invocar **clr!ThePreStub** al menos una vez mientras dura un proceso.
@@ -151,6 +119,26 @@ La aplicación está ejecutando operaciones de red.
 
 ### <a id="when"></a>Columna Cuándo
 La columna **Cuándo** es una visualización de cómo varían con el tiempo las muestras INCLUSIVAS recopiladas para un nodo. El intervalo total de la solicitud se divide en 32 depósitos de tiempo. Las muestras inclusivas para ese nodo se acumulan en esos 32 depósitos. Cada depósito se representa con una barra. El alto de la barra representa un valor escalado. En el caso de nodos marcados **CPU_TIME** o **BLOCKED_TIME**, o cuando existe una relación obvia de consumo de un recurso (CPU, disco, subproceso), la barra representa el consumo de uno de esos recursos durante el período de tiempo de ese depósito. Para estas métricas, puede obtener un valor superior al 100 % si consume varios recursos. Por ejemplo, si por término medio usa dos CPU a lo largo de un intervalo, consigue el 200 %.
+
+## <a name="limitations"></a>Limitaciones
+
+La retención de datos predeterminada es de cinco días. El número máximo de datos ingerido al día es de 10 GB.
+
+No hay ningún cargo por el uso del servicio Profiler. Para usar el servicio Profiler, la aplicación web se debe hospedar al menos en el nivel Básico de App Service.
+
+## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga y algoritmo de muestreo
+
+Profiler se ejecuta de manera aleatoria dos minutos cada hora en cada máquina virtual que hospede la aplicación que tiene habilitado Profiler para capturar seguimientos. Cuando Profiler se ejecuta, supone entre un 5 y un 15 % de sobrecarga de CPU en el servidor.
+Cuantos más servidores haya disponibles para hospedar la aplicación, menor será el impacto de Profiler en el rendimiento general de la aplicación. El motivo es que el algoritmo de muestreo da lugar a que Profiler se ejecute únicamente en un 5 % de los servidores en cualquier momento. Para compensar la sobrecarga del servidor ocasionada por la ejecución de Profiler, hay más servidores disponibles para atender las solicitudes web.
+
+## <a name="disable-the-profiler"></a>Deshabilitar Profiler
+Para detener o reiniciar Profiler para una instancia de App Services, en **Trabajos web**, vaya al recurso de App Service. Para eliminar Profiler, vaya a **Extensiones**.
+
+![Deshabilitación de Profiler para los trabajos web][disable-profiler-webjob]
+
+Se recomienda tener habilitado Profiler en todas las aplicaciones web para detectar cualquier problema de rendimiento lo antes posible.
+
+Si usa WebDeploy para implementar cambios en la aplicación web, asegúrese de excluir la carpeta App_Data de la eliminación durante la implementación. De lo contrario, los archivos de la extensión de Profiler se eliminan la próxima vez que implemente la aplicación web en Azure.
 
 
 ## <a id="troubleshooting"></a>Solución de problemas
@@ -229,12 +217,12 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 9. Reinicie la aplicación web.
 
 ## <a id="profileondemand"></a> Desencadenar manualmente el generador de perfiles
-Cuando se desarrolló el generador de perfiles, se agregó una interfaz de línea de comandos para que fuera posible probarlo en servicios de aplicaciones. Con esta misma interfaz, los usuarios también pueden personalizar cómo se inicia el generador de perfiles. A un nivel alto, el generador de perfiles usa el sistema Kudu de App Service para administrar la generación de perfiles en segundo plano. Cuando se instala la extensión de Application Insights, se crea un trabajo web continuo que hospeda el generador de perfiles. Esta misma tecnología se usará para crear un nuevo trabajo web que se puede personalizar de acuerdo con sus necesidades.
+Cuando se desarrolló el generador de perfiles, se agregó una interfaz de línea de comandos para que fuera posible probarlo en servicios de aplicaciones. Con esta misma interfaz, los usuarios también pueden personalizar cómo se inicia el generador de perfiles. A grandes rasgos, el generador de perfiles usa el sistema Kudu de App Service para administrar la generación de perfiles en segundo plano. Cuando se instala la extensión de Application Insights, se crea un trabajo web continuo que hospeda el generador de perfiles. Esta misma tecnología se usa para crear un nuevo trabajo web que se puede personalizar de acuerdo con sus necesidades.
 
 En esta sección se explica cómo:
 
-1.  Crear un trabajo web que puede iniciar el generador de perfiles durante dos minutos con la acción de presionar un botón
-2.  Crear un trabajo web que puede programar el generador de perfiles para que se ejecute
+1.  Crear un trabajo web que puede iniciar el generador de perfiles durante dos minutos con la acción de presionar un botón.
+2.  Crear un trabajo web que puede programar la ejecución del generador de perfiles.
 3.  Establecer los argumentos del generador de perfiles
 
 
@@ -243,7 +231,7 @@ En primer lugar, es necesario familiarizarse con el panel del trabajo web. En Co
 
 ![hoja de webjobs](./media/app-insights-profiler/webjobs-blade.png)
 
-Como puede ver, este panel muestra todos los trabajos web que están instalados actualmente en su sitio. Puede ver que el trabajo web ApplicationInsightsProfiler2 tiene en ejecución el trabajo del generador de perfiles. Aquí es donde terminaremos de crear nuestros nuevos trabajos web para la generación de perfiles manual y programada.
+Como puede ver, este panel muestra todos los trabajos web que están instalados actualmente en su sitio. Puede ver que el trabajo web ApplicationInsightsProfiler2 tiene en ejecución el trabajo del generador de perfiles. Aquí es donde terminamos de crear nuestros nuevos trabajos web para la generación de perfiles manual y programada.
 
 En primer lugar, hay que obtener los binarios necesarios.
 
@@ -263,7 +251,7 @@ a.  El comando `start` indica al generador de perfiles que se inicie.
 b.  `--engine-mode immediate` indica al generador de perfiles la necesidad de comenzar inmediatamente a generar perfiles.
 c.  `--single` significa ejecutar y detener automáticamente d.  `--immediate-profiling-duration 120` significa hacer que el generador de perfiles se ejecute durante 120 segundos o 2 minutos.
 5.  Guarde este archivo.
-6.  Archive esta carpeta; puede hacer clic con el botón derecho en la carpeta y elegir Enviar a -> Carpeta comprimida (en ZIP). Se crea un archivo .zip con el nombre de la carpeta.
+6.  Archive esta carpeta; puede hacer clic con el botón derecho en la carpeta y elegir Enviar a -> Carpeta comprimida (en zip). Se crea un archivo .zip con el nombre de la carpeta.
 
 ![comando start profiler](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -275,7 +263,7 @@ A continuación, se agregará un nuevo trabajo web en nuestro sitio. En este eje
 1.  Vaya al panel de trabajos web.
 2.  Haga clic en el comando Agregar en la barra de herramientas.
 3.  Asigne un nombre a su trabajo web. En este caso se eligió para que coincidiera con el nombre del archivo de ejemplo, para una mayor claridad y para que hubiera la posibilidad de tener diferentes versiones del archivo run.cmd.
-4.  En el archivo, cargue parte del formulario, haga clic en el icono Abrir archivo y busque el archivo .zip que creó anteriormente.
+4.  En el archivo, cargue partes del formulario, haga clic en el icono Abrir archivo y busque el archivo .zip que creó anteriormente.
 5.  Como tipo, elija Desencadenado.
 6.  En Desencadenadores, elija Manual.
 7.  Haga clic en Aceptar para guardar.
@@ -301,17 +289,11 @@ Aunque este método es relativamente sencillo, hay algunas cosas que se deben te
 3.  La característica Web Jobs de App Services es única en el sentido de que, cuando se ejecuta el trabajo web, se garantiza que el proceso tiene las mismas variables de entorno y la configuración de aplicación que acabará teniendo el sitio web. Esto significa que no es necesario pasar la clave de instrumentación al generador de perfiles mediante la línea de comandos; simplemente, se debe seleccionar del entorno. Sin embargo, si quiere ejecutar el generador de perfiles en el cuadro de desarrollo o en una máquina fuera de App Services, deberá suministrar una clave de instrumentación. Para ello, pase un argumento `--ikey <instrumentation-key>`. Tenga en cuenta que este valor debe coincidir con la clave de instrumentación que esté usando la aplicación. En la salida del registro del generador de perfiles, se indicará con qué ikey se inició el generador de perfiles y si se detectó actividad de esa clave de instrumentación mientras se generaban los perfiles.
 4.  Los trabajos web desencadenados manualmente se pueden desencadenar en realidad mediante Webhook. Para obtener esta dirección URL, puede hacer clic con el botón derecho en el trabajo web en el panel y ver las propiedades; también, puede elegir las propiedades en la barra de herramientas después de seleccionar el trabajo web de la tabla. Son muchos los artículos que puede encontrar en Internet al respecto, así que sin entrar mucho en detalles, esto abre la posibilidad de desencadenar el generador de perfiles desde su canalización de CI/CD (como VSTS) o algo como Microsoft Flow (https://flow.microsoft.com/en-us/). En función de lo sofisticado que quiera que sea su run.cmd, que, por cierto, puede ser un run.ps1, las posibilidades son inmensas.  
 
-
-
-
-## <a id="aspnetcore"></a>Compatibilidad con ASP.NET Core
-
-La aplicación ASP.NET Core necesita instalar el paquete de NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o posterior para funcionar con Profiler. A partir del 27 de junio de 2017, no se admiten versiones anteriores.
-
 ## <a name="next-steps"></a>pasos siguientes
 
 * [Trabajo con Application Insights en Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Exploración de las funcionalidades de la solución preconfigurada de supervisión remota
 
@@ -32,7 +32,11 @@ En este tutorial, aprenderá a:
 > * Actualizar el firmware de los dispositivos
 > * Organización de los activos
 
-## <a name="prerequisites"></a>Requisitos previos
+En el vídeo siguiente se muestra un tutorial sobre la solución de supervisión remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
@@ -58,7 +62,7 @@ Contoso usa distintos tipos de dispositivos Smart Device. Estos dispositivos cum
 
 En la tabla siguiente se muestra un resumen de los tipos de dispositivos aprovisionados:
 
-| Tipo de dispositivo        | Telemetría                                  | Propiedades                                  | Etiquetas                    | Métodos                                                                                      |
+| Tipo de dispositivo        | Telemetría                                  | Properties (Propiedades)                                  | Etiquetas                    | Métodos                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Refrigerador            | Temperatura, humedad, presión            | Tipo, versión de firmware, modelo               | Ubicación, planta, campus | Reinicio, actualización de firmware, liberación de la válvula de emergencia, incremento de la presión                          |
 | Dispositivo de creación de prototipos | Temperatura, presión, ubicación geográfica        | Tipo, versión de firmware, modelo               | Ubicación, modo          | Reinicio, actualización de firmware, movimiento de dispositivo, detención de dispositivo, activación de temperatura, incremento de temperatura |
@@ -73,7 +77,7 @@ En la tabla siguiente se muestra un resumen de los tipos de dispositivos aprovis
 
 Los operadores de Contoso conocen los umbrales que determinan si un dispositivo funciona correctamente. Por ejemplo, un refrigerador no funciona correctamente si la presión que informa es mayor que 250 psi. En la tabla siguiente se muestran las reglas basadas en umbrales que Contoso define para cada tipo de dispositivo:
 
-| Nombre de la regla | Descripción | Umbral | Severity | Dispositivos afectados |
+| Nombre de la regla | DESCRIPCIÓN | Umbral | Severity | Dispositivos afectados |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Presión del refrigerador demasiado alta | Alerta si los refrigeradores alcanzan niveles de presión más altos que los normales   |P>250 psi       | Crítico | Refrigeradores            |
 | Temperatura del dispositivo de creación de prototipos demasiado alta  | Alerta si los dispositivos de creación de prototipos alcanzan niveles de temperatura mayores que los normales  |T>80&deg; F |Crítico | Dispositivos de creación de prototipos |
@@ -226,7 +230,7 @@ Puede usar los valores de etiqueta para crear filtros.
 
 El operador de Contoso ahora puede consultar los dispositivos en función del equipo operativo sin necesidad de hacer ningún cambio en los dispositivos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial aprendió a:
 

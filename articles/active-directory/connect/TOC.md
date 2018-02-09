@@ -2,7 +2,7 @@
 ## [Qué es Azure AD Connect](active-directory-aadconnect.md)
 ## [¿Qué es la sincronización de Azure AD Connect?](active-directory-aadconnectsync-whatis.md)
 ### [Usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md)
-### [Arquitectura](active-directory-aadconnectsync-understanding-architecture.md)
+### [Architecture](active-directory-aadconnectsync-understanding-architecture.md)
 ### [Aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
 #### [Expresiones declarativas de aprovisionamiento](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 ### [Configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md)
@@ -18,7 +18,7 @@
 ### [Actualización desde una versión anterior](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Instalación mediante una base de datos de ADSync ya existente](active-directory-aadconnect-existing-database.md)
 
-# Cómo
+# Procedimientos
 ## Planeamiento y diseño
 ### [Conceptos de diseño](active-directory-aadconnect-design-concepts.md)
 ### [Topologías de Azure AD Connect](active-directory-aadconnect-topologies.md)
@@ -55,9 +55,10 @@
 ### [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Cuenta de servicio de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md)
+### [¿Cómo se rellena UserPrincipalName?](active-directory-aadconnect-userprincipalname.md)
 ### [Cambio de la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md)
-### [Programador](active-directory-aadconnectsync-feature-scheduler.md)
+### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Cambio de la contraseña de la cuenta del servicio Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)

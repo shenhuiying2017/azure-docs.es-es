@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Copia de seguridad de Azure Stack
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/02/2018
 
 Realice una copia de seguridad a petición en Azure Stack con la copia de seguridad vigente. Si necesita habilitar el servicio Infrastructure Backup Service, consulte [Habilitación de la copia de seguridad de Azure Stack desde el portal de administración](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Las herramientas de Azure Stack contienen el cmdlet **Start-AzSBackup**. Para obtener instrucciones sobre cómo instalar las herramientas, consulte [Póngase a trabajar con PowerShell en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Inicio de la copia de seguridad de Azure Stack
 
-Abra una sesión de Windows PowerShell con privilegios elevados y ejecute los siguientes comandos:
+Abra una sesión de Windows PowerShell con privilegios elevados en el entorno de administración de operador y ejecute los siguientes comandos:
 
-   ```powershell
-   Start-AzSBackup -Location $location
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirmación de la copia de seguridad realizada en el portal de administración
 

@@ -6,23 +6,23 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos de Blob Storage. Para obtener una introducción a los esquemas de eventos, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de Blob Storage. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Blob Storage emite los siguientes tipos de eventos:
 
-| Tipo de evento | Descripción |
+| Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Se genera cuando se crea un blob. |
 | Microsoft.Storage.BlobDeleted | Se genera cuando se elimina un blob. |
@@ -51,7 +51,9 @@ En el ejemplo siguiente, se muestra el esquema de un evento de creación de un b
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ El esquema para un evento de eliminación de un blob es similar:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -82,18 +86,20 @@ El esquema para un evento de eliminación de un blob es similar:
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | Descripción |
+| Propiedad | type | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. |
+| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | cadena | Ruta al asunto del evento definida por el anunciante. |
 | eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | cadena | Identificador único para el evento |
 | data | objeto | Datos de eventos de Blob Storage. |
+| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | Descripción |
+| Propiedad | type | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | api | cadena | Operación que desencadenó el evento. |
 | clientRequestId | cadena | Valor opaco generado por el cliente con un límite de caracteres de 1 KB. Si se habilitó el registro de análisis de almacenamiento, se graba en los registros de análisis. |
@@ -101,13 +107,13 @@ El objeto data tiene las siguientes propiedades:
 | eTag | cadena | Valor que puede usar para realizar operaciones de manera condicional. |
 | contentType | cadena | Tipo de contenido especificado para el blob. |
 | contentLength | integer | Tamaño del blob en bytes. |
-| blobType | cadena | El tipo de blob. |
-| url | cadena | Ruta de acceso al blob. |
+| blobType | cadena | El tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob". |
+| URL | cadena | Ruta de acceso al blob. |
 | sequencer | cadena | Valor controlado por el usuario que puede usar para realizar un seguimiento de las solicitudes. |
 | storageDiagnostics | objeto | Información sobre los diagnósticos de almacenamiento. |
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* Para obtener una introducción a Azure Event Grid, consulte [Una introducción a Azure Event Grid](overview.md).
+* Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
 * Para obtener una introducción acerca del trabajo con eventos de Blob Storage, consulte [Enrutamiento de eventos de Blob Storage: CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

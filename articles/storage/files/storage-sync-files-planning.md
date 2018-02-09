@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -158,11 +158,13 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 
 | Region | Ubicación de centro de datos |
 |--------|---------------------|
-| Este de EE. UU | Virginia, EE. UU. |
-| Oeste de EE. UU | California, Estados Unidos |
+| Australia Oriental | Nueva Gales del Sur |
+| Centro de Canadá | Toronto |
+| Este de EE. UU | Virginia |
+| Sudeste asiático | Singapur |
+| Sur del Reino Unido 2 | Londres |
 | Europa occidental | Países Bajos |
-| Sudeste de Asia | Singapur |
-| Australia Oriental | Nueva Gales del Sur, Australia |
+| Oeste de EE. UU | California |
 
 En la versión preliminar, solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilación de una aplicación web PHP y MySQL en Azure
 
@@ -41,7 +41,9 @@ En este tutorial, aprenderá a:
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -50,8 +52,6 @@ Para completar este tutorial:
 * [Instalación de Composer](https://getcomposer.org/doc/00-intro.md)
 * Habilitación de las siguientes extensiones PHP necesarias para Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer y XML
 * [Instalación e inicio de MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>Preparación de MySQL local
 
@@ -162,7 +162,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL (vers
 
 ### <a name="create-a-mysql-server"></a>Creación de un servidor MySQL
 
-En Cloud Shell, cree un servidor en Azure Database for MySQL (versión preliminar) con el comando [az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+En Cloud Shell, cree un servidor en Azure Database for MySQL (versión preliminar) con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 En el siguiente comando, reemplace el nombre del servidor MySQL en el lugar en el que vea el marcador de posición _&lt;mysql_server_name>_ (los caracteres válidos son `a-z`, `0-9` y `-`). Este nombre forma parte del nombre de host del servidor MySQL (`<mysql_server_name>.database.windows.net`), por lo que es preciso que sea globalmente único.
 
@@ -192,7 +192,7 @@ Cuando se crea el servidor MySQL, la CLI de Azure muestra información similar a
 
 ### <a name="configure-server-firewall"></a>Configuración del firewall del servidor
 
-En Cloud Shell, cree una regla de firewall para que el servidor MySQL permita conexiones de clientes con el comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+En Cloud Shell, cree una regla de firewall para que el servidor MySQL permita conexiones de cliente con el comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -265,25 +265,21 @@ Guarde los cambios.
 
 ### <a name="configure-ssl-certificate"></a>Configuración de un certificado SSL
 
-De manera predeterminada, Azure Database for MySQL aplica las conexiones SSL de los clientes. Para conectarse a una base de datos MySQL en Azure, debe usar un certificado SSL _.pem_.
+De manera predeterminada, Azure Database for MySQL aplica las conexiones SSL de los clientes. Para conectarse a la base de datos MySQL en Azure, debe utilizar el certificado [_.pem_ proporcionado por Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
-Abra _config/database.php_ y agregue los parámetros _sslmode_ y _options_ a `connections.mysql`, como se muestra en el código siguiente.
+Abra _config/database.php_ y agregue los parámetros `sslmode` y `options` a `connections.mysql`, como se muestra en el código siguiente.
 
 ```php
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-Para aprender a generar el archivo [certificate.pem](../mysql/howto-configure-ssl.md), consulte _Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL_.
-
-> [!TIP]
-> La ruta de acceso _/ssl/certificate.pem_ apunta a un archivo _certificate.pem_ existente en el repositorio de Git. Para su comodidad, en este tutorial se proporciona este archivo. Como procedimiento recomendado, no debe confirmar los certificados _.pem_ en el control de código fuente. 
->
+El certificado `BaltimoreCyberTrustRoot.crt.pem` se proporciona en el repositorio por comodidad en este tutorial. 
 
 ### <a name="test-the-application-locally"></a>Prueba de la aplicación de forma local
 
@@ -345,7 +341,7 @@ En este paso se implementará la aplicación PHP conectada a MySQL en Azure App 
 
 Como se indicó anteriormente, es posible conectar la base de datos MySQL de Azure mediante variables de entorno en App Service.
 
-En Cloud Shell, las variables de entorno se establecen como _Configuración de la aplicación_ con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+En Cloud Shell, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 El siguiente comando permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;mysql_server_name>_.
 
@@ -376,7 +372,7 @@ En la ventana del terminal local, use `php artisan` para generar una clave de ap
 php artisan key:generate --show
 ```
 
-En Cloud Shell, establezca la clave de aplicación en la aplicación web App Service con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Reemplace los marcadores de posición _&lt;appname>_ y _&lt;outputofphpartisankey:generate>_.
+En Cloud Shell, establezca la clave de aplicación en la aplicación web App Service, para lo que hay que usar el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Reemplace los marcadores de posición _&lt;appname>_ y _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -388,7 +384,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Establezca la ruta de acceso de la aplicación virtual para la aplicación web. Este paso se requiere porque el [ciclo de vida de la aplicación Laravel](https://laravel.com/docs/5.4/lifecycle) comienza en el directorio _public_, en lugar de en el directorio raíz de la aplicación. Otros marcos PHP cuyo ciclo de vida comienza en el directorio raíz pueden funcionar sin necesidad de configurar manualmente la ruta de acceso de la aplicación virtual.
 
-En Cloud Shell, use el comando [az resource update](/cli/azure/resource#update) para establecer la ruta de acceso a la aplicación virtual. Reemplace el marcador de posición _&lt;appname>_.
+En Cloud Shell, establezca la ruta de acceso a la aplicación virtual con el comando [`az resource update`](/cli/azure/resource#az_resource_update). Reemplace el marcador de posición _&lt;appname>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -398,19 +394,7 @@ De manera predeterminada, Azure App Service apunta la ruta de acceso de la aplic
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 
-En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _&lt;paste\_copied\_url\_here>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de una aplicación web](#create).
-
-```bash
-git remote add azure <paste_copied_url_here>
-```
-
-Insértela en la instancia remota de Azure para implementar la aplicación PHP. Se le pedirá la contraseña que especificó anteriormente como parte de la creación del usuario de implementación.
-
-```bash
-git push azure master
-```
-
-Durante la implementación, Azure App Service comunicará su progreso con Git.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 3, done.
@@ -591,7 +575,7 @@ Si ha agregado tareas, estas se conservarán en la base de datos. Las actualizac
 
 Mientras se ejecuta la aplicación PHP en Azure App Service, los registros de la consola se canalizan a su terminal. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
-Para iniciar la transmisión del registro, use el comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) en Cloud Shell.
+Para iniciar la transmisión del registro, use el comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) en Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

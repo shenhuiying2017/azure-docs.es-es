@@ -3,7 +3,7 @@ title: "Uso de Managed Service Identity (MSI) en una máquina virtual Windows pa
 description: "En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: ad9b92f11571b013f371eb36c0676afb3e9e5213
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 367008c41aee6ee31811f7fa7ee4be69120b8851
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una má
 > * Conceder a una máquina virtual acceso a Azure Data Lake Store
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para acceder a Azure Data Lake Store
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -205,7 +205,7 @@ En este tutorial, se autenticará en la API de REST del sistema de archivos de D
 
 Mediante otras API del sistema de archivos de Data Lake Store, puede anexar o descargar archivos, entre otras muchas cosas.
 
-¡Enhorabuena!  Se ha autenticado en el sistema de archivos de Data Lake Store mediante una identidad MSI de máquina virtual.
+Felicidades.  Se ha autenticado en el sistema de archivos de Data Lake Store mediante una identidad MSI de máquina virtual.
 
 ## <a name="related-content"></a>Contenido relacionado
 

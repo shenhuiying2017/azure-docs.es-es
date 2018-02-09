@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -50,29 +50,20 @@ Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Almacenamiento con redundancia de zona
-
-La versión preliminar del almacenamiento con redundancia de zona (ZRS) está diseñada para simplificar el desarrollo de aplicaciones de alta disponibilidad. ZRS proporciona a los objetos de almacenamiento una durabilidad de al menos el 99,9999999999 % (doce nueves) durante un año determinado. ZRS replica los datos de forma sincrónica a través de varias zonas de disponibilidad. Puede usar ZRS en escenarios como las aplicaciones transaccionales, en los cuales el tiempo de inactividad no es aceptable.
-
-ZRS permite a los clientes leer y escribir datos, incluso si una sola zona no está disponible o es irrecuperable. Inserta y actualiza los datos de forma sincrónica y ampliamente coherente.   
-
-ZRS está disponible actualmente en las versiones preliminares de las siguientes regiones (muy pronto habrá más regiones disponibles):
-
-- Este de EE. UU. - 2 
-- Centro de EE. UU. 
-- Centro de Francia (esta región está actualmente en versión preliminar. Consulte [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) [Versión preliminar de Microsoft Azure con las zonas de disponibilidad de Azure que están abiertas en Francia] para solicitar acceso.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>Cuentas de ZRS Classic
 
 La capacidad de ZRS existente ahora se conoce como ZRS Classic. Las cuentas de ZRS Classic solo están disponibles en los blobs en bloques de cuentas de almacenamiento V1 de uso general. 
 
-ZRS Classic replica datos de forma asincrónica en centros de datos de una o dos regiones. Es posible que una réplica no esté disponible hasta que Microsoft inicie la conmutación por error en el elemento secundario. 
+ZRS clásico replica los datos de forma asincrónica en los centros de datos de una o dos regiones. Es posible que una réplica no esté disponible hasta que Microsoft inicie la conmutación por error en el elemento secundario. 
 
 Las cuentas de ZRS Classic no pueden convertirse a (o desde) LRS, GRS o RA-GRS. Las cuentas de ZRS Classic no admiten ni las métricas ni el registro.   
 
 Una vez que ZRS esté disponible en una región de forma general, ya no podrá crear una cuenta de ZRS Classic desde el portal de dicha región, pero puede crear una mediante otros medios.  
 En el futuro se proporcionará un proceso de migración automático de ZRS Classic a ZRS.
 
-Las cuentas de ZRS admiten la migración manual de una cuenta de ZRS en dicha región a (o desde) una cuenta de LRS, GRS o RA-GRS. Puede realizar esta migración manual mediante AzCopy, el Explorador de Azure Storage, Azure PowerShell, la CLI de Azure o una de las bibliotecas cliente de Azure Storage.
+Puede migrar manualmente los datos de la cuenta ZRS a o desde una cuenta LRS, ZRS clásico, GRS o RAGRS. Puede realizar esta migración manual mediante AzCopy, el Explorador de Azure Storage, Azure PowerShell, la CLI de Azure o una de las bibliotecas cliente de Azure Storage.
 
 > [!NOTE]
 > Las cuentas de ZRS Classic caerán en desuso y será necesario hacer la migración antes del 31 de marzo de 2021. Microsoft enviará más detalles a los clientes de ZRS Classic antes de que estas cuentas dejen de usarse.

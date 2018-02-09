@@ -1,88 +1,97 @@
 ---
-title: Azure Batch ejecuta soluciones de procesos paralelos a gran escala en la nube | Microsoft Docs
-description: "Información acerca del servicio Lote de Azure para cargas de trabajo HPC y paralelas a gran escala"
+title: Azure Batch ejecuta trabajos paralelos en la nube | Microsoft Docs
+description: "Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala"
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: mscurrell
+manager: jkabat
 editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
+ms.assetid: 
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: overview
+ms.date: 01/19/2018
+ms.author: mscurrell
+ms.custom: mvc
+ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Ejecución de cargas de trabajo paralelas intrínsecamente con Batch
+# <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
-Azure Batch es un servicio de plataforma para ejecutar aplicaciones en paralelo a gran escala y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Azure Batch programa el trabajo que conlleva mucho proceso para que se ejecute en una colección administrada de máquinas virtuales y puede escalar automáticamente los recursos de proceso para satisfacer las necesidades de sus trabajos.
+Use Azure Batch para ejecutar aplicaciones de informática de alto rendimiento (HPC) en paralelo y a gran escala, de manera eficaz en Azure. Azure Batch permite crear y administrar un conjunto de nodos de proceso (máquinas virtuales), instalar las aplicaciones que desea ejecutar y programar trabajos para que se ejecuten en los nodos. No hay ningún software de programador de clústeres o trabajos que instalar, administrar o escalar. En su lugar, use [API y herramientas de Batch](batch-apis-tools.md), scripts de línea de comandos o Azure Portal para configurar, administrar y supervisar los trabajos. 
 
-Con Azure Batch, se pueden definir fácilmente los recursos de proceso de Azure para ejecutar las aplicaciones en paralelo y a escala. No es preciso crear, configurar ni administrar manualmente un clúster de HPC, máquinas virtuales individuales, redes virtuales ni una infraestructura compleja de programación de tareas y trabajos. Azure Batch automatiza o simplifica estas tareas automáticamente.
+Los desarrolladores pueden usar Batch como un servicio de plataforma para compilar aplicaciones SaaS o aplicaciones cliente en las que se requiere una ejecución a gran escala. Por ejemplo, compile un servicio con Batch para que ejecute una simulación de riesgo Monte Carlo para una empresa de servicios financieros, o un servicio que procese muchas imágenes.
 
-## <a name="use-cases-for-batch"></a>Casos de uso de Lote
-Batch es un servicio administrado de Azure que se usa para el *procesamiento por lotes* o la *computación por lotes*, es decir, la ejecución de grandes volúmenes de tareas similares para obtener un resultado deseado. La computación por lotes la utilizan normalmente organizaciones que procesan, transforman y analizan grandes volúmenes de datos con regularidad.
-
-Lote funciona bien con cargas de trabajo y aplicaciones intrínsecamente paralelas (a veces llamadas "lamentablemente paralelas"). Las cargas de trabajo intrínsecamente paralelas son las que se dividen fácilmente en varias tareas que trabajan simultáneamente en varios equipos.
-
-![Tareas paralelas][1]<br/>
-
-Algunos ejemplos de cargas de trabajo que normalmente se procesan mediante esta técnica son:
-
-* Modelado de riesgos financieros
-* Análisis de datos de clima e hidrología
-* Representación, análisis y procesamiento de imágenes
-* Codificación y transcodificación multimedia
-* Análisis de secuencia genética
-* Análisis de esfuerzos en ingeniería
-* Pruebas de software
-
-El servicio Lote también puede realizar cálculos paralelos con un paso de reducción al final y ejecutar cargas de trabajo de HPC más complejas, como aplicaciones de la [Interfaz de paso de mensajes (MPI)](batch-mpi.md) .
+No hay ningún cargo adicional por el uso de Batch. Solo deberá pagar por los recursos subyacentes que utilice como, por ejemplo, las máquinas virtuales, el almacenamiento y las redes.
 
 Para obtener una comparación entre las opciones de soluciones HPC y Batch en Azure, consulte [Soluciones HPC, Batch y Big Compute](../virtual-machines/linux/high-performance-computing.md).
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="run-parallel-workloads"></a>Ejecutar cargas de trabajo paralelas
+Batch funciona bien con cargas de trabajo intrínsecamente paralelas (a veces llamadas "embarazosamente paralelas"). Las cargas de trabajo intrínsecamente paralelas son aquellas en las que las aplicaciones se pueden ejecutar de manera independiente y donde cada instancia completa una parte del trabajo. Cuando se ejecutan las aplicaciones, estas pueden acceder a algunos datos comunes, pero no se comunican con otras instancias de la aplicación. Las cargas de trabajo intrínsecamente paralelas pueden por tanto ejecutarse a gran escala en función de la cantidad de recursos de proceso disponibles para ejecutar las aplicaciones de forma simultánea.
 
-## <a name="scenario-scale-out-a-parallel-workload"></a>Escenario: Escalar horizontalmente una carga de trabajo paralela
-Una solución común que usa las API de Lote para interactuar con el servicio Lote implica escalar horizontalmente trabajo intrínsecamente paralelo, como la representación de imágenes para escenas 3D, en un grupo de nodos de proceso. Este grupo de nodos de proceso puede ser la "granja de representación" que le proporciona decenas, cientos o incluso miles de núcleos de su trabajo de representación, por ejemplo.
+A continuación puede ver algunos ejemplos de cargas de trabajo intrínsecamente paralelas con las que puede trabajar en Batch:
 
-El siguiente diagrama muestra un flujo de trabajo común de Lote, con una aplicación cliente o un servicio hospedado usando Lote para ejecutar una carga de trabajo paralela.
+* Modelado de riesgos financieros mediante simulaciones Monte Carlo
+* Representación de imágenes VFX y 3D
+* Análisis y procesamiento de imágenes
+* Transcodificación de elementos multimedia
+* Análisis de secuencia genética
+* Reconocimiento óptico de caracteres (OCR)
+* Ingesta, procesamiento, extracción, transformación y carga de datos
+* Ejecución de pruebas de software
 
-![Flujo de trabajo de soluciones de Lote][2]
+También puede usar Batch para [ejecutar cargas de trabajo estrechamente acopladas](batch-mpi.md); se trata de cargas de trabajo donde las aplicaciones que se ejecutan necesitan comunicarse entre sí, en lugar de hacerlo de forma independiente. Las aplicaciones estrechamente acopladas normalmente utilizan Message Passing Interface (MPI) API. Puede ejecutar cargas de trabajo estrechamente acopladas con Batch mediante [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) o Intel MPI. Mejore el rendimiento de la aplicación con [informática de alto rendimiento](../virtual-machines/linux/sizes-hpc.md) especializada y tamaños de máquina virtual [optimizados para GPU](../virtual-machines/linux/sizes-gpu.md).
 
-En este escenario común, la aplicación o servicio procesa una carga de trabajo de computación en Lote de Azure realizando los pasos siguientes:
+Estos son algunos ejemplos de cargas de trabajo estrechamente acopladas:
+* Análisis de elementos finitos
+* Dinámica de fluidos
+* Aprendizaje de inteligencia artificial multinodo
 
-1. Cargue los **archivos de entrada** y la **aplicación** que los procesará en su cuenta de Azure Storage. Los archivos de entrada pueden ser cualquier dato que vaya a procesar la aplicación, como diseños de modelos financieros, o archivos de vídeo que se van a transcodificar. Los archivos de aplicación pueden ser cualquier aplicación que se use para procesar los datos, como una aplicación de representación de 3D o un transcodificador de medios.
-2. Cree un **grupo** de nodos de proceso de Lote en su cuenta de Lote (dichos nodos son las máquinas virtuales que ejecutarán las tareas). Especifique propiedades como el [tamaño del nodo](../cloud-services/cloud-services-sizes-specs.md), su sistema operativo y la ubicación en Azure Storage de la aplicación que se instala cuando los nodos se unen al grupo (la aplicación que cargó en el paso 1). También puede configurar el grupo para que se [escale automáticamente](batch-automatic-scaling.md), en respuesta a la carga de trabajo que generan las tareas. El ajuste de escala automático ajusta dinámicamente el número de nodos de proceso del grupo.
-3. Cree un **trabajo** de Lote que ejecute la carga de trabajo en el grupo de nodos de proceso. Cuando crea un trabajo, lo asocia a un grupo de Lote.
-4. Agregue **tareas** al trabajo. Al agregar tareas a un trabajo, el servicio Lote programa automáticamente las tareas para su ejecución en los nodos de proceso en el grupo. Cada tarea usa la aplicación que ha cargado para procesar los archivos de entrada.
-   
-   * 4a. Antes de que la tarea se ejecute, puede descargar los datos (los archivos de entrada) que va a procesar al nodo de proceso al que está asignada. Si la aplicación no se ha instalado aún en el nodo (consulte el paso 2), se puede descargar aquí. Cuando haya completado las descargas, las tareas se ejecutan en sus nodos asignados.
-5. Mientras se ejecutan las tareas, puede solicitar a Lote que supervise el progreso del trabajo y sus tareas. Un servicio o una aplicación cliente se comunican con el servicio Batch a través de HTTPS. Dado que puede que supervise miles de tareas que se ejecutan en miles de nodos de proceso, asegúrese de [consultar el servicio Batch de forma eficaz](batch-efficient-list-queries.md).
-6. Cuando se completan las tareas, estas cargan los datos de sus resultados en Almacenamiento de Azure. Los archivos también se pueden recuperar directamente del sistema de archivos de un nodo de proceso.
-7. Cuando la supervisión detecta que se han completado las tareas en su trabajo, el servicio o la aplicación de cliente puede descargar los datos de salida para su posterior procesamiento o evaluación.
+Muchos trabajos estrechamente acoplados se pueden ejecutar en paralelo mediante Batch. Por ejemplo, realice varias simulaciones con un líquido que fluye a través de tubos de varios diámetros.
 
-No olvide que esta es simplemente una forma de usar Lote y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso y puede usar las [tareas de preparación y finalización del trabajo](batch-job-prep-release.md) para preparar los nodos para los trabajos y limpiar después.
+## <a name="additional-batch-capabilities"></a>Funcionalidades adicionales de Batch
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha visto información general de alto nivel del servicio Lote, es hora de profundizar en el servicio para aprender cómo puede utilizarlo para procesar las cargas de trabajo paralelas de proceso intensivo.
+Azure Batch también tiene funcionalidades disponibles de nivel más alto, específicas para cargas de trabajo:
+* Batch admite [cargas de trabajo de representación a gran escala](batch-rendering-service.md) con herramientas de representación que incluyen Autodesk Maya, 3ds Max, Arnold, y V-Ray. 
+* Los usuarios de R pueden instalar el [paquete doAzureParallel](https://github.com/Azure/doAzureParallel) para escalar horizontalmente con facilidad la ejecución de algoritmos R en grupos de Batch.
 
-* Consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md), donde encontrará información esencial para cualquier persona que vaya a utilizar Lote. El artículo contiene información más detallada acerca de los recursos del servicio de Lote, como grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Lote.
-* Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
-* [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) . Este artículo debería ser una de sus primeras lecturas durante el periodo de aprendizaje de Lote. También hay una [versión para Python](batch-python-tutorial.md) del tutorial.
-* Descargue los [ejemplos de código en GitHub][github_samples] para ver la forma en que C# y Python pueden comunicarse con Batch para programar y procesar las cargas de trabajo de ejemplo.
-* Consulte la [ruta de aprendizaje de Batch][learning_path] para hacerse una idea de los recursos que tiene a su disposición a medida que aprende a trabajar con Batch.
+Azure Batch también se puede ejecutar como parte de un flujo de trabajo mayor de Azure para transformar datos, administrado mediante herramientas como [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
 
 
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+## <a name="how-it-works"></a>Cómo funciona
+Un escenario habitual de Batch implica el escalado horizontal de trabajos intrínsecamente paralelos como la representación de imágenes para escenas 3D, en un grupo de nodos de proceso. Este grupo de nodos de proceso puede ser la "granja de representación" que le proporciona decenas, cientos o incluso miles de núcleos para su trabajo de representación.
 
-[1]: ./media/batch-technical-overview/tech_overview_01.png
-[2]: ./media/batch-technical-overview/tech_overview_02.png
+El siguiente diagrama muestra los pasos de un flujo de trabajo común de Batch, con una aplicación cliente o un servicio hospedado usando Batch para ejecutar una carga de trabajo paralela.
+
+![Tutorial sobre la solución Batch](./media/batch-technical-overview/tech_overview_03.png)
+
+
+|Paso  |DESCRIPCIÓN  |
+|---------|---------|
+|1.  Cargue los **archivos de entrada** y las **aplicaciones** que los procesarán en su cuenta de Azure Storage.     |Los archivos de entrada pueden ser cualquier dato que vaya a procesar la aplicación, como diseños de modelos financieros, o archivos de vídeo que se van a transcodificar. Los archivos de aplicación pueden incluir scripts o aplicaciones que procesen datos, como un transcodificador multimedia.|
+|2.  Cree un **grupo** de Batch de nodos de proceso en la cuenta de Batch, un **trabajo** para que ejecute la carga de trabajo en el grupo y **tareas** para ese trabajo.     | Los nodos de grupo son las máquinas virtuales que ejecutan las tareas. Especifique propiedades como el número y el tamaño de los nodos, una imagen de máquina virtual Windows o Linux, y la aplicación que desea instalar cuando se unan los nodos al grupo. Administre el costo y el tamaño del grupo mediante [máquinas virtuales de prioridad baja](batch-low-pri-vms.md) o con el [escalado automático](batch-automatic-scaling.md) del número de nodos si la carga de trabajo cambia. <br/><br/>Al agregar tareas a un trabajo, el servicio Batch programa automáticamente las tareas para su ejecución en los nodos de proceso en el grupo. Cada tarea usa la aplicación que ha cargado para procesar los archivos de entrada. |
+|3.  Descargue los **archivos de entrada** y las **aplicaciones** en Batch.     |Antes de que cada tarea se ejecute, esta puede descargar los datos de entrada que va a procesar en el nodo de proceso al que está asignada. Si la aplicación no está ya instalada en los nodos de proceso, se puede descargar aquí. Cuando las descargas de Azure Storage se completan, la tarea se ejecuta en el nodo asignado.|
+|4.  Supervise la **ejecución de tareas**.     |Mientras se ejecutan las tareas, puede solicitar a Batch que supervise el progreso del trabajo y sus tareas. Un servicio o una aplicación cliente se comunican con el servicio Batch a través de HTTPS. Dado que puede que supervise miles de tareas que se ejecutan en miles de nodos de proceso, asegúrese de [consultar el servicio Batch de forma eficaz](batch-efficient-list-queries.md).|
+|5.  Cargue la **salida de la tarea**.     |Cuando se completan las tareas, estas cargan los datos de sus resultados en Azure Storage. Los archivos también se pueden recuperar directamente del sistema de archivos de un nodo de proceso.|
+|6.  Descargue los **archivos de salida**.     |Cuando la supervisión detecta que se han completado las tareas en su trabajo, el servicio o la aplicación de cliente puede descargar los datos de salida para su posterior procesamiento.|
+
+
+
+
+No olvide que esta es simplemente una forma de usar Batch y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso. O bien, usar [tareas de preparación y finalización de trabajos](batch-job-prep-release.md) para preparar los nodos para los trabajos y, a continuación, limpiarlos. 
+
+Consulte [Introducción a las características de Batch para desarrolladores](batch-api-basics.md) para obtener información más detallada acerca de los grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch. 
+
+## <a name="next-steps"></a>pasos siguientes
+
+Comience a usar Azure Batch con alguna de estas guías de inicio rápido:
+* [Ejecución del primer trabajo de Batch con la CLI de Azure](quick-create-cli.md)
+* [Ejecución del primer trabajo de Batch con Azure Portal](quick-create-portal.md)
+* [Ejecución del primer trabajo de Batch con la API de .NET](quick-run-dotnet.md)
+* [Ejecución del primer trabajo de Batch con la API de Python](quick-run-python.md)
+

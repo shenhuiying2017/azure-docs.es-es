@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>¿Qué es la versión preliminar de Azure Database Migration Service?
 Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. El servicio está actualmente en versión preliminar pública y el trabajo de desarrollo está centrado en los siguientes aspectos:
@@ -28,12 +28,17 @@ Azure Database Migration Service integra una parte de la funcionalidad de nuestr
 
 ## <a name="regional-availability-during-public-preview"></a>Disponibilidad regional durante la versión preliminar pública
 La versión preliminar pública de Azure Database Migration Service está disponible actualmente en las siguientes regiones:
-- Este de EE. UU.
+- Este de EE. UU
 - Centro-Sur de EE. UU
-- Oeste de EE. UU.
+- Oeste de EE. UU
 - Sur de Brasil
 - Europa occidental
 - Europa del Norte
+- Sudeste asiático
+- Oeste de la India
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Creación de una instancia de Azure Database Migration Service mediante Azure Portal](quickstart-create-data-migration-service-portal.md).
+- [Migración de SQL Server a Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
+- [Información general sobre los requisitos previos para usar Azure Database Migration Service](pre-reqs.md).
+- [Preguntas más frecuentes sobre el uso de Azure Database Migration Service](faq.md).

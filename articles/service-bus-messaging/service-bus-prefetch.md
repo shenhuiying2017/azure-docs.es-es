@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Captura previa de mensajes de Azure Service Bus
 
@@ -27,7 +27,7 @@ Una sola llamada inicial a los métodos [Receive](/dotnet/api/microsoft.serviceb
 
 ## <a name="enable-prefetch"></a>Habilitación de la captura previa
 
-En. NET, puede habilitar la característica de captura previa estableciendo la propiedad [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de un método **MessageReceiver**, **QueueClient** o **SubscriptionClient** en un número mayor que cero. Si se establece el valor en cero, se desactivará la captura previa.
+Con .NET, puede habilitar la característica de captura previa estableciendo la propiedad [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de un método **MessageReceiver**, **QueueClient** o **SubscriptionClient** en un número mayor que cero. Si se establece el valor en cero, se desactivará la captura previa.
 
 Puede agregar fácilmente esta configuración en el receptor de la configuración de los ejemplos [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) o [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver el efecto de estos contextos.
 
@@ -37,7 +37,7 @@ La captura previa también funciona de la misma manera con las API [OnMessage](/
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Si es más rápida, ¿por qué la captura previa no es la opción predeterminada?
 
-La captura previa acelera el flujo de mensajes al hacer que el mensaje esté fácilmente disponible para la recuperación local si la aplicación lo solicita y antes de ello. Esta mejora de rendimiento es el resultado de una toma de decisión sobre las ventajas y desventajas que el autor de la aplicación debe realizar explícitamente:
+La captura previa acelera el flujo de mensajes al hacer que el mensaje esté fácilmente disponible para la recuperación local si la aplicación lo solicita y antes de ello. Esta mejora de rendimiento es el resultado de un intercambio que el autor de la aplicación debe realizar explícitamente:
 
 Con modo de recepción [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), ya no están disponibles en la cola todos los mensajes que se adquieren en el búfer de captura previa y solo se encuentran en el búfer de captura previa en memoria hasta que se reciben en la aplicación a través de las API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Si la aplicación finaliza antes de que se reciban los mensajes en la aplicación, estos se pierden de manera permanente.
 
@@ -53,7 +53,7 @@ Si necesita un elevado rendimiento y el procesamiento de mensajes es normalmente
 
 El número máximo de captura previa y la duración del bloqueo configurado en la cola o suscripción deben equilibrarse de forma que el tiempo de espera del bloqueo supere al menos el tiempo de procesamiento de mensajes acumulativo para el tamaño máximo del búfer de captura previa, además de un mensaje. Al mismo tiempo, el tiempo de espera de bloqueo no debe ser tan prolongado que los mensajes superen su método [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) máximo cuando se quitan accidentalmente, lo que requiere que su bloqueo expire antes de que se vaya a volver a entregar.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

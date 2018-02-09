@@ -1,7 +1,7 @@
 <!--
-    Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
+    Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Puede crear una canalización con la actividad de copia mediante una de las herramientas o SDK siguientes: haga clic en un vínculo para ir a un tutorial con instrucciones paso a paso para crear una canalización con una actividad de copia. 
+Puede crear una canalización con la actividad de copia mediante una de las siguientes herramientas o SDK. Seleccione un vínculo para acceder a un tutorial con instrucciones detalladas sobre cómo crear una canalización con una actividad de copia. 
 
 - [Herramienta Copiar datos](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [portal de Azure](../articles/data-factory/quickstart-create-data-factory-portal.md)

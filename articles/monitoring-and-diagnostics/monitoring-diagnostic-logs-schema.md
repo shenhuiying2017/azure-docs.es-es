@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -38,7 +38,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Content Delivery Network | Esquema no disponible. |
 | CosmosDB | [Registro de Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Data Lake Store |[Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Almacén de Data Lake |[Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Registros de diagnóstico de Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT Hub | [Operaciones de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../key-vault/key-vault-logging.md) |
@@ -49,7 +49,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Recovery Services | [Modelo de datos para Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../search/search-traffic-analytics.md) |
 | Servidor de administración | Esquema no disponible. |
-| Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Azure Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de diagnóstico de Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Registros de diagnósticos de trabajos](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
@@ -57,7 +57,6 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 |Tipo de recurso|Categoría|Nombre para mostrar de categoría|
 |---|---|---|
-|microsoft.aadiam/tenants|Inicio de sesión|Inicio de sesión|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Servicio|Servicio|
 |Microsoft.ApiManagement/service|GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|
@@ -73,7 +72,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataLakeAnalytics/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
-|Microsoft.DataLakeStore/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
 |Microsoft.Devices/IotHubs|Conexiones|Conexiones|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetría de dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
@@ -116,6 +115,8 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementos replicados de Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estadísticas de replicación de Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Puntos de recuperación de Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Velocidad de carga de datos de replicación de Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Actividad de los datos del disco protegido de Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Registros de operaciones|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Registros operativos|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estadísticas de tiempo de ejecución del Almacén de consultas|
@@ -125,6 +126,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Sql/servers/databases|Tiempos de expiración|Tiempos de expiración|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Auditoría|Registros de auditoría|
 |Microsoft.StreamAnalytics/streamingjobs|Ejecución|Ejecución|
 |Microsoft.StreamAnalytics/streamingjobs|Creación|Creación|
 

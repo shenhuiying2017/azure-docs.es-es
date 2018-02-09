@@ -1,5 +1,5 @@
 ---
-title: "Creación de una instancia de Azure SQL Data Warehouse - Azure Portal | Microsoft Docs"
+title: "Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal | Microsoft Docs"
 description: "Para Azure SQL Data Warehouse, cree un servidor SQL, una regla de firewall a nivel de servidor y un almacenamiento de datos en Azure Portal. Después, realice consultas en él."
 keywords: "tutorial de sql data warehouse, creación de una instancia de SQL data warehouse"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
 
 Cree rápidamente una instancia de Azure SQL Data Warehouse en Azure Portal, y realice consultas en ella.
 
@@ -33,7 +33,7 @@ Descargue e instale la versión más reciente de [SQL Server Management Studio](
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
@@ -49,7 +49,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los
 
 3. Rellene el formulario SQL Data Warehouse con la siguiente información:   
 
-    | Configuración | Valor sugerido | Descripción | 
+    | Configuración | Valor sugerido | DESCRIPCIÓN | 
     | ------- | --------------- | ----------- | 
     | **Nombre de la base de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos.| 
     | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -61,7 +61,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | Descripción | 
+    | Configuración | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -78,7 +78,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Haga clic en **Apply**.
+8. Haga clic en **Aplicar**.
 
 9. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
 
@@ -113,7 +113,7 @@ El servicio SQL Data Warehouse crea un firewall en el nivel de servidor, lo que 
 
 4. Para agregar la dirección IP actual a la nueva regla de firewall, haga clic en **Agregar IP de cliente** en la barra de herramientas. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
 6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
@@ -126,7 +126,7 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20171113.database.windows.net. 
 
@@ -140,7 +140,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mynewserver 20171113.database.windows.net**. |
@@ -202,7 +202,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 4. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora ha creado un almacenamiento de datos, ha creado una regla de firewall, la ha conectado a su almacén de datos y ha ejecutado algunas consultas. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 > [!div class="nextstepaction"]
 >[Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

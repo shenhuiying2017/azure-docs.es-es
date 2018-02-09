@@ -1,6 +1,6 @@
 ---
 title: "Demostración autodidáctica de la solución Service Map | Microsoft Docs"
-description: "Service Map es una solución de Operations Management Suite (OMS) que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  Se trata de una demostración autodidáctica en la que se examina el uso de Service Map para identificar y diagnosticar un problema simulado en una aplicación web."
+description: "Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  Se trata de una demostración autodidáctica en la que se examina el uso de Service Map para identificar y diagnosticar un problema simulado en una aplicación web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Demostración autodidáctica de Operations Management Suite (OMS): Service Map
-Se trata de una demostración autodidáctica en la que se examina el uso de la [solución Service Map](operations-management-suite-service-map.md) en Operations Management Suite (OMS) para identificar y diagnosticar un problema simulado en una aplicación web.  Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  También consolida los datos recopilados por otros servicios OMS para ayudarle a analizar el rendimiento y a identificar problemas.  También podrá usar [búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) para profundizar en los datos recopilados con el fin de identificar la causa principal del problema.
+# <a name="self-paced-demo---service-map"></a>Demostración autodidáctica: Service Map
+Se trata de una demostración autodidáctica en la que se examina el uso de la solución [Service Map](operations-management-suite-service-map.md) de Azure para identificar y diagnosticar un problema simulado en una aplicación web.  Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  También consolida los datos recopilados por otros servicios y soluciones para ayudarle a analizar el rendimiento y a identificar problemas.  Asimismo, usará [búsquedas de registros de Log Analytics](../log-analytics/log-analytics-log-searches.md) para profundizar en los datos recopilados con el fin de identificar la causa principal del problema.
 
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -35,7 +35,7 @@ Acaba de recibir una notificación de que la aplicación del portal de clientes 
 ## <a name="walk-through"></a>Tutorial
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Conexión a OMS Experience Center
-En este tutorial se usa [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), que proporciona un entorno de OMS completo con datos de ejemplo. Para comenzar, siga este vínculo, proporcione su información y luego seleccione el escenario **Insight and Analytics**.
+En este tutorial se usa [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), que proporciona un entorno completo de Log Analytics con datos de ejemplo. Para comenzar, siga este vínculo, proporcione su información y luego seleccione el escenario **Insight and Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Inicio de Service Map
@@ -80,7 +80,7 @@ Vamos a echar un vistazo más de acerca a **acmetomcat**.  Haga clic en la parte
 
 
 ### <a name="7-view-change-tracking"></a>7. Visualización del seguimiento de cambios
-Veamos si podemos descubrir cuál podría ser la causa de esta elevada utilización.  Haga clic en la pestaña **Resumen**.  Se muestra información que ha recopilado OMS del equipo, como errores de conexión, alertas críticas y cambios de software.  Ya deben haberse expandidas secciones con información reciente interesante, y puede expandir otras secciones para inspeccionar la información que contienen.
+Veamos si podemos descubrir cuál podría ser la causa de esta elevada utilización.  Haga clic en la pestaña **Resumen**.  Se proporciona información que ha recopilado Log Analytics del equipo, como errores de conexión, alertas críticas y cambios de software.  Ya deben haberse expandido secciones con información reciente significativa, y se puede expandir otras secciones para inspeccionar la información que contienen.
 
 
 Si **Seguimiento de cambios** no está ya abierta, expándala.  Se muestra la información recopilada la [solución de seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md).  Parece que se ha producido un cambio de software durante este período de tiempo.  Haga clic en **Software** para obtener detalles.  Se agregó un proceso de copia de seguridad justo después de las 4:00 a.m., así que puede este sea el culpable del consumo excesivo de recursos.
@@ -90,28 +90,28 @@ Si **Seguimiento de cambios** no está ya abierta, expándala.  Se muestra la in
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Visualización de los detalles en la búsqueda de registros
-Para seguir comprobando esto, examine la información detallada sobre el rendimiento recopilada en el repositorio de Log Analytics.  Haga clic de nuevo en la pestaña **Alertas** y luego en una de las alertas de **uso elevado de la CPU**.  Haga clic en **Mostrar en la búsqueda de registro**.  Se abre la ventana Búsqueda de registro donde puede realizar [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) en los datos almacenados en el repositorio.  Service Map ya ha rellenado una consulta para recuperar la alerta en la que estamos interesados.  
+Para comprobaciones adicionales, examine la información detallada sobre el rendimiento recopilada en el área de trabajo de Log Analytics.  Haga clic de nuevo en la pestaña **Alertas** y luego en una de las alertas de **uso elevado de la CPU**.  Haga clic en **Mostrar en la búsqueda de registro**.  Se abre la ventana Búsqueda de registros donde puede realizar [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) en los datos almacenados en el área de trabajo.  Service Map ya ha rellenado una consulta para recuperar la alerta en la que estamos interesados.  
 
 ![Búsqueda de registros](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Apertura de la búsqueda guardada
-Veamos si podemos obtener algunos detalles más sobre la recopilación de rendimiento que generó esta alerta y comprobar nuestra sospecha de que los problemas se deben al proceso de copia de seguridad.  Cambie el intervalo de tiempo a **6 horas**.  A continuación, haga clic en **Favoritos** y desplácese hasta las búsquedas guardadas para **Service Map**.  Estas son consultas que hemos creado específicamente para este análisis.  Haga clic en **5 principales procesos por uso de CPU para acmetomcat**.
+Veamos si podemos obtener algunos detalles más sobre la recopilación de rendimiento que generó esta alerta y comprobar nuestra sospecha de que los problemas se deben al proceso de copia de seguridad.  Cambie el intervalo de tiempo a **6 horas**.  A continuación, haga clic en **Favoritos** y desplácese hasta las búsquedas guardadas para **Service Map**.  Hemos creado estas consultas específicamente para este análisis.  Haga clic en **5 principales procesos por uso de CPU para acmetomcat**.
 
 ![Búsqueda guardada](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 Esta consulta devuelve una lista de los 5 procesos principales que consumen procesador en **acmetomcat**.  Puede inspeccionar la consulta para obtener una introducción al lenguaje de consulta usado en las búsquedas de registros.  Si lo que le interesaran fueran los procesos en otros equipos, podría modificar la consulta para recuperar esa información.
 
-En este caso, podemos ver que el proceso de copia de seguridad consume continuamente un 60 % aproximadamente de CPU del servidor de aplicaciones.  Es obvio que este proceso nuevo es responsable de nuestro problema de rendimiento.  Obviamente, nuestra solución sería quitar este nuevo software de copia de seguridad del servidor de aplicaciones.  Podríamos aprovechar realmente la Configuración de estado deseado (DSC) administrada por Azure Automation para definir directivas que garanticen que este proceso nunca que se ejecute en estos sistemas críticos.
+En este caso, podemos ver que el proceso de copia de seguridad consume continuamente un 60 % aproximadamente de CPU del servidor de aplicaciones.  Es obvio que este proceso nuevo es responsable de nuestro problema de rendimiento.  Obviamente, nuestra solución sería quitar este nuevo software de copia de seguridad del servidor de aplicaciones.  Podríamos usar realmente Desired State Configuration (DSC) administrada por Azure Automation para definir directivas que garanticen que este proceso nunca se ejecute en estos sistemas críticos.
 
 
 ## <a name="summary-points"></a>Puntos de resumen
 - [Service Map](operations-management-suite-service-map.md) le proporciona una vista de toda su aplicación incluso si no conoce todos sus servidores y dependencias.
-- Service Map expone los datos recopilados por otras soluciones de OMS para ayudarle a identificar problemas con sus aplicaciones y su infraestructura subyacente.
-- Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) le permiten profundizar en los datos específicos recopilados en el repositorio de Log Analytics.    
+- Service Map expone los datos recopilados por otras soluciones de administración para ayudarle a identificar problemas con sus aplicaciones y su infraestructura subyacente.
+- Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) le permiten profundizar en los datos específicos recopilados en el área de trabajo de Log Analytics.    
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Más información sobre [Service Map](operations-management-suite-service-map.md).
 - [Implementación y configuración de Service Map](operations-management-suite-service-map-configure.md).
-- Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md), una aplicación que es necesaria para Service Map y que almacena datos operativos almacenados por los agentes.
+- Aprenda sobre [Log Analytics](../log-analytics/log-analytics-overview.md), una aplicación que es necesaria para Service Map y que almacena datos operativos almacenados por los agentes.

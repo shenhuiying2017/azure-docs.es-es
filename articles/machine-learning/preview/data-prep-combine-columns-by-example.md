@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformación Combinar columnas por ejemplos
 Esta transformación permite al usuario agregar una nueva columna mediante la combinación de valores de varias columnas. El usuario puede especificar un separador o proporcionar ejemplos de valores combinados para realizar esta transformación. Cuando el usuario proporciona ejemplos de combinación, la transformación se controla por medio del mismo motor **por ejemplos** que se usa en la transformación **Derivar columna por ejemplos**.
@@ -37,6 +37,10 @@ Al seleccionar **Separador** en **Combine Columns by** (Combinar columnas por), 
 Al seleccionar **Ejemplos** en **Combine Columns by** (Combinar columnas por) el usuario puede proporcionar ejemplos de valores combinados. Para promover una fila como un ejemplo, haga doble clic en las filas de la cuadrícula. Escriba la salida esperada en el cuadro de texto de la fila promovida. Presione el tabulador para salir del cuadro de texto **Separador** y obtener una vista previa de los resultados en la cuadrícula de datos. Presione **Aceptar** para confirmar la transformación. 
 
 El usuario puede alternar entre el **modo básico** y el **modo avanzado**. Para ello, debe hacer clic en los vínculos del Editor de transformación.
+
+### <a name="transform-editor-send-feedback"></a>Editor de transformación: enviar comentarios
+
+Si hace clic en el vínculo **Enviar comentarios**, se abre el cuadro de diálogo **Comentarios** con el cuadro de comentarios ya rellenado con los ejemplos que proporcionó el usuario. El usuario debe revisar el contenido del cuadro de comentarios y proporcionar más detalles que nos ayuden a comprender el problema. Si el usuario no desea compartir datos con Microsoft, deberá eliminar los datos de ejemplo rellenados anteriormente antes de hacer clic en el botón **Enviar comentarios**. 
 
 ### <a name="editing-existing-transformation"></a>Editar la transformación existente
 

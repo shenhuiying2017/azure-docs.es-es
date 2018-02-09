@@ -6,13 +6,13 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: a4e4ce6a23f9f8a99d8ae5f9e4e2084e3b749017
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Volúmenes persistentes con discos de Azure: aprovisionamiento dinámico
 
@@ -51,13 +51,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## <a name="create-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
 Una notificación de volumen persistente usa un objeto de clase de almacenamiento para aprovisionar un fragmento de almacenamiento de forma dinámica. Al utilizar un disco de Azure, este se crea en el mismo grupo de recursos que los recursos de AKS.
 
 Este manifiesto de ejemplo crea una notificación de volumen persistente utilizando la clase de almacenamiento `azure-managed-disk` para crear un disco con un tamaño de `5GB` y con acceso `ReadWriteOnce`. Para más información sobre los modos de acceso PVC, vea [Access Modes][access-modes] (Modos de acceso).
+
+> [!NOTE]
+> Solo se puede montar un disco de Azure con el tipo de modo de acceso ReadWriteOnce, que lo pone a disposición de un único nodo de AKS. Si necesita compartir un volumen persistente en varios nodos, considere la posibilidad de usar [Azure Files][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
@@ -110,4 +111,5 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con di
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

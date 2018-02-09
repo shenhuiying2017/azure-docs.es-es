@@ -3,7 +3,7 @@ title: "Integrar una solución de supervisión externa con Azure Stack | Microso
 description: "Obtenga información acerca de cómo integrar Azure Stack con una solución de supervisión externa en el centro de datos."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
@@ -76,7 +77,7 @@ El complemento funciona con Nagios Enterprise y Nagios Core. Puede descargarlas 
 
 Configure el archivo de complemento "Azurestack_plugin.py" con los siguientes parámetros:
 
-| Parámetro | Description | Ejemplo |
+| . | DESCRIPCIÓN | Ejemplo |
 |---------|---------|---------|
 | *arm_endpoint* | Punto de conexión de Azure Resource Manager (administrador) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Punto de conexión de Azure Resource Manager (administrador)  | https://adminmanagement.local.azurestack.external |
@@ -144,7 +145,7 @@ La solicitud obtiene todas las alertas activas y cerradas de la suscripción de 
 
 **Argumentos**
 
-|Argumento  |Descripción  |
+|Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |armendpoint     |  Punto de conexión de Azure Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.       |
 |subid     |   Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.      |
@@ -203,7 +204,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Detalles de la respuesta**
 
 
-|  Argumento  |Descripción  |
+|  Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |*id*     |      Identificador exclusivo de la alerta.   |
 |*name*     |     Nombre interno de la alerta.   |
@@ -247,7 +248,7 @@ La solicitud cierra una alerta por su identificador único.
 **Argumentos**
 
 
-|Argumento  |Descripción  |
+|Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |*armendpoint*     |   Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.     |
@@ -346,7 +347,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 **Detalles de la respuesta**
 
 
-|  Argumento  |Descripción  |
+|  Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |*id*     |      Identificador exclusivo de la alerta.   |
 |*name*     |     Nombre interno de la alerta.   |
@@ -392,7 +393,7 @@ La solicitud obtiene el estado de mantenimiento de todos los proveedores de recu
 **Argumentos**
 
 
-|Argumentos  |Descripción  |
+|Argumentos  |DESCRIPCIÓN  |
 |---------|---------|
 |*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.    |
@@ -432,7 +433,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Detalles de la respuesta**
 
 
-|Argumento  |Descripción  |
+|Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |*Id*     |   Identificador exclusivo de la alerta.      |
 |*name*     |  Nombre interno de la alerta.       |
@@ -461,7 +462,7 @@ La solicitud obtiene el estado de mantenimiento de todos los proveedores de recu
 
 **Argumentos**
 
-|Argumentos  |Descripción  |
+|Argumentos  |DESCRIPCIÓN  |
 |---------|---------|
 |*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.         |
@@ -500,7 +501,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **Detalles de la respuesta**
 
-|Argumento  |Descripción  |
+|Argumento  |DESCRIPCIÓN  |
 |---------|---------|
 |*Id*     |   Identificador exclusivo de la alerta.      |
 |*name*     |  Nombre interno de la alerta.       |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI del recurso.   |
 |*alertSummary*     |   Resumen de alertas críticas y de advertencia, estado de mantenimiento.     |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="learn-more"></a>Más información
 
-- Para obtener información acerca de la supervisión de estado de mantenimiento integrada, consulte [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
+Para obtener información acerca de la supervisión de estado de mantenimiento integrada, consulte [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
 
 
+## <a name="next-steps"></a>pasos siguientes
+
+[Integración de seguridad](azure-stack-integrate-security.md)

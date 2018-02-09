@@ -448,7 +448,7 @@ Ahora compruebe si la aplicación lógica trata los correos electrónicos tal y 
 3. Compruebe que la aplicación lógica ha guardado el correo electrónico en el contenedor de almacenamiento correcto. 
 
    1. En el Explorador de Storage, expanda **(Local and Attached)** (Local y asociada) > 
-   **Storage Accounts** > (Cuentas de almacenamiento) **attachmentstorageacct (External) (Externa) ** > 
+   **Storage Accounts** > (Cuentas de almacenamiento) **attachmentstorageacct (External) (Externa)** > 
    **Blob Containers** > (Contenedores de blobs) **attachments** (datos adjuntos).
 
    2. Busque en el contenedor **attachments** (datos adjuntos) el correo electrónico. 
@@ -527,7 +527,7 @@ A continuación, compruebe si la aplicación lógica trata los datos adjuntos ta
 3. Compruebe que la aplicación lógica ha guardado el correo electrónico y los datos adjuntos en el contenedor de almacenamiento correcto. 
 
    1. En el Explorador de Storage, expanda **(Local and Attached)** (Local y asociada) > 
-   **Storage Accounts** > (Cuentas de almacenamiento) **attachmentstorageacct (External) (Externa) ** > 
+   **Storage Accounts** > (Cuentas de almacenamiento) **attachmentstorageacct (External) (Externa)** > 
    **Blob Containers** > (Contenedores de blobs) **attachments** (datos adjuntos).
 
    2. Compruebe que en el contenedor **attachments** (datos adjuntos) se encuentren el correo electrónico y los datos adjuntos.

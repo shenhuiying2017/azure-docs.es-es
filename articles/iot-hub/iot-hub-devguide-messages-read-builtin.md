@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
 De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Actualmente este punto de conexión solo se expone mediante el protocolo [AMQP][lnk-amqp] en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
-| Propiedad            | Descripción |
+| Propiedad            | DESCRIPCIÓN |
 | ------------------- | ----------- |
 | **Número de particiones** | Establezca esta propiedad durante la creación para definir el número de [particiones][lnk-event-hub-partitions] para ingesta de eventos de dispositivo a nube. |
 | **Tiempo de retención**  | Esta propiedad especifica cuánto tiempo, en días, IoT Hub conserva los mensajes. El valor predeterminado es un día, pero se puede aumentar a siete días. |
@@ -32,7 +32,7 @@ IoT Hub también le permite administrar los grupos de consumidores en el punto d
 
 De forma predeterminada, todos los mensajes que no cumplen de forma explícita una regla de enrutamiento de mensajes se escriben en el punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no cumplen explícitamente ninguna reglas de enrutamiento de mensajes se quitan.
 
-Puede modificar el tiempo de retención mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o usando [Azure Portal][lnk-management-portal].
+Puede modificar el tiempo de retención mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o con [Azure Portal][lnk-management-portal].
 
 IoT Hub expone el punto de conexión integrado **messages/events** para los servicios de back-end con el fin de leer los mensajes de dispositivo a nube recibidos por el centro. Este punto de conexión es compatible con Event Hubs, lo que permite usar cualquiera de los mecanismos del servicio Event Hubs para leer mensajes.
 
@@ -40,7 +40,7 @@ IoT Hub expone el punto de conexión integrado **messages/events** para los serv
 
 Al usar el [SDK de Azure Service Bus para .NET][lnk-servicebus-sdk] o [Event Hubs - host del procesador de eventos][lnk-eventprocessorhost], puede usar cualquier cadena de conexión de IoT Hub con los permisos correctos. A continuación, utilice **messages/events** como el nombre del Centro de eventos.
 
-Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión y un nombre compatibles con Event Hub de la configuración de IoT Hub:
+Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión compatible con el centro de eventos y un nombre compatible con el centro de eventos:
 
 1. Inicie sesión en [Azure Portal][lnk-management-portal] y vaya a IoT Hub.
 1. Haga clic en **Extremos**.
@@ -65,7 +65,7 @@ Los SDK y las integraciones que puede usar con los puntos de conexión compatibl
 * [Spout de Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Puede ver el [origen de spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) en GitHub.
 * [Integración de Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-endpoints].
 

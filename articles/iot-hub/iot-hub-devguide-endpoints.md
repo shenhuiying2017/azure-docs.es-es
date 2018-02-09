@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -81,7 +81,12 @@ Para conocer los límites del número de puntos de conexión que se pueden agreg
 
 ### <a name="when-using-azure-storage-containers"></a>Cuándo usar los contenedores de Azure Storage
 
-IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs con el formato [Apache Avro](http://avro.apache.org/). IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando llega a cierto tamaño o después de cierta cantidad de tiempo, lo que ocurra en primer lugar. IoT Hub no escribirá en un blob vacío si no hay datos que escribir.
+IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs con el formato [Apache Avro](http://avro.apache.org/). IoT Hub crea lotes de mensajes y escribe datos en un blob siempre que:
+
+* el lote alcance un tamaño determinado,
+* haya transcurrido un período de tiempo determinado.
+
+IoT Hub no escribe en un blob vacío si no hay datos que escribir.
 
 IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente:
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Escalado del clúster para administrar el rendimiento del servicio web
 
@@ -83,7 +83,7 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 Por ejemplo, si se establece `autoscale-min-replicas` en cinco, se crearán cinco réplicas. Para llegar a un número óptimo para el servicio web, establezca el número de valores como en diez y supervise el número de 503 mensajes de error. Después, ajuste el número en consecuencia.
 
 
-| Nombre de parámetro | Tipo | Descripción |
+| Nombre de parámetro | type | DESCRIPCIÓN |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | boolean | Especifica si el escalado automático está habilitado. Valor predeterminado: true |
 | `autoscale-min-replicas` | integer | Especifica el número mínimo de pods. Debe ser 0 o superior. Valor predeterminado: 1 |
@@ -159,6 +159,6 @@ Una vez que ha iniciado el servidor de panel, abra un explorador y escriba la si
 
 En la pantalla principal del panel, haga clic en **Implementaciones** en la barra de navegación izquierda. Si el panel de navegación no se muestra, seleccione este icono ![Menú que consta de tres líneas horizontales cortas](media/how-to-scale-clusters/icon-hamburger.png) en la parte superior izquierda.
 
-Busque la implementación que desea modificar y haga clic en este icono ![Icono de menú que consta de tres puntos verticales](media/how-to-scale-clusters/icon-kebab.png) situado a la derecha y, luego, haga clic en **Ver/Editar YAML**.
+Busque la implementación que desea modificar y haga clic en este icono ![Icono de menú que consta de tres puntos verticales](media/how-to-scale-clusters/icon-kebab.png) situado a la derecha y, luego, haga clic en **View/Edit YAML** (Ver/Editar YAML).
 
 En la pantalla Editar implementación, busque el nodo *spec*, modifique el valor *replicas* y haga clic en **Actualizar**.

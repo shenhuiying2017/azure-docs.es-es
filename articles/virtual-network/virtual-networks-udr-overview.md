@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -151,7 +151,7 @@ Una ruta con el prefijo de dirección 0.0.0.0/0 indica a Azure cómo enrutar el 
 
 Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de salida de la subred que fluye a través de la puerta de enlace de red virtual o de la aplicación virtual, se producen los siguientes cambios en el enrutamiento predeterminado de Azure: 
 
-- Azure envía todo el tráfico al tipo de próximo salto especificado en la ruta, lo que incluye el tráfico destinado a las direcciones IP públicas de los servicios de Azure. Cuando el tipo de próximo salto de la ruta con el prefijo de dirección 0.0.0.0/0 es **Internet**, el tráfico de la subred destinado a las direcciones IP públicas de los servicios de Azure no sale de la red troncal de Azure, independientemente de la región de Azure en que existan la red virtual o un recurso de servicio de Azure. Cuando se crea una ruta BGP o definida por el usuario con un tipo de próximo salto de **Puerta de enlace de red virtual** o **Aplicación virtual**; sin embargo, todo el tráfico, lo que incluye el tráfico enviado a las direcciones IP públicas de los servicios de Azure en el que no se hayan habilitado [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md), se envía al tipo de próximo salto especificado en la ruta. Si ha habilitado un punto de conexión para un servicio, el tráfico dirigido a dicho servicio no se enruta al tipo de próximo salto en una ruta con el prefijo de dirección 0.0.0.0/0, porque los prefijos de dirección del servicio se especifican en la ruta que Azure crea cuando se habilita el punto de conexión de servicio y los prefijos de dirección del servicio son mayores que 0.0.0.0/0.
+- Azure envía todo el tráfico al tipo de próximo salto especificado en la ruta, lo que incluye el tráfico destinado a las direcciones IP públicas de los servicios de Azure. Cuando el tipo de próximo salto de la ruta con el prefijo de dirección 0.0.0.0/0 es **Internet**, el tráfico de la subred destinado a las direcciones IP públicas de los servicios de Azure no sale de la red troncal de Azure, independientemente de la región de Azure en que existan la red virtual o un recurso de servicio de Azure. Sin embargo, cuando se crea una ruta BGP o definida por el usuario con un tipo de próximo salto de **puerta de enlace de red virtual** o **aplicación virtual**, todo el tráfico, lo que incluye el tráfico enviado a las direcciones IP públicas de los servicios de Azure en el que no se hayan habilitado [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md), se envía al tipo de próximo salto especificado en la ruta. Si ha habilitado un punto de conexión para un servicio, el tráfico dirigido a dicho servicio no se enruta al tipo de próximo salto en una ruta con el prefijo de dirección 0.0.0.0/0, porque los prefijos de dirección del servicio se especifican en la ruta que Azure crea cuando se habilita el punto de conexión de servicio y los prefijos de dirección del servicio son mayores que 0.0.0.0/0.
 - No puede acceder directamente a los recursos de la subred desde Internet. Puede acceder indirectamente a los recursos de la subred desde Internet si el tráfico entrante pasa por el dispositivo especificado por el tipo de próximo salto para una ruta con el prefijo de dirección 0.0.0.0/0 antes de llegar al recurso en la red virtual. Si la ruta contiene los siguientes valores del tipo de salto próximo:
     - **Aplicación virtual**: el dispositivo debe:
         - Ser accesible desde Internet.
@@ -161,7 +161,7 @@ Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de sali
         - Poder traducir y reenviar direcciones de red, o desviar el tráfico a través de un servidor proxy al recurso de destino de la subred y devolver el tráfico a Internet. 
     - **Puerta de enlace de red virtual**: si la puerta de enlace es una puerta de enlace de red virtual ExpressRoute, un dispositivo local conectado a Internet puede traducir y reenviar direcciones de red, o bien desviar el tráfico a través de un servidor proxy al recurso de destino de la subred a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) de ExpressRoute. 
 
-  Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="routing-example"></a>Ejemplo de enrutamiento
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar Azure Stack a Azure mediante VPN
 
-*Se aplica a: Sistemas integrados de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack*
 
 Este artículo muestra cómo crear una VPN de sitio a sitio para conectar una red virtual en Azure Stack a una red virtual en Azure.
 
@@ -71,7 +71,7 @@ En primer lugar, cree los recursos de red para Azure. Las instrucciones siguient
 3. Seleccione **Subred de puerta de enlace** para agregar una subred de puerta de enlace a la red virtual.
 4. El nombre de la subred se establece como **GatewaySubnet** de forma predeterminada.
    Las subredes de puerta de enlace son especiales y tienen que tener este nombre específico para funcionar correctamente.
-5. En el campo **Intervalo de direcciones**, compruebe que la dirección sea **10.100.0.0/24**.
+5. En el campo **Intervalo de direcciones**, compruebe que la dirección sea **10.100.1.0/24**.
 6. Seleccione **Aceptar** para crear la subred de puerta de enlace.
 
 ### <a name="create-the-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual
@@ -93,7 +93,7 @@ En primer lugar, cree los recursos de red para Azure. Las instrucciones siguient
 5. En la lista de recursos, seleccione **Puerta de enlace de red local**.
 6. En **Nombre**, escriba **Azs-GW**.
 7. En **Dirección IP**, escriba la dirección IP pública de la puerta de enlace de red virtual de Azure Stack que se indicó anteriormente en la tabla de configuración de red.
-8. En **Espacio de direcciones**, desde Azure Stack, escriba el espacio de direcciones **10.0.10.0/23** para **AzureVNet**.
+8. En **Espacio de direcciones**, en Azure Stack, escriba el espacio de direcciones **10.1.0.0/24** y **10.1.1.0/24** para **AzureVNet**.
 9. Compruebe que la **Suscripción**, **Grupo de recursos** y **Ubicación** son correctos y seleccione **Crear**.
 
 ## <a name="create-the-connection"></a>Creación de la conexión
@@ -118,7 +118,7 @@ Ahora, cree una máquina virtual en Azure y colóquela en la subred de máquina 
 5. Escriba un nombre de usuario y una contraseña válidos. Usará esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione una **Suscripción**, **Grupo de recursos** y **Ubicación** y, a continuación, seleccione **Aceptar**.
 7. En la sección **Tamaño**, seleccione un tamaño de máquina virtual para esta instancia y, a continuación, seleccione **Seleccionar**.
-8. En la sección **Configuración**, acepte los valores predeterminados. Asegúrese de que la red virtual **AzureVnet** esté seleccionada y compruebe que la subred esté establecida en **10.0.20.0/24**. Seleccione **Aceptar**.
+8. En la sección **Configuración**, acepte los valores predeterminados. Asegúrese de que la red virtual **AzureVnet** esté seleccionada y compruebe que la subred esté establecida en **10.100.0.0/24**. Seleccione **Aceptar**.
 9. Revise la configuración de la sección **Resumen** y seleccione **Aceptar**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Creación de recursos de red en Azure Stack
@@ -181,7 +181,7 @@ Una manera de ver esto de forma más genérica es que el recurso de la puerta de
 4. En la lista de recursos, seleccione **Puerta de enlace de red local**.
 5. En **Nombre**, escriba **Azure-GW**.
 6. En **dirección IP**, escriba la dirección IP pública para la puerta de enlace de red virtual en Azure **Azure-GW-PiP**. Esta dirección aparece antes en la tabla de configuración de red.
-7. En **Espacio de direcciones**, para el espacio de direcciones de la VNet de Azure que creó, escriba **10.0.20.0/23**.
+7. En **Espacio de direcciones**, para el espacio de direcciones de la red virtual de Azure que creó, escriba **10.100.0.0/24** y **10.100.1.0/24**.
 8. Compruebe que la **Suscripción**, **Grupo de recursos** y **Ubicación** son correctos y seleccione **Crear**.
 
 ### <a name="create-the-connection"></a>Creación de la conexión
@@ -196,7 +196,7 @@ Una manera de ver esto de forma más genérica es que el recurso de la puerta de
 9. En **Clave compartida (PSK)**, escriba **12345** y, a continuación, seleccione **Aceptar**.
 10. En la sección **Resumen**, seleccione **Aceptar**.
 
-### <a name="create-a-vm"></a>Creación de una VM
+### <a name="create-a-vm"></a>Crear una VM
 Para validar los datos que pasan por la conexión VPN, debe crear máquinas virtuales en cada extremo para enviar y recibir datos en cada a través del túnel VPN. 
 
 1. En Azure Portal, seleccione **Nuevo**.
@@ -225,7 +225,7 @@ Para garantizar que el tráfico se envía a través de la conexión de sitio a s
 5. Inicie sesión con la cuenta que configuró al crear la máquina virtual.
 6. Abra una ventana de **Windows PowerShell** con privilegios elevados.
 7. Escriba **ipconfig/all**.
-8. En la salida, busque la **dirección IPv4** y, a continuación, guarde la dirección para su uso posterior. Esta es la dirección a la que hará ping desde Azure. En el entorno de ejemplo, la dirección es **10.0.10.4**, pero en su entorno puede ser diferente. Debe estar dentro de la subred **10.0.10.0/24** que se creó anteriormente.
+8. En la salida, busque la **dirección IPv4** y, a continuación, guarde la dirección para su uso posterior. Esta es la dirección a la que hará ping desde Azure. En el entorno de ejemplo, la dirección es **10.1.0.4**, pero en su entorno puede ser diferente. Debe estar dentro de la subred **10.1.0.0/24** que se creó anteriormente.
 9. Para crear una regla de firewall que permita que la máquina virtual responda a los pings, ejecute el siguiente comando de PowerShell:
 
    ```powershell
@@ -242,7 +242,7 @@ Para garantizar que el tráfico se envía a través de la conexión de sitio a s
 5. Inicie sesión con la cuenta que configuró al crear la máquina virtual.
 6. Abra una ventana de **Windows PowerShell** con privilegios elevados.
 7. Escriba **ipconfig/all**.
-8. Debería ver una dirección IPv4 que se encuentre dentro de **10.0.20.0/24**. En el entorno de ejemplo, la dirección es **10.0.20.4**, pero en su entorno puede ser diferente.
+8. Debería ver una dirección IPv4 que se encuentre dentro de **10.100.0.0/24**. En el entorno de ejemplo, la dirección es **10.100.0.4**, pero en su entorno puede ser diferente.
 9. Para crear una regla de firewall que permita que la máquina virtual responda a los pings, ejecute el siguiente comando de PowerShell:
 
    ```powershell
@@ -252,7 +252,7 @@ Para garantizar que el tráfico se envía a través de la conexión de sitio a s
    ```
 
 10. Desde la máquina virtual en Azure, haga ping a la máquina virtual en Azure Stack, a través del túnel. Para ello, haga ping a la DIP que registró de Azs-VM.
-   En el entorno de ejemplo la dirección es **10.0.10.4**, pero asegúrese de hacer ping a la dirección que haya anotado en su laboratorio. Debe ver un resultado con un aspecto como la captura de pantalla siguiente:
+   En el entorno de ejemplo la dirección es **10.1.0.4**, pero asegúrese de hacer ping a la dirección que haya anotado en su laboratorio. Debe ver un resultado con un aspecto como la captura de pantalla siguiente:
    
     ![Ping correcto](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Una respuesta de la máquina virtual remota indica que la prueba ha dado un resultado correcto. Puede cerrar la ventana de la máquina virtual. O puede intentar realizar alguna otra transferencia de datos, como una copia de archivo, para probar la conexión.
@@ -266,6 +266,6 @@ Si desea saber qué cantidad de datos pasa a través de la conexión de sitio a 
    
     ![Datos de entrada y salida](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Implementar aplicaciones en Azure y Azure Stack](azure-stack-solution-pipeline.md)

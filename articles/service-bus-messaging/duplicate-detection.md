@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
-Si se produce un error irrecuperable en una aplicación inmediatamente después de enviar un mensaje, y la instancia de la aplicación iniciada cree falsamente que el mensaje anterior no se produjo, un posterior envío provoca que el mismo mensaje aparezca en el sistema dos veces.
+Si se produce un error irrecuperable en una aplicación inmediatamente después de enviar un mensaje, y la instancia de la aplicación reiniciada cree falsamente que el mensaje anterior no se produjo, un posterior envío provoca que el mismo mensaje aparezca en el sistema dos veces.
 
-También puede producirse un error en el nivel de cliente o de red un momento antes, y que un mensaje enviado se confirme en la cola, sin que la confirmación se devuelva al cliente correctamente. Este escenario deja al cliente en duda sobre el resultado de la operación de envío.
+También puede producirse un error en el nivel de cliente o de red un momento antes y que un mensaje enviado se confirme en la cola, sin que la confirmación se devuelva al cliente correctamente. Este escenario deja al cliente en duda sobre el resultado de la operación de envío.
 
 La detección de duplicados saca de duda en estas situaciones al permitir que el remitente reenvíe el mismo mensaje, y la cola o el tema descartan cualquier copia duplicada.
 
@@ -53,7 +53,7 @@ Tenga en cuenta que el hecho de habilitar la detección de duplicados y el tama�
 
 Mantener la ventana pequeña significa que menos identificadores de mensaje se deben conservar y coincidir, y el rendimiento resulta afectado en un menor grado. En las entidades de alto rendimiento que requieren la detección de duplicados, debe mantener la ventana lo más pequeña posible.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

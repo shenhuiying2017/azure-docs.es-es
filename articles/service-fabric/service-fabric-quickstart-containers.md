@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implementación de una aplicación contenedora Windows de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -35,7 +35,7 @@ Este tutorial tratará los siguientes aspectos:
 > * Creación y empaquetamiento de la aplicación de Service Fabric
 > * Implementación de la aplicación contenedora en Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure (puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un equipo de desarrollo en el que se ejecute:
   * Visual Studio 2015 o Visual Studio 2017.
@@ -79,24 +79,44 @@ Configure la asignación de puertos de puerto a host del contenedor, para lo que
 Al final de este artículo se proporciona un archivo ApplicationManifest.xml de ejemplo.
 
 ## <a name="create-a-cluster"></a>Crear un clúster
-Para implementar la aplicación en un clúster de Azure, puede crear su propio clúster o usar un clúster de entidad.
+Para implementar la aplicación en un clúster de Azure, puede unirse a un clúster de terceros o [crear su propio clúster en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. Para obtener acceso a un clúster de entidad, [siga estas instrucciones](http://aka.ms/tryservicefabric).  
+Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo así como para la de cliente a nodo. 
 
-Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. El certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
 
-Tome nota del punto de conexión, que se utiliza en el paso siguiente.  
+![PFX y punto de conexión](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+En un equipo Windows, instale el archivo PFX en el almacén de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Recuerde la huella digital para el paso siguiente.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Implementación de la aplicación en Azure con Visual Studio
 Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio.
 
 Haga clic con el botón derecho en **MyFirstContainer** en el Explorador de soluciones y seleccione **Publicar**. Aparece el cuadro de diálogo de publicación.
 
-![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión**. Por ejemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Haga clic en **Parámetros de conexión avanzada** y rellene la información siguiente.  Los valores de *FindValue* y *ServerCertThumbprint* deben coincidir con la huella digital del certificado instalado en el paso anterior. 
 
-Especifique el punto de conexión del clúster en el campo **Punto de conexión**. Al registrarse para el clúster de entidad, el punto de conexión se proporciona en el explorador, por ejemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Haga clic en **Publicar** y la aplicación se implementa.
+![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Abra un explorador y vaya a http://winh1x87d1d.westus.cloudapp.azure.com:80. Debería ver la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
+Haga clic en **Publicar**.
+
+Todas las aplicaciones del clúster deben tener un nombre único.  Sin embargo, los clústeres de entidad son un entorno compartido y público, por lo que es posible que se produzca un conflicto con una aplicación existente.  Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
+
+Abra un explorador y vaya a http://zwin7fh14scd.westus.cloudapp.azure.com:80. Debería ver la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric de ejemplo completos
 Estos son los manifiestos de servicio y de aplicación completos que se usan en esta guía de inicio rápido.
@@ -167,6 +187,7 @@ Estos son los manifiestos de servicio y de aplicación completos que se usan en 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -183,7 +204,7 @@ Estos son los manifiestos de servicio y de aplicación completos que se usan en 
 </ApplicationManifest>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 > [!div class="checklist"]
 > * Empaquetado de un contenedor de imagen de Docker

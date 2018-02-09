@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análisis de sentimiento mediante aprendizaje profundo con Azure Machine Learning
 
-El análisis de sentimiento es una tarea bien conocida perteneciente al procesamiento de lenguaje natural. Dado un conjunto de textos, el objetivo es determinar el sentimiento que produce ese texto. El objetivo de esta solución es utilizar CNTK como back-end para Keras (una biblioteca de niveles de modelo, que proporciona bloques de creación de alto nivel para desarrollar modelos de aprendizaje profundo) e implementar el análisis de sentimiento en críticas de películas.
+El análisis de sentimiento es una tarea bien conocida perteneciente al procesamiento de lenguaje natural. Dado un conjunto de textos, el objetivo es determinar el sentimiento que produce ese texto. El objetivo de esta solución es usar el aprendizaje profundo para predecir el sentimiento a partir de críticas de películas.
 
 La solución se encuentra en https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 

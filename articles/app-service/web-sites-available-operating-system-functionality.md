@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones que se ejecutan en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
@@ -49,7 +49,7 @@ Existen varias unidades en App Service, incluidas las unidades locales y las uni
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locales
-Principalmente, App Service es un servicio que se ejecuta en la parte superior de la infraestructura PaaS (plataforma como servicio) de Azure. Como resultado, las unidades locales "conectadas" a una máquina virtual son los mismos tipos de unidades disponibles para cualquier rol de trabajo que se ejecute en Azure. Esto incluye una unidad de sistema operativo (la unidad D:\), una unidad de aplicación que contiene archivos cspkg del paquete de Azure que usa exclusivamente App Service (y a los que los clientes no pueden obtener acceso) y una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual.
+Principalmente, App Service es un servicio que se ejecuta en la parte superior de la infraestructura PaaS (plataforma como servicio) de Azure. Como resultado, las unidades locales "conectadas" a una máquina virtual son los mismos tipos de unidades disponibles para cualquier rol de trabajo que se ejecute en Azure. Esto incluye una unidad de sistema operativo (la unidad D:\), una unidad de aplicación que contiene archivos cspkg del paquete de Azure que usa exclusivamente App Service (y a los que los clientes no pueden obtener acceso) y una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual. Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación.
 
 <a id="NetworkDrives"></a>
 

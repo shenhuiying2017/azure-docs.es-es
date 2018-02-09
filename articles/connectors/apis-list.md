@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para obtener los desencadenadores y las acciones definidas por la descripción de Swagger de cada conector, así como los límites de cada uno, consulte los [detalles del conector](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP) incluye conectores bien conocidos en la comuni
 | --- | --- | --- | --- |
 | [![Icono de la API][as2icon]<br/>**Descodificación de</br> AS2**][as2decode] | [![Icono de la API][as2icon]<br/>**Codificación de</br> AS2**][as2encode] | [![Icono de la API][x12icon]<br/>**Descodificación de</br> EDIFACT**][EDIFACTdecode] | [![Icono de la API][x12icon]<br/>**Codificación de</br> EDIFACT**][EDIFACTencode] |
 [![Icono de la API][flatfileicon]<br/>**Codificación de</br> archivos planos**][flatfiledoc] | [![Icono de la API][flatfiledecodeicon]<br/>**Descodificación de</br> archivos planos**][flatfiledecodedoc] | [![Icono de la API][integrationaccounticon]<br/>**Cuenta de<br/>integración**][integrationaccountdoc] | [![Icono de la API][xmltransformicon]<br/>**Transformación<br/>XML**][xmltransformdoc] |
-| [![Icono de la API][x12icon]<br/>**Descodificación de</br> X12**][x12decode] | [![Icono de la API][x12icon]<br/>**Codificación de</br> X12**][x12encode] | [![Icono de la API][xmlvalidateicon]<br/>**Validación de <br/>XML**][xmlvalidatedoc] | |
+| [![Icono de la API][x12icon]<br/>**Descodificación de</br> X12**][x12decode] | [![Icono de la API][x12icon]<br/>**Codificación de</br> X12**][x12encode] | [![Icono de la API][xmlvalidateicon]<br/>**Validación de <br/>XML**][xmlvalidatedoc] | [![Icono de API ][liquidicon]<br/>**Transformación <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Conectores de empresa
 
@@ -189,6 +189,7 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Más información sobre la descodificación EDIFACT para integración empresarial"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Más información sobre la codificación EDIFACT para integración empresarial"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Búsqueda de esquemas, mapas o asociados en su cuenta de integración"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Más información acerca de las transformaciones JSON con Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Conectar con Box. Cargar, obtener, eliminar y enumerar archivos, entre otras operaciones."
@@ -328,3 +329,4 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

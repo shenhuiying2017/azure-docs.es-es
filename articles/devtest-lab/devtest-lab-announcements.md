@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicación de un anuncio en un laboratorio de Azure DevTest Labs
 
@@ -47,6 +47,13 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 1. Para crear un mensaje para los usuarios de este laboratorio, establezca **Habilitado** en **Sí**.
 
+1. Puede escribir una **fecha de expiración** para especificar una fecha y hora después de la cual ya no se mostrará el anuncio a los usuarios. Si no escribe una fecha de expiración, el anuncio permanece hasta que lo deshabilita.
+
+   > [!NOTE]
+   > Una vez que el anuncio expira, ya no se muestra a los usuarios pero sigue existiendo en el panel **Anuncio de laboratorio**. Puede modificarlo y volver a habilitarlo para que esté activo nuevamente.
+   >
+   >
+
 1. Escriba un **título del anuncio** y el **texto del anuncio**.
 
    El título puede contener hasta 100 caracteres y se muestra al usuario en la página de información general del laboratorio. Si el usuario selecciona el título, se muestra el texto del anuncio.
@@ -58,7 +65,7 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 1. Seleccione **Guardar** cuando el anuncio esté listo para publicarse.
 
-Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva a la página **Lab announcement** (Anuncio del laboratorio) y establezca **Habilitado** en **No**.
+Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva a la página **Lab announcement** (Anuncio del laboratorio) y establezca **Habilitado** en **No**. Si especificó una fecha de expiración, el anuncio se deshabilita automáticamente en esa fecha y hora.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Pasos para que los usuarios vean un anuncio
 

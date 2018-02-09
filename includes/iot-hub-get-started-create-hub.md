@@ -25,11 +25,11 @@ Cree un Centro de IoT al que se pueda conectar la aplicación de dispositivo sim
 
 1. Haga clic en **Create**(Crear). El centro de IoT puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
 
-1. Cuando se haya creado correctamente el centro de IoT, haga clic en el nuevo icono del centro de IoT de Azure Portal para abrir la ventana de propiedades del mismo. Ahora que ha creado un centro de IoT, busque la información importante que usa para conectar a él dispositivos y aplicaciones. Anote el **Nombre de host** y haga clic en **Directivas de acceso compartido**.
+1. Cuando la nueva instancia de IoT Hub esté lista, haga clic en su icono en Azure Portal para abrir su ventana de propiedades. Ahora que ha creado un centro de IoT, busque la información importante que usa para conectar a él dispositivos y aplicaciones. Anote el **Nombre de host** y haga clic en **Directivas de acceso compartido**.
    
     ![Ventana del nuevo centro de IoT][4]
 
-1. En **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y copie y anote la cadena de conexión de IoT Hub en la ventana **iothubowner**. Consulte [Control de acceso][lnk-access-control] en la Guía del desarrollador de Azure IoT Hub para más información.
+1. En **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y anote la cadena de conexión de IoT Hub en la ventana **iothubowner**. Consulte [Control de acceso][lnk-access-control] en la Guía del desarrollador de Azure IoT Hub para más información.
    
     ![Directivas de acceso compartido][5]
 

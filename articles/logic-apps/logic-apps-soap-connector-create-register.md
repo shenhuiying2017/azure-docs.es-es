@@ -1,7 +1,7 @@
 ---
 title: "Creación y registro de conectores SOAP - Azure Logic Apps | Microsoft Docs"
 description: "Configuración de conectores SOAP para utilizarlos en Azure Logic Apps"
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Creación y registro de conectores SOAP en Azure Logic Apps
 
 Para integrar servicios SOAP en sus flujos de trabajo de aplicación lógica, puede crear y registrar un conector de protocolo simple de acceso a objetos (SOAP) personalizado mediante el lenguaje de descripción de servicios Web (WSDL) que describe el servicio SOAP. Los conectores SOAP funcionan como conectores creados previamente, por lo que puede usarlos de la misma forma que otros conectores de sus aplicaciones lógicas.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para registrar el conector SOAP, necesita lo siguiente:
 
@@ -82,7 +82,7 @@ Ahora especifique la dirección URL o el archivo WSDL para crear el conector, la
 
       ![Especificación del archivo WDSL para la API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
-      | Opción | Formato |Descripción | 
+      | Opción | Formato |DESCRIPCIÓN | 
       | ------ | ------ | ----------- | 
       | **Cargar WSDL desde archivo** | *archivo-WSDL* | Vaya a la ubicación del archivo WDSL y seleccione el archivo. | 
       | **Cargar WSDL desde dirección URL** | http://*dirección-a-archivo-wsdl* | Proporcione la dirección URL para el archivo WDSL del servicio. | 
@@ -95,7 +95,7 @@ Ahora especifique la dirección URL o el archivo WSDL para crear el conector, la
 
       ![Detalles del conector](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
-      | Opción o valor de configuración | Formato | Descripción | 
+      | Opción o valor de configuración | Formato | DESCRIPCIÓN | 
       | ----------------- | ------ | ----------- | 
       | **Cargar icono** | *archivo-png-o-jpg-inferior-1-MB* | Un icono que representa al conector <p>Color: preferiblemente un logotipo blanco sobre un fondo de color. <p>Dimensiones: un logotipo de ~160 píxeles dentro de un cuadro de 230 píxeles | 
       | **Color de fondo del icono** | *código-hexadecimal-color-marca-icono* | <p>El color de detrás del icono que coincide con el color de fondo del archivo de icono. <p>Formato: hexadecimal. Por ejemplo, #007ee5 representa el color azul. | 
@@ -134,7 +134,7 @@ Ahora especifique la dirección URL o el archivo WSDL para crear el conector, la
 
 Cuando esté listo, elija **Actualizar conector** a fin de implementar el conector. 
 
-¡Enhorabuena! Ahora, cuando cree una aplicación lógica, podrá encontrar el conector en el Diseñador de Logic Apps y agregarlo a la aplicación lógica.
+Felicidades. Ahora, cuando cree una aplicación lógica, podrá encontrar el conector en el Diseñador de Logic Apps y agregarlo a la aplicación lógica.
 
 ![En el Diseñador de Logic Apps, búsqueda del conector](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
 
@@ -148,7 +148,7 @@ Los conectores personalizados registrados pero no certificados funcionan como co
  
 Para compartir su conector con usuarios externos (por ejemplo, todos los usuarios de Logic Apps), [presente su conector para que obtenga la certificación de Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 **P:** ¿Está el conector SOAP disponible de manera general (GA)? </br>
 **R:** El conector SOAP está en su **versión preliminar** y todavía no es un servicio que esté disponible de manera general.
@@ -157,7 +157,7 @@ Para compartir su conector con usuarios externos (por ejemplo, todos los usuario
 **R:** Sí, consulte las [restricciones y problemas conocidos del conector SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **P:**  ¿Existen límites para los conectores personalizados? </br>
-**R:** Sí, consulte [los límites para conectores personalizados aquí](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+**R:** Sí, consulte los [límites para conectores personalizados aquí](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
@@ -167,7 +167,7 @@ Para compartir su conector con usuarios externos (por ejemplo, todos los usuario
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Optional: Certify your connector](../logic-apps/custom-connector-submit-certification.md) (Opcional: certificación del conector)
 * [Preguntas más frecuentes sobre conectores personalizados](../logic-apps/custom-connector-faq.md)

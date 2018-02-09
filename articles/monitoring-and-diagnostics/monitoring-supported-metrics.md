@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
@@ -529,6 +529,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |jobs.failed|Trabajos con error|Recuento|Total|El recuento de todos los trabajos con error.|Sin dimensiones|
 |d2c.telemetry.ingress.sendThrottle|Número de errores de limitación|Recuento|Total|Número de errores de limitación debido a las limitaciones de rendimiento del dispositivo|Sin dimensiones|
 |dailyMessageQuotaUsed|Número total de mensajes usados|Recuento|Media|Número de mensajes totales usados hoy. Se trata de un valor acumulado que se restablece en cero a las 00:00 UTC cada día.|Sin dimensiones|
+|deviceDataUsage|Uso total de datos del dispositivo|Recuento|Total|Bytes transferidos hacia y desde cualquier dispositivo conectado al Centro de IOT|Sin dimensiones|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -707,15 +708,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |BillableTriggerExecutions|Ejecuciones del desencadenador facturable|Recuento|Total|Número de ejecuciones del desencadenador de flujo de trabajo que se factura.|Sin dimensiones|
 |TotalBillableExecutions|Total de ejecuciones facturables|Recuento|Total|Número de ejecuciones de flujo de trabajo que se factura.|Sin dimensiones|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
-|---|---|---|---|---|---|
-|BytesSentRate|Bytes enviados|Recuento|Total|Número de bytes de la interfaz de red enviados|Sin dimensiones|
-|BytesReceivedRate|Bytes recibidos|Recuento|Total|Número de bytes de la interfaz de red recibidos|Sin dimensiones|
-|PacketsSentRate|Paquetes enviados|Recuento|Total|Número de paquetes de la interfaz de red enviados|Sin dimensiones|
-|PacketsReceivedRate|Paquetes recibidos|Recuento|Total|Número de paquetes de la interfaz de red recibidos|Sin dimensiones|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -757,13 +749,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ByteCount|Recuento de bytes|Recuento|Total|Número total de bytes transmitidos en un período|Port, Direction|
 |PacketCount|Recuento de paquetes|Recuento|Total|Número total de paquetes transmitidos en un período|Port, Direction|
 |SynCount|Recuento de SYN|Recuento|Total|Número total de paquetes SYN transmitidos en un período|Port, Direction|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Paquetes entrantes descartados para la protección de máquinas virtuales|CountPerSecond|Media|Paquetes entrantes descartados para la protección de máquinas virtuales|Sin dimensiones|
-|PacketsInDroppedVMProtection|Paquetes salientes descartados para la protección de máquinas virtuales|CountPerSecond|Media|Paquetes salientes descartados para la protección de máquinas virtuales|Sin dimensiones|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -864,6 +849,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |incoming.all.requests|Todas las solicitudes entrantes|Recuento|Total|Solicitudes entrantes totales de un centro de notificaciones|Sin dimensiones|
 |incoming.all.failedrequests|Todas las solicitudes entrantes con error|Recuento|Total|Solicitudes entrantes totales con error de un centro de notificaciones|Sin dimensiones|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|QueryDuration||Recuento|Media||Sin dimensiones|
+|QueryPoolJobQueueLength|Subprocesos: longitud de la cola de trabajos del grupo de consultas|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de consultas.|Sin dimensiones|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -937,23 +929,16 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
-|database_cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|DatabaseResourceId|
 |physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
-|database_physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|DatabaseResourceId|
 |log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|Sin dimensiones|
-|database_log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|DatabaseResourceId|
 |dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|Sin dimensiones|
-|database_dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|DatabaseResourceId|
 |storage_percent|Porcentaje de almacenamiento|Percent|Media|Porcentaje de almacenamiento|Sin dimensiones|
 |workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|Sin dimensiones|
-|database_workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|DatabaseResourceId|
 |sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|Sin dimensiones|
-|database_sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|DatabaseResourceId|
 |eDTU_limit|Límite de eDTU|Recuento|Media|Límite de eDTU|Sin dimensiones|
 |storage_limit|Límite de almacenamiento|Bytes|Media|Límite de almacenamiento|Sin dimensiones|
 |eDTU_used|eDTU utilizada|Recuento|Media|eDTU utilizada|Sin dimensiones|
 |storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|Sin dimensiones|
-|database_storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|DatabaseResourceId|
 |xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,9 +946,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|ElasticPoolResourceId|
-|database_storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|DatabaseResourceId, ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
@@ -1080,6 +1063,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|Instance|
 |AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|Instance|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|Instance|
+|AppConnections|Conexiones|Recuento|Media|Conexiones|Instance|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
 
@@ -1113,8 +1097,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|Instance|
 |AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|Instance|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|Instance|
-|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|Instance|
-|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|Instance|
+|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Total|Unidades de ejecución de función|Instance|
+|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Total|Recuento de ejecución de funciones|Instance|
+|AppConnections|Conexiones|Recuento|Media|Conexiones|Instance|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1138,18 +1123,18 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |DiskQueueLength|Longitud de la cola de disco|Recuento|Media|Longitud de la cola de disco|Instance|
 |HttpQueueLength|Longitud de la cola HTTP|Recuento|Media|Longitud de la cola HTTP|Instance|
 |ActiveRequests|Solicitudes activas|Recuento|Total|Solicitudes activas|Instance|
-|TotalFrontEnds|Número total de front-ends|Recuento|Media|Número total de front-ends|Instance|
-|SmallAppServicePlanInstances|Trabajos pequeños del plan de App Service|Recuento|Media|Trabajos pequeños del plan de App Service|Instance|
-|MediumAppServicePlanInstances|Trabajos medianos del plan de App Service|Recuento|Media|Trabajos medianos del plan de App Service|Instance|
-|LargeAppServicePlanInstances|Trabajos grandes del plan de App Service|Recuento|Media|Trabajos grandes del plan de App Service|Instance|
+|TotalFrontEnds|Número total de front-ends|Recuento|Media|Número total de front-ends|Sin dimensiones|
+|SmallAppServicePlanInstances|Trabajos pequeños del plan de App Service|Recuento|Media|Trabajos pequeños del plan de App Service|Sin dimensiones|
+|MediumAppServicePlanInstances|Trabajos medianos del plan de App Service|Recuento|Media|Trabajos medianos del plan de App Service|Sin dimensiones|
+|LargeAppServicePlanInstances|Trabajos grandes del plan de App Service|Recuento|Media|Trabajos grandes del plan de App Service|Sin dimensiones|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|WorkersTotal|Número total de trabajos|Recuento|Media|Número total de trabajos|Instance|
-|WorkersAvailable|Trabajos disponibles|Recuento|Media|Trabajos disponibles|Instance|
-|WorkersUsed|Trabajos usados|Recuento|Media|Trabajos usados|Instance|
+|WorkersTotal|Número total de trabajos|Recuento|Media|Número total de trabajos|Sin dimensiones|
+|WorkersAvailable|Trabajos disponibles|Recuento|Media|Trabajos disponibles|Sin dimensiones|
+|WorkersUsed|Trabajos usados|Recuento|Media|Trabajos usados|Sin dimensiones|
 |CpuPercentage|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Instance|
 |MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|Instance|
 

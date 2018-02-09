@@ -3,7 +3,7 @@ title: "Actualización de Azure Stack 1711 | Microsoft Docs"
 description: "Obtenga información sobre el contenido de la actualización 1711 para los sistemas integrados de Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse la actualización."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Actualización de Azure Stack 1711
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/02/2018
 En este artículo se describen las mejoras y correcciones de este paquete de actualización, los problemas conocidos de esta versión y la ubicación donde debe descargarse la actualización. Los problemas conocidos se dividen en aquellos que están directamente relacionados con el proceso de actualización y aquellos que están asociados a la compilación (posteriores a la instalación).
 
 > [!IMPORTANT]
-> Esta actualización solo se aplica a los sistemas integrados de Azure Stack. No la aplique a Azure Stack Development Kit.
+> Esta actualización solo se aplica a los sistemas integrados de Azure Stack. No la aplique al Kit de desarrollo de Azure Stack.
 
 ## <a name="build-reference"></a>Referencia de compilación
 
@@ -62,7 +62,7 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Nuevas características y correcciones de Windows Server 2016
 
 - [14 de noviembre de 2017: KB4048953 (compilación del sistema operativo 14393.1884) ](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
 En esta sección se abordan los problemas conocidos que pueden surgir durante la instalación de la actualización 1711.
@@ -97,7 +97,7 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 
    - Puede que vea una fila en blanco en la parte superior de la lista. Debería poder seleccionar un elemento según lo previsto.
    - Si la lista de elementos de la lista desplegable es breve, es posible que no se vean los nombres de los elementos.
-   - Si tiene varias suscripciones de usuario, la lista desplegable de grupos de recursos podría estar vacía. 
+   - Si tiene varias suscripciones de usuario, la lista desplegable de grupos de recursos podría estar vacía.
 
         > [!NOTE]
         > Para evitar los dos últimos problemas, puede escribir el nombre de la suscripción o el grupo de recursos (si lo conoce), o puede usar PowerShell en su lugar.
@@ -118,18 +118,18 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 - Puede configurar un conjunto de disponibilidad de la máquina virtual con un dominio de error de uno y un dominio de actualización de uno.
 - No hay ninguna experiencia del Marketplace para crear conjuntos de escalado de máquinas virtuales. Puede crear un conjunto de escalado mediante una plantilla.
 - Los valores de escalado para conjuntos de escalas de máquina virtual no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Redes
 - No puede crear un equilibrador de carga con una dirección IP pública mediante el portal. Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
 - Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
 - No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
 - Es posible que los operadores de Azure Stack no puedan implementar, eliminar o modificar las redes virtuales o los grupos de seguridad de red. Este problema se ve principalmente en los intentos de actualización posteriores del mismo paquete. Esto se debe a un problema de empaquetado con una actualización que esté investigándose.
 - El equilibrio de carga interno (ILB) maneja incorrectamente las direcciones MAC de máquinas virtuales de back-end, lo que interrumpe las instancias de Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
+- Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL.
 - La creación de elementos directamente en servidores de hospedaje SQL y MySQL que no realice el proveedor de recursos no se admite y puede provocar un estado de error de coincidencia.
- 
+
 #### <a name="app-service"></a>App Service
 - Un usuario debe registrar el proveedor de recursos de almacenamiento antes de crear su primera función de Azure en la suscripción.
 
@@ -149,7 +149,7 @@ En entornos implementados de Servicios de federación de Active Directory (AD FS
 - **La habilitación de la copia de seguridad de infraestructura en ASDK se realiza solo con fines de prueba.**  
   Las copias de seguridad de infraestructura pueden utilizarse para restaurar soluciones de varios nodos. Puede habilitar la copia de seguridad de infraestructura en ASDK, pero no existe ninguna manera de probar la recuperación.
 
-Para obtener más información, consulte [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md) (Copia de seguridad y recuperación de datos de Azure Stack con el servicio de copia de seguridad de infraestructura).
+Para obtener más información, consulte [Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Descarga de la actualización
 

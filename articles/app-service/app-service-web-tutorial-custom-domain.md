@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Asignar un nombre DNS personalizado a Azure Web Apps
 
@@ -292,13 +292,13 @@ En la parte inferior de la página, el directorio virtual raíz `/` apunta a `si
 
 ![Personalización del directorio virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Una vez completada la operación, la aplicación debe devolver la página derecha en la ruta de acceso raíz (por ejemplo, http://contoso.com).
+Una vez completada la operación, la aplicación debe devolver la página correcta en la ruta de acceso raíz (por ejemplo, http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
 Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>CLI de Azure 
 
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 

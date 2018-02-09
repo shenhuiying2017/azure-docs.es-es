@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/28/2017
 
 En este tutorial se muestra cómo escribir una aplicación de consola de .NET Core que recibe mensajes de un centro de eventos mediante la **biblioteca de host de procesador de eventos**. Puede ejecutar la solución de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) tal como está, reemplazando las cadenas por los valores de la cuenta de almacenamiento y centro de eventos. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017, pero también se admite Visual Studio 2015.
 * [Herramientas de .NET Core Visual Studio 2015 o 2017](http://www.microsoft.com/net/core).
@@ -41,7 +41,7 @@ El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para cr
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage  
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
 2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, luego en **Almacenamiento** y, a continuación, en **Cuenta de almacenamiento**.  
 3. Complete los campos de la ventana de la cuenta de almacenamiento y, luego, haga clic en **Crear**.
 
@@ -212,9 +212,9 @@ Agregue los paquetes NuGet de la biblioteca de .NET Standard [ **Microsoft.Azure
 
 4. Ejecute el programa y asegúrese de que no hay ningún error.
 
-¡Enhorabuena! Recibió mensajes de un centro de eventos mediante el host de procesador de eventos.
+Felicidades. Recibió mensajes de un centro de eventos mediante el host de procesador de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)

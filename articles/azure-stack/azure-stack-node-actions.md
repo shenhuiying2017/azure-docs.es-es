@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
 Este artículo describe cómo ver el estado de una unidad de escalado y sus nodos asociados, y cómo usar las acciones de nodo disponibles. Las acciones de nodo son encender, apagar, purgar, reanudar y reparar. Normalmente, estas acciones de nodo se utilizan durante el reemplazo de componentes, o en escenarios de recuperación de nodos.
+
+> [!Important]  
+> Todas las acciones de nodo que se describen en este artículo solo deben señalar a un nodo cada vez.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visualización del estado de una unidad de escalado y sus nodos
 
@@ -75,13 +79,17 @@ El estado operativo del nodo determina qué opciones están disponibles.
 
 La acción de **apagado** desactiva el nodo. Es lo mismo que si se presiona el botón de encendido. **No** envía una señal de cierre al sistema operativo. Para las operaciones de apagado planeadas, asegúrese de que purga un nodo de la unidad de escalado en primer lugar.
 
-Esta acción se utiliza normalmente cuando un nodo está en un estado bloqueado y ya no responde a las solicitudes.  
+Esta acción se utiliza normalmente cuando un nodo está en un estado bloqueado y ya no responde a las solicitudes.
+
+> [!Important] 
+> Esta funcionalidad solo está disponible a través de PowerShell. Estará disponible en el portal del administrador de Azure Stack de nuevo más adelante.
+
 
 Para ejecutar la acción de apagado a través de PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 En el caso poco probable de que la acción de apagado no funcione, utilice en su lugar la interfaz web BMC.
 
@@ -89,11 +97,14 @@ En el caso poco probable de que la acción de apagado no funcione, utilice en su
 
 La acción de **encendido** activa el nodo. Es lo mismo que si se presiona el botón de encendido. 
 
+> [!Important] 
+> Esta funcionalidad solo está disponible a través de PowerShell. Estará disponible en el portal del administrador de Azure Stack de nuevo más adelante.
+
 Para ejecutar la acción de encendido a través de PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 En el caso poco probable de que la acción de encendido no funcione, utilice en su lugar la interfaz web BMC.
 

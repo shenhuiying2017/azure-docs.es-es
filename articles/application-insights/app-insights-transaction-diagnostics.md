@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
 
@@ -26,7 +26,7 @@ La versión preliminar presenta una nueva experiencia de diagnóstico unificada 
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>¿Qué significa componente en el contexto de Application Insights?
 
-Los componentes son partes que se pueden implementar independientemente de su aplicación de microservicios o distribuida. Los equipos de operaciones y los desarrolladores pueden ver el código o acceder a la telemetría que generan estos componentes de la aplicación. 
+Los componentes son partes que se pueden implementar independientemente de su aplicación de microservicios o distribuida. Los equipos de operaciones y los desarrolladores pueden ver el código o acceder a la telemetría que generan estos componentes de la aplicación.
 
 * Los componentes son diferentes de las dependencias externas "observadas", como SQL, EventHub, etc. a las que su equipo u organización no pueden acceder (código o telemetría).
 * Los componentes se ejecutan en cualquier número de instancias de rol, servidor o contenedor.
@@ -40,11 +40,11 @@ Habilite "Unified details: E2E Transaction Diagnostics" (Detalles unificados: Di
 
 ![Habilitación de la versión preliminar](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Esta versión preliminar está disponible actualmente para las excepciones, las dependencias y las solicitudes del lado servidor. Puede acceder a la nueva experiencia desde las experiencias de evaluación de prioridades de **resultados de búsqueda**, **rendimiento** o **errores**. La versión preliminar reemplaza las hojas clásicas de detalles correspondientes. 
+Esta versión preliminar está disponible actualmente para las excepciones, las dependencias y las solicitudes del lado servidor. Puede acceder a la nueva experiencia desde las experiencias de evaluación de prioridades de **resultados de búsqueda**, **rendimiento** o **errores**. La versión preliminar reemplaza las hojas clásicas de detalles correspondientes.
 
 ![Ejemplos de rendimiento](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Experiencia de diagnósticos de la transacción 
+## <a name="transaction-diagnostics-experience"></a>Experiencia de diagnósticos de la transacción
 Esta vista tiene tres partes principales: un gráfico de transacción entre componentes, una lista de secuencia de tiempo de la telemetría de una determinada operación de un componente, y el panel de detalles de cualquier elemento de telemetría seleccionado a la izquierda.
 
 ![Elementos clave](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ En este panel se muestran los detalles de los elementos seleccionados en cualqui
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler y Snapshot Debugger
 
 [Application Insights Profiler](app-insights-profiler.md) y [Snapshot Debugger](app-insights-snapshot-debugger.md) le ayudan a realizar diagnósticos al nivel de código para conocer los problemas de rendimiento y errores. Con esta experiencia, podrá ver seguimientos de Profiler o instantáneas de cualquier componente con tan solo un clic.
+
+Si no pudo conseguir que funcionara Profiler, póngase en contacto con **serviceprofilerhelp@microsoft.com**.
+
+Si no pudo conseguir que funcionara Snapshot Debugger, póngase en contacto con **snapshothelp@microsoft.com**.
 
 ![Integración de Debugger](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

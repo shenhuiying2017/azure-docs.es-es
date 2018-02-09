@@ -109,7 +109,7 @@ La configuración debería ser similar a la que se muestra a continuación:
 
 #### <a name="deploy-to-clean-web-server"></a>Implementación en servidor web limpio
 
-- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino	** en la pestaña **Configuración**.
+- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino** en la pestaña **Configuración**.
 
 - Advertencia: La publicación con este parámetro elimina todos los archivos existentes en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
 

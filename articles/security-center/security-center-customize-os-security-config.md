@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
@@ -26,7 +26,7 @@ Con esta guía detallada aprenderá a personalizar las valoraciones de configura
 
 ## <a name="what-are-os-security-configurations"></a>¿Cuáles son las configuraciones de seguridad del sistema operativo?
 
-Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de más de 150 reglas recomendadas para proteger el sistema operativo, incluidas, entre otras, las relacionadas con firewalls, auditoría y directivas de contraseña. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad.
+Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de [más de 150 reglas recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger el sistema operativo, incluidas, entre otras, las relacionadas con firewalls, auditoría y directivas de contraseña. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad.
 
 La personalización de las reglas puede ayudar a las organizaciones a controlar qué opciones de configuración son las más adecuadas para su entorno. Puede establecer una directiva personalizada de valoración y aplicarla a todas las máquinas aplicables de la suscripción.
 
@@ -60,8 +60,8 @@ Para personalizar la configuración de seguridad predeterminada del sistema oper
 3.  Seleccione la suscripción para la que desea realizar la personalización.
 
 4. En **Componentes de la directiva**, seleccione **Edit security configurations** (Editar configuraciones de seguridad).  
-    Se abre la ventana **Edit security configurations** (Editar configuraciones de seguridad). 
-    
+    Se abre la ventana **Edit security configurations** (Editar configuraciones de seguridad).
+
     ![Ventana "Edit security configurations" (Editar configuraciones de seguridad)](media/security-center-customize-os-security-config/blade.png)
 
 5. En el panel derecho, siga los pasos para descargar, editar y cargar el archivo modificado.
@@ -70,7 +70,7 @@ Para personalizar la configuración de seguridad predeterminada del sistema oper
    > De forma predeterminada, el archivo de configuración que descarga está en formato *json*. Para obtener instrucciones sobre cómo modificar este archivo, vaya a [Customize the configuration file](#customize-the-configuration-file) (Personalizar el archivo de configuración).
    >
 
-   Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción. El proceso normalmente tarda unos minutos, pero puede tardar más tiempo en función del tamaño de la infraestructura. 
+   Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción. El proceso normalmente tarda unos minutos, pero puede tardar más tiempo en función del tamaño de la infraestructura.
 
 6. Para confirmar el cambio, seleccione **Guardar**. En caso contrario, no se almacenará la directiva.
 

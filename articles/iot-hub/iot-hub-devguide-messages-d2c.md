@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envío de mensajes de dispositivo a nube a IoT Hub
 
 Para enviar alertas y telemetría de series temporales desde los dispositivos a su back-end de soluciones, envíe mensajes de dispositivo a nube desde el dispositivo a su IoT Hub. Para obtener una explicación de otras opciones de dispositivo a nube compatibles con IoT Hub, consulte [Guía de comunicación de dispositivo a nube][lnk-d2c-guidance].
 
-Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). Después, las reglas de enrutamiento enrutan los mensajes a uno de los puntos de conexión orientado al servicio en su IoT Hub. Las reglas de enrutamiento utilizan los encabezados y el cuerpo de los mensajes de dispositivo a nube que fluyen a través de su centro para determinar dónde enrutarlos. De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar [los SDK e integración de Event Hubs][lnk-compatible-endpoint] estándar para recibir mensajes de dispositivo a nube.
+Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). Después, las reglas de enrutamiento enrutan los mensajes a uno de los puntos de conexión orientado al servicio en su IoT Hub. Las reglas de enrutamiento utilizan los encabezados y el cuerpo de los mensajes de dispositivo a nube para determinar dónde enrutarlos. De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar [los SDK e integración de Event Hubs][lnk-compatible-endpoint] estándar para recibir mensajes de dispositivo a nube.
 
 IoT Hub implementa mensajería de dispositivo a nube mediante un patrón de mensajería de streaming. Los mensajes de dispositivo a nube de IoT Hub son más parecidos a *eventos* de [Event Hubs][lnk-event-hubs] que a *mensajes* de [Service Bus][lnk-servicebus] en que hay un gran volumen de eventos que se pasan a través del servicio que pueden leer varios lectores.
 
@@ -36,11 +36,11 @@ La mensajería de dispositivo a nube con IoT Hub tiene las siguientes caracterí
 * IoT Hub habilita millones de dispositivos conectados al mismo tiempo (consulte [Cuotas y limitación][lnk-quotas]).
 * IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
 
-Para obtener más información acerca de las diferencias entre Azure IoT Hub y los servicios de Event Hubs, consulte [Comparación entre IoT Hub de Azure y Azure Event Hubs][lnk-comparison].
+Para obtener más información acerca de las diferencias entre Azure IoT Hub y Event Hubs, consulte [Comparación entre IoT Hub de Azure y Azure Event Hubs][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Envío de tráfico sin telemetría
 
-A menudo, además de los puntos de datos de telemetría, los dispositivos envían mensajes y solicitudes que requieren la ejecución y el control en el back-end de la solución. Por ejemplo, las alertas críticas que deben desencadenar una acción específica en el back-end. Puede escribir fácilmente una [regla de enrutamiento][lnk-devguide-custom] para enviar estos tipos de mensajes a un punto de conexión dedicado para su procesamiento según un encabezado en el mensaje o un valor en el cuerpo del mensaje.
+A menudo, además de telemetría, los dispositivos envían mensajes y solicitudes que requieren la ejecución y el control en el back-end de la solución. Por ejemplo, las alertas críticas que deben desencadenar una acción específica en el back-end. Puede escribir una [regla de enrutamiento][lnk-devguide-custom] para enviar estos tipos de mensajes a un punto de conexión dedicado para su procesamiento según un encabezado en el mensaje o un valor en el cuerpo del mensaje.
 
 Para más información sobre la mejor manera de procesar este tipo de mensaje, consulte [Tutorial: procesamiento de mensajes del dispositivo a la nube de IoT Hub][lnk-d2c-tutorial].
 
@@ -53,7 +53,7 @@ Tiene dos opciones para enrutar mensajes de dispositivo a nube a las aplicacione
 
 ## <a name="anti-spoofing-properties"></a>Propiedades contra la suplantación
 
-Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, el Centro de IoT marca todos los mensajes con las siguientes propiedades:
+Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, Azure IoT Hub marca todos los mensajes con las siguientes propiedades:
 
 * **ConnectionDeviceId**
 * **ConnectionDeviceGenerationId**
@@ -71,7 +71,7 @@ La propiedad **ConnectionAuthMethod** contiene un objeto JSON serializado con la
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información sobre los SDK que puede utilizar para enviar mensajes de dispositivo a nube, consulte [SDK de Azure IoT][lnk-sdks].
 

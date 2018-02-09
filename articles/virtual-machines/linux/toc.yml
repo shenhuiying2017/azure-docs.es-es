@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Virtual Machines
       href: overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de una máquina virtual: CLI de Azure'
@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Máquinas virtuales de alta disponibilidad
       href: tutorial-availability-sets.md
-    - name: 6 - Creación de un conjunto de escalado de máquina virtual
+    - name: 6 - Creación de un conjunto de escalado de máquinas virtuales
       href: tutorial-create-vmss.md
     - name: 7 - Equilibrio de carga de máquinas virtuales
       href: tutorial-load-balancer.md
@@ -35,7 +35,7 @@
       href: tutorial-backup-vms.md
     - name: 10 - Supervisión y actualización de máquinas virtuales
       href: tutorial-monitoring.md
-    - name: 11 - Administración de la seguridad de la máquina virtual
+    - name: 11 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
     - name: 12 - Implementación de Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
@@ -47,17 +47,17 @@
       href: tutorial-lemp-stack.md
     - name: 14b - Creación de pila MEAN
       href: tutorial-mean-stack.md
-    - name: 15 - Protección de servidor web con SSL
+    - name: 15 - Seguridad de servidores web con SSL
       href: tutorial-secure-web-server.md
-- name: Muestras
+- name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
 - name: Conceptos
   items:
-    - name: Administrador de recursos de Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Regiones y disponibilidad
       href: regions-and-availability.md
@@ -83,7 +83,7 @@
           items:
             - name: Configuración de los controladores de GPU
               href: n-series-driver-setup.md
-        - name: Proceso de alto rendimiento
+        - name: Informática de alto rendimiento
           href: sizes-hpc.md
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
@@ -128,7 +128,7 @@
           href: quotas.md
 - name: Guías de procedimientos
   items:
-    - name: Crear máquinas virtuales
+    - name: Creación de máquinas virtuales
       items:
         - name: Uso de la CLI
           href: create-cli-complete.md
@@ -136,9 +136,9 @@
           href: create-ssh-secured-vm-from-template.md
         - name: Copia o clonación de una máquina virtual
           href: copy-vm.md
-    - name: Protección de máquinas virtuales
+    - name: Seguridad de máquinas virtuales
       items:
-        - name: Cifrar
+        - name: Cifrado
           href: encrypt-disks.md
         - name: Uso de controles de acceso
           href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
@@ -171,19 +171,19 @@
           href: prepay-reserved-vm-instances.md
         - name: Uso de máquinas virtuales
           href: vm-usage.md
-        - name: Tareas comunes de CLI
+        - name: Tareas comunes de la CLI
           href: cli-manage.md
-        - name: Movimiento de una máquina virtual
+        - name: Traslado de una máquina virtual
           href: move-vm.md
         - name: Cambio del tamaño de máquina virtual
           href: change-vm-size.md
-        - name: Etiquetar una máquina virtual
+        - name: Etiquetado de una máquina virtual
           href: tag.md
         - name: Ejecución de scripts en una máquina virtual
           href: extensions-customscript.md
         - name: Uso de Escritorio Remoto
           href: use-remote-desktop.md
-        - name: Unión de máquina virtual a Azure Active Directory
+        - name: Unión de una máquina virtual a Azure Active Directory
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
         - name: Actualizaciones y revisiones
           items:
@@ -209,7 +209,7 @@
       items:
         - name: Búsqueda y uso de imágenes
           href: cli-ps-findimage.md
-        - name: Crear imagen personalizada
+        - name: Creación de una imagen personalizada
           items:
             - name: Pasos genéricos
               href: create-upload-generic.md
@@ -229,15 +229,15 @@
               href: create-upload-openbsd.md
             - name: FreeBSD
               href: freebsd-intro-on-azure.md
-        - name: Captura de máquina virtual en imagen
+        - name: Captura de una máquina virtual en una imagen
           href: capture-image.md
-        - name: Creación de imagen con Packer
+        - name: Creación de una imagen con Packer
           href: build-image-with-packer.md
         - name: Descarga de disco existente
           href: download-vhd.md
     - name: Disponibilidad y escala
       items:
-        - name: Autoscale
+        - name: Escalado automático
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Alta disponibilidad
           href: manage-availability.md
@@ -286,13 +286,13 @@
               href: ../../jenkins/jenkins-azure-vm-agents.md
             - name: Publicación de artefactos en Storage
               href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
-            - name: Protección de Jenkins
+            - name: Seguridad de Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Ejecución de contenedores
       items:
-        - name: Creación de host de Docker
+        - name: Creación de un host de Docker
           href: dockerextension.md
-        - name: Uso de la máquina de Docker
+        - name: Uso de Docker Machine
           href: docker-machine.md
         - name: Uso de Docker Compose
           href: docker-compose-quickstart.md
@@ -343,7 +343,7 @@
           items:
             - name: Ejecución de NAMD
               href: classic/hpcpack-cluster-namd.md
-            - name: Instalación de controladores NVIDIA GPU
+            - name: Instalación de controladores GPU NVIDIA
               href: n-series-driver-setup.md
     - name: Administración del almacenamiento
       items:
@@ -351,11 +351,11 @@
           href: faq-for-disks.md
         - name: Agregar un disco
           items:
-            - name: Azure CLI
+            - name: CLI de Azure
               href: add-disk.md
             - name: Azure Portal
               href: attach-disk-portal.md
-        - name: Desacoplamiento de un disco
+        - name: Desconexión de un disco
           href: detach-disk.md
         - name: Cambio del tamaño de un disco
           href: expand-disks.md
@@ -407,19 +407,19 @@
       items:
         - name: Introducción a las extensiones de máquinas virtuales
           href: extensions-features.md
-        - name: Extensión Custom Script
+        - name: Custom Script Extension
           href: extensions-customscript.md
         - name: Extensión del agente de OMS
           href: extensions-oms.md
-        - name: Extensión Diagnostics de Linux
+        - name: Linux Diagnostic Extension
           href: diagnostic-extension.md
-        - name: Agente de Network Watcher
+        - name: Network Watcher Agent
           href: extensions-nwa.md
         - name: Extensión VMAccess
           href: using-vmaccess-extension.md
     - name: Migración de máquinas virtuales
       items:
-        - name: Migración de AWS y máquinas virtuales locales
+        - name: Migración de máquinas virtuales de AWS y locales
           href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: Migración de Amazon Web Services (AWS) a Azure
@@ -472,7 +472,7 @@
           href: error-messages.md
         - name: Acceso a la recuperación de máquinas virtuales
           items:
-            - name: Azure CLI
+            - name: CLI de Azure
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md
@@ -504,7 +504,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

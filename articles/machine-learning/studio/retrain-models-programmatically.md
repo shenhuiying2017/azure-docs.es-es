@@ -1,6 +1,6 @@
 ---
 title: "Repetición del entrenamiento de los modelos de Machine Learning mediante programación | Microsoft Docs"
-description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en el Aprendizaje automático de Azure."
+description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Volver a entrenar modelos de aprendizaje automático mediante programación
+# <a name="retrain-machine-learning-models-programmatically"></a>Volver a entrenar modelos de Machine Learning mediante programación
 En este tutorial, aprenderá a entrenar mediante programación un servicio web Azure Machine Learning mediante C# y el servicio de ejecución por lotes de Machine Learning.
 
 Cuando haya reentrenado el modelo, los tutoriales siguientes le mostrarán cómo actualizarlo en el servicio web predictivo:
@@ -33,11 +33,11 @@ Para obtener información general sobre el proceso de reentrenamiento, consulte 
 Si desea comenzar por el servicio web existente basado en el nuevo Azure Resource Manager, consulte [Retrain an existing Predictive Web service](retrain-existing-resource-manager-based-web-service.md) (Reentrenamiento de un servicio web predictivo existente).
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
-En este ejemplo, usará "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Ejemplo 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) de entre los ejemplos de Aprendizaje automático de Microsoft Azure. 
+En este ejemplo, usará "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Ejemplo 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) de entre los ejemplos Microsoft Azure Machine Learning. 
 
 Para crear el experimento:
 
-1. Inicie sesión en Estudio de aprendizaje automático de Microsoft Azure. 
+1. Inicie sesión en Microsoft Azure Machine Learning Studio. 
 2. En la esquina inferior derecha del panel, haga clic en **Nuevo**.
 3. En los ejemplos de Microsoft, seleccione el ejemplo 5.
 4. Para cambiar el nombre del experimento, en la parte superior del lienzo del experimento, seleccione el nombre del experimento, en este caso "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
@@ -113,13 +113,13 @@ Localice la declaración de **apikey** .
 
 En la sección **Basic consumption info** (Información básica sobre consumo) de la página **Consume** (Consumo), localice la clave principal y cópiela en la declaración de **apikey**.
 
-### <a name="update-the-azure-storage-information"></a>Actualización de la información de Almacenamiento de Azure
-El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo "C:\temp\CensusIpnput.csv") en el Almacenamiento de Azure, lo procesa y escribe los resultados de nuevo en el Almacenamiento de Azure.  
+### <a name="update-the-azure-storage-information"></a>Actualización de la información de Azure Storage
+El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo "C:\temp\CensusIpnput.csv") en Azure Storage, lo procesa y escribe los resultados de nuevo en Azure Storage.  
 
 Para ello, debe recuperar el nombre, la clave y la información de contenedor de la cuenta de almacenamiento desde el Portal de Azure clásico y actualizar los valores correspondientes del código. 
 
 1. Inicie sesión en el Portal de Azure clásico.
-2. En la columna de navegación izquierda, haga clic en **Almacenamiento**.
+2. En la columna de navegación izquierda, haga clic en **Storage**.
 3. En la lista de cuentas de almacenamiento, seleccione una para almacenar el modelo reciclado.
 4. En la parte inferior de la página, haga clic en **Administrar claves de acceso**.
 5. Copie y guarde la **clave de acceso principal** y cierre el cuadro de diálogo. 
@@ -167,7 +167,7 @@ Revise los resultados para determinar si el modelo recientemente entrenado funci
 
 Copie *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de salida, ya que se usarán durante el proceso de reentrenamiento.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si implementa el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web clásico](retrain-a-classic-web-service.md).
 
 Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web nuevo mediante los cmdlets de administración de Machine Learning](retrain-new-web-service-using-powershell.md).

@@ -12,23 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 03a6ce77eed16cbc5d2fe46094b0b6ac7fbc022e
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack en Azure
+# <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 Puede registrar Azure Stack en Azure para descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro.
 
 > [!IMPORTANT]
 > Si elige el modelo de facturación de pago por uso, el registro es obligatorio. De lo contrario, infringirá los términos de la licencia de la implementación de Azure Stack, ya que no hay otra forma de informar acerca del uso.
 
 ## <a name="before-you-register-azure-stack-with-azure"></a>Antes de registrar Azure Stack en Azure
-Antes de registrar Azure Stack en Azure, debe tener:
+Antes de registrar Azure Stack con Azure, debe tener:
 
 - El identificador de suscripción de una suscripción de Azure. Para obtener el identificador, inicie sesión en Azure, haga clic en **Más servicios** > **Suscripciones**, haga clic en la suscripción que desee usar y, en **Essentials**, encontrará el identificador de la suscripción. 
 
@@ -212,3 +212,6 @@ $registrationToken = "*Your copied registration token*"
 UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 ```
 
+## <a name="next-steps"></a>pasos siguientes
+
+[Integración de supervisión externa](azure-stack-integrate-monitor.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 490db57e9f36bed5575b7af5a6e2673fb63af3a8
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Pruebas de ancho de banda y rendimiento (NTTTCP)
 
@@ -158,8 +158,15 @@ Remitente<Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
+## <a name="testing-cloud-service-instances"></a>Prueba de instancias de servicio en la nube:
+Debe agregar la siguiente sección en ServiceDefinition.csdef.
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
 
 ## <a name="next-steps"></a>pasos siguientes
 * Dependiendo de los resultados, puede que haya espacio para [optimizar máquinas de rendimiento de red](virtual-network-optimize-network-bandwidth.md) para su escenario.
-* Obtenga información sobre cómo [se asigna el ancho de banda a las máquinas virtuales] (virtual-machine-network-throughput.md).
+* Obtenga información acerca de cómo [se asigna el ancho de banda a las máquinas virtuales] (virtual-machine-network-throughput.md)
 * Obtenga más información con las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)

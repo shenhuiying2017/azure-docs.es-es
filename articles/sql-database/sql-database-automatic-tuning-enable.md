@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/19/2016
 ms.author: veljko-msft
-ms.openlocfilehash: bf8e0203112a42132a80e234964747c550fea284
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: b599273874a4b5a3bbcb78284d69b4c8d02b5f2c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
 
@@ -28,17 +28,21 @@ Azure SQL Database es un servicio de datos completamente administrado que superv
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitación del ajuste automático en servidor
 En el nivel de servidor, puede optar por heredar la configuración de ajuste automático de "Valores predeterminados de Azure" o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN habilitado, CREATE_INDEX habilitado y DROP_INDEX deshabilitado.
 
-### <a name="portal"></a>Portal
+## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Configurar las notificaciones automáticas para el ajuste automático
+
+Consulte [Notificaciones por correo electrónico para el ajuste automático](sql-database-automatic-tuning-email-notifications.md)
+
+### <a name="azure-portal"></a>Azure Portal
 Para habilitar el ajuste automático en el servidor de Azure SQL Database, vaya al servidor en Azure Portal y seleccione **Ajuste automático** en el menú. Seleccione las opciones de ajuste automático que quiere habilitar y haga clic en **Aplicar**:
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 Las opciones de ajuste automático del servidor se aplican a todas las bases de datos que contiene. De forma predeterminada, todas las bases de datos heredan la configuración de su servidor principal; sin embargo, puede invalidar esta opción y especificarla individualmente para cada base de datos.
 
-### <a name="rest-api"></a>API de REST
+### <a name="rest-api"></a>API DE REST
 [Haga clic aquí para obtener más información sobre cómo habilitar el ajuste automático en el nivel de servidor a través de la API de REST.](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
-## <a name="enable-automatic-tuning-on-database"></a>Habilitar el ajuste automático en la base de datos
+## <a name="enable-automatic-tuning-on-an-individual-database"></a>Habilitar el ajuste automático en una base de datos individual
 
 Azure SQL Database le permite especificar individualmente la configuración de ajuste automático en cada base de datos. En el nivel de base de datos, puede optar por heredar la configuración de ajuste automático del servidor primario o de "Valores predeterminados de Azure", o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN habilitado, CREATE_INDEX habilitado y DROP_INDEX deshabilitado.
 
@@ -46,7 +50,7 @@ Azure SQL Database le permite especificar individualmente la configuración de a
 > La recomendación general es administrar la configuración de ajuste automático en el nivel de servidor de forma que se pueda aplicar la misma configuración en todas las bases de datos automáticamente. Configure el ajuste automático en una base de datos individual si la base de datos es diferente a otras del mismo servidor.
 >
 
-### <a name="portal"></a>Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Para habilitar el ajuste automático en una única base de datos, vaya a la base de datos en Azure Portal y luego seleccione **Ajuste automático**. Puede configurar una única base de datos para que herede la configuración del servidor con solo seleccionar la opción; o puede especificar la configuración de una base de datos de forma individual.
 
@@ -78,7 +82,7 @@ Si establece la opción de ajuste individual en ON, invalidará todas las config
 ## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
 El ajuste automático supervisa todas las acciones que realiza en la base de datos y, en algunos casos, determina que no funciona correctamente en la base de datos. En esta situación, el sistema deshabilitará la opción de ajuste. En la mayoría de los casos, esto sucede porque el Almacén de consultas no está habilitado o se encuentra en estado de solo lectura en una base de datos específica.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para aprender más sobre el ajuste automático y cómo puede ayudarle a mejorar su rendimiento, lea el [artículo sobre este tema](sql-database-automatic-tuning.md).
 * Consulte [Recomendaciones de rendimiento](sql-database-advisor.md) para ver información general sobre las recomendaciones de rendimiento de Azure SQL Database.
 * Consulte [Query Performance Insight](sql-database-query-performance.md) para más información sobre el impacto en el rendimiento de las principales consultas.

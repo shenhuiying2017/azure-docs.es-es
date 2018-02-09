@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Enrutamiento de mensajes con IoT Hub (Node)
 
@@ -105,7 +105,10 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][lnk-sb-queues-node]. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
+    > [!NOTE]
+    > Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
+
+2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión** .
 
     ![Puntos de conexión en IoT Hub][30]
 

@@ -1,6 +1,6 @@
 ---
-title: "Selección de destino de solución en OMS | Microsoft Docs"
-description: "Selección de destino de solución es una característica de Operations Management Suite (OMS) que permite limitar las soluciones de administración a un conjunto específico de agentes.  En este artículo se describe cómo crear una configuración de ámbito y aplicarla a una solución."
+title: "Selección de destino de las soluciones de administración en Azure | Microsoft Docs"
+description: "La selección de destino de las soluciones de administración permite limitar las soluciones de administración a un conjunto específico de agentes.  En este artículo se describe cómo crear una configuración de ámbito y aplicarla a una solución."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Uso de la selección de destino de solución de Operations Management Suite (OMS) a las soluciones de administración de ámbito para agentes específicos (versión preliminar)
-Cuando se agrega una solución a OMS, se implementa automáticamente de forma predeterminada a todos los agentes de Windows y Linux conectados a su área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica de OMS que le permite aplicar un ámbito a sus soluciones.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Selección de destino de las soluciones de administración en Azure (versión preliminar)
+Cuando se agrega una solución de administración a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
 
 ## <a name="how-to-target-a-solution"></a>Cómo seleccionar un destino para una solución
-Hay tres pasos para seleccionar un destino para una solución, tal como se describe en las secciones siguientes.  Tenga en cuenta que necesitará el portal de OMS y Azure Portal para los diferentes pasos.
+Hay tres pasos para seleccionar un destino para una solución, tal como se describe en las secciones siguientes. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Crear un grupo de equipos
@@ -72,6 +72,6 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 
 - Evaluación de estado del agente
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](../log-analytics/log-analytics-add-solutions.md).
 - Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md).

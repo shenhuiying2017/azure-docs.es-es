@@ -1,6 +1,6 @@
 ---
 title: "Acceso a máquina virtual Just-In-Time en Azure Security Center | Microsoft Docs"
-description: "En este documento se explica cómo el acceso a máquina virtual Just-In-Time en Azure Security Center ayuda a controlar el acceso a máquinas virtuales de Azure."
+description: "En este documento se explica cómo el acceso a VM Just-In-Time en Azure Security Center ayuda a controlar el acceso a máquinas virtuales de Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Administración del acceso a máquina virtual mediante Just-In-Time (versión preliminar)
 
@@ -50,11 +50,13 @@ Cuando un usuario solicita acceso a una máquina virtual, Security Center compru
 
 ## <a name="using-just-in-time-access"></a>Uso del acceso Just-In-Time
 
-En el icono **Acceso a VM Just-In-Time** en **Security Center** se muestra el número de máquinas virtuales configuradas para el acceso Just-In-Time y el número de solicitudes de acceso aprobadas en la última semana.
+1. Abra el panel **Security Center**.
+
+2. En el panel izquierdo, seleccione **Acceso a VM Just-In-Time**.
 
 ![Icono Acceso a VM Just-In-Time][2]
 
-Seleccione el icono **Acceso a VM Just-In-Time**. Se abrirá la hoja **Acceso a VM Just-In-Time**.
+La ventana **Acceso a VM Just-In-Time** se abre.
 
 ![Icono Acceso a VM Just-In-Time][10]
 
@@ -170,7 +172,7 @@ Consulte la documentación del cmdlet para obtener más información.
 Para obtener acceso a una máquina virtual específica que está protegida con la solución Just-In-Time, debe ejecutar este comando en la sesión de PowerShell: Invoke-ASCJITAccess.
 Consulte la documentación del cmdlet para obtener más información.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido cómo el acceso a máquina virtual Just-In-Time en Security Center ayuda a controlar el acceso a máquinas virtuales de Azure.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:

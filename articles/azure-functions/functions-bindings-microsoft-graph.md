@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
 En este artículo se explica cómo configurar y trabajar con desencadenadores de Microsoft Graph y enlaces de Azure Functions. Toda esta información le prepará para usar Azure Functions para trabajar con datos, información y eventos de [Microsoft Graph](https://graph.microsoft.io).
 
 La extensión de Microsoft Graph proporciona los siguientes enlaces:
-- Un [enlace de entrada del token de autenticación](#token-input) que le permite interactuar con las API de Microsoft Graph.
+- Un [enlace de entrada del token de autenticación](#token-input) que le permite interactuar con Microsoft Graph API.
 - Un [enlace de entrada de la tabla de Excel](#excel-input) que le permite leer datos de Excel.
 - Un [enlace de salida de la tabla de Excel](#excel-output) que le permite modificar los datos de Excel.
 - Un [enlace de entrada del archivo de OneDrive](#onedrive-input) que le permite leer archivos de OneDrive.
@@ -43,7 +43,7 @@ Los enlaces de Microsoft Graph están disponibles a través de las _extensiones 
 
 Las extensiones de enlace solo están disponibles para la versión preliminar de Azure Functions 2.0. 
 
-Para información sobre cómo establecer una aplicación de función para usar la versión preliminar 2.0 del entorno de ejecución de Functions, consulte [Selección de destino de la versión 2.0 del runtime](functions-versions.md#target-the-version-20-runtime).
+Para obtener información acerca de cómo establecer una aplicación de función para usar la versión preliminar 2.0 del runtime de Functions, consulte [Selección de destino de las versiones del runtime de Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Instalación de la extensión
 

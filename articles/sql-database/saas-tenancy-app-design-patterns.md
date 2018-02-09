@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -96,7 +96,7 @@ Azure SQL Database proporciona las herramientas necesarias para configurar, supe
 
 La plataforma de Azure SQL Database tiene muchas características de administración diseñadas para la administración de grandes cantidades de bases de datos a escala, por encima de 100.000 bases de datos.  Estas características hacen que el patrón de una base de datos por inquilino sea plausible.
 
-Por ejemplo, suponga que un sistema tiene una base de datos de 1000 inquilinos como única base de datos.  La base de datos podría tener 20 índices.  Si el sistema pasa a tener 1000 bases de datos de un único inquilino, el número de índices aumenta hasta 20.000.  En SQL Database, como parte del [ajuste automático][docu-sql-db-automatic-tuning-771a], las características de indexación automática están habilitadas de forma predeterminada.  La indexación automática administra automáticamente los 20.000 índices y sus optimizaciones de creación y eliminación.  Estas acciones automatizadas se producen dentro de una base de datos individual y no están coordinadas ni restringidas por acciones similares en otras bases de datos.  La indexación automática trata los índices de manera diferente en una base de datos ocupada que en una base de datos de menos actividad.  Este tipo de personalización de la administración de índices no sería práctico en la escala de una base de datos por inquilino si esta enorme tarea de administración tuviera que realizarse manualmente.
+Por ejemplo, suponga que un sistema tiene una base de datos de 1000 inquilinos como única base de datos.  La base de datos podría tener 20 índices.  Si el sistema pasa a tener 1000 bases de datos de un único inquilino, el número de índices aumenta hasta 20 000.  En SQL Database, como parte del [ajuste automático][docu-sql-db-automatic-tuning-771a], las características de indexación automática están habilitadas de forma predeterminada.  La indexación automática administra automáticamente los 20.000 índices y sus optimizaciones de creación y eliminación.  Estas acciones automatizadas se producen dentro de una base de datos individual y no están coordinadas ni restringidas por acciones similares en otras bases de datos.  La indexación automática trata los índices de manera diferente en una base de datos ocupada que en una base de datos de menos actividad.  Este tipo de personalización de la administración de índices no sería práctico en la escala de una base de datos por inquilino si esta enorme tarea de administración tuviera que realizarse manualmente.
 
 Otras características de administración que escalan bien incluyen las siguientes:
 
@@ -177,7 +177,7 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 
 | Medición | Aplicación independiente | Una base de datos por inquilino | Multiinquilino con particiones |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Mediano<br />1-100 | Muy alto<br />1-100.000 | Sin límite<br />1-1.000.000 |
+| Escala | Mediano<br />1-100 | Muy alto<br />1-100.000 | Ilimitado<br />1-1.000.000 |
 | Aislamiento de inquilino | Muy alto | Alto | Baja; excepto para los inquilinos individualizados (que están solos en una base de datos multiinquilino). |
 | Costo de base de datos por inquilino | Alta; tiene un tamaño adecuado para picos. | Baja; se utilizan grupos. | Más bajo, para inquilinos pequeños en bases de datos multiinquilino. |
 | Administración y supervisión del rendimiento | Por inquilino solo | Agregado + por inquilino | Agregado; Aunque es por inquilino solo para los individualizados. |
@@ -185,7 +185,7 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 | Complejidad operativa | Baja-Alta. Individualmente simples y complejas a escala. | Baja-Media. Los patrones tienen complejidad a escala. | Baja-Alta. La administración de inquilinos individuales es compleja. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Implementación y exploración de una aplicación Wingtip multiinquilino que usa el modelo SaaS de una base de datos por inquilino con Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

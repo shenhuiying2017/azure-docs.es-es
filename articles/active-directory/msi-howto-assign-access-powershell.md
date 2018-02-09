@@ -3,7 +3,7 @@ title: "Asignación de un acceso de MSI a un recurso de Azure mediante PowerShel
 description: Instrucciones paso a paso para asignar una identidad de servicio administrada (MSI) en un recurso y acceso a otro recurso, mediante PowerShell.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 2211146dec8ea1f460785af9efd801780c46df60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: bdc6268bd56598b917f51f39e604f858cfe81868
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Asignación de un acceso de Managed Service Identity (MSI) a un recurso mediante PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 Una vez haya configurado un recurso de Azure con una identidad de servicio administrada, puede dar el acceso de MSI a otro recurso, al igual que cualquier entidad de seguridad. En este ejemplo se muestra cómo otorgar acceso de MSI a una máquina virtual de Azure para una cuenta de almacenamiento de Azure, mediante PowerShell.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -47,7 +47,7 @@ Después de habilitar MSI en un recurso de Azure, [como una máquina virtual de 
     New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Si la identidad de servicio administrada para el recurso no aparece en la lista de identidades disponibles, compruebe que la identidad se haya habilitado correctamente. En nuestro caso, podemos volver a la máquina virtual de Azure en [Azure Portal](https://portal.azure.com) y:
 

@@ -2,17 +2,18 @@
 title: "Integración del centro de datos de Azure Stack: Seguridad"
 description: Aprenda a integrar la seguridad de Azure Stack con la seguridad de su centro de datos.
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integración del centro de datos de Azure Stack: Seguridad
 
@@ -52,7 +53,7 @@ El siguiente procedimiento es un ejemplo que puede usar para configurar el Explo
 
    ![Conexión con el almacenamiento](media/azure-stack-integrate-security/connect-storage.png)
 
-8. Haga clic en **Siguiente**.
+8. Haga clic en **Next**.
 9. En la página **Asociar almacenamiento externo**:
 
    a. Escriba el nombre de la cuenta **frphealthaccount**.
@@ -91,6 +92,6 @@ Todos los dispositivos físicos de Azure Stack pueden enviar mensajes de Syslog.
 
 La dirección de destino de Syslog es un parámetro opcional que se recopila para la implementación, pero se puede agregar también después de esta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md)
+[Directiva de mantenimiento](azure-stack-servicing-policy.md)

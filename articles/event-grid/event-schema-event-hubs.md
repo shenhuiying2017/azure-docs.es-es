@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos de Azure Event Grid para Event Hubs
 
@@ -44,7 +44,9 @@ Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se gene
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -53,18 +55,20 @@ Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se gene
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | Descripción |
+| Propiedad | type | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. |
+| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | cadena | Ruta al asunto del evento definida por el anunciante. |
 | eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | cadena | Identificador único para el evento |
 | data | objeto | Datos del evento de Event Hubs. |
+| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | Descripción |
+| Propiedad | type | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | fileUrl | cadena | Ruta de acceso al archivo de captura. |
 | fileType | cadena | Tipo del archivo de captura. |
@@ -76,7 +80,7 @@ El objeto data tiene las siguientes propiedades:
 | firstEnqueueTime | cadena | Primera vez desde la cola. |
 | lastEnqueueTime | cadena | Última vez desde la cola. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

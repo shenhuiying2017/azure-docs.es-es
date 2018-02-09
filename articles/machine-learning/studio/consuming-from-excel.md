@@ -1,6 +1,6 @@
 ---
 title: Consumo de un servicio web Machine Learning de Excel | Microsoft Docs
-description: "Consumir un servicio web de Aprendizaje automático de Azure de Excel"
+description: Consumir un servicio web de Azure Machine Learning de Excel
 services: machine-learning
 documentationcenter: 
 author: tedway
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumo de un servicio web de Aprendizaje automático de Azure de Excel
- Estudio de aprendizaje automático de Azure facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
+# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumo de un servicio web de Azure Machine Learning de Excel
+ Azure Machine Learning Studio facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
 Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](excel-add-in-for-web-services.md).
 
@@ -41,7 +41,7 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 
 **Servicio web nuevo**
 
-1. En el portal de servicios web de Aprendizaje automático de Azure, seleccione **Consume**(Consumo).
+1. En el portal de servicios web de Azure Machine Learning, seleccione **Consume**(Consumo).
 2. En la página de consumo, en la sección **Web service consumption options** (Opciones de consumo del servicio web), haga clic en el icono de Excel.
 
 **Uso del libro**

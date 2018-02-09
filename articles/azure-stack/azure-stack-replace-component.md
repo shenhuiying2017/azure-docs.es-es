@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Sustitución de un componente de hardware en un nodo de unidad de escalado de Azure Stack
 
@@ -44,11 +44,11 @@ En el diagrama de flujo siguiente se muestra el proceso general de FRU para reem
 
 *Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-**Si el fabricante del hardware OEM realiza el reemplazo de componente y actualiza el firmware podría variar en función del contrato de soporte técnico.
+**Si el fabricante del hardware OEM realiza el reemplazo de componentes y actualiza el firmware, podría variar en función del contrato de soporte técnico.
 
 ## <a name="review-alert-information"></a>Revisión de la información de las alertas
 
-El sistema de mantenimiento y supervisión de Azure Stack rastrea el estado de los adaptadores de red y las unidades de datos que Espacios de almacenamiento directo controla. No rastrea otros componentes de hardware. Para todos los demás componentes de hardware, se generan alertas en la solución de supervisión de hardware específica del proveedor que se ejecuta en el host de ciclo de vida de hardware.
+El sistema de mantenimiento y supervisión de Azure Stack rastrea el estado de los adaptadores de red y las unidades de datos que Espacios de almacenamiento directo controla. No rastrea otros componentes de hardware. Para todos los demás componentes de hardware, se generan alertas en la solución de supervisión de hardware específica del proveedor que se ejecuta en el host de ciclo de vida de hardware.  
 
 ## <a name="component-replacement-process"></a>Proceso de reemplazo de los componentes
 
@@ -60,7 +60,7 @@ Los pasos siguientes proporcionan una información general de alto nivel del pro
    > En cualquier caso, solo se puede purgar y apagar un nodo al mismo tiempo sin que se interrumpan los Espacios de almacenamiento directo (S2D).
 
 2. Una vez que el nodo de la unidad de escalado está en el modo de mantenimiento, use la acción de [apagado](azure-stack-node-actions.md#scale-unit-node-actions). Es posible que esta acción no sea necesaria en función de la condición física del hardware.
- 
+
    > [!NOTE]
    > En el caso improbable de que la acción de apagado no funcione, use en su lugar la interfaz web del controlador de administración de placa base (BMC).
 
@@ -74,4 +74,3 @@ Los pasos siguientes proporcionan una información general de alto nivel del pro
 
 - Para información sobre cómo reemplazar un disco físico intercambiable directamente, consulte [Reemplazar un disco físico en Azure Stack](azure-stack-replace-disk.md).
 - Para información sobre cómo reemplazar un nodo físico, consulte el artículo sobre cómo [reemplazar un nodo de unidad de escalado](azure-stack-replace-node.md).
-- 

@@ -3,7 +3,7 @@ title: "Diferencias y consideraciones para las máquinas virtuales en Azure Stac
 description: "Aprenda sobre las diferencias y consideraciones al trabajar con máquinas virtuales en Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/27/2018
+ms.author: brenduns
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Consideraciones sobre máquinas virtuales en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las máquinas virtuales son recursos informáticos escalables y a petición que ofrece Azure Stack. Si usa máquinas virtuales, debe saber que existen diferencias entre las características que están disponibles en Azure y en Azure Stack. Este artículo proporciona información general sobre las consideraciones únicas para las máquinas virtuales y sus características en Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el artículo [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
 
@@ -34,17 +34,17 @@ Las máquinas virtuales son recursos informáticos escalables y a petición que 
 | Tamaños de máquina virtual | Azure admite una amplia variedad de tamaños para máquinas virtuales. Para aprender más acerca de las opciones y los tamaños disponibles, consulte los temas [Tamaños de máquinas virtuales Windows](../../virtual-machines/virtual-machines-windows-sizes.md) y [Tamaños de máquina virtual Linux](../../virtual-machines/linux/sizes.md). | Azure Stack admite un subconjunto de tamaños de máquinas virtuales que están disponibles en Azure. Para ver la lista de tamaños admitidos, consulte la sección [Tamaños de máquina virtual](#virtual-machine-sizes) de este artículo. |
 | Cuotas de máquinas virtuales | [Límites de cuota](../../azure-subscription-service-limits.md#service-specific-limits) establecidos por Microsoft | El administrador de la nube de Azure Stack debe asignar cuotas antes de ofrecer máquinas virtuales a los usuarios. |
 | Extensiones de máquina virtual |Azure admite una amplia variedad de extensiones para máquinas virtuales. Para aprender acerca de las extensiones disponibles, consulte el artículo [Extensiones y características de las máquinas virtuales](../../virtual-machines/windows/extensions-features.md).| Azure Stack admite un subconjunto de extensiones que están disponibles en Azure y cada una de las extensiones tienen versiones específicas. El administrador de la nube de Azure Stack puede elegir qué extensiones están disponibles para sus usuarios. Para ver la lista de extensiones admitidas, consulte la sección [Extensiones de máquina virtual](#virtual-machine-extensions) de este artículo. |
-| Red de máquinas virtuales | Las direcciones IP públicas asignadas a la máquina virtual del inquilino son accesibles a través de Internet.<br><br><br>Azure Virtual Machines tiene un nombre de DNS fijo | Las direcciones IP públicas asignadas a una máquina virtual del inquilino son accesibles solo desde el entorno de Azure Stack Development Kit. Un usuario debe tener acceso a Azure Stack Development Kit a través de un [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o una [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para conectarse a una máquina virtual que se crea en Azure Stack.<br><br>Las máquinas virtuales creadas dentro de una instancia específica de Azure Stack tienen un nombre DNS basado en el valor que se configura mediante el administrador de la nube. |
+| Red de máquinas virtuales | Las direcciones IP públicas asignadas a la máquina virtual del inquilino son accesibles a través de Internet.<br><br><br>Azure Virtual Machines tiene un nombre de DNS fijo | Las direcciones IP públicas asignadas a una máquina virtual del inquilino son accesibles solo desde el entorno del Kit de desarrollo de Azure Stack. Un usuario debe tener acceso al Kit de desarrollo de Azure Stack a través de un [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o una [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para conectarse a una máquina virtual que se crea en Azure Stack.<br><br>Las máquinas virtuales creadas dentro de una instancia específica de Azure Stack tienen un nombre DNS basado en el valor que se configura mediante el administrador de la nube. |
 | Almacenamiento de máquina virtual | Admite [discos administrados](../../virtual-machines/windows/managed-disks-overview.md). | Los discos administrados no se admiten todavía en Azure Stack. |
 | Versiones de API | Azure tiene siempre las últimas versiones de API para todas las características de la máquina virtual. | Azure Stack es compatible con servicios específicos de Azure y versiones de API específicas para estos servicios. Para ver la lista de versiones de API compatibles, consulte la sección [versiones de API](#api-versions) de este artículo. |
 |Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Dominio de error único<br>Dominio actualizado único<br>No compatible con el disco administrado|
 |Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático.<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Tamaños de máquina virtual 
+## <a name="virtual-machine-sizes"></a>Tamaños de máquina virtual
 
-Azure Stack Development Kit admite los siguientes tamaños: 
+Azure Stack admite los tamaños siguientes:
 
-| Tipo | Tamaño | Intervalo de tamaños admitidos |
+| type | Tamaño | Intervalo de tamaños admitidos |
 | --- | --- | --- |
 |Uso general |A básico|A0 - A4|
 |Uso general |Estándar A|A0 - A7|
@@ -55,33 +55,31 @@ Azure Stack Development Kit admite los siguientes tamaños:
 |Memoria optimizada|Serie DS|DS11 - DS14|
 |Memoria optimizada |DSv2-series|DS11_v2 - DS14_v2|
 
-Los tamaños de máquina virtual y sus cantidades de recursos asociados son coherentes entre Azure y Azure Stack. Por ejemplo, esto incluye la cantidad de memoria, el número de núcleos y la cantidad y el tamaño de los discos de datos que se pueden crear. Sin embargo, el rendimiento del mismo tamaño de máquina virtual en Azure Stack depende de las características subyacentes de un entorno de Azure Stack concreto.
+Los tamaños de máquina virtual y sus cantidades de recursos asociados son coherentes entre Azure y Azure Stack. Por ejemplo, esta coherencia incluye la cantidad de memoria, el número de núcleos y la cantidad y el tamaño de los discos de datos que se pueden crear. Sin embargo, el rendimiento del mismo tamaño de máquina virtual en Azure Stack depende de las características subyacentes de un entorno de Azure Stack concreto.
 
-## <a name="virtual-machine-extensions"></a>Extensiones de máquina virtual 
+## <a name="virtual-machine-extensions"></a>Extensiones de máquina virtual
 
- Azure Stack Development Kit admite las siguientes versiones de extensión de máquina virtual:
-
-![Extensiones de máquina virtual](media/azure-stack-vm-considerations/vm-extensions.png)
+ Azure Stack incluye un pequeño conjunto de extensiones. Las actualizaciones y las extensiones adicionales están disponibles a través de la redifusión de Marketplace.
 
 Use el siguiente script de PowerShell para obtener la lista de extensiones de máquinas virtuales que están disponibles en su entorno de Azure Stack:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Versiones de API 
+## <a name="api-versions"></a>Versiones de API
 
-Las características de la máquina virtual en Azure Stack Development Kit admiten las siguientes versiones de API:
+Las características de la máquina virtual en Azure Stack admiten las siguientes versiones de API:
 
 ![Tipos de recursos de máquinas virtuales](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 Puede usar el siguiente script de PowerShell para obtener las versiones de API para características de máquinas virtuales que están disponibles en su entorno de Azure Stack:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
@@ -90,6 +88,6 @@ Get-AzureRmResourceProvider | `
 ```
 La lista de versiones de API y tipos de recursos admitidos puede variar si el operador de nube actualiza su entorno de Azure Stack a una versión más reciente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Cree una máquina virtual Windows con PowerShell en Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)

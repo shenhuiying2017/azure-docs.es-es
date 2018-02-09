@@ -3,7 +3,7 @@ title: "Cómo configurar una máquina virtual de Azure con MSI habilitado median
 description: "Instrucciones paso a paso para configurar y utilizar Managed Service Identity (MSI) en una máquina virtual de Azure mediante un SDK de Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configuración de Managed Service Identity (MSI) de una máquina virtual mediante un SDK de Azure
 
@@ -27,7 +27,7 @@ Managed Service Identity proporciona a los servicios de Azure una identidad admi
 
 En este artículo, aprenderá a habilitar y eliminar MSI en una máquina virtual de Azure mediante un SDK de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Azure admite varias plataformas de programación a través de una serie de [SDK 
 | Python | [Creación de una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Creación de una máquina virtual de Azure con MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Consulte los artículos relacionados en "Configuración de MSI para una máquina virtual de Azure", para obtener información sobre cómo puede usar también Azure Portal, PowerShell, la CLI y las plantillas de recursos.
 

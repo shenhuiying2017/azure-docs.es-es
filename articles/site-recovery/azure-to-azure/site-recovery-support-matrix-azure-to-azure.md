@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 46ca545cc73d7b8118aae4662c31965c7db87df5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0d55b1f4224ba25b6d6dc109cc7e47d21b1fa98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
 
@@ -33,7 +33,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos en 
 
 **Interfaz de usuario** |  **Se admite/no se admite**
 --- | ---
-**Portal de Azure** | Compatible
+**portal de Azure** | Compatible
 **Portal clásico** | No compatible
 **PowerShell** | No se admite actualmente.
 **API de REST** | No se admite actualmente.
@@ -42,7 +42,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos en 
 
 ## <a name="resource-move-support"></a>Compatibilidad con el movimiento de recursos.
 
-**Tipo de movimiento de recursos** | **Se admite/no se admite** | **Comentarios**  
+**Tipo de movimiento de recursos** | **Se admite/no se admite** | **Comentarios:**  
 --- | --- | ---
 **Mover el almacén entre grupos de recursos** | No compatible |No se puede mover el almacén de servicios de recuperación entre grupos de recursos.
 **Mover los servicios Compute, Storage y Network entre grupos de recursos** | No compatible |Si mueve una máquina virtual (o sus componentes asociados, como Storage y Network) después de habilitar la replicación, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
@@ -51,7 +51,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos en 
 
 ## <a name="support-for-deployment-models"></a>Compatibilidad con modelos de implementación
 
-**Modelo de implementación** | **Se admite/no se admite** | **Comentarios**  
+**Modelo de implementación** | **Se admite/no se admite** | **Comentarios:**  
 --- | --- | ---
 **Clásico** | Compatible | Solo puede replicar una máquina virtual clásica y recuperarla como máquina virtual clásica. No puede recuperarla como una máquina virtual de Resource Manager. Tampoco se admite la implementación de una máquina virtual clásica sin una red virtual y directamente en una región de Azure.
 **Resource Manager** | Compatible |
@@ -130,7 +130,7 @@ Australia   | Este de Australia, Sudeste de Australia
 
 ## <a name="support-for-compute-configuration"></a>Compatibilidad con la configuración de Compute
 
-**Configuración** | **No admite/no se admite** | **Comentarios**
+**Configuración** | **No admite/no se admite** | **Comentarios:**
 --- | --- | ---
 Tamaño | Cualquier tamaño de máquina virtual de Azure con 2 núcleos de CPU y 1 GB de RAM | Consulte los [tamaños de máquina virtual de Azure](../../virtual-machines/windows/sizes.md)
 Conjuntos de disponibilidad | Compatible | Si usa la opción predeterminada durante el paso para habilitar la replicación en el portal, el conjunto de disponibilidad se crea automáticamente en función de la configuración de la región de origen. Puede cambiar el conjunto de disponibilidad de destino en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Conjunto de disponibilidad" en cualquier momento.
@@ -143,13 +143,13 @@ Máquinas virtuales migradas con Site Recovery | Compatible | Si es una máquina
 
 ## <a name="support-for-storage-configuration"></a>Compatibilidad con la configuración de Storage
 
-**Configuración** | **No admite/no se admite** | **Comentarios**
+**Configuración** | **No admite/no se admite** | **Comentarios:**
 --- | --- | ---
 Tamaño de disco máximo del sistema operativo | 2048 GB | Consulte [Discos usados por las máquinas virtuales](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Tamaño máximo del disco de datos | 4095 GB | Consulte [Discos usados por las máquinas virtuales](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure. | Consulte los [tamaños de máquina virtual de Azure](../../virtual-machines/windows/sizes.md)
 Disco temporal | Siempre se excluyen de la replicación | El disco temporal se excluye de la replicación siempre. Como recomienda Azure, no se deben colocar los datos persistentes en los discos temporales. Consulte [Discos temporales en máquinas virtuales de Azure](../../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para más información.
-Velocidad de cambio de datos en el disco | Máximo de 6 Mbps por disco | Si la velocidad media de cambio de los datos en el disco sobrepasa los 6 Mbps continuamente, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 6 Mbps durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
+Velocidad de cambio de datos en el disco | Máximo de 10 MBps por disco de almacenamiento premium y 2 MBps por disco de almacenamiento estándar | Si la velocidad media de cambio de los datos en el disco supera los 10 MBps (para premium) y 2 MBps (para estándar) de forma continua, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para premium) y 2 MBps (para estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
 Discos en cuentas de almacenamiento estándar | Compatible |
 Discos en cuentas de almacenamiento premium | Compatible | Si una máquina virtual tiene discos repartidas entre cuentas de almacenamiento estándar y premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
 Discos administrados estándar | No compatible |  
@@ -164,13 +164,13 @@ GRS | Compatible |
 RA-GRS | Compatible |
 ZRS | No compatible |  
 Almacenamiento en frío y en caliente | No compatible | Los discos de máquina virtual no admiten el almacenamiento temporal y permanente.
-Puntos de conexión del servicio Virtual Network (redes virtuales y firewalls de Azure Storage)  | No | No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados. 
+Puntos de conexión del servicio Virtual Network (redes virtuales y firewalls de Azure Storage)  | Sin  | No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
 
 >[!IMPORTANT]
 > Asegúrese de tener en cuenta los objetivos de escalabilidad y rendimiento del disco de la máquina virtual para máquinas virtuales [Linux](../../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento. Si sigue la configuración predeterminada, Site Recovery creará las cuentas de almacenamiento y discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los objetivos de escalabilidad y rendimiento del disco para las máquinas virtuales de origen.
 
 ## <a name="support-for-network-configuration"></a>Compatibilidad con la configuración de red
-**Configuración** | **No admite/no se admite** | **Comentarios**
+**Configuración** | **No admite/no se admite** | **Comentarios:**
 --- | --- | ---
 Tarjeta de interfaz de red (NIC) | Hasta el número máximo de NIC admitidas por un tamaño específico de máquina virtual de Azure. | Las NIC se crean cuando la máquina virtual se crea como parte de la operación de conmutación por error o conmutación por error de prueba. El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. El hecho de agregar o quitar tarjetas NIC después de habilitar la replicación, no influye sobre el número de tarjetas NIC en la máquina virtual de conmutación por error.
 Equilibrador de carga de Internet | Compatible | Deberá asociar el equilibrador de carga configurado previamente con un script de automatización de Azure de un plan de recuperación.
@@ -190,6 +190,6 @@ VPN de sitio a sitio local (con o sin ExpressRoute)| Compatible | Asegúrese de 
 Conexión de red virtual a red virtual | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Aprenda más en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
 - Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](azure-to-azure-quickstart.md).

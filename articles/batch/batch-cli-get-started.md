@@ -3,8 +3,8 @@ title: "Introducción a la CLI de Azure para Batch | Microsoft Docs"
 description: "Obtenga una introducción rápida a los comandos de Batch en la CLI de Azure para administrar los recursos del servicio Azure Batch"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
@@ -40,7 +40,7 @@ Para instalar la CLI de Azure, siga los pasos descritos en [Instalación de la C
 
 ## <a name="command-help"></a>Ayuda de comandos
 
-Para mostrar texto de ayuda para todos los comandos de la CLI de Azure, anexe `-h` al comando. Omita el resto de las opciones. Por ejemplo:
+Para mostrar texto de ayuda para todos los comandos de la CLI de Azure, anexe `-h` al comando. Omita el resto de las opciones. Por ejemplo: 
 
 * Para obtener ayuda sobre el comando `az` escriba: `az -h`
 * Para obtener una lista de todos los comandos de Batch en la CLI, utilice: `az batch -h`
@@ -69,7 +69,7 @@ Hay varias maneras diferentes de iniciar sesión en Azure, las cuales se describ
 1. [Inicie sesión de forma interactiva](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
 2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
 
-Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/#login) en la línea de comandos:
+Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/#az_login) en la línea de comandos:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts)
 
 Puede utilizar la CLI de Azure para ejecutar trabajos completos de Batch sin escribir código. Los archivos de plantilla de Batch admiten la creación de grupos, trabajos y tareas con la CLI de Azure. También puede utilizar la CLI de Azure para cargar archivos de entrada de trabajos en la cuenta de Azure Storage asociada con la cuenta de Batch y descargar los archivos de salida de trabajos. Para más información, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)](batch-cli-templates.md).
 
-## <a name="sample-shell-scripts"></a>Scripts de shell de ejemplo
+## <a name="script-examples"></a>Ejemplos de script
 
-Los scripts de ejemplo en la tabla siguiente muestran cómo usar comandos de la CLI de Azure con el servicio Batch y el servicio de administración de Batch para realizar tareas habituales. Estos scripts de ejemplo tratan muchos de los comandos disponibles en la CLI de Azure para Batch. 
-
-| Script | Notas |
-|---|---|
-| [Crear una cuenta de Batch](./scripts/batch-cli-sample-create-account.md) | Crea una cuenta de Batch y la asocia con una cuenta de almacenamiento. |
-| [Agregar una aplicación](./scripts/batch-cli-sample-add-application.md) | Agrega una aplicación y carga los paquetes de binarios.|
-| [Administrar grupos de Batch](./scripts/batch-cli-sample-manage-pool.md) | Muestra cómo crear grupos, cambiarlos de tamaño y administrarlos. |
-| [Ejecutar un trabajo y tareas con Batch](./scripts/batch-cli-sample-run-job.md) | Muestra cómo ejecutar un trabajo y agregar tareas. |
+Consulte los [ejemplos de script de la CLI](cli-samples.md) de Batch para realizar tareas comunes. Estos ejemplos incluyen muchos de los comandos disponibles en la CLI de Azure Batch para crear y administrar cuentas, grupos, trabajos y tareas. 
 
 ## <a name="json-files-for-resource-creation"></a>Archivos JSON para la creación de recursos
 
-Al crear recursos de Batch, como grupos y trabajos, puede especificar un archivo JSON que contenga la configuración del recurso nuevo, en lugar de pasar sus parámetros como opciones de la línea de comandos. Por ejemplo:
+Al crear recursos de Batch, como grupos y trabajos, puede especificar un archivo JSON que contenga la configuración del recurso nuevo, en lugar de pasar sus parámetros como opciones de la línea de comandos. Por ejemplo: 
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -163,7 +156,7 @@ Cuando consulta el servicio Batch con una operación `list`, puede especificar u
 
 En la tabla siguiente se describen las cláusulas OData admitidas por el servicio Batch:
 
-| Cláusula | Descripción |
+| Cláusula | DESCRIPCIÓN |
 |---|---|
 | `--select-clause [select-clause]` | Devuelve un subconjunto de propiedades para cada entidad. |
 | `--filter-clause [filter-clause]` | Devuelve solo las entidades que coincidan con la expresión OData especificada. |
@@ -183,7 +176,7 @@ Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas d
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * El [foro de Batch][batch_forum] está supervisado por los miembros del equipo de Batch. Puede publicar en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 * Para más información sobre los recursos de Batch, consulte [Introducción a Azure Batch para desarrolladores](batch-api-basics.md).

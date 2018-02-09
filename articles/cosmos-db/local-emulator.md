@@ -4,7 +4,7 @@ description: "Con el Emulador de Azure Cosmos DB, puede desarrollar y probar su 
 services: cosmos-db
 documentationcenter: 
 keywords: Emulador de Azure Cosmos DB
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
 
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 El Emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio de Azure Cosmos DB con fines de desarrollo. Mediante el Emulador de Azure Cosmos DB, puede desarrollar y probar su aplicación localmente, sin crear una suscripción de Azure o realizar algún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el Emulador, puede cambiar a una cuenta de Azure Cosmos DB en la nube.
+
+> [!NOTE]
+> En este momento, el Explorador de datos del emulador solo admite colecciones de la API de SQL y colecciones de MongoDB. Los contenedores de Table, Graph y Cassandra no son totalmente compatibles. 
 
 En este artículo se tratan las tareas siguientes: 
 
@@ -62,9 +65,6 @@ Antes que nada, se recomienda ver el siguiente vídeo, donde Kirill Gavrylyuk de
 El Emulador de Azure Cosmos DB proporciona una emulación de gran fidelidad del servicio Azure Cosmos DB. Admite una funcionalidad idéntica a la de Azure Cosmos DB, incluida la compatibilidad con la creación y la consulta de documentos JSON, el aprovisionamiento y el escalado de colecciones y la ejecución de procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de Azure Cosmos DB e implementarlas en Azure a escala global realizando simplemente un solo cambio de configuración en el punto de conexión de la conexión de Azure Cosmos DB.
 
 Aunque se crea una emulación local de alta fidelidad del propio servicio Azure Cosmos DB, la implementación del Emulador de Azure Cosmos DB es diferente de la del servicio. Por ejemplo, el Emulador de Azure Cosmos DB usa componentes del sistema operativo estándar, como el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. Esto significa que ciertas funcionalidades que se basan en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lecturas/escrituras y los niveles de coherencia ajustable, no están disponibles a través del Emulador de Azure Cosmos DB.
-
-> [!NOTE]
-> En este momento, el Explorador de datos del emulador solo admite la creación de colecciones de API de SQL y colecciones de MongoDB. El Explorador de datos del emulador no admite actualmente la creación de tablas y gráficos. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferencias entre el emulador y el servicio 
 Dado que el Emulador de Azure Cosmos DB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos DB en la nube:
@@ -404,6 +404,14 @@ Para recopilar los seguimientos de depuración, ejecute los siguientes comandos 
 2. En el cuadro de búsqueda de Windows, escriba **Aplicaciones y características** y haga clic en el resultado **Aplicaciones y características (configuración del sistema)**.
 3. En la lista de aplicaciones, desplácese a **Emulador de Azure Cosmos DB**, selecciónela, haga clic en **Desinstalar**, confirme y haga clic en **Desinstalar** de nuevo.
 4. Cuando se desinstale la aplicación, vaya a C:\Users\<usuario> \AppData\Local\CosmosDBEmulator y elimine la carpeta. 
+
+## <a name="change-list"></a>Lista de cambios
+
+Para comprobar el número de versión haga clic con el botón derecho en el icono del emulador local de la barra de tareas y seleccione el elemento de menú Acerca de.
+
+### <a name="120-released-on-january-26-2018"></a>1.20 publicada el 26 de enero de 2018
+
+* Se ha habilitado la canalización de agregación de MongoDB de forma predeterminada.
 
 ## <a name="next-steps"></a>pasos siguientes
 

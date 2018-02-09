@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Preguntas más frecuentes sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo de [Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar, también conocido como Sistema de archivos de Internet común o CIFS. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en equipos de Windows Server mediante el uso de Azure File Sync (versión preliminar) para tener un acceso rápido cerca de donde se usan los datos.
@@ -73,7 +73,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="redundancy-options"></a>
 **¿Qué opciones de redundancia de almacenamiento son compatibles con Azure Files?**  
-    Actualmente, Azure Files solo admite almacenamiento con redundancia local (LRS) o almacenamiento con redundancia geográfica (GRS). Pensamos admitir en el futuro el almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), pero aún no sabemos cuándo estará disponible.
+    Azure Files admite el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona y el almacenamiento con redundancia geográfica (GRS). En un futuro, se admitirá el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), pero aún no se sabe cuándo estará disponible.
 
 * <a id="tier-options"></a>
 **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
@@ -90,7 +90,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-region-availability"></a>
 **¿Qué regiones se admiten en Azure File Sync (versión preliminar)?**  
-    Actualmente, Azure File Sync está disponible en el Este y Oeste de EE. UU., Europa Occidental, Este de Australia y el Sudeste Asiático. Se agregará compatibilidad con más regiones mientras se trabaja con vistas a la disponibilidad general. Para obtener más información, vea [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability).
+    Actualmente, Azure File Sync está disponible en estos lugares: Este de Australia, Centro de Canadá, Este de EE. UU., Sudeste Asiático, Sur de Reino Unido, Europa Occidental y Oeste de EE. UU. Se agregará compatibilidad con más regiones mientras se trabaja con vistas a la disponibilidad general. Para obtener más información, vea [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **¿Puedo tener servidores unidos a un dominio y no unidos a un dominio en el mismo grupo de sincronización?**  

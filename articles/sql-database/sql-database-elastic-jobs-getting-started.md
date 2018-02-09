@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="getting-started-with-elastic-database-jobs"></a>Introducción a Trabajos de base de datos elástica
-Trabajos de base de datos elástica (vista previa) para Base de datos SQL de Azure permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
+# <a name="getting-started-with-elastic-database-jobs"></a>Introducción a trabajos de Elastic Database
+Trabajos de Elastic Database (versión preliminar) para Azure SQL Database permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artículo amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, habrá aprendido a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
-## <a name="prerequisites"></a>Requisitos previos
-Descargue [Introducción al ejemplo de herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
+## <a name="prerequisites"></a>requisitos previos
+Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
 Aquí se crea un administrador del mapa de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica** . Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá el siguiente símbolo del sistema:
+1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá el siguiente símbolo del sistema:
 
    ![símbolo del sistema](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
@@ -249,7 +249,7 @@ Este script de PowerShell sirve para esperar a que una tarea de trabajo se compl
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Crear una directiva de ejecución personalizada
-Trabajos de base de datos elástica admite la creación de directivas de ejecución personalizadas que se pueden aplicar al iniciar trabajos.
+Los trabajos de Elastic Database admiten la creación de directivas de ejecución personalizadas que se pueden aplicar al iniciar trabajos.
 
 Actualmente, las directivas de ejecución permiten definir:
 
@@ -297,9 +297,9 @@ Actualizar la directiva de ejecución que se quiere actualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
-Trabajos de base de datos elástica admite solicitudes de cancelación de trabajos.  Si Trabajos de Elastic Database detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intenta detener el trabajo.
+Los trabajos de Elastic Database admiten solicitudes de cancelación de trabajos.  Si Trabajos de Elastic Database detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intenta detener el trabajo.
 
-Trabajos de base de datos elástica puede realizar una cancelación de dos formas distintas:
+Trabajos de Elastic Database puede realizar una cancelación de dos formas distintas:
 
 1. Cancelación de tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intenta cancelar el aspecto de la tarea que se esté ejecutando actualmente.  Por ejemplo, si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intenta cancelar la consulta.
 2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evita iniciar la tarea y declare cancelada la solicitud.
@@ -314,7 +314,7 @@ Para enviar una solicitud de cancelación, use el cmdlet **Stop-AzureSqlJobExecu
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminación de un trabajo por nombre y el historial de trabajos
-Trabajos de base de datos elástica admite la eliminación asincrónica de trabajos. Un trabajo se puede marcar para eliminación y el sistema elimina el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancela automáticamente las ejecuciones de trabajos activos.  
+Los trabajos de Elastic Database admiten la eliminación asincrónica de trabajos. Un trabajo se puede marcar para eliminación y el sistema elimina el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancela automáticamente las ejecuciones de trabajos activos.  
 
 En su lugar, se debe invocar Stop-AzureSqlJobExecution para cancelar las ejecuciones de trabajos activos.
 
@@ -326,7 +326,7 @@ Para desencadenar la eliminación del trabajo, use el cmdlet **Remove-AzureSqlJo
    ```
 
 ## <a name="create-a-custom-database-target"></a>Creación de un destino de base de datos personalizada
-En Trabajos de base de datos elástica, se pueden definir destinos de base de datos personalizada que sirven para su ejecución directa o para su inclusión en un grupo de base de datos personalizada. Puesto que los **grupos elásticos** todavía no se admiten directamente a través de las API de PowerShell, cree solo un destino de base de datos personalizada y un destino de la colección de bases de datos personalizada que englobe todas las bases de datos del grupo.
+En los trabajos de Elastic Database, se pueden definir destinos de base de datos personalizada que sirven para su ejecución directa o para su inclusión en un grupo de base de datos personalizada. Puesto que los **grupos elásticos** todavía no se admiten directamente a través de las API de PowerShell, cree solo un destino de base de datos personalizada y un destino de la colección de bases de datos personalizada que englobe todas las bases de datos del grupo.
 
 Establecimiento de las siguientes variables para que reflejen la información de base de datos que se quiera:
 
@@ -382,7 +382,7 @@ Use el cmdlet **New-AzureSqlJob** para crear un trabajo en un grupo de bases de 
    ```
 
 ## <a name="data-collection-across-databases"></a>Recopilación de datos de una base de datos a otra
-**Trabajos de base de datos elástica** es compatible con la ejecución de una consulta transversal en un grupo de bases de datos y envía los resultados a la tabla de la base de datos especificada. La tabla se puede consultar a posteriori para ver los resultados de la consulta de cada base de datos. Esto ofrece un mecanismo asincrónico para ejecutar una consulta transversalmente en varias bases de datos. Los casos de error, como que una de las bases de datos no esté disponible temporalmente, se controlan automáticamente a través de reintentos.
+**Trabajos de Elastic Database** es compatible con la ejecución de una consulta transversal en un grupo de bases de datos y envía los resultados a la tabla de la base de datos especificada. La tabla se puede consultar a posteriori para ver los resultados de la consulta de cada base de datos. Esto ofrece un mecanismo asincrónico para ejecutar una consulta transversalmente en varias bases de datos. Los casos de error, como que una de las bases de datos no esté disponible temporalmente, se controlan automáticamente a través de reintentos.
 
 Se crea automáticamente la tabla de destino especificada, si todavía no existe ninguna que coincida con el esquema del conjunto de resultados devuelto. Si la ejecución de un script devuelve varios conjuntos de resultados, Trabajos de Elastic Database solo envía el primero a la tabla de destino proporcionada.
 
@@ -461,13 +461,13 @@ Quite un desencadenador de trabajo para detener un trabajo que se ejecute según
 
 Todas las filas de la tabla **Clientes** , almacenadas en distintas particiones, completan la hoja de Excel.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora puede usar las funciones de datos de Excel. Use la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Consulte la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### <a name="cost"></a>Coste
-No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica. Sin embargo, en este momento la característica está solo disponible en bases de datos premium como extremo, pero las particiones pueden ser de cualquier nivel de servicio.
+No hay ningún cargo adicional por usar la característica de consulta de Elastic Database. Sin embargo, en este momento la característica está solo disponible en bases de datos premium como extremo, pero las particiones pueden ser de cualquier nivel de servicio.
 
-Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obtener información sobre los precios, consulte [Detalles de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

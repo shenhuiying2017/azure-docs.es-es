@@ -3,7 +3,7 @@ title: "Uso de una identidad de servicio administrada en una máquina virtual de
 description: "Instrucciones paso a paso y ejemplos de uso de una entidad de servicio de MSI en una máquina virtual de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante script."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 2e4da8cd02a1d07a3225a0c1fda4c60928dba8a4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: daveba
+ms.openlocfilehash: 735b673227ac128bbc01d3b2072f4b14d84b0e66
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 

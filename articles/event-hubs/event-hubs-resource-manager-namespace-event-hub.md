@@ -12,19 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/30/2018
 ms.author: sethm;shvija
-ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fafd8f786f86dfbe701a8d4a61ad6b261b1590
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
 
-En este artículo se muestra cómo usar una plantilla de Azure Resource Manager, que crea un espacio de nombres de tipo Event Hubs, con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager para crea un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
+Para información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Para ver la plantilla completa, consulte la [plantilla de grupos de consumidores y un centro de eventos][Event Hub and consumer group template] en GitHub.
 
@@ -34,21 +34,22 @@ Para ver la plantilla completa, consulte la [plantilla de grupos de consumidores
 > 
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
-Con esta plantilla, implementará un espacio de nombres de Event Hubs con un grupo de consumidores y un centro de eventos.
 
-[Centros de eventos](event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad.
+Con esta plantilla, implementará un espacio de nombres de Event Hubs con un grupo de consumidores y un centro de eventos.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
 [![Implementación en Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parámetros
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para estos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro de la plantilla define los recursos que se implementan.
+
+Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro de la plantilla define los recursos que se implementan.
 
 La plantilla define los parámetros siguientes:
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-El nombre del espacio de nombres de Centros de eventos que se creará.
+
+El nombre del espacio de nombres de Event Hubs que se creará.
 
 ```json
 "eventHubNamespaceName": {
@@ -57,6 +58,7 @@ El nombre del espacio de nombres de Centros de eventos que se creará.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
+
 El nombre del centro de eventos creado en el espacio de nombres de Event Hubs.
 
 ```json
@@ -66,6 +68,7 @@ El nombre del centro de eventos creado en el espacio de nombres de Event Hubs.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+
 El nombre del grupo de consumidores creado para el centro de eventos.
 
 ```json
@@ -75,6 +78,7 @@ El nombre del grupo de consumidores creado para el centro de eventos.
 ```
 
 ### <a name="apiversion"></a>apiVersion
+
 La versión de API de la plantilla.
 
 ```json
@@ -84,7 +88,8 @@ La versión de API de la plantilla.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
-Crea un espacio de nombres de tipo **Event Hubs** con un centro de eventos y un grupo de consumidores.
+
+Crea un espacio de nombres de tipo **EventHubs** con un centro de eventos y un grupo de consumidores:
 
 ```json
 "resources":[  
@@ -128,21 +133,25 @@ Crea un espacio de nombres de tipo **Event Hubs** con un centro de eventos y un 
 ```
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
-## <a name="azure-cli"></a>Azure CLI
-```azurecli
+## <a name="azure-cli"></a>CLI de Azure
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
+
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)

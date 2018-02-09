@@ -1,5 +1,5 @@
 ---
-title: "Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar) | Microsoft Docs"
+title: "Configuración de redes virtuales y firewalls de Azure Storage | Microsoft Docs"
 description: Configure la seguridad de red por niveles para la cuenta de almacenamiento.
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
 
-## <a name="preview-availability-and-support"></a>Disponibilidad y soporte de la versión preliminar
-Firewalls y redes virtuales de Azure Storage se encuentra en versión preliminar.  Esta capacidad se encuentra actualmente disponible para las cuentas de almacenamiento nuevas o existentes en todas las regiones de la nube pública de Azure.
-
-> [!NOTE]
-> No se admiten cargas de trabajo de producción durante la versión preliminar.
+> [!IMPORTANT]
+> La activación de las reglas de firewall para la cuenta de almacenamiento bloqueará el acceso a las solicitudes entrantes de datos, incluidas las de otros servicios de Azure.  Esto incluye el uso del portal, la escritura de registros, etc.  Para los servicios participantes, puede volver a habilitar la funcionalidad a través de la sección [Excepciones](#Exceptions) que hay más adelante.  Para acceder al portal, deberá hacer lo mismo desde una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
 >
 
 ## <a name="scenarios"></a>Escenarios
@@ -55,9 +52,6 @@ De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de cli
 
 #### <a name="azure-portal"></a>Azure Portal
 1. Vaya a la cuenta de almacenamiento que desea proteger.  
-> [!NOTE]
-> Asegúrese de que la cuenta de almacenamiento se encuentre en una de las regiones admitidas para la versión preliminar pública.
->
 
 2. Haga clic en el menú de configuración denominado **Firewalls y redes virtuales**.
 3. Para denegar el acceso de forma predeterminada, elija permitir el acceso desde "Redes seleccionadas".  Para permitir el tráfico desde todas las redes, elija permitir el acceso desde "Todas las redes".

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
 
@@ -34,9 +34,9 @@ Mover la base de datos de SQL Server a Azure SQL Database es tan sencillo como c
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
+Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 - Se ha instalado la versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
 - Se ha instalado la versión más reciente de [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
@@ -60,7 +60,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 
 3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior:   
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre de la base de datos** | mySampleDatabase | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -69,7 +69,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -89,9 +89,9 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 8. Acepte los términos de la versión preliminar para usar la opción de **almacenamiento de complementos**. 
 
    > [!IMPORTANT]
-   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
@@ -124,7 +124,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 
 4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
 6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
@@ -138,7 +138,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse a su servidor SQL de Azure mediante herramientas de cliente, incluidas Data Migration Assistance y SQL Server Management Studio.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
+2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
 
    ![información sobre la conexión](./media/sql-database-get-started-portal/server-name.png)
@@ -153,7 +153,7 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
 2. En el menú de la izquierda, haga clic en **+ Nuevo** para crear un proyecto de **Evaluación**. Complete los valores solicitados y, después, haga clic en **Crear**:
 
-   | Configuración      | Valor sugerido | Descripción | 
+   | Configuración      | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de proyecto | Migración | Elija si desea evaluar la base de datos para la migración o elija evaluar y realizar la migración como parte del mismo flujo de trabajo. |
    |Nombre de proyecto|Tutorial de migración| Un nombre descriptivo. |
@@ -165,7 +165,7 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
 3.  En la página **Seleccionar origen**, complete los valores requeridos y, después, haga clic en **Conectar**:
 
-    | Configuración      | Valor sugerido | Descripción | 
+    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nombre de servidor | El nombre de servidor o dirección IP. | El nombre de servidor o dirección IP. |
     | Tipo de autenticación | El tipo de autenticación preferido.| Opciones: Autenticación de Windows, Autenticación de SQL Server, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory. |
@@ -179,7 +179,7 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
 6. En la página **Seleccionar destino**, complete los valores requeridos y, después, haga clic en **Conectar**:
 
-    | Configuración      | Valor sugerido | Descripción | 
+    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nombre de servidor | El nombre completo del servidor de Azure Database. | El nombre completo del servidor de Azure Database del procedimiento anterior. |
     | Tipo de autenticación | Autenticación de SQL Server | Autenticación de SQL Server es la única opción en el momento en el que se escribió este tutorial; sin embargo, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory también son compatibles con Azure SQL Database. |
@@ -228,7 +228,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |
@@ -266,7 +266,7 @@ Puede modificar el nivel de servicio, el nivel de rendimiento y el nivel de comp
     );
     ```
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>pasos siguientes 
 En este tutorial aprendió lo siguiente:
 
 > * Crear una instancia de Azure SQL Database vacía en Azure Portal 

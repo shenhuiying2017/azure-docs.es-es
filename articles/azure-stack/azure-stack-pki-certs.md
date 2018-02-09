@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 Azure Stack tiene una red de infraestructura pública que usa direcciones IP públicas accesibles externamente y asignadas a un pequeño conjunto de servicios de Azure Stack y, posiblemente, a las máquinas virtuales del inquilino. Se requieren certificados PKI con los nombres DNS apropiados para estos puntos de conexión de la infraestructura pública de Azure Stack durante la implementación de este. En este artículo se proporciona información acerca de lo siguiente:
@@ -54,7 +54,7 @@ En la implementación, los valores de [region] y [externalfqdn] deben coincidir 
 |Admin Portal|adminportal.*&lt;región>.&lt;fqdn>*|Portales|*&lt;región>.&lt;fqdn>*|
 |Azure Resource Manager Public|management.*&lt;región>.&lt;fqdn>*|Administrador de recursos de Azure|*&lt;región>.&lt;fqdn>*|
 |Azure Resource Manager Admin|adminmanagement.*&lt;región>.&lt;fqdn>*|Administrador de recursos de Azure|*&lt;región>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Un certificado comodín de subdominio múltiple con nombres alternativos del firmante para:<br>&#42;.blob.*&lt;región>.&lt;fqdn>*<br>&#42;.queue.*&lt;región>.&lt;fqdn>*<br>&#42;.table.*&lt;región>.&lt;fqdn>*|Storage|blob.*&lt;región>.&lt;fqdn>*<br>table.*&lt;región>.&lt;fqdn>*<br>queue.*&lt;región>.&lt;fqdn>*|
+|ACS<sup>1</sup>|Un certificado comodín de subdominio múltiple con nombres alternativos del firmante para:<br>&#42;.blob.*&lt;región>.&lt;fqdn>*<br>&#42;.queue.*&lt;región>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;región>.&lt;fqdn>*<br>table.*&lt;región>.&lt;fqdn>*<br>queue.*&lt;región>.&lt;fqdn>*|
 |KeyVault|&#42;.vault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Key Vault|vault.*&lt;región>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Almacén de claves interno|adminvault.*&lt;región>.&lt;fqdn>*|
 |
@@ -91,8 +91,9 @@ En la tabla siguiente se describen los puntos de conexión y los certificados ne
 
 <sup>2</sup> A &#42;.appservice.*&lt;región>.&lt;fqdn>* el certificado comodín no se puede usar en lugar de estos tres certificados (api.appservice.*&lt;región>.&lt;fqdn>*, ftp.appservice.*&lt;región>.&lt;fqdn>* y sso.appservice.*&lt;región>.&lt;fqdn>*. Appservice requiere explícitamente el uso de certificados independientes para estos puntos de conexión. 
 
+## <a name="learn-more"></a>Más información
+Aprenda a [generar certificados PKI para la implementación de Azure Stack](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>pasos siguientes
-[Generación de certificados de infraestructura de clave pública para la implementación de Azure Stack](azure-stack-get-pki-certs.md) 
-
+[Integración de identidades](azure-stack-integrate-identity.md)
 

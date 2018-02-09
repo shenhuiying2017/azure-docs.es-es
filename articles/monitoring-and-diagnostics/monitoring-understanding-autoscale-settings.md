@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le permite asegurarse de que tiene la cantidad adecuada de recursos en ejecución para controlar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que este se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza por la descripción del esquema y las propiedades de una configuración. A continuación, recorre los diferentes tipos de perfil que se pueden configurar y, finalmente, analiza cómo el escalado automático valora qué perfil debe ejecutar en un momento dado.
@@ -125,7 +125,7 @@ Hay tres tipos de perfiles de escalado automático:
 
 1. **Perfil normal:** el perfil más común. Si no necesita escalar el recurso de manera diferente según el día de la semana, o según un día concreto, solo tendrá que configurar un perfil normal en la configuración de escalado automático. Posteriormente, este perfil se puede configurar con reglas de métricas que determinen cuando realizar un escalado horizontal y cuándo una reducción horizontal. Solo debe definir un perfil normal.
 
-    El perfil de ejemplo que se usó anteriormente en este artículo es un ejemplo de perfil normal. También es posible establecer un perfil para escalar a un número de instancias estáticas para el recurso.
+    El perfil de ejemplo que se usó anteriormente en este artículo es un ejemplo de perfil normal. Observe que también es posible establecer un perfil para escalar a un número de instancias estáticas para el recurso.
 
 2. **Perfil de fecha fija:** con el perfil normal definido, supongamos que tiene un evento importante que tendrá lugar el 26 de diciembre de 2017 (PST) y desea que las capacidades mínimas y máximas del recurso sean diferentes ese día, pero quiere realizar el escalado según las mismas métricas. En este caso, deberá agregar un perfil de fecha fija a la lista de perfiles de la configuración. El perfil se configura solo para que se ejecute en el día del evento. En los demás días, se ejecutará el perfil normal.
 

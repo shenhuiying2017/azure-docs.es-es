@@ -3,8 +3,8 @@ title: "Solución de problemas de una aplicación web en Azure App Service con V
 description: "Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -117,9 +117,9 @@ Si el mensaje de error detallado no proporciona información suficiente y no es 
 
 La depuración remota no funciona en ediciones Express de Visual Studio.
 
-En esta sección se muestra cómo depurar de forma remota mediante el proyecto creado en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md].
+En esta sección se muestra cómo realizar una depuración remota mediante el proyecto creado en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md).
 
-1. Abra el proyecto web creado en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md].
+1. Abra el proyecto web que creó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md).
 
 2. Abra *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ En esta sección se muestra cómo depurar de forma remota mediante el proyecto c
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
 
-6. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md]. A continuación, haga clic en Configuración.
+6. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet.md). A continuación, haga clic en Configuración.
 
 7. En el cuadro de diálogo **Publicar**, haga clic en la pestaña **Configuración** y, a continuación, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Guardar**.
 
