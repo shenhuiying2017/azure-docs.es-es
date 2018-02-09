@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -179,6 +179,7 @@ El cliente de la izquierda se inició en primer lugar y comenzó la supervisión
 
 Tenga en cuenta que, si tiene dos funciones de Azure sin servidor supervisando la misma colección y usando la misma concesión, las dos funciones pueden obtener documentos diferentes, en función del modo en que la biblioteca de procesadores decida procesar las particiones.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Información de la biblioteca de procesadores de fuente de cambios
 
 Hay cuatro componentes principales en la implementación del procesador de fuente de cambios: la colección supervisada, la colección de concesión, el host de procesador y los consumidores. 

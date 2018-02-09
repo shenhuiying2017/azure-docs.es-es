@@ -3,7 +3,7 @@ title: "Uso de una MSI asignada por el usuario en una máquina virtual Linux par
 description: "Tutorial que le guía mediante el proceso para usar una identidad de servicio administrada (MSI) asignada por el usuario con una máquina virtual Linux para acceder a Azure Storage."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Uso de una identidad de servicio administrada (MSI) asignada por el usuario en una máquina virtual Linux para acceder a Azure Storage
 
