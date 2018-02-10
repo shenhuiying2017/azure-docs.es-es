@@ -6,7 +6,7 @@
       href: sql-database-technical-overview.md
     - name: PaaS o IaaS
       href: sql-database-paas-vs-sql-server-iaas.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de la base de datos: Azure Portal'
@@ -51,11 +51,11 @@
       href: sql-database-security-tutorial.md
     - name: '4: Implementación de una base de datos distribuida geográficamente'
       href: sql-database-implement-geo-distributed-database.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: sql-database-cli-samples.md
     - name: Azure PowerShell
       href: sql-database-powershell-samples.md
@@ -359,6 +359,8 @@
           items:
             - name: Implementación de una aplicación de ejemplo
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Inquilinos de aprovisionamiento
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de datos por inquilino
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
@@ -461,7 +463,7 @@
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'

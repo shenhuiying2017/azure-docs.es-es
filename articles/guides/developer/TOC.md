@@ -24,7 +24,7 @@
 ## [Crear una función conectada a Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
 ## [Aplicación web de implementación de Docker en Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
-# Muestras
+# Ejemplos
 ## Azure CLI
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
@@ -96,9 +96,9 @@
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
-### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
+### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
+### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Interfaces de línea de comandos
 ### [CLI de Azure](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)

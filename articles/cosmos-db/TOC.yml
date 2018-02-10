@@ -6,7 +6,7 @@
       href: introduction.md
     - name: 20 días de sugerencias
       href: 20-days-of-tips.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: SQL
@@ -125,9 +125,9 @@
       items:
         - name: Desencadenador HTTP
           href: tutorial-functions-http-trigger.md
-- name: Muestras
+- name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -223,7 +223,7 @@
                       href: sql-api-java-application.md
                     - name: Python Flask
                       href: sql-api-python-application.md
-            - name: Muestras
+            - name: Ejemplos
               items:
                 - name: Ejemplos de .NET
                   href: sql-api-dotnet-samples.md
@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Streaming con Kafka y Spark en HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Implementación de un sitio web en Azure App Service
           href: create-website.md
         - name: Registro de aplicaciones con Logic Apps

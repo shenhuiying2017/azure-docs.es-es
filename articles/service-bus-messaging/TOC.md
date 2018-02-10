@@ -4,7 +4,7 @@
 ## [Arquitectura de Service Bus](service-bus-architecture.md)
 ## [P+F](service-bus-faq.md)
 
-# Introducción
+# Guías de inicio rápido
 ## [Creación de un espacio de nombres](service-bus-create-namespace-portal.md)
 ## Uso de colas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

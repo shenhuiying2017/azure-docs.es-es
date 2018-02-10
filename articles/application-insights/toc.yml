@@ -6,7 +6,7 @@
       href: app-insights-overview.md
     - name: Introducción a la supervisión del rendimiento
       href: app-insights-detect-triage-diagnose.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: .NET
@@ -192,6 +192,8 @@
               href: app-insights-usage-segmentation.md
             - name: Embudos
               href: usage-funnels.md
+            - name: Impacto
+              href: app-insights-usage-impact.md
             - name: Retención
               href: app-insights-usage-retention.md
             - name: Flujos de usuario
@@ -269,7 +271,7 @@
           href: app-insights-java-troubleshoot.md
         - name: Análisis de uso
           href: app-insights-usage-troubleshoot.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
@@ -332,7 +334,7 @@
       items:
         - name: Foro de MSDN
           href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights'
-        - name: Stackoverflow
+        - name: Stack Overflow
           href: 'http://stackoverflow.com/questions/tagged/az-application-insights'
         - name: Voz del usuario
           href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'

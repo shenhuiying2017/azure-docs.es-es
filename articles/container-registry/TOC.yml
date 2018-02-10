@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Container Registry
       href: container-registry-intro.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Container Registry: CLI'
@@ -69,6 +69,8 @@
       href: /dotnet/api/overview/azure/containerregistry
     - name: Python
       href: /python/api/overview/azure/container-registry
+    - name: Java
+      href: /java/api/overview/azure/containerregistry
     - name: Node.js
       href: /javascript/api/overview/azure/container-registry
     - name: Plantilla de Resource Manager
@@ -85,7 +87,7 @@
       href: 'https://aka.ms/acr/roadmap'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

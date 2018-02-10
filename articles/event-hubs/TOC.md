@@ -3,7 +3,7 @@
 ## [Características de Event Hubs](event-hubs-features.md)
 ## [P+F](event-hubs-faq.md)
 
-# Introducción
+# Guías de inicio rápido
 ## [Creación de un centro de eventos](event-hubs-create.md)
 ## Envío de eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

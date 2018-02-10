@@ -2,7 +2,7 @@
 ## [¿Qué es Relay?](relay-what-is-it.md)
 ## [P+F](relay-faq.md)
 
-# Introducción
+# Guías de inicio rápido
 ## [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 ## [Creación de una aplicación híbrida en la nube/local](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## conexiones híbridas
@@ -21,7 +21,7 @@
 ### [API disponibles](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
-## Administrar
+## administración
 ### [Supervisión de Azure Relay con Azure Monitor](relay-metrics-azure-monitor.md)
 
 # Referencia
@@ -36,5 +36,5 @@
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Precios](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-## [Ejemplos](https://github.com/azure/azure-relay/tree/master/samples)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
+## [Muestras](https://github.com/azure/azure-relay/tree/master/samples)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

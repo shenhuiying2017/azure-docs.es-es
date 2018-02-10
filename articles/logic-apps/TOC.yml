@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure Logic Apps?
       href: logic-apps-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de una aplicación lógica
@@ -142,10 +142,14 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Azure Blob Storage
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure Event Hubs
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
         - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: API y aplicaciones web personalizadas
@@ -156,8 +160,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: Event Hubs
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Sistema de archivos
           href: logic-apps-using-file-connector.md
         - name: Archivo plano
@@ -188,8 +190,6 @@
           href: logic-apps-using-sap-connector.md
         - name: Schedule
           href: ../connectors/connectors-native-recurrence.md
-        - name: Azure Service Bus
-          href: ../connectors/connectors-create-api-servicebus.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
@@ -271,7 +271,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-logic-apps'
     - name: Twitter
       href: 'https://twitter.com/logicappsio'
