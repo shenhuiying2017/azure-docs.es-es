@@ -43,13 +43,13 @@ Para completar esta guía de inicio rápido:
 
 ## <a name="download-the-sample-locally"></a>Descarga local del código
 
-Descargue el proyecto de ejemplo de PHP de [https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) y extraiga el archivo ZIP.
+Descargue el proyecto PHP de ejemplo en [https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) y extraiga el archivo ZIP.
 
-En una ventana de terminal, vaya al directorio raíz del proyecto de ejemplo de PHP (el que contiene _index.php_).
+En una ventana de terminal, diríjase al directorio raíz del proyecto de ejemplo (el que contiene el archivo _index.php_).
 
 ## <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
 
-Ejecute la aplicación localmente abriendo una ventana de terminal y utilizando el comando `php` para iniciar el servidor web de PHP integrado.
+Ejecute la aplicación localmente abriendo una ventana de terminal y utilice el comando `php` para iniciar el servidor web de PHP integrado.
 
 ```bash
 php -S localhost:8080
@@ -83,7 +83,7 @@ En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de a
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"
 ```
 
-Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
+Cuando se haya creado la aplicación web, la CLI (Command Line Interface/Interfaz de Línea de Comandos) de Azure mostrará información similar a la del siguiente ejemplo:
 
 ```json
 {
