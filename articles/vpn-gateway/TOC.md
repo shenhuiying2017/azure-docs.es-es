@@ -34,6 +34,7 @@
 ### Configuración de una VPN de punto a sitio
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Creación e instalación de los archivos de configuración de cliente de VPN](point-to-site-vpn-client-configuration-radius.md)
+### [Integración de la autenticación P2S VPN RADIUS con el servidor NPS](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Configuración de conexiones de red virtual a red virtual
 ### [portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

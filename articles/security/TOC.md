@@ -90,7 +90,6 @@
 ### [Introducción a la integración de registro de Azure](security-azure-log-integration-overview.md)
 #### [Introducción a la integración de registro de Azure](security-azure-log-integration-get-started.md)
 #### [Integración de los registros de auditoría de Azure Active Directory](security-azure-log-integration-ad.md)
-#### [Integración de alertas de Security Center](security-azure-log-integration-security-center.md)
 #### [Integración de registros en Key Vault mediante Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Preguntas más frecuentes](security-azure-log-integration-faq.md)
 

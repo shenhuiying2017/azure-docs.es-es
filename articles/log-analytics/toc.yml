@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Log Analytics?
       href: log-analytics-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Recopilación: máquinas virtuales de Azure'
@@ -21,7 +21,7 @@
       href: log-analytics-tutorial-dashboards.md
     - name: 3 - Alerta sobre datos
       href: log-analytics-tutorial-response.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Azure PowerShell
       href: powershell-samples.md

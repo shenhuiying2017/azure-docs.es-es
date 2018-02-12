@@ -17,8 +17,8 @@
 ### [Funcionalidades técnicas de seguridad](../azure-security-technical-capabilities.md)
 ### [Gobierno en Azure](../governance-in-azure.md)
 ### [Cifrado de datos en reposo](../azure-security-encryption-atrest.md)
-### Proyectos de arquitectura
-#### Cumplimiento: PCI DSS
+### Planos de seguridad y cumplimiento de Azure
+#### PCI DSS
 ##### [Procesamiento de pagos para entornos compatibles con PCI DSS](payment-processing-blueprint.md)
 ##### [Información general sobre requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1: firewalls](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Requisito 10: supervisión](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11: pruebas](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12: directiva](pci-dss-requirement-12-policy.md)
-#### Cumplimiento: FedRAMP
-##### [Aplicaciones web para FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatización de aplicaciones web](fedramp.md)
 ##### [Introducción a los controles de seguridad](fedramp-controls-overview.md)
 ##### [Control de acceso](fedramp-access-controls.md)
 ##### [Auditoría y responsabilidad](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Protección del sistema y de las comunicaciones](fedramp-system-communications-protection-controls.md)
 ##### [Integridad del sistema y de la información](fedramp-system-information-integrity-controls.md)
 ##### [Adquisición del sistema y los servicios](fedramp-system-services-acquisition-controls.md)
-#### Cumplimiento: UK-OFFICIAL
-##### [Aplicaciones web de tres niveles para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatización de aplicaciones web en tres niveles](uk-official-three-tier-applications-overview.md)
 ##### [Información general](uk-official-three-tier-applications-overview.md)
 ##### [Información general acerca de los principios](uk-official-three-tier-applications-principles-overview.md)
-#### Cumplimiento normativo: Servicios financieros
+#### Servicios financieros
 ##### [Servicios financieros para cargas de trabajo reguladas](financial-services-regulated-workloads.md)
 
 # Introducción
@@ -93,9 +93,8 @@
 ### [Introducción a la integración de registro de Azure](../security-azure-log-integration-overview.md)
 #### [Introducción a la integración de registro de Azure](../security-azure-log-integration-get-started.md)
 #### [Integración de los registros de auditoría de Azure Active Directory](../security-azure-log-integration-ad.md)
-#### [Integración de alertas de Security Center](../security-azure-log-integration-security-center.md)
 #### [Integración de registros en Key Vault mediante Event Hubs](../security-azure-log-integration-keyvault-eventhub.md)
-#### [Preguntas más frecuentes](../security-azure-log-integration-faq.md)
+#### [P+F](../security-azure-log-integration-faq.md)
 
 ## Service Fabric
 ### [Procedimientos recomendados de Service Fabric](../azure-service-fabric-security-best-practices.md)
@@ -123,7 +122,7 @@
 
 # Temas relacionados
 ## [Centro de confianza](../security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](../azure-security-response-center.md)
+## [Centro de respuesta de seguridad de Microsoft](../azure-security-response-center.md)
 ## [Pruebas de penetración](../azure-security-pen-testing.md)
 ## [Security Center](../../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../../key-vault/key-vault-whatis.md)
