@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Virtual Machines
       href: overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de una máquina virtual: Azure Portal'
@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Máquinas virtuales de alta disponibilidad
       href: tutorial-availability-sets.md
-    - name: 6 - Creación de un conjunto de escalado de máquina virtual
+    - name: 6 - Creación de un conjunto de escalado de máquinas virtuales
       href: tutorial-create-vmss.md
     - name: 7 - Equilibrio de carga de máquinas virtuales
       href: tutorial-load-balancer.md
@@ -35,7 +35,7 @@
       href: tutorial-backup-vms.md
     - name: 10 - Supervisión y actualización de máquinas virtuales
       href: tutorial-monitoring.md
-    - name: 11 - Administración de la seguridad de la máquina virtual
+    - name: 11 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
     - name: 12 - CI/CD de Team Services
       href: tutorial-vsts-iis-cicd.md
@@ -43,7 +43,7 @@
       href: tutorial-iis-sql.md
     - name: 14 - Protección de un servidor web con SSL
       href: tutorial-secure-web-server.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: PowerShell
       href: powershell-samples.md
@@ -51,7 +51,7 @@
       href: cli-samples.md
 - name: Conceptos
   items:
-    - name: Administrador de recursos de Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Regiones y disponibilidad
       href: regions-and-availability.md
@@ -77,7 +77,7 @@
           items:
             - name: Configuración de los controladores de GPU
               href: n-series-driver-setup.md
-        - name: Proceso de alto rendimiento
+        - name: Informática de alto rendimiento
           href: sizes-hpc.md
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
@@ -146,9 +146,9 @@
           href: hybrid-use-benefit-licensing.md
         - name: Uso de los derechos de hospedaje multiinquilino para Windows 10
           href: windows-desktop-multitenant-hosting-deployment.md
-    - name: Protección de máquinas virtuales
+    - name: Seguridad de máquinas virtuales
       items:
-        - name: Cifrar
+        - name: Cifrado
           href: encrypt-disks.md
         - name: Uso de WinRM
           href: winrm.md
@@ -177,11 +177,11 @@
           href: vm-usage.md
         - name: Tareas comunes de PowerShell
           href: ps-common-ref.md
-        - name: Movimiento de una máquina virtual
+        - name: Traslado de una máquina virtual
           href: move-vm.md
         - name: Cambio del tamaño de máquina virtual
           href: resize-vm.md
-        - name: Etiquetar una máquina virtual
+        - name: Etiquetado de una máquina virtual
           href: tag.md
         - name: Ejecución de scripts en una máquina virtual
           href: extensions-customscript.md
@@ -211,11 +211,11 @@
           href: cli-ps-findimage.md
         - name: Preparación de la máquina virtual para la carga
           href: prepare-for-upload-vhd-image.md
-        - name: Captura de máquina virtual en imagen
+        - name: Captura de una máquina virtual en una imagen
           href: capture-image-resource.md
         - name: Uso de una imagen generalizada
           href: create-vm-generalized-managed.md
-        - name: Creación de imagen con Packer
+        - name: Creación de una imagen con Packer
           href: build-image-with-packer.md
         - name: Uso de imágenes de cliente de Windows
           href: client-images.md
@@ -276,7 +276,7 @@
               href: attach-disk-ps.md
             - name: Azure Portal
               href: attach-managed-disk-portal.md
-        - name: Desacoplamiento de un disco
+        - name: Desconexión de un disco
           href: detach-disk.md
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Uso de la virtualización anidada
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Instalación del agente de máquina virtual en modo sin conexión
+          href: install-vm-agent-offline.md
 - name: Referencia
   items:
     - name: Azure CLI
@@ -452,7 +454,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

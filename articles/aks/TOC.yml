@@ -4,7 +4,7 @@
   items:
     - name: Acerca de AKS
       href: intro-kubernetes.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de un clúster de AKS: CLI'
@@ -35,31 +35,41 @@
       href: container-service-quotas.md
 - name: Guías de procedimientos
   items:
-    - name: Escalado de un clúster de AKS
-      href: scale-cluster.md
-    - name: Actualización de un clúster de AKS
-      href: upgrade-cluster.md
-    - name: Autenticación con ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Ejecución de aplicaciones con Helm
-      href: kubernetes-helm.md
-    - name: Desarrollo de aplicaciones con Draft
-      href: kubernetes-draft.md
-    - name: Integración con Azure mediante OSBA
-      href: integrate-azure.md
-    - name: Uso del panel de Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Creación de una entidad de servicio
-      href: kubernetes-service-principal.md
+    - name: Operaciones del clúster
+      items:
+        - name: Escalado de un clúster de AKS
+          href: scale-cluster.md
+        - name: Actualización de un clúster de AKS
+          href: upgrade-cluster.md
+        - name: Eliminación de un clúster de AKS
+          href: delete-cluster.md
     - name: Configuración de volúmenes de datos
       items:
         - name: 'Azure Disks: volumen persistente'
           href: azure-disks-dynamic-pv.md
         - name: 'Azure Files: volumen persistente'
           href: azure-files-dynamic-pv.md
+    - name: Seguridad y autenticación
+      items:
+        - name: Creación de una entidad de servicio
+          href: kubernetes-service-principal.md
+        - name: Autenticación con ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Desarrollo y ejecución de aplicaciones
+      items:
+        - name: Ejecución de aplicaciones con Helm
+          href: kubernetes-helm.md
+        - name: Desarrollo de aplicaciones con Draft
+          href: kubernetes-draft.md
+        - name: Integración con Azure mediante OSBA
+          href: integrate-azure.md
+    - name: Aspectos básicos de Kubernetes
+      items:
+        - name: Uso del panel de Kubernetes
+          href: kubernetes-dashboard.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
@@ -73,7 +83,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://github.com/Azure/AKS/issues'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

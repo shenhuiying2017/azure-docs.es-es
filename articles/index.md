@@ -5,11 +5,11 @@ title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1237,7 +1237,7 @@ ms.lasthandoff: 02/03/2018
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
-                                                <p>Administrador de recursos de Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                         <li>
@@ -4263,12 +4263,12 @@ Herramientas SQL </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Un conjunto de arquitecturas recomendadas para las aplicaciones en la nube. Todas las arquitectura incluyen prácticas recomendadas, pasos con instrucciones y un componente ejecutable que incluya las recomendaciones.
+Azure Architecture Center contiene una guía para compilar soluciones globales en Microsoft Azure. Aquí podrá encontrar arquitecturas para su consulta, procedimientos recomendados, modelos de diseño, guías para escenarios e implementaciones para su consulta.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Un conjunto de arquitecturas recomendadas para las aplicaciones en la nube. Toda
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>Guía para crear soluciones globales en Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Guía de la arquitectura de aplicaciones en Azure</h3>
-                                                    <p>Conocimientos básicos para tener éxito en la nube. Si no está familiarizado con la nube o con Azure, empiece aquí.</p>
+                                                    <p>Esta guía presenta un enfoque estructurado para diseñar aplicaciones de Azure que sean escalables, resistentes y con una alta disponibilidad. Se basa en prácticas probadas que hemos aprendido a través de las interacciones con los clientes.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Un conjunto de arquitecturas recomendadas para las aplicaciones en la nube. Toda
                                                 <div class="cardText">
                                                     <h3>Patrones de diseño en la nube</h3>
                                                     <p>Patrones de diseño para la nube. Cada patrón describe un problema, un patrón que aborda el problema y un ejemplo basado en Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Procedimientos recomendados para aplicaciones en la nube</h3>
-                                                    <p>
-Un conjunto de procedimientos recomendados para las aplicaciones en la nube que abarcan aspectos como el escalado automático, el almacenamiento en caché, la creación de particiones de datos, el diseño de API y la supervisión.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

@@ -10,7 +10,7 @@
 
 ## Supervisión remota (versión anterior)
 ### [¿Qué son las soluciones preconfiguradas?](iot-suite-v1-what-are-preconfigured-solutions.md)
-### [Preguntas más frecuentes](iot-suite-v1-faq.md)
+### [P+F](iot-suite-v1-faq.md)
 
 ### Introducción
 #### [Introducción a las soluciones preconfiguradas](iot-suite-v1-getstarted-preconfigured-solutions.md)
@@ -58,7 +58,9 @@
 ### [Uso de reglas para detectar problemas](iot-suite-remote-monitoring-automate.md)
 ### [Administración de dispositivos](iot-suite-remote-monitoring-manage.md)
 ### [Solución de problemas de dispositivo](iot-suite-remote-monitoring-maintain.md)
-### [Uso de dispositivos simulados](iot-suite-remote-monitoring-test.md)
+### [Descripción del esquema de modelo del dispositivo](iot-suite-remote-monitoring-device-schema.md)
+### [Descripción del comportamiento de modelo del dispositivo](iot-suite-remote-monitoring-device-behavior.md)
+### [Creación de un nuevo dispositivo simulado](iot-suite-remote-monitoring-test.md)
 ### [Personalización de la solución](iot-suite-remote-monitoring-customize.md)
 ### [Implementación mediante la CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Conexión de un dispositivo físico

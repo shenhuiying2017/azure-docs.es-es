@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Cost Management?
       href: overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Visualización de datos de costos
@@ -33,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: Incorporación de métricas extendidas para las máquinas virtuales
       href: azure-vm-extended-metrics.md
+    - name: Conexión a una cuenta de Google
+      href: connect-google-account.md
+    - name: Conexión a una cuenta de AWS
+      href: connect-aws-account.md
     - name: Uso de los informes de Cost Management
       href: use-reports.md
 - name: Recursos

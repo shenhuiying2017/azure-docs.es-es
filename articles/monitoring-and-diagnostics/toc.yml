@@ -4,7 +4,7 @@
   items:
     - name: Supervisión en Azure
       href: monitoring-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Alerta sobre condición de métrica
@@ -37,10 +37,12 @@
           href: monitoring-overview-unified-alerts.md
         - name: Alertas de registro
           href: monitor-alerts-unified-log.md
-        - name: Autoscale
+        - name: Escalado automático
           href: monitoring-overview-autoscale.md
         - name: Registro de actividades
           href: monitoring-overview-activity-logs.md
+        - name: Alertas de registro de actividad (versión preliminar)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Grupos de acciones
           href: monitoring-action-groups.md
         - name: Registros de diagnóstico
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Configuración de alertas con PowerShell
           href: insights-alerts-powershell.md
-        - name: Llamada de una alerta de métrica a un webhook
-          href: insights-webhooks-alerts.md
+        - name: Acciones de webhook para alertas de registro
+          href: monitor-alerts-unified-log-webhook.md
         - name: Creación de una alerta de métrica con una plantilla de Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Usar Autoscale
@@ -194,7 +196,7 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
     - name: Plantillas de inicio rápido
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=monitoring'
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=monitor'

@@ -19,6 +19,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Aplicaciones web
 ### [Información general](active-directory-b2c-reference-oidc.md)
+### [Autenticación de usuarios en ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,6 +28,7 @@
 ### [JavaScript con MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript con Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API web
+### [Protección de una API de ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
@@ -40,13 +42,14 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
 ## [Configuración del restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md)
 ## [Personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md)
 ### [Herramienta de ayudante para la personalización](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## [Uso de la API Graph de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
+## [Uso de Graph API de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Obtención de tokens de acceso](active-directory-b2c-access-tokens.md)
 ## [Deshabilitación de la comprobación de correo electrónico](active-directory-b2c-reference-disable-ev.md)
 ## [Configuración de tokens](active-directory-b2c-token-session-sso.md)
@@ -85,7 +88,7 @@
 #### [Complejidad de la contraseña](active-directory-b2c-reference-password-complexity-custom.md).
 #### [Cambio de contraseña](active-directory-b2c-reference-password-change-custom.md)
 #### [Habilitación de Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md)
-### Solución de problemas
+### solución de problemas
 #### [Recopilación de registros con Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referencia
 ### [Notas de la versión](active-directory-b2c-developer-notes-custom.md)
@@ -116,6 +119,6 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+## [Desbordamiento de la pila](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Soporte técnico](active-directory-b2c-support.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)

@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Site Recovery?
       href: site-recovery-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Replicación de una máquina virtual de Azure a una región secundaria
@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Matriz de compatibilidad de local a sitio secundario
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Tipos de conmutación por recuperación
+      href: concepts-types-of-failback.md
     - name: Recuperación ante desastres para cargas de trabajo
       href: site-recovery-workload.md
     - name: Migración a Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Configuración de la asignación de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Conservación de la dirección IP de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Preparación de la asignación de redes para la replicación de una máquina virtual de Hyper-V en Azure
           href: site-recovery-network-mapping.md
         - name: Configuración de direcciones IP para el acceso a Azure después de una conmutación por error
@@ -111,9 +115,13 @@
           href: tutorial-vmm-to-vmm.md
         - name: Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario
           href: tutorial-vmware-to-vmware.md
-        - name: "Ejecución de un simulacro de recuperación ante desastres\r\n en Azure"
+        - name: |-
+            Ejecución de un simulacro de recuperación ante desastres
+             en Azure
           href: site-recovery-test-failover-to-azure.md
-        - name: "Ejecución de un simulacro de recuperación ante desastres\r\nen un sitio secundario"
+        - name: |-
+            Ejecución de un simulacro de recuperación ante desastres
+            en un sitio secundario
           href: site-recovery-test-failover-vmm-to-vmm.md
         - name: Máquinas virtuales de VMware con compatibilidad para multiinquilinos en Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
@@ -275,6 +283,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemas de conmutación por error a Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problemas de reprotección y conmutación por recuperación
+          href: troubleshoot-failback-reprotect.md
         - name: Supervisión de Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Referencia
