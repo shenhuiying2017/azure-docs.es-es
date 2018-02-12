@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Puntos de conexión del servicio Virtual Network (versión preliminar)
+# <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
 Los puntos de conexión del servicio Virtual Network (red virtual) extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure a través de una conexión directa. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure.
 
-Esta característica está disponible en versión preliminar para los servicios y regiones de Azure siguientes:
+Esta característica está disponible en los siguientes servicios y regiones de Azure:
 
-- **Azure Storage**: todas las regiones de la nube pública de Azure.
-- **Azure SQL**: todas las regiones de la nube pública de Azure.
+- **Azure Storage**: disponible con carácter general. Todas las regiones de la nube pública de Azure y Azure Government.
+- **Azure SQL**: versión preliminar. Todas las regiones de la nube pública de Azure.
 
 Para las notificaciones más actualizadas sobre la versión preliminar, revise la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -66,7 +66,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 ### <a name="configuration"></a>Configuración
 
 - Los puntos de conexión de servicio se configuran en una subred de una red virtual. Los puntos de conexión funcionan con cualquier tipo de instancias de proceso que se ejecute en esa subred.
-- Solo un punto de conexión de servicio puede habilitarse para un servicio específico de una subred. Puede configurar varios puntos de conexión de servicio para todos los servicios de Azure admitidos (por ejemplo, Azure Storage o Azure SQL Database) en una subred.
+- Puede configurar varios puntos de conexión de servicio para todos los servicios de Azure admitidos (por ejemplo, Azure Storage o Azure SQL Database) en una subred.
 - Las redes virtuales deben estar en la misma región que el recurso de servicio de Azure. Si se usan cuentas de Azure Storage para GRS y RA-GRS, la cuenta principal debe encontrarse en la misma región que la red virtual.
 - La red virtual donde se ha configurado el punto de conexión puede estar en la misma suscripción o en otra distinta del recurso de servicio de Azure. Para más información sobre los permisos necesarios para configurar los puntos de conexión y proteger los servicios de Azure, consulte [Aprovisionamiento](#Provisioning).
 - Para los servicios compatibles, puede proteger los nuevos recursos o los recursos existentes a las redes virtuales con puntos de conexión de servicio.
@@ -106,7 +106,7 @@ Los puntos de conexión de servicio pueden configurarse en redes virtuales de fo
 
 Obtenga más información sobre los [roles integrados](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la asignación de permisos específicos a [roles personalizados](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si los recursos de servicio de Azure y de red virtual en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD), durante la versión preliminar. 
+Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si los recursos de servicio de Azure y de red virtual están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Precios y límites
 

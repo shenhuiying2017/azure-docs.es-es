@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Introducción al uso de PowerShell con las zonas privadas de Azure DNS
 
 Este artículo le guiará por los pasos necesarios para crear una zona y un registro DNS privados con Azure PowerShell.
 
-Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Para publicar una zona DNS privada en la red virtual, especifique la lista de redes virtuales que pueden resolver registros en ella.  Se denominan "redes de resolución".  También puede especificar un conjunto de redes virtuales para el que Azure DNS mantendrá los registros de nombre de host siempre que se cree o se destruya una máquina virtual o le cambie el IP.  Se denominan "redes de registro".
-
-Como esta característica actualmente es una versión preliminar administrada, se proporcionará una versión preliminar del módulo de PowerShell.
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Para publicar una zona DNS privada en la red virtual, especifique la lista de redes virtuales que pueden resolver registros en ella.  Se denominan "redes de resolución".  También puede especificar un conjunto de redes virtuales para el que Azure DNS mantendrá los registros de nombre de host siempre que se cree o se destruya una máquina virtual o se cambie su dirección IP.  Se denominan "redes de registro".
+
+Como esta característica actualmente es una versión preliminar administrada, se proporcionará una versión preliminar del módulo de PowerShell cuando envíe un correo electrónico a [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
+
+## <a name="get-the-preview-powershell-module"></a>Obtención de la versión preliminar del módulo de PowerShell
+
+Para crear una zona DNS privada con PowerShell, envíe un correo electrónico a [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) para obtener la versión preliminar del módulo de PowerShell.
 
 ## <a name="create-the-resource-group"></a>Creación del grupo de recursos
 
@@ -83,7 +87,7 @@ Para eliminar todos los recursos creados en este artículo, realice el paso sigu
 Remove-AzureRMResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca de las zonas DNS privadas, consulte [Using Azure DNS for private domains](private-dns-overview.md) (Uso de Azure DNS para dominios privados).
 

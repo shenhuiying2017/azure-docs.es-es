@@ -1,6 +1,22 @@
-En Cloud Shell, cree una [aplicación web](../articles/app-service/app-service-web-overview.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
+---
+title: "archivo de inclusión"
+description: "archivo de inclusión"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: d5dfe6ab6d53d450f7c75d376d630558ee03f698
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/03/2018
+---
+Creación de una [aplicación web](../articles/app-service/app-service-web-overview.md) en el plan de App Service de `myAppServicePlan`
 
-En el siguiente ejemplo, reemplace *\<app_name>* por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). 
+En Cloud Shell, puede usar el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). En el siguiente ejemplo, reemplace *\<app_name>* por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -27,11 +43,13 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 Ha creado una aplicación web vacía, con la implementación de Git habilitada.
 
 > [!NOTE]
-> La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde esta dirección URL porque la necesitará más adelante.
+> La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde esta dirección URL, ya que la necesitará más adelante.
 >
 
 Vaya a la aplicación web recién creada.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
+
+Este es el aspecto que debería tener su nueva aplicación web:

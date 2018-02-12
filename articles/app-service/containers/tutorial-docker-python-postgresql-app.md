@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilación de una aplicación web Docker Python con PostgreSQL en Azure
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Administrar la aplicación en Azure Portal
 
-En macOS, siga los pasos que se indican a continuación. Las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
+También puede seguir los pasos de este artículo en macOS. Las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,7 +88,7 @@ Este repositorio de ejemplo contiene una aplicación [Flask](http://flask.pocoo.
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
 > [!NOTE] 
-> En un paso posterior, compile un contenedor de Docker para usarlo con la base de datos de producción con el fin de simplificar este proceso.
+> En un paso posterior, compilará un contenedor de Docker para usarlo con la base de datos de producción con el fin de simplificar este proceso.
 
 Instale los paquetes necesarios e inicie la aplicación.
 
@@ -343,7 +343,7 @@ Verá dos contraseñas. Anote el nombre de usuario y la primera contraseña.
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Carga del contenedor de Docker a Azure Container Registry
 
-Inicie sesión en el registro. Cuando se le solicite, proporcione la contraseña que acaba de recuperar.
+Inicie sesión en el registro. Cuando se le solicite, proporcione la contraseña que ha recuperado.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

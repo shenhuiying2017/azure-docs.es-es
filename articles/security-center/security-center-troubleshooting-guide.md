@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
@@ -60,7 +60,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 * **Agente instalado manualmente en una máquina virtual ubicada en Azure**: en este escenario, si está usando los agentes descargados e instalados antes de febrero de 2017, podrá ver las alertas en el portal de Security Center solo si filtra por la suscripción a la que pertenece el área de trabajo. En caso de filtrar por la suscripción a la que pertenece el recurso, no podrá ver ninguna alerta. Recibirá notificaciones por correo electrónico a la dirección de correo electrónico que configuró en la directiva de seguridad para la suscripción a la que pertenece el área de trabajo.
 
 >[!NOTE]
-> Para evitar el comportamiento explicado en el segundo caso, asegúrese de que descargar la versión más reciente del agente.
+> Para evitar el comportamiento explicado en el segundo caso, asegúrese de descargar la versión más reciente del agente.
 >
 
 ## <a name="monitoring-agent-health-issues"></a>Supervisión de problemas de Agent Health

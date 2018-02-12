@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introducción a Azure CDN
-En este artículo se describe cómo habilitar Azure Content Delivery Network (CDN) creando un perfil de red CDN y un punto de conexión nuevos.
-
-> [!IMPORTANT]
-> Para obtener una introducción a la red CDN y una lista de características, vea [Introducción a la red CDN](cdn-overview.md).
-> 
-> 
+En este artículo se describe cómo habilitar [Azure Content Delivery Network (CDN)](cdn-overview.md) mediante la creación de un perfil de red CDN y un punto de conexión nuevos.
 
 ## <a name="create-a-new-cdn-profile"></a>Crear un nuevo perfil de CDN
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil puede contener uno o más de estos puntos de conexión de CDN. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.

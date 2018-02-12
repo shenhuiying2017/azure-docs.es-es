@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
 
    c. Escriba **OutputDataset** para el nombre.
 
-   d. Escriba **adftutorial/output** para la carpeta. La actividad de copia crea la carpeta de salida si no existe.
+   d. Escriba **adftutorial/output** para la carpeta. Si la carpeta **output** no existe, la actividad de copia la crea en tiempo de ejecución.
 
    e. Escriba `@CONCAT(pipeline().RunId, '.txt')` como nombre de archivo. 
    
@@ -142,7 +142,7 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
    ![Configuración del conjunto de datos de salida](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## <a name="create-a-pipeline"></a>Crear una canalización 
-En este procedimiento, va a crear y comprobar una canalización con una actividad de copia que utiliza los conjuntos de datos de entrada y de salida. La actividad de copia realiza una copia de los datos desde el archivo especificado en la configuración del conjunto de datos de entrada al archivo especificado en la configuración del conjunto de datos de salida. Si el conjunto de datos de entrada especifica solo una carpeta (no el nombre de archivo), la actividad de copia realiza una copia de todos los archivos de la carpeta de origen al destino. 
+En este procedimiento, va a crear y comprobar una canalización con una actividad de copia que utiliza los conjuntos de datos de entrada y de salida. La actividad de copia realiza una copia de los datos desde el archivo especificado en la configuración del conjunto de datos de entrada hasta el archivo especificado en la configuración del conjunto de datos de salida. Si el conjunto de datos de entrada especifica solo una carpeta (no el nombre de archivo), la actividad de copia realiza una copia de todos los archivos de la carpeta de origen al destino. 
 
 1. Haga clic en el botón **+** (Más) y seleccione **Pipeline** (Canalización). 
 
@@ -224,9 +224,9 @@ Este procedimiento es opcional en este tutorial. Puede crear un *programador de 
 5. Revise el mensaje de advertencia y seleccione **Finish** (Finalizar).
 
    ![Botón de advertencia y de finalización](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Seleccione **Publish** (Publicar) para publicar los cambios en Data Factory. 
+6. Seleccione **Publish All** (Publicar todo) para publicar los cambios en Data Factory. 
 
-   ![Botón Publicar](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Botón Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Seleccione **Refresh** (Actualizar) para actualizar la lista. Verá que la canalización se ejecuta una vez cada minuto desde la hora de publicación hasta la hora de finalización. 
 
    Observe los valores de la columna **Triggered By** (Desencadenado por). La ejecución manual del desencadenador se realizó en el paso (**Trigger Now**) [Desencadenar ahora] que llevó a cabo antes. 

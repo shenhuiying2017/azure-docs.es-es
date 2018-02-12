@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c53c4eba6d46c03bbfc6bb316ae4e505abb7b781
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 369d4444e52083c689441548dcfab70fe49ab346
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-azure-hdinsight-and-the-hadoop-and-spark-technology-stack"></a>Introducción a Azure HDInsight y la pila de tecnología de Hadoop y Spark
 En este artículo se proporciona una introducción a Azure HDInsight. Azure HDInsight es un servicio de análisis, de código abierto, espectro completo y totalmente administrado para empresas. Puede usar plataformas de código abierto como Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, etc. 
@@ -89,7 +89,7 @@ Puede usar HDInsight para ampliar la infraestructura local de macrodatos existen
 
 ![Arquitectura de HDInsight: híbrido](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
 
-## <a name="overview"></a>Tipos de clúster de HDInsight
+## <a name="cluster-types-in-hdinsight"></a>Tipos de clúster de HDInsight
 HDInsight incluye tipos de clúster concretos y funcionalidades de personalización del clúster, tales como la de agregar componentes, utilidades y lenguajes.
 
 ### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, Interactive Query, HBase, personalizado y otros tipos de clúster

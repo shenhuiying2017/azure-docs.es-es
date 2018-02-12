@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Almacenes de datos admitidos).
@@ -144,10 +144,7 @@ En este tutorial, empiece con la creación de la canalización, y cree conjuntos
 9. En la pestaña **General** de la ventana **Properties** (Propiedades) de la parte inferior, especifique **SourceBlobDataset** como **nombre**.
 
     ![Nombre del conjunto de datos](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Cambie a la pestaña **Connection** (Conexión) en la ventana de propiedades.   
-
-    ![Pestaña Connection (Conexión)](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Haga clic en **+ New** (+ Nuevo) junto al cuadro de texto **Linked service** (Servicio vinculado). Un servicio vinculado enlaza un almacén de datos o un proceso a la factoría de datos. En este caso, creará un servicio vinculado de Azure Storage para vincular su cuenta de Azure Storage al almacén de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse a la instancia de Blob Storage en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) que contiene los datos de origen. 
+10. Cambie a la pestaña **Connection** (Conexión) en la ventana de propiedades. Haga clic en **+ New** (+ Nuevo) junto al cuadro de texto **Linked service** (Servicio vinculado). Un servicio vinculado enlaza un almacén de datos o un proceso a la factoría de datos. En este caso, creará un servicio vinculado de Azure Storage para vincular su cuenta de Azure Storage al almacén de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse a la instancia de Blob Storage en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) que contiene los datos de origen. 
 
     ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
@@ -283,7 +280,7 @@ Puede realizar la serie de pruebas de una canalización antes de publicar artefa
 2. Compruebe que los datos del archivo de origen se insertan en la base de datos SQL de destino. 
 
     ![Comprobar salida de SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Haga clic en **Publish** (Publicar) en el panel izquierdo. Esta acción publica las entidades (servicios vinculados, conjuntos de datos y canalizaciones) que creó para Azure Data Factory.
+3. Haga clic en **Publish All** (Publicar todo) en el panel izquierdo. Esta acción publica las entidades (servicios vinculados, conjuntos de datos y canalizaciones) que creó para Azure Data Factory.
 
     ![Botón Publicar](./media/tutorial-copy-data-portal/publish-button.png)
 4. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, haga clic en **Show Notifications** (Mostrar notificaciones) en la barra lateral izquierda. Para cerrar la ventana de notificaciones, haga clic en la **X**.
@@ -343,7 +340,7 @@ Si no desea trabajar con el repositorio de código de VSTS, puede omitir este pa
 ## <a name="trigger-the-pipeline-manually"></a>Desencadenamiento manual de la canalización
 En este paso, desencadenará manualmente la canalización que publicó en el paso anterior. 
 
-1. Haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger Now** (Desencadenar ahora). 
+1. Haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger Now** (Desencadenar ahora). En la página **Pipeline Run** (Ejecución de canalización), haga clic en **Finish** (Finalizar).  
 
     ![Menú Trigger now (Desencadenar ahora)](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá una ejecución de canalización que se desencadena de forma manual. Puede usar los vínculos de la columna Actions (Acciones) para ver los detalles de la actividad y volver a ejecutar la canalización.
@@ -386,10 +383,10 @@ En esta programación, creará un desencadenador de programación para la canali
 6. En la página **Trigger Run Parameters** (Parámetros de ejecución de desencadenador), revise la advertencia y haga clic en **Finish** (Finalizar). La canalización de este ejemplo no toma ningún parámetro. 
 
     ![Parámetros de canalización](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Haga clic en **Publish** (Publicar) para publicar los cambios en el repositorio. El desencadenador no se activa realmente hasta que la publicación se realiza correctamente. 
+7. Haga clic en **Sync** (Sincronizar) para sincronizar los cambios en la rama con la rama master. Por omisión, la opción **Publish changes after sync** (Publicar los cambios después de la sincronización) está seleccionada. Por lo tanto, cuando selecciona **Sync** (Sincronizar), también se publican las entidades actualizadas en el servicio Azure Data Factory de la rama master. El desencadenador no se activa realmente hasta que la publicación se realiza correctamente.
 
-    ![Publicar desencadenador](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Cambie a la pestaña **Monitor** (Supervisión) de la izquierda para ver las ejecuciones de canalización desencadenadas. 
+    ![Publicar desencadenador](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Cambie a la pestaña **Monitor** (Supervisión) de la izquierda para ver las ejecuciones de canalización desencadenadas. 
 
     ![Ejecuciones de canalización desencadenadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Para cambiar de la vista de ejecuciones de canalización a la vista de ejecuciones de desencadenador, haga clic en Pipeline Runs (Ejecuciones de canalización) y seleccione Trigger Runs (Ejecuciones de desencadenador).

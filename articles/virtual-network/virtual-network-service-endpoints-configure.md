@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configuración de los puntos de conexión de servicio de Virtual Network
 
@@ -67,15 +67,15 @@ Inicie sesión con la cuenta de Azure. Si no tiene una cuenta de Azure, puede re
 
 Configuración | Valor
 ------- | -----
-Nombre    | myVnet
+NOMBRE    | myVnet
 Espacio de direcciones | 10.0.0.0/16
 Nombre de subred|mySubnet
 Intervalo de direcciones de subred|10.0.0.0/24
 Grupos de recursos|Deje seleccionado Crear nuevo y después introduzca un nombre.
-Ubicación|Cualquier región admitida, por ejemplo, este de Australia
+La ubicación|Cualquier región admitida, por ejemplo, este de Australia
 La suscripción|Seleccione su suscripción.
 __ServiceEndpoints__|habilitado
-__Servicios__ | Seleccione uno de los servicios disponibles, o todos. En la versión preliminar, servicios admitidos: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Servicios__ | Seleccione uno de los servicios disponibles, o todos. Servicios admitidos: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Seleccione los servicios para los puntos de conexión: ![Selección de servicios de punto de conexión de servicio](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Salida: 
-Nombre | ID | Tipo
+NOMBRE | ID | type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -227,7 +227,7 @@ Succeeded         Microsoft.Sql     {eastus}
 Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"  -AddressPrefix "10.0.1.0/24" -ServiceEndpoint $null | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Configuración de los requisitos previos:
 - Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla. Para más información, consulte [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)(Introducción a la CLI de Azure 2.0).
@@ -387,7 +387,7 @@ Para proteger los recursos de servicio de Azure a una red virtual, el usuario de
 
 Obtenga más información sobre los [roles integrados](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) y la asignación de permisos específicos a [roles personalizados](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD), en el momento de esta versión preliminar.
+Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

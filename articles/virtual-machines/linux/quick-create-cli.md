@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual Linux con la CLI de Azure
 
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>Conexión SSH con la máquina virtual
 
-Ejecute el comando siguiente para crear una sesión SSH con la máquina virtual. Asegúrese de reemplazar *<publicIpAddress>* por la dirección IP pública correcta de la máquina virtual.  En el ejemplo anterior, la dirección IP era *40.68.254.142*.
+Ejecute el comando siguiente para crear una sesión SSH con la máquina virtual. Asegúrese de reemplazar **publicIpAddress** por la dirección IP pública correcta de la máquina virtual.  En el ejemplo anterior, la dirección IP era *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## <a name="install-nginx"></a>Instalación de NGINX
@@ -99,7 +99,7 @@ sudo apt-get -y install nginx
 
 Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Asegúrese de utilizar el valor de *publicIpAddress* que ha anotado antes para visitar la página predeterminada. 
 
-![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
+![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png) 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -110,7 +110,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 

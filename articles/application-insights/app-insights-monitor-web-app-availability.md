@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -113,6 +113,11 @@ Desde un resultado de la prueba de disponibilidad, puede hacer lo siguiente:
 * Abra el resultado de la prueba web en Visual Studio.
 
 *¿Parece que se ha completado correctamente pero se notifica como un error?* Vea [Preguntas más frecuentes](#qna) sobre cómo reducir el ruido.
+
+
+> [!TIP]
+> Se recomienda realizar pruebas desde al menos 2 ubicaciones para mejorar la confiabilidad de la supervisión.
+>
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.

@@ -9,11 +9,11 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -370,7 +370,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 5. Seleccione **Asignar**.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Resolución de un recurso que no cumpla o que sea denegado
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
 Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que se cree con una versión diferente será denegado. En esta sección, se va a examinar cómo resolver un intento denegado de crear un servidor SQL Server de una versión diferente mediante la solicitud de una exclusión. La exclusión impide básicamente la aplicación de directivas. Se puede aplicar una exclusión a un grupo de recursos o se puede restringir la exclusión a recursos individuales.
 
