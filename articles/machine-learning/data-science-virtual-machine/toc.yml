@@ -1,4 +1,5 @@
 - name: Documentación de la máquina virtual de ciencia de datos
+  href: index.yml
   items: null
 - name: Información general
   expanded: true
@@ -7,7 +8,7 @@
       href: overview.md
     - name: ¿Qué es la máquina virtual de aprendizaje profundo?
       href: deep-learning-dsvm-overview.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Creación de una máquina virtual de ciencia de datos de Windows
       href: provision-vm.md
@@ -17,7 +18,7 @@
       href: linux-dsvm-intro.md
     - name: Creación de una máquina virtual de aprendizaje profundo
       href: provision-deep-learning-dsvm.md
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Uso de una máquina virtual de ciencia de datos de Windows
       href: vm-do-ten-things.md
@@ -52,5 +53,5 @@
       href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
     - name: Foro de MSDN
       href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'

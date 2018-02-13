@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentación de Azure Data Science Virtual Machine"
+metadata:
+  title: "Documentación de Azure Data Science Virtual Machine"
+  description: Aprenda a usar Data Science Virtual Machine.
+  services: machine-learning
+  author: bradsev
+  manager: cgronlun
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: bradsev
+  ms.openlocfilehash: 291d38522adfa780629892ea6d7f7a17a82a0e39
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "Data Science Virtual Machine y Deep Learning Virtual Machine son imágenes personalizadas de máquinas virtuales en Azure, cargadas con herramientas de ciencia de datos que se utilizan para compilar aplicaciones inteligentes de análisis avanzado."
+sections:
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: 'Aprenda a configurar una instancia de Data Science Virtual Machine basada en Windows o Linux:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="provision-vm.md">Windows</a>
+    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a aprovisionar y usar instancias de Data Science Virtual Machine:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="provision-vm">Aprovisionamiento de una instancia de DSVM de Windows</a>
+    - html: <a href="vm-do-ten-thing">Uso de una instancia de DSVM de Windows</a>
+    - html: <a href:"linux-dsvm-intro">Aprovisionamiento de una instancia de DSVM de Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro">Aprovisionamiento de una instancia de DSVM de Linux Ubuntu</a>
+    - html: <a href="linux-dsvm-walkthrough">Uso de una instancia de DSVM de Linux</a>
+- title: "Otras tecnologías de Azure Machine Learning"
+  items:
+  - type: paragraph
+    text: "Otras tecnologías disponibles en Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: "Servicios de Azure Machine Learning (versión preliminar)"
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image:
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/

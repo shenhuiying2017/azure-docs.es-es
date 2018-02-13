@@ -1,5 +1,5 @@
 - name: Documentación de Machine Learning Studio
-  href: index.md
+  href: index.yml
 - name: Información general
   expanded: true
   items:
@@ -231,7 +231,7 @@
       href: 'http://blogs.technet.com/b/machinelearning/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

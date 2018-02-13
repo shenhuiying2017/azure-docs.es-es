@@ -1,8 +1,6 @@
-- name: Características de versión preliminar de Machine Learning
+- name: Servicios de Azure Machine Learning (versión preliminar)
   href: preview/index.yml
-- name: Machine Learning Studio
-  href: studio/index.md
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
 - name: Máquina virtual de ciencia de datos
-  href: data-science-virtual-machine/overview.md
-- name: Proceso de ciencia de los datos en equipos
-  href: team-data-science-process/overview.md
+  href: data-science-virtual-machine/index.yml

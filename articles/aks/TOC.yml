@@ -37,6 +37,8 @@
   items:
     - name: Operaciones del clúster
       items:
+        - name: Creación de un clúster de AKS
+          href: create-cluster.md
         - name: Escalado de un clúster de AKS
           href: scale-cluster.md
         - name: Actualización de un clúster de AKS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Configuración de volúmenes de datos
       items:
-        - name: 'Azure Disks: volumen persistente'
+        - name: Azure Disks
           href: azure-disks-dynamic-pv.md
-        - name: 'Azure Files: volumen persistente'
+        - name: Archivos de Azure
           href: azure-files-dynamic-pv.md
+    - name: Configuración de las redes
+      items:
+        - name: Dirección IP estática
+          href: static-ip.md
     - name: Seguridad y autenticación
       items:
         - name: Creación de una entidad de servicio

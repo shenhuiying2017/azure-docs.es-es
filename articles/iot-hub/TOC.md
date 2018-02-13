@@ -3,7 +3,7 @@
 ## [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Introducción a la administración de dispositivos](iot-hub-device-management-overview.md)
 
-# [Introducción](iot-hub-get-started.md)
+# [Primeros pasos](iot-hub-get-started.md)
 
 ## Configuración del dispositivo
 ### [Simulación de un dispositivo en su PC](iot-hub-get-started-simulated.md)
@@ -107,6 +107,7 @@
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back-end de Python o dispositivo de Python](iot-hub-python-python-device-management-get-started.md)
 ### Uso de propiedades gemelas
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

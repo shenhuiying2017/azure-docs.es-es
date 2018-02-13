@@ -1,0 +1,45 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentación del proceso de ciencia de datos en equipo"
+metadata:
+  title: "Documentación del proceso de ciencia de datos en equipo"
+  description: Aprenda a usar el proceso de ciencia de datos en equipo.
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: bradsev
+  ms.openlocfilehash: 05f47b7511108f4a94c6fd132c9b7fd18c6e267d
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "El proceso de ciencia de datos en equipo es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis."
+sections:
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Información acerca del proceso de ciencia de datos en equipo:"
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href:\"overview\">Introducción</a>"
+    - html: <a href:"lifecycle">Ciclo de vida</a>
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a usar el proceso de ciencia de datos en equipo en diversos escenarios:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="walkthroughs-aml-with-tdsp">Azure Machine Learning Workbench</a>
+    - html: <a href="walkthroughs-spark">Spark con PySpark y Scala</a>
+    - html: <a href="walkthroughs-hdinsight-hadoop">Hive con HDInsight Hadoop</a>
+    - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
+    - html: <a href="walkthroughs-sql-server">R, Python y T-SQL con SQL Server</a>
+    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL y Python con almacenamiento de datos SQL</a>
