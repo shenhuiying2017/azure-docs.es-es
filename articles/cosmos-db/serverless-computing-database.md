@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
@@ -35,7 +35,7 @@ Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor
 * Enlace una función a una colección de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
 > [!NOTE]
-> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph.
+> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Graph API.
 
 En el diagrama siguiente se muestran cada una de estas tres integraciones: 
 
@@ -86,7 +86,7 @@ En las imágenes siguientes se muestra el código de Azure Portal para este esce
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso de uso de juegos: desencadenador de Azure Cosmos DB y enlace de salida
 
-En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [API Graph de Azure Cosmos DB](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
+En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Graph API de Azure Cosmos DB](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
 
 **Implementación:** use un desencadenador de Azure Cosmos DB y un enlace de salida
 
@@ -101,7 +101,7 @@ En implementaciones de venta minorista, cuando un usuario agrega un elemento a s
 
 **Implementación:** varios desencadenadores de Azure Cosmos DB que escuchan una colección
 
-1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función.
+1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed.md#understand-cf).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.
     * Una función puede usar el contenido de la cesta actual para cambiar la visualización de otros artículos que puedan interesarle al usuario.
     * Otra función podría actualizar los totales de inventario.

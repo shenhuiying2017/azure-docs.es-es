@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -210,6 +210,41 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, r
 
     Para más información sobre la configuración del productor, consulte [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) (Configuraciones de productor) en kafka.apache.org.
 
+5. Use los comandos siguientes para buscar los hosts de Zookeeper para el clúster de destino:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Reemplace `$CLUSTERNAME` por el nombre del clúster de destino. Cuando se le solicite, escriba la contraseña de administrador del clúster.
+
+7. La configuración predeterminada para Kafka en HDInsight no permite la creación automática de temas. Debe usar una de las siguientes opciones antes de iniciar el proceso de creación de reflejo:
+
+    * **Create the topics on the destination cluster** (Crear los temas en el clúster de destino): esta opción también le permite establecer el número de particiones y el factor de replicación.
+
+        Puede crear temas con antelación mediante el comando siguiente:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Reemplace `testtopic` por el nombre del tema que se va a crear.
+
+    * **Configure the cluster for automatic topic creation** (Configurar el clúster para la creación automática de temas): esta opción permite que MirrorMaker cree temas automáticamente, pero puede que los cree con un número de particiones o un factor de replicación diferentes a los del tema de origen.
+
+        Para configurar el clúster de destino para crear automáticamente temas, realice estos pasos:
+
+        1. En [Azure Portal](https://portal.azure.com), seleccione el clúster de Kafka de destino.
+        2. En la información general del clúster, seleccione __Panel de clúster__. A continuación, seleccione __Panel de clúster de HDInsight__. Cuando se le solicite, realice la autenticación mediante las credenciales de inicio de sesión (administrador) del clúster.
+        3. Seleccione el servicio __Kafka__ en la lista de la parte izquierda de la página.
+        4. Seleccione __Configuraciones__ en el medio de la página.
+        5. En el campo __Filtro__, escriba un valor de `auto.create`. La lista de propiedades se filtra y se muestra el valor `auto.create.topics.enable`.
+        6. Cambie el valor de `auto.create.topics.enable` a true y, a continuación, seleccione __Guardar__. Agregue una nota y, a continuación, seleccione de nuevo __Guardar__.
+        7. Seleccione el servicio __Kafka__, seleccione __Reiniciar__ y luego seleccione __Restart all affected__ (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
+
 ## <a name="start-mirrormaker"></a>Inicio de MirrorMaker
 
 1. En la conexión SSH al clúster de **destino**, use el siguiente comando para iniciar el proceso de MirrorMaker:
@@ -247,11 +282,9 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, r
 
      Cuando llegue a una línea en blanco con un cursor, escriba algunos mensajes de texto. Los mensajes se envían al tema en el clúster de **origen**. Cuando haya terminado, use **Ctrl + C** para finalizar el proceso de productor.
 
-3. En la conexión SSH al clúster de **destino**, use **Ctrl + C** para iniciar el proceso de MirrorMaker. Para comprobar que el tema y los mensajes se han replicado en el destino, use los siguientes comandos:
+3. En la conexión SSH al clúster de **destino**, use **Ctrl + C** para iniciar el proceso de MirrorMaker. El proceso puede tardar varios segundos en finalizar. Para comprobar que los mensajes se han replicado en el destino, use el siguiente comando:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 

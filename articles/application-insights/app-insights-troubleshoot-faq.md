@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: peguntas más frecuentes
 
@@ -152,7 +152,7 @@ Eche un vistazo a [Privacidad y retención de los datos][data].
 
 Es posible si el código envía tales datos. También puede ocurrir si las variables de los seguimientos de pila incluyen PII. El equipo de desarrollo debe llevar a cabo las evaluaciones de riesgo para asegurarse de que PII se administra correctamente. [Más información sobre la retención y la privacidad de los datos](app-insights-data-retention-privacy.md).
 
-El último octeto de la dirección web del cliente siempre se establece en 0 después de la ingesta por el portal.
+**Todos** los octetos de la dirección web del cliente siempre se establecen en 0 después de que se buscan los atributos de ubicación geográfica.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mi iKey es visible en el origen de mi página web. 
 

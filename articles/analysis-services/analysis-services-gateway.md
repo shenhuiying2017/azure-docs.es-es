@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local de Azure
 La puerta de enlace de datos local actúa como un puente, ya que proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma región con una sola puerta de enlace. 
@@ -28,11 +28,11 @@ El proceso de instalación de la puerta de enlace consta de cuatro partes:
 
 - **Descargar y ejecutar el programa de instalación**: en este paso se instala un servicio de puerta de enlace en un equipo de la organización. También se inicia sesión en Azure con la cuenta de Azure AD del [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). No se pueden usar cuentas B2B (invitadas) de Azure.
 
-- **Registrar la puerta de enlace**: en este paso se especifica el nombre y la clave de recuperación de la puerta de enlace y se selecciona la región, con lo que la puerta de enlace se registra en con el servicio en la nube de la puerta de enlace. El recurso de puerta de enlace **debe estar registrado en la misma región** que los servidores de Analysis Services. 
+- **Registrar la puerta de enlace**: en este paso se especifica el nombre y la clave de recuperación de la puerta de enlace y se selecciona la región, de modo que la puerta de enlace se registra en el servicio en la nube de la puerta de enlace. El recurso de puerta de enlace se puede registrar en cualquier región, pero se recomienda que esté en la misma región que los servidores de Analysis Services. 
 
 - **Crear un recurso de puerta de enlace en Azure**: en este paso se crea un recurso de puerta de enlace en una suscripción de Azure.
 
-- **Conectar los servidores a los recursos de puerta de enlace**: una vez que tiene un recurso de puerta de enlace en la suscripción, puede empezar a conectar los servidores a él. Puede conectar varios servidores y otros recursos, siempre que se encuentren en la región.
+- **Conectar los servidores a los recursos de puerta de enlace**: una vez que tiene un recurso de puerta de enlace en la suscripción, puede empezar a conectar los servidores a él. Puede conectar a él varios servidores y otros recursos.
 
 Para comenzar inmediatamente, consulte [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md).
 
@@ -45,7 +45,7 @@ Flujo de datos y consultas:
 
 1. El servicio en la nube crea una consulta con las credenciales cifradas para el origen de datos local. A continuación, se envía a una cola de la puerta de enlace para su procesamiento.
 2. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en la instancia de [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. La puerta de enlace de datos local sondea el bus de servicio de Azure en busca de solicitudes pendientes.
+3. La puerta de enlace de datos local sondea Azure Service Bus en busca de solicitudes pendientes.
 4. La puerta de enlace obtiene la consulta, descifra las credenciales y se conecta a los orígenes de datos con ellas.
 5. La puerta de enlace envía la consulta al origen de datos para su ejecución.
 6. Los resultados se devuelven desde el origen de datos a la puerta de enlace y luego se envían al servicio en la nube y al servidor.
@@ -56,7 +56,7 @@ La puerta de enlace de datos local está configurada para usar *NT SERVICE\PBIEg
 Si tiene problemas con el servidor proxy debido a la autenticación, puede cambiar la cuenta de servicio de Windows a un usuario de dominio o cuenta de servicio administrada.
 
 ## <a name="ports"></a>Puertos
-La puerta de enlace crea una conexión de salida con el bus de servicio de Azure. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
+La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
 
 Se recomienda crear una lista de direcciones IP permitidas de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La lista se actualiza semanalmente.
 
@@ -67,7 +67,7 @@ Se recomienda crear una lista de direcciones IP permitidas de la región de dato
 
 Éstos son los nombres de dominio completos utilizados por la puerta de enlace.
 
-| Nombres de dominio | Puertos de salida | Descripción |
+| Nombres de dominio | Puertos de salida | DESCRIPCIÓN |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP que se utiliza para descargar el instalador. |
 | *.powerbi.com |443 |HTTPS |
@@ -95,10 +95,10 @@ Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante 
 ### <a name="general"></a>General
 
 **P**: ¿Necesito una puerta de enlace para orígenes de datos en la nube como, por ejemplo, Azure SQL Database? <br/>
-**R:** No. Solo se necesitan puertas de enlace para conectarse a orígenes de datos locales.
+**R**: No. Solo se necesitan puertas de enlace para conectarse a orígenes de datos locales.
 
 **P**: ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
-**R:** No. Lo único que necesita la puerta de enlace es poder conectarse al servidor, normalmente en la misma red.
+**R**: No. Lo único que necesita la puerta de enlace es poder conectarse al servidor, normalmente en la misma red.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -119,7 +119,7 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: Los resultados se envían a través de Azure Service Bus.
 
 **P**: ¿Hay alguna conexión de entrada a la puerta de enlace desde la nube? <br/>
-**R:** No. La puerta de enlace usa conexiones de salida al bus de servicio de Azure.
+**R**: No. La puerta de enlace usa conexiones de salida a Azure Service Bus.
 
 **P**: ¿Qué sucede si bloqueo las conexiones de salida? ¿Qué tengo que abrir? <br/>
 **R**: Consulte los puertos y los hosts que usa la puerta de enlace.
@@ -128,10 +128,10 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: En los servicios, la puerta de enlace se llama servicio de puerta de enlace de datos local.
 
 **P**: ¿Se puede ejecutar el servicio de Windows de puerta de enlace con una cuenta de Azure Active Directory? <br/>
-**R:** No. El servicio de Windows debe tener una cuenta de Windows válida. De forma predeterminada, el servicio se ejecuta con el SID de servicio NT SERVICE\PBIEgwService.
+**R**: No. El servicio de Windows debe tener una cuenta de Windows válida. De forma predeterminada, el servicio se ejecuta con el SID de servicio NT SERVICE\PBIEgwService.
 
 **P**: ¿Cómo adquiero una puerta de enlace? <br/>
-**R**: Para adquirir una puerta de enlace (ejecutando Configurar/Cambiar en Panel de control > Programas) tiene que se propietario del recurso de la puerta de enlace en Azure y disponer de una clave de recuperación. Los propietarios del recurso de puerta de enlace se pueden configurar en Control de acceso.
+**R**: Para adquirir una puerta de enlace (mediante la ejecución de Configurar/Cambiar en Panel de control > Programas) tiene que ser propietario del recurso de la puerta de enlace en Azure y disponer de una clave de recuperación. Los propietarios del recurso de puerta de enlace se pueden configurar en Control de acceso.
 
 ### <a name="high-availability"></a>Alta disponibilidad y recuperación ante desastres
 
@@ -141,18 +141,18 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **P**: ¿Qué ventaja aporta la clave de recuperación? <br/>
 **R**: La clave de recuperación proporciona una forma de migrar o recuperar la configuración de la puerta de enlace después de un desastre.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"> </a>Solución de problemas
 
 **P**: ¿Por qué no veo mi puerta de enlace en la lista de instancias de puerta de enlace al intentar crear el recurso de puerta de enlace de Azure? <br/>
-**R**: Hay dos razones posibles. La primera es que el recurso ya se ha creado para la puerta de enlace actual o en otra suscripción. Para eliminar esa posibilidad, enumere los recursos del tipo **Puertas de enlace de datos locales** en el portal. Asegúrese de seleccionar todas las suscripciones al enumerar todos los recursos. Tenga en cuenta que una vez que se crea el recurso, la puerta de enlace no aparecerá en la lista de instancias de puerta de enlace en la experiencia del portal de creación de recursos de puerta de enlace. La segunda posibilidad es que la identidad de Azure AD del usuario que ha instalado la puerta de enlace es distinta de la del usuario que inició sesión en Azure Portal. Para resolver este problema, inicie sesión el portal mediante la misma cuenta que el usuario que ha instalado la puerta de enlace.
+**R**: Hay dos razones posibles. La primera es que el recurso ya se ha creado para la puerta de enlace actual o en otra suscripción. Para eliminar esa posibilidad, enumere los recursos del tipo **Puertas de enlace de datos locales** en el portal. Asegúrese de seleccionar todas las suscripciones al enumerar todos los recursos. Una vez que se crea el recurso, la puerta de enlace no aparece en la lista de instancias de puerta de enlace en la experiencia del portal de creación de recursos de puerta de enlace. La segunda posibilidad es que la identidad de Azure AD del usuario que ha instalado la puerta de enlace sea distinta de la del usuario que inició sesión en Azure Portal. Para resolver este problema, inicie sesión el portal con la misma cuenta que el usuario que instaló la puerta de enlace.
 
 **P**: ¿Cómo se pueden ver las consultas que se envían al origen de datos local? <br/>
-**R**: Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.
+**R** Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.
 
 También puede examinar las herramientas de que dispone su origen de datos para el seguimiento de consultas. Por ejemplo, puede utilizar Eventos extendidos o SQL Profiler en SQL Server y Analysis Services.
 
 **P**: ¿Dónde están los registros de la puerta de enlace? <br/>
-**R**: Consulte la sección Registros en este mismo artículo.
+**R**: Consulte la sección Registros más adelante en este mismo artículo.
 
 ### <a name="update"></a>Actualización a la versión más reciente
 
@@ -201,7 +201,7 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)   
 * [Administración de Analysis Services](analysis-services-manage.md)
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)

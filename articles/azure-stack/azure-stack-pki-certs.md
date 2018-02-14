@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 Azure Stack tiene una red de infraestructura pública que usa direcciones IP públicas accesibles externamente y asignadas a un pequeño conjunto de servicios de Azure Stack y, posiblemente, a las máquinas virtuales del inquilino. Se requieren certificados PKI con los nombres DNS apropiados para estos puntos de conexión de la infraestructura pública de Azure Stack durante la implementación de este. En este artículo se proporciona información acerca de lo siguiente:
@@ -27,6 +27,8 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 - Los certificados son necesarios para implementar Azure Stack
 - El proceso de obtención de certificados que concuerda con esas especificaciones
 - Cómo preparar, validar y utilizar esos certificados durante la implementación
+> [!NOTE]
+> Durante la implementación, los certificados se deben copiar en la carpeta de implementación que coincida con el proveedor de identidades con el que va a realizar esta operación (Azure AD o AD FS). Si usa un único certificado para todos los puntos de conexión, debe copiar ese archivo de certificado en cada carpeta de implementación, tal y como se describe en las tablas siguientes. La estructura de carpetas anterior se compila en la máquina virtual de implementación y puede encontrarse en C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificados
 En la lista siguiente se describen los requisitos de certificados que son necesarios para implementar Azure Stack: 
@@ -52,8 +54,8 @@ En la implementación, los valores de [region] y [externalfqdn] deben coincidir 
 |-----|-----|-----|-----|
 |Public Portal|portal.*&lt;región>.&lt;fqdn>*|Portales|*&lt;región>.&lt;fqdn>*|
 |Admin Portal|adminportal.*&lt;región>.&lt;fqdn>*|Portales|*&lt;región>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;región>.&lt;fqdn>*|Administrador de recursos de Azure|*&lt;región>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;región>.&lt;fqdn>*|Administrador de recursos de Azure|*&lt;región>.&lt;fqdn>*|
+|Azure Resource Manager Public|management.*&lt;región>.&lt;fqdn>*|Azure Resource Manager|*&lt;región>.&lt;fqdn>*|
+|Azure Resource Manager Admin|adminmanagement.*&lt;región>.&lt;fqdn>*|Azure Resource Manager|*&lt;región>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Un certificado comodín de subdominio múltiple con nombres alternativos del firmante para:<br>&#42;.blob.*&lt;región>.&lt;fqdn>*<br>&#42;.queue.*&lt;región>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;región>.&lt;fqdn>*<br>table.*&lt;región>.&lt;fqdn>*<br>queue.*&lt;región>.&lt;fqdn>*|
 |KeyVault|&#42;.vault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Key Vault|vault.*&lt;región>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|Almacén de claves interno|adminvault.*&lt;región>.&lt;fqdn>*|

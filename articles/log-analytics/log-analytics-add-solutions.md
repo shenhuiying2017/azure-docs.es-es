@@ -1,6 +1,6 @@
 ---
 title: "Adición de soluciones de administración de Azure Log Analytics | Microsoft Docs"
-description: "Las soluciones de administración de Operations Management Suite (OMS)/Log Analytics son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas."
+description: "Las soluciones de administración de Azure son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
-Las soluciones de administración de Log Analytics son una colección de reglas de **lógica**, **visualización** y **adquisición de datos** que proporcionan métricas que giran en torno a una determinada área de problemas. En este artículo se enumeran soluciones de administración compatibles con Log Analytics, y se indica cómo agregarlas y quitarlas de un área de trabajo mediante Azure Portal. También puede agregar soluciones en el portal OMS con la Galería de soluciones.
+Las soluciones de administración de Log Analytics son una colección de reglas de **lógica**, **visualización** y **adquisición de datos** que proporcionan métricas que giran en torno a una determinada área de problemas. En este artículo se enumeran soluciones de administración compatibles con Log Analytics, y se indica cómo agregarlas y quitarlas de un área de trabajo mediante Azure Portal.
 
 Las soluciones de administración permiten obtener información más detallada para:
 
@@ -34,9 +34,9 @@ Las soluciones de administración permiten obtener información más detallada p
 > [!NOTE]
 > Log Analytics incluye la función de búsqueda de registros, por lo que no es necesario instalar una solución de administración para habilitarla. Sin embargo, si agrega soluciones de administración a su área de trabajo, obtendrá visualizaciones de datos, sugerencias de búsqueda e información detallada.
 
-Con este artículo se agregan soluciones de administración a un área de trabajo mediante el portal de Azure Marketplace. Una vez que agrega una solución, se recopilan datos desde los servidores de la infraestructura y se envían al servicio de OMS. El servicio OMS suele tardar en procesar esto entre unos minutos y una hora. Una vez que el servicio procesa los datos, puede verlos en OMS.
+Con este artículo se agregan soluciones de administración a un área de trabajo mediante el portal de Azure Marketplace. Una vez que agrega una solución, se recopilan datos desde los servidores de la infraestructura y se envían a Log Analytics. El procesamiento tarda normalmente entre unos minutos y una hora. Después de que el servicio procesa los datos, puede verlos en Log Analytics.
 
-Es posible quitar fácilmente una solución de administración cuando ya no se necesita. Cuando se quita una solución de administración, sus datos no se envían a OMS. Si se encuentra en el plan de tarifa Gratis, al quitar una solución, se puede reducir la cantidad de datos usados, lo que ayuda a mantenerle dentro de la cuota diaria de datos.
+Es posible quitar fácilmente una solución de administración cuando ya no se necesita. Cuando se quita una solución de administración, sus datos no se envían a Log Analytics. Si se encuentra en el plan de tarifa Gratis, al quitar una solución, se puede reducir la cantidad de datos usados, lo que ayuda a mantenerle dentro de la cuota diaria de datos.
 
 ## <a name="view-available-management-solutions"></a>Visualización de soluciones de administración disponibles
 
@@ -126,14 +126,14 @@ Las soluciones proporcionadas por la comunidad están disponibles en la [galerí
 ## <a name="data-collection-details"></a>Detalles de la recopilación de datos
 En las siguientes tablas se muestran los métodos de recopilación de datos y otros detalles sobre cómo se recopilan datos para los orígenes de datos y las soluciones de administración de Log Analytics. Las tablas se clasifican por ofertas de soluciones, que equivalen a los [planes de tarifa de suscripción](https://go.microsoft.com/fwlink/?linkid=827926). La solución Análisis de registros de actividad está disponible para todos los planes de tarifa de forma gratuita.
 
-El agente de Windows de Log Analytics y el agente de System Center Operations Manager son básicamente iguales. El agente de Windows incluye funcionalidad adicional que permite que conectarse al área de trabajo de OMS y enrutarse a través de un servidor proxy. Si usa un agente de Operations Manager, debe dirigirse como un agente de OMS para comunicarse con OMS. Los agentes de Operations Manager de esta tabla son agentes de OMS que están conectados a Operations Manager. Para información sobre cómo conectar el entorno de Operations Manager existente con OMS, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
+El agente de Windows de Log Analytics y el agente de System Center Operations Manager son básicamente iguales. El agente de Windows incluye funcionalidad adicional que le permite conectarse al área de trabajo de Log Analytics y enrutarse a través de un servidor proxy. Si usa un agente de Operations Manager, se le debe dirigir como un agente de OMS para comunicarse con Log Analytics. Los agentes de Operations Manager de esta tabla son agentes de OMS que están conectados a Operations Manager. Para información sobre cómo conectar el entorno de Operations Manager existente con Log Analytics, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
-> El tipo de agente que use determina cómo se envían los datos a OMS, con las condiciones siguientes:
+> El tipo de agente que use determina cómo se envían los datos a Log Analytics, con las condiciones siguientes:
 > - Use el agente de Windows o un agente de OMS conectado a Operations Manager.
-> - Cuando se requiere Operations Manager, siempre se envían los datos del agente de Operations Manager para la solución a OMS mediante el grupo de administración de Operations Manager. Además, cuando se requiere Operations Manager, la solución solo usa el agente de Operations Manager.
-> - Cuando no se necesita Operations Manager y en la tabla se muestra que se envían los datos del agente de Operations Manager a OMS mediante el grupo de administración, los datos del agente de Operations Manager siempre se envían a OMS mediante grupos de administración. Los agentes de Windows omiten el grupo de administración y envían los datos directamente a OMS.
-> - Cuando los datos del agente de Operations Manager no se envían mediante un grupo de administración, se envían directamente a OMS, pasando por alto el grupo de administración.
+> - Cuando se requiere Operations Manager, siempre se envían los datos del agente de Operations Manager de la solución a Log Analytics mediante el grupo de administración de Operations Manager. Además, cuando se requiere Operations Manager, la solución solo usa el agente de Operations Manager.
+> - Cuando no se requiere Operations Manager y en la tabla se muestra que los datos del agente de Operations Manager se envían a Log Analytics mediante el grupo de administración, los datos del agente de Operations Manager siempre se envían a Log Analytics mediante grupos de administración. Los agentes de Windows omiten el grupo de administración y envían los datos directamente a Log Analytics.
+> - Cuando los datos del agente de Operations Manager no se envían mediante un grupo de administración, se envían directamente a Log Analytics y se pasa por alto el grupo de administración.
 
 ### <a name="insight--analytics--log-analytics"></a>Insight and Analytics/Log Analytics
 
@@ -242,7 +242,7 @@ La siguiente información se aplica a las versiones preliminares tanto públicas
 * Las cosas no siempre funcionan como deben.
   * Las incidencias pueden ir desde una pequeña minucia hasta que algo directamente no funcione.
 * Existe la posibilidad de que la versión preliminar tenga un impacto negativo en sus sistemas o su entorno.
-  * Intentamos evitar que se produzcan situaciones adversas en los sistemas que se usan con OMS, pero a veces surgen imprevistos.
+  * Intentamos evitar que se produzcan situaciones adversas en los sistemas usados, pero a veces surgen imprevistos.
 * Se pueden producir pérdidas de datos y daños.
 * Puede que le pidamos que recopile registros de diagnóstico u otros datos como ayuda para solucionar problemas.
 * La característica o solución se puede quitar (temporal o permanentemente).

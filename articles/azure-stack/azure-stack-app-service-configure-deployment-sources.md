@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Configuración de orígenes de implementación
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -49,8 +49,7 @@ Debe tener una cuenta de GitHub para completar esta tarea. Puede que desee usar 
 2. Escriba el **nombre de la aplicación**, por ejemplo, App Service en Azure Stack.
 3. Escriba la **dirección URL de la página principal**. La dirección URL de la página de inicio debe ser la de Azure Stack Portal. Por ejemplo, https://portal.local.azurestack.external.
 4. Escriba la **descripción de la aplicación**.
-5. Escriba la **URL de devolución de llamada de autorización**.  En una implementación de Azure Stack predeterminada, la dirección URL tiene el formato https://portal.local.azurestack.external/tokenauthorize. Si está usando otro dominio, sustituya el suyo por azurestack.local.
-    ![GitHub: registro de una aplicación nueva con valores completados][4]
+5. Escriba la **URL de devolución de llamada de autorización**.  En una implementación de Azure Stack predeterminada, la dirección URL tiene el formato https://portal.local.azurestack.external/tokenauthorize. Si está usando otro dominio, sustituya el suyo por azurestack.local.external ![GitHub: Registro de una nueva aplicación con los valores rellenados][4].
 6. Haga clic en **Register application** (Registrar aplicación).  Se le mostrará ahora con una página con el **identificador de cliente** y el **secreto de cliente** de la aplicación.
     ![GitHub - Registro de aplicación completado][5]
 7.  En una nueva pestaña o ventana del explorador, inicie sesión en el Portal de administración de Azure Stack (https://adminportal.local.azurestack.external) como administrador de servicios.

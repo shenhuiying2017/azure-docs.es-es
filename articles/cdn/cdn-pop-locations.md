@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 242be346f975e013004c520a41bf14b95a3f27a4
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Ubicaciones POP de CDN de Azure
 En este artículo se enumeran las ubicaciones de puntos de presencia (POP) actuales para **Azure CDN de Verizon** y **Azure CDN de Akamai**.
@@ -37,8 +37,9 @@ En este artículo se enumeran las ubicaciones de puntos de presencia (POP) actua
 | Europa del Norte y Europa del Este | Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Varsovia, Polonia<br />Estocolmo, Suecia | Dinamarca<br />Polonia<br />Suecia<br /> |
 | Europa Occidental | Viena, Austria<br />París, Francia<br />Fráncfort, Alemania<br />Ámsterdam, Países Bajos<br />Londres, Reino Unido | Austria<br />Francia<br />Alemania<br />Irlanda<br />Países Bajos<br />Suiza<br />Reino Unido |
 | Europa del Sur | Milán, Italia<br />Madrid, España | Italia<br />España |
-| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Bombay, India<br />Nueva Delhi, India<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />India<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
+| África | Johannesburgo (Sudáfrica) | |
 | Oriente Medio | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar |
+| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Bombay, India<br />Nueva Delhi, India<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />India<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
 | Australia y Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Australia<br />Nueva Zelanda |
 
 ## <a name="see-also"></a>Otras referencias

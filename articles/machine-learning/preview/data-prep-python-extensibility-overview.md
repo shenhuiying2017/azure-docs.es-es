@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensiones de Python para la preparación de datos
 Como método para completar vacíos de funcionalidad entre características integradas, Preparación de datos de Azure Machine Learning incluye una extensibilidad en varios niveles. En este documento se indica la extensibilidad mediante un script de Python. 
@@ -125,7 +125,7 @@ o
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Uso de módulos personalizados
-En Transformar flujo de datos (script), escriba código Python como el siguiente:
+En Transform Dataflow (Script) (Transformar flujo de datos [script]), escriba el siguiente código Python:
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-En Agregar columna (script), establezca Code Block Type = Module y escriba el código Python siguiente:
+En Add Column (Script) (Agregar columna [script]), establezca Code Block Type = Module (Tipo de bloque de código = Módulo) y escriba el siguiente código Python:
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-En el caso de contextos de ejecución distintos (local, docker spark), dirija la ruta de acceso absoluta al lugar correcto. Es posible que desee usar "os.getcwd() + relativePath" para localizarlo.
+En contextos de ejecución diferentes (local, Docker, Spark), apunte la ruta de acceso absoluta al lugar adecuado. Es posible que desee usar "os.getcwd() + relativePath" para localizarlo.
 
 
 ## <a name="column-data"></a>Datos de columna 

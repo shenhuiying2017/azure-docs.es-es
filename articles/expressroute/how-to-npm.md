@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
@@ -43,7 +43,8 @@ Puede:
 
 Puede supervisar circuitos ExpressRoute en cualquier parte del mundo mediante un área de trabajo que se hospeda en una de las siguientes regiones:
 
-* Europa occidental 
+* Europa occidental
+* Centro occidental de EE.UU.
 * Este de EE. UU 
 * Sudeste de Asia 
 * Sudeste de Australia
@@ -57,14 +58,13 @@ Se instalan agentes de supervisión en varios servidores, tanto en el entorno lo
     * Instale agentes de supervisión en los servidores locales y las máquinas virtuales de Azure.
     * Configure las opciones en los servidores de agente de supervisión para permitir que estos agentes se comuniquen. (Por ejemplo, abrir puertos del firewall).
 3. Configure las reglas de grupo de seguridad de red (NSG) para permitir que el agente de supervisión instalado en las máquinas virtuales de Azure se comuniquen con agentes de supervisión locales.
-4. Solicitud de incorporar el área de trabajo de Network Performance Monitor a la lista blanca.
-5. Configure la supervisión de la detección automática y administre las redes que están visibles en Network Performance Monitor.
+4. Configure la supervisión de la detección automática y administre las redes que están visibles en Network Performance Monitor.
 
 Si ya usa Network Performance Monitor para supervisar otros servicios u objetos y ya dispone de un área de trabajo en una de las regiones admitidas, puede omitir el paso 1 y 2 y empezar la configuración en el paso 3.
 
-## <a name="configure"></a>Paso 1: Creación de un área de trabajo
+## <a name="configure"></a>Paso 1: Creación de un área de trabajo (en la suscripción que tiene las redes virtuales vinculadas a los circuitos de ExpressRoute)
 
-1. En [Azure Portal](https://portal.azure.com), busque "Network Performance Monitor" en la lista de servicios de **Marketplace**. Cuando se devuelva el resultado, haga clic para abrir la página **Network Performance Monitor**.
+1. En [Azure Portal](https://portal.azure.com), seleccione la suscripción que tiene las redes virtuales emparejadas al circuito de ExpressRoute. A continuación, busque en la lista de servicios de **Marketplace** "Network Performance Monitor". Cuando se devuelva el resultado, haga clic para abrir la página **Network Performance Monitor**.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de OMS - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
@@ -105,7 +105,7 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
 
   ![Script de PowerShell](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Instalación de un agente de supervisión en cada servidor de supervisión
+### <a name="installagent"></a>2.2: Instalación de un agente de supervisión en cada servidor de supervisión (en cada red virtual que quiera supervisar)
 
 Le recomendamos que instale al menos dos agentes en cada lado de la conexión de ExpressRoute (por ejemplo, en el entorno local y en las redes virtuales de Azure) para obtener redundancia. Use los pasos siguientes para instalar agentes:
 
@@ -127,6 +127,8 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
 6. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
 8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Allí puede revisar la configuración y comprobar que el agente esté conectado a Visión operativa (OMS). Cuando se conecta a OMS, el agente muestra un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
+
+9. Repita este paso con cada red virtual que quiera que se supervise.
 
 ### <a name="proxy"></a>2.3: Configuración de los valores de proxy (opcional)
 
@@ -165,7 +167,7 @@ El puerto 8084 se abre de forma predeterminada. Puede utilizar un puerto persona
 >
 >
 
-En los servidores de agente, abra una ventana de PowerShell con privilegios administrativos. Ejecute el script [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) de PowerShell (que descargó anteriormente). No utilice ningún parámetro.
+En los servidores de agente, abra una ventana de PowerShell con privilegios administrativos. Ejecute el script [EnableRules](https://aka.ms/npmpowershellscript) de PowerShell (que descargó anteriormente). No utilice ningún parámetro.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Para más información, consulte [Grupos de seguridad de red](../virtual-network
 
 ## <a name="setupmonitor"></a>Paso 4: Configuración de Network Performance Monitor para la supervisión de ExpressRoute
 
->[!WARNING]
->No continúe hasta que el área de trabajo se encuentre en la lista blanca y reciba un correo electrónico de confirmación.
->
->
-
-Después de completar las secciones anteriores y de comprobar que ha estado en la lista blanca, puede configurar la supervisión.
+Después de completar las secciones anteriores, puede configurar la supervisión.
 
 1. Navegue hasta el icono de información general de Network Performance Monitor, vaya a la página **Todos los recursos** y haga clic en el área de trabajo de Network Performance Monitor que se encuentra en la lista blanca.
 

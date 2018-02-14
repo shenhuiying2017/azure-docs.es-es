@@ -11,20 +11,20 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Envío de eventos a Azure Event Hubs mediante .NET Framework
 
 ## <a name="introduction"></a>Introducción
 
-Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
+Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Event Hubs, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
 
 En este tutorial se muestra cómo usar [Azure Portal](https://portal.azure.com) para crear un centro de eventos. También muestra cómo enviar eventos a un centro de eventos mediante una aplicación de consola escrita en C# con .NET Framework. Para recibir eventos mediante .NET Framework, consulte el artículo [Get started with Event Hubs using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) (Introducción al uso de .NET Framework por parte de Event Hubs) o haga clic en el idioma de recepción correspondiente en la tabla de contenido de la izquierda.
 
@@ -39,7 +39,7 @@ El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para cr
 
 ## <a name="create-a-sender-console-application"></a>Creación de una aplicación de consola de remitente
 
-En esta sección se escribirá una aplicación de consola Windows que envía eventos al centro de eventos.
+En esta sección se va escribir una aplicación de consola Windows que envía eventos al centro de eventos.
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **Remitente**.
    
@@ -49,7 +49,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
-    Visual Studio descarga, instala y agrega una referencia al [paquete NuGet de la biblioteca del Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+    Visual Studio descarga, instala y agrega una referencia al [paquete NuGet de la biblioteca de Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
   ```csharp
@@ -99,9 +99,9 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
   ```
 8. Ejecute el programa y asegúrese de que no hay ningún error.
   
-¡Enhorabuena! Ha enviado mensajes a un centro de eventos.
+Felicidades. Ha enviado mensajes a un centro de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía datos, puede pasar a los siguientes escenarios:
 
 * [Recepción de eventos mediante el Host de procesador de eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)

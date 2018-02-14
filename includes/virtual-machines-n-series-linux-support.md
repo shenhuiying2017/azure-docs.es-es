@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>Instancias de NC, NCv2 y ND: controladores de NVIDIA CUDA
 | Distribución | Controlador |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Basado en CentOS 7.3 | NVIDIA CUDA 9.1, rama de controlador R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 o 7.4<br/><br/> CentOS 7.3 o 7.4 | NVIDIA CUDA 9.1, rama de controlador R390 |
+
+> [!IMPORTANT]
+> Asegúrese de instalar o actualizar los controladores más recientes de CUDA para su distribución. Los controladores con una versión anterior a la R390 pueden tener problemas con los kernels de Linux actualizados.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>Instancias de NV - Controladores de NVIDIA GRID
 

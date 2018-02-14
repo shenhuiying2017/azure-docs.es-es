@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Inicio rápido: Pausar y reanudar un proceso en una instancia de Azure SQL Data Warehouse en PowerShell
 Use PowerShell para pausar un proceso para que una instancia de Azure SQL Data Warehouse ahorre costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
@@ -59,12 +59,13 @@ Siga estos pasos para buscar información de ubicación para el almacenamiento d
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En la página izquierda de Azure Portal, haga clic en **Bases de datos SQL**.
-3. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abrirá el almacenamiento de datos. 
+3. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abre el almacenamiento de datos.
 
     ![Nombre del servidor y grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote el nombre del almacenamiento de datos que se usará como nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los usará en los comandos para pausar y reanudar.
-5. Si su servidor es foo.database.windows.net, use solo la primera parte como nombre de servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es newserver-20171113.database.windows.net. Usaremos **newserver-20171113** como nombre del servidor en el cmdlet de PowerShell.
+4. Anote el nombre del almacenamiento de datos, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los 
+5.  usará en los comandos para pausar y reanudar.
+6. Si su servidor es foo.database.windows.net, use solo la primera parte como nombre de servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es newserver-20171113.database.windows.net. Elimine el sufijo y use **newserver-20171113** como nombre del servidor en el cmdlet de PowerShell.
 
 ## <a name="pause-compute"></a>Pausa del proceso
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento. 

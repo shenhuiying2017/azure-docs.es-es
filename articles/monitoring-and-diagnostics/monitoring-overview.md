@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Supervisión de aplicaciones y recursos de Azure
 
@@ -50,10 +50,10 @@ Los siguientes servicios de Azure proporcionan funcionalidades enriquecidas para
 [Application Insights](http://azure.microsoft.com/documentation/services/application-insights) permite supervisar la disponibilidad, el rendimiento y el uso de la aplicación, tanto si se hospeda en la nube como en un entorno local.  Mediante la instrumentación de la aplicación para que funcione con Application Insights, puede obtener información detallada, lo que le permite identificar rápidamente y diagnosticar errores sin tener que esperar a que un usuario informe de ellos. Con la información que recopile, puede tomar decisiones informadas sobre el mantenimiento y las mejoras de la aplicación.  Además de las herramientas extensas para interactuar con los datos que recopila, Application Insights almacena sus datos en un repositorio común para aprovechar la funcionalidad compartida, como las alertas, los paneles y un análisis profundo con el lenguaje de consulta de Log Analytics.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) desempeña un rol fundamental en la supervisión de Azure mediante la recopilación de datos de una variedad de recursos en un solo repositorio donde se pueden analizar con un lenguaje de consulta eficaz.  Application Insights y Azure Security Center almacenan sus datos en el almacén de datos de Log Analytics y utilizan su motor de análisis.  Todo esto combinado con los datos recopilados de Azure Monitor, de las soluciones de administración y de los agentes instalados en máquinas virtuales locales o en la nube le permite crear una imagen completa de todo el entorno. 
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) desempeña un rol fundamental en la supervisión de Azure mediante la recopilación de datos de una variedad de recursos en un solo repositorio donde se pueden analizar con un lenguaje de consulta eficaz.  Application Insights y Azure Security Center almacenan sus datos en el almacén de datos de Log Analytics y utilizan su motor de análisis.  Todo esto combinado con los datos recopilados de Azure Monitor, de las soluciones de administración y de los agentes instalados en máquinas virtuales locales en la nube o en el entorno local le permite crear una imagen completa de todo el entorno. 
 
 
-### <a name="service-map"></a>Service Map
+### <a name="service-map"></a>Mapa de servicio
 [Service Map](../operations-management-suite/operations-management-suite-service-map.md) proporciona información de su entorno de IaaS mediante el análisis de las máquinas virtuales con sus distintos procesos y dependencias de otros equipos y procesos externos.  Integra eventos, datos de rendimiento y soluciones de administración en Log Analytics, para que pueda ver estos datos en el contexto de cada equipo y su relación con el resto de su entorno.  Service Map es similar al [mapa de aplicación de Application Insights](../application-insights/app-insights-app-map.md), pero se centra en los componentes de la infraestructura que respaldan las aplicaciones.
 
 ### <a name="network-watcher"></a>Network Watcher

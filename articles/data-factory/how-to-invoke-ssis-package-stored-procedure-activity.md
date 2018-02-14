@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -34,7 +34,7 @@ El tutorial de este artículo usa una instancia de Azure SQL Database que hosped
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial Implementación paquetes de SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interfaz de usuario de Data Factory (Azure Portal)
-En esta sección, se usa la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
+En esta sección, usará la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 El primer paso es crear una factoría de datos con Azure Portal. 
@@ -97,8 +97,8 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
     1. En el campo **Stored procedure name** (Nombre del procedimiento almacenado), escriba `sp_executesql`. 
     2. Haga clic en **+ New** (+ Nuevo) en la sección **Stored procedure parameters** (Parámetros del procedimiento almacenado). 
     3. En el **nombre** del parámetro, escriba **stmt**. 
-    4. En el **tipo** de parámetro, escriba **Cadena** . 
-    5. En el valor **value** del parámetro, escriba la consulta SQL siguiente.
+    4. En el **tipo** de parámetro, escriba **Cadena**. 
+    5. En el **valor** del parámetro, escriba la consulta SQL siguiente:
 
         En la consulta SQL, especifique los valores correctos para los parámetros **folder_name**, **project_name** y **package_name**. 
 
@@ -133,10 +133,12 @@ En esta sección, desencadena una ejecución de canalización y luego la supervi
 
     ![Comprobación de las ejecuciones del paquete](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-También puede crear un desencadenador programado para la canalización de manera que esta se ejecute según una programación (por hora, cada día, etc.). Para ver un ejemplo, consulte [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule) (Creación de una factoría de datos: interfaz de usuario de Data Factory).
+
+> [!NOTE]
+> También puede crear un desencadenador programado para la canalización de manera que esta se ejecute según una programación (por hora, cada día, etc.). Para ver un ejemplo, consulte [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule) (Creación de una factoría de datos: interfaz de usuario de Data Factory).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-En esta sección, se usa Azure PowerShell para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS. 
+En esta sección, usará Azure PowerShell para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS. 
 
 Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 

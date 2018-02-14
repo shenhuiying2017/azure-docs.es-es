@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
@@ -190,43 +190,29 @@ No puede mover una red virtual a otra suscripción distinta si la red virtual co
 
 ## <a name="app-service-limitations"></a>limitaciones de App Service
 
-Si se trabaja con aplicaciones de App Service, no se puede mover solo un plan de App Service. Para mover las aplicaciones de App Service, las opciones son:
+Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva.
 
-* Trasladar el plan de App Service y el resto de recursos de App Service de ese grupo de recursos a un nuevo grupo que aún no tenga recursos de App Service. Este requisito significa que debe trasladar incluso los recursos de App Service que no estén asociados al plan de App Service.
-* Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes de App Service del grupo de recursos original.
+### <a name="moving-within-the-same-subscription"></a>Moverlos dentro de la misma suscripción
 
-Sin embargo, no es necesario que el plan de App Service resida en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
+Al mover una instancia de Web App _dentro de la misma suscripción_, no se pueden mover los certificados SSL cargados. Sin embargo, puede mover una instancia de Web App al nuevo grupo de recursos sin mover su certificado SSL cargado y la funcionalidad SSL de la aplicación seguirá funcionando. 
 
-Por ejemplo, si el grupo de recursos contiene:
+Si desea mover el certificado SSL junto con la instancia de Web App, siga estos pasos:
 
-* **web-a** asociada a **plan-a**
-* **web-b** asociada a **plan-b**
+1.  Elimine el certificado cargado desde la instancia de Web App.
+2.  Traslade la instancia.
+3.  Cargue el certificado en la instancia de Web App trasladada.
 
-Tendrá las siguientes opciones:
+### <a name="moving-across-subscriptions"></a>Moverlos entre suscripciones
 
-* Trasladar **web-a**, **plan-a**, **web-b** y **plan-b**
-* Trasladar **web-a** y **web-b**
-* Mover **web-a**
-* Mover **web-b**
+Al mover una instancia de Web App _entre suscripciones_, se aplican las limitaciones siguientes:
 
-Todas las demás combinaciones implican dejar un tipo de recurso que debe trasladarse al mover un plan de App Service (cualquier tipo de recurso de App Service).
-
-Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan de App Service, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo: 
-
-* **web-a** reside en **web-group**.
-* **plan-a** reside en **plan-group**.
-* Desea que **web-a** y **plan-a** residan en **combined-group**.
-
-Para realizar este movimiento, debe llevar a cabo dos operaciones de traslado distintas en el siguiente orden:
-
-1. Trasladar **web-a** a **plan-group**.
-2. Trasladar **web-a** y **plan-a** a **combined-group**.
-
-Puede mover una instancia de App Service Certificate a un nuevo grupo de recursos o a una nueva suscripción sin ningún problema. Sin embargo, si la aplicación web incluye un certificado SSL que adquirió externamente y que cargó en la aplicación, debe eliminar el certificado antes de trasladar la aplicación web. Por ejemplo, puede realizar los pasos siguientes:
-
-1. Eliminar el certificado cargado desde la aplicación web
-2. Trasladar la aplicación web
-3. Cargar el certificado a la aplicación web
+- El grupo de recursos de destino no debe tener ningún recurso de App Service. Entre los recursos de App Service se incluyen:
+    - Web Apps
+    - Planes de App Service
+    - Certificados SSL cargados o importados
+    - Entornos de App Service
+- Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente.
+- Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no se encuentra en su grupo de recursos original, deberá devolverse a este en primer lugar y, a continuación, se podrá mover entre suscripciones. 
 
 ## <a name="classic-deployment-limitations"></a>limitaciones de la implementación clásica
 

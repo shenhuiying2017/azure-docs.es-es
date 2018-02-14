@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"> </a> Imágenes de Visual Studio en Azure
 Usar Visual Studio en una máquina virtual (VM) preconfigurada de Azure es la forma más fácil y rápida de crear un entorno de desarrollo que funcione correctamente desde cero.  En [Azure Marketplace](https://portal.azure.com/) encontrará varias imágenes del sistema con distintas configuraciones de Visual Studio. Solo tiene que iniciar una VM y comenzar a trabajar.
@@ -27,14 +27,14 @@ Usar Visual Studio en una máquina virtual (VM) preconfigurada de Azure es la fo
 ¿Acaba de llegar a Azure? [Creación de una cuenta de Azure gratis](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>¿Qué configuraciones y versiones están disponibles?
-En Azure Marketplace encontrará imágenes de las versiones principales más recientes: Visual Studio 2017 y Visual Studio 2015.  Igualmente, en cada versión principal podrá ver la versión de lanzamiento original (también conocida como "RTW") y las "últimas" versiones actualizadas.  En cada una de estas versiones encontrará las ediciones Visual Studio Enterprise y Visual Studio Community.
+En Azure Marketplace encontrará imágenes de las versiones principales más recientes: Visual Studio 2017 y Visual Studio 2015.  Igualmente, en cada versión principal podrá ver la versión de lanzamiento original (también conocida como "RTW") y las "últimas" versiones actualizadas.  En cada una de estas versiones encontrará las ediciones Visual Studio Enterprise y Visual Studio Community.  Actualizamos estas imágenes al menos cada mes para incluir las actualizaciones más recientes de Visual Studio y Windows.  Aunque los nombres de las imágenes siguen siendo los mismos, la descripción de cada imagen incluye la versión del producto instalada y la fecha inicial de la imagen.
 
-|               Versión de lanzamiento              |          Ediciones            |    Versión del producto    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017: la más reciente (versión 15.5) |    Enterprise, Community     |     Versión 15.5.3    |
-|         Visual Studio 2017: RTW           |    Enterprise, Community     |     Versión 15.0.7    |
-|   Visual Studio 2015: la más reciente (Update 3)   |    Enterprise, Community     | Versión 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | Ninguna (servicio de mantenimiento expirado) |          ---          |
+|               Versión de lanzamiento              |          Ediciones            |     Versión del producto     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017: la más reciente (versión 15.5) |    Enterprise, Community     |      Versión 15.5.3     |
+|         Visual Studio 2017: RTW           |    Enterprise, Community     |      Versión 15.0.7     |
+|   Visual Studio 2015: la más reciente (Update 3)   |    Enterprise, Community     |  Versión 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              None            | (Servicio de mantenimiento expirado) |
 
 > [!NOTE]
 > De acuerdo con la directiva de mantenimiento de Microsoft, el servicio de mantenimiento de la versión de lanzamiento original (también conocida como "RTW") de Visual Studio 2015 ya no está activo.  Por este motivo, Visual Studio 2015 Update 3 es la única versión que se ofrece en la línea de productos de Visual Studio 2015.
@@ -52,20 +52,32 @@ Cada imagen contiene el conjunto de características recomendado para esa edici�
 
 Esta es la línea de comandos que se usa para instalar Visual Studio al compilar las imágenes:
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 Si las imágenes no incluyen la característica de Visual Studio que necesita, envíe un comentario mediante la herramienta para crear comentarios que se encuentra en la esquina superior derecha de la página.
 
 ## <a name="what-size-vm-should-i-choose"></a>¿Qué tamaño de VM debería elegir?
-Es muy fácil aprovisionar una máquina virtual nueva y Azure le ofrece un amplio abanico de tamaños para ella.  Igual que sucede cuando compra cualquier tipo de hardware, lo que le interesa es conseguir una buena relación entre el rendimiento y el costo.  Dado que Visual Studio es una eficaz aplicación multiproceso, es recomendable que la VM tenga un tamaño que pueda incluir al menos dos procesadores y 7 GB de memoria.  Para obtener más información acerca de los tamaños más recientes de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Es muy fácil aprovisionar una máquina virtual nueva y Azure le ofrece un amplio abanico de tamaños para ella.  Igual que sucede cuando compra cualquier tipo de hardware, lo que le interesa es conseguir una buena relación entre el rendimiento y el costo.  Dado que Visual Studio es una eficaz aplicación multiproceso, es recomendable que la VM tenga un tamaño que pueda incluir al menos dos procesadores y 7 GB de memoria.  Estos son los tamaños de máquina virtual recomendados para las imágenes de Visual Studio:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+Para obtener más información acerca de los tamaños más recientes de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 Además, gracias a Azure no estará limitado a su primera elección: puede volver a equilibrar la decisión inicial cambiando el tamaño de VM.  También puede aprovisionar una nueva VM con un tamaño más adecuado o puede cambiar el tamaño de la VM existente en otro hardware subyacente.  Para obtener más información, consulte [Cambio de tamaño de una máquina virtual Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
@@ -76,7 +88,7 @@ Visual Studio sigue el modelo "traiga su propia licencia" en Azure.  Así pues, 
 
 Hay una amplia gama de entornos de desarrollo y, si quiere compilar uno de los entornos más complejos, esto le supondrá un costo significativo.  Sin embargo, con independencia de la configuración del entorno, Azure le permite conservar su inversión fácilmente; para ello, se guarda o captura la VM que ya esté configurada como "imagen base" para que usted o su equipo puedan usarla en un futuro.  A continuación, al arrancar la nueva VM, debe aprovisionarla desde la imagen base, en vez de usar la imagen de Marketplace.
 
-Resumiendo: deberá usar la herramienta de preparación del sistema y apagar la VM que se esté ejecutando. A continuación, *capture (figura 1)* la VM como una imagen mediante la interfaz de usuario de Azure Portal.  Azure guardará el archivo `.vhd` que contiene la imagen en la cuenta de almacenamiento de su elección.  A continuación, la nueva imagen se muestra como un recurso de imagen en la lista de recursos de la suscripción.
+Resumiendo: deberá usar la herramienta de preparación del sistema y apagar la VM que se esté ejecutando. A continuación, *capture (figura 1)* la VM como una imagen mediante la interfaz de usuario de Azure Portal.  Azure guarda el archivo `.vhd` que contiene la imagen en la cuenta de almacenamiento de su elección.  A continuación, la nueva imagen se muestra como un recurso de imagen en la lista de recursos de la suscripción.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal’s UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Capturar una imagen mediante la interfaz de usuario de Azure Portal.*</center>
 

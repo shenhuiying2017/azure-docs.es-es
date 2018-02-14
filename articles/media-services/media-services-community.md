@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services
 Esta página de la comunidad de Azure Media Services (AMS) describe diferentes maneras de obtener actualizaciones de AMS. También puede ver nuevos vídeos y podcasts, hacer preguntas y proporcionar comentarios.   
@@ -29,26 +29,27 @@ Esta página de la comunidad de Azure Media Services (AMS) describe diferentes m
 - [Protecting your Media Content with AES Encryption](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
 - [Azure Media Services Developer Deep Dive](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
 - [Azure Media Indexer automatically creates transcripts for your media](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
-- [Microsoft Hyperlapse in Azure Media Services with Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
+
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Comentarios y sugerencias
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discusión
 ### <a name="twitter"></a>Twitter
-Utilice el nombre de usuario de Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para seguir las noticias y actualizaciones de AMS en Twitter. Puede usar el nombre de usuario de Twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar soporte técnico en Twitter.  
+Use el identificador de Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para ponerse en contacto con nosotros o para seguir las actualizaciones en Twitter. Puede usar el nombre de usuario de Twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar soporte técnico en Twitter.  
 
 ### <a name="online-forums"></a>Foros en línea
 Los siguientes foros se pueden usar para hacer preguntas sobre las características y los productos actuales.
 
-Actualmente, MSDN es el foro principal de AMS.
+Actualmente, MSDN es el foro principal de la comunidad del equipo de Media Services.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
+El equipo también supervisa las preguntas etiquetadas con "azure-media-services" en Stack Overflow.
 [![Stackoverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
-El correo electrónico principal de Azure Media Services es: **mediaservices@microsoft.com**.
+El correo electrónico principal del soporte técnico de Azure Media Services es: **amshelp@microsoft.com**.
 
 La siguiente tabla enumera el correo electrónico de los subequipos de las características:
 

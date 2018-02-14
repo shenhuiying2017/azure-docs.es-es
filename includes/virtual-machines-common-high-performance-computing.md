@@ -64,7 +64,7 @@ Ejecute aplicaciones HPC personalizadas o comerciales en Azure. Se realizan prue
 
 ### <a name="graphics-and-rendering"></a>Gráficos y representación
 
-* [Autodesk Maya, 3ds Max y Arnold](../articles/batch/batch-rendering-service.md) en Azure Batch (versión preliminar)
+* [Autodesk Maya, 3ds Max y Arnold](../articles/batch/batch-rendering-service.md) en Azure Batch 
 
 ### <a name="ai-and-deep-learning"></a>Inteligencia artificial y aprendizaje profundo
 
@@ -103,11 +103,12 @@ Los proveedores o desarrolladores SaaS pueden usar los SDK y las herramientas de
 
 Obtenga información sobre cómo:
 
-* [Empezar a desarrollar con Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Empezar a desarrollar con Batch](../articles/batch/quick-run-dotnet.md)
 * [Usar ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
 * [Uso de máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
 * [Ejecutar cargas de trabajo de HPC en contenedores con Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Usar el lenguaje R con Batch](https://github.com/Azure/doAzureParallel)
+* [Ejecutar Azure Distributed Data Engineering Toolkit en Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Administradores de cargas de trabajo
 
@@ -127,6 +128,7 @@ Las cargas de trabajo a gran escala de Batch y HPC presentan una demanda de alma
 Más información:
 
 * [Sistemas de archivos en paralelo para el almacenamiento de HPC en Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Soluciones de almacenamiento en la nube de alto rendimiento de [Avere](http://www.averesystems.com/about-us/about-avere) (ahora [combinadas con Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Servicios de Azure relacionados
@@ -139,11 +141,14 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 * [Almacenamiento de archivos](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Datos y análisis
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clústeres de Hadoop en Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Factoría de datos](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI y Cognitive Services
+* [Inteligencia artificial de Batch](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Redes
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -172,7 +177,7 @@ Estos son ejemplos de clientes que han resuelto problemas empresariales con las 
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre las soluciones de Big Compute para [simulación de ingeniería](https://simulation.azure.com/), [representación](https://simulation.azure.com/), [los mercados de capital y banca](https://finance.azure.com/) y [genómica](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Para los anuncios más recientes, lea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

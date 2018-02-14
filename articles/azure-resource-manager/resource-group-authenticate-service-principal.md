@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {ID} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {ID} no existe en el directorio).
+El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "PrincipalNotFound: La entidad de seguridad {ID} no existe en el directorio".
 
 El siguiente script le permite especificar un ámbito distinto de la suscripción predeterminada y vuelve a intentar la asignación de roles si se produce un error:
 
@@ -128,7 +128,7 @@ Algunos elementos que hay que indicar sobre el script:
 * Para conceder el acceso de identidad a la suscripción predeterminada, no es preciso proporcionar los parámetros ResourceGroup o SubscriptionId.
 * Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos.
 *  En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
-* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {ID} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {ID} no existe en el directorio).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "PrincipalNotFound: La entidad de seguridad {ID} no existe en el directorio".
 * Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {ID} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {ID} no existe en el directorio).
+El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "PrincipalNotFound: La entidad de seguridad {ID} no existe en el directorio".
 
 El siguiente script le permite especificar un ámbito distinto de la suscripción predeterminada y vuelve a intentar la asignación de roles si se produce un error. Debe tener Azure PowerShell 2.0 en Windows 10 o Windows Server 2016.
 
@@ -223,7 +223,7 @@ Algunos elementos que hay que indicar sobre el script:
 * Para conceder el acceso de identidad a la suscripción predeterminada, no es preciso proporcionar los parámetros ResourceGroup o SubscriptionId.
 * Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos.
 * En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
-* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {ID} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {ID} no existe en el directorio).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "PrincipalNotFound: La entidad de seguridad {ID} no existe en el directorio".
 * Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
 
 Si **no tiene Windows 10 o Windows Server 2016 Technical Preview**, descargue el [generador de certificados autofirmados](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) del sitio Microsoft Script Center. Extraiga el contenido e importe el cmdlet que necesita.
@@ -321,7 +321,7 @@ Algunos elementos que hay que indicar sobre el script:
 
 * El acceso se limita a la suscripción.
 * En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
-* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {ID} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {ID} no existe en el directorio).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "PrincipalNotFound: La entidad de seguridad {ID} no existe en el directorio".
 * Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Proporcionar un certificado a través de un script automatizado de PowerShell

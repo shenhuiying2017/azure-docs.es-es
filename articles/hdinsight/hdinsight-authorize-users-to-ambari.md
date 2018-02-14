@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorización de usuarios para vistas de Ambari
 
-Los [clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-introduction.md) proporcionan funcionalidades empresariales, incluida la autenticación basada en Azure Active Directory. Puede sincronizar los usuarios nuevos <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> agregados a los grupos de Azure AD que han proporcionado el acceso al clúster, permitiendo que esos usuarios específicos realicen determinadas acciones. El trabajo con usuarios, grupos y permisos en Ambari es compatible tanto con clústeres de HDInsight unidos a un dominio como con clústeres de HDInsight estándar.
+Los [clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-introduction.md) proporcionan funcionalidades empresariales, incluida la autenticación basada en Azure Active Directory. Puede [sincronizar los usuarios nuevos](hdinsight-sync-aad-users-to-cluster.md) agregados a los grupos de Azure AD a los que se ha proporcionado acceso al clúster y permitir que esos usuarios específicos realicen determinadas acciones. El trabajo con usuarios, grupos y permisos en Ambari es compatible tanto con clústeres de HDInsight unidos a un dominio como con clústeres de HDInsight estándar.
 
 Los usuarios de Active Directory pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticar las interacciones del clúster con otros puntos de conexión aprobados como Hue, Ambari Views, ODBC, JDBC, PowerShell y las API de REST.
 
@@ -145,5 +145,4 @@ Se ha asignado al usuario del dominio de Azure AD "hiveuser2" el rol *Cluster Us
 * [Configuración de directivas de Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
 * [Administración de clústeres de HDInsight unidos a dominio](./domain-joined/apache-domain-joined-manage.md)
 * [Uso de Vista de Hive con Hadoop en HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Sincronización de usuarios de Azure AD con el clúster](hdinsight-sync-aad-users-to-cluster.md)

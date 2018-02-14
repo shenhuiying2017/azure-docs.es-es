@@ -3,7 +3,7 @@ title: "Uso de una identidad de servicio administrada en una máquina virtual de
 description: "Instrucciones paso a paso y ejemplos de uso de una entidad de servicio de MSI en una máquina virtual de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante script."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,19 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c5c1be01947dba8b7f4ef8aa54aa6aedfb191d32
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Inicio de sesión con una Identidad de servicio administrada (MSI) asignada por el usuario de la máquina virtual
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)] En este artículo se proporcionan ejemplos de script de la CLI para el inicio de sesión mediante una entidad de servicio de MSI asignada por el usuario, así como instrucciones sobre temas importantes como el tratamiento de errores.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+En este artículo se proporcionan ejemplos de script de la CLI para el inicio de sesión mediante una entidad de servicio de MSI asignada por el usuario, así como instrucciones sobre temas importantes como el tratamiento de errores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -42,9 +42,7 @@ La orquestación es necesaria para ejecutar el trabajo pertinente en el momento 
 
 Apache Oozie es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop. Oozie se ejecuta dentro de un clúster de HDInsight y se integra con la pila de Hadoop. Oozie es compatible con los trabajos de Hadoop para Apache MapReduce, Apache Pig, Apache Hive y Apache Sqoop. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
-Para obtener más información, vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](../hdinsight-use-oozie-linux-mac.md).
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+Para más información, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](../hdinsight-use-oozie-linux-mac.md). Para profundizar más y saber cómo usar Oozie para controlar una canalización de extremo a extremo, consulte [Uso de una canalización de datos](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -138,11 +136,11 @@ Apache Flume es un servicio distribuido, confiable y disponible para recopilar, 
 
 No se puede usar Flume Apache con Azure HDInsight.  Una instalación de Hadoop local puede usar Flume para enviar datos a Azure Storage Blob o Azure Data Lake Store.  Para obtener más información, consulte [Using Apache Flume with HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso de Apache Flume con HDInsight).
 
-## <a name="transform"></a>Transformar
+## <a name="transform"></a>Transformación
 
 Una vez que existan los datos en la ubicación elegida, deberá limpiarlos, combinarlos o prepararlos para un patrón de uso específico.  Hive, Pig y Spark SQL son buenas opciones para ese tipo de trabajo.  Todos se admiten en HDInsight. 
 
 ## <a name="next-steps"></a>pasos siguientes
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Uso de Apache Hive como herramienta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
 
-*Esta experiencia es actualmente una versión preliminar y reemplaza las hojas de diagnóstico existentes para las dependencias, excepciones y solicitudes del lado servidor.*
+*Esta experiencia se encuentra actualmente en versión preliminar y reemplaza las hojas de diagnóstico existentes para las dependencias, las excepciones y las solicitudes del lado servidor.*
 
-La versión preliminar presenta una nueva experiencia de diagnóstico unificada que correlaciona automáticamente la telemetría del lado servidor a través de todos los componentes supervisados de Application Insights en una única visualización. No importa si tiene múltiples recursos con claves de instrumentación independientes, Application Insights detecta la relación subyacente y le permite diagnosticar fácilmente la dependencia, la excepción o el componente de la aplicación que provocó una ralentización o fallo de la transacción.
+La versión preliminar presenta una nueva experiencia de diagnóstico unificada que correlaciona automáticamente la telemetría del lado servidor a través de todos los componentes supervisados de Application Insights en una única visualización. No importa si tiene varios recursos con claves de instrumentación independientes. Application Insights detecta la relación subyacente y le permite diagnosticar fácilmente el componente, la dependencia o la excepción de la aplicación que provocaron una ralentización o un error en la transacción.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>¿Qué significa componente en el contexto de Application Insights?
+## <a name="what-is-a-component"></a>¿Qué es un componente?
 
 Los componentes son partes que se pueden implementar independientemente de su aplicación de microservicios o distribuida. Los equipos de operaciones y los desarrolladores pueden ver el código o acceder a la telemetría que generan estos componentes de la aplicación.
 
@@ -32,10 +32,12 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 * Los componentes se ejecutan en cualquier número de instancias de rol, servidor o contenedor.
 * Los componentes pueden ser claves de instrumentación de Application Insights independientes (incluso aunque las suscripciones sean diferentes) o diferentes roles que informan a una única clave de instrumentación de Application Insights. La nueva experiencia muestra los detalles en todos los componentes, independientemente de cómo se hayan configurado.
 
-> [!Tip]
-> Para obtener resultados óptimos, asegúrese de que todos los componentes se instrumentan con los SDK más recientes y estables de Application Insights. Si hay diferentes recursos de Application Insights, asegúrese de que tiene los derechos adecuados para ver su telemetría.
+> [!NOTE]
+> * **¿Faltan los vínculos a elementos relacionados?** Toda la telemetría relacionada con la solicitud de servidor, la dependencia y la excepción están en las secciones [superior](#cross-component-transaction-chart) e [inferior](#all-telemetry-related-to-the-selected-component-operation) del lado izquierdo. 
+> * La sección [superior](#cross-component-transaction-chart) correlaciona la transacción en todos los componentes. Para obtener resultados óptimos, asegúrese de que todos los componentes se instrumentan con los SDK más recientes y estables de Application Insights. Si hay diferentes recursos de Application Insights, asegúrese de que tiene los derechos adecuados para ver su telemetría.
+> * La sección [inferior](#all-telemetry-related-to-the-selected-component-operation) del lado izquierdo muestra **toda** la telemetría, incluidos los seguimientos y los eventos relacionados con la solicitud del componente seleccionado.
 
-## <a name="enable-and-access"></a>Activación y acceso
+## <a name="enable-transaction-diagnostics-experience"></a>Habilitación de la experiencia de diagnósticos de transacción
 Habilite "Unified details: E2E Transaction Diagnostics" (Detalles unificados: Diagnóstico de transacciones E2E) en la [lista de versiones preliminares](app-insights-previews.md)
 
 ![Habilitación de la versión preliminar](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ Esta vista tiene tres partes principales: un gráfico de transacción entre comp
 
 ![Elementos clave](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] Gráfico de transacciones entre componentes
+## <a name="cross-component-transaction-chart"></a>Gráfico de transacciones entre componentes
 
 Este gráfico proporciona una escala de tiempo con barras horizontales que muestra la duración de las solicitudes y las dependencias entre los componentes. Las excepciones que se recopilan también se marcan en la escala de tiempo.
 
@@ -57,20 +59,20 @@ Este gráfico proporciona una escala de tiempo con barras horizontales que muest
 * Las llamadas a las dependencias externas son filas sencillas que no se pueden contraer, con iconos que representan el tipo de dependencia.
 * Las llamadas a otros componentes son filas que se pueden contraer. Cada fila corresponde a una operación específica que se invoca en el componente.
 * De forma predeterminada, en el gráfico se muestra la solicitud, la dependencia o la excepción que se seleccionó inicialmente.
-* Seleccione cualquier fila para ver sus detalles a la derecha. Haga clic en "Open profiler traces" (Abrir seguimientos de Profiler) o "Abrir instantánea de depuración" para obtener diagnósticos al nivel del código en los paneles de detalles correspondientes.
+* Seleccione cualquier fila para ver sus [detalles a la derecha](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Las llamadas a otros componentes tienen dos filas: una fila representa la llamada saliente (dependencia) desde el componente del llamador, y la otra fila corresponde a la solicitud entrante al componente del que recibe la llamada. El icono inicial y los distintos estilos de las barras de duración le ayudarán a diferenciarlos.
+Las llamadas a otros componentes tienen dos filas: una fila representa la llamada saliente (dependencia) desde el componente del llamador, y la otra fila corresponde a la solicitud entrante al componente del que recibe la llamada. El icono inicial y los distintos estilos de las barras de duración le ayudan a diferenciarlos.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] Telemetría secuenciada por tiempo de la operación de componentes seleccionada
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Toda la telemetría relacionada con la operación del componente seleccionado
 
-Cualquier fila seleccionada en el gráfico de transacciones entre componentes se relaciona con una operación invocada en un determinado componente. Esta operación del componente seleccionado se refleja en el título de la sección inferior. Abra esta sección para ver una secuencia de tiempo sin formato de todos los datos de telemetría relacionados con esa operación en particular. Puede seleccionar cualquier elemento de telemetría en esta lista para ver sus detalles a la derecha.
+Cualquier fila seleccionada en el gráfico de transacciones entre componentes se relaciona con una operación invocada en un determinado componente. Esta operación del componente seleccionado se refleja en el título de la sección inferior. Abra esta sección para ver una secuencia de tiempo sin formato de todos los datos de telemetría relacionados con esa operación en particular. Puede seleccionar cualquier elemento de telemetría en esta lista para ver sus [detalles a la derecha](#details-of-the-selected-telemetry).
 
 ![Secuencia de tiempo de todos los datos de telemetría](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] Panel de detalles
+## <a name="details-of-the-selected-telemetry"></a>Detalles de la telemetría seleccionada
 
-En este panel se muestran los detalles de los elementos seleccionados en cualquiera de las dos secciones de la izquierda. "Mostrar todo" enumera todos los atributos estándares recopilados. Los atributos personalizados se muestran por separado después del conjunto estándar.
+En este panel se muestran los detalles de los elementos seleccionados en cualquiera de las dos secciones de la izquierda. "Mostrar todo" enumera todos los atributos estándares recopilados. Los atributos personalizados se muestran por separado después del conjunto estándar. Haga clic en "Open profiler traces" (Abrir seguimientos de Profiler) o "Abrir instantánea de depuración" para obtener diagnósticos al nivel del código en los paneles de detalles correspondientes.
 
 ![Detalle de la excepción](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
@@ -104,7 +106,7 @@ Sí. La nueva experiencia unifica todos los datos de telemetría del lado servid
 
 *Veo filas duplicadas para las dependencias. ¿Es normal?*
 
-Por ahora, presentamos la llamada de dependencia de salida de forma independiente de la solicitud entrante. Por lo general, las dos llamadas son idénticas y solo difiere el valor de duración debido al recorrido de ida y vuelta. El icono inicial y los distintos estilos de las barras de duración le ayudarán a diferenciarlos. ¿Le resulta confusa esta presentación de los datos? Envíenos sus comentarios.
+Por ahora, presentamos la llamada de dependencia de salida de forma independiente de la solicitud entrante. Por lo general, las dos llamadas son idénticas y solo difiere el valor de duración debido al recorrido de ida y vuelta. El icono inicial y los distintos estilos de las barras de duración le ayudan a diferenciarlos. ¿Le resulta confusa esta presentación de los datos? Envíenos sus comentarios.
 
 *¿Qué hay de los desfases temporales entre las instancias de los diferentes componentes?*
 

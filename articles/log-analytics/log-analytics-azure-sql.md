@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
 
@@ -41,15 +41,15 @@ La solución Azure SQL Analytics no usa agentes para conectarse al servicio Log 
 
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-| Origen conectado | Soporte técnico | Descripción |
+| Origen conectado | Soporte técnico | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no utiliza agentes directos de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no utiliza agentes directos de Linux. |
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
-| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | Log Analytics no lee los datos de una cuenta de almacenamiento. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | Sin  | La solución no utiliza agentes directos de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no utiliza agentes directos de Linux. |
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sin  | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
+| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | Log Analytics no lee los datos de una cuenta de almacenamiento. |
 | [Diagnóstico de Azure](log-analytics-azure-storage.md) | Sí | Azure envía directamente los datos de métricas y registros de Azure a Log Analytics. |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Una suscripción de Azure. Si no tiene ninguna, puede crear una [gratis](https://azure.microsoft.com/free/).
 - Un área de trabajo de Log Analytics. Puede usar una existente, o bien puede [crear una nueva](log-analytics-quick-create-workspace.md) para empezar a usar esta solución.
@@ -107,7 +107,7 @@ Si selecciona cualquiera de los iconos, se abre un informe detallado de la persp
 
 Cada perspectiva proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha un informe específico de la perspectiva. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
 
-| Perspectiva | Descripción |
+| Perspectiva | DESCRIPCIÓN |
 | --- | --- |
 | Recurso por tipo | Perspectiva que considera todos los recursos supervisados. El informe detallado proporciona el resumen de las métricas de GB y DTU. |
 | Información detallada | Ofrece un informe detallado jerárquico de Intelligent Insights. Más información sobre Intelligent Insights. |
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-Puede usar estas consultas basadas en alertas para generar alertas sobre umbrales específicos para Azure SQL Database y los grupos elásticos. Configuración de una alerta para el área de trabajo de OMS:
+Puede usar estas consultas basadas en alertas para generar alertas sobre umbrales específicos para Azure SQL Database y los grupos elásticos. Para configurar una alerta para el área de trabajo de Log Analytics, siga estos pasos:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Configuración de una alerta para el área de trabajo
 
@@ -170,7 +170,7 @@ Puede usar estas consultas basadas en alertas para generar alertas sobre umbrale
 6. En la página **Agregar regla de alerta** página, configure las propiedades adecuadas y los umbrales específicos que desee y, a continuación, haga clic en **Guardar**.  
 ![agregar regla de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Use [Búsquedas de registros](log-analytics-log-searches.md) en Log Analytics para ver datos detallados de Azure SQL.
 - [Cree sus propios paneles](log-analytics-dashboards.md) que muestren datos de Azure SQL.

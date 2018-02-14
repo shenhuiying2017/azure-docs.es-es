@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -67,9 +67,7 @@ En un clúster de cuarenta y ocho nodos, se recomiendan entre cuatro y ocho cuen
 
 ## <a name="choose-a-cluster-type"></a>Elección de un tipo de clúster
 
-El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como Hadoop, Storm, Kafka o Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
+El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como Hadoop, Storm, Kafka o Spark. Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
 
 ## <a name="choose-the-vm-size-and-type"></a>Elección del tipo y el tamaño de la máquina virtual
 
@@ -96,9 +94,7 @@ Puede escalar horizontalmente el clúster para satisfacer los picos de demandas 
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida del clúster
 
-Se le cobra en función de la duración del clúster. Si solo necesita el clúster en funcionamiento durante momentos específicos, puede crear clústeres a petición con Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
+Se le cobra en función de la duración del clúster. Si solo necesita que el clúster funcione en momentos específicos, puede [crear clústeres a petición mediante Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u Oozie.
@@ -118,7 +114,7 @@ Después de determinar el tamaño, la escala y el tipo de la máquina virtual de
 
 Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscripción de Azure puede tener como máximo diez mil núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): obtenga información sobre cómo instalar y configurar clústeres en HDInsight con Hadoop, Spark, Kafka, Hive interactivo, HBase, R Server o Storm.
 * [Supervisión del rendimiento del clúster](hdinsight-key-scenarios-to-monitor.md): obtenga información sobre los escenarios claves para supervisar el clúster de HDInsight que podría afectar a la capacidad del clúster.

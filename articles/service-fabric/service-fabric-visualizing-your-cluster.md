@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -35,6 +35,9 @@ Use los siguientes vínculos para descargar Service Fabric Explorer como una apl
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
+- macOS
+  - https://aka.ms/sfx-macos
+
 > [!NOTE]
 > La versión de escritorio de Service Fabric Explorer puede tener más o menos características que la compatibilidad con clúster. Para garantizar la compatibilidad con todas las características, puede revertir a la versión de Service Fabric Explorer implementada en el clúster.
 >
@@ -44,7 +47,7 @@ Use los siguientes vínculos para descargar Service Fabric Explorer como una apl
 
 Service Fabric Explorer también se hospeda en el punto de conexión de administración de HTTP de un clúster de Service Fabric. Para iniciar SFX en un explorador web, vaya al punto de conexión HTTP del clúster desde cualquier explorador, por ejemplo, https://clusterFQDN:19080.
 
-Para la instalación de las estaciones de trabajo del desarrollador, puede iniciar Service Fabric Explorer en el clúster local; para ello, navegue a http://localhost:19080/Explorer. Examine este artículo para [preparar el entorno de desarrollo](service-fabric-get-started.md).
+Para la instalación de las estaciones de trabajo del desarrollador, puede iniciar Service Fabric Explorer en el clúster local; para ello, vaya a https://localhost:19080/Explorer. Examine este artículo para [preparar el entorno de desarrollo](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric
 Para conectarse a un clúster de Service Fabric, necesita el punto de conexión de administración de clústeres (FQDN/IP) y el puerto del punto de conexión de administración HTTP (de forma predeterminada,19080). Por ejemplo, https://mysfcluster.westus.cloudapp.azure.com:19080. Use la casilla "Connect to localhost" (Conectarse a localhost) para conectarse a un clúster local en la estación de trabajo.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
@@ -667,6 +667,14 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ObservedCapacity|Capacidad observada|Recuento|Media|La capacidad informada al escalado automático cuando se ejecutó.|Sin dimensiones|
 |ScaleActionsInitiated|Acciones de escalado iniciadas|Recuento|Total|La dirección de la operación de escalado.|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|ServiceApiHit|Número total de visitas de la API de servicio|Recuento|Recuento, Total|Número total de visitas de la API de servicio|ActivityType, ActivityName|
+|ServiceApiLatency|Latencia general de la API de servicio|Milisegundos|Recuento, Media, Mínimo, Máximo|Latencia general de las solicitudes de la API de servicio|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Número total de resultados de la API de servicio|Recuento|Recuento, Total|Número total de resultados de la API de servicio|ActivityType, ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -853,7 +861,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|QueryDuration||Recuento|Media||Sin dimensiones|
+|QueryDuration|Duración de la consulta|Recuento|Media|Duración de la consulta DAX en el último intervalo|Sin dimensiones|
 |QueryPoolJobQueueLength|Subprocesos: longitud de la cola de trabajos del grupo de consultas|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de consultas.|Sin dimensiones|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

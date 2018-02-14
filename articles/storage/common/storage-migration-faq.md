@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
 En este artículo se responden a preguntas habituales sobre la migración en Azure Storage. 
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 **¿Cómo puedo crear un script para copiar archivos de un contenedor a otro?**
 
@@ -41,7 +41,7 @@ El script de automatización se ha diseñado para la implementación de Azure Re
 
 **¿Se aplica algún cargo por copiar datos entre dos recursos compartidos de archivos en la misma cuenta de almacenamiento de la misma región?**
 
-No. No se aplica ningún cargo por este proceso.
+Nº No se aplica ningún cargo por este proceso.
 
 **¿Cómo puedo realizar una copia de seguridad de toda mi cuenta de almacenamiento en otra diferente?**
 
@@ -195,7 +195,7 @@ Puede usar el [Explorador de Storage](https://azure.microsoft.com/features/stora
 
 **¿Hay requisitos previos para cambiar la replicación de una cuenta de almacenamiento de almacenamiento con redundancia geográfica a almacenamiento con redundancia local?**
 
-No. 
+Nº 
 
 **¿Cómo puedo acceder al almacenamiento redundante de Azure Files?**
 
@@ -278,7 +278,7 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
 
 -   Si usa el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a datos de la región secundaria en cualquier momento. Use uno de los siguientes métodos:  
       
-    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para acceder al punto de conexión secundario. Por ejemplo:  
+    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para acceder al punto de conexión secundario. Por ejemplo:   
      
       https://nombrecuentaalmacenamiento-secondary.blob.core.windows.net/vhds/nombreDelBlob.vhd
 
@@ -294,6 +294,10 @@ Sin embargo, puede usar dominios personalizados que no sean HTTPS. Para obtener 
 No hay ninguna forma de acceder a una cuenta de almacenamiento directamente mediante FTP. Sin embargo, puede configurar una máquina virtual de Azure y, luego, instalar un servidor FTP en la máquina virtual. Puede hacer que el servidor FTP almacene los archivos en un recurso compartido de Azure Files o en un disco de datos disponible en la máquina virtual.
 
 Si solo quiere que se descargan los datos sin tener que usar el Explorador de Storage o una aplicación similar, podría usar un token de SAS. Consulte [Uso de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para más información.
+
+**¿Cómo migrar blobs de una cuenta de almacenamiento a otra?**
+
+ Puede hacerlo mediante nuestro [script de migración de blobs](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

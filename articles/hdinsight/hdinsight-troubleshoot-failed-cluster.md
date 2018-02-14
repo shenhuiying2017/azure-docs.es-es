@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
 
@@ -112,7 +112,7 @@ Si experimenta ralentizaciones en el clúster, considere la posibilidad de reini
 
 Los clústeres de HDInsight se componen de diferentes tipos de nodos que se ejecutan en instancias de máquina virtual. Se puede supervisar cada nodo en busca de colapsos de recursos, problemas de conectividad de red y otros problemas que pueden ralentizar el clúster. Cada clúster contiene dos nodos principales y la mayoría de los tipos de clúster contiene una combinación de nodos perimetrales y de trabajo. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Para ver una descripción de los diversos nodos que usa cada tipo de clúster, consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
 En las secciones siguientes se describe cómo comprobar el mantenimiento de cada nodo y del clúster general.
 
@@ -255,7 +255,7 @@ Los volcados del montón contienen una instantánea de la memoria de la aplicaci
 
 Los clústeres de HDInsight se configuran previamente con la configuración predeterminada para los servicios relacionados, como Hadoop, Hive, HBase, etc. En función del tipo de clúster, la configuración de hardware, el número de nodos, los tipos de trabajos que ejecute y los datos con los que esté trabajando (y cómo se procesen), puede que necesite optimizar su configuración.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Para obtener instrucciones detalladas sobre cómo optimizar las configuraciones de rendimiento en la mayoría de los escenarios, consulte [Optimización de configuraciones de clúster con Ambari](hdinsight-changing-configs-via-ambari.md). Si usa Spark, consulte [Optimización de trabajos de Spark para mejorar el rendimiento](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Paso 7: Reproducir el error en un clúster diferente
 

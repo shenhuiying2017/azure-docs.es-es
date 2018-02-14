@@ -11,26 +11,26 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Recepción de eventos de Azure Event Hubs mediante .NET Framework
 
 ## <a name="introduction"></a>Introducción
 
-Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
+Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Event Hubs, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
 
 En este tutorial se muestra cómo escribir una aplicación de consola de .NET Framework que recibe mensajes de un centro de eventos mediante el **[host de procesador de eventos][EventProcessorHost]**. Para enviar eventos mediante .NET Framework, consulte el artículo [Envío de eventos a Azure Event Hubs mediante .NET Framework](event-hubs-dotnet-framework-getstarted-send.md), o haga clic en el lenguaje de envío adecuado en la tabla de contenido del lado izquierdo.
 
 El [host de procesador de eventos][EventProcessorHost] es una clase de .NET que simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control persistentes y recepciones paralelas desde dichas instancias de Event Hubs. Con el [host de procesador de eventos][Event Processor Host], puede dividir eventos entre varios receptores, incluso si están hospedados en distintos nodos. En este ejemplo se muestra cómo usar el [host de procesador de eventos][EventProcessorHost] en un solo receptor. En el ejemplo de [escalado horizontal del procesamiento de eventos][Scale out Event Processing with Event Hubs] se muestra cómo usar el [host de procesador de eventos][EventProcessorHost] con varios receptores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
@@ -41,7 +41,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento de [este artículo](event-hubs-create.md) y después continúe con los siguientes pasos siguientes del tutorial.
 
-## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
+## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
 Para usar el [host de procesador de eventos][EventProcessorHost], debe tener una [cuenta de Azure Storage][Azure Storage account]:
 
@@ -49,11 +49,11 @@ Para usar el [host de procesador de eventos][EventProcessorHost], debe tener una
 2. Haga clic en **Storage** y luego en **Cuenta de Storage**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. En la hoja **Crear cuenta de almacenamiento** , escriba un nombre para la cuenta de almacenamiento. Elija una suscripción de Azure, el grupo de recursos y la ubicación en la que se va a crear el recurso. A continuación, haga clic en **Crear**.
+3. En el panel **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Elija una suscripción de Azure, el grupo de recursos y la ubicación en la que se va a crear el recurso. A continuación, haga clic en **Crear**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. En la lista de cuentas de almacenamiento, haga clic en la cuenta recién creada.
-5. En la hoja de la cuenta de almacenamiento, haga clic en **Claves de acceso**. Copie el valor de **key1** para usarla más adelante en este tutorial.
+5. En el panel de la cuenta de almacenamiento, haga clic en **Claves de acceso**. Copie el valor de **key1** para usarla más adelante en este tutorial.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -67,7 +67,7 @@ Para usar el [host de procesador de eventos][EventProcessorHost], debe tener una
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
-    Visual Studio descarga, instala y agrega una referencia al [Centro de eventos del Bus de servicio de Azure - Paquete de NuGet de EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
+    Visual Studio descarga, instala y agrega una referencia al [paquete de NuGet de Azure Service Bus - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
 4. Haga clic con el botón derecho en el proyecto **Receptor**, haga clic en **Agregar** y, después, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Agregar** para crear la clase.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
@@ -155,7 +155,7 @@ Para usar el [host de procesador de eventos][EventProcessorHost], debe tener una
 
 7. Ejecute el programa y asegúrese de que no hay ningún error.
   
-¡Enhorabuena! Ahora ha recibido mensajes de un centro de eventos por medio del host de procesador de eventos.
+Felicidades. Ahora ha recibido mensajes de un centro de eventos por medio del host de procesador de eventos.
 
 
 > [!NOTE]
@@ -163,7 +163,7 @@ Para usar el [host de procesador de eventos][EventProcessorHost], debe tener una
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede obtener más información visitando los siguientes vínculos:
 

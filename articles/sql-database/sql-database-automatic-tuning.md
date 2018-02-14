@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 11/08/2017
+ms.date: 11/09/2017
 ms.author: jovanpop
-ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dcea2c34ab26349c6f937c582bfe35d7a42f24a6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -75,9 +75,10 @@ Azure SQL Database identifica recomendaciones de **CREATE INDEX**, **DROP INDEX*
 
 Las opciones de ajuste automático pueden activarse o desactivarse de forma independiente por base de datos. También se pueden configurar en el servidor lógico y aplicarse en cada base de datos que herede la configuración del servidor. Se recomienda configurar las opciones de ajuste automático en el servidor de forma que se herede la configuración en las bases de datos del servidor, ya que este método simplifica la administración de las opciones de ajuste automático en un gran número de bases de datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para habilitar la característica de ajuste automático en Azure SQL Database para administrar la carga de trabajo, vea [Habilitación del ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para revisar manualmente y aplicar las recomendaciones de ajuste automático, vea [Búsqueda y aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md).
-- Para obtener más información sobre la inteligencia integrada que se usa en el ajuste automático, vea [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (La inteligencia artificial ajusta las bases de datos de Azure SQL Database).
-- Para obtener más información sobre cómo funciona el ajuste automático en Azure SQL Database y SQL Server 2017, vea [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Ajuste automático de SQL Server).
+- Para aprender a crear notificaciones por correo electrónico para las recomendaciones de ajuste automático, consulte [Notificaciones por correo electrónico para el ajuste automático](sql-database-automatic-tuning-email-notifications.md).
+- Para más información sobre la inteligencia integrada que se usa en el ajuste automático, consulte [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (La inteligencia artificial ajusta las bases de datos de Azure SQL Database).
+- Para más información sobre cómo funciona el ajuste automático en Azure SQL Database y SQL Server 2017, consulte [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Ajuste automático de SQL Server).

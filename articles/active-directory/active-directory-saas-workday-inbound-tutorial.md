@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -164,13 +164,17 @@ Debe crear un grupo de seguridad del sistema de integración sin restricciones y
     ![Grupo de seguridad del sistema](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Grupo de seguridad del sistema")  
 
 ### <a name="configure-security-group-options"></a>Configuración de las opciones del grupo de seguridad
-En este paso, se conceden al nuevo grupo de seguridad permisos para las operaciones **Get** y **Put** en los objetos protegidos por las siguientes directivas de seguridad del dominio:
+En este paso, concederá permisos de directiva de seguridad de dominio para los datos de trabajo protegidos por las siguientes directivas de seguridad de dominio:
 
-* External Account Provisioning
-* Worker Data: Public Worker Reports
-* Worker Data: All Positions
-* Worker Data: Current Staffing Information
-* Worker Data: Business Title on Worker Profile
+
+| Operación | Directiva de seguridad de dominio |
+| ---------- | ---------- | 
+| Obtener y poner |  External Account Provisioning |
+| Obtener y poner | Worker Data: Public Worker Reports |
+| Obtener y poner | Worker Data: All Positions |
+| Obtener y poner | Worker Data: Current Staffing Information |
+| Obtener y poner | Worker Data: Business Title on Worker Profile |
+| Ver y modificar | Worker Data: Work Email (Datos de trabajadores: Correo electrónico de trabajo) |
 
 **Para configurar las opciones del grupo de seguridad:**
 
@@ -348,7 +352,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **AddressLineData**    |  streetAddress  |     |   Crear y Actualizar |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Crear y Actualizar |
 | **BusinessTitle**   |  título     |     |  Crear y Actualizar |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Crear y Actualizar                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Escrito únicamente en Crear                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Crear y Actualizar |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Parte 3: configuración del agente de sincronización local
@@ -638,11 +642,121 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 5. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>Personalización de la lista de atributos de usuario de Workday
+Las aplicaciones de aprovisionamiento de Workday para Active Directory y Azure AD incluyen ambas una lista predeterminada de atributos de usuario de Workday que puede seleccionar. Sin embargo, estas listas no son exhaustivas. Workday admite muchos cientos de posibles atributos de usuario, que pueden ser estándar o exclusivos de su inquilino de Workday. 
+
+El servicio de aprovisionamiento de Azure AD admite la posibilidad de personalizar la lista o los atributos de Workday para incluir cualquiera de los atributos expuestos en la operación [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) de la API de Recursos Humanos.
+
+Para ello, debe usar [Workday Studio](https://community.workday.com/studio-download) para extraer las expresiones XPath que representan los atributos que quiere usar y, luego, agregarlas a la configuración de aprovisionamiento mediante el editor de atributos avanzados de Azure Portal.
+
+**Para recuperar una expresión XPath para un atributo de usuario de Workday, siga estos pasos:**
+
+1. Descargue e instale [Workday Studio](https://community.workday.com/studio-download). Necesitará una cuenta de la comunidad de Workday para acceder al instalador.
+
+2. Descargue el archivo WDSL Human_Resources de Workday desde esta dirección URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. Inicie Workday Studio.
+
+4. En la barra de comandos, seleccione la opción **Workday > Test Web Service in Tester** (Probar servicio web en Evaluador).
+
+5. Seleccione **External** (Externo) y seleccione el archivo WSDL Human_Resources que descargó en el paso 2.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Establezca el campo **Location** (Ubicación) en `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, pero reemplace "IMPL-CC" por el tipo de instancia real y "TENANT" por el nombre real del inquilino.
+
+7. Establezca **Operation** (Operación) en **Get_Workers**.
+
+8.  Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de que el formato del nombre de usuario sea name@tenant y deje seleccionada la opción **WS-Security UsernameToken**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Seleccione **Aceptar**.
+
+10. En el panel **Request** (Solicitud), pegue el archivo XML debajo y establezca **Employee_ID** en el identificador de empleado de un usuario real en el inquilino de Workday. Seleccione un usuario que tenga rellenado el atributo que desea extraer.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Haga clic en **Send Request** (Enviar solicitud) (flecha verde) para ejecutar el comando. Si se ejecuta correctamente, la respuesta debe aparecer en el panel **Response** (Respuesta). Compruebe la respuesta para asegurarse de que tiene los datos del identificador de usuario especificado y no un error.
+
+12. Si es correcta, copie el código XML del panel **Response** (Respuesta) y guárdelo como un archivo XML.
+
+13. En la barra de comandos de Workday Studio, seleccione **File > Open File...** (Archivo > Abrir archivo...) y abra el archivo XML que acaba de guardar. El archivo se abre en el editor XML de Workday Studio.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. En el árbol de archivos, desplácese por **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** para encontrar los datos del usuario. 
+
+15. En **wd:Worker**, busque el atributo que quiere agregar y selecciónelo.
+
+16. Copie la expresión XPath del atributo seleccionado del campo **Document Path** (Ruta de acceso a documento).
+
+17. Quite el prefijo **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** de la expresión copiada. 
+
+18. Si el último elemento de la expresión copiada es un nodo (ejemplo: "/wd:Birth_Date"), anexe **/text()** al final de la expresión. Esto no es necesario si el último elemento es un atributo (ejemplo: "/@wd:type").
+
+19. El resultado debe ser similar a `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Esto es lo que copiará en Azure Portal.
+
+
+**Para agregar el atributo de usuario personalizado de Workday a la configuración de aprovisionamiento, siga estos pasos:**
+
+1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Aprovisionamiento de la aplicación de aprovisionamiento de Workday, como se ha descrito anteriormente en este tutorial.
+
+2. Establezca **Estado de aprovisionamiento** en **Desactivado** y seleccione **Guardar**. Esto le ayudará a garantizar que los cambios se apliquen solo cuando esté listo.
+
+3. En **Asignaciones**, seleccione **Synchronize Workers to OnPremises** (Sincronizar trabajos con el entorno local) (o **Synchronize Workers to Azure AD** [Sincronizar trabajos con Azure AD]).
+
+4. Desplácese a la parte inferior de la pantalla siguiente y seleccione **Mostrar opciones avanzadas**.
+
+5. Seleccione **Edit attribute list for Workday** (Editar lista de atributos para Workday).
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Desplácese a la parte inferior de la lista de atributos, al lugar donde están los campos de entrada.
+
+7. En **Name** (Name), escriba un nombre para mostrar para el atributo.
+
+8. En **Type** (Tipo), seleccione el tipo que corresponde adecuadamente a su atributo (el más común es **String** [Cadena]).
+
+9. En **API Expression** (Expresión de API), escriba la expresión XPath que copió de Workday Studio. Ejemplo: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Seleccione **Add Attribute** (Agregar atributo).
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Seleccione **Save** (Guardar) arriba y, luego, **Yes** (Sí) en el cuadro de diálogo. Cierre la pantalla de asignación de atributos si aún está abierta.
+
+12. De nuevo en la pestaña principal **Aprovisionamiento**, seleccione otra vez **Synchronize Workers to OnPremises** (Sincronizar trabajos con el entorno local) (o **Synchronize Workers to Azure AD** [Sincronizar trabajos con Azure AD]).
+
+13. Seleccione **Add new mapping** (Agregar nueva asignación).
+
+14. El nuevo atributo debe aparecer ahora en la lista **Atributo de origen**.
+
+15. Agregue una asignación para el nuevo atributo según sea necesario.
+
+16. Cuando termine, recuerde establecer **Estado de aprovisionamiento** de nuevo en **Activado** y haga clic en Guardar.
+
+
 ## <a name="known-issues"></a>Problemas conocidos
 
 * Al ejecutar el comando **Add-ADSyncAgentAzureActiveDirectoryConfiguration** de Powershell, existe actualmente un problema conocido con las credenciales de administrador global, y es que no funcionan si usan un dominio personalizado (por ejemplo, admin@contoso.com). Como solución alternativa, cree y use una cuenta de administrador global en Azure AD con un dominio onmicrosoft.com (por ejemplo, admin@contoso.onmicrosoft.com).
 
 * Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
+
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Tutorial: configuración del inicio de sesión único entre Workday y Azure Active Directory](active-directory-saas-workday-tutorial.md)
