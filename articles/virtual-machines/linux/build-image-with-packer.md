@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Linux y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y distribuciones más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
@@ -28,7 +28,7 @@ Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la
 ## <a name="create-azure-resource-group"></a>Creación del grupo de recursos de Azure
 Durante el proceso de compilación, Packer crea recursos de Azure temporales mientras genera la máquina virtual de origen. Para capturar dicha máquina virtual para usarla como imagen, debe definir un grupo de recursos. La salida del proceso de compilación de Packer se almacena en este grupo de recursos.
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ A continuación puede ver un ejemplo del resultado de los comandos anteriores:
 }
 ```
 
-Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#show):
+Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -200,7 +200,7 @@ Packer tarda unos minutos en crear la máquina virtual, ejecutar los aprovisiona
 
 
 ## <a name="create-vm-from-azure-image"></a>Creación de una máquina virtual desde una imagen de Azure
-Ya puede crear una máquina virtual a partir de la imagen con [az vm create](/cli/azure/vm#create). Especifique la imagen que ha creado con el parámetro `--image`. El siguiente ejemplo crea una máquina virtual llamada *myVM* a partir de *myPackerImage* y genera claves SSH, en caso de que no existan:
+Ya puede crear una máquina virtual a partir de la imagen con [az vm create](/cli/azure/vm#az_vm_create). Especifique la imagen que ha creado con el parámetro `--image`. El siguiente ejemplo crea una máquina virtual llamada *myVM* a partir de *myPackerImage* y genera claves SSH, en caso de que no existan:
 
 ```azurecli
 az vm create \

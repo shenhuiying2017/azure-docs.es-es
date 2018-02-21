@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ce44a5e4db080822aaec0b50a265b863059bd45a
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2fd7be23c4146051197c4b6d7db6deb06dfa416d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Creación de un entorno de Docker para Azure mediante la extensión de máquina virtual de Docker
 Docker es una conocida plataforma de creación de imágenes y administración de contenedores que permite trabajar rápidamente con contenedores en Linux. En Azure, hay diversas maneras de implementar Docker según sus necesidades. Este artículo se centra en el uso de la extensión de máquina virtual de Docker y las plantillas de Azure Resource Manager con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](dockerextension-nodejs.md).
@@ -33,15 +33,15 @@ Para más información sobre los diferentes métodos de implementación, incluid
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementación de una plantilla con la extensión de máquina virtual de Docker para Azure
-Aquí se va a usar una plantilla de inicio rápido existente para crear una máquina virtual Ubuntu que use la extensión de máquina virtual de Docker para Azure para instalar y configurar el host de Docker. Puede ver la plantilla aquí: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Implementación simple de una máquina virtual de Ubuntu con Docker). Necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Aquí se va a usar una plantilla de inicio rápido existente para crear una máquina virtual Ubuntu que use la extensión de máquina virtual de Docker para Azure para instalar y configurar el host de Docker. Puede ver la plantilla aquí: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Implementación simple de una máquina virtual de Ubuntu con Docker). Necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Cuando se le solicite, proporcione sus propios valores únicos para *newStorageAccountName*, *adminUsername*, *adminPassword* y *dnsNameForPublicIP*:
+A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Proporcione sus propios valores únicos para *newStorageAccountName*, *adminUsername*, *adminPassword* y *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ La implementación tarda unos minutos en finalizar.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Implementación del primer contenedor NGINX
-Para ver detalles de la máquina virtual, incluido el nombre DNS, use [az vm show](/cli/azure/vm#show):
+Para ver detalles de la máquina virtual, incluido el nombre DNS, use [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -63,7 +63,7 @@ az vm show \
     --output tsv
 ```
 
-SSH al nuevo host Docker. Proporcione su nombre de usuario y nombre DNS utilizados en los pasos anteriores:
+SSH al nuevo host Docker. Proporcione su propio nombre de usuario y nombre DNS de los pasos anteriores:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

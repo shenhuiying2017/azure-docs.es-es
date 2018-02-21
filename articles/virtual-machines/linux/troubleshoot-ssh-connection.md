@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
 Hay varias razones por las que podrían producirse errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual (VM) Linux. Este artículo le ayudará a identificar esos problemas y corregirlos. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
@@ -70,20 +70,20 @@ Para restablecer las credenciales de un usuario existente, seleccione `Reset SSH
 Desde este menú también puede crear un usuario con privilegios de sudo en la máquina virtual. Escriba un nuevo nombre de usuario y la contraseña o la clave SSH asociada y luego haga clic en el botón **Restablecer**.
 
 ## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
-Si todavía no la tiene, instale la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Si todavía no la tiene, instale la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
 Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
 
 ### <a name="reset-ssh-configuration"></a>Restablecer la configuración de SSH
 Incialmente también puede tratar de restablecer la configuración de SSH a los valores predeterminados y reiniciar el servidor SSH en la máquina virtual. Tenga en cuenta que esto no cambia el nombre de la cuenta de usuario, la contraseña ni las claves SSH.
-En el ejemplo siguiente se utiliza [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh) para restablecer la configuración de SSH en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+En el ejemplo siguiente se utiliza [az vm user reset-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) para restablecer la configuración de SSH en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Restablecimiento de las credenciales de SSH de un usuario
-En el ejemplo siguiente se usa [az vm user update](/cli/azure/vm/user#update) para restablecer las credenciales de `myUsername` al valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+En el ejemplo siguiente se usa [az vm user update](/cli/azure/vm/user#az_vm_user_update) para restablecer las credenciales de `myUsername` al valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ Cree un archivo llamado `settings.json` con el siguiente contenido:
 }
 ```
 
-Con la CLI de Azure, luego puede llamar a la extensión `VMAccessForLinux` para restablecer la conexión de SSHD mediante la especificación de archivo json. En el ejemplo siguiente se utiliza [az vm extension set](/cli/azure/vm/extension#set) para restablecer SSHD en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+Con la CLI de Azure, luego puede llamar a la extensión `VMAccessForLinux` para restablecer la conexión de SSHD mediante la especificación de archivo json. En el ejemplo siguiente se utiliza [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para restablecer SSHD en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-En el ejemplo siguiente se usa [az vm restart](/cli/azure/vm#restart) para reiniciar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+En el ejemplo siguiente se usa [az vm restart](/cli/azure/vm#az_vm_restart) para reiniciar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-En el ejemplo siguiente se usa [az vm redeploy](/cli/azure/vm#redeploy) para volver a implementar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+En el ejemplo siguiente se usa [az vm redeploy](/cli/azure/vm#az_vm_redeploy) para volver a implementar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7f05f02249f86e6bee7f89c6ecf8016ede9c4fb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Web App for Containers
 
@@ -201,7 +201,7 @@ Puede hospedar aplicaciones Linux nativas en la nube con Azure Web Apps. Para cr
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service con el comando `myAppServicePlan`[`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _<appname>_ por un nombre de aplicación único y _\<docker-ID>_ por su identificador de Docker.
+En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No olvide reemplazar _<appname>_ por un nombre de aplicación único y _\<docker-ID>_ por su identificador de Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -237,7 +237,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> ¿Desea implementar un registro de Docker privado? Consulte las instrucciones opcionales para la [configuración de Web App para usar un contenedor de Docker de un registro privado](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> ¿Desea implementar un registro de Docker privado? Consulte las instrucciones opcionales para [usar una imagen de Docker en un registro privado](#use-a-docker-image-from-any-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 

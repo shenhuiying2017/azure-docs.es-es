@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -70,7 +67,7 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 | **URL** | **Detalles** |
 | ------- | ----------- |
-| *.blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| * .blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
 | login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |

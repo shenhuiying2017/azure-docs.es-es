@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Herramienta What if de acceso condicional de Azure Active Directory: versión preliminar
 
@@ -60,7 +60,7 @@ Para iniciar la herramienta, en la barra de herramientas que aparece en la parte
 
 Antes de ejecutar una evaluación, debe configurar los valores.
 
-## <a name="settings"></a>Configuración
+## <a name="settings"></a>Settings
 
 En esta sección se proporcionan detalles sobre los ajustes de la ejecución de simulación.
 
@@ -78,14 +78,14 @@ El valor predeterminado de esta configuración es **Todas las aplicaciones en la
 
 ### <a name="ip-address"></a>Dirección IP
 
-La dirección IP es una dirección IPv4 única que imita la [condición de ubicación](active-directory-conditional-access-azure-portal.md#locations). La dirección representa la dirección para la conexión a Internet del dispositivo que el usuario usa para iniciar sesión. Por ejemplo, para comprobar la dirección IP de un dispositivo, navegue al sitio [What is my IP address](https://whatismyipaddress.com) (¿Cuál es mi dirección IP?).    
+La dirección IP es una dirección IPv4 única que imita la [condición de ubicación](active-directory-conditional-access-locations.md). La dirección representa la dirección para la conexión a Internet del dispositivo que el usuario usa para iniciar sesión. Por ejemplo, para comprobar la dirección IP de un dispositivo, navegue al sitio [What is my IP address](https://whatismyipaddress.com) (¿Cuál es mi dirección IP?).    
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Esta configuración imita la [condición de plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) y representa el equivalente de **Todas las plataformas (incluidas las no admitidas)**. 
+Esta configuración imita la [condición de plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) y representa el equivalente de **Todas las plataformas (incluidas las no admitidas)**. 
 ### <a name="client-apps"></a>Aplicaciones cliente
 
-Esta configuración imita la [condición de aplicaciones cliente](active-directory-conditional-access-azure-portal.md#client-apps).
+Esta configuración imita la [condición de aplicaciones cliente](active-directory-conditional-access-conditions.md#client-apps).
 De manera predeterminada, esta configuración genera una evaluación de todas las directivas con las opciones **Explorador** o **Aplicaciones móviles y clientes de escritorio** seleccionadas en conjunto o de manera individual. También detecta las directivas que aplican **Exchange ActiveSync (EAS)**. Para restringir esta configuración, seleccione:
 
 - **Explorador** para evaluar todas las directivas que tienen seleccionada al menos la opción **Explorador**. 
@@ -95,7 +95,7 @@ De manera predeterminada, esta configuración genera una evaluación de todas la
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
-Esta configuración imita la [condición de riesgo de inicio de sesión](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Esta configuración imita la [condición de riesgo de inicio de sesión](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Evaluación 

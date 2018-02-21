@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/09/2018
 
 Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 
@@ -143,10 +143,12 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
 
 1. Instalación de nodejs y NPM en la máquina
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. Instalación del generador de plantillas [Yeoman](http://yeoman.io/) en la máquina desde NPM
 
   ```bash
@@ -169,7 +171,7 @@ Instale el [SDK de .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core
 
 Para compilar servicios de Service Fabric mediante Java, instale JDK 1.8 y Gradle para ejecutar las tareas de compilación. El fragmento de código siguiente instala Open JDK 1.8 junto con Gradle. Las bibliotecas de Java de Service Fabric se extraen de Maven.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Configure un conjunto de escalado independiente para cada tipo de nodo que defina en un clúster de Azure Service Fabric. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tiene diferentes conjuntos de puertos abiertos y puede usar distintas métricas de capacidad.
@@ -137,7 +137,7 @@ Para cambiar la contraseña para todos los nodos de un determinado tipo de nodo,
     Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Consulte [Descripción general de la característica "Deploy anywhere" y comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md).
 * Obtenga más información sobre la [seguridad del clúster](service-fabric-cluster-security.md).
 * Obtenga más información en [SDK de Service Fabric e introducción](service-fabric-get-started.md).

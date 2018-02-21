@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afb8fce7ce7ef432518c58cb6f58951337aebcff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Configuración de Key Vault para máquinas virtuales con la CLI de Azure 2.0
 
-En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante Key Vault. Para más información sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de claves de Azure?](../../key-vault/key-vault-whatis.md) Para que Key Vault se utilice con VM de Azure Resource Manager, la propiedad *EnabledForDeployment* de Key Vault se debe establecer en true. En este artículo se muestra cómo configurar Key Vault para su uso con máquinas virtuales (VM) de Azure mediante la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante Key Vault. Para más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md) Para que Key Vault se utilice con VM de Azure Resource Manager, la propiedad *EnabledForDeployment* de Key Vault se debe establecer en true. En este artículo se muestra cómo configurar Key Vault para su uso con máquinas virtuales (VM) de Azure mediante la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#az_login).
 
-## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
-Cree un almacén de claves y asigne la directiva de implementación con [az keyvault create](/cli/azure/keyvault#create). En el ejemplo siguiente se crea un almacén de claves denominado `myKeyVault` en el grupo de recursos `myResourceGroup`:
+## <a name="create-a-key-vault"></a>Creación de un almacén de claves
+Cree un almacén de claves y asigne la directiva de implementación con [az keyvault create](/cli/azure/keyvault#az_keyvault_create). En el ejemplo siguiente se crea un almacén de claves denominado `myKeyVault` en el grupo de recursos `myResourceGroup`:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Actualización de un almacén de claves para su uso con VM
-Establezca la directiva de implementación en un almacén de claves existente con [az keyvault update](/cli/azure/keyvault#update). Lo siguiente actualiza el almacén de claves denominado `myKeyVault` en el grupo de recursos `myResourceGroup`:
+Establezca la directiva de implementación en un almacén de claves existente con [az keyvault update](/cli/azure/keyvault#az_keyvault_update). Lo siguiente actualiza el almacén de claves denominado `myKeyVault` en el grupo de recursos `myResourceGroup`:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
 ```
 
-## <a name="use-templates-to-set-up-key-vault"></a>Uso de plantillas para configurar el Almacén de claves
+## <a name="use-templates-to-set-up-key-vault"></a>Uso de plantillas para configurar Key Vault
 Al utilizar plantillas, debe configurar la propiedad `enabledForDeployment` como `true` para el recurso Key Vault tal y como se indica a continuación:
 
 ```json
@@ -58,5 +58,5 @@ Al utilizar plantillas, debe configurar la propiedad `enabledForDeployment` como
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)(Creación de un almacén de claves).

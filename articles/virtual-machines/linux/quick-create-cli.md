@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 07f73c90b3974943dc55df64df595ca590580d52
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual Linux con la CLI de Azure
 
@@ -34,7 +34,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -69,7 +69,7 @@ Cuando se ha creado la máquina virtual, la CLI de Azure muestra información si
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
 
-De forma predeterminada, solo se permiten conexiones mediante SSH con las máquinas virtuales Linux implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet. Use el comando [az vm open-port](/cli/azure/vm#open-port) para abrir el puerto deseado.  
+De forma predeterminada, solo se permiten conexiones mediante SSH con las máquinas virtuales Linux implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet. Use el comando [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir el puerto deseado.  
  
  ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -104,7 +104,7 @@ Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Salga de la sesión SSH a la máquina virtual y, luego, elimine los recursos como se indica a continuación:
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Salga de la sesión SSH a la máquina virtual y, luego, elimine los recursos como se indica a continuación:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -3,7 +3,7 @@ title: "Conexión a Azure Data Lake Store desde redes virtuales | Microsoft Docs
 description: "Conexión a Azure Data Lake Store desde redes virtuales de Azure"
 services: data-lake-store,data-catalog
 documentationcenter: 
-author: nitinme
+author: esung22
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/31/2018
+ms.author: elsung
+ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acceso a Azure Data Lake Store desde máquinas virtuales de una red virtual de Azure
 Azure Data Lake Store es un servicio de PaaS que se ejecuta en direcciones IP de Internet pública. Normalmente, cualquier servidor que puede conectarse a la Internet pública también puede conectarse a los puntos de conexión de Azure Data Lake Store. De forma predeterminada, todas las máquinas virtuales que se encuentran en redes virtuales de Azure pueden acceder a Internet y, por tanto, a Azure Data Lake Store. Sin embargo, se puede configurar que las máquinas virtuales de una red virtual no tengan acceso a Internet. Estas máquinas virtuales tampoco pueden acceder a Azure Data Lake Store. Puede bloquear el acceso a la Internet pública a las máquinas virtuales de las redes virtuales de Azure con cualquiera de los siguientes enfoques.
@@ -52,6 +52,6 @@ Cuando se utilizan rutas, UDR o rutas intercambiables a través de BGP, para blo
 Cuando se configura un circuito ExpressRoute, los servidores locales pueden acceder a Data Lake Store a través de pares públicos. Para obtener más información sobre cómo configurar ExpressRoute para pares públicos, consulte las [preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ## <a name="see-also"></a>Otras referencias
-* [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+* [Información general de Azure Data Lake Store](data-lake-store-overview.md)
 * [Protección de los datos almacenados en Azure Data Lake Store](data-lake-store-security-overview.md)
 

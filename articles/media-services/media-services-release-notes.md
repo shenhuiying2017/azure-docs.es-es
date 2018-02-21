@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
@@ -163,7 +163,7 @@ Los nombres de las unidades reservadas de codificación Básica, Estándar y Pre
 ### <a name="azure-sdk-for-php"></a>SDK de Azure para PHP
 El equipo del SDK de Azure publicó una nueva versión del paquete [SDK de Azure para PHP](http://github.com/Azure/azure-sdk-for-php) que contiene actualizaciones y nuevas características de Media Services. En concreto, el SDK de Media Services para PHP ahora admite las características más recientes de [protección de contenido](media-services-content-protection-overview.md). Estas características son el cifrado dinámico con AES y DRM (PlayReady y Widevine) con y sin restricciones de token. También admite el escalado de [unidades de codificación](media-services-dotnet-encoding-units.md).
 
-Para obtener más información, consulte 
+Para más información, consulte:
 
 * El blog del [SDK de Media Services para PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 * Los siguientes [ejemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) le ayudan a empezar a trabajar rápidamente:
@@ -203,7 +203,7 @@ Puede usar el [SDK de Media Services para .NET](https://www.nuget.org/packages/w
 Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versión de agosto de 2015
-* Ya están disponibles el SDK de Media Services para la versión de Java 0.8.0 y nuevos ejemplos. Para obtener más información, consulte 
+* Ya están disponibles el SDK de Media Services para la versión de Java 0.8.0 y nuevos ejemplos. Para más información, consulte:
   
   * [Esta publicación del blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [El Repositorio de ejemplos de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -348,8 +348,8 @@ La versión del SDK de Media Services para .NET es ahora la 3.0.0.7
 * Versión preliminar de streaming en vivo. Para más información, consulte [Información general de streaming en vivo con Azure Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Servicio de entrega de claves. Para más información, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Cifrado dinámico AES. Para más información, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Servicio de entrega de licencias PlayReady. Para más información, consulte [Uso del cifrado dinámico de PlayReady y el servicio de entrega de licencias](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Cifrado dinámico de PlayReady. Para más información, consulte [Uso del cifrado dinámico de PlayReady y el servicio de entrega de licencias](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Servicio de entrega de licencias PlayReady. 
+* Cifrado dinámico de PlayReady. 
 * Plantilla de licencias de PlayReady de Media Services. Para más información, consulte [Introducción a la plantilla de licencias de PlayReady de Media Services].
 * Streaming de recursos de almacenamiento cifrado. Para más información, consulte [Streaming de contenido de almacenamiento cifrado](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 

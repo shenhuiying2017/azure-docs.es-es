@@ -55,7 +55,7 @@ En el ejemplo siguiente se crea un registro A denominado *www* en la zona *conto
 az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Para crear un conjunto de registros en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "@", incluidas las comillas:
+Para crear un conjunto de registros en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "\@\" incluidas las comillas:
 
 ```azurecli
 az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -118,7 +118,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>Creación de un registro MX
 
-En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el registro MX en el vértice de la zona (en este caso, "contoso.com").
+En este ejemplo, se utiliza el nombre de conjunto de registros "\@\" para crear el registro MX en el vértice de la zona (en este caso, "contoso.com").
 
 ```azurecli
 az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -140,7 +140,7 @@ az network dns record-set ptr set-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Creación de un registro SRV
 
-Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el *\_servicio* y el *\_protocolo* en el nombre del conjunto de registros. No es necesario incluir "@" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
+Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el *\_servicio* y el *\_protocolo* en el nombre del conjunto de registros. No es necesario incluir "\@\" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
 
 ```azurecli
 az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

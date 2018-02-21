@@ -53,7 +53,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Paso 2
 
-Agregue el valor IPv4 al conjunto de registros creado previamente "@" mediante la variable $rs asignada. El valor de IPv4 asignado será la dirección IP de la aplicación web.
+Agregue el valor IPv4 al conjunto de registros creado previamente "\@\" mediante la variable $rs asignada. El valor de IPv4 asignado será la dirección IP de la aplicación web.
 
 Para buscar la dirección IP para una aplicación web, siga los pasos descritos en [Configuración de un nombre de dominio personalizado en Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 

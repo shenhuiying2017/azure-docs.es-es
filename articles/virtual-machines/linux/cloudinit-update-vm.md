@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 4209bc270a6d255c8512dd6ccd5551b556da5a6b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Usar Uso de cloud-init para instalar paquetes en una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para actualizar paquetes en una máquina virtual Linux (VM) o en conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -35,13 +35,13 @@ packages:
 - httpd
 ```
 
-Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el archivo cloud-init con `--custom-data cloud_init_upgrade.txt` como se indica a continuación:
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#az_vm_create) y especifique el archivo cloud-init con `--custom-data cloud_init_upgrade.txt` como se indica a continuación:
 
 ```azurecli-interactive 
 az vm create \
@@ -76,7 +76,7 @@ Calculating upgrade... Done
 
 También puede ver que `httpd` se instaló mediante la ejecución de `yum history` y revisar la salida que hacen referencia a `httpd`. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

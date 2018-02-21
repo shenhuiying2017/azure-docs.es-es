@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Con Azure, SnelStart ha expandido rápidamente sus servicios empresariales con una cifra de 1000 nuevas bases de datos SQL de Azure cada mes
+# <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Con Azure, SnelStart ha expandido rápidamente sus servicios empresariales con una cifra de 1000 nuevas instancias de Azure SQL Database cada mes
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart desarrolla conocidos software de administración financiera y empresarial para pequeñas y medianas empresas (pymes) de los Países Bajos. Un personal compuesto por 110 empleados —entre ellos, un equipo de TI de 35 miembros— atiende a 55 000 clientes. Al migrar su infraestructura a la oferta de software como servicio (SaaS) de Azure, SnelStart pudo integrar la mayoría de los servicios, con lo que automatizó la administración mediante un entorno familiar en C#, y optimizó el rendimiento y la escalabilidad sin tener que provocar el exceso o la falta de aprovisionamiento de negocios gracias a los grupos elásticos. Azure proporciona a SnelStart fluidez para migrar clientes entre entornos locales y en la nube.
@@ -104,7 +104,6 @@ El objetivo inmediato de SnelStart es seguir aumentando la base de clientes sati
 
 ## <a name="more-information"></a>Más información
 * Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
-* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si quiere conocer más información sobre Azure este artículo, lea [este artículo](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Para obtener más información sobre SnelStart, vea [este artículo](http://www.snelstart.nl).
 

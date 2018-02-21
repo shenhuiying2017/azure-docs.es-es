@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -58,10 +58,10 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     b. **Tipo de acción**: seleccionar SMS, correo electrónico, webhook, aplicación de Azure, ITSM o runbook de Automation.
 
-    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM. 
+    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
 
    > [!NOTE]
-   > La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md). La acción de ITSM solo funciona actualmente para las alertas de Registro de actividad. Para otros tipos de alerta, esta acción no está actualmente operativa.
+   > La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Seleccione **Aceptar** para crear el grupo de acciones.
 
@@ -75,6 +75,6 @@ Después de crear un grupo de acciones, está visible en la sección **Grupos de
 * Más información sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).  
 * Obtenga más información sobre [Conector de ITSM](../log-analytics/log-analytics-itsmc-overview.md)
-* Más información sobre la [limitación de velocidad](monitoring-alerts-rate-limiting.md) en las alertas. 
+* Más información sobre la [limitación de velocidad](monitoring-alerts-rate-limiting.md) en las alertas.
 * Consulte la [introducción a las alertas del registro de actividad](monitoring-overview-alerts.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](monitoring-activity-log-alerts-on-service-notifications.md).

@@ -12,17 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 051fed05eb52639ebbc6326df37c4d3d793ef603
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ca6b4cce0d89a4d65e94fd10ed7278c3afa8fdff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Inscripción de dispositivos X.509 al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Node.js
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-x509-java.md)
-> * [C#](quick-enroll-device-x509-csharp.md)
-> * [Node.js](quick-enroll-device-x509-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
+
 
 En estos pasos se muestra cómo crear mediante programación un grupo de inscripción para un certificado de entidad de certificación x.509 intermedio o raíz mediante el [SDK del servicio de Node.js](https://github.com/Azure/azure-iot-sdk-node) y un ejemplo de Node.js. Aunque estos pasos funcionan en máquinas Windows y Linux, en este artículo se usa una máquina de desarrollo de Windows.
  

@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fe2b84aac718ff5eddd4d73b5dc2120362952c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introducción al uso de la CLI de Azure 2.0 por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 En este tutorial, se desarrolla un trabajo que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). Para realizar el mismo tutorial con otras herramientas compatibles, use la lista desplegable de la parte superior de esta sección.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI de Azure 2.0**. Consulte [Instalación y configuración de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
@@ -107,7 +107,7 @@ az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Sour
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
-Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure.  Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](../storage/common/storage-azure-cli.md).
+Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure.  Para cargar datos a Azure Blob Storage, consulte [Uso de la CLI de Azure con Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Envío de trabajos de Análisis de Data Lake
 Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para más información acerca de U-SQL, consulte [Introducción a U-SQL](data-lake-analytics-u-sql-get-started.md) y [U-SQL Language Reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Referencia del lenguaje U-SQL).
@@ -133,13 +133,13 @@ Este script de U-SQL lee el archivo de datos de origen mediante **Extractors.Tsv
 
 No modifique ninguna de las dos rutas a menos que copie el archivo de origen en una ubicación diferente.  Data Lake Analytics creará la carpeta de salida si no existe.
 
-Es más fácil usar rutas de acceso relativas para los archivos almacenados en las cuentas predeterminadas de Data Lake Store. También puede usar rutas de acceso absolutas.  Por ejemplo:
+Es más fácil usar rutas de acceso relativas para los archivos almacenados en las cuentas predeterminadas de Data Lake Store. También puede usar rutas de acceso absolutas.  Por ejemplo: 
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
 ```
 
-Debe usar rutas de acceso absolutas para acceder a los archivos de cuentas de almacenamiento vinculadas.  La sintaxis de los archivos almacenados en la cuenta de Almacenamiento de Azure vinculada es:
+Debe usar rutas de acceso absolutas para acceder a los archivos de cuentas de almacenamiento vinculadas.  La sintaxis de los archivos almacenados en la cuenta de Azure Storage vinculada es:
 
 ```
 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
@@ -158,7 +158,7 @@ Para enviar un trabajo, use la sintaxis siguiente.
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -183,16 +183,16 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 Una vez que se completa un trabajo, puede usar los siguientes comandos para enumerar los archivos de salida y descargar los archivos:
 
 ```
-az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
-az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 
 ## <a name="pipelines-and-recurrences"></a>Canalizaciones y repeticiones
@@ -215,7 +215,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para ver el documento de referencia de la CLI de Data Lake Analytics 2.0, consulte [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
 * Para ver el documento de referencia de la CLI de Data Lake Store 2.0, consulte [Data Lake Store](https://docs.microsoft.com/cli/azure/dls).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso del punto de conexión con privilegios en Azure Stack
 
@@ -63,7 +63,7 @@ Es recomendable que se conecte al PEP solo desde el host de ciclo de vida del ha
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
-      El parámetro `ComputerName` puede ser la dirección IP o el nombre DNS de una de las máquinas virtuales que hospeda un PEP. 
+      El parámetro `ComputerName` puede ser la dirección IP o el nombre DNS de una de las máquinas virtuales que hospeda el PEP. 
     - Si va a ejecutar el ADSK:
      
       ````PowerShell
@@ -78,8 +78,6 @@ Es recomendable que se conecte al PEP solo desde el host de ciclo de vida del ha
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
     
 3.  Después de conectarse, el símbolo del sistema cambia a **[*dirección IP o nombre de máquina virtual de ERCS*]: PS>** o a **[azs-ercs01]: PS>**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
-
-    ![Salida del cmdlet Get-Command que muestra la lista de comandos disponibles](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Muchos de estos cmdlets están concebidos únicamente para entornos de sistema integrados (por ejemplo, los cmdlets relacionados con la integración de centros de datos). En el ASDK, se han validado los siguientes cmdlets:
 

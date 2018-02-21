@@ -40,10 +40,8 @@ Representan conjuntos de datos más pequeños que se utilizan para la creación 
 
 | Origen de datos | Introducir mediante |
 | --- | --- |
-| Equipo local |<ul> <li>
-            [Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usar herramientas de Data Lake para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Blob de Azure Storage |<ul> <li>
-            [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en un clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Equipo local |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usar herramientas de Data Lake para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Blob de Azure Storage |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en un clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Datos de streaming
 Representa los datos que se pueden generar por diversos orígenes, como aplicaciones, dispositivos o sensores, entre otros. Estos datos los pueden introducir distintas herramientas en un Almacén de Data Lake. Estas herramientas normalmente capturan y procesan los datos en eventos individuales y en tiempo real y, después, escriben los eventos en lotes en el Almacén de Data Lake para que puedan procesarse posteriormente.
@@ -58,8 +56,7 @@ A continuación, se muestran las herramientas que se pueden usar:
 También se pueden originar datos desde bases de datos relacionales. Durante un tiempo, las bases de datos relacionales recopilan grandes cantidades de datos que pueden proporcionar información clave si se procesan a través de una canalización de macrodatos. Puede usar las herramientas siguientes para mover estos datos al Almacén de Data Lake.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* 
-            [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Datos de registro de servidor web (carga mediante aplicaciones personalizadas)
 Este tipo de conjunto de datos es específicamente necesario porque el análisis de los datos de registro del servidor web es un caso de uso común para aplicaciones de macrodatos y requiere que se carguen grandes volúmenes de archivos de registro en el Almacén de Data Lake. Puede utilizar cualquiera de las herramientas siguientes para escribir sus propios scripts o aplicaciones para cargar dichos datos.
@@ -67,8 +64,7 @@ Este tipo de conjunto de datos es específicamente necesario porque el análisis
 * [CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK para .NET del Almacén de Azure Data Lake](data-lake-store-get-started-net-sdk.md)
-* 
-            [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 Para cargar datos de registro del servidor web y también para cargar otros tipos de datos (por ejemplo, datos de opiniones sociales), un buen enfoque es escribir sus propios aplicaciones o scripts personalizados, porque le ofrece la flexibilidad de incluir el componente que carga los datos como parte de su aplicación de macrodatos mayor. En algunos casos, este código puede adoptar la forma de un script o de una utilidad de línea de comandos simple. En otros casos, el código puede utilizarse para integrar el procesamiento de macrodatos en una aplicación o solución de negocio.
 
@@ -77,8 +73,7 @@ La mayoría de los tipos de clúster de HDInsight (Hadoop, HBase, Storm) admiten
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [Servicio de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-* 
-            [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+* [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Datos almacenados en clústeres locales o de IaaS de Hadoop
 Es posible que haya grandes cantidades de datos almacenados en clústeres de Hadoop existentes, de forma local en los equipos mediante HDFS. Los clústeres de Hadoop pueden encontrarse en una implementación local o dentro de un clúster de IaaS en Azure. Podrían existir requisitos para copiar estos datos en el Almacén de Azure Data Lake de forma puntual o periódica. Existen diversas opciones que puede usar para lograr esto. A continuación se muestra una lista de alternativas, además de las ventajas y desventajas asociadas.
@@ -87,8 +82,7 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 | --- | --- | --- | --- |
 | Usar Azure Data Factory (ADF) para copiar datos directamente desde los clústeres de Hadoop a Azure Data Lake Store |[ADF admite HDFS como origen de datos](../data-factory/connector-hdfs.md) |ADF proporciona compatibilidad inmediata con HDFS, así como una supervisión y administración integrales y de primera clase. |Requiere que se implemente Data Management Gateway localmente o en el clúster de IaaS. |
 | Exportar datos desde Hadoop como archivos. Después copiar los archivos en el Almacén de Azure Data Lake con el mecanismo adecuado. |Puede copiar archivos al Almacén de Azure Data Lake por medio de:  <ul><li>[Azure PowerShell para SO Windows](data-lake-store-get-started-powershell.md)</li><li>[CLI multiplataforma de Azure 2.0 para sistemas operativos distintos de Windows](data-lake-store-get-started-cli-2.0.md)</li><li>Aplicación personalizada con cualquier SDK de Data Lake Store</li></ul> |Se empieza rápido. Se pueden usar cargas personalizadas. |Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
-| Usar Distcp para copiar datos de Hadoop en Azure Storage. Después copiar los datos de Azure Storage a Data Lake Store con el mecanismo adecuado. |Puede copiar datos de Azure Storage a Azure Data Lake Store por medio de:  <ul><li>
-            [Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Puede usar herramientas de código abierto. |Proceso de varios pasos en el que participan varias tecnologías. |
+| Usar Distcp para copiar datos de Hadoop en Azure Storage. Después copiar los datos de Azure Storage a Data Lake Store con el mecanismo adecuado. |Puede copiar datos de Azure Storage a Azure Data Lake Store por medio de:  <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Puede usar herramientas de código abierto. |Proceso de varios pasos en el que participan varias tecnologías. |
 
 ### <a name="really-large-datasets"></a>Conjuntos de datos realmente grandes
 Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En tales casos, puede utilizar las opciones siguientes.
@@ -122,8 +116,7 @@ También puede descargar o mover datos del Almacén de Azure Data Lake para situ
 En tales casos, puede utilizar cualquiera de las opciones siguientes.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* 
-            [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 También puede utilizar los métodos siguientes para escribir su propio script o aplicación para descargar datos desde el Almacén de Data Lake.

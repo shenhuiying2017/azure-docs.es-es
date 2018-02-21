@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 Administración de API admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio de API Management en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión. 
@@ -52,13 +52,12 @@ Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones.
 Repita este proceso hasta que haya configurado todas las ubicaciones y haga clic en **Guardar** en la barra de herramientas para iniciar el proceso de implementación.
 
 ## <a name="remove-region"></a>Eliminación de una instancia de servicio de API Management de una ubicación
+
 En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management. 
 
 ![Pestaña Escala][api-management-scale-service]
 
 Para la ubicación que desee quitar, abra el menú contextual mediante el botón **...** situado a la derecha de la tabla. Haga clic en la opción **Eliminar**.
-
-![Quitar región][api-management-remove-region]
 
 Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
 

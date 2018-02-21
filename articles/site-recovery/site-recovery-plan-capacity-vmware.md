@@ -2,23 +2,17 @@
 title: "Planeamiento de la capacidad y el escalado para la replicación de VMware en Azure con Azure Site Recovery | Microsoft Docs"
 description: "Use este artículo para planear la capacidad y escala cuando replique VM de VMware en Azure con Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planeamiento de la capacidad y el escalado para la replicación de VMware con Azure Site Recovery
 
@@ -140,6 +134,6 @@ Si debe escalar horizontalmente la implementación a más de 200 máquinas de or
 3. En **Seleccionar servidor de procesos de destino**, elija el nuevo servidor de procesos que desee usar y elija las máquinas virtuales que controlará el servidor. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Descargue y ejecute [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).

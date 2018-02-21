@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualización de registros de actividad para auditar las acciones sobre los recursos
 Mediante los registros de actividad, puede determinar:
@@ -29,7 +29,11 @@ Mediante los registros de actividad, puede determinar:
 * el estado de la operación
 * los valores de otras propiedades que podrían ayudarle en la investigación de la operación
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+El registro de actividad contiene todas las operaciones de escritura (PUT, POST, DELETE) realizadas en los recursos. No incluye operaciones de lectura (GET). Para obtener una lista de las acciones de recurso, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). Puede usar los registros de auditoría para encontrar un error a la hora de solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
+
+Los registros de actividad se conservan 90 días. Puede consultar cualquier intervalo de fechas, siempre que no hayan transcurrido más de 90 días desde la fecha inicial.
+
+
 
 Puede recuperar información de los registros de actividad mediante el portal, PowerShell, la CLI de Azure, la API de REST de Insights o la [biblioteca .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -139,10 +143,10 @@ Puede recuperar información de los registros de actividad mediante el portal, P
   ```
 
 
-## <a name="rest-api"></a>API de REST
+## <a name="rest-api"></a>API DE REST
 Las operaciones REST para trabajar con el registro de actividad forman parte de la [API de REST de Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar eventos de registro de actividad, consulte [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Los registros de actividad de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Consulta y análisis de registros de auditoría de Azure en Power BI y más).
 * Para obtener información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](resource-manager-deployment-operations.md).

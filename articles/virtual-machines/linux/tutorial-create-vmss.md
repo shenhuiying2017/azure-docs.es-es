@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
@@ -96,13 +96,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupScaleSet* en la ubicación *eastus*:
+Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupScaleSet* en la ubicación *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*, se usa el archivo cloud-init para personalizar la máquina virtual y se generan claves SSH si estas no existen aún:
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*, se usa el archivo cloud-init para personalizar la máquina virtual y se generan claves SSH si estas no existen aún:
 
 ```azurecli-interactive 
 az vmss create \
@@ -121,7 +121,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="allow-web-traffic"></a>Permitir tráfico web
 Se creó automáticamente un equilibrador de carga como parte del conjunto de escalado de máquinas virtuales. El equilibrador de carga distribuye el tráfico a través de un conjunto de máquinas virtuales definidas usando reglas de equilibrador de carga. Puede aprender más información sobre los conceptos y la configuración del equilibrador de carga en el siguiente tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md) (Equilibrio de carga en máquinas virtuales de Azure).
 
-Para permitir que el tráfico llegue a la aplicación web, cree una regla con [az network lb rule create](/cli/azure/network/lb/rule#create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
+Para permitir que el tráfico llegue a la aplicación web, cree una regla con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
-Para ver la aplicación de Node.js en la web, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
+Para ver la aplicación de Node.js en la web, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -157,7 +157,7 @@ Para ver el conjunto de escalado en funcionamiento, realice una actualización f
 Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. La CLI de Azure 2.0 proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
-Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#list-instances) como se indica a continuación:
+Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) como se indica a continuación:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -177,7 +177,7 @@ La salida es similar a la del ejemplo siguiente:
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Aumento o disminución de instancias de máquina virtual
-Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [az vmss show](/cli/azure/vmss#show) y realice consultas a *sku.capacity*:
+Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show) y realice consultas a *sku.capacity*:
 
 ```azurecli-interactive 
 az vmss show \
@@ -187,7 +187,7 @@ az vmss show \
     --output table
 ```
 
-A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [az vmss scale](/cli/azure/vmss#scale). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *3*:
+A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [az vmss scale](/cli/azure/vmss#az_vmss_scale). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *3*:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -198,7 +198,7 @@ az vmss scale \
 
 
 ### <a name="configure-autoscale-rules"></a>Configuración de reglas de escalado automático
-En lugar de escalar manualmente el número de instancias en el conjunto de escalado, puede definir reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de cinco minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de cinco minutos, las instancias se reducen horizontalmente en una instancia. El identificador de suscripción se usa para crear los URI de recursos para los distintos componentes de conjunto de escalado. Para crear estas reglas con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create), copie y pegue el perfil de comandos de escalado automático siguiente:
+En lugar de escalar manualmente el número de instancias en el conjunto de escalado, puede definir reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de cinco minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de cinco minutos, las instancias se reducen horizontalmente en una instancia. El identificador de suscripción se usa para crear los URI de recursos para los distintos componentes de conjunto de escalado. Para crear estas reglas con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), copie y pegue el perfil de comandos de escalado automático siguiente:
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
@@ -271,7 +271,7 @@ Para volver a usar el perfil de escalado automático, puede crear un archivo JSO
 
 
 ### <a name="get-connection-info"></a>Obtención de información de conexión
-Para obtener información de conexión sobre las máquinas virtuales de los conjuntos de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Este comando da como resultado la dirección IP pública y los puertos de cada máquina virtual que le permiten conectarse con SSH:
+Para obtener información de conexión sobre las máquinas virtuales de los conjuntos de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Este comando da como resultado la dirección IP pública y los puertos de cada máquina virtual que le permiten conectarse con SSH:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -284,7 +284,7 @@ az vmss list-instance-connection-info \
 Puede crear y usar discos de datos con conjuntos de escalado. En un tutorial anterior, ha aprendido cómo [administrar discos de Azure](tutorial-manage-disks.md), donde se describían las prácticas recomendadas y mejoras de rendimiento para la creación de aplicaciones en los discos de datos en lugar de en el disco del SO.
 
 ### <a name="create-scale-set-with-data-disks"></a>Creación de conjunto de escalado con discos de datos
-Para crear un conjunto de escalado y conectar discos de datos, agregue el parámetro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un conjunto de escalado con discos de datos de *50*Gb conectados a cada instancia:
+Para crear un conjunto de escalado y conectar discos de datos, agregue el parámetro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado con discos de datos de *50*Gb conectados a cada instancia:
 
 ```azurecli-interactive 
 az vmss create \
@@ -301,7 +301,7 @@ az vmss create \
 Cuando se quitan las instancias de un conjunto de escalado, también se quitan los discos de datos conectados.
 
 ### <a name="add-data-disks"></a>Adición de discos de datos
-Para agregar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk attach](/cli/azure/vmss/disk#attach). En el ejemplo siguiente se agrega un disco de *50* Gb a cada instancia:
+Para agregar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). En el ejemplo siguiente se agrega un disco de *50* Gb a cada instancia:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -312,7 +312,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Desacoplamiento de discos de datos
-Para quitar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk#detach). En el ejemplo siguiente se quita el disco de datos en el LUN *2* de cada instancia:
+Para quitar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). En el ejemplo siguiente se quita el disco de datos en el LUN *2* de cada instancia:
 
 ```azurecli-interactive 
 az vmss disk detach \

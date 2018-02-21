@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Creación de una máquina virtual básica en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales (VM) en Azure al igual que podría hacerlo con cualquier otro recurso. En este artículo se muestra cómo crear una VM básica con Ansible. También puede obtener información sobre cómo [crear un entorno de máquina virtual completo con Ansible](ansible-create-complete-vm.md).
@@ -37,13 +37,13 @@ Para administrar recursos de Azure con Ansible, necesita lo siguiente:
 
 
 ## <a name="create-supporting-azure-resources"></a>Creación de recursos de Azure de apoyo
-En este ejemplo, creará un runbook que implementa una máquina virtual en una infraestructura existente. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/vm#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En este ejemplo, creará un runbook que implementa una máquina virtual en una infraestructura existente. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree una red virtual para la VM con [az network vnet create](/cli/azure/network/vnet#create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* y una subred *mySubnet*:
+Cree una red virtual para la VM con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* y una subred *mySubnet*:
 
 ```azurecli
 az network vnet create \

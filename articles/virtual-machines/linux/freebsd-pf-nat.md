@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedimiento para usar el filtro de paquetes de FreeBSD con el fin de crear un firewall seguro en Azure
 En este artículo se explica cómo implementar un firewall NAT con el filtro de paquetes de FreeBSD a través de la plantilla de Azure Resource Manager para el escenario común de servidor web.
@@ -27,20 +27,20 @@ En este artículo se explica cómo implementar un firewall NAT con el filtro de 
 ## <a name="what-is-pf"></a>¿Qué es el filtro de paquetes (PF)?
 PF es un filtro de paquetes con estado con licencia para BSD, una pieza central del software de cortafuegos. Esta herramienta se ha desarrollado rápidamente y ahora tiene varias ventajas con respecto a otros firewalls disponibles. Traducción de direcciones de red (NAT) se encuentra en PF desde el primer día. El programador de paquetes y la administración de colas activas se han integrado en PF, incorporando ALTQ, con lo que se puede configurar desde PF. Características como pfsync y CARP para conmutación por error y redundancia, authpf para la autenticación de sesiones y ftp-proxy para facilitar el uso de firewalls en el difícil protocolo FTP difícil, también se han incorporado a PF. En resumen, PF es un firewall eficaz y con numerosas características. 
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 Si le interesa configurar un firewall seguro en la nube para sus servidores web, empecemos a hacerlo. También puede aplicar los scripts usados en esta plantilla de Azure Resource Manager para configurar la topología de red.
 La plantilla de Azure Resource Manager configura una máquina virtual de FreeBSD que realiza tareas NAT y de redirección usando dos máquinas virtuales de FreeBSD y PF con el servidor web Nginx instalado y configurado. Además de llevar a cabo NAT para el tráfico de salida de los dos servidores web, la máquina virtual de redirección/NAT intercepta las solicitudes HTTP y las redirige a los servidores web con distribución "round-robin". La red virtual usa el espacio de direcciones IP no enrutables 10.0.0.2/24 y puede modificar los parámetros de la plantilla. La plantilla de Azure Resource Manager también define una tabla de rutas para la red virtual completa, que es una colección de rutas individuales que se usa para invalidar las rutas de Azure predeterminadas en función de la dirección IP de destino. 
 
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implementación a través de la CLI de Azure
-Necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login). Cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado "`myResourceGroup`" en la ubicación `West US`.
+Necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#az_login). Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente se crea un grupo de recursos denominado "`myResourceGroup`" en la ubicación `West US`.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Después, implemente la plantilla [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment#create). Descargue [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) en la misma ruta de acceso y definir sus propios valores de recursos, como `adminPassword`, `networkPrefix` y `domainNamePrefix`. 
+Después, implemente la plantilla [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Descargue [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) en la misma ruta de acceso y definir sus propios valores de recursos, como `adminPassword`, `networkPrefix` y `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -54,7 +54,7 @@ Después de aproximadamente cinco minutos, obtendrá la información de `"provis
 az network public-ip list --resource-group myResourceGroup
 ```
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 ¿Desea configurar su propia NAT en Azure? El código abierto es gratis, pero ¿es eficaz? PF es una buena elección. Mediante la plantilla [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), solo tiene cinco minutos para configurar un firewall NAT con PF de FreeBSD de carga equilibrada con distribución "round-robin" de Azure para el escenario común de servidores web. 
 
 Si desea obtener información sobre la oferta de FreeBSD en Azure, consulte [Introducción a FreeBSD en Azure](freebsd-intro-on-azure.md).

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure 2.0
 El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
@@ -33,7 +33,7 @@ Hay dos formas de usar la extensión VMAccess en las máquinas virtuales Linux:
 * Usando la CLI de Azure 2.0 y los parámetros necesarios
 * [Usando archivos sin formato JSON que procese la extensión VMAccess](#use-json-files-and-the-vmaccess-extension) para realizar acciones en ellos
 
-En los ejemplos siguientes se utilizan comandos [az vm user](/cli/azure/vm/user). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
+En los ejemplos siguientes se utilizan comandos [az vm user](/cli/azure/vm/user). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#az_login).
 
 ## <a name="reset-ssh-key"></a>Restablecimiento de la clave SSH
 En el ejemplo siguiente se restablece la clave SSH del usuario `azureuser` en la máquina virtual denominada "`myVM`":
@@ -46,7 +46,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-## <a name="reset-password"></a>Restablecer contraseña
+## <a name="reset-password"></a>Restablecimiento de contraseña
 En el ejemplo siguiente se restablece la contraseña del usuario `azureuser` en la máquina virtual denominada "`myVM`":
 
 ```azurecli
@@ -91,7 +91,7 @@ az vm user delete \
 
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Uso de archivos JSON y de la extensión VMAccess
-En los ejemplos siguientes se emplean archivos sin formato JSON. Use [az vm extension set](/cli/azure/vm/extension#set) y, luego, llame a los archivos JSON. Estos archivos JSON también se pueden llamar desde las plantillas de Azure. 
+En los ejemplos siguientes se emplean archivos sin formato JSON. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) y, luego, llame a los archivos JSON. Estos archivos JSON también se pueden llamar desde las plantillas de Azure. 
 
 ### <a name="reset-user-access"></a>Restablecimiento del acceso de un usuario
 Si perdió el acceso a la raíz de la máquina virtual Linux, puede iniciar un script de VMAccess para restablecer la contraseña o la clave SSH de un usuario.
@@ -227,7 +227,7 @@ az vm extension set \
   --protected-settings disk_check_repair.json
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Actualizar Linux con la extensión VMAccess de Azure constituye un método para hacer cambios en una máquina virtual Linux que esté ejecutándose. También puede usar herramientas como cloud-init y las plantillas de Azure Resource Manager para modificar la máquina virtual Linux en el arranque.
 
 [Características y extensiones de las máquinas virtuales para Linux](extensions-features.md)

@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Uso de almacenamiento de blobs en Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,10 +33,10 @@ En este artículo se muestra cómo realizar algunas tareas comunes con Almacenam
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
-Para instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en Azure App Service], [Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Para instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuración de la aplicación para acceder al almacenamiento
-Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
+Para usar el almacenamiento de Azure necesitará el SDK de Azure Storage para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) para ir a la carpeta donde ha creado la aplicación de ejemplo.
@@ -61,7 +61,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 var azure = require('azure-storage');
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo de Azure leerá las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta llamando a **createBlobService**.
 
 ## <a name="create-a-container"></a>Crear un contenedor
@@ -192,7 +192,7 @@ Para anexar un bloque a un blob en anexos existente, use lo siguiente:
 * **appendBlockFromText** : anexa el contenido de una cadena a un blob en anexos existente.
 
 > [!NOTE]
-> Las API appendFromXXX realizarán alguna validación de cliente de errores para evitar llamadas innecesarias al servidor. appendBlockFromXXX no.
+> Las API appendFromXXX realizarán alguna validación en el lado del cliente para provocar el fracaso y responder rápido a los errores con el fin de evitar llamadas innecesarias al servidor. appendBlockFromXXX no.
 >
 >
 
@@ -409,7 +409,7 @@ Después de establecer una ACL, puede crear luego firmad de acceso compartido ba
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Referencia de la API del SDK de Azure Storage para Node][Referencia de la API del SDK de Azure Storage para Node]  
@@ -423,6 +423,6 @@ Para obtener más información, consulte los siguientes recursos:
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Compilación e implementación de una aplicación Node.js en una instancia de Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Referencia de la API del SDK de Azure Storage para Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[SDK de Azure Storage para la referencia de la API de Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  

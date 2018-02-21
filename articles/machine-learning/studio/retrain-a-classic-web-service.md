@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]

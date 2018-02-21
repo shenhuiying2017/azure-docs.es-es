@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
 
@@ -43,7 +43,7 @@ Para usar el VHD como imagen para crear otras máquinas virtuales, siga estos pa
     exit 
     ```
 
-2. Inicie sesión en su cuenta de Azure con [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Inicie sesión en su cuenta de Azure con [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Detenga y desasigne la máquina virtual.
 
     ```azurecli
@@ -58,7 +58,7 @@ Para usar el VHD como imagen para crear otras máquinas virtuales, siga estos pa
 
 Para usar el VHD como disco para una nueva instancia de una máquina virtual o un disco de datos existente, realice estos pasos:
 
-1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2.  En el menú del concentrador, haga clic en **Máquinas virtuales**.
 3.  Seleccione la máquina virtual en la lista.
 4.  En la hoja de la máquina virtual, haga clic en **Detener**.
@@ -75,7 +75,7 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 
     ![Generar dirección URL](./media/download-vhd/export-generate.png)
 
-## <a name="download-vhd"></a>Descarga de VHD
+## <a name="download-vhd"></a>Descargar VHD
 
 1.  En la dirección URL generada, haga clic en Descargar el archivo VHD.
 
@@ -85,7 +85,7 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 
     ![Haga clic en Guardar en el explorador](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Obtenga información sobre cómo [cargar y crear una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Administración de discos de Azure con la CLI de Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

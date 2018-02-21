@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 22eb9989f24bb61638410a0c5361c0a888076e3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Creación de su primera función con la CLI de Azure
 
@@ -49,8 +49,9 @@ Debe tener una Function App para hospedar la ejecución de las funciones. La Fun
 En el siguiente comando, sustituya un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. El parámetro _deployment-source-url_ es un repositorio de ejemplo de GitHub que contiene una función desencadenada mediante HTTP de tipo "Hola mundo".
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
+az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  \
+--resource-group myResourceGroup --consumption-plan-location westeurope \
+--name <app_name> --storage-account  <storage_name>  
 ```
 Si establece el parámetro _consumption-plan-location_, la aplicación de función se hospedará en un plan de hospedaje de consumo. Los recursos de este plan se agregan de forma dinámica según lo requieren las funciones y solo se paga por ellos cuando se están ejecutando dichas funciones. Para obtener más información, vea [Choose the correct hosting plan](functions-scale.md) (Elegir el plan de hospedaje correcto). 
 

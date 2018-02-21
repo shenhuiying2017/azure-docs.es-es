@@ -15,23 +15,23 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ddf0f0be0acd86f3a2c3e241cbf8ebc81301bc21
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Uso de Java para consultar una base de datos SQL de Azure
 
 Esta guía de inicio rápido muestra cómo utilizar [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una instancia de Azure SQL Database y luego utilizar instrucciones Transact-SQL para consultar los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial de inicio rápido, asegúrese de cumplir los siguientes requisitos previos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para la dirección IP pública del equipo que usa para seguir este tutorial.
+- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para la dirección IP pública del equipo que usa para seguir este tutorial de inicio rápido.
 
 - Ha instalado Java y el software relacionado para el sistema operativo:
 
@@ -57,7 +57,7 @@ Para completar este tutorial de inicio rápido, asegúrese de cumplir los siguie
    <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
-       <version>6.2.1.jre8</version>
+       <version>6.2.2.jre8</version>
    </dependency>
    ```
 
@@ -144,7 +144,7 @@ Para completar este tutorial de inicio rápido, asegúrese de cumplir los siguie
 2. Compruebe que se han devuelto las primeras 20 filas y, a continuación, cierre la ventana de la aplicación.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
 - [Controlador JDBC de Microsoft para SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Informe de los problemas y realización de preguntas](https://github.com/microsoft/mssql-jdbc/issues)

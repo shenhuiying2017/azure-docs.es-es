@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlruleaction-syntax"></a>Sintaxis de SQLRuleAction
 
@@ -219,7 +219,7 @@ La función `property(name)` devuelve el valor de la propiedad a la que hace ref
 - La acción no se realiza correctamente si se hace referencia a propiedades del usuario inexistentes.
 - Una propiedad de usuario inexistente se evalúa como desconocida internamente siguiendo la misma semántica que [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) al evaluar los operadores.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Clase SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Clase SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

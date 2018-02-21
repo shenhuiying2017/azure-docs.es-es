@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
 
@@ -46,7 +46,7 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 [Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) (Tunelización de Secure Shell [SSH]) enruta el tráfico enviado a un puerto en la estación de trabajo local. El tráfico se enruta a través de una conexión SSH al nodo principal del clúster de HDInsight. La solicitud se resuelve como si se originara en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Un cliente SSH. La mayoría de los sistemas operativos proporcionan un cliente SSH a través del comando `ssh`. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -146,7 +146,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
    > [!NOTE]
    > Observe la dirección URL de esta página, debe ser similar a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ha aprendido a crear y usar un túnel SSH, consulte el documento siguiente para conocer otras formas de usar Ambari:
 

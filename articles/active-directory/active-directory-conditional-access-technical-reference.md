@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -39,7 +39,7 @@ Si no es la información que está buscando, deje un comentario al final de este
 
 ## <a name="cloud-apps-assignments"></a>Asignaciones de aplicaciones de nube
 
-Con las directivas de acceso condicional, puede controlar cómo los usuarios acceden a las [aplicaciones en la nube](active-directory-conditional-access-azure-portal.md#who). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
+Con las directivas de acceso condicional, puede controlar cómo los usuarios acceden a las [aplicaciones en la nube](active-directory-conditional-access-conditions.md#cloud-apps). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
 
 ![Seleccione las aplicaciones de nube de la directiva](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ En una directiva de acceso condicional, puede configurar la condición de la pla
 
 ## <a name="client-apps-condition"></a>Condición de aplicaciones cliente 
 
-En la directiva de acceso condicional, puede configurar la condición de las [aplicaciones cliente](active-directory-conditional-access-azure-portal.md#client-apps) para asociar la directiva con la aplicación cliente que ha iniciado un intento de acceso. Si establece la condición de aplicaciones cliente, podrá conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones cliente:
+En la directiva de acceso condicional, puede configurar la condición de las [aplicaciones cliente](active-directory-conditional-access-conditions.md#client-apps) para asociar la directiva con la aplicación cliente que ha iniciado un intento de acceso. Si establece la condición de aplicaciones cliente, podrá conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones cliente:
 
 - Browser
 - Aplicaciones de escritorio y aplicaciones móviles
@@ -169,10 +169,9 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 |Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7, Windows 7|
 |Aplicación móvil de Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplicación de PowerBI. La aplicación de Power BI para Android no admite actualmente el acceso condicional basado en dispositivos.|Servicio de PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
+|Aplicación de PowerBI|Servicio de PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
 |Skype Empresarial|Office 365 Exchange Online|Android, IOS |
 |Aplicación de Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS y Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito de aplicación cliente aprobado 
@@ -186,6 +185,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Empresarial
+- Microsoft StaffHub
 - Equipos de Microsoft
 - Microsoft Visio
 - Microsoft Word

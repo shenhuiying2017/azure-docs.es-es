@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en Azure
 Con [Compose](http://github.com/docker/compose), usará un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. Después, puede poner en marcha la aplicación con un solo comando que realiza todos los pasos para implementarla en el entorno definido. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu. También puede utilizar Compose para configurar aplicaciones más complejas.
@@ -32,15 +32,15 @@ Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual 
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Creación de un host de Docker con la CLI de Azure 2.0
-Instale la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Instale la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
-En primer lugar, cree un grupo de recursos para su entorno de Docker con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En primer lugar, cree un grupo de recursos para su entorno de Docker con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Proporcione sus propios valores únicos para *newStorageAccountName*, *adminUsername*, *adminPassword* y *dnsNameForPublicIP*:
+A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Proporcione sus propios valores únicos para *newStorageAccountName*, *adminUsername*, *adminPassword* y *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -51,7 +51,7 @@ La implementación tarda unos minutos en finalizar.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Comprobación de que se ha instalado Compose
-Para ver detalles de la máquina virtual, incluido el nombre DNS, use [az vm show](/cli/azure/vm#show):
+Para ver detalles de la máquina virtual, incluido el nombre DNS, use [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

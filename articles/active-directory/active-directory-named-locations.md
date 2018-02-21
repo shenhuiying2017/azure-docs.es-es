@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Ubicaciones con nombre en Azure Active Directory
 
@@ -26,7 +26,7 @@ Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de 
 
 - La detección de [eventos de riesgo](active-directory-reporting-risk-events.md) para reducir el número de falsos positivos notificados.  
 
-- El [acceso condicional basado en la ubicación](active-directory-conditional-access-azure-portal.md#locations).
+- El [acceso condicional basado en la ubicación](active-directory-conditional-access-locations.md).
 
 
 En este artículo se explica cómo puede configurar las ubicaciones con nombre en su entorno.
@@ -85,7 +85,7 @@ Puede tener acceso a la página de configuración de la ubicación con nombre en
 
     b. En el cuadro **Intervalo IP**, escriba un intervalo IP. El intervalo de IP debe estar en el formato *Enrutamiento de interdominios sin clases*  (CIDR).  
 
-    c. Haga clic en **Crear**.
+    c. Haga clic en **Create**(Crear).
 
 
 
@@ -99,7 +99,7 @@ Puede tener acceso a la página de configuración de la ubicación con nombre en
 **Limitaciones:** puede definir un máximo de 60 ubicaciones con nombre con un intervalo de IP asignado a cada una de ellas. Si tiene una sola ubicación con nombre configurada, puede definir hasta 500 intervalos IP para ella.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre:
 

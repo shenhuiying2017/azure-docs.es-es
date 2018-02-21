@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bcd3d64714951508d984c17326e845ae4842670
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -28,7 +25,7 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 > * Comprobar los requisitos previos
 > * Ejecutar una conmutación por error de prueba en una sola máquina virtual
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Antes de ejecutar una conmutación por error de prueba, se recomienda que compruebe las propiedades de la máquina virtual para asegurarse de que todo se ajusta a lo esperado.  Acceda a las propiedades de la máquina virtual en **Elementos replicados**. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
 - Se recomienda usar una red de máquina virtual de Azure independiente en la conmutación por error de prueba en lugar de la red predeterminada que se configuró cuando habilitó la replicación.
@@ -50,7 +47,7 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 5. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Asegúrese de que la máquina virtual está en funcionamiento, tiene el tamaño adecuado y está conectada a la red apropiada.
 6. Para eliminar las máquinas virtuales que se crearon durante la conmutación por error de prueba, haga clic en **Cleanup test failover** (Limpiar conmutación por error de prueba) en el artículo replicado o el plan de recuperación. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ejecutar una conmutación por error de producción](azure-to-azure-tutorial-failover-failback.md)

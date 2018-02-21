@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory
 
@@ -41,11 +41,11 @@ El acceso condicional basado en dispositivos une el **acceso condicional de Azur
 
 En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Para determinados recursos de su entorno, es posible que conceder acceso a los usuarios adecuados no sea una acción lo suficientemente buena. Además de los usuarios adecuados, puede que también requiera el uso de un dispositivo de confianza para tener acceso a un recurso. En su entorno, puede definir lo que es un dispositivo de confianza en función de los siguientes componentes:
 
-- Las [plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) de un dispositivo
+- Las [plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) de un dispositivo
 - Si un dispositivo es compatible
 - Si un dispositivo está unido a un dominio 
 
-La [plataforma de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) se caracteriza por el sistema operativo que se ejecuta en el dispositivo. En su directiva de acceso condicional basada en dispositivos, puede limitar el acceso a determinados recursos a plataformas de dispositivo específicas.
+La [plataforma de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) se caracteriza por el sistema operativo que se ejecuta en el dispositivo. En su directiva de acceso condicional basada en dispositivos, puede limitar el acceso a determinados recursos a plataformas de dispositivo específicas.
 
 
 
@@ -73,7 +73,7 @@ Si tiene una superficie de Active Directory (AD) local, podría considerar la po
 ![Aplicaciones de nube](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Antes de configurar una directiva de acceso condicional basada en dispositivos en su entorno, debería echar un vistazo a [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

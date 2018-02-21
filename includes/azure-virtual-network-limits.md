@@ -52,7 +52,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Reglas por recurso, básico | 150 | 250 |
 | Reglas por recurso, estándar | 1250 | 1.500 |
 | Reglas por configuración de dirección IP | 299 |299 |
-| Configuraciones de direcciones IP de front-end, básico | 10 | ponerse en contacto con el servicio de soporte técnico |
+| Configuraciones de direcciones IP de front-end, básico | 10 | 200 |
 | Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
 | Grupo de back-end, básico | 100, conjunto de disponibilidad único | - |
 | Grupo de back-end, estándar | 1000, red virtual única | - |

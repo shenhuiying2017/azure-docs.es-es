@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Requisitos previos comunes para la implementación de OpenShift en Azure
 
@@ -52,14 +52,14 @@ En esta guía se describe cómo crear los artefactos asociados con los requisito
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
-Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla, o bien haga clic en **Pruébelo** para usar Cloud Shell.
+Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#az_login) y siga las instrucciones de la pantalla, o bien haga clic en **Pruébelo** para usar Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Debe usar un grupo de recursos dedicado para hospedar el almacén de claves. Este grupo es independiente del grupo de recursos en el que se implementan los recursos del clúster de OpenShift. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Debe usar un grupo de recursos dedicado para hospedar el almacén de claves. Este grupo es independiente del grupo de recursos en el que se implementan los recursos del clúster de OpenShift. 
 
 En el ejemplo siguiente se crea un grupo de recursos denominado *keyvaultrg* en la ubicación *eastus*:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
-Cree un almacén de claves para almacenar las claves SSH para el clúster con el comando [az keyvault create](/cli/azure/keyvault#create). El nombre del almacén de claves debe ser único globalmente.
+Cree un almacén de claves para almacenar las claves SSH para el clúster con el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create). El nombre del almacén de claves debe ser único globalmente.
 
 En el ejemplo siguiente se crea un almacén de claves denominado *keyvault* en el grupo de recursos *keyvaultrg*:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio 
 OpenShift se comunica con Azure mediante un nombre de usuario y una contraseña, o bien a través de una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como OpenShift. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure. Para incrementar la seguridad más allá de un nombre de usuario y una contraseña, en este ejemplo se crea una entidad de servicio básica.
 
-Cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y genere las credenciales necesarias para OpenShift.
+Cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) y genere las credenciales necesarias para OpenShift.
 
 En el ejemplo siguiente se crea una entidad de servicio y se le asignan permisos de colaborador para un grupo de recursos denominado myResourceGroup. Si usa Windows, ejecute ```az group show --name myResourceGroup --query id``` por separado y use el resultado para alimentar la opción --scopes.
 

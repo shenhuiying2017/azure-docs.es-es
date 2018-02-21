@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones de planeamiento de implementación desconectada de Azure en sistemas integrados de Azure Stack
-Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-deployment-decisions.md), puede concluir sus decisiones de implementación de Azure Stack.
+Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
 
 Con la opción de implementación sin conexión a Azure, Azure Stack se podrá implementar y usar sin conexión a Internet. Sin embargo, este tipo de implementación tiene la limitación de que solo se puede usar un almacén de identidades de AD FS y el modelo de facturación por capacidad. 
 
@@ -34,7 +34,7 @@ Elija esta opción si:
 > [!TIP]
 > En ocasiones, este tipo de entorno también se conoce como "escenario submarino".
 
-Una implementación sin conexión no significa estrictamente no posteriormente no sea posible conectar una instancia Azure Stack a Azure en escenarios de máquinas virtuales de inquilino híbrido. Significa que no tiene conectividad a Azure durante la implementación o que no desea usar Azure Active Directory como almacén de identidades. Sin embargo, si desea tener conectividad a Azure después de la implementación, independientemente de lo que desee usar como el almacén de identidades, debe elegir la opción de implementación Conexión a Azure. 
+Una implementación sin conexión no significa estrictamente no posteriormente no sea posible conectar una instancia Azure Stack a Azure en escenarios de máquinas virtuales de inquilino híbrido. Significa que no tiene conectividad a Azure durante la implementación o que no desea usar Azure Active Directory como almacén de identidades.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Características con limitaciones o que no están disponible en implementaciones desconectadas 
 Azure Stack se ha diseñado para funcionar mejor cuando se conecta a Azure, por lo que es importante tener en cuenta que hay algunas funcionalidades y características que tienen limitaciones o que no están disponibles en el modo sin conexión. 

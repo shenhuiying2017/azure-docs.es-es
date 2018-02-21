@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Equilibrio de la carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
@@ -52,14 +52,14 @@ Si siguió el tutorial anterior para [crear un conjunto de escalado de máquinas
 
 
 ## <a name="create-azure-load-balancer"></a>Creación del equilibrador de carga de Azure
-En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLoadBalancer* en la ubicación *eastus*:
+En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLoadBalancer* en la ubicación *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
-Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#create). En el ejemplo siguiente se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myResourceGroupLoadBalancer*:
+Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). En el ejemplo siguiente se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -68,7 +68,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Crear un equilibrador de carga
-Cree un equilibrador de carga con [az network lb create](/cli/azure/network/lb#create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end:
+Cree un equilibrador de carga con [az network lb create](/cli/azure/network/lb#az_network_lb_create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end:
 
 ```azurecli-interactive 
 az network lb create \
@@ -84,7 +84,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
 
 En el ejemplo siguiente se crea un sondeo de TCP. También se pueden crear sondeos HTTP personalizados para comprobaciones de estado más específicas. Al usar un sondeo HTTP personalizado, debe crear la página de comprobación de estado, por ejemplo *healthcheck.js*. El sondeo debe devolver una respuesta **HTTP 200 OK** para que el equilibrador de carga mantenga el host en rotación.
 
-Para crear un sondeo de estado TCP, debe usar el comando [az network lb probe create](/cli/azure/network/lb/probe#create). En el ejemplo siguiente se crea un sondeo de TCP denominado *myHealthProbe*:
+Para crear un sondeo de estado TCP, debe usar el comando [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). En el ejemplo siguiente se crea un sondeo de TCP denominado *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -98,7 +98,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Para asegurarse de que solo las máquinas virtuales correctas reciban tráfico, también hay que definir el sondeo de estado que se va usar.
 
-Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#create). En el ejemplo siguiente se crea una regla denominada *myLoadBalancerRule*, se usa el sondeo de estado *myHealthProbe* y se equilibra el tráfico en el puerto *80*:
+Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). En el ejemplo siguiente se crea una regla denominada *myLoadBalancerRule*, se usa el sondeo de estado *myHealthProbe* y se equilibra el tráfico en el puerto *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -114,11 +114,11 @@ az network lb rule create \
 ```
 
 
-## <a name="configure-virtual-network"></a>Configuración de una red virtual
+## <a name="configure-virtual-network"></a>Configurar la red virtual
 Antes de implementar algunas máquinas virtuales y poder probar el equilibrador, cree los recursos de red virtual auxiliares. Para más información sobre las redes virtuales, consulte el tutorial [Administración de Azure Virtual Networks](tutorial-virtual-network.md).
 
 ### <a name="create-network-resources"></a>Crear recursos de red
-Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con una subred *mySubnet*:
+Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con una subred *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -127,7 +127,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Para agregar un grupo de seguridad de red, use el comando [az network nsg create](/cli/azure/network/nsg#create). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
+Para agregar un grupo de seguridad de red, use el comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Cree una regla de grupo de seguridad de red con el comando [az network nsg rule create](/cli/azure/network/nsg/rule#create). En el ejemplo siguiente se crea una regla grupo de seguridad de red denominada *myNetworkSecurityGroupRule*:
+Cree una regla de grupo de seguridad de red con el comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). En el ejemplo siguiente se crea una regla grupo de seguridad de red denominada *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -147,7 +147,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Las NIC virtuales se crean con el comando [az network nic create](/cli/azure/network/nic#create). En el ejemplo siguiente se crean tres NIC. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
+Las NIC virtuales se crean con el comando [az network nic create](/cli/azure/network/nic#az_network_nic_create). En el ejemplo siguiente se crean tres NIC. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
 
 ```bash
 for i in `seq 1 3`; do
@@ -217,7 +217,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 Para mejorar la alta disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad. Para más información sobre los conjuntos de disponibilidad, consulte el tutorial anterior [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md).
 
-Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azure/vm/availability-set#create). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
+Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -225,7 +225,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Ahora puede crear las máquinas virtuales con el comando [az vm create](/cli/azure/vm#create). El siguiente ejemplo crea tres máquinas virtuales y genera claves SSH si aún no existen:
+Ahora puede crear las máquinas virtuales con el comando [az vm create](/cli/azure/vm#az_vm_create). El siguiente ejemplo crea tres máquinas virtuales y genera claves SSH si aún no existen:
 
 ```bash
 for i in `seq 1 3`; do
@@ -246,7 +246,7 @@ Hay tareas en segundo plano que continúan ejecutándose después de que la CLI 
 
 
 ## <a name="test-load-balancer"></a>Prueba del equilibrador de carga
-Obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
+Obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -267,7 +267,7 @@ Para ver cómo el equilibrador de carga distribuye el tráfico entre las tres m�
 Puede que tenga que realizar labores de mantenimiento de las máquinas virtuales que ejecutan la aplicación, como la instalación de actualizaciones del sistema operativo. Para gestionar un aumento de tráfico a la aplicación, tiene que agregar más máquinas virtuales. Esta sección le muestra cómo quitar o agregar una máquina virtual desde el equilibrador de carga.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Eliminación de una máquina virtual del equilibrador de carga
-Puede quitar una máquina virtual del grupo de direcciones de back-end con el comando [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#remove). En el ejemplo siguiente se quita la NIC virtual para **myVM2** de *myLoadBalancer*:
+Puede quitar una máquina virtual del grupo de direcciones de back-end con el comando [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). En el ejemplo siguiente se quita la NIC virtual para **myVM2** de *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -278,9 +278,9 @@ az network nic ip-config address-pool remove \
     --address-pool myBackEndPool 
 ```
 
-Para ver cómo el equilibrador de carga distribuye el tráfico entre las dos máquinas virtuales que quedan que ejecutan la aplicación, puede realizar una actualización forzada del explorador web. Ahora puede realizar tareas de mantenimiento en la máquina virtual, como instalar actualizaciones del sistema operativo o realizar un reinicio de máquina virtual.
+Para ver cómo el equilibrador de carga distribuye el tráfico entre las dos máquinas virtuales que quedan ejecutando la aplicación, puede realizar una actualización forzada del explorador web. Ahora puede realizar tareas de mantenimiento en la máquina virtual, como instalar actualizaciones del sistema operativo o realizar un reinicio de máquina virtual.
 
-Para ver una lista de las máquinas virtuales con NIC virtuales conectados al equilibrador de carga, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#show). Consulte y filtre por identificador de NIC virtual de la siguiente manera:
+Para ver una lista de las máquinas virtuales con NIC virtuales conectados al equilibrador de carga, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Consulte y filtre por identificador de NIC virtual de la siguiente manera:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -299,7 +299,7 @@ El resultado es similar al ejemplo siguiente, que muestra que la NIC virtual de 
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Incorporación de una máquina virtual al equilibrador de carga
-Después de realizar el mantenimiento en una máquina virtual, o si necesita expandir la capacidad, puede agregar una máquina virtual al grupo de direcciones de back-end con el comando [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). En el ejemplo siguiente se agrega la NIC virtual para **myVM2** a *myLoadBalancer*:
+Después de realizar el mantenimiento en una máquina virtual, o si necesita expandir la capacidad, puede agregar una máquina virtual al grupo de direcciones de back-end con el comando [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). En el ejemplo siguiente se agrega la NIC virtual para **myVM2** a *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -310,10 +310,10 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Para comprobar que la NIC virtual está conectada al grupo de direcciones de back-end, vuelva a usar [az network lb address-pool show](/cli/azure/network/lb/address-pool#show) del paso anterior.
+Para comprobar que la NIC virtual está conectada al grupo de direcciones de back-end, vuelva a usar [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) del paso anterior.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha creado un equilibrador de carga y conectó máquinas virtuales a él. Ha aprendido a:
 
 > [!div class="checklist"]

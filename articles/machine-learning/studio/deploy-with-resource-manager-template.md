@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/15/2017
+ms.date: 2/05/2018
 ms.author: ahgyger
-ms.openlocfilehash: e3cbcb8118aa05e554b2493506280d0e24706059
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6189cd2dce2be8c87255dedecd4493767e857031
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Machine Learning mediante Azure Resource Manager
 ## <a name="introduction"></a>Introducción
@@ -114,7 +114,7 @@ $rg
 Compruebe que se ha aprovisionado correctamente el grupo de recursos. **ProvisioningState** debe ser "Succeeded" (Correcto).
 La plantilla utiliza el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.
 
-![El grupos de recursos][2]
+![Grupo de recursos][2]
 
 * Mediante la implementación del grupo de recursos, implemente una nueva área de trabajo de Machine Learning.
 
@@ -136,7 +136,7 @@ Otra manera de recuperar los tokens del área de trabajo existente es usar el co
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Estudio de aprendizaje automático de Microsoft Azure mediante el [módulo de PowerShell para Aprendizaje automático de Azure](http://aka.ms/amlps).
+Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Microsoft Azure Machine Learning Studio mediante el [módulo de PowerShell para Azure Machine Learning](http://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 

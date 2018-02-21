@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6dc92640f1ff46bac25c11fe246deed514030d9b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 9d7469035205f066091f6ca87f7199208706170c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual Windows con la CLI de Azure
 
@@ -37,7 +37,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -45,7 +45,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Crear máquina virtual
+## <a name="create-virtual-machine"></a>Create virtual machine
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). 
 
@@ -72,7 +72,7 @@ Cuando se ha creado la máquina virtual, la CLI de Azure muestra información si
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
 
-De forma predeterminada, solo se permiten conexiones RDP con las máquinas virtuales Windows implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet. Use el comando [az vm open-port](/cli/azure/vm#open-port) para abrir el puerto deseado.  
+De forma predeterminada, solo se permiten conexiones RDP con las máquinas virtuales Windows implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet. Use el comando [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir el puerto deseado.  
  
  ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -103,13 +103,13 @@ Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 
