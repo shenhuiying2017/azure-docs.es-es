@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicación híbrida en la nube o local de .NET con la retransmisión de WCF de Azure
 
@@ -218,7 +218,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
 
 1. Asegúrese de que se está ejecutando Visual Studio con privilegios de administrador.
 2. En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-3. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Aplicación web ASP.NET (.NET Framework)**. Asigne al proyecto el nombre **ProductsPortal**. y, a continuación, haga clic en **Aceptar**.
+3. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Aplicación web ASP.NET (.NET Framework)**. Asigne al proyecto el nombre **ProductsPortal**. A continuación, haga clic en **Aceptar**.
 
    ![][15]
 
@@ -231,7 +231,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
     ![][18]
 
 7. De vuelta en el cuadro de diálogo **Nueva aplicación web ASP.NET**, haga clic en **Aceptar** para crear la aplicación de MVC.
-8. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga los pasos de la [sección Publicación en Azure de este artículo](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
+8. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga los pasos de la [sección Publicación en Azure de este artículo](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
 10. En el Explorador de soluciones, haga clic con el botón derecho en **Modelos** y, luego, en **Agregar** y, por último, en **Clase**. En el cuadro **Name**, escriba el nombre **Product.cs**. A continuación, haga clic en **Agregar**.
 
     ![][17]
@@ -451,7 +451,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
     ![][38]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Relay de Azure, consulte los siguientes recursos:  
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsión de carga de trabajo del servidor en terabytes de datos
 
@@ -42,7 +42,7 @@ La previsión de la carga de trabajo en servidores es una necesidad empresarial 
 En este escenario, se centra en la predicción de carga de trabajo para cada máquina (o servidor). En concreto, los datos de sesión de cada servidor se usan para predecir la clase de carga de trabajo del servidor en el futuro. Deberá clasificar la carga de cada servidor en clases baja, media y alta mediante el uso del clasificador de bosque aleatorio de [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). La técnicas de aprendizaje automático y el flujo de trabajo de este ejemplo se pueden extender con facilidad a otros problemas similares. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
@@ -51,7 +51,7 @@ Los requisitos previos para ejecutar este ejemplo son los siguientes:
 * Windows 10 (las instrucciones que aparecen en este ejemplo suelen ser las mismas para los sistemas macOS).
 * Una instancia de Data Science Virtual Machine (DSVM) para Linux (Ubuntu), preferiblemente en la región Este de EE. UU. donde se ubican los datos. Puede aprovisionar una DSVM Ubuntu siguiendo [estas instrucciones](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). También puede ver [este tutorial de inicio rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se recomienda usar una máquina virtual con al menos 8 núcleos y 32 GB de memoria. 
 
-Siga la [instrucción](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para habilitar el acceso de sudoer sin contraseña en la máquina virtual para AML Workbench.  Puede elegir utilizar la [autenticación basada en claves SSH para crear y utilizar la máquina virtual en AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). En este ejemplo, vamos a utilizar la contraseña para acceder a la máquina virtual.  Guarde la tabla siguiente con información de la DSVM para pasos posteriores:
+Siga la [instrucción](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar el acceso de sudoer sin contraseña en la máquina virtual para AML Workbench.  Puede elegir utilizar la [autenticación basada en claves SSH para crear y utilizar la máquina virtual en AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). En este ejemplo, vamos a utilizar la contraseña para acceder a la máquina virtual.  Guarde la tabla siguiente con información de la DSVM para pasos posteriores:
 
  Nombre del campo| Valor |  
  |------------|------|
@@ -330,7 +330,7 @@ En la barra lateral derecha de Workbench, vaya a **Ejecuciones** para ver el his
 
 En esta sección, pondrá en marcha el modelo que ha creado en los pasos anteriores como un servicio web. También aprenderá a usar el servicio web para predecir la carga de trabajo. Use interfaces de la línea de comandos (CLI) para la puesta en marcha de Machine Learning para empaquetar el código y las dependencias como imágenes de Docker y publicar el modelo como un servicio web en contenedores.
 
-Puede usar el símbolo de la línea de comandos en Machine Learning Workbench para ejecutar las CLI.  También puede ejecutar las CLI en Ubuntu Linux siguiendo la [Guía de instalación](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Puede usar el símbolo de la línea de comandos en Machine Learning Workbench para ejecutar las CLI.  También puede ejecutar las CLI en Ubuntu Linux siguiendo la [Guía de instalación](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > En todos los comandos siguientes, reemplace cualquier argumento variable por su valor real. Esta sección tarda aproximadamente 40 minutos en realizarse.
@@ -416,7 +416,7 @@ Elija una cadena única como el entorno para la puesta en marcha. En este caso, 
 
 8. Escale el servicio web. 
 
-   Para obtener más información, consulte [Cómo escalar la puesta en marcha en el clúster de Azure Container Service](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Para obtener más información, consulte [Cómo escalar la puesta en marcha en el clúster de Azure Container Service](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>pasos siguientes

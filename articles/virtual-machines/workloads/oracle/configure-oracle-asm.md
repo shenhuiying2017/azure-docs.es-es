@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -41,15 +41,15 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-### <a name="create-a-vm"></a>Creación de una VM
+### <a name="create-a-vm"></a>Crear una VM
 
-Para crear una máquina virtual basada en la imagen de base de datos de Oracle y configurarla para usar ASM de Oracle, use el comando [az vm create](/cli/azure/vm#create). 
+Para crear una máquina virtual basada en la imagen de base de datos de Oracle y configurarla para usar ASM de Oracle, use el comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 En el ejemplo siguiente se crea una máquina virtual denominada myVM que tiene un tamaño de Standard_DS2_v2 con cuatro discos de datos adjuntos de 50 GB cada uno. También se crean claves SSH si aún no existen en la ubicación de claves predeterminada.  Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
@@ -62,7 +62,7 @@ En el ejemplo siguiente se crea una máquina virtual denominada myVM que tiene u
     --data-disk-sizes-gb 50 50 50 50
    ```
 
-Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Tome nota del valor de `publicIpAddress`, ya que usará esta dirección para tener acceso a la máquina virtual.
+Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Tome nota del valor de `publicIpAddress`, Use esta dirección para acceder a la máquina virtual.
 
    ```azurecli
    {
@@ -572,7 +572,7 @@ El software de base de datos de Oracle ya está instalado en la imagen de Azure 
 
 5. Se ha creado la base de datos. En la página **Finish** (Finalizar), tiene la opción de desbloquear cuentas adicionales para usar esta base de datos y cambiar las contraseñas. Si quiere hacerlo, seleccione **Password Management** (Administración de contraseñas); de lo contrario, haga clic en `close`.
 
-## <a name="delete-the-vm"></a>Eliminar la máquina virtual
+## <a name="delete-the-vm"></a>Eliminación de la máquina virtual
 
 Automated Storage Management de Oracle se ha configurado correctamente en la imagen de base de datos de Oracle desde Azure Marketplace.  Cuando ya no necesite esta máquina virtual, puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 
@@ -580,7 +580,7 @@ Automated Storage Management de Oracle se ha configurado correctamente en la ima
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Tutorial: Configuración de Oracle DataGuard](configure-oracle-dataguard.md)
 

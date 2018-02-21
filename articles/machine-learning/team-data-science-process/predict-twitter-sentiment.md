@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Predicción de las opiniones de Twitter con inserciones de palabras mediante el proceso de ciencia de datos en equipo
 
@@ -131,7 +131,7 @@ El paso final es la implementación del modelo de predicción de opiniones entre
 
 ![Panel de Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Para más información sobre el proceso de operacionalización, consulte [Implementación de un modelo de Azure Machine Learning como un servicio web](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Para más información sobre el proceso de operacionalización, consulte [Implementación de un modelo de Azure Machine Learning como un servicio web](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -143,8 +143,8 @@ En este artículo, ha aprendido a entrenar un modelo de inserción de palabras u
 * [Proceso de ciencia de datos en equipo (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Uso del proceso de ciencia de datos en equipo (TDSP) en Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Plantillas de proyecto TDSP para Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [Conjunto de datos de ingresos de EE. UU. obtenido del repositorio de aprendizaje automático de UCI](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas y otros "Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems" (Representaciones distribuidas de palabras y frases y su composicionalidad. Avances en los sistemas de procesamiento de información neuronal). 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu y otros "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Aprendizaje de inserción de palabras específicas de opinión para la clasificación de opiniones de Twitter). ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

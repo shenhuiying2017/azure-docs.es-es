@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 Log Analytics incluye información sobre la cantidad de datos recopilados, qué sistemas envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para ver la cantidad de datos enviados al servicio Log Analytics. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
@@ -36,7 +36,9 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
 - Offerings (Ofertas)
     - Insight and Analytics nodes (Nodos Insight y Analytics)
     - Automation and Control nodes (Nodos Automation y Control)
-    - Security nodes (Nodos de seguridad)
+    - Security nodes (Nodos de seguridad)  
+- Rendimiento
+    - Time taken to collect and index data (Tiempo dedicado a recopilar e indexar datos)  
 - Lista de consultas
 
 ![panel de uso](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Haga clic en **Ver todos...**  para ver la lista completa de los equipos que env
 
 Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Comprobación de si hay latencia de ingesta
-Con Log Analytics hay una latencia anticipada con la ingesta de los datos recopilados.  La hora absoluta entre la indexación de datos y su disponibilidad para buscarlos puede ser impredecible. Anteriormente incluíamos un gráfico de rendimiento en el panel que mostraba el tiempo que se tarda en recopilar e indexar los datos, pero con la introducción del nuevo lenguaje de consulta, hemos eliminado temporalmente este gráfico.  Como solución provisional hasta que se lancen las métricas de latencia actualizadas de ingesta de datos, se puede usar la siguiente consulta para aproximar la latencia para cada tipo de dato.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> La consulta de latencia de ingesta no muestra la latencia histórica y se limita a devolver únicamente los resultados de la hora actual.  El valor de *TimeGenerated* se rellena en el agente para los registros de esquema comunes y se rellena en el punto de conexión de recopilación para los registros personalizados.  
->
 
 ## <a name="next-steps"></a>pasos siguientes
 * Consulte [Búsquedas de registro en Log Analytics](log-analytics-log-searches.md) para obtener información sobre cómo usar el lenguaje de búsqueda. Puede utilizar las consultas de búsqueda para realizar análisis adicionales sobre los datos de uso.

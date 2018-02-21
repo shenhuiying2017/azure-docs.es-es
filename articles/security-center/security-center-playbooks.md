@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de seguridad de Azure Security Center (versión preliminar)
 Este documento le ayuda a usar los playbooks de seguridad de Azure Security Center para responder a problemas relacionados con la seguridad.
@@ -35,7 +35,7 @@ Para crear un nuevo playbook de seguridad desde Security Center, siga estos paso
 1.  Abra el panel **Security Center**.
 2.  En la sección **Automation & Orchestration** (Automatización y orquestación) del panel izquierdo, haga clic en **Playbooks (Preview)** (Playbooks [versión preliminar]).
 
-    ![Aplicación lógica](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![Aplicación lógica](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. En la página **Security Center - Playbooks (Preview)** (Security Center - Playbooks [versión preliminar]), haga clic en el botón **Agregar**.
 

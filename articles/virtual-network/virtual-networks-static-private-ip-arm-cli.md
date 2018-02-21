@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure
 
@@ -41,9 +41,9 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, complete estos pasos:
 
-1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login). 
+1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login). 
 
-2. Cree una dirección IP pública para la máquina virtual con el comando [az network public-ip create](/cli/azure/network/public-ip#create). En la lista que se muestra en la salida se explican los parámetros utilizados.
+2. Cree una dirección IP pública para la máquina virtual con el comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). En la lista que se muestra en la salida se explican los parámetros utilizados.
 
     > [!NOTE]
     > Puede que quiera o necesite usar valores diferentes para los argumentos de este paso y los siguientes, dependiendo de su entorno.
@@ -74,7 +74,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
    * `--name`: nombre de la dirección IP pública.
    * `--location`: región de Azure donde se va a crear la dirección IP pública.
 
-3. Ejecute el comando [azure network nic create](/cli/azure/network/nic#create) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
+3. Ejecute el comando [azure network nic create](/cli/azure/network/nic#az_network_nic_create) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     * `--vnet-name`: nombre de la red virtual en la que se va a crear la NIC.
     * `--subnet`: nombre de la subred en la que se va a crear la NIC.
 
-4. Ejecute el comando [azure vm create](/cli/azure/vm/nic#create) para crear la máquina virtual mediante la dirección IP pública y la NIC creadas anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el comando [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) para crear la máquina virtual mediante la dirección IP pública y la NIC creadas anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     }
     ```
    
-   Parámetros que no sean las opciones básicas de [az vm create](/cli/azure/vm#create).
+   Parámetros que no sean las opciones básicas de [az vm create](/cli/azure/vm#az_vm_create).
 
    * `--nics`: nombre de la NIC a la que está conectada la máquina virtual.
    
@@ -268,7 +268,7 @@ Para cambiar el NIC de la máquina virtual que se utiliza en los comandos anteri
     > [!NOTE]
     > Si la máquina virtual es suficientemente grande para tener más de una NIC, ejecute el comando **azure network nic delete** para eliminar la NIC antigua.
    
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).

@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2---december-2017"></a>Sprint 2: diciembre de 2017 
 
 #### <a name="version-number-01171115263"></a>Número de la versión: 0.1.1711.15263
 
->Le mostramos cómo puede [buscar el número de versión](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Le mostramos cómo puede [buscar el número de versión](known-issues-and-troubleshooting-guide.md).
 
 Esta es la tercera actualización de Azure Machine Learning Workbench. Esta actualización incluye mejoras en la aplicación de workbench, la interfaz de línea de comandos (CLI) y los servicios back-end. Le agradecemos enormemente sus comentarios, tanto positivos como negativos. Muchas de las actualizaciones siguientes son consecuencia directa de esos comentarios. 
 
 ## <a name="notable-new-features"></a>Nuevas características destacables
-- [Compatibilidad con SQL Server y Azure SQL Database como un origen de datos](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Compatibilidad con SQL Server y Azure SQL Database como un origen de datos](data-prep-appendix2-supported-data-sources.md#types) 
 - [Aprendizaje profundo sobre Spark con compatibilidad con GPU mediante MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Todos los contenedores de AML son compatibles con dispositivos de Azure IoT Edge cuando se implementan (no se requieren pasos adicionales)](http://aka.ms/aml-iot-edge-blog)
 - Lista de modelos disponibles y vistas de detalle disponibles en Azure Portal
@@ -56,7 +56,7 @@ A continuación figura una lista de actualizaciones detalladas de cada área de 
 
 - Mejoras de rendimiento al recomendar casos extremos para revisar en la transformación 'derivar columna por ejemplo'.
 
-- [Compatibilidad con SQL Server y Azure SQL Database como un origen de datos](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Compatibilidad con SQL Server y Azure SQL Database como un origen de datos](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Imagen de creación de un nuevo origen de datos de SQL Server](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Ahora puede crear un destino de proceso de tipo de clúster o docker remoto y te
 
 - Puede preparar este destino de proceso y usarlo para la ejecución y el área de trabajo de Azure ML Workbench usará esta clave para la autenticación.  
 
-Para más información sobre la creación de destinos de proceso, consulte [Configuración del servicio Experimentación de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration).
+Para más información sobre la creación de destinos de proceso, consulte [Configuración del servicio Experimentación de Azure Machine Learning](experimentation-service-configuration.md).
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools para AI
 - Compatibilidad agregada para [Visual Studio Tools para AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 

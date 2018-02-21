@@ -1,6 +1,6 @@
 ---
-title: "Introducción a las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure | Microsoft Docs"
-description: "Descripción de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure y de sus arquitecturas con vínculos a recursos adicionales."
+title: "Introducción a las soluciones preconfiguradas de Azure IoT Suite | Microsoft Docs"
+description: "Descripción de las soluciones preconfiguradas de Azure IoT Suite y de sus arquitecturas con vínculos a recursos adicionales."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="what-is-azure-iot-suite"></a>¿Qué es el Conjunto de aplicaciones de IoT de Azure?
+# <a name="what-is-azure-iot-suite"></a>¿Qué es Azure IoT Suite?
 
-Conjunto de aplicaciones de IoT de Azure es un conjunto de *soluciones preconfiguradas* que:
+Azure IoT Suite es un conjunto de *soluciones preconfiguradas* que:
 
 * Se implementa en minutos
 * Sirve de introducción rápida
@@ -72,7 +72,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 * *Análisis predictivo*: el back-end de la solución analiza los datos del dispositivo a la nube para predecir cuándo se deben llevar a cabo acciones específicas. Por ejemplo, análisis de la telemetría del motor de un avión para determinar cuándo hay que realizar el mantenimiento del motor.
 
 > [!NOTE]
-> Para implementar una solución preconfigurada y obtener más información sobre cómo personalizarla, visite [Conjunto de aplicaciones de IoT de Microsoft Azure](https://www.azureiotsuite.com/).
+> Para implementar una solución preconfigurada y obtener más información sobre cómo personalizarla, visite [Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
 
 ## <a name="azure-services"></a>Servicios de Azure
 
@@ -80,7 +80,7 @@ Al implementar una solución preconfigurada, el proceso de aprovisionamiento con
 
 |                      | Supervisión remota  | Mantenimiento predictivo | Fábrica conectada |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub              | Sí                |                        | Sí               |
+| IoT Hub              | Sí                | Sí                    | Sí               |
 | Event Hubs           |                    | Sí                    |                   |
 | Time Series Insights |                    |                        | Sí               |
 | Servicios de contenedor   | Sí                |                        |                   |
@@ -150,7 +150,7 @@ La interfaz de usuario se ha creado mediante la biblioteca [React](https://faceb
 
 Ahora que tiene información general de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, estos son los pasos siguientes sugeridos para cada una de ellas:
 
-* [Exploración del Conjunto de aplicaciones de IoT de Azure para la solución de supervisión remota: modelo de implementación de Resource Manager](iot-suite-remote-monitoring-explore.md).
+* [Exploración de Azure IoT Suite para la solución de supervisión remota: modelo de implementación de Resource Manager](iot-suite-remote-monitoring-explore.md).
 * [Información general de la solución preconfigurada de mantenimiento predictivo](iot-suite-predictive-overview.md).
 * [Introducción a la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-overview.md).
 

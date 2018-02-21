@@ -3,7 +3,7 @@ title: "Solución DNS Analytics en Azure Log Analytics | Microsoft Docs"
 description: "Configure y use la solución DNS Analytics en Log Analytics para recopilar información en la infraestructura de DNS sobre seguridad, rendimiento y operaciones."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -43,9 +43,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | **Origen conectado** | **Soporte técnico** | **Descripción** |
 | --- | --- | --- |
 | [Agentes de Windows](log-analytics-windows-agent.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](log-analytics-om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere conexión directa entre el agente de Operations Manager y Operations Management Suite. Los datos se reenvían del grupo de administración al repositorio de Operations Management Suite. |
-| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | La solución no usa Azure Storage. |
+| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | Sin  | La solución no usa Azure Storage. |
 
 ### <a name="data-collection-details"></a>Detalles de la recopilación de datos
 
@@ -145,7 +145,7 @@ La información puede ayudarle a identificar:
 
 **Consultas de DDI Analytics de ejemplo**. Contiene una lista de las consultas de búsqueda más comunes que capturan directamente datos de análisis sin procesar.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de ejemplo](./media/log-analytics-dns/queries.png)
 
@@ -187,6 +187,6 @@ Hay dos maneras de proporcionar comentarios:
 - **UserVoice**. Publique ideas sobre características de DNS Analytics en las que trabajar. Visite la [página UserVoice de Operations Management Suite](https://aka.ms/dnsanalyticsuservoice).
 - **Únase a nuestra cohorte**. Siempre estamos interesados en que se unan nuevos clientes a nuestra comunidad para que consigan los primeros las nuevas características y nos ayuden a mejorar DNS Analytics. Si está interesado en unirse, rellene esta [encuesta rápida](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de DNS.

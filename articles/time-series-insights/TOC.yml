@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Time Series Insights
       href: time-series-insights-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   items:
     - name: Explore Time Series Insights
       href: time-series-quickstart.md
@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Mitigación de la limitación
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Descripción de la retención de los datos
+      href: time-series-insights-concepts-retention.md
     - name: Diagnóstico y solución de problemas
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Desarrollo
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Conexión a IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Configuración de la retención de datos
+      href: time-series-insights-how-to-configure-retention.md
     - name: Creación de un conjunto de datos de referencia
       href: time-series-insights-add-reference-data-set.md
     - name: Envío de eventos
@@ -56,7 +60,7 @@
   items:
     - name: Servicios relacionados
       items:
-        - name: Conjunto de aplicaciones de IoT de Azure
+        - name: Azure IoT Suite
           href: /azure/iot-suite/
         - name: Azure Event Hubs
           href: /azure/event-hubs/
@@ -72,7 +76,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: Opciones de soporte técnico
       href: 'https://azure.microsoft.com/support/options/'

@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Service Fabric?
       href: service-fabric-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   items:
     - name: Creación de una aplicación .NET
       href: service-fabric-quickstart-dotnet.md
@@ -58,7 +58,7 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4- Implementación de API Management con Service Fabric
           href: service-fabric-tutorial-deploy-api-management.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Ciclo de vida de las réplicas y las instancias
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Ciclo de vida de Reliable Services: C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: 'Ciclo de vida de Reliable Services: Java'
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Disponibilidad de servicios
           href: service-fabric-availability-services.md
-        - name: Ciclo de vida de las réplicas y las instancias
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Reconfiguración
           href: service-fabric-concepts-reconfiguration.md
         - name: Comunicación de servicio
@@ -438,7 +438,7 @@
           items:
             - name: Implementación de aplicaciones en un clúster local
               href: service-fabric-get-started-with-a-local-cluster.md
-            - name: Administrador de recursos de Azure
+            - name: Azure Resource Manager
               href: service-fabric-application-arm-resource.md
             - name: Azure PowerShell
               href: service-fabric-deploy-remove-applications.md
@@ -484,7 +484,7 @@
               items:
                 - name: Azure Portal
                   href: service-fabric-cluster-creation-via-portal.md
-                - name: Administrador de recursos de Azure
+                - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
             - name: Escala
               items:

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Creación de una función desencadenada por un webhook genérico
 
@@ -28,7 +28,7 @@ Azure Functions permite ejecutar el código en un entorno sin servidor sin neces
 
 ![Función desencadenada mediante un webhook genérico en Azure Portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>requisitos previos 
 
 Para completar este tutorial:
 
@@ -72,7 +72,7 @@ Después, cree un punto de conexión de webhook en una alerta de registro de act
 
     ![Creación de una alerta de registro de actividad](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Configuración      |  Valor sugerido   | Descripción                              |
+    | Configuración      |  Valor sugerido   | DESCRIPCIÓN                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre de alerta de registro de actividad** | resource-group-create-alert | Nombre de la alerta de registro de actividad. |
     | **Suscripción** | Su suscripción | La suscripción que está utilizando para este tutorial. | 
@@ -82,7 +82,7 @@ Después, cree un punto de conexión de webhook en una alerta de registro de act
     | **Grupo de recursos**<br/>y **recurso** | Todo | Supervisa todos los recursos. |
     | **Nombre de la operación** | Crear grupo de recursos | Filtra las alertas para crear las operaciones. |
     | **Level** | Informativo | Incluye las alertas de nivel informativo. | 
-    | **Estado** | Correcto | Filtra las alertas por las acciones que se han completado correctamente. |
+    | **Estado** | Succeeded | Filtra las alertas por las acciones que se han completado correctamente. |
     | **Grupo de acción** | Nuevo | Cree un nuevo grupo de acción, que define la acción que se realiza cuando se genera una alerta. |
     | **Nombre del grupo de acción** | function-webhook | Un nombre para identificar el grupo de acciones.  | 
     | **Nombre corto** | funcwebhook | Un nombre corto para el grupo de acciones. |  
@@ -128,7 +128,7 @@ Ahora se llama al webhook cuando se crea un grupo de recursos en la suscripción
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."
@@ -163,7 +163,7 @@ Ahora puede probar la función al crear un grupo de recursos en la suscripción.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado una función que se ejecuta cuando se recibe una solicitud de un webhook genérico. 
 

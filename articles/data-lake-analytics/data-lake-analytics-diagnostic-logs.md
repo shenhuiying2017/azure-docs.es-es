@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -30,7 +30,7 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Abra su cuenta de Data Lake Analytics y seleccione **Registros de diagnósticos** en la __sección Supervisión__. Después, seleccione __Activar diagnósticos__.
 
@@ -130,28 +130,28 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
-| categoría |String |Categoría del registro. Por ejemplo, **Requests**. |
-| operationName |String |Nombre de la operación que se registra. Por ejemplo, GetAggregatedJobHistory. |
-| resultType |String |Estado de la operación. Por ejemplo, 200. |
-| callerIpAddress |String |Dirección IP del cliente que realiza la solicitud. |
-| correlationId |String |Identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas. |
+| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
+| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
+| categoría |string |Categoría del registro. Por ejemplo, **Requests**. |
+| operationName |string |Nombre de la operación que se registra. Por ejemplo, GetAggregatedJobHistory. |
+| resultType |string |Estado de la operación. Por ejemplo, 200. |
+| callerIpAddress |string |Dirección IP del cliente que realiza la solicitud. |
+| correlationId |string |Identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas. |
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de solicitud) para más información |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
-| Ruta de acceso |String |Ruta de acceso en la que se ha realizado la operación. |
+| HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
+| Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
 | RequestContentLength |int |Longitud del contenido de la solicitud HTTP. |
-| ClientRequestId |String |El identificador que distingue de manera exclusiva esta solicitud |
-| StartTime |String |Hora a la que el servidor ha recibido la solicitud. |
-| EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
+| ClientRequestId |string |El identificador que distingue de manera exclusiva esta solicitud |
+| StartTime |string |Hora a la que el servidor ha recibido la solicitud. |
+| EndTime |string |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
 
@@ -182,15 +182,15 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
-| categoría |String |Categoría del registro. Por ejemplo, **Audit**. |
-| operationName |String |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
-| resultType |String |Un subestado para el estado del trabajo (operationName). |
-| resultSignature |String |Detalles adicionales sobre el estado del trabajo (operationName). |
-| identidad |String |El usuario que solicitó la operación. Por ejemplo: susan@contoso.com. |
+| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
+| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
+| categoría |string |Categoría del registro. Por ejemplo, **Audit**. |
+| operationName |string |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
+| resultType |string |Un subestado para el estado del trabajo (operationName). |
+| resultSignature |string |Detalles adicionales sobre el estado del trabajo (operationName). |
+| identidad |string |El usuario que solicitó la operación. Por ejemplo, susan@contoso.com. |
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de auditoría) para más información |
 
 > [!NOTE]
@@ -200,15 +200,15 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 
-| Nombre | Tipo | Description |
+| NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| JobId |String |El identificador asignado al trabajo |
-| JobName |String |El nombre que se proporcionó para el trabajo |
-| JobRunTime |String |El tiempo de ejecución utilizado para procesar el trabajo |
-| SubmitTime |String |La hora (en UTC) en la que se envió el trabajo |
-| StartTime |String |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC) |
-| EndTime |String |La hora de finalización del trabajo |
-| Paralelismo |String |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
+| JobId |string |El identificador asignado al trabajo |
+| JobName |string |El nombre que se proporcionó para el trabajo |
+| JobRunTime |string |El tiempo de ejecución utilizado para procesar el trabajo |
+| SubmitTime |string |La hora (en UTC) en la que se envió el trabajo |
+| StartTime |string |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC) |
+| EndTime |string |La hora de finalización del trabajo |
+| Paralelismo |string |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación. Estas entradas solo contienen un valor si la operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** tenga el valor **JobSubmitted**.
@@ -217,5 +217,5 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 Azure Data Lake Analytics proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Información general de Azure Data Lake Analytics](data-lake-analytics-overview.md)

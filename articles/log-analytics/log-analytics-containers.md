@@ -3,7 +3,7 @@ title: "Solución de Supervisión de contenedores de Azure Log Analytics | Micro
 description: "La solución de Supervisión de contenedores de Log Analytics le ayuda a ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -402,8 +402,8 @@ En Windows Kubernetes se usa un script para generar el archivo .yaml de secretos
         ```
     3. Ejecute ``` kubectl create -f omsagentsecret.yaml ``` para crear el daemon-set de omsagent
     4. Para comprobarlo, ejecute lo siguiente:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,13 +418,13 @@ En Windows Kubernetes se usa un script para generar el archivo .yaml de secretos
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. Ejecute ```kubectl create -f ws-omsagent-de-secrets.yaml``` para crear el daemon-set de omsagent
@@ -437,9 +437,9 @@ En Windows Kubernetes se usa un script para generar el archivo .yaml de secretos
     omsagent   1         1         <none>          1h
     ```
 
-3. Para instalar el agente en el nodo de trabajo, en el que se ejecuta Windows, siga los pasos descritos en la sección [Instalación y configuración de hosts de contenedor de Windows](#install-and-configure-windows-container-hosts). 
+3. Para instalar el agente en el nodo de trabajo, en el que se ejecuta Windows, siga los pasos descritos en la sección [Instalación y configuración de hosts de contenedor de Windows](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Uso de Helm para implementar el agente de OMS en Linux Kubernetes 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Uso de Helm para implementar el agente de OMS en Linux Kubernetes
 Para usar Helm para implementar el agente de OMS en un entorno Linux Kubernetes, siga estos pasos.
 
 1. Ejecute ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` para crear el daemon-set de omsagent
@@ -653,7 +653,7 @@ Se muestra la lista de las métricas de rendimiento recopiladas para un contened
 ## <a name="example-log-search-queries"></a>Ejemplos de consultas de búsqueda de registros
 Suele resultar útil crear consultas a partir de un ejemplo o dos y modificarlas para adaptarlas a su entorno. Para empezar, puede experimentar con el área **Consultas de ejemplo** para ayudarle a crear consultas más avanzadas.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de contenedores](./media/log-analytics-containers/containers-queries.png)
 
@@ -663,5 +663,5 @@ El guardado de consultas es una característica estándar de Log Analytics. Guá
 
 Después de crear una consulta que encuentre útil, guárdela haciendo clic en **Favoritos** en la parte superior de la página Búsqueda de registros. Podrá volver a acceder fácilmente a ella más adelante desde la página **Mi panel**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de los contenedores.

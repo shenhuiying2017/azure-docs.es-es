@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Tutorial de la solución de fábrica preconfigurada conectada
 
@@ -227,13 +227,13 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 > [!NOTE]
 > En el caso del servidor del agente de usuario de OPC y de la pila de agente de usuario de OPC de la instancia de WebApp de Factoría conectada, la comunicación con el proxy de OPC es transparente y se aplican todas las características de seguridad de autenticación y cifrado del agente de usuario de OPC.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los siguientes artículos:
 
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
 * [Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada Fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
-* [Implementación de referencia de OPC Publisher](iot-suite-connected-factory-publisher.md).
+* [Implementación de referencia de OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

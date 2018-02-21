@@ -3,7 +3,7 @@ title: "Visualización de datos de Azure Web Apps Analytics | Documentos de Micr
 description: "Puede usar la solución Azure Web Apps Analytics para obtener información sobre Azure Web Apps mediante la recopilación de distintas métricas en todos los recursos de aplicaciones web de Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualización de datos de análisis para métricas en todos los recursos de aplicaciones web de Azure
 
@@ -37,14 +37,14 @@ Con la solución, puede ver:
 
 A diferencia de la mayoría de las demás soluciones Log Analytics, los agentes no recopilan datos para Azure Web Apps. Todos los datos usados por la solución proceden directamente de Azure.
 
-| Origen conectado | Compatible | Descripción |
+| Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | La solución no recopila información de Azure Storage. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | Sin  | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | La solución no recopila información de Azure Storage. |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Para acceder a la información de métricas de recursos de Azure Web Apps, debe tener una suscripción de Azure.
 
@@ -62,7 +62,7 @@ La solución Azure Web Apps Analytics recopila dos conjuntos de métricas de Azu
   - Tiempo de respuesta promedio
   - Bytes enviados/recibidos
   - Tiempo de CPU
-  - Solicitudes
+  - Requests
   - Espacio de trabajo de memoria
   - Httpxxx
 - Métricas del plan de App Service
@@ -90,9 +90,9 @@ Al agregar la solución Azure Web Apps Analytics al área de trabajo, el icono *
 
 Haga clic en el icono **Azure Web Apps Analytics** para abrir el panel de **Azure Web Apps Analytics**. El panel incluye las hojas de la tabla siguiente. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros si hace clic en **Ver todo** en la parte inferior de la hoja o si hace clic en el encabezado de esta.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| Columna | Descripción |
+| Columna | DESCRIPCIÓN |
 | --- | --- |
 | Azure Web Apps |   |
 | Tendencias de solicitud de Web Apps | Muestra un gráfico de líneas de la tendencia de solicitud de Web Apps para el intervalo de fechas seleccionado y muestra una lista de las diez principales solicitudes web. Haga clic en el gráfico de líneas para ejecutar una búsqueda de registros de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Haga clic en un elemento de la solicitud web para ejecutar una búsqueda de registros de la tendencia de métrica de solicitud web que lo soliciten. |
@@ -138,7 +138,7 @@ La **lista de consultas populares de búsqueda de Azure Web Apps** muestra todos
 
 Con cualquiera de las consultas de búsqueda de registros como punto de partida, puede crear fácilmente una alerta. Por ejemplo, puede crear una alerta cuando el tiempo medio de respuesta de una métrica es mayor de 1 segundo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Cree un [alerta](log-analytics-alerts-creating.md) para una métrica específica.
 - Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada de los registros de actividad.

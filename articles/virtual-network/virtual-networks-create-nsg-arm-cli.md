@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Creación de grupos de seguridad de red mediante la CLI de Azure
 
@@ -36,9 +36,9 @@ En los siguientes comandos de ejemplo de la CLI de Azure se espera un entorno si
 
 Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga los pasos siguientes.
 
-1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login). 
+1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login). 
 
-2. Cree un grupo de seguridad de red con el comando [azure network nsg create](/cli/azure/network/nsg#create). 
+2. Cree un grupo de seguridad de red con el comando [azure network nsg create](/cli/azure/network/nsg#az_network_nsg_create). 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 
 
-3. Cree una regla que permita el acceso al puerto 3389 (RDP) desde Internet con el comando [az network nsg rule create](/cli/azure/network/nsg/rule#create).
+3. Cree una regla que permita el acceso al puerto 3389 (RDP) desde Internet con el comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
 
     > [!NOTE]
     > Según el shell que esté usando, tendrá que modificar el carácter `*` en los argumentos siguientes para que no se expanda el argumento antes de la ejecución.
@@ -171,7 +171,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
     }
     ```
 
-5. Enlace el grupo de seguridad de red a la subred **FrontEnd** con el comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update).
+5. Enlace el grupo de seguridad de red a la subred **FrontEnd** con el comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
         
     ```azurecli
     az network vnet subnet update \

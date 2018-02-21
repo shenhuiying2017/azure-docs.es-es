@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Creación de una red virtual mediante la CLI de Azure
 
@@ -45,9 +45,9 @@ También puede crear una red virtual mediante Resource Manager con otras herrami
 
 Para crear una red virtual mediante la CLI de Azure, realice los siguientes pasos:
 
-1. Instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+1. Instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
-2. Cree un grupo de recursos para la red virtual mediante el comando [az group create](/cli/azure/group#create) con los argumentos `--name` y `--location`:
+2. Cree un grupo de recursos para la red virtual mediante el comando [az group create](/cli/azure/group#az_group_create) con los argumentos `--name` y `--location`:
 
     ```azurecli
     az group create --name TestRG --location centralus
@@ -184,7 +184,7 @@ Para crear una red virtual mediante la CLI de Azure, realice los siguientes paso
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a conectar:
 
