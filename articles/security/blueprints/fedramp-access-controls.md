@@ -1,6 +1,6 @@
 ---
-title: 'Azure Blueprint Automation de FedRAMP: control de acceso'
-description: 'Aplicaciones web para FedRAMP: control de acceso'
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (control de acceso)"
+description: "Automatización de aplicaciones web para FedRAMP (control de acceso)"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Control de acceso (CA)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-ac-1"></a>NIST 800-53 Control AC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint se basa en los tipos de cuentas del sistema siguientes y los implementa: usuarios de Azure Active Directory (usados para implementar la solución y administrar el acceso a los recursos de Azure), usuarios del sistema operativo Windows (administrados por Active Directory) y cuenta de servicio de SQL Server. |
+| **Cliente** | Esta instancia de Blueprint se basa en los tipos de cuentas del sistema siguientes y los implementa: usuarios de Azure Active Directory (que se usan para implementar la solución y administrar el acceso a los recursos de Azure), usuarios del sistema operativo Windows (que administra Active Directory) y cuenta de servicio de SQL Server. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa el panel de Identity and Access de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. |
+| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa el panel de Identity and Access de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Se puede configurar OMS para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
+| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Se puede configurar OMS para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint no implementa cuentas temporales o de emergencia. Si no se deshabilita manualmente, el controlador de dominio implementado deshabilita automáticamente todas las cuentas inactivas después de treinta y cinco días. |
+| **Cliente** | Esta instancia de Blueprint no implementa cuentas temporales o de emergencia. Si no se deshabilita manualmente, el controlador de dominio implementado deshabilita automáticamente todas las cuentas inactivas después de treinta y cinco días. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El controlador de dominio implementado por esta solución de Azure Blueprint está configurado para deshabilitar todas las cuentas de usuario después de treinta y cinco días de inactividad. |
+| **Cliente** | El controlador de dominio que implementó esta instancia de Blueprint está configurado para deshabilitar todas las cuentas de usuario después de 35 días de inactividad. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Las acciones de administración de cuentas de Azure Active Directory generan un evento en el registro de actividad de Azure, y las acciones de administración de cuentas a nivel de sistema operativo generan un evento en el registro del sistema. Estos registros los recopila Log Analytics y se almacenan en el repositorio de OMS. Se puede configurar OMS par que envíe alertas cuando se producen eventos predefinidos.  |
+| **Cliente** | Esta instancia de Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Las acciones de administración de cuentas de Azure Active Directory generan un evento en el registro de actividad de Azure, y las acciones de administración de cuentas a nivel de sistema operativo generan un evento en el registro del sistema. Estos registros los recopila Log Analytics y se almacenan en el repositorio de OMS. Se puede configurar OMS par que envíe alertas cuando se producen eventos predefinidos.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad. El cliente puede extender estos esquemas basados en roles para cumplir las necesidades de la misión. |
+| **Cliente** | Esta instancia de Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad. El cliente puede extender estos esquemas basados en roles para cumplir las necesidades de la misión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa el panel de Identity and Access de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Esta solución se puede consultar para informar de las asignaciones de roles con privilegios. |
+| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Esta solución se puede consultar para informar de las asignaciones de roles con privilegios. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos implementados por esta instancia de Azure Blueprint. |
+| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos que implementó esta instancia de Blueprint. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos implementados por esta instancia de Azure Blueprint. |
+| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos que implementó esta instancia de Blueprint. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se puede establecer una directiva de grupo en Active Directory y configurarla para implementar restricciones para horas del día u otras condiciones de uso de las cuentas. |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se puede establecer una directiva de grupo en Active Directory y configurarla para implementar restricciones para horas del día u otras condiciones de uso de las cuentas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa el panel de Identity and Access de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. |
+| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa el panel de Identity and Access de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. Se puede configurar esta solución para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
+| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. Se puede configurar esta solución para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint aplica autorizaciones de acceso lógico mediante el control de acceso basado en roles que aplica Azure Active Directory a través de la asignación de usuarios a roles y que aplica Active Directory mediante la asignación de usuarios a grupos de seguridad y controles en el nivel del sistema operativo Windows. Los roles de Azure Active Directory asignados a usuarios o grupos controlan el acceso lógico a recursos de Azure en los niveles de recurso, grupo o suscripción. Los grupos de seguridad de Active Directory controlan el acceso lógico a los recursos y funciones en el nivel del sistema operativo. |
+| **Cliente** | Esta instancia de Blueprint aplica autorizaciones de acceso lógico mediante el control de acceso basado en roles que aplica Azure Active Directory a través de la asignación de usuarios a roles, y que aplica Active Directory mediante la asignación de usuarios a grupos de seguridad y a controles en el nivel del sistema operativo Windows. Los roles de Azure Active Directory asignados a usuarios o grupos controlan el acceso lógico a recursos de Azure en los niveles de recurso, grupo o suscripción. Los grupos de seguridad de Active Directory controlan el acceso lógico a los recursos y funciones en el nivel del sistema operativo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint aplica restricciones al flujo de información mediante el uso de grupos de seguridad de red aplicados a las subredes en que los recursos se implementan, a Application Gateway y al equilibrador de carga. Los grupos de seguridad de red garantizan el control del flujo de información entre los recursos en función de reglas aprobadas. Application Gateway y el equilibrador de carga enrutan el tráfico de forma dinámica a recursos específicos en función de roles aprobados. |
+| **Cliente** | Esta instancia de Blueprint aplica restricciones al flujo de información mediante el uso de grupos de seguridad de red que se aplican a las subredes en que los recursos se implementan, a Application Gateway y al equilibrador de carga. Los grupos de seguridad de red garantizan el control del flujo de información entre los recursos en función de reglas aprobadas. Application Gateway y el equilibrador de carga enrutan el tráfico de forma dinámica a recursos específicos en función de roles aprobados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el control de acceso basado en rol, que puede configurarse para separar obligaciones en función de los requisitos de la organización. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad. |
+| **Cliente** | Esta instancia de Blueprint implementa el control de acceso basado en roles, que puede configurarse para separar obligaciones en función de los requisitos de la organización. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el control de acceso basado en rol para restringir a los usuarios solo a los privilegios asignados explícitamente. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad.  |
+| **Cliente** | Esta instancia de Blueprint implementa el control de acceso basado en roles para restringir el acceso de los usuarios únicamente a los privilegios asignados explícitamente. Los privilegios de las cuentas de Azure Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a roles; los privilegios de las cuentas de Active Directory se implementan mediante un control de acceso basado en roles con la asignación de usuarios a grupos de seguridad.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el control de acceso basado en rol para restringir a los usuarios solo a los privilegios asignados explícitamente. Las protecciones a nivel de SO en máquinas virtuales no permiten que el software se ejecute con un nivel de privilegios más alto del que disponen los usuarios que ejecutan el software. |
+| **Cliente** | Esta instancia de Blueprint implementa el control de acceso basado en roles para restringir el acceso de los usuarios únicamente a los privilegios asignados explícitamente. Las protecciones a nivel de SO en máquinas virtuales no permiten que el software se ejecute con un nivel de privilegios más alto del que disponen los usuarios que ejecutan el software. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio de Log Analytics en OMS. Las cuentas de almacenamiento de Azure Diagnostics y de las máquinas virtuales implementadas son orígenes conectados a Log Analytics que garantizan la auditoría de la ejecución de las funciones con privilegios. |
+| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Las cuentas de almacenamiento de Azure Diagnostics y de las máquinas virtuales implementadas son orígenes conectados a Log Analytics que garantizan la auditoría de la ejecución de las funciones con privilegios. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el control de acceso basado en rol para restringir a los usuarios solo a los privilegios asignados explícitamente.  |
+| **Cliente** | Esta instancia de Blueprint implementa el control de acceso basado en roles para restringir el acceso de los usuarios únicamente a los privilegios asignados explícitamente.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Portal limita los intentos consecutivos de inicios de sesión no válidos por parte de los usuarios. Se aplica una directiva de grupo al nivel del sistema operativo para todas las máquinas virtuales implementadas por esta instancia de Azure Blueprint. La directiva limita los intentos consecutivos de inicios de sesión no válidos por parte de los usuarios a tres como máximo durante quince minutos. |
+| **Cliente** | Azure Portal limita los intentos consecutivos de inicios de sesión no válidos por parte de los usuarios. Se aplica una directiva de grupo al nivel del sistema operativo para todas las máquinas virtuales que implementó esta instancia de Blueprint. La directiva limita los intentos consecutivos de inicios de sesión no válidos por parte de los usuarios a tres como máximo durante quince minutos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Portal bloquea las cuentas después de que los usuarios realizan los intentos consecutivos permitidos de inicios de sesión no válidos. Se aplica una directiva de grupo al nivel del sistema operativo para todas las máquinas virtuales implementadas por esta instancia de Azure Blueprint. La directiva bloquea las cuentas durante tres horas después de que los usuarios han realizado tres intentos consecutivos de inicios de sesión no válidos. |
+| **Cliente** | Azure Portal bloquea las cuentas después de que los usuarios realizan los intentos consecutivos permitidos de inicios de sesión no válidos. Se aplica una directiva de grupo al nivel del sistema operativo para todas las máquinas virtuales que implementó esta instancia de Blueprint. La directiva bloquea las cuentas durante tres horas después de que los usuarios han realizado tres intentos consecutivos de inicios de sesión no válidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. Nota: La instancia de Azure Blueprint implementa una notificación de uso del sistema de ejemplo. El cliente debe editar este texto para cumplir los requisitos del organismo regulador o de la organización. |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. Nota: La instancia de Blueprint implementa una notificación de uso del sistema de ejemplo. El cliente debe editar este texto para cumplir los requisitos del organismo regulador o de la organización. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. El usuario debe confirmar la notificación para iniciar sesión. |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. El usuario debe confirmar la notificación para iniciar sesión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Se implementa una directiva de sistema operativo para las máquinas virtuales implementadas por esta instancia de Azure Blueprint. La directiva implementa restricciones de sesiones simultáneas (dos sesiones). |
+| **Cliente** | Se implementa una directiva de sistema operativo para las máquinas virtuales que implementó esta instancia de Blueprint. La directiva implementa restricciones de sesiones simultáneas (dos sesiones). |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios pueden activar el bloqueo manualmente. |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios pueden activar el bloqueo manualmente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios deben volver a autenticarse para desbloquear la sesión.  |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios deben volver a autenticarse para desbloquear la sesión.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. El bloqueo de sesión oculta información que antes estaba visible. |
+| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. El bloqueo de sesión oculta información que antes estaba visible. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La configuración del host de sesión de Escritorio remoto de las máquinas virtuales Windows implementadas por esta instancia de Azure Blueprint se puede establecer de tal forma que cumpla los requisitos de finalización de la sesión de la organización. |
+| **Cliente** | La configuración del host de sesión de Escritorio remoto de las máquinas virtuales de Windows que implementó esta instancia de Blueprint se puede establecer de tal forma que cumpla con los requisitos de finalización de la sesión de la organización. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los sistemas operativos de las máquinas virtuales y Azure Portal implementados por esta instancia de Azure Blueprint habilitan usos para iniciar un cierre de sesión. |
+| **Cliente** | Los sistemas operativos de las máquinas virtuales y Azure Portal que implementó esta instancia de Blueprint habilitan usos para iniciar un cierre de sesión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los sistemas operativos de las máquinas virtuales y Azure Portal implementados por esta instancia de Azure Blueprint habilitan usos para iniciar un cierre de sesión. El proceso de cierre de sesión proporciona una indicación a los usuarios de que la sesión se ha finalizado. |
+| **Cliente** | Los sistemas operativos de las máquinas virtuales y Azure Portal que implementó esta instancia de Blueprint habilitan usos para iniciar un cierre de sesión. El proceso de cierre de sesión proporciona una indicación a los usuarios de que la sesión se ha finalizado. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, una conexión a Escritorio remoto a través de un JumpBox y una aplicación web implementada por el cliente. Los accesos a través de Azure Portal y las sesiones de Escritorio remoto están sujetos a auditoría y se supervisan a través de OMS. El cliente debe implementar controles de acceso remoto, según sea necesario, a la aplicación web. |
+| **Cliente** | Esta instancia de Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, mediante una conexión al Escritorio remoto a través de un JumpBox y a través de una aplicación web que implementó el cliente. Los accesos a través de Azure Portal y las sesiones de Escritorio remoto están sujetos a auditoría y se supervisan a través de OMS. El cliente debe implementar controles de acceso remoto, según sea necesario, a la aplicación web. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso remoto a los recursos implementados por esta solución de Azure Blueprint, como Azure Portal, la conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. |
+| **Cliente** | El acceso remoto a los recursos que implementó esta instancia de Blueprint, como Azure Portal, la conexión al Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso remoto a la aplicación web nocional implementada por esta instancia de Azure Blueprint se realiza a través de una instancia de Application Gateway. El acceso remoto a todos los demás recursos se realiza a través de un JumpBox. No hay ningún otro punto de conexión de acceso público. |
+| **Cliente** | El acceso remoto a la aplicación web nocional que implementó esta instancia de Blueprint se realiza a través de una instancia de Application Gateway. El acceso remoto a todos los demás recursos se realiza a través de un JumpBox. No hay ningún otro punto de conexión de acceso público. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, una conexión a Escritorio remoto a través de un JumpBox y una aplicación web. Si se deshabilita o elimina una cuenta de Azure Active Directory, el acceso a Azure Portal se desconecta inmediatamente. De forma similar, si se deshabilita o elimina una cuenta a nivel de SO en una máquina virtual, el acceso a Escritorio remoto a través del JumpBox se desconecta inmediatamente. Los clientes deben implementar la desconexión del acceso remoto a la aplicación web. |
+| **Cliente** | Esta instancia de Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, mediante una conexión al Escritorio remoto a través de un JumpBox y a través de una aplicación web. Si se deshabilita o elimina una cuenta de Azure Active Directory, el acceso a Azure Portal se desconecta inmediatamente. De forma similar, si se deshabilita o elimina una cuenta a nivel de SO en una máquina virtual, el acceso a Escritorio remoto a través del JumpBox se desconecta inmediatamente. Los clientes deben implementar la desconexión del acceso remoto a la aplicación web. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

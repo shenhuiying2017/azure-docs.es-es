@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint Automation de FedRAMP: Auditoría y rendición de cuentas"
-description: "Aplicaciones web para FedRAMP: Auditoría y rendición de cuentas"
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (auditoría y redención de cuentas)"
+description: "Automatización de aplicaciones web para FedRAMP: auditoría y redención de cuentas"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Auditoría y rendición de cuentas (AU)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-au-1"></a>NIST 800-53 Control AU-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Monitor y el servicio de Log Analytics en OMS proporcionan la funcionalidad de auditoría para esta instancia de Azure Blueprint. Azure Monitor proporciona registros de auditoría detallados sobre la actividad asociada con los recursos implementados. Log Analytics recopila estos registros y los registros en el nivel de sistema operativo y los almacena en el repositorio de OMS. Log Analytics pone en correlación los datos de auditoría entre los recursos que implementa esta solución y que se pueden extender a la aplicación web implementada por el cliente. |
+| **Cliente** | Azure Monitor y el servicio de Log Analytics en OMS proporcionan la funcionalidad de auditoría para esta instancia de Blueprint. Azure Monitor proporciona registros de auditoría detallados sobre la actividad asociada con los recursos implementados. Log Analytics recopila estos registros y los registros en el nivel de sistema operativo y los almacena en el repositorio de OMS. Log Analytics pone en correlación los datos de auditoría entre los recursos que implementa esta solución y que se pueden extender a la aplicación web implementada por el cliente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los eventos que se auditan en esta instancia de Azure Blueprint incluyen la información suficiente para determinar cuándo se producen los eventos, el origen del evento, el resultado del mismo y otra información detallada que da respaldo a la investigación de los incidentes de seguridad. |
+| **Cliente** | Los eventos que se auditan en esta instancia de Blueprint tienen información suficiente para determinar cuándo se producen los eventos, su origen, el resultado de los mismos y otra información detallada que da respaldo a la investigación de los incidentes de seguridad. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los eventos que se auditan en esta instancia de Azure Blueprint incluyen los auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
+| **Cliente** | Los eventos que se auditan en esta instancia de Blueprint incluyen aquellos que se han auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint se basa en las funcionalidades de auditoría integradas de Azure, Windows Server y SQL Server. Estas soluciones de auditoría capturan los registros de auditoría con el detalle suficiente para cumplir los requisitos de este control. |
+| **Cliente** | Esta instancia de Blueprint se basa en las funcionalidades de auditoría integradas de Azure, Windows Server y SQL Server. Estas soluciones de auditoría capturan los registros de auditoría con el detalle suficiente para cumplir los requisitos de este control. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los eventos de Azure Activity Log usan un esquema detallado que contiene campos para más de 20 tipos de información de auditoría. Además de Activity Log, esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS que admite un conjunto diverso de orígenes de datos, incluidos registros de Windows, registros de Linux, registros de Azure Diagnostics y registros de cliente.  |
+| **Cliente** | Los eventos de Azure Activity Log usan un esquema detallado que contiene campos para más de 20 tipos de información de auditoría. Además de Activity Log, esta instancia de Blueprint implementa la solución de Log Analytics en OMS, la cual admite un conjunto diverso de orígenes de datos, incluidos registros de Windows, Linux, Azure Diagnostics y de cliente.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas las máquinas virtuales que se implementan en esta instancia de Azure Blueprint están unidas al dominio implementado de Active Directory. Todas las máquinas virtuales unidas a un dominio implementan una directiva de grupo que se pueden configurar para administrar de manera centralizada la configuración del sistema de auditoría en el nivel de sistema operativo. |
+| **Cliente** | Todas las máquinas virtuales que se implementan en esta instancia de Blueprint están unidas al dominio implementado de Active Directory. Todas las máquinas virtuales unidas a un dominio implementan una directiva de grupo que se pueden configurar para administrar de manera centralizada la configuración del sistema de auditoría en el nivel de sistema operativo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint asigna capacidad de almacenamiento suficiente para conservar los registros de auditoría durante un período de un año. Log Analytics, que está configurado para una retención de un año, recopila todos los registros de auditoría. |
+| **Cliente** | Esta instancia de Blueprint asigna capacidad de almacenamiento suficiente para conservar los registros de auditoría durante un año. Log Analytics, que está configurado para una retención de un año, recopila todos los registros de auditoría. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Log Analytics recopila todos los registros de auditoría generados por los recursos que se implementan en esta instancia de Azure Blueprint y se mantienen durante el período de un año. La asignación de almacenamiento para este almacenamiento de los registros de auditoría se realiza de manera dinámica para garantizar que hay capacidad suficiente disponible. |
+| **Cliente** | Log Analytics recopila todos los registros de auditoría que crearon los recursos implementados en esta instancia de Blueprint y se conservan durante un año. La asignación de almacenamiento para este almacenamiento de los registros de auditoría se realiza de manera dinámica para garantizar que hay capacidad suficiente disponible. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Log Analytics recopila todos los registros de auditoría generados por los recursos que se implementan en esta instancia de Azure Blueprint y se mantienen durante el período de un año. La asignación de almacenamiento para este almacenamiento de los registros de auditoría se realiza de manera dinámica para garantizar que hay capacidad suficiente disponible. |
+| **Cliente** | Log Analytics recopila todos los registros de auditoría que crearon los recursos implementados en esta instancia de Blueprint y se conservan durante un año. La asignación de almacenamiento para este almacenamiento de los registros de auditoría se realiza de manera dinámica para garantizar que hay capacidad suficiente disponible. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS para centralizar los datos de auditoría en todos los recursos implementados, con lo que se admite el conocimiento sobre la situación en toda la organización. Los clientes pueden elegir seguir integrando Log Analytics con otros sistemas. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución de Log Analytics en OMS para centralizar los datos de auditoría en todos los recursos implementados, lo que respalda el conocimiento sobre la situación en toda la organización. Los clientes pueden elegir seguir integrando Log Analytics con otros sistemas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS para centralizar los datos de auditoría en todos los recursos implementados, con lo que se admite la revisión, el análisis y los informes centralizados. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución de Log Analytics en OMS para centralizar los datos de auditoría en todos los recursos implementados; gracias a ello, se pueden crear, revisar y analizar informes centralizados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución OMS Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas, integrando los datos de registro y los datos de vulnerabilidad desde la línea de base y la valoración de revisiones. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución OMS de Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas, integrando los datos de registro y los datos de vulnerabilidad desde la línea de base y la valoración de revisiones. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales Windows que se implementan en esta instancia de Azure Blueprint implementan permisos en el nivel de sistema operativo que restringen las acciones que un usuario puede llevar a cabo con respecto a la información de auditoría. Dentro de Azure, los usuarios o grupos de usuarios se pueden asignar a roles (por ejemplo, propietario, colaborador, lector o un rol personalizado) para restringir las acciones disponibles respecto de cualquier recurso o solución implementada, incluido Log Analytics.  |
+| **Cliente** | Las máquinas virtuales de Windows que se implementan en esta instancia de Blueprint implementan permisos en el nivel de sistema operativo que se encargan de restringir las acciones que un usuario puede llevar a cabo con respecto a la información de auditoría. Dentro de Azure, los usuarios o grupos de usuarios se pueden asignar a roles (por ejemplo, propietario, colaborador, lector o un rol personalizado) para restringir las acciones disponibles respecto de cualquier recurso o solución implementada, incluido Log Analytics.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. El contenido y el orden cronológico de los registros de auditoría no se ven alterados cuando Log Analytics los recopila. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. El contenido y el orden cronológico de los registros de auditoría no se ven alterados cuando Log Analytics los recopila. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Log Analytics incluye un lenguaje de consulta eficaz para extraer los datos almacenados en el repositorio. |
+| **Cliente** | Esta instancia de Blueprint implementa la solución de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Log Analytics incluye un lenguaje de consulta eficaz para extraer los datos almacenados en el repositorio. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los recursos que implementa esta instancia de Azure Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. |
+| **Cliente** | Los recursos que implementa esta instancia de Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los recursos que implementa esta instancia de Azure Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Las marcas de tiempo se registran en UTC. |
+| **Cliente** | Los recursos que implementa esta instancia de Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Las marcas de tiempo se registran en UTC. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los recursos que implementa esta instancia de Azure Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Los relojes internos del sistema están configurados para sincronizarse con un origen autorizado de la hora. |
+| **Cliente** | Los recursos que implementa esta instancia de Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Los relojes internos del sistema están configurados para sincronizarse con un origen autorizado de la hora. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los recursos que implementa esta instancia de Azure Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Los relojes internos del sistema están configurados para sincronizarse con un origen autorizado de la hora. |
+| **Cliente** | Los recursos que implementa esta instancia de Blueprint usan relojes internos del sistema para generar marcas de tiempo para los registros de auditoría. Los relojes internos del sistema están configurados para sincronizarse con un origen autorizado de la hora. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Para proteger las herramientas y la información de auditoría dentro de esta instancia de Azure Blueprint frente a la eliminación, la modificación y el acceso no autorizados, se usan controles de acceso lógicos. Azure Active Directory exige la aprobación del acceso lógico mediante la pertenencia a grupos basada en roles. La capacidad para ver información de auditoría y usar las herramientas de auditoría puede estar limitada a los usuarios que requieran dichos permisos. |
+| **Cliente** | Para proteger las herramientas y la información de auditoría de esta instancia de Blueprint y así evitar que se eliminen, modifiquen o que alguien acceda a ellas sin permiso, se usan controles de acceso lógicos. Azure Active Directory exige la aprobación del acceso lógico mediante la pertenencia a grupos basada en roles. La capacidad para ver información de auditoría y usar las herramientas de auditoría puede estar limitada a los usuarios que requieran dichos permisos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio de Log Analytics en OMS. Las cuentas de almacenamiento de Azure Diagnostics y las máquinas virtuales implementadas son orígenes conectados a Log Analytics y se mantienen independientemente de su origen. OMS recopila los datos prácticamente en tiempo real. |
+| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Las cuentas de almacenamiento de Azure Diagnostics y las máquinas virtuales implementadas son orígenes conectados a Log Analytics y se mantienen independientemente de su origen. OMS recopila los datos prácticamente en tiempo real. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos con la autenticación de Azure. |
+| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos con la autenticación de Azure. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Para proteger las herramientas y la información de auditoría dentro de esta instancia de Azure Blueprint frente a la eliminación, la modificación y el acceso no autorizados, se usan controles de acceso lógicos. Azure Active Directory exige la aprobación del acceso lógico mediante la pertenencia a grupos basada en roles. La capacidad para ver información de auditoría y usar las herramientas de auditoría puede estar limitada a los usuarios que requieran dichos permisos.
+| **Cliente** | Para proteger las herramientas y la información de auditoría de esta instancia de Blueprint y así evitar que se eliminen, modifiquen o que alguien acceda a ellas sin permiso, se usan controles de acceso lógicos. Azure Active Directory exige la aprobación del acceso lógico mediante la pertenencia a grupos basada en roles. La capacidad para ver información de auditoría y usar las herramientas de auditoría puede estar limitada a los usuarios que requieran dichos permisos.
  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Monitor y el servicio de Log Analytics en OMS proporcionan la funcionalidad de auditoría para esta instancia de Azure Blueprint. Azure Monitor proporciona registros de auditoría detallados sobre la actividad asociada con los recursos implementados. Log Analytics recopila estos registros y los registros en el nivel de sistema operativo y los almacena en el repositorio de OMS. Estos registros contienen registros detallados de los eventos del sistema de información y pueden ayudar a proteger contra el no rechazo. Además, el acceso a los datos de registros está restringido al uso del control de acceso basado en rol para evitar la modificación o eliminación no autorizada de los datos de registros. |
+| **Cliente** | Azure Monitor y el servicio de Log Analytics en OMS proporcionan la funcionalidad de auditoría para esta instancia de Blueprint. Azure Monitor proporciona registros de auditoría detallados sobre la actividad asociada con los recursos implementados. Log Analytics recopila estos registros y los registros en el nivel de sistema operativo y los almacena en el repositorio de OMS. Estos registros contienen registros detallados de los eventos del sistema de información y pueden ayudar a proteger contra el no rechazo. Además, el acceso a los datos de registros está restringido al uso del control de acceso basado en rol para evitar la modificación o eliminación no autorizada de los datos de registros. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez que se recopilan los datos, se mantienen durante un año según la configuración de Log Analytics. |
+| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Una vez que se recopilan los datos, se mantienen durante un año según la configuración de Log Analytics. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los eventos que se auditan en esta instancia de Azure Blueprint incluyen los auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
+| **Cliente** | Los eventos que se auditan en esta instancia de Blueprint incluyen aquellos que se han auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso a las funciones de auditoría se restringe mediante el control de acceso basado en rol dentro de Azure y en el nivel de sistema operativo de la máquina virtual. Los usuarios con la autorización basada en rol correspondiente pueden establecer la configuración de los eventos seleccionados para ser auditados por los recursos que implementa esta instancia de Azure Blueprint. |
+| **Cliente** | El acceso a las funciones de auditoría se restringe mediante el control de acceso basado en rol dentro de Azure y en el nivel de sistema operativo de la máquina virtual. Aquellos usuarios que tengan una autorización basada en un rol adecuado podrán establecer la configuración de los eventos seleccionados que se encargarán de auditar los recursos que implementa esta instancia de Blueprint. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los eventos que se auditan en esta instancia de Azure Blueprint incluyen los auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
+| **Cliente** | Los eventos que se auditan en esta instancia de Blueprint incluyen aquellos que se han auditados en los registros de actividad de Azure para los recursos implementados, los registros en el nivel de sistema operativo, los registros de Active Directory y los registros de SQL Server. Los clientes pueden seleccionar eventos adicionales que se auditarán para cumplir las necesidades de la misión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Las marcas de tiempo del registro de auditoría no se modifican, por lo que la pista de auditoría está correlacionada con el tiempo. |
+| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Log Analytics proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Las marcas de tiempo del registro de auditoría no se modifican, por lo que la pista de auditoría está correlacionada con el tiempo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso a las funciones de auditoría se restringe mediante el control de acceso basado en rol dentro de Azure y en el nivel de sistema operativo de la máquina virtual. Los usuarios con la autorización basada en rol correspondiente pueden establecer la configuración de los eventos seleccionados para ser auditados por los recursos que implementa esta instancia de Azure Blueprint. |
+| **Cliente** | El acceso a las funciones de auditoría se restringe mediante el control de acceso basado en rol dentro de Azure y en el nivel de sistema operativo de la máquina virtual. Aquellos usuarios que tengan una autorización basada en un rol adecuado podrán establecer la configuración de los eventos seleccionados que se encargarán de auditar los recursos que implementa esta instancia de Blueprint. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
