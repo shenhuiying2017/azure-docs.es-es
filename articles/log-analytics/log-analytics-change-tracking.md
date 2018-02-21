@@ -3,7 +3,7 @@ title: Seguimiento de cambios con Azure Log Analytics | Microsoft Docs
 description: "La solución Seguimiento de cambios de Log Analytics ayuda a identificar los cambios en el software y el servicio de Windows que se producen en su entorno."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
 
@@ -41,7 +41,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 1. En el portal de OMS, haga clic en **Configuración** (el símbolo de engranaje).
 2. En la página **Configuración**, haga clic en **Datos** y, luego, en **Seguimiento de archivos de Linux**.
 3. En Change Tracking de archivos de Linux, escriba toda la ruta de acceso, incluido el nombre del archivo del que desea realizar un seguimiento y, a continuación, haga clic en el símbolo **Agregar**. Por ejemplo: "/etc/*.conf"
-4. Haga clic en **Guardar**.  
+4. Haga clic en **Save**(Guardar).  
 
 > [!NOTE]
 > El seguimiento de archivos de Linux tiene funcionalidades adicionales, como el seguimiento de directorios, la recursión de los directorios y el seguimiento de comodines.
@@ -52,7 +52,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 1. En el portal de OMS, haga clic en **Configuración** (el símbolo de engranaje).
 2. En la página **Configuración**, haga clic en **Datos** y, a continuación, en **Seguimiento de archivos de Windows**.
 3. En Seguimiento de cambios de archivos de Windows, escriba toda la ruta de acceso, incluido el nombre del archivo del que desea realizar un seguimiento y, a continuación, haga clic en el símbolo **Agregar**. Por ejemplo: C:\Archivos de programa (x86)\Internet Explorer\iexplore.exe o C:\Windows\System32\drivers\etc\hosts.
-4. Haga clic en **Guardar**.  
+4. Haga clic en **Save**(Guardar).  
    ![Seguimiento de cambios de archivos de Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configuración de las claves del Registro de Windows para realizar un seguimiento
@@ -61,7 +61,7 @@ Use los pasos siguientes para configurar las claves del Registro para realizar u
 1. En el portal de OMS, haga clic en **Configuración** (el símbolo de engranaje).
 2. En la página **Configuración**, haga clic en **Datos** y en **Seguimiento del Registro de Windows**.
 3. En Seguimiento de cambios del Registro de Windows, escriba toda la clave de la que desea realizar un seguimiento y haga clic en el símbolo **Agregar**.
-4. Haga clic en **Guardar**.  
+4. Haga clic en **Save**(Guardar).  
    ![Seguimiento de cambios del Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Explicación de las propiedades de la colección de archivos de Linux
@@ -114,7 +114,7 @@ En la tabla siguiente se muestra la frecuencia de recopilación de datos para lo
 
 | **Tipo de cambio** | **frequency** | **¿Envía el****agente****las diferencias cuando las encuentra?** |
 | --- | --- | --- |
-| Registro de Windows | 50 minutos | No |
+| Registro de Windows | 50 minutos | Sin  |
 | Archivo de Windows | 30 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
 | Archivo de Linux | 15 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
 | Servicios de Windows | 30 minutos | Sí, cada 30 minutos cuando se detectan cambios. Cada 24 horas se envía una instantánea con independencia de que haya cambio o no. Por lo tanto, se envía la instantánea incluso cuando no hay ningún cambio. |
@@ -185,5 +185,5 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 2. En el panel **Seguimiento de cambios**, revise la información de resumen en una de las hojas de tipo de cambio y, a continuación, haga clic en una para obtener información detallada acerca de la misma en la página de **búsqueda de registros**.
 3. En cualquiera de las páginas de búsqueda de registros, puede ver los resultados por tiempo, resultados detallados y el historial de búsqueda de registros. También puede filtrar por las facetas para restringir los resultados.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.

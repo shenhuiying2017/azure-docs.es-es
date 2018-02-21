@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Uso de cloud-init para agregar a un usuario a una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para agrear a un usuario en una máquina virtual (VM) o en conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Este script cloud-init se ejecuta durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > El archivo #cloud-config incluye el parámetro `- default` incluido. Esto anexará al usuario al usuario administrador existente creado durante el aprovisionamiento. Si crea un usuario sin el parámetro `- default`, el usuario de administrador generado automáticamente que creó la plataforma Azure se sobrescribirá. 
 
-Antes de implementar esta imagen, tiene que crear un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el archivo cloud-init con `--custom-data cloud_init_add_user.txt` como se indica a continuación:
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#az_vm_create) y especifique el archivo cloud-init con `--custom-data cloud_init_add_user.txt` como se indica a continuación:
 
 ```azurecli-interactive 
 az vm create \
@@ -59,7 +59,7 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH a la dirección IP pública de la máquina virtual que se muestra en la salida del comando anterior. Escriba su propia **publicIpAddress**, como se indica a continuación:
+SSH a la dirección IP pública de la máquina virtual que se muestra en la salida del comando anterior. Escriba su propia **dirección IP pública**, como se indica a continuación:
 
 ```bash
 ssh <publicIpAddress>
@@ -81,7 +81,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

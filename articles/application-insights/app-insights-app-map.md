@@ -30,10 +30,10 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 * Los componentes se ejecutan en cualquier número de instancias de rol, servidor o contenedor.
 * Los componentes pueden ser claves de instrumentación de Application Insights independientes (incluso aunque las suscripciones sean diferentes) o diferentes roles que informan a una única clave de instrumentación de Application Insights. La experiencia de mapa de versión preliminar muestra los componentes con independencia de cómo están configurados.
 
-## <a name="composite-application-map-preview"></a>Mapa de aplicación compuesta (versión preliminar)
+## <a name="composite-application-map-preview"></a>Mapa de aplicación compuesto (versión preliminar)
 *Esta es una primera versión preliminar y se irán agregando más características a este mapa. Nos gustaría conocer su opinión sobre la nueva experiencia. Puede cambiar fácilmente entre la experiencia clásica y de versión preliminar.*
 
-Habilite "Mapa de aplicación compuesta" en la [lista de versiones preliminares](app-insights-previews.md) o haga clic en "Preview map" (Mapa de versión preliminar) en la opción de conmutación de la esquina superior derecha. Puede usar esta opción de conmutación para volver a la experiencia clásica.
+Habilite "Mapa de aplicación compuesto" en la [lista de versiones preliminares](app-insights-previews.md) o haga clic en "Mapa de versión preliminar" en la opción de conmutación de la esquina superior derecha. Puede usar esta opción de conmutación para volver a la experiencia clásica.
 ![Habilitar el mapa de versión preliminar](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
@@ -140,6 +140,6 @@ Proporcione sus comentarios mediante la opción de comentarios del portal.
 ![Imagen MapLink-1](./media/app-insights-app-map/13.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [portal de Azure](https://portal.azure.com)

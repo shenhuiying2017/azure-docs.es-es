@@ -3,7 +3,7 @@
 ## [Acerca de Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Hoja de referencia rápida](cheat-sheet.md)
 
-# Inicios rápidos
+# Guías de inicio rápido
 
 ## [Creación y conexión: portal](create-data-warehouse-portal.md)
 ## Pausa y reanudación de proceso
@@ -117,12 +117,11 @@
 ### [Análisis de la carga de trabajo](analyze-your-workload.md)
 
 ## Escalado horizontal
-### [Administración de procesos: API de REST](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatización de los niveles de proceso](manage-compute-with-azure-functions.md)
 
 
 # Referencia
-
 
 ## T-SQL
 ### [Referencia completa](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Instrucciones de SQL DW](sql-data-warehouse-reference-tsql-statements.md)
 ## [Vistas de sistema](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlets de PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [API de REST](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)

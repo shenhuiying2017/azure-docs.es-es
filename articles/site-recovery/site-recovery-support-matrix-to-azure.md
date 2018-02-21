@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación desde local a Azure
 
@@ -185,7 +185,7 @@ Varias rutas (MPIO) | N/D | Sí
 > ** Es posible migrar a Azure las máquinas virtuales de VMware con arranque UEFI o los servidores físicos que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación.
 > - Migración solo a Azure. No se admite la conmutación por recuperación a sitios de VMware locales.
 > - No se admiten más de 4 particiones en el disco del sistema operativo del servidor.
-> - Requiere el servicio de movilidad de Azure Site Recovery, versión 9.13 o posterior.
+> - Requiere el servicio de movilidad de Azure Site Recovery (versión 9.13 o posterior).
 
 **Azure Storage** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
 --- | --- | ---

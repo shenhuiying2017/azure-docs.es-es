@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Analytics de Application Insights
 Analytics es la herramienta eficaz de búsqueda y consulta de [Application Insights](app-insights-overview.md). Analytics es una herramienta web por lo que no requiere ninguna configuración. Si ya ha configurado Application Insights para una de las aplicaciones, puede analizar los datos de la aplicación abriendo Analytics desde la [hoja de información general](app-insights-dashboards.md) de la aplicación.
@@ -47,15 +47,15 @@ A continuación, contamos el número de registros por país (esos datos se encue
 
 El lenguaje tiene muchas características atractivas:
 
-* [Filtre](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
-* [Una](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) varias tablas: ponga en correlación las solicitudes con vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
-* [Agregaciones](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions)estadísticas de gran eficacia.
+* [Filtre](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
+* [Una](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) varias tablas: ponga en correlación las solicitudes con vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
+* [Agregaciones](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)estadísticas de gran eficacia.
 * Visualizaciones inmediatas y potentes.
 * [API de REST](https://dev.applicationinsights.io/) que puede usar para ejecutar consultas mediante programación, por ejemplo de Powershell.
 
 La [referencia del lenguaje completa](https://go.microsoft.com/fwlink/?linkid=856079) detalla todos los comandos admitidos y se actualiza periódicamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Introducción al [portal de Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * Introducción a la [escritura de consultas](https://go.microsoft.com/fwlink/?linkid=856078)
 * Consulte la [hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics) para ver las traducciones de las expresiones más comunes.

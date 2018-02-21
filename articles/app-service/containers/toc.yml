@@ -8,7 +8,7 @@
       href: app-service-linux-intro.md
     - name: Comparación entre opciones de hospedaje
       href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de una aplicación .NET Core
@@ -21,6 +21,8 @@
       href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Creación de una aplicación Ruby
       href: quickstart-ruby.md
+    - name: Creación de una aplicación Go
+      href: quickstart-go.md
     - name: Implementación de una imagen de Docker personalizada
       href: quickstart-custom-docker-image.md
 - name: Tutoriales
@@ -45,7 +47,7 @@
       href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: 4 - Incorporación de CDN
       href: ../app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- name: Muestras
+- name: Ejemplos
   items:
     - name: CLI de Azure
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -181,7 +183,7 @@
           href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
     - name: Procedimientos recomendados
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Muestras
+    - name: Ejemplos
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'

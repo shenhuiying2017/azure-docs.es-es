@@ -24,8 +24,7 @@ ms.lasthandoff: 12/21/2017
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Administración de registros y conjuntos de registros DNS mediante el Portal de Azure
 
 > [!div class="op_single_selector"]
-> * 
-            [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -107,7 +106,7 @@ Los registros NS y SOA creados automáticamente se administran de forma diferent
 
 ### <a name="modify-soa-records"></a>Modificación de registros SOA
 
-No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "@"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
+No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "\@\"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificación de los registros NS en el vértice de zona
 
@@ -119,7 +118,7 @@ Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vérti
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminación de conjuntos de registros SOA o NS
 
-No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = @) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
+No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = \@\) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

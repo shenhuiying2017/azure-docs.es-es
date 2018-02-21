@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Administración de grupos de seguridad de red con la CLI de Azure
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Requisito previo
-Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login). 
+Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Consultar los NSG existentes
-Para ver la lista de los grupos de seguridad de red en un grupo de recursos específico, ejecute el comando [az network nsg list](/cli/azure/network/nsg#list) con un formato de salida `-o table`:
+Para ver la lista de los grupos de seguridad de red en un grupo de recursos específico, ejecute el comando [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) con un formato de salida `-o table`:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Resultado esperado:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Mostrar todas las reglas de un NSG
-Para ver las reglas de un grupo de seguridad de red denominado **NSG-FrontEnd**, ejecute el comando [az network nsg show](/cli/azure/network/nsg#show) con el [filtro de consulta JMESPATH](/cli/azure/query-az-cli2) y el formato de salida `-o table`:
+Para ver las reglas de un grupo de seguridad de red denominado **NSG-FrontEnd**, ejecute el comando [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) con el [filtro de consulta JMESPATH](/cli/azure/query-az-cli2) y el formato de salida `-o table`:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Resultado esperado:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> También puede usar el comando [az network nsg rule list](/cli/azure/network/nsg/rule#list) para mostrar solo las reglas personalizadas de un NSG.
+> También puede usar el comando [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) para mostrar solo las reglas personalizadas de un NSG.
 >
 
 ## <a name="view-nsg-associations"></a>Consultar las asociaciones de NSG
@@ -151,7 +151,7 @@ Resultado esperado:
 ```
 
 ## <a name="change-a-rule"></a>Cambiar una regla
-Para cambiar la regla creada anteriormente y permitir el tráfico de entrada solo desde **Internet**, ejecute el comando [az network nsg rule update](/cli/azure/network/nsg/rule#update):
+Para cambiar la regla creada anteriormente y permitir el tráfico de entrada solo desde **Internet**, ejecute el comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update):
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Asociar un NSG a una NIC
-Para asociar el grupo de seguridad de red **NSG-FrontEnd** a la NIC **TestNICWeb1**, ejecute el comando [az network nic update](/cli/azure/network/nic#update):
+Para asociar el grupo de seguridad de red **NSG-FrontEnd** a la NIC **TestNICWeb1**, ejecute el comando [az network nic update](/cli/azure/network/nic#az_network_nic_update):
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Resultado esperado:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Desasociar un NSG de una NIC
 
-Para desasociar el grupo de seguridad de red **NSG-FrontEnd** de la NIC **TestNICWeb1**, vuelva a ejecutar el comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) pero sustituya el argumento `--network-security-group` por una cadena vacía (`""`).
+Para desasociar el grupo de seguridad de red **NSG-FrontEnd** de la NIC **TestNICWeb1**, vuelva a ejecutar el comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) pero sustituya el argumento `--network-security-group` por una cadena vacía (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 En la salida, la clave `networkSecurityGroup` se establece en null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Desasociar un NSG de una subred
-Para desasociar el grupo de seguridad de red **NSG-FrontEnd** de la subred **FrontEnd**, vuelva a ejecutar el comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) pero sustituya el argumento `--network-security-group` por una cadena vacía (`""`).
+Para desasociar el grupo de seguridad de red **NSG-FrontEnd** de la subred **FrontEnd**, vuelva a ejecutar el comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) pero sustituya el argumento `--network-security-group` por una cadena vacía (`""`).
 
 ```azurecli
 az network vnet subnet update \
@@ -340,6 +340,6 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
 

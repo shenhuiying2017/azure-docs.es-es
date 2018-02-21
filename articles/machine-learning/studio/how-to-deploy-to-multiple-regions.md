@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 58c0f5b0ac8e96c2457db4b86dcf2483f68289c6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Procedimiento para implementar un servicio web en varias regiones
 Gracias a los servicios web nuevos de Azure, se puede implementar fácilmente un servicio web en varias regiones sin necesidad de disponer de varias suscripciones o áreas de trabajo. 
@@ -34,7 +34,7 @@ Los precios dependen de la región, por lo tanto, debe definir un plan de factur
 6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 7. En **Nombre del plan** , escriba el nombre del plan.
 8. En **Plan Options**(Opciones de planes), haga clic en el nivel de facturación del nuevo plan.
-9. Haga clic en **Crear**.
+9. Haga clic en **Create**(Crear).
 
 ## <a name="deploying-the-web-service-to-another-region"></a>Implementación del servicio web en otra región
 1. Haga clic en la pestaña **Servicios web** .

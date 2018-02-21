@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -104,7 +104,7 @@ Después de seleccionar el punto de restauración, elija la configuración de re
 
    * **Restaura los discos**
 
-El portal proporciona una opción **Creación rápida** para la máquina virtual restaurada. Para personalizar la configuración de la máquina virtual o los nombres de los recursos creados como parte de la creación de una nueva opción de máquina virtual, use PowerShell o el portal para restaurar los discos de copia de seguridad. Use comandos de PowerShell para asociarlos a su elección de configuración de máquina virtual. También puede usar la plantilla que se incluye con los discos restaurados para personalizar la máquina virtual restaurada. Para más información sobre cómo restaurar una máquina virtual que tiene varias NIC o que se encuentra bajo un equilibrador de carga, consulte [Restore a VM with special network configurations](#restore-a vm-with-special-network-configurations) (Restauración de una máquina virtual con configuraciones de red especiales). Si su máquina virtual Windows usa [licencia de concentrador](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure los discos y use PowerShell o una plantilla como se ha especificado en este artículo para crear la máquina virtual. Asegúrese de que especifica el **tipo de licencia** como "Windows_Server" al crear la máquina virtual para aprovechar las ventajas de HUB en la máquina virtual restaurada. 
+El portal proporciona una opción **Creación rápida** para la máquina virtual restaurada. Para personalizar la configuración de la máquina virtual o los nombres de los recursos creados como parte de la creación de una nueva opción de máquina virtual, use PowerShell o el portal para restaurar los discos de copia de seguridad. Use comandos de PowerShell para asociarlos a su elección de configuración de máquina virtual. También puede usar la plantilla que se incluye con los discos restaurados para personalizar la máquina virtual restaurada. Para más información sobre cómo restaurar una máquina virtual que tiene varias NIC o que se encuentra bajo un equilibrador de carga, consulte [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations) (Restauración de una máquina virtual con configuraciones de red especiales). Si su máquina virtual Windows usa [licencia de concentrador](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure los discos y use PowerShell o una plantilla como se ha especificado en este artículo para crear la máquina virtual. Asegúrese de que especifica el **tipo de licencia** como "Windows_Server" al crear la máquina virtual para aprovechar las ventajas de HUB en la máquina virtual restaurada. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Creación de una nueva máquina virtual desde el punto de restauración
 1. Si no aún no lo ha hecho, [seleccione un punto de restauración](#restore-a vm-with-special-network-configurations) antes de comenzar a crear una nueva máquina virtual desde un punto de restauración. Después de seleccionar el punto de restauración, en la hoja **Restaurar configuración**, escriba o seleccione valores en cada uno de los siguientes campos:

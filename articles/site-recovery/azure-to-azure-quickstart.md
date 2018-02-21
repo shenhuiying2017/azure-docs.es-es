@@ -2,25 +2,25 @@
 title: "Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)"
 description: "En esta guía de inicio rápido se indican los pasos necesarios para replicar una máquina virtual de Azure de una región de Azure a otra región."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
-ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 27066c3b5b9d52901dbd3790ba4b5abd97fe7d2b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)
 
-El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, incluso la replicación, conmutación por error y recuperación.
+El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
 En esta guía de inicio rápido se describe cómo replicar una máquina virtual de Azure en una región distinta de Azure.
 
@@ -67,7 +67,7 @@ Detenga la replicación como se indica a continuación:
 
    ![Deshabilitar replicación](media/azure-to-azure-quickstart/disable2-replication.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, se replica una única máquina virtual en una región secundaria.
 

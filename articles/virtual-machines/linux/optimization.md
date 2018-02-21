@@ -16,25 +16,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Requisitos previos
-En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/#login) antes de [crear una VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="prerequisites"></a>requisitos previos
+En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/#az_login) antes de [crear una VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco de sistema operativo de Azure
 Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal (**/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adición de discos para objetivos de rendimiento y tamaño
-En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium.  Para más información sobre los discos de Premium Storage, consulte [Discos de máquina virtual de Azure administrados y no administrados, y Premium Storage de alto rendimiento](../windows/premium-storage.md).
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 5000 IOPS por disco para Premium Storage.  Para más información sobre los discos de Premium Storage, consulte [Discos de máquina virtual de Azure administrados y no administrados, y Premium Storage de alto rendimiento](../windows/premium-storage.md).
 
-Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Almacenamiento premium de copia de seguridad son duraderas para esta configuración de caché.
+Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Premium Storage de copia de seguridad son duraderas para esta configuración de caché.
 
 * Si utiliza **reiserFS**, deshabilite las barreras mediante la opción de montaje `barrier=none` (para habilitar las barreras, use `barrier=flush`)
 * Si utiliza **ext3/ext4**, deshabilite las barreras mediante la opción de montaje `barrier=0` (para habilitar las barreras, use `barrier=1`)
@@ -43,9 +43,9 @@ Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la c
 ## <a name="unmanaged-storage-account-considerations"></a>Consideraciones de la cuenta de almacenamiento no administrada
 La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 consiste en usar Azure Managed Disks.  Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento.  Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas consideraciones de rendimiento adicionales.  Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).  En la siguiente sección se describen consideraciones de rendimiento solo cuando se usan discos no administrados.  Una vez más, la solución de almacenamiento predeterminada y recomendada consiste en utilizar discos administrados.
 
-Si crea una VM con discos no administrados, asegúrese de que conecta los discos desde las cuentas de almacenamiento que residen en la misma región que la VM para garantizar la proximidad y minimizar la latencia de red.  Cada cuenta de almacenamiento estándar tiene un máximo de IOPS de 20 k y una capacidad de tamaño de 500 TB.  Este límite nos da aproximadamente 40 discos muy utilizados, incluido el disco del SO y cualquier disco de datos que haya creado. Para las cuentas de Almacenamiento premium, no hay ningún límite máximo de IOPS, pero hay un límite de tamaño de 32 TB. 
+Si crea una VM con discos no administrados, asegúrese de que conecta los discos desde las cuentas de almacenamiento que residen en la misma región que la VM para garantizar la proximidad y minimizar la latencia de red.  Cada cuenta de almacenamiento estándar tiene un máximo de IOPS de 20 k y una capacidad de tamaño de 500 TB.  Este límite nos da aproximadamente 40 discos muy utilizados, incluido el disco del SO y cualquier disco de datos que haya creado. Para las cuentas de Premium Storage, no hay ningún límite máximo de IOPS, pero hay un límite de tamaño de 32 TB. 
 
-Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido el almacenamiento estándar para los discos, debe dividir los discos entre varias cuentas de almacenamiento para asegurarse de no alcanzar el límite de 20 000 IOPS para las cuentas de Almacenamiento estándar. La máquina virtual puede contener una combinación de discos de las diferentes cuentas de almacenamiento y de los tipos de cuentas de almacenamiento para alcanzar la configuración óptima.
+Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido Standard Storage para los discos, debe dividir los discos entre varias cuentas de almacenamiento para asegurarse de no alcanzar el límite de 20 000 IOPS para las cuentas de Standard Storage. La máquina virtual puede contener una combinación de discos de las diferentes cuentas de almacenamiento y de los tipos de cuentas de almacenamiento para alcanzar la configuración óptima.
  
 
 ## <a name="your-vm-temporary-drive"></a>Su unidad temporal de máquina virtual
@@ -75,7 +75,7 @@ Mem:       3525156     804168    2720988        408       8428     633192
 Swap:       524284          0     524284
 ```
 
-## <a name="io-scheduling-algorithm-for-premium-storage"></a>Algoritmo de programación de E/S para Almacenamiento premium
+## <a name="io-scheduling-algorithm-for-premium-storage"></a>Algoritmo de programación de E/S para Premium Storage
 Con el kernel de Linux 2.6.18, el algoritmo de programación de E/S predeterminado se cambió de Deadline (Fecha límite) a CFQ (Algoritmo de cola completamente razonable). Para patrones de E/S de acceso aleatorio, hay una diferencia insignificante en diferencias de rendimiento entre CFQ y Deadline.  En el caso de los discos SSD donde el patrón de E/S del disco es principalmente secuencial, el cambio al algoritmo NOOP o al de Deadline puede lograr un mejor rendimiento de E/S.
 
 ### <a name="view-the-current-io-scheduler"></a>Visualización del programador de E/S actual
@@ -131,7 +131,7 @@ Recuerde que, como en todos los debates sobre optimización, debe realizar prueb
 
 Algunos vínculos útiles a recursos adicionales: 
 
-* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md)
+* [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md)
 * [Guía de usuario del Agente de Linux de Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configuración del software RAID en Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

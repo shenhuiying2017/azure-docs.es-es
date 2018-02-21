@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -100,7 +100,7 @@ Asegúrese de realizar los cambios necesarios en los filtros, así como de inclu
 
 Por lo general, se recomienda utilizar EventFlow y WAD como soluciones de agregación, porque permiten adoptar un enfoque más modular para diagnósticos y supervisión, es decir, si desea cambiar las salidas de EventFlow, no es necesario realizar ningún cambio en la instrumentación real, sino simplemente una modificación sencilla en el archivo de configuración. Sin embargo, si decide invertir en la utilización de Application Insights y no existe ninguna probabilidad de cambiar a una plataforma distinta, debe considerar la utilización de un SDK nuevo de AI para agregar eventos y enviarlos a AI. Esto significa que ya no tendrá que configurar EventFlow para enviar datos a AI, sino que tendrá que instalar el paquete NuGet de Service Fabric en ApplicationInsight. Puede encontrar información detallada sobre el paquete [aquí](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-En [Application Insights support for Microservices and Containers](https://azure.microsoft.com/app-insights-microservices/) (Application Insights admite microservicios y contenedores), se muestran algunas de las nuevas características en las que se está trabajando (todavía en versión beta), lo que permite disponer de opciones de supervisión de serie enriquecidas con AI. Entre ellas se incluyen la supervisión de dependencias (se usan para compilar una instancia de AppMap de todos los servicios y aplicaciones de un clúster y la comunicación entre ellos) y una correlación mejorada de los seguimientos procedentes de los servicios (facilita la detección de un problema en el flujo de trabajo de una aplicación o de un servicio).
+En [Application Insights support for Microservices and Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) (Application Insights admite microservicios y contenedores), se muestran algunas de las nuevas características en las que se está trabajando (todavía en versión beta), lo que permite disponer de opciones de supervisión de serie enriquecidas con AI. Entre ellas se incluyen la supervisión de dependencias (se usan para compilar una instancia de AppMap de todos los servicios y aplicaciones de un clúster y la comunicación entre ellos) y una correlación mejorada de los seguimientos procedentes de los servicios (facilita la detección de un problema en el flujo de trabajo de una aplicación o de un servicio).
 
 Si va a desarrollar en .NET, existe la probabilidad de usar algunos de los modelos de programación de Service Fabric y desea usar AI como la plataforma para visualizar y analizar datos de eventos y de registro, se recomienda seguir la ruta del SDK de AI como flujo de trabajo de supervisión y diagnóstico. Lea [esto](../application-insights/app-insights-asp-net-more.md) y [esto](../application-insights/app-insights-asp-net-trace-logs.md) a fin de usar AI para recopilar y visualizar los registros.
 
@@ -112,7 +112,7 @@ El *Explorador de métricas* es una herramienta útil para crear paneles persona
 
 Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Definición de alertas en Application Insights](../application-insights/app-insights-alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../application-insights/app-insights-proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales

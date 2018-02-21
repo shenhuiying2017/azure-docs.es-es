@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Diagnósticos de Microsoft Azure | Microsoft Docs"
+title: "Introducción a Microsoft Azure Diagnostics | Microsoft Docs"
 description: "Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric"
 services: multiple
 documentationcenter: .net
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>¿Qué es Diagnósticos de Azure?
-Diagnósticos de Azure es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo del Servicio en la nube de Azure, las máquinas virtuales de Azure que ejecutan Microsoft Windows y Service Fabric. Otros servicios de Azure tienen su propio diagnóstico independiente.
+Diagnósticos de Azure es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo del servicio en la nube de Azure, Azure Virtual Machines que ejecutan Microsoft Windows y Service Fabric. Otros servicios de Azure tienen su propio diagnóstico independiente.
 
 ## <a name="data-you-can-collect"></a>Datos que puede recopilar
 Diagnósticos de Azure puede recopilar los tipos de datos siguientes:
 
-| Origen de datos | Description |
+| Origen de datos | DESCRIPCIÓN |
 | --- | --- |
-| Contadores de rendimiento |Sistema operativo y contadores de rendimiento personalizados |
+| contadores de rendimiento |Sistema operativo y contadores de rendimiento personalizados |
 | Registros de aplicación |Seguimiento de mensajes escritos por la aplicación |
 | Registros de eventos de Windows |Información enviada al sistema de registro de eventos de Windows |
 | Origen de eventos de .NET |Eventos de escritura de código mediante la clase [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) de .NET |
@@ -43,13 +43,13 @@ La extensión de diagnósticos de Azure puede transferir estos datos a una cuent
 ## <a name="versioning"></a>Control de versiones
 Consulte el [historial de versiones de Diagnósticos de Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Seleccione el servicio sobre el cual intenta recopilar diagnósticos y utilice los siguientes artículos para comenzar. Utilice los vínculos de diagnósticos generales de Azure como referencia para tareas específicas.
 
-## <a name="web-apps"></a>Aplicaciones web
-Tenga en cuenta que las aplicaciones web no utilizan Diagnósticos de Azure. Puede encontrar información equivalente en [Web Apps](../app-service/web-sites-enable-diagnostic-log.md).
+## <a name="web-apps"></a>Web Apps
+Tenga en cuenta que Web Apps no utiliza Azure Diagnostics. Puede encontrar información equivalente en [Web Apps](../app-service/web-sites-enable-diagnostic-log.md).
 
-## <a name="cloud-services-using-azure-diagnostics"></a>Servicios en la nube que usan Diagnósticos de Azure
+## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services que usan Diagnósticos de Azure
 * Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear una aplicación de Cloud Services](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para comenzar. De lo contrario, consulte
 * [Supervisión de Cloud Services con Diagnósticos de Azure](../cloud-services/cloud-services-how-to-monitor.md)
 * [Configuración de Diagnósticos de Azure una aplicación de Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md)
@@ -60,7 +60,7 @@ Para temas más avanzados, consulte
 * [Seguimiento del flujo en una aplicación de Cloud Services con Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Uso de PowerShell para configurar los diagnósticos en Cloud Services](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="virtual-machines-using-azure-diagnostics"></a>Máquinas virtuales que usan Diagnósticos de Azure
+## <a name="virtual-machines-using-azure-diagnostics"></a>Máquinas virtuales que usan Azure Diagnostics
 * Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para comenzar. De lo contrario, consulte
 * [Configuración de Diagnósticos de Azure en Azure Virtual Machine](../virtual-machines-dotnet-diagnostics.md)
 
@@ -75,6 +75,6 @@ Empiece por el artículo sobre la [supervisión de una aplicación de Service Fa
 ## <a name="general-azure-diagnostics-articles"></a>Artículos generales de Diagnósticos de Azure
 * [Configuración del esquema de Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) : obtenga información sobre cómo cambiar el archivo de esquema para recopilar y redirigir los datos de diagnóstico. Tenga en cuenta que también puede utilizar Visual Studio para cambiar el archivo del esquema.
 * [Almacenamiento de los datos de Diagnóstico de Azure en Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md): conozca los nombres de las tablas y los blobs donde se escriben los datos de diagnóstico.
-* Aprenda a [utilizar los contadores de rendimiento en Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Aprenda a [utilizar los contadores de rendimiento en Diagnósticos de Azure](../cloud-services/diagnostics-performance-counters.md).
 * Aprenda a [redirigir la información de diagnóstico de Azure a Application Insights](azure-diagnostics-configure-application-insights.md).
 * Si tiene problemas al iniciar los diagnósticos o al buscar datos en las tablas de Azure Storage, consulte [Solución de problemas de Diagnósticos de Azure](azure-diagnostics-troubleshooting.md).

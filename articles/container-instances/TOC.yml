@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Azure Container Instances
       href: container-instances-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de un contenedor: CLI'
@@ -33,17 +33,25 @@
   items:
     - name: Implementación de grupos de varios contenedores
       href: container-instances-multi-container-group.md
-    - name: Conservación de datos con Azure Files
-      href: container-instances-mounting-azure-files-volume.md
     - name: Implementación desde Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Ejecutar tareas en contenedores
       href: container-instances-restart-policy.md
     - name: Solución de problemas de implementaciones
       href: container-instances-troubleshooting.md
+    - name: Configuración de volúmenes de datos
+      items:
+        - name: Archivos de Azure
+          href: container-instances-volume-azure-files.md
+        - name: emptyDir
+          href: container-instances-volume-emptydir.md
+        - name: gitRepo
+          href: container-instances-volume-gitrepo.md
+        - name: secret
+          href: container-instances-volume-secret.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances
@@ -69,7 +77,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

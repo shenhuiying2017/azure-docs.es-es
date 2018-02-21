@@ -3,7 +3,7 @@ title: Control de acceso basado en rol con REST de Azure AD | Microsoft Docs
 description: "Administración del control de acceso basado en rol con la API de REST"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Administración del control de acceso basado en rol con la API de REST
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
    * Lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Lista de asignaciones de roles para un usuario específico, incluidas las heredadas de grupos | `assignedTo('{objectId of user}')`
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -98,7 +98,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
 2. Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
 3. Reemplace *{api-version}* por 2015-07-01.
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -151,12 +151,12 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Description |
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
 | --- | --- | --- | --- |
-| roleDefinitionId |Sí |String |Identificador del rol. El formato del identificador es: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Sí |String |objectId de la entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a la que se va a asignar el rol. |
+| roleDefinitionId |Sí |string |Identificador del rol. El formato del identificador es: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Sí |string |objectId de la entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a la que se va a asignar el rol. |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 201
 
 ```
@@ -197,7 +197,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
 2. Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
 3. Reemplace *{api-version}* por 2015-07-01.
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -241,7 +241,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
    * Enumerar los roles disponibles para asignar en el ámbito especificado y cualquiera de sus ámbitos secundarios: `atScopeAndBelow()`
    * Buscar un rol con un nombre para mostrar exacto: `roleName%20eq%20'{role-display-name}'`. Use la forma con codificación URL del nombre para mostrar exacto del rol. Por ejemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -321,7 +321,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
 2. Reemplace *{role-definition-id}* por el identificador GUID de la definición de roles.
 3. Reemplace *{api-version}* por 2015-07-01.
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -434,17 +434,17 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Description |
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
 | --- | --- | --- | --- |
-| name |Sí |String |Identificador GUID del rol personalizado. |
-| properties.roleName |Sí |String |Nombre para mostrar del rol personalizado. Tamaño máximo: 128 caracteres. |
-| properties.description |No |String |Descripción del rol personalizado. Tamaño máximo: 1024 caracteres. |
-| properties.type |Sí |String |Establézcalo en "CustomRole". |
-| properties.permissions.actions |yes |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado concede acceso. |
-| properties.permissions.notActions |No |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado no concede acceso. |
-| properties.assignableScopes |yes |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado. |
+| Nombre |Sí |string |Identificador GUID del rol personalizado. |
+| properties.roleName |Sí |string |Nombre para mostrar del rol personalizado. Tamaño máximo: 128 caracteres. |
+| properties.description |Sin  |string |Descripción del rol personalizado. Tamaño máximo: 1024 caracteres. |
+| properties.type |Sí |string |Establézcalo en "CustomRole". |
+| properties.permissions.actions |Sí |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado concede acceso. |
+| properties.permissions.notActions |Sin  |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado no concede acceso. |
+| properties.assignableScopes |Sí |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado. |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 201
 
 ```
@@ -537,17 +537,17 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Description |
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
 | --- | --- | --- | --- |
-| name |Sí |String |Identificador GUID del rol personalizado. |
-| properties.roleName |Sí |String |Nombre para mostrar del rol personalizado actualizado. |
-| properties.description |No |String |Descripción del rol personalizado actualizado. |
-| properties.type |Sí |String |Establézcalo en "CustomRole". |
-| properties.permissions.actions |yes |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado concede acceso. |
-| properties.permissions.notActions |No |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado no concede acceso. |
-| properties.assignableScopes |yes |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado actualizado. |
+| Nombre |Sí |string |Identificador GUID del rol personalizado. |
+| properties.roleName |Sí |string |Nombre para mostrar del rol personalizado actualizado. |
+| properties.description |Sin  |string |Descripción del rol personalizado actualizado. |
+| properties.type |Sí |string |Establézcalo en "CustomRole". |
+| properties.permissions.actions |Sí |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado concede acceso. |
+| properties.permissions.notActions |Sin  |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado no concede acceso. |
+| properties.assignableScopes |Sí |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado actualizado. |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 201
 
 ```
@@ -607,7 +607,7 @@ Dentro del URI, realice las sustituciones siguientes para personalizar la solici
 2. Reemplace *{role-definition-id}* por el identificador GUID de definición de rol del rol personalizado.
 3. Reemplace *{api-version}* por 2015-07-01.
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 Código de estado: 200
 
 ```
@@ -647,6 +647,6 @@ Código de estado: 200
 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

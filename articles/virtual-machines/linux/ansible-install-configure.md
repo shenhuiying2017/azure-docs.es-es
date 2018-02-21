@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalación y configuración de Ansible para la administración de máquinas virtuales en Azure
 En este artículo se indica cómo instalar Ansible y los módulos de SDK de Python de Azure para algunas de las distribuciones más habituales de Linux. Es posible instalar Ansible en otras distribuciones ajustando los paquetes instalados para adaptarlos a la plataforma en concreto. Para crear recursos de Azure de forma segura, también obtendrá información sobre cómo crear credenciales y definirlos para uso en Ansible. 
@@ -28,7 +28,7 @@ Para ver más opciones de instalación y pasos para plataformas adicionales, con
 
 
 ## <a name="install-ansible"></a>Instalación de Ansible
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el siguiente ejemplo se crea un grupo de recursos llamado *myResourceGroupAnsible* en la ubicación *eastus*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el siguiente ejemplo se crea un grupo de recursos llamado *myResourceGroupAnsible* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -41,7 +41,7 @@ Seguidamente, cree una VM e instale Ansible para una de las siguientes distribuc
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -72,7 +72,7 @@ Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credenti
 
 
 ### <a name="centos-73"></a>CentOS 7.3
-Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credenti
 
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
-Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -157,7 +157,7 @@ A continuación puede ver un ejemplo del resultado de los comandos anteriores:
 }
 ```
 
-Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#show):
+Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Creación de clústeres de HDInsight con Data Lake Store mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Aprenda a usar Azure Portal para crear un clúster de HDInsight con una cuenta de Azure Data Lake Store como almacenamiento predeterminado o almacenamiento adicional. Aunque el almacenamiento adicional es opcional para los clústeres de HDInsight, se recomienda almacenar los datos empresariales en las cuentas de almacenamiento adicional.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar este tutorial, asegúrese de que ha cumplido los requisitos siguientes:
 
 * **Una suscripción de Azure**. Vaya a [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -50,13 +50,13 @@ En esta sección creará un clúster de HDInsight con cuentas de Data Lake Store
 
 **Para crear un clúster de HDInsight con Data Lake Store como cuenta de almacenamiento predeterminada**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
 3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Data Lake Store** y escriba la siguiente información:
 
     ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-    - **Seleccionar la cuenta de Data Lake Store**: seleccione una cuenta existente de Data Lake Store. Se necesita una cuenta existente de Data Lake Store.  Consulte [Requisitos previos](#prereuisites).
+    - **Seleccionar la cuenta de Data Lake Store**: seleccione una cuenta existente de Data Lake Store. Se necesita una cuenta existente de Data Lake Store.  Consulte [Requisitos previos](#prerequisites).
     - **Ruta de acceso raíz**: escriba una ruta de acceso en la que se almacenarán los archivos específicos del clúster. En la captura de pantalla, es __/clusters/myhdiadlcluster/__, donde la carpeta __/clusters__ debe existir y el portal crea la carpeta *myhdicluster*.  *myhdicluster* es el nombre del clúster.
     - **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso a Data Lake Store](#configure-data-lake-store-access).
     - **Cuentas de almacenamiento adicionales**: agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más almacenes de Data Lake Store, asigne al clúster permisos de datos en más cuentas de Data Lake Store al configurar una cuenta de Data Lake Store como tipo de almacenamiento principal. Consulte [Configuración del acceso a Data Lake Store](#configure-data-lake-store-access).
@@ -69,7 +69,7 @@ En esta sección creará un clúster de HDInsight con cuentas de Data Lake Store
 En las siguientes instrucciones se describe cómo crear un clúster de HDInsight con una cuenta de Azure Storage como almacenamiento predeterminado y una cuenta de Data Lake Store como almacenamiento adicional.
 **Para crear un clúster de HDInsight con Data Lake Store como cuenta de almacenamiento predeterminada**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
 3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Storage** y escriba la siguiente información:
 

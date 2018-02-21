@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utiliza Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube
 ![Logotipo de Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -110,7 +110,7 @@ Para cumplir todos los criterios, Umbraco buscó un asociado de soluciones en la
 * Presencia en todos los mercados geográficos en los que UaaS compite (las empresas necesitan asegurarse de que pueden acceder a sus datos rápidamente y se almacenen en una ubicación que cumpla sus requisitos normativos regionales)
 
 ## <a name="why-umbraco-chose-azure-for-uaas"></a>Por qué Umbraco eligió Azure para UaaS
-Según Morten Christensen: "Después de considerar todas nuestras opciones, hemos seleccionado Azure porque cumplió todos nuestros criterios, desde la capacidad de administración y escalabilidad hasta la familiaridad y rentabilidad. Configuramos los entornos de máquinas virtuales de Azure y cada uno de ellos tiene su propia instancia de Azure SQL Database; todas las instancias se encuentran en grupos elásticos. Al separar las bases de datos entre los entornos de desarrollo, ensayo y producción, podemos ofrecer a nuestros clientes un aislamiento de rendimiento sólido que puede escalarse, lo que supone para nosotros una grandísima ventaja".
+Según Morten Christensen: "Después de considerar todas nuestras opciones, hemos seleccionado Azure porque cumplió todos nuestros criterios, desde la capacidad de administración y escalabilidad hasta la familiaridad y rentabilidad. Configuramos los entornos de Azure Virtual Machines y cada uno de ellos tiene su propia instancia de Azure SQL Database; todas las instancias se encuentran en grupos elásticos. Al separar las bases de datos entre los entornos de desarrollo, ensayo y producción, podemos ofrecer a nuestros clientes un aislamiento de rendimiento sólido que puede escalarse, lo que supone para nosotros una grandísima ventaja".
 
 Morten continúa: "Antes, teníamos que aprovisionar servidores de bases de datos web manualmente. Ahora, no tenemos que pensar en ello. Todo está automatizado, desde el aprovisionamiento hasta las tareas de limpieza".
 
@@ -124,7 +124,6 @@ Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podid
 ## <a name="more-information"></a>Más información
 * Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
-* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Para aprender más sobre las redes virtuales en Azure, revise [este artículo](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).    
 * Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md).    

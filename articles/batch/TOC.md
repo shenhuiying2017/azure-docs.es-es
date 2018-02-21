@@ -4,7 +4,7 @@
 # Información general
 ## [¿Qué es Azure Batch?](batch-technical-overview.md)
 
-# Inicios rápidos
+# Guías de inicio rápido
 ## [Ejecución de un trabajo de Batch: CLI](quick-create-cli.md)
 ## [Ejecución de un trabajo de Batch: Portal](quick-create-portal.md)
 ## [Ejecución de un trabajo de Batch: .NET](quick-run-dotnet.md)
@@ -18,7 +18,7 @@
 ## [Representación de escenas con Arnold](tutorial-rendering-cli.md)
 ## [Simulación de R en paralelo](tutorial-r-doazureparallel.md)
 
-# Muestras
+# Ejemplos
 ## Ejemplos de código
 ### [Ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=batch)
 ### [Repositorio de ejemplos de Batch](https://github.com/Azure/azure-batch-samples)
@@ -43,6 +43,7 @@
 ## Creación y administración de grupos
 ### [Escalado automático de nodos de proceso](batch-automatic-scaling.md)
 ### [Máquinas virtuales de procesos intensivos](batch-pool-compute-intensive-sizes.md)
+### [Configuración del acceso a los nodos de proceso](pool-endpoint-configuration.md)
 ### [Creación de un grupo con una imagen personalizada](batch-custom-images.md)
 ### [Creación de un grupo en una red virtual](batch-virtual-network.md)
 ### [Nodos de proceso Linux](batch-linux-nodes.md)

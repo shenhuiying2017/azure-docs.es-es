@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -67,7 +67,7 @@ El movimiento de archivos de una VM a un montaje de SMB que se hospeda en File S
 
 Para este tutorial detallado, desarrollamos los requisitos previos necesarios para crear primero el recurso compartido de File Storage y luego montarlo a través de SMB en una VM Linux.
 
-1. Cree un grupo de recursos con [az group create](/cli/azure/group#create) para que contenga el recurso compartido de archivos.
+1. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create) para que contenga el recurso compartido de archivos.
 
     Para crear un grupo de recursos llamado `myResourceGroup` en la ubicación "Oeste de EE. UU.", use el ejemplo siguiente:
 
@@ -75,7 +75,7 @@ Para este tutorial detallado, desarrollamos los requisitos previos necesarios pa
     az group create --name myResourceGroup --location westus
     ```
 
-2. Cree una cuenta de almacenamiento de Azure con [az storage account create](/cli/azure/storage/account#create) para almacenar los archivos reales.
+2. Cree una cuenta de almacenamiento de Azure con [az storage account create](/cli/azure/storage/account#az_storage_account_create) para almacenar los archivos reales.
 
     Para crear una cuenta de almacenamiento llamada mystorageaccount mediante la SKU de almacenamiento Standard_LRS, use el ejemplo siguiente:
 
@@ -90,7 +90,7 @@ Para este tutorial detallado, desarrollamos los requisitos previos necesarios pa
 
     Cuando cree una cuenta de almacenamiento, las claves de cuenta de almacenamiento se crean en pares de modo que las claves se pueden girar sin ninguna interrupción del servicio. Cuando cambia a la segunda clave del par, se crea un nuevo par de claves. Las nuevas claves de la cuenta de almacenamiento se crean siempre por pares, lo que garantiza que siempre tenga al menos una clave de cuenta de almacenamiento sin usar lista para cambiar.
 
-    Vea las claves de la cuenta de almacenamiento con [az storage account keys list](/cli/azure/storage/account/keys#list). Las claves de la cuenta de almacenamiento de la denominada `mystorageaccount` se muestran en el ejemplo siguiente:
+    Vea las claves de la cuenta de almacenamiento con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Las claves de la cuenta de almacenamiento de la denominada `mystorageaccount` se muestran en el ejemplo siguiente:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Para este tutorial detallado, desarrollamos los requisitos previos necesarios pa
 
 4. Cree el recurso compartido de File Storage.
 
-    El recurso compartido de File Storage contiene el recurso compartido de SMB con [az storage share create](/cli/azure/storage/share#create). La cuota siempre se expresa en gigabytes (GB). Pase una de las claves desde el comando `az storage account keys list` anterior. Cree un recurso compartido llamado mystorageshare con una cuota de 10 GB mediante el siguiente ejemplo:
+    El recurso compartido de File Storage contiene el recurso compartido de SMB con [az storage share create](/cli/azure/storage/share#az_storage_share_create). La cuota siempre se expresa en gigabytes (GB). Pase una de las claves desde el comando `az storage account keys list` anterior. Cree un recurso compartido llamado mystorageshare con una cuota de 10 GB mediante el siguiente ejemplo:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ Para este tutorial detallado, desarrollamos los requisitos previos necesarios pa
     Cuando reinicie la VM de Linux, el recurso compartido de SMB montado se desmontará durante el cierre. Para volver a montar el recurso compartido de SMB al inicio, agregue una línea a /etc/fstab de Linux. Linux utiliza el archivo fstab para enumerar los sistemas de archivos que necesita montar durante el proceso de arranque. Agregue el recurso compartido de SMB para garantizar que el recurso compartido de File Storage es un sistema de archivos montado de manera permanente para la VM Linux. La adición del recurso compartido de SMB de File Storage a una nueva VM es posible cuando se usa cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Uso de cloud-init para personalizar una VM de Linux durante la creación](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Adición de un disco a una máquina virtual de Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

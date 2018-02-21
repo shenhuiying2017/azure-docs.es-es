@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 9159960af396e89f373da711e0cc46fdd996ab83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carga y creación de una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure 2.0
 En este artículo se muestra cómo cargar un disco duro virtual en una cuenta de almacenamiento de Azure mediante la CLI de Azure 2.0 y cómo crear máquinas virtuales Linux desde este disco personalizado. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esta funcionalidad le permite instalar y configurar una distribución de Linux según sus requisitos y después utilizar ese disco duro virtual para crear rápidamente máquinas virtuales de Azure.
@@ -29,37 +29,37 @@ En este tema se usan las cuentas de almacenamiento de los discos duros virtuales
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para cargar un disco duro virtual en Azure. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](#requirements).
 
-Asegúrese de que ha instalado la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Asegúrese de que ha instalado la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Nombres de parámetros de ejemplo incluidos `myResourceGroup`, `mystorageaccount` y `mydisks`.
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `WestUs`:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Cree una cuenta de almacenamiento que contenga los discos virtuales con [az storage account create](/cli/azure/storage/account#create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`:
+Cree una cuenta de almacenamiento que contenga los discos virtuales con [az storage account create](/cli/azure/storage/account#az_storage_account_create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Cree una lista de las claves de acceso de la cuenta de almacenamiento con [az storage account keys list](/cli/azure/storage/account/keys#list). Tome nota de `key1`:
+Cree una lista de las claves de acceso de la cuenta de almacenamiento con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Tome nota de `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Cree un contenedor en su cuenta de almacenamiento mediante la clave de almacenamiento que obtuvo con [az storage container create](/cli/azure/storage/container#create). En el ejemplo siguiente se crea un contenedor denominado `mydisks` con el valor de clave de almacenamiento de `key1`:
+Cree un contenedor en su cuenta de almacenamiento mediante la clave de almacenamiento que obtuvo con [az storage container create](/cli/azure/storage/container#az_storage_container_create). En el ejemplo siguiente se crea un contenedor denominado `mydisks` con el valor de clave de almacenamiento de `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Por último, cargue el disco duro virtual en el contenedor que creó con [az storage blob upload](/cli/azure/storage/blob#upload). Especifique la ruta de acceso local para el disco duro virtual en `/path/to/disk/mydisk.vhd`:
+Por último, cargue el disco duro virtual en el contenedor que creó con [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Especifique la ruta de acceso local para el disco duro virtual en `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -67,7 +67,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Especifique el URI del disco (`--image`) con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` con el disco virtual cargado anteriormente:
+Especifique el URI del disco (`--image`) con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` con el disco virtual cargado anteriormente:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -95,7 +95,7 @@ Para completar los pasos siguientes, necesita:
   * Cree una cuenta de almacenamiento y un contenedor para almacenar el disco personalizado y las máquinas virtuales creadas.
   * Una vez que haya creado todas las máquinas virtuales, puede eliminar el disco de forma segura.
 
-Asegúrese de que ha instalado la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Asegúrese de que ha instalado la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#az_login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Nombres de parámetros de ejemplo incluidos `myResourceGroup`, `mystorageaccount` y `mydisks`.
 
@@ -120,7 +120,7 @@ Consulte también las **[notas de instalación de Linux](create-upload-generic.m
 > 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Los grupos de recursos reúnen de forma lógica todos los recursos de Azure que admiten sus máquinas virtuales, como el almacenamiento y las redes virtuales. Para más información acerca de los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Antes de cargar el disco personalizado y crear máquinas virtuales, es preciso crear un grupo de recursos con [az group create](/cli/azure/group#create).
+Los grupos de recursos reúnen de forma lógica todos los recursos de Azure que admiten sus máquinas virtuales, como el almacenamiento y las redes virtuales. Para más información acerca de los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Antes de cargar el disco personalizado y crear máquinas virtuales, es preciso crear un grupo de recursos con [az group create](/cli/azure/group#az_group_create).
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westus`:
 
@@ -130,7 +130,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento para el disco personalizado y las máquinas virtuales con [az storage account create](/cli/azure/storage/account#create). Todas las máquinas virtuales que cree con discos no administrados deben estar en la misma cuenta de almacenamiento que ese disco. 
+Cree una cuenta de almacenamiento para el disco personalizado y las máquinas virtuales con [az storage account create](/cli/azure/storage/account#az_storage_account_create). Todas las máquinas virtuales que cree con discos no administrados deben estar en la misma cuenta de almacenamiento que ese disco. 
 
 En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount` en el grupo de recursos que creó anteriormente:
 
@@ -140,7 +140,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Enumerar claves de cuentas de almacenamiento
-Azure genera dos claves de acceso de 512 bits para cada cuenta de almacenamiento. Estas claves de acceso se usan al autenticar en la cuenta de almacenamiento, como la realización de operaciones de escritura. Lea más sobre [administración del acceso al almacenamiento aquí](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Vea las teclas de acceso con [az storage account keys list](/cli/azure/storage/account/keys#list).
+Azure genera dos claves de acceso de 512 bits para cada cuenta de almacenamiento. Estas claves de acceso se usan al autenticar en la cuenta de almacenamiento, como la realización de operaciones de escritura. Lea más sobre [administración del acceso al almacenamiento aquí](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Vea las teclas de acceso con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Consulte las claves de acceso de la cuenta de almacenamiento que ha creado:
 
@@ -162,7 +162,7 @@ info:    storage account keys list command OK
 Tome nota de `key1` , pues el objetivo de su uso será interactuar con su cuenta de almacenamiento en los siguientes pasos.
 
 ## <a name="create-a-storage-container"></a>Creación de un contenedor de almacenamiento
-De la misma manera que crea directorios distintos para organizar de forma lógica el sistema de archivos local, crea contenedores dentro de una cuenta de almacenamiento para organizar los discos. Una cuenta de almacenamiento puede contener un número cualquiera de contenedores. Cree un contenedor con [az storage container create](/cli/azure/storage/container#create).
+De la misma manera que crea directorios distintos para organizar de forma lógica el sistema de archivos local, crea contenedores dentro de una cuenta de almacenamiento para organizar los discos. Una cuenta de almacenamiento puede contener un número cualquiera de contenedores. Cree un contenedor con [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 En el ejemplo siguiente se crea un contenedor llamado `mydisks`:
 
@@ -173,7 +173,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>Carga de VHD
-Ahora puede cargar su disco personalizado con [az storage blob upload](/cli/azure/storage/blob#upload). Cargue y almacene el disco personalizado como un blob en páginas.
+Ahora puede cargar su disco personalizado con [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Cargue y almacene el disco personalizado como un blob en páginas.
 
 Especifique la clave de acceso, el contenedor que creó en el paso anterior y, a continuación, la ruta de acceso al disco personalizado del equipo local:
 
@@ -184,9 +184,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
-Para crear una máquina virtual con discos no administrados, especifique el URI en el disco (`--image`) con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` con el disco virtual cargado anteriormente:
+Para crear una máquina virtual con discos no administrados, especifique el URI en el disco (`--image`) con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` con el disco virtual cargado anteriormente:
 
-Especifique el parámetro `--image` con [az vm create](/cli/azure/vm#create) para apuntar al disco personalizado. Asegúrese de que `--storage-account` coincide con la cuenta de almacenamiento donde se almacena el disco personalizado. No es necesario utilizar el mismo contenedor que disco personalizado para almacenar las máquinas virtuales. Asegúrese de crear contenedores adicionales siguiendo los pasos anteriores antes de cargar el disco personalizado.
+Especifique el parámetro `--image` con [az vm create](/cli/azure/vm#az_vm_create) para apuntar al disco personalizado. Asegúrese de que `--storage-account` coincide con la cuenta de almacenamiento donde se almacena el disco personalizado. No es necesario utilizar el mismo contenedor que disco personalizado para almacenar las máquinas virtuales. Asegúrese de crear contenedores adicionales siguiendo los pasos anteriores antes de cargar el disco personalizado.
 
 En el ejemplo siguiente se crea una máquina virtual denominada `myVM` a partir del disco personalizado:
 
@@ -224,7 +224,7 @@ Dentro del proveedor `Microsoft.Compute/virtualMachines` de la plantilla, tendr�
 
 Puede usar [esta plantilla existente para crear una máquina virtual desde una imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) o leer más sobre la [creación de sus propias plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Una vez que tenga una plantilla configurada, utilice [az group deployment create](/cli/azure/group/deployment#create) para crear las máquinas virtuales. Especifique el URI de la plantilla JSON con el parámetro `--template-uri` :
+Una vez que tenga una plantilla configurada, utilice [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) para crear las máquinas virtuales. Especifique el URI de la plantilla JSON con el parámetro `--template-uri` :
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \
@@ -239,6 +239,6 @@ az group deployment create --resource-group myNewResourceGroup \
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de haber preparado y cargado el disco virtual personalizado, puede leer más sobre el [uso de Resource Manager y las plantillas](../../azure-resource-manager/resource-group-overview.md). También es posible que quiera [agregar un disco de datos](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) a las nuevas máquinas virtuales. Si tiene aplicaciones que se ejecutan en las máquinas virtuales a las que necesite tener acceso, asegúrese de [abrir puertos y puntos de conexión](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

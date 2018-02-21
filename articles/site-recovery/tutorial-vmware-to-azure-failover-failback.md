@@ -2,24 +2,18 @@
 title: "Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure con Site Recovery | Microsoft Docs"
 description: "Obtenga información sobre cómo conmutar por error servidores físicos y máquinas virtuales de VMware en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28a14a9b28dfe9c2014add9b9f691bce6ba91a4c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f074312ecee39d4b3022df64b51aadd2bb8f968c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 
@@ -38,7 +32,7 @@ Este es el quinto tutorial de una serie. En este tutorial se da por hecho que ya
 1. [Preparación de Azure](tutorial-prepare-azure.md)
 2. [Preparación de instancias locales de VMware](tutorial-prepare-on-premises-vmware.md)
 3. [Configuración de la recuperación ante desastres](tutorial-vmware-to-azure.md)
-4. [Obtención de detalles de recuperación ante desastres](tutorial-dr-drill-azure.md)
+4. [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)
 
 ## <a name="preparing-for-failover-and-failback"></a>Preparación de conmutación por error y conmutación por recuperación
 
@@ -52,7 +46,7 @@ La conmutación por error y la conmutación por recuperación constan de cuatro 
 3. **Conmutación por error en el entorno local**: ejecute una conmutación por error para realizar una conmutación por recuperación desde Azure.
 4. **Reprotección en máquinas virtuales locales**: después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales locales conmutadas por recuperación para que comiencen a replicarse en Azure.
 
-## <a name="verify-vm-properties"></a>Verificación de las propiedades de la máquina virtual
+## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
 
 Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual cumpla con los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 

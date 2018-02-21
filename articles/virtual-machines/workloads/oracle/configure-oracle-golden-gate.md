@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -50,7 +50,7 @@ Lo siguiente es un resumen de la configuración del entorno:
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en su suscripción de Azure con el comando [az login](/cli/azure/#login). Después, siga las instrucciones que aparecen en pantalla.
+Inicie sesión en su suscripción de Azure con el comando [az login](/cli/azure/#az_login). Después, siga las instrucciones que aparecen en pantalla.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y desde el que se pueden administrar los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y desde el que se pueden administrar los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree la máquina virtual con el comando [az vm create](/cli/azure/vm#create). 
+Cree la máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 En el ejemplo siguiente se crean dos máquinas virtuales, denominadas `myVM1` y `myVM2`. También se crean claves SSH, si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 
@@ -803,7 +803,7 @@ Cuando ya no los necesite, se puede usar el comando siguiente para quitar el gru
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Tutorial de creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 

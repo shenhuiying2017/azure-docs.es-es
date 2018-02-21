@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
 
@@ -193,7 +193,7 @@ Por último, se proporciona el bloc de notas `showResults.py` para desplazarse p
 ### <a name="step-6-deployment"></a>Paso 6: Implementación
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-El sistema entrenado ya se puede publicar como una API de REST. La implementación se explica en el bloc de notas `deploy.ipynb` y se basa en la funcionalidad de Azure Machine Learning Workbench (recuerde establecer como kernel el kernel del proyecto local denominado "PROJECTNAME local"). Si quiere obtener más información detallada de la implementación, consulte también la excelente sección de implementación del [tutorial de IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+El sistema entrenado ya se puede publicar como una API de REST. La implementación se explica en el bloc de notas `deploy.ipynb` y se basa en la funcionalidad de Azure Machine Learning Workbench (recuerde establecer como kernel el kernel del proyecto local denominado "PROJECTNAME local"). Si quiere obtener más información detallada de la implementación, consulte también la excelente sección de implementación del [tutorial de IRIS](tutorial-classifying-iris-part-3.md).
 
 Una vez implementado, el servicio web se puede llamar con el script `6_callWebservice.py`. Cabe mencionar que la dirección IP (ya sea local o en la nube) del servicio web debe establecerse antes en el script. En el bloc de notas `deploy.ipynb` se explica cómo encontrar esta dirección IP.
 
@@ -228,7 +228,7 @@ Como se aprecia en el siguiente gráfico, la precisión del conjunto de datos pr
 
 ### <a name="run-history-tracking"></a>Ejecutar un seguimiento del historial
 
-Azure Machine Learning Workbench almacena el historial de cada ejecución en Azure para, así, permitir que se puedan comparar dos o más ejecuciones con incluso semanas de diferencia. Esto se explica con más detalle en el [tutorial de Iris](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). También se ilustra en las siguientes capturas de pantalla, donde comparamos dos ejecuciones del script `5_evaluate.py`, ya sea por medio del perfeccionamiento de la DNN, es decir, `classifier = "dnn"` (número de ejecución 148) o del entrenamiento de la SVM, es decir, `classifier = "svm"` (número de ejecución 150).
+Azure Machine Learning Workbench almacena el historial de cada ejecución en Azure para, así, permitir que se puedan comparar dos o más ejecuciones con incluso semanas de diferencia. Esto se explica con más detalle en el [tutorial de Iris](tutorial-classifying-iris-part-2.md). También se ilustra en las siguientes capturas de pantalla, donde comparamos dos ejecuciones del script `5_evaluate.py`, ya sea por medio del perfeccionamiento de la DNN, es decir, `classifier = "dnn"` (número de ejecución 148) o del entrenamiento de la SVM, es decir, `classifier = "svm"` (número de ejecución 150).
 
 En la primera captura de pantalla, el perfeccionamiento de la DNN lleva a unas mejores precisiones que con el entrenamiento de SVM en todas las clases. La segunda captura de pantalla muestra todas las métricas de las que se hace un seguimiento, incluido el clasificador que se usó. Este seguimiento se realiza en el script `5_evaluate.py`, llamando al registrador de Azure Machine Learning Workbench. El script también guarda la curva de ROC y la matriz de confusión en la carpeta *outputs*. Esta carpeta *outputs* es especial, en el sentido de que también se realiza un seguimiento de su contenido por medio de la característica de historial de Workbench. Por lo tanto, se puede tener acceso a sus archivos siempre que se quiera, independientemente de si las copias locales se han sobrescrito.
 
@@ -277,7 +277,7 @@ Recopilar un número suficientemente grande de imágenes anotadas para el entren
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
 
-Para generar un conjunto de datos voluminoso y diverso, hay que realizar varias consultas. Por ejemplo, si tenemos 7 \* 3 = 21 consultas, se pueden sintetizar automáticamente usando todas las combinaciones de prendas de ropa {blusa, sudadera, sudadera con capucha, jersey, camisa, camiseta, chaleco} y atributos {rayas, lunares, leopardo}. Descargar las primeras 50 imágenes de cada consulta nos llevaría a tener un máximo de 21 * 50 = 1050 imágenes.
+Para generar un conjunto de datos voluminoso y diverso, hay que realizar varias consultas. Por ejemplo, si tenemos 7 \* 3 = 21 consultas, se pueden sintetizar automáticamente usando todas las combinaciones de prendas de ropa {blusa, sudadera, sudadera con capucha, jersey, camisa, camiseta, chaleco} y atributos {rayas, lunares, leopardo}. Descargar las primeras 50 imágenes de cada consulta nos llevaría a tener un máximo de 21 x 50 = 1050 imágenes.
 
 En lugar de descargarlas manualmente desde la búsqueda de imágenes de Bing, es mucho más fácil usar en su lugar la [Bing Image Search API de Cognitive Services](https://www.microsoft.com/cognitive-services/bing-image-search-api), que devuelve un conjunto de direcciones URL de imágenes correspondientes a una cadena de consulta determinada.
 

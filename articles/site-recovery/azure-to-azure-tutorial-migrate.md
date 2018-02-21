@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migración de máquinas virtuales de Azure a otra región
 
@@ -32,7 +32,7 @@ En este tutorial se asume que ya tiene una suscripción de Azure. Si no la tiene
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesita que las máquinas virtuales de Azure estén en la región de Azure desde la que se va a hacer la migración. Además, hay una serie de valores que debe comprobar antes de empezar.
 
@@ -50,8 +50,8 @@ Si acaba de crear su cuenta de Azure gratuita, ya es administrador de su suscrip
 
 1. Permisos para crear una máquina virtual en recursos de Azure. El rol integrado "Colaborador de la máquina virtual" tiene estos permisos, que incluyen:
     - Permiso para crear una máquina virtual en el grupo de recursos seleccionado.
-    - Permiso para crear una máquina virtual en la red virtual seleccionada.
-    - Permiso para escribir en la cuenta de almacenamiento seleccionada.
+    - Permiso para crear una máquina virtual en la red virtual seleccionada
+    - Permiso para escribir en la cuenta de almacenamiento seleccionada
 
 2. También necesita permiso para administrar las operaciones de Azure Site Recovery. El rol "Colaborador de Site Recovery" tiene todos los permisos necesarios para administrar las operaciones de Site Recovery en un almacén de Recovery Services.
 

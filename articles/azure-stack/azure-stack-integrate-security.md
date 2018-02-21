@@ -9,16 +9,13 @@ ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 16d97765c9340555bfc0db22975a43227cc6b517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integración del centro de datos de Azure Stack: Seguridad
-
-*Se aplica a: sistemas integrados de Azure Stack*
-
 Azure Stack se ha diseñado y compilado con una atención especial a la seguridad. Azure Stack es un sistema bloqueado, por lo que no se admite la instalación de agentes de seguridad de software.
 
 Este artículo le ayudará a integrar las características de seguridad de Azure Stack con las soluciones de seguridad ya implementadas en su centro de datos.

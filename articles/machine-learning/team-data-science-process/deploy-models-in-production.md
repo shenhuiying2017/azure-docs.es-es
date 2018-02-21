@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: bradsev;
-ms.openlocfilehash: c7be9eda2d6f37951eb120250861cf4a39b0141b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-models-in-production"></a>Implementación de modelos en producción
 
@@ -27,7 +27,7 @@ La implementación de producción permite que un modelo desempeñe un rol activo
 Hay varios enfoques y plataformas para poner los modelos en producción. Estas son algunas opciones:
 
 
-- [Implementación de modelos en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Implementación de modelos en Azure Machine Learning](../preview/model-management-overview.md)
 - [Implementación de un modelo en SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -45,7 +45,7 @@ Hay varios enfoques y plataformas para poner los modelos en producción. Estas s
 Cuando hay varios modelos en producción, puede resultar útil realizar [pruebas A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar el rendimiento de los modelos. 
 
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
  

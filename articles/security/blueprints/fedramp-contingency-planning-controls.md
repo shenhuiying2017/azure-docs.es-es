@@ -1,6 +1,6 @@
 ---
-title: 'Azure Blueprint Automation para FedRAMP: planeamiento de contingencia'
-description: 'Aplicaciones web para FedRAMP: planeamiento de contingencia'
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (planeamiento de contingencia)"
+description: "Automatización de aplicaciones web para FedRAMP: planeamiento de contingencia"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Planeamiento de contingencia (CP)
 
 > [!NOTE]
-> El Instituto Nacional de Normas y Tecnología (NIST) y el Departamento de Comercio de Estados Unidos definen estos controles como parte de la publicación especial del NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> El Instituto Nacional de Normas y Tecnología (NIST) y el Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-cp-1"></a>NIST 800-53 Control CM-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-1** La organización desarrolla, documenta y difunde a [Asignación: personal o roles definidos por la organización] una directiva de planeamiento de contingencia que aborda el propósito, el ámbito, los roles, las responsabilidades, el compromiso de administración y la coordinación entre las entidades de la organización, y su cumplimiento, junto con los procedimientos para facilitar la implementación de la directiva de planeamiento de contingencia y los controles asociados; y revisa y actualiza la directiva de planeamiento de contingencia actual [Asignación: frecuencia definida por la organización] y los procedimientos de planeamiento de contingencia [Asignación: frecuencia definida por la organización].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.a** La organización desarrolla un plan de contingencia para el sistema de información que identifica las misiones y las funciones empresariales esenciales, junto con los requisitos de contingencia asociados; proporciona objetivos de recuperación, prioridades de restauración y métricas; aborda los roles de contingencia, las responsabilidades, los individuos que tienen asignada información de contacto; aborda las misiones y las funciones empresariales esenciales de mantenimiento en caso de una interrupción del sistema de información, su puesta en riesgo o un error en el mismo; y aborda la recuperación completa y definitiva del sistema de información sin deterioro de los elementos de protección de la seguridad originalmente planeados e implementados. La revisión y aprobación de este plan corre a cargo de [Asignación: personal o roles definidos por la organización].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.b** La organización distribuye copias del plan de contingencia a [Asignación: personal de contingencia (identificado por su nombre o rol) y elementos organizativos principales definidos por la organización].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.c** La organización coordina las actividades de planeamiento de contingencia con las actividades de tratamiento de incidentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2.c** La organización revisa el plan de seguridad destinado al sistema de información [Asignación: frecuencia definida por la organización].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.e** La organización actualiza el plan de contingencia para abordar los cambios en la organización, el sistema de información o el entorno de funcionamiento, así como los problemas encontrados durante la implementación, la ejecución o la prueba del plan.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.f** La organización comunica los cambios del plan de contingencia a [Asignación: personal de contingencia (identificado por su nombre o rol) y elementos organizativos principales definidos por la organización].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.g** La organización protege el plan de contingencia de la modificación y la divulgación no autorizadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (1)** La organización coordina el desarrollo del plan de contingencia con los elementos organizativos responsables de planes relacionados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (2)** La organización lleva a cabo el planeamiento de la capacidad de forma que exista la capacidad necesaria para respaldar el procesamiento de la información, las telecomunicaciones y el entorno durante las operaciones de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (3)** Los planes de la organización para la reanudación de las misiones y las funciones empresariales esenciales en un plazo no superior a [Asignación: período de tiempo definido por la organización] de la activación del plan de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (4)** Los planes de la organización para la reanudación de las misiones y funciones empresariales en un plazo no superior a [Asignación: período de tiempo definido por la organización] de la activación del plan de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (5)** La organización planea la continuidad de las misiones y las funciones empresariales esenciales con poca o ninguna pérdida de continuidad operativa y respalda esa continuidad hasta la restauración completa del sistema de información en los sitios de procesamiento o almacenamiento principales.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (8)** La organización identifica los recursos críticos del sistema de información que respaldan las misiones y las funciones empresariales esenciales.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3.a** La organización proporciona aprendizaje sobre contingencia a los usuarios del sistema de información acorde con los roles y las responsabilidades asignados en un plazo no superior a [Asignación: período de tiempo definido por la organización] de asumir un rol o una responsabilidad de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3.b** La organización proporciona aprendizaje sobre contingencia a los usuarios del sistema de información acorde con los roles y las responsabilidades asignados cuando sea necesario debido a los cambios en el sistema de información.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3.c** La organización proporciona aprendizaje sobre contingencia a los usuarios del sistema de información acorde con los roles y las responsabilidades asignados [Asignación: frecuencia definida por la organización] después.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3 (1)** La organización incorpora eventos simulados en el aprendizaje sobre contingencia para facilitar la respuesta eficaz por parte del personal en situaciones de crisis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4.a** La organización comprueba el plan de contingencia para el sistema de información [Asignación: frecuencia definida por el usuario] mediante [Asignación: pruebas definidas por la organización] para determinar la efectividad del plan y la preparación organizativa para ejecutarlo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4.b** La organización revisa los resultados de las pruebas del plan de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4.c** La organización inicia las acciones correctoras, si es necesario.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4 (1)** La organización coordina las pruebas del plan de contingencia con los elementos organizativos responsables de planes relacionados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4 (2).a** La organización comprueba el plan de contingencia en el sitio de procesamiento alternativo para que el personal de contingencia se familiarice con la instalación y los recursos disponibles.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-4 (2) .b** La organización comprueba el plan de contingencia en el sitio de procesamiento alternativo para evaluar las capacidades del sitio de procesamiento alternativo para respaldar las operaciones de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,11 +367,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-6.a** La organización establece un sitio de almacenamiento alternativo que incluye los acuerdos necesarios para permitir el almacenamiento y la recuperación de información de copia de seguridad del sistema de información.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante este programa de Azure Blueprint se replican para garantizar la alta disponibilidad por medio de almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria; seis copias de todos los datos se mantienen en nodos independientes en dos centros de datos. |
+| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante esta instancia de Blueprint se replican para garantizar la alta disponibilidad mediante el almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria; seis copias de todos los datos se mantienen en nodos independientes en dos centros de datos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -381,11 +381,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-6.b** La organización garantiza que el sitio de almacenamiento alternativo proporciona elementos de protección de la seguridad de la información equivalentes a la del sitio principal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante este programa de Azure Blueprint se replican para garantizar la alta disponibilidad por medio de almacenamiento con redundancia geográfica (GRS). Los controles de seguridad física se implementan de manera uniforme en todos los centros de datos de Azure. |
+| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante esta instancia de Blueprint se replican para garantizar la alta disponibilidad mediante el almacenamiento con redundancia geográfica (GRS). Los controles de seguridad física se implementan de manera uniforme en todos los centros de datos de Azure. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -395,11 +395,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-6 (1)** La organización identifica un sitio de almacenamiento alternativo que está separado del sitio de almacenamiento principal para reducir la susceptibilidad a las mismas amenazas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante este programa de Azure Blueprint se replican para garantizar la alta disponibilidad por medio de almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria. Las regiones principales y secundarias se emparejan para garantizar la distancia necesaria entre los centros de datos, con el fin de garantizar la disponibilidad en caso de una interrupción o un desastre en un área entera. |
+| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante esta instancia de Blueprint se replican para garantizar la alta disponibilidad mediante el almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria. Las regiones principales y secundarias se emparejan para garantizar la distancia necesaria entre los centros de datos, con el fin de garantizar la disponibilidad en caso de una interrupción o un desastre en un área entera. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -409,11 +409,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-6 (2)** La organización configura el sitio de almacenamiento alternativo para facilitar las operaciones de recuperación con arreglo a los objetivos de tiempo y punto de recuperación.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante este programa de Azure Blueprint se replican para garantizar la alta disponibilidad por medio de almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria. Los clientes deben asegurarse de que el modelo de replicación de datos de Azure sea compatible con los objetivos de contingencia. |
+| **Cliente** | Todas las cuentas de almacenamiento implementadas mediante esta instancia de Blueprint se replican para garantizar la alta disponibilidad mediante el almacenamiento con redundancia geográfica (GRS). El GRS garantiza que los datos se replican en una región secundaria. Los clientes deben asegurarse de que el modelo de replicación de datos de Azure sea compatible con los objetivos de contingencia. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Los clientes no tienen acceso a los centros de datos de Azure. |
-| **Proveedor (Microsoft Azure)** | Microsoft Azure administra todos los centros de datos de Microsoft y cuenta con equipos de administración de emergencias (EMT) en el lugar para discutir con todos los miembros del equipo los problemas de accesibilidad a sitios de procesamiento alternativos en caso de interrupción o desastre de un área entera, y también detalla las acciones de mitigación explícitas. Si se produce una interrupción en el sitio principal, el personal de Azure de ese sitio no tiene que desplazarse al sitio secundario, dado que ya hay personal de Azure encargado trabajando en el sitio secundario. Un desastre o una interrupción de un área entera en el sito principal no afectará al sitio de almacenamiento secundario de Microsoft, dado que ambos sitios están ubicados en regiones separadas geográficamente para cada sistema. <br /> El personal de Microsoft Azure con acceso lógico se encuentra en Puget Sound y trabaja de forma remota; por lo tanto, no existen preocupaciones a propósito de la administración local de Microsoft Azure. |
+| **Proveedor (Microsoft Azure)** | Microsoft Azure administra todos los centros de datos de Microsoft y cuenta con equipos de administración de emergencias (EMT) en el lugar para discutir con todos los miembros del equipo los problemas de accesibilidad a sitios de procesamiento alternativos en caso de interrupción o desastre de un área entera, y también detalla las acciones de mitigación explícitas. Si se produce una interrupción en el sitio principal, el personal de Azure de ese sitio no tiene que desplazarse al sitio secundario, dado que ya hay personal de Azure encargado trabajando en el sitio secundario. Un desastre o una interrupción de un área entera en el sito principal no afectarán al sitio de almacenamiento secundario de Microsoft, dado que ambos sitios están ubicados en regiones separadas geográficamente para cada sistema. <br /> El personal de Microsoft Azure con acceso lógico se encuentra en Puget Sound y trabaja de forma remota; por lo tanto, no existen preocupaciones a propósito de la administración local de Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-cp-7a"></a>NIST 800-53 Control CP-7.a
@@ -437,11 +437,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7.a** La organización establece un sitio de procesamiento alternativo que incluye los acuerdos necesarios para permitir la transferencia y la reanudación de [Asignación: operaciones del sistema de información definidas por la organización] para misiones y funciones empresariales esenciales en un plazo no superior a [Asignación: período de tiempo definido por la organización acorde con los objetivos de tiempo y punto de recuperación] cuando las capacidades de procesamiento principal no están disponibles.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -451,11 +451,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7.b** La organización garantiza que el equipo y los suministros necesarios para transferir y reanudar las operaciones están disponibles en el sitio de procesamiento alternativo, o que existen contratos en el lugar que respaldan la entrega en el sitio dentro del período de tiempo definido por la organización para dichas operaciones.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente el aprovisionamiento de equipos. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente el aprovisionamiento de equipos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -465,11 +465,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7.c** La organización garantiza que el sitio de procesamiento alternativo proporciona elementos de protección de la seguridad de la información equivalentes a los del sitio principal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. Se implementan elementos de protección de la seguridad de manera uniforme en los centros de datos de Azure. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. Se implementan elementos de protección de la seguridad de manera uniforme en los centros de datos de Azure. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -479,11 +479,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7 (1)** La organización identifica un sitio de procesamiento alternativo que está separado del sitio de procesamiento principal para reducir la susceptibilidad a las mismas amenazas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. Los centros de datos de Azure están separados geográficamente. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. Los centros de datos de Azure están separados geográficamente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -507,11 +507,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7 (3)** La organización desarrolla acuerdos sobre sitios de procesamiento alternativos que contienen las disposiciones de prioridad de servicio según los requisitos de disponibilidad de organización (incluidos los objetivos de tiempo de recuperación).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente la disponibilidad de recursos. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente la disponibilidad de recursos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -521,11 +521,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7 (4)** La organización prepara el sitio de procesamiento alternativo para que esté listo para su uso como el sitio operativo que respalda las misiones y funciones empresariales esenciales.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint contiene instrucciones sobre cómo se puede implementar esta solución de manera simultánea en varias regiones y cómo se puede configurar para proporcionar redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente la preparación física de los recursos. |
+| **Cliente** | Esta instancia de Blueprint contiene instrucciones que muestran cómo implementar esta solución de manera simultánea en varias regiones y cómo configurarla para que proporcione redundancia completa en un sitio de procesamiento alternativo. Cuando se implementa en una región alternativa de Azure, Azure administra de forma transparente la preparación física de los recursos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -647,11 +647,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9.a** La organización realiza copias de seguridad de la información de los usuarios contenida en el sistema de información [Asignación: frecuencia definida por la organización acorde con los objetivos de punto y tiempo de recuperación].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint implementa un almacén de servicios de recuperación. La información de nivel de usuario de la base de datos SQL implementada se implanta mediante la extensión de IaaS de máquina virtual de SQL. |
+| **Cliente** | Esta instancia de Blueprint implementa un almacén de Recovery Services. La información de nivel de usuario de la base de datos SQL implementada se implanta mediante la extensión de IaaS de máquina virtual de SQL. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -661,11 +661,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9.a** La organización realiza copias de seguridad de la información del sistema contenida en el sistema de información [Asignación: frecuencia definida por la organización acorde con los objetivos de punto y tiempo de recuperación].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint implementa un almacén de servicios de recuperación. Se establece una directiva de Azure Backup para todas las máquinas virtuales que implementa una retención de imágenes de copia de seguridad diaria, semanal, mensual y anual.  |
+| **Cliente** | Esta instancia de Blueprint implementa un almacén de Recovery Services. Se establece una directiva de Azure Backup para todas las máquinas virtuales que implementa una retención de imágenes de copia de seguridad diaria, semanal, mensual y anual.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -675,7 +675,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9.c** La organización realiza copias de seguridad de la documentación del sistema de información que incluye la documentación relacionada con la seguridad [Asignación: frecuencia definida por la organización acorde con los objetivos de tiempo y punto de recuperación].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,11 +689,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9.d** La organización protege la confidencialidad, la integridad y la disponibilidad de la información de copia de seguridad en ubicaciones de almacenamiento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | La confidencialidad y la integridad de todos los blobs de almacenamiento implementados por el programa de Azure Blueprint están protegidas mediante el uso de SSE de Azure, que emplea un cifrado de 256 bits con todos los datos en reposo. |
+| **Cliente** | La confidencialidad e integridad de todos los blobs de almacenamiento que implementó esta instancia de Blueprint están protegidas gracias al uso del SSE de Azure, que emplea un cifrado AES de 256 bits para todos los datos en reposo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -717,7 +717,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9 (2)** La organización usa una muestra de la información de copia de seguridad en la restauración de las funciones seleccionadas del sistema de información como parte de las pruebas del plan de contingencia.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9 (3)** La organización almacena copias de seguridad de [Asignación: software crítico del sistema de información definido por la organización y otra información relacionada con la seguridad] en una instalación independiente o en un contenedor contra incendios que no se coloca con el sistema operativo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,11 +745,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9 (5)** La organización transfiere la información de copia de seguridad del sistema de información al sitio de almacenamiento alternativo [Asignación: período de tiempo definido por la organización y velocidad de transferencia acorde con los objetivos de tiempo y punto de recuperación].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas las cuentas de almacenamiento implementadas dentro de este programa de Azure Blueprint, incluidas las usadas para copia de seguridad, implementan almacenamiento con redundancia geográfica, lo que garantiza el mantenimiento de seis copias de todos los datos en nodos independientes en dos centros de datos. |
+| **Cliente** | Todas las cuentas de almacenamiento implementadas dentro de esta instancia de Blueprint, incluyendo las que se usaron en la copia de seguridad, implementan el almacenamiento con redundancia geográfica; esto garantiza que haya al menos seis copias de todos los datos en los nodos independientes de dos centros de datos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -759,7 +759,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-10** La organización proporciona la recuperación y reconstitución del sistema de información a un estado conocido después de una interrupción, una situación de peligro o un error.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -773,11 +773,11 @@ ms.lasthandoff: 11/23/2017
 
 **CP-10 (2)** El sistema de información implementa la recuperación de transacciones para sistemas que se basan en transacciones.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este programa de Azure Blueprint implementa SQL Server en un grupo de disponibilidad AlwaysOn. SQL Server mantiene un registro de transacciones que admite la recuperación de transacciones si se produce un error del sistema. |
+| **Cliente** | Esta instancia de Blueprint implementa SQL Server en un grupo de disponibilidad AlwaysOn. SQL Server mantiene un registro de transacciones que admite la recuperación de transacciones si se produce un error del sistema. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -787,7 +787,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-10 (4)** La organización proporciona la capacidad para restaurar componentes del sistema de información en un plazo no superior a [Asignación: períodos de tiempo de restauración definidos por la organización] a partir de información protegida en su integridad y controlada mediante configuración que representa un estado operativo conocido de los componentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

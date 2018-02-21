@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Rellenado de userPrincipalName de Azure AD
 
@@ -67,9 +67,10 @@ Dado que el valor del atributo UserPrincipalName de Azure AD se puede establecer
 Cuando un objeto de usuario se sincroniza con un inquilino de Azure AD por primera vez, Azure AD comprueba lo siguiente en el orden indicado y establece el valor del atributo MailNickName en el primer elemento que exista:
 
 - Atributo mailNickName local
-- Prefijo del atributo mail local
 - Prefijo de la dirección SMTP principal
+- Prefijo del atributo mail local
 - Prefijo del identificador de inicio de sesión alternativo o del atributo userPrincipalName local
+- Prefijo de la dirección SMTP secundaria
 
 Cuando las actualizaciones de un objeto de usuario se sincronizan con el inquilino de Azure AD, este último actualiza el valor del atributo MailNickName solo en caso de que haya una actualización del valor del atributo mailNickName local.
 
@@ -85,12 +86,12 @@ A continuación se indican escenarios de ejemplo de cómo se calcula el UPN en f
 
 Objeto de usuario local:
 - mailNickName      : &lt;sin establecer&gt;
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 Se sincronizó el objeto de usuario en el inquilino de Azure AD por primera vez
-- Establezca el atributo MailNickName de Azure AD como el prefijo del atributo mail local.
+- Establezca el atributo MailNickName de Azure AD en el prefijo de la dirección SMTP principal.
 - Establezca MOERA como &lt;MailNickName&gt;&#64;&lt;dominio inicial&gt;.
 - Establezca el atributo UserPrincipalName de Azure AD como MOERA.
 
@@ -103,8 +104,8 @@ Objeto de usuario del inquilino de AD Azure:
 
 Objeto de usuario local:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 Sincronizar la actualización del atributo mailNickName local en el inquilino de Azure AD
@@ -119,8 +120,8 @@ Objeto de usuario del inquilino de AD Azure:
 
 Objeto de usuario local:
 - mailNickName      : us4
-- mail          : us1@contoso.com
-- proxyAddresses        : {SMTP:us2@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Sincronizar la actualización del atributo userPrincipalName local en el inquilino de Azure AD
@@ -132,16 +133,16 @@ Objeto de usuario del inquilino de AD Azure:
 - MailNickName      : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Escenario 4: sufijo de UPN no verificado (actualización del atributo mail local y de la dirección SMTP principal)
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Escenario 4: sufijo de UPN no verificado (actualización del atributo "mail" local y de la dirección SMTP principal)
 
 Objeto de usuario local:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Sincronizar la actualización del atributo mail local y la dirección SMTP principal en el inquilino de Azure AD
-- Después de la sincronización inicial del objeto de usuario, las actualizaciones del atributo mail local y la dirección SMTP principal no afectarán a los atributos MailNickName o UserPrincipalName de Azure AD.
+- Después de la sincronización inicial del objeto de usuario, las actualizaciones del atributo "mail" local y de la dirección SMTP principal no afectarán a los atributos MailNickName o UserPrincipalName de Azure AD.
 
 Objeto de usuario del inquilino de AD Azure:
 - MailNickName      : us4
@@ -151,8 +152,8 @@ Objeto de usuario del inquilino de AD Azure:
 
 Objeto de usuario local:
 - mailNickName      : us4
-- mail          : us6@contoso.com
-- proxyAddresses        : {SMTP:us7@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 Sincronizar la actualización del atributo userPrincipalName local en el inquilino de Azure AD

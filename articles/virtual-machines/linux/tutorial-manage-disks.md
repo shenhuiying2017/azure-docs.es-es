@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
@@ -108,7 +108,7 @@ Cree un grupo de recursos con el comando [az group create](https://docs.microsof
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Cree una máquina virtual mediante el comando [az vm create]( /cli/azure/vm#create). El argumento `--datadisk-sizes-gb` se usa para especificar que se debe crear y conectar un disco adicional a la máquina virtual. Para crear y conectar más de un disco, use una lista delimitada por espacios de valores de tamaño de disco. En el ejemplo siguiente, se crea una máquina virtual con dos discos de datos, ambos de 128 GB. Dado que los tamaños de disco son de 128 GB, estos discos se configuran ambos como P10s, que proporcionan el número máximo de 500 IOPS por disco.
+Cree una máquina virtual mediante el comando [az vm create]( /cli/azure/vm#az_vm_create). El argumento `--datadisk-sizes-gb` se usa para especificar que se debe crear y conectar un disco adicional a la máquina virtual. Para crear y conectar más de un disco, use una lista delimitada por espacios de valores de tamaño de disco. En el ejemplo siguiente, se crea una máquina virtual con dos discos de datos, ambos de 128 GB. Dado que los tamaños de disco son de 128 GB, estos discos se configuran ambos como P10s, que proporcionan el número máximo de 500 IOPS por disco.
 
 ```azurecli-interactive 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>Conexión del disco a máquina virtual existente
 
-Para crear y conectar un nuevo disco a una máquina virtual existente, use el comando [az vm disk attach](/cli/azure/vm/disk#attach). En el ejemplo siguiente se crea un disco Premium con un tamaño de 128 gigabytes y se conecta a la máquina virtual que creó en el último paso.
+Para crear y conectar un nuevo disco a una máquina virtual existente, use el comando [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). En el ejemplo siguiente se crea un disco Premium con un tamaño de 128 gigabytes y se conecta a la máquina virtual que creó en el último paso.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -207,13 +207,13 @@ Antes de aumentar el tamaño del disco, se necesita el identificador o el nombre
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-También se debe desasignar la máquina virtual. Use el comando [az vm deallocate]( /cli/azure/vm#deallocate) para detener y desasignar la máquina virtual.
+También se debe desasignar la máquina virtual. Use el comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) para detener y desasignar la máquina virtual.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Use el comando [az disk update](/cli/azure/vm/disk#update) para cambiar el tamaño del disco. En este ejemplo se cambia el tamaño de un disco llamado *myDataDisk* a 1 terabyte.
+Use el comando [az disk update](/cli/azure/vm/disk#az_vm_disk_update) para cambiar el tamaño del disco. En este ejemplo se cambia el tamaño de un disco llamado *myDataDisk* a 1 terabyte.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023

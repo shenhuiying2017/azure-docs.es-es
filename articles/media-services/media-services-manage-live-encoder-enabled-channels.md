@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
+# <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 ## <a name="overview"></a>Información general
-En Servicios multimedia de Azure (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
+En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
-* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para Live Encoding con Media Services, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
   
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
   > 
   > 
 
-A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
+A partir de la versión 2.10 de Media Services, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
 * **Ninguna** : especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10.  Para más información sobre cómo trabajar con los canales de este tipo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
-* **Estándar** : elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
+* **Estándar**: elija este valor si piensa usar Media Services para codificar transmisiones en directo con una sola velocidad de bits en transmisiones de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 > [!NOTE]
 > En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación**Estándar** ). Para más información sobre cómo trabajar con canales no habilitados para realizar la codificación en directo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
@@ -67,14 +67,14 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Iniciando |Iniciando |No (estado transitorio) |
 | En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Detenido |No |
+| Detenido |Stopped |Sin  |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Cierre automático para canales no utilizados
-A partir del 25 de enero de 2016, Servicios multimedia implementó una actualización que detiene automáticamente un canal (con codificación en directo habilitada), después de haber estado ejecutándose en un estado no usado durante un largo período. Esto se aplica a los canales que no tienen ningún programa activo y que no han recibido una fuente de contribución de entrada durante un largo período de tiempo.
+A partir del 25 de enero de 2016, Media Services implementó una actualización que detiene automáticamente un canal (con Live Encoding habilitado), después de haber estado ejecutándose en un estado no usado durante un largo período. Esto se aplica a los canales que no tienen ningún programa activo y que no han recibido una fuente de contribución de entrada durante un largo período de tiempo.
 
 El umbral para un período sin usar nominalmente es de 12 horas, pero está sujeta a cambios.
 
-## <a name="live-encoding-workflow"></a>Flujo de trabajo de la codificación en directo
+## <a name="live-encoding-workflow"></a>Flujo de trabajo de Live Encoding
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits. 
 
 ![Flujo de trabajo activo][live-overview]
@@ -83,7 +83,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
-> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos de tiempo más largos, póngase en contacto con amslived en Microsoft.com. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" incurrirá en cargos por hora.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales. 
+> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos de tiempo más largos, póngase en contacto con amslived@microsoft.com. Tenga en cuenta que se le facturará la codificación en directo y recuerde que se le facturará por horas si sale de un canal de codificación en directo durante el estado "En ejecución".  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales. 
 > 
 > 
 
@@ -113,7 +113,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 10. Elimine el programa (y, opcionalmente, elimine el recurso).   
 
 > [!NOTE]
-> Es muy importante no olvidar detener un canal de codificación en directo de Live. Tenga en cuenta que hay un impacto en la facturación por hora para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales. 
+> Es muy importante no olvidar detener un canal de Live Encoding. Tenga en cuenta que hay un impacto en la facturación por hora para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales. 
 > 
 > 
 
@@ -262,7 +262,7 @@ Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al c
 ### <a id="preset"></a>Valor preestablecido del sistema
 Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
 
-Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived en Microsoft.com.
+Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived@microsoft.com.
 
 **Default720p** codificará el vídeo en las 7 capas siguientes.
 
@@ -281,7 +281,7 @@ Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe po
 El audio se codifica como estéreo AAC-LC a 64 kbps, con una frecuencia de muestreo de 44,1 kHz.
 
 ## <a name="signaling-advertisements"></a>Señalización de anuncios
-Si el canal tiene habilitada la codificación en directo, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos (por ejemplo, durante una pausa comercial). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
+Si el canal tiene habilitado Live Encoding, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos (por ejemplo, durante una pausa comercial). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
 
 1. Haga que los visores obtengan una imagen ANTERIOR AL EVENTO antes de que este empiece.
 2. Haga que los visores obtengan una imagen POSTERIOR AL EVENTO una vez que este finalice.
@@ -290,7 +290,7 @@ Si el canal tiene habilitada la codificación en directo, dispone de un componen
 
 A continuación se indican las propiedades que puede establecer al señalar anuncios. 
 
-### <a name="duration"></a>Duración
+### <a name="duration"></a>Duration
 La duración, en segundos, de la pausa comercial. Para que se inicie la pausa comercial, este debe ser un valor positivo distinto de cero. Si hay una pausa comercial en curso, la duración está establecida en cero y el identificador de pila coincide con el de dicha pausa comercial, la pausa se cancela.
 
 ### <a name="cueid"></a>Identificador de pila
@@ -306,7 +306,7 @@ Puede señalarse al codificador en directo del canal que cambie a una imagen de 
 
 El codificador en directo puede configurarse para cambiar a una imagen de pizarra y ocultar la señal de vídeo entrante en determinadas situaciones, por ejemplo, durante una pausa de anuncio. Si no se ha configurado ninguna pizarra de este tipo, el vídeo de entrada no se enmascara durante esa pausa.
 
-### <a name="duration"></a>Duración
+### <a name="duration"></a>Duration
 La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser un valor positivo distinto de cero. Si hay una pizarra en curso y se especifica una duración de cero, dicha pizarra se terminará.
 
 ### <a name="insert-slate-on-ad-marker"></a>Insertar pizarra en marcador de anuncio
@@ -314,7 +314,7 @@ Cuando está establecido en true, este valor configura el codificador en directo
 
 ### <a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
 
-Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null. 
+Opcional. Especifica el identificador del recurso de Media Services que contiene la imagen de pizarra. El valor predeterminado es null. 
 
 
 >[!NOTE] 
@@ -348,7 +348,7 @@ Incluso después de detener y eliminar el programa, los usuarios podrán transmi
 Si desea conservar el contenido archivado, pero no hacerlo disponible para la transmisión, elimine el localizador de streaming.
 
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtención de una vista previa en miniatura de una fuente directa
-Si la codificación en directo está habilitada, puede obtener una vista previa de la fuente directa cuando llega al canal. Esta puede ser una herramienta muy valiosa para comprobar si la fuente directa llega realmente al canal. 
+Si Live Encoding está habilitado, puede obtener una vista previa de la fuente directa cuando llega al canal. Esta puede ser una herramienta muy valiosa para comprobar si la fuente directa llega realmente al canal. 
 
 ## <a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación
 El estado actual de un canal. Los valores posibles son:
@@ -366,7 +366,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Iniciando |Iniciando |No (estado transitorio) |
 | En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Detenido |No |
+| Detenido |Stopped |Sin  |
 
 > [!NOTE]
 > Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.
@@ -378,10 +378,10 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 * No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 * Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa.
 * Un canal se puede detener solo cuando está en el estado En ejecución y se han detenido todos los programas en el canal.
-* De forma predeterminada solo puede agregar 5 canales a su cuenta de Servicios multimedia. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
+* De forma predeterminada solo puede agregar 5 canales a su cuenta de Media Services. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 * No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 * Solo se le cobrará cuando el canal esté en estado **En ejecución** . Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
-* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
+* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante periodos más prolongados, póngase en contacto con amslived@microsoft.com.
 * Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido tenga el estado **En ejecución**.
 * Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
 * El valor predeterminado de codificación usa la noción de "velocidad de fotogramas máxima" de 30 fps. Por tanto, si la entrada es de 60fps 59.97i, los fotogramas de entrada se quitan o se elimina su entrelazado a 30/29.97 fps. Si la entrada es 50fps/50i, los fotogramas de entrada se quitan o se elimina su entrelazado a 25 fps. Si la entrada es de 25 fps, la salida permanece a 25 fps.
@@ -394,7 +394,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 * Una vez más... no se olvide de DETENER SUS CANALES cuando haya terminado de realizar el streaming. Si no lo hace, la facturación continuará.
 
 ## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Servicios multimedia.
+Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -402,7 +402,7 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Temas relacionados
-[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-overview.md)
+[Entrega de eventos de streaming en vivo con Azure Media Services](media-services-overview.md)
 
 [Creación de canales que realizan la codificación en directo de una velocidad de bits única a una secuencia de velocidad de bits adaptable a través de Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 
@@ -410,9 +410,9 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [Administración de canales con la API de REST](https://docs.microsoft.com/rest/api/media/operations/channel)
  
-[Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
+[Conceptos de Media Services](media-services-concepts.md)
 
-[Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
+[Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Blueprint Automation: aplicaciones web para FedRAMP'
-description: 'Azure Blueprint Automation: aplicaciones web para FedRAMP'
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP"
+description: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Azure Blueprint Automation: aplicaciones web para FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP
 
 ## <a name="overview"></a>Información general
 
-[Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) es un programa a nivel del gobierno de los Estados Unidos que proporciona un enfoque estandarizado para la evaluación de la seguridad, la concesión de autorizaciones y la supervisión continua de servicios y productos en la nube. Azure Blueprint Automation: aplicaciones web para FedRAMP proporciona instrucciones para la implementación de un entorno de infraestructura como servicio (IaaS) compatible con FedRAMP adecuado para una aplicación web simple accesible desde Internet. Esta solución automatiza la implementación y la configuración de recursos de Azure para una arquitectura de referencia común, la cual muestra las formas en que los clientes pueden cumplir los requisitos específicos de seguridad y cumplimiento y sirve como base para que los clientes creen y configuren sus propias soluciones en Azure. La solución implementa un subconjunto de controles de la línea de base de FedRAMP High basada en NIST SP 800-53. Para obtener más información sobre los requisitos de FedRAMP High y esta solución, consulte [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md) (Requisitos de FedRAMP High: información general de alto nivel). ***Nota: Esta solución se implementa en Azure Government.***
+[Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) es un programa a nivel del gobierno de los Estados Unidos que proporciona un enfoque estandarizado para la evaluación de la seguridad, la concesión de autorizaciones y la supervisión continua de servicios y productos en la nube. Azure Security and Compliance Blueprint Automation proporciona instrucciones para poder implementar un entorno de infraestructura como servicio (IaaS) compatible con FedRAMP y que sea adecuado para una aplicación web simple accesible desde Internet. Esta solución automatiza la implementación y la configuración de recursos de Azure para una arquitectura de referencia común, la cual muestra las formas en que los clientes pueden cumplir los requisitos específicos de seguridad y cumplimiento y sirve como base para que los clientes creen y configuren sus propias soluciones en Azure. La solución implementa un subconjunto de controles de la línea de base de FedRAMP High basada en NIST SP 800-53. Para obtener más información sobre los requisitos de FedRAMP High y esta solución, consulte [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md) (Requisitos de FedRAMP High: información general de alto nivel). ***Nota: Esta solución se implementa en Azure Government.***
 
 Esta arquitectura está diseñada para servir como base para que los clientes puedan ajustarse a sus requisitos específicos y no debe usarse tal cual en un entorno de producción. Implementar una aplicación sin modificar en este entorno no es suficiente para satisfacer por completo los requisitos de la línea de base de FedRAMP High. Tenga en cuenta lo siguiente:
 - Esta arquitectura fundamental proporciona una línea de base para que los clientes puedan usar Azure de forma que sea compatible con FedRAMP.
@@ -36,13 +36,13 @@ Haga clic [aquí](https://aka.ms/fedrampblueprintrepo) para ver las instruccione
 
 ## <a name="solution-components"></a>Componentes de soluciones
 
-Azure Blueprint Automation implementa automáticamente una arquitectura de referencia de aplicación web de IaaS con controles de seguridad configurados previamente para ayudar a los clientes a lograr el cumplimiento de los requisitos de FedRAMP. La solución consta de plantillas de Azure Resource Manager y scripts de PowerShell que guían la configuración y la implementación de recursos. Se proporciona [documentación de cumplimiento](#compliance-documentation) complementaria de Azure Blueprint, que indica que la herencia de control de seguridad de Azure y los recursos y configuraciones implementados se alinean con los controles de seguridad de NIST SP 800-53, con lo que se permite que las organizaciones realicen un seguimiento rápido de las obligaciones de cumplimiento.
+Azure Security and Compliance Blueprint Automation implementa automáticamente una arquitectura de referencia de aplicación web de IaaS con controles de seguridad configurados previamente para ayudar a los clientes a cumplir con los requisitos de FedRAMP. La solución consta de plantillas de Azure Resource Manager y scripts de PowerShell que guían la configuración y la implementación de recursos. Se proporciona [documentación de cumplimiento](#compliance-documentation) complementaria, que indica que la herencia de control de seguridad de Azure y los recursos y configuraciones implementados se alinean con los controles de seguridad de NIST SP 800-53, con lo que se permite que las organizaciones realicen un seguimiento rápido de las obligaciones de cumplimiento.
 
 ## <a name="architecture-diagram"></a>Diagrama de la arquitectura
 
 Esta solución implementa una arquitectura de referencia para una aplicación web de IaaS con un back-end de la base de datos. La arquitectura incluye un nivel de web, un nivel de datos, infraestructura de Active Directory, puerta de enlace de aplicaciones y un equilibrador de carga. Las máquinas virtuales implementadas en los niveles de web y de datos se configuran en un conjunto de disponibilidad y las instancias de SQL Server se configuran en un grupo de disponibilidad AlwaysOn de alta disponibilidad. Las máquinas virtuales están unidas a un dominio y las directivas de grupo de Active Directory se usan para aplicar configuraciones de seguridad y cumplimiento a nivel del sistema operativo. Un jumpbox de administración (host de tipo bastión) proporciona una conexión segura para que los administradores accedan a los recursos implementados.
 
-![alt text](images/fedramp-architectural-diagram.png?raw=true "Automatización del plano de aplicaciones web de IaaS para entornos compatibles con FedRAMP")
+![texto alternativo](images/fedramp-architectural-diagram.png?raw=true "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP")
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
@@ -74,7 +74,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 * **Azure Key Vault**
     - (1) Key Vault
 * **Azure Active Directory**
-* **Administrador de recursos de Azure**
+* **Azure Resource Manager**
 * **Azure Log Analytics**
 * **Azure Automation**
     - (1) Cuenta de Automation
@@ -182,7 +182,7 @@ Un jumpbox de administración (host de tipo bastión) proporciona una conexión 
 
 ### <a name="patch-management"></a>Administración de revisiones
 
-Las máquinas virtuales Windows implementadas por este programa Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation de OMS a través de la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
+Las máquinas virtuales Windows que implementó esta instancia de Azure Security and Compliance Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation de OMS a través de la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
 
 ### <a name="operations-management"></a>Administración de operaciones
 
@@ -211,11 +211,11 @@ En la [matriz de las responsabilidades del cliente](https://aka.ms/blueprinthigh
 
 ### <a name="control-implementation-matrix"></a>Matriz de implementación de control
 
-En la [matriz de implementación de control](https://aka.ms/blueprintwacim) (libro de Excel) se enumeran todos los controles de seguridad que requiere la línea de base de FedRAMP High. La matriz denota, para cada control (o subparte del control) que se designa como responsabilidad del cliente en la matriz de responsabilidades del cliente, 1) si Blueprint Automation implementa el control y 2) una descripción de cómo se adapta la implementación a los requisitos del control. Este contenido también está disponible [aquí](fedramp-controls-overview.md).
+En la [matriz de implementación de control](https://aka.ms/blueprintwacim) (libro de Excel) se enumeran todos los controles de seguridad que requiere la línea de base de FedRAMP High. La matriz indica lo siguiente para cada control (o subparte del control) que se designa como responsabilidad del cliente en la matriz de responsabilidades del cliente: 1) si Blueprint Automation implementa el control, y 2) una descripción de cómo se adapta la implementación a los requisitos del control. Este contenido también está disponible [aquí](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
-Esta solución de Azure Blueprint se compone de archivos de configuración de JSON y scripts de PowerShell que se controlan mediante el servicio de API de Azure Resource Manager para implementar recursos en Azure. Puede encontrar instrucciones detalladas acerca de la implementación [aquí](https://aka.ms/fedrampblueprintrepo). ***Nota: Esta solución se implementa en Azure Government.***
+Esta instancia de Azure Security and Compliance Blueprint Automation se compone de archivos de configuración de JSON y scripts de PowerShell que se controlan mediante el servicio de API de Azure Resource Manager para implementar recursos en Azure. Puede encontrar instrucciones detalladas acerca de la implementación [aquí](https://aka.ms/fedrampblueprintrepo). ***Nota: Esta solución se implementa en Azure Government.***
 
 #### <a name="quickstart"></a>Guía de inicio rápido
 1. Clone o descargue [este](https://aka.ms/fedrampblueprintrepo) repositorio de GitHub en su estación de trabajo local.
@@ -228,7 +228,7 @@ Esta solución de Azure Blueprint se compone de archivos de configuración de JS
 
 ## <a name="disclaimer"></a>Renuncia de responsabilidades
 
-- Este documento es meramente informativo. MICROSOFT NO EFECTÚA NINGÚN TIPO DE GARANTÍA, YA SEA EXPRESA, IMPLÍCITA O ESTATUTARIA, SOBRE LA INFORMACIÓN INCLUIDA EN EL PRESENTE DOCUMENTO. Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Los clientes que lean este documento se atienen a las consecuencias de usarlo.  
+- Este documento es meramente informativo. MICROSOFT NO EFECTÚA NINGÚN TIPO DE GARANTÍA, YA SEA EXPRESA, IMPLÍCITA O ESTATUTARIA, SOBRE LA INFORMACIÓN INCLUIDA EN EL PRESENTE DOCUMENTO. Este documento se proporciona "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Los clientes que lean este documento se atienen a las consecuencias de usarlo.  
 - Este documento no proporciona a los clientes ningún derecho legal sobre ninguna propiedad intelectual de ningún producto o solución de Microsoft.  
 - Los clientes pueden copiar y usar este documento con fines internos y de referencia.  
 - Algunas de las recomendaciones de este documento pueden provocar un aumento del uso de datos, de la red o de los recursos de procesos en Azure, lo que podría incrementar los costos de las licencias o las suscripciones de Azure.  

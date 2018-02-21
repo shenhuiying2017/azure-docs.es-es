@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
 ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure 
 
@@ -64,4 +64,4 @@ Si migra máquinas virtuales de VMware locales o servidores físicos a Azure, te
 
 ## <a name="next-steps"></a>pasos siguientes
 
-[Replicación rápida](azure-to-azure-quickstart.md) de una máquina virtual de Azure a una región secundaria
+[Replicación rápida](azure-to-azure-quickstart.md) de una máquina virtual de Azure a una región secundaria.

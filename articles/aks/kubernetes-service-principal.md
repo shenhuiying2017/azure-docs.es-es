@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de servicio con Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Al implementar un clúster de AKS clúster con el comando `az aks create`, tiene
 En el siguiente ejemplo, se crea un clúster de AKS y, como no se ha especificado una entidad de servicio existente, se crea una para el clúster. Para completar esta operación, la cuenta debe tener los derechos apropiados para crear un servicio principal.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Uso de una entidad de servicio existente
@@ -67,7 +67,7 @@ La salida es similar a la siguiente. Tome nota de `appId` y `password`. Estos va
 Si usa una entidad de servicio creada previamente, incluya `appId` y `password` como valores de los argumentos del comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Si va a implementar un clúster de AKS mediante Azure Portal, escriba el valor `appId` en el campo **Identificador de cliente de la entidad de servicio** y el valor `password` en el campo **Service principal client secret** (Secreto de cliente de la entidad de servicio) en el formulario de configuración del clúster de AKS.
@@ -86,7 +86,7 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 * Cuando use el comando `az aks create` para generar automáticamente la entidad de servicio, esta también se puede autenticar con una [instancia de Azure Container Registry][acr-intro] creada en la misma suscripción.
 * Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Puede usar `az ad sp delete --id $clientID` para eliminarlo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca de las entidades de servicio de Azure Active Directory, consulte la documentación de las aplicaciones de Azure AD.
 

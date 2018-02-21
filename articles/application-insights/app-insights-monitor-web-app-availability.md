@@ -1,23 +1,8 @@
----
-title: "Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Docs"
-description: Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
-services: application-insights
-documentationcenter: 
-author: SoubhagyaDash
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
-ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ ;---título: Supervisar la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Docs descripción: Configurar las pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
+servicios: application-insights documentationcenter: '' autor: SoubhagyaDash administrador: carmonm
+
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
+
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -41,7 +26,7 @@ Puede crear hasta 100 pruebas de disponibilidad por recurso de aplicación.
 
 **Si ya ha configurado Application Insights** para la aplicación web, abra el recurso de Application Insights en [Azure Portal](https://portal.azure.com).
 
-**O, si desea ver los informes en un nuevo recurso,**  suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
+**Por otro lado, si desea ver los informes en un nuevo recurso,** vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -56,9 +41,13 @@ Abra la hoja Disponibilidad y agregue una prueba.
 * **Analizar solicitudes dependientes**: si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. 
 
     Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
+
 * **Habilitar reintentos**: si esta opción está activa, cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. Se recomienda esta opción. Como media, cerca del 80 % de los errores desaparecen al reintentar.
-* **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
+
+* **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia predeterminada de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
+
 * **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. Elija más de una de tal forma que pueda distinguir los problemas del sitio web a partir de los problemas de red. Puede seleccionar hasta 16 ubicaciones.
+
 * **Criterios de éxito**:
 
     **Tiempo de espera de prueba**: reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes**, todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.

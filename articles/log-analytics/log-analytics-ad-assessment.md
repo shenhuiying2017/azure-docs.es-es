@@ -3,7 +3,7 @@ title: "Optimización del entorno de Active Directory con Azure Log Analytics | 
 description: "Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
 
@@ -41,7 +41,7 @@ Después de agregar la solución y completar una comprobación, se muestra infor
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* La solución Active Directory Health Check requiere que esté instalada una versión compatible de .NET Framework 4.5.2 o superior en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA. 
+* La solución Active Directory Health Check requiere que esté instalada una versión compatible de .NET Framework 4.5.2 o superior en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA.
 * La solución es compatible con controladores de dominio que ejecutan Windows Server 2008, y 2008 R2, Windows Server 2012, y 2012 R2 y Windows Server 2016.
 * Un área de trabajo de Log Analytics para agregar la solución Active Directory Health Check desde Azure Marketplace en Azure Portal.  No es necesario realizar ninguna configuración más.
 
@@ -62,13 +62,13 @@ El agente del controlador de dominio que envía informes a un grupo de administr
 
 Active Directory Health Check recopila datos de los siguientes orígenes mediante el agente habilitado:
 
-- Registro 
-- LDAP 
+- Registro
+- LDAP
 - .NET Framework
-- Registro de eventos 
+- Registro de eventos
 - Interfaces ADSI
 - Windows PowerShell
-- Datos de archivo 
+- Datos de archivo
 - Instrumental de administración de Windows (WMI)
 - API de la herramienta DCDIAG
 - API del servicio de replicación de archivos (NTFRS)
@@ -109,7 +109,7 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
 3. Haga clic en el icono de **introducción** del área de trabajo de Log Analytics en Azure Portal.
-4. En la página de **información general**, haga clic en el icono de **Active Directory Health Check**. 
+4. En la página de **información general**, haga clic en el icono de **Active Directory Health Check**.
 5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
 6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de la comprobación de estado](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
@@ -133,7 +133,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 2. Pegue o escriba cada RecommendationId para cada recomendación que desee que Log Analytics omita en una línea independiente y, luego, guarde y cierre el archivo.
 3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que Log Analytics omita las recomendaciones.
    * En equipos con Microsoft Monitoring Agent (conectado directamente o a través de Operations Manager): *UnidadDelSistema*:\Archivos de programa\Microsoft Monitoring Agent\Agent
-   * En el servidor de administración de Operations Manager 2012 R2: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * En el servidor de administración de Operations Manager 2012 R2: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2012 R2\Operations Manager\Server
    * En el servidor de administración de Operations Manager 2016: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para comprobar que se omiten las recomendaciones

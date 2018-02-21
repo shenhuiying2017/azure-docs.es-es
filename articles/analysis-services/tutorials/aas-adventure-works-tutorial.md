@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: Tutorial de Adventure Works
 
@@ -45,12 +45,12 @@ Si no está familiarizado con Analysis Services y los modelos tabulares, este tu
   
 -   Cómo implementar un modelo tabular en un servidor de **Azure Analysis Services** o en un servidor local de SQL Server 2017 Analysis Services.  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Para completar este tutorial, necesita:  
   
 -   Un servidor de Azure Analysis Services. Registrarse para obtener una [prueba gratuita de Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) y [crear un servidor](../analysis-services-create-server.md). 
 
--   Una instancia de [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) con la **base de datos de ejemplo AdventureWorksDW** o una instancia de SQL Server Data Warehouse con la [base de datos de ejemplo Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   Una instancia de [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) con la **base de datos de ejemplo AdventureWorksDW** o una instancia de SQL Server Data Warehouse con la [base de datos de ejemplo Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Importante:** Si instala la base de datos de ejemplo en una instancia local de SQL Server Data Warehouse e implementa el modelo en un servidor de Azure Analysis Services, se requiere una [puerta de enlace de datos local](../analysis-services-gateway.md).
 

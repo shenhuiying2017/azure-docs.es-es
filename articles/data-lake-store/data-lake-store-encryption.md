@@ -1,9 +1,9 @@
 ---
 title: Cifrado en Azure Data Lake Store | Microsoft Docs
-description: "Descripción del funcionamiento del cifrado y la rotación de claves en Azure Data Lake Store"
+description: "El cifrado en Azure Data Lake Store le ayuda a proteger sus datos, implementar directivas de seguridad de empresa y satisfacer los requisitos de cumplimiento normativo. En este artículo se proporciona información general sobre el diseño y se discuten algunos de los aspectos técnicos de la implementación."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Cifrado de datos en Azure Data Lake Store
 
@@ -61,11 +61,11 @@ Esta es una breve comparación de las funcionalidades que proporcionan ambos mod
 | --- | --- | --- |
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
-|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |No|No|
-|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
+|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin |Sin |
+|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|Nº Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|Nº Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
 |¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|El servicio Data Lake Store.|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
-|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Store?|No|Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Store.|
-|¿Puede eliminar permanentemente la clave de cifrado maestra?|No|Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Store, incluido el servicio Data Lake Store. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Store nunca se podrán cifrar después.|
+|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Store?|Sin |Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Store.|
+|¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin |Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Store, incluido el servicio Data Lake Store. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Store nunca se podrán cifrar después.|
 
 
 Aparte de esta diferencia sobre quién administra la clave de cifrado maestra y la instancia de Key Vault en la que reside, el resto del diseño es igual en ambos modos.
@@ -79,7 +79,7 @@ Al elegir el modo de las claves de cifrado maestras, es importante recordar lo s
 
 Son tres los tipos de claves que se usan en el diseño del cifrado de datos. En la tabla siguiente se proporciona un resumen:
 
-| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Escriba       | Notas                                                                                                   |
+| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | type       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clave de cifrado maestra | MEK          | Cuenta de Data Lake Store | Key Vault                              | Asimétrica | Puede administrarla Data Lake Store o usted.                                                              |
 | Clave de cifrado de datos   | DEK          | Cuenta de Data Lake Store | Almacenamiento persistente, administrada por el servicio Data Lake Store | Simétrica  | La DEK se cifra mediante la clave de cifrado maestra. La DEK cifrada es lo que se almacena en el medio persistente. |
@@ -112,7 +112,7 @@ En el siguiente diagrama, se ilustra este concepto:
 
 Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Store con claves administradas por el cliente, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 Cuando configuró la cuenta de Data Lake Store, eligió usar sus propias claves. Esta opción no se puede cambiar una vez creada la cuenta. En los siguientes pasos se supone que usa claves administradas por el cliente (es decir, ha elegido sus propias claves de Key Vault).
 
@@ -120,7 +120,7 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Rotación de la clave MEK en Data Lake Store
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a la instancia de Key Vault que almacena las claves asociadas con la cuenta de Data Lake Store. Seleccione **Claves**.
 
     ![Captura de pantalla de Key Vault](./media/data-lake-store-encryption/keyvault.png)
