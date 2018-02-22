@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Para usar la autenticación de entidad de servicio, registre una entidad de apli
 
 >[!IMPORTANT]
 > Asegúrese de que concede el permiso adecuado principal del servicio en Azure Data Lake Store:
->- **Como origen**, conceda al menos permiso de acceso de datos de **lectura y ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
->- **Como receptor**, conceda al menos permiso de acceso de datos de **escritura y ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para copiar (tanto el origen como el receptor están en la nube) con el fin de permitir que Data Factory detecte la región de Data Lake Store, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si quiere evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) de forma explícita con la ubicación de su Data Lake Store y realice la asociación en el servicio Data Lake Store vinculado, como en el siguiente ejemplo:
+>- **Como origen**, en el Explorador de datos -> Acceso, conceda al menos permiso de **lectura y ejecución** para enumerar y copiar los archivos en la carpeta y las subcarpetas o permiso de **lectura** para copiar un único archivo y optar por agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
+>- **Como receptor**, en el Explorador de datos -> Acceso, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta y optar por agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. Si usa Azure IR para copiar (tanto el origen como el receptor están en la nube), en el control de acceso de cuenta (IAM), conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
 
 Se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString. | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 
 **Ejemplo:**
 
@@ -114,12 +114,12 @@ Una factoría de datos puede asociarse con una [identidad de servicio administra
 Para usar la autenticación de identidades de servicio administradas (MSI):
 
 1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
-2. Conceda a la identidad de servicio acceso a Data Lake Store de la misma manera que lo hace para la entidad de servicio. Para conocer los pasos detallados, consulte [Autenticación entre servicios: Asignación de la aplicación de Azure AD al archivo o la carpeta de la cuenta de Azure Data Lake Store](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Conceda a la identidad de servicio acceso a Data Lake Store de la misma manera que lo hace para la entidad de servicio, con las notas siguientes.
 
 >[!IMPORTANT]
 > Asegúrese de conceder el permiso adecuado a la identidad de servicio de la factoría de datos en Azure Data Lake Store:
->- **Como origen**, conceda al menos permiso de acceso de datos de **lectura y ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
->- **Como receptor**, conceda al menos permiso de acceso de datos de **escritura y ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para copiar (tanto el origen como el receptor están en la nube) con el fin de permitir que Data Factory detecte la región de Data Lake Store, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si quiere evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) de forma explícita con la ubicación de su Data Lake Store y realice la asociación en el servicio Data Lake Store vinculado, como en el siguiente ejemplo:
+>- **Como origen**, en el Explorador de datos -> Acceso, conceda al menos permiso de **lectura y ejecución** para enumerar y copiar los archivos en la carpeta y las subcarpetas o permiso de **lectura** para copiar un único archivo y optar por agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
+>- **Como receptor**, en el Explorador de datos -> Acceso, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta y optar por agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. Si usa Azure IR para copiar (tanto el origen como el receptor están en la nube), en el control de acceso de cuenta (IAM), conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
 
 En Azure Data Factory, no es necesario especificar ninguna propiedad además de la información general de Data Lake Store en el servicio vinculado.
 
@@ -197,7 +197,7 @@ Para copiar datos desde Azure Data Lake Store, establezca el tipo de origen de l
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureDataLakeStoreSource**. |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que, cuando recursive se establece en true y el receptor es un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
 
 **Ejemplo:**
 

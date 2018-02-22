@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Creación de una instancia de Azure Container Registry mediante PowerShell
 
@@ -21,7 +21,7 @@ Azure Container Registry es un servicio de registro de contenedores de Docker ad
 
 Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
-También debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+También debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
@@ -57,13 +57,13 @@ Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la 
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Después, use el comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para iniciar sesión en la instancia de ACR.
+Después, use el comando [docker login][docker-login] para iniciar sesión en la instancia de ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
+El comando devolverá `Login Succeeded` una vez completado. También puede ver una advertencia de seguridad que recomienda el uso del parámetro `--password-stdin`. Cuando su uso esté fuera del ámbito de este artículo, recomendamos seguir este procedimiento recomendado. Para más información, vea la referencia del comando [docker login][docker-login].
 
 ## <a name="push-image-to-acr"></a>Inserción de una imagen en ACR
 
@@ -79,13 +79,13 @@ La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión 
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Etiquete la imagen mediante el comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
+Etiquete la imagen mediante el comando [docker tag][docker-tag]. Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Por último, use el comando [docker push](https://docs.docker.com/engine/reference/commandline/push/) para insertar la imagen en la instancia de ACR. Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
+Por último, use el comando [docker push][docker-push] para insertar las imágenes en la instancia de ACR. Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ En esta guía de inicio rápido, creará una instancia de Azure Container Regist
 
 > [!div class="nextstepaction"]
 > [Tutorial de Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

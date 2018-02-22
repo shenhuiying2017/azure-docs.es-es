@@ -1,142 +1,189 @@
 ---
-title: Hospedaje de varios sitios con Azure Application Gateway | Microsoft Docs
-description: "En esta página se proporcionan instrucciones para configurar una puerta de enlace de aplicaciones de Azure para hospedar varias aplicaciones web en la misma puerta de enlace con Azure Portal."
-documentationcenter: na
+title: "Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal | Microsoft Docs"
+description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios mediante Azure Portal.
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configuración de una puerta de enlace de aplicaciones existente para hospedar varias aplicaciones web
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-multisite-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
 
-El hospedaje de varios sitios permite implementar más de una aplicación web en la misma puerta de enlace de aplicaciones. Se basa en la presencia de un encabezado host en la solicitud HTTP entrante para determinar el agente de escucha que recibe el tráfico. Luego, dicho agente dirige el tráfico al grupo de back-end adecuado, el configurado en la definición de las reglas de la puerta de enlace. En las aplicaciones web con SSL habilitado, la puerta de enlace de aplicaciones depende de la extensión de la indicación de nombre de servidor (SNI) para elegir el agente de escucha correcto para el tráfico web.En las aplicaciones web con SSL habilitado, Application Gateway depende de la extensión de la indicación de nombre de servidor (SNI) para elegir el agente de escucha correcto para el tráfico web. Un uso común del hospedaje de varios sitios es el equilibrio de carga de las solicitudes de diferentes dominios web entre diferentes grupos de servidores de back-end. De forma similar, varios subdominios del mismo dominio raíz también se pueden hospedar en la misma puerta de enlace de aplicaciones.
+En este artículo, aprenderá a:
 
-## <a name="scenario"></a>Escenario
+> [!div class="checklist"]
+> * Creación de una puerta de enlace de aplicaciones
+> * Crear máquinas virtuales para servidores back-end
+> * Crear grupos de back-end con los servidores back-end
+> * Creación de agentes de escucha y reglas de enrutamiento
+> * Creación de un registro CNAME en el dominio
 
-En el siguiente ejemplo, la puerta de enlace de aplicaciones sirve el tráfico a contoso.com y a fabrikam.com con dos grupos de servidores back-end: el grupo de servidores de contoso y el grupo de servidores de fabrikam. Se puede usar una configuración similar para hospedar subdominios como app.contoso.com y blog.contoso.com.
+![Ejemplo de enrutamiento de varios sitios](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![escenario multisitio][multisite]
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-Este escenario agrega compatibilidad multisitio a una puerta de enlace de aplicaciones existente. Para completar este escenario debe estar disponible para su configuración una puerta de enlace de aplicaciones. Visite [Creación de una puerta de enlace de aplicaciones mediante el portal](application-gateway-create-gateway-portal.md) para aprender a crear una puerta de enlace de aplicaciones básica en el portal.
+Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
 
-A continuación se muestran los pasos necesarios para actualizar una puerta de enlace de aplicaciones:
+## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-1. Cree grupos de back-end para cada sitio.
-2. Cree un agente de escucha para cada puerta de enlace de aplicaciones del sitio que lo admitirá.
-3. Cree reglas para asignar cada agente de escucha al back-end apropiado.
+Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
 
-## <a name="requirements"></a>Requisitos
+1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
+3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-* **Grupo de servidores back-end** : lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública. También puede utilizarse el FQDN.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). En el caso de las puertas de enlace de aplicaciones con sitios múltiples habilitados, también se agregan el nombre de host y los indicadores de SNI.
-* **Regla:** enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico que llegue a un agente de escucha concreto. Las reglas se procesan en el orden en que aparecen y el tráfico se dirige a través de la primera regla que coincida independientemente de la especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
-* **Certificados:** cada agente de escucha requiere un certificado único, en este ejemplo se crean dos agentes de escucha para varios sitios. Deben crearse dos certificados .pfx y las contraseñas para ellos.
+    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+    - *myResourceGroupAG*: como nuevo grupo de recursos.
 
-## <a name="create-back-end-pools-for-each-site"></a>Creación de grupos de back-end para cada sitio
+    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-Se necesita un grupo de back-end para cada sitio que va a admitir esa puerta de enlace de aplicaciones; en este caso se crearán dos, uno para contoso11.com y otro para fabrikam11.com.
+4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-### <a name="step-1"></a>Paso 1
+    - *myVNet*: como nombre de la red virtual.
+    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+    - *myAGSubnet*: como nombre de subred.
+    - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-Vaya a una puerta de enlace de aplicaciones existente en Azure Portal (https://portal.azure.com). Seleccione **Grupos de back-end** y haga clic en **Agregar**.
+    ![Creación de una red virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![adición de grupos de back-end][7]
+6. Haga clic en **Aceptar** para crear la red virtual y la subred.
+7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
+8. Acepte los valores predeterminados para la configuración del agente de escucha, deje el firewall de aplicaciones web deshabilitado y haga clic en **Aceptar**.
+9. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
-### <a name="step-2"></a>Paso 2
+### <a name="add-a-subnet"></a>Incorporación de una subred
 
-Rellene la información para el grupo de back-end **grupo1**, agregue las direcciones IP o nombres completos para los servidores back-end y haga clic en **Aceptar**
+1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
+2. Haga clic en **Subredes** y en **Subred**.
 
-![configuración del grupo de back-end grupo1][8]
+    ![Creación de una subred](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### <a name="step-3"></a>Paso 3
+3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
 
-En la hoja de grupos de back-end, haga clic en **Agregar** para agregar el grupo de back-end adicional **pool2**, agregando la direcciones IP o nombres completos para los servidores back-end y haga clic en **Aceptar**.
+## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-![configuración del grupo de back-end grupo2][9]
+En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También va a instalar IIS en las máquinas virtuales para comprobar que el tráfico se enruta correctamente.
 
-## <a name="create-listeners-for-each-back-end"></a>Creación de agentes de escucha para cada back-end
+1. Haga clic en **Nuevo**.
+2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+3. Especifique estos valores para la máquina virtual:
 
-Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. El agente de escucha básico creado en el portal no contiene esta propiedad.
+    - *contosoVM*: como nombre de la máquina virtual.
+    - *azureuser*: como nombre del usuario administrador.
+    - *Azure123456!* como contraseña.
+    - Seleccione **Usar existente** y *myResourceGroupAG*.
 
-### <a name="step-1"></a>Paso 1
+4. Haga clic en **OK**.
+5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
+6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
+7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
+8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
 
-Haga clic en **Agentes de escucha** en la puerta de enlace de aplicaciones y haga clic en **Multisitio** para agregar el primer agente de escucha.
+### <a name="install-iis"></a>Instalación de IIS
 
-![hoja de información general de los agentes de escucha][1]
+1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
 
-### <a name="step-2"></a>Paso 2
+    ![Instalación de la extensión personalizada](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-Rellene la información del agente de escucha. En este ejemplo se configura la terminación SSL y se crea un nuevo puerto de front-end. Cargue el certificado .pfx que se usará para la terminación SSL. La única diferencia de esta hoja en comparación con la hoja del agente de escucha básica estándar es el nombre de host.
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
-![hoja de propiedades del agente de escucha][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### <a name="step-3"></a>Paso 3
+3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* como nombre y valor de VMName en Set-AzureRmVMExtension.
 
-Haga clic en **Multisitio** y cree otro agente de escucha, tal como se describe en el paso anterior para el segundo sitio. Asegúrese de utilizar un certificado diferente para el segundo agente de escucha. La única diferencia de esta hoja en comparación con la hoja del agente de escucha básica estándar es el nombre de host. Rellene la información del agente de escucha y haga clic en **Aceptar**.
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
 
-![hoja de propiedades del agente de escucha][3]
+1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAppGateway**.
+2. Haga clic en **Grupos de back-end** y en **Agregar**.
+3. Escriba el nombre *contosoPool* y agregue *contosoVM* utilizando **Agregar destino**.
 
-> [!NOTE]
-> La creación de agentes de escucha en Azure Portal para la puerta de enlace de aplicaciones es una tarea de larga duración; puede tardar algún tiempo en crear los dos agentes de escucha en este escenario. Cuando finalice, los agentes de escucha se muestran en el portal, tal como se muestra en la siguiente imagen:
+    ![Incorporación de servidores back-end](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![información general del agente de escucha][4]
+4. Haga clic en **OK**.
+5. Haga clic en **Grupos de back-end** y, a continuación, haga clic en **Agregar**.
+6. Cree el grupo *fabrikamPool* con *fabrikamVM* siguiendo los pasos que acaba de finalizar.
 
-## <a name="create-rules-to-map-listeners-to-backend-pools"></a>Creación de reglas para asignar agentes de escucha a grupos de back-end
+## <a name="create-listeners-and-routing-rules"></a>Creación de agentes de escucha y reglas de enrutamiento
 
-### <a name="step-1"></a>Paso 1
+1. Haga clic en **Agentes de escucha** y en **Multisitio**.
+2. Especifique estos valores para el agente de escucha:
+    
+    - *contosoListener*: como nombre del agente de escucha.
+    - *www.contoso.com*: sustituya este nombre de host de ejemplo por el nombre del dominio.
 
-Vaya a una puerta de enlace de aplicaciones existente en Azure Portal (https://portal.azure.com). Seleccione **Reglas** y elija la regla predeterminada existente **Regla1** y haga clic en **Editar**.
+3. Haga clic en **OK**.
+4. Cree otro agente de escucha con el nombre *fabrikamListener* y utilice el segundo nombre de dominio. En este ejemplo, vamos a utilizar *www.fabrikam.com*.
 
-### <a name="step-2"></a>Paso 2
+Las reglas se procesan en el orden en que aparecen y el tráfico se dirige utilizando la primera regla que dé una coincidencia, sin tener en cuenta su especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 
-Rellene la hoja de reglas, tal como se muestra en la imagen siguiente. Elija el primer agente de escucha y el primer grupo y haga clic en **Guardar** cuando haya terminado.
+En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada que se creó junto con la puerta de enlace de aplicaciones. 
 
-![edición de una regla existente][6]
+1. Haga clic en **Reglas** y en **Básica**.
+2. Escriba *contosoRule* como nombre.
+3. Seleccione *contosoListener* como agente de escucha.
+4. Seleccione *contosoPool* como grupo de back-end.
 
-### <a name="step-3"></a>Paso 3
+    ![Creación de una regla basada en ruta de acceso](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-Haga clic en **Regla básica** para crear la segunda regla. Rellene el formulario con el segundo agente de escucha y el segundo grupo de back-end, y haga clic en **Aceptar** para guardarlo.
+5. Haga clic en **OK**.
+6. Cree una segunda regla usando los nombres *fabrikamRule*, *fabrikamListener* y *fabrikamPool*.
+7. Elimine la regla predeterminada *rule1*; para ello, selecciónela y haga clic después en **Eliminar**.
 
-![adición de una hoja de reglas básicas][10]
+## <a name="create-a-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
 
-Este escenario completa la configuración de una puerta de enlace de aplicaciones existentes con compatibilidad multisitio a través de Azure Portal.
+Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
-## <a name="next-steps"></a>Pasos siguientes
+1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
 
-Aprenda a proteger sitios web con [Firewall de aplicaciones web de Application Gateway (versión preliminar)](application-gateway-webapplicationfirewall-overview.md)
+    ![Registro de la dirección DNS de la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+2. Copie la dirección DNS y utilícela como valor en un nuevo registro CNAME del dominio.
+
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
+
+1. Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+
+    ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. Cambie la dirección al otro dominio. Debería ver algo parecido al ejemplo siguiente:
+
+    ![Prueba del sitio de fabrikam en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
+
+## <a name="next-steps"></a>pasos siguientes
+
+En este artículo, ha aprendido cómo:
+
+> [!div class="checklist"]
+> * Creación de una puerta de enlace de aplicaciones
+> * Crear máquinas virtuales para servidores back-end
+> * Crear grupos de back-end con los servidores back-end
+> * Creación de agentes de escucha y reglas de enrutamiento
+> * Creación de un registro CNAME en el dominio
+
+> [!div class="nextstepaction"]
+> [Obtenga más información sobre lo que puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md).

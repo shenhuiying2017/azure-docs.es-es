@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure SQL Data Warehouse**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Data Warehouse o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
@@ -74,6 +74,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
 3. En la hoja **Configuración de firewall**, haga clic en **Activar** para **Permitir el acceso a los servicios de Azure**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ Esta canalización lleva a cabo dos pasos:
 2. En la ventana de propiedades, cambie el nombre de la canalización a **GetTableListAndTriggerCopyData**. 
 
     ![Nombre de la canalización](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones y realice los pasos siguientes:
+3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones y realice los pasos siguientes:
 
     1. Escriba **LookupTableList** en **Name** (Nombre). 
     2. Escriba **Retrieve the table list from Azure SQL Database** (Recuperar la lista de tablas de Azure SQL Database) en **Description** (Descripción).
@@ -322,7 +323,7 @@ Esta canalización lleva a cabo dos pasos:
 8. Para comprobar la canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
 
     ![Segunda canalización: informe de comprobación](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Para publicar entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, haga clic en **Publish** (Publicar). Espere hasta que la publicación se realice correctamente. 
+9. Para publicar entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, haga clic en **Publish All** (Publicar todo). Espere hasta que la publicación se realice correctamente. 
 
     ![Botón Publicar](./media/tutorial-bulk-copy-portal/publish.png)
 

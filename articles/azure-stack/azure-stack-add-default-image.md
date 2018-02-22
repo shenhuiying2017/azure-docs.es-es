@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: be4a61f185435238db68e4dc43c323a30a754f03
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Adición de la imagen de máquina virtual de Windows Server 2016 a Marketplace de Azure Stack
 
@@ -30,7 +30,7 @@ De forma predeterminada, no hay ninguna imagen de máquina virtual disponible en
 
 ## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Agregación de la imagen mediante la descarga de Azure Marketplace
 
-1. Implemente Azure Stack y luego inicie sesión en su instancia de Azure Stack Development Kit.
+1. Implemente Azure Stack y luego inicie sesión en su instancia del Kit de desarrollo de Azure Stack.
 
 2. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace)  > **Add from Azure** (Agregar desde Azure). 
 

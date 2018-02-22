@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
@@ -40,7 +40,7 @@ Para automatizar la creación del ASE:
 
 2. Una vez creado el ASE con un ILB, se carga un certificado SSL que coincide con su dominio de ASE con un ILB.
 
-3. El certificado SSL cargado se asigna al ASE con un ILB como su certificado SSL "predeterminado".  Este certificado se usa para el tráfico SSL a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootcomain.com).
+3. El certificado SSL cargado se asigna al ASE con un ILB como su certificado SSL "predeterminado".  Este certificado se usa para el tráfico SSL a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Creación del ASE

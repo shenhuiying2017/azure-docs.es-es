@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 **Azure Activity Log** es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Esta incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Estado del servicio. El Registro de actividad se conocía anteriormente como "Registros de auditoría" o "Registros operativos", ya que la categoría Administrativo notifica eventos del plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
@@ -29,21 +29,24 @@ Ilustración 1: Comparación de los registros de actividad y otros tipos de regi
 
 El registro de actividad es distinto de los [registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md). El Registro de actividad proporciona datos sobre las operaciones en un recurso desde el exterior (el "plano de control"). Los registros de diagnóstico son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el "plano de datos").
 
-Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
-
-
 > [!WARNING]
 > El registro de actividad de Azure sirve principalmente para las actividades que se producen en Azure Resource Manager. No hace seguimiento de los recursos que usan el modelo Clásico/RDFE. Algunos tipos de recursos clásicos tienen un proveedor de recursos de servidor proxy en Azure Resource Manager (por ejemplo, Microsoft.ClassicCompute). Si interactúa con un tipo de recurso clásico a través de Azure Resource Manager con estos proveedores de recursos de servidor proxy, las operaciones aparecen en el registro de actividad. Si interactúa con un tipo de recurso clásico fuera de los servidores proxy de Azure Resource Manager, sus acciones solo se registran en el registro de operaciones. Se puede examinar el registro de operaciones en una sección independiente del portal.
 >
 >
 
+Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
+
+> [!NOTE]
+
+>  [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md) actualmente ofrece una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
+
+
 Vea el vídeo siguiente sobre la introducción del registro de actividad.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Categorías del Registro de actividad
-El Registro de actividad contiene varias categorías de datos. Para obtener todos los detalles sobre el esquema de datos de estas categorías, [vea este artículo](monitoring-activity-log-schema.md). Entre ellos se incluyen los siguientes:
+El Registro de actividad contiene varias categorías de datos. Para obtener todos los detalles sobre el esquema de datos de estas categorías, [vea este artículo](monitoring-activity-log-schema.md). Entre ellas se incluyen las siguientes:
 * **Administrativo**: esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
 * **Estado del servicio**: esta categoría contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "SQL Azure en el este de EE. UU. está experimentando un tiempo de inactividad". Los eventos de estado del servicio son de cinco variedades: Acción requerida, Recuperación asistida, Incidente, Mantenimiento, Información o Seguridad, y solo aparecen si tiene un recurso en la suscripción que se vaya a ver afectado por el evento.
 * **Alerta**: esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
@@ -136,14 +139,14 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Propiedad | Obligatorio | Description |
+| Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| Nombre |Sí |Nombre de su perfil de registro. |
-| StorageAccountId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-| serviceBusRuleId |No |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| NOMBRE |Sí |Nombre de su perfil de registro. |
+| StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+| serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
 | RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categorías |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### <a name="remove-a-log-profile"></a>Eliminación de perfil de registro
 ```
@@ -165,16 +168,16 @@ La propiedad `name` debe ser el nombre del perfil de registro.
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Propiedad | Obligatorio | Description |
+| Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| name |Sí |Nombre de su perfil de registro. |
-| storageId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-| serviceBusRuleId |No |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Nombre |Sí |Nombre de su perfil de registro. |
+| storageId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+| serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
 | RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categorías |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
-#### <a name="remove-a-log-profile"></a>Eliminación de perfil de registro
+#### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
 ```
 azure insights logprofile delete --name my_log_profile
 ```

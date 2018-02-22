@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 o Dynamics CRM mediante Azure Data Factory
 
@@ -66,7 +66,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | organizationName | El nombre de la organización de la instancia de Dynamics. | No, se debe especificar cuando hay más de una instancia de Dynamics asociada al usuario |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
 | Nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
@@ -341,4 +341,4 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 > No se admiten los tipos de datos de Dynamics AttributeType.CalendarRules y AttributeType.PartyList.
 
 ## <a name="next-steps"></a>pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

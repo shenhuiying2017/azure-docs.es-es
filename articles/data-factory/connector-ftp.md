@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: debfa7b584e4172821801197be94e597066cdb8d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de FTP:
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin  |
 | authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: **Básica** y **Anónima**. | Sí |
 | userName | Especifique el usuario que tiene acceso al servidor FTP. | Sin  |
-| contraseña | Especifique la contraseña del usuario (userName). Marque este campo como SecureString. | Sin  |
+| contraseña | Especifique la contraseña del usuario (userName). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo 1: Uso de autenticación anónima**

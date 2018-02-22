@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
         - Data Factory Name, que pasa el valor `@{pipeline().DataFactory}`. Se trata de una variable del sistema, lo que le permite obtener acceso al nombre de la factoría de datos correspondiente. Para obtener una lista de las variables del sistema, vea el artículo [System Variables](control-flow-system-variables.md) (Variables del sistema).
         - Pipeline Name, que pasa el valor `@{pipeline().Pipeline}`. También es una variable del sistema, lo que le permite obtener acceso al nombre de canalización correspondiente. 
         - Receiver, que pasa el valor "@pipeline(). parameters.receiver") y accede a los parámetros de la canalización.
-    6. **Settings** (Configuración) debe tener un aspecto similar al de la imagen siguiente: 
-
+    
         ![Configuración de la primera actividad web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Conecte la actividad **Copy** (Copiar) a la actividad **Web**; para ello, arrastre el botón verde situado junto a la actividad de copia y colóquelo en la actividad web. 
 
@@ -266,8 +266,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **Settings** (Configuración) debe tener un aspecto similar al de la imagen siguiente: 
-    
+
         ![Configuración de la segunda actividad web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Seleccione la actividad **Copy** (Copiar) en el diseñador de canalizaciones, haga clic en el botón **+->** y seleccione **Error**.  
 
@@ -278,7 +277,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 24. Para comprobar la canalización, haga clic en el botón **Validate** (Comprobar) en la barra de herramientas. Haga clic en el botón**>>** para cerrar la ventana **Pipeline Validation Output** (Salida de comprobación de canalización).
 
     ![Comprobar la canalización](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Para publicar las entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, haga clic en **Publish** (Publicar). Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente).
+24. Para publicar las entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, seleccione **Publish All** (Publicar todo). Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente).
 
     ![Publicar](./media/tutorial-control-flow-portal/publish-button.png)
  

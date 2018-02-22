@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -425,7 +425,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Para un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
+Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
 Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Desencadenador: atributos](#trigger---attribute).
 
@@ -458,6 +458,15 @@ En C# y script de C#, escriba varios mensajes de cola mediante uno de los siguie
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 En las funciones de JavaScript, use `context.bindings.<name>` para tener acceso al mensaje de cola de salida. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
+
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace |  Referencia |
+|---|---|
+| Cola | [Códigos de error de cola](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, tabla, cola | [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, tabla, cola |  [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>pasos siguientes
 

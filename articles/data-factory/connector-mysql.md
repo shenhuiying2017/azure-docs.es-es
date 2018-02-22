@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4ecbf2b2e144885159ae6d6e3a82b4d6063a3d23
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MySQL:
 | Base de datos | Nombre de la base de datos MySQL. | Sí |
 | schema | Nombre del esquema de la base de datos. | Sin  |
 | Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de MySQL. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario especificada. Marque este campo como SecureString. | Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**

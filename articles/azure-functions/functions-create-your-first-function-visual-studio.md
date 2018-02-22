@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f908b874a8205c2b8738deeccb3d7dd38b9833fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
@@ -69,7 +69,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
-4. Para detener la depuración, haga clic en el botón **Detener** de la barra de herramientas de Visual Studio.
+4. Para detener la depuración, presione Mayús + F5.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 

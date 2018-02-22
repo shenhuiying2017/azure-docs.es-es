@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22bc237d551214997cc21a489c3c4aa20a5fcbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon Reds
 | puerto |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es 5439 |
 | Base de datos |Nombre de la base de datos de Amazon Redshift. |Sí |
 | Nombre de usuario |Nombre del usuario que tiene acceso a la base de datos. |Sí |
-| contraseña |Contraseña para la cuenta de usuario. Marque este campo como SecureString. |Sí |
+| contraseña |Contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**

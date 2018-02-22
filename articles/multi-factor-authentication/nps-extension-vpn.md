@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -84,7 +84,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 
 8. Se concede acceso al usuario al puerto virtual en el servidor VPN y se establece un túnel VPN cifrado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la puerta de enlace de Escritorio remoto. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
 * Infraestructura de VPN
@@ -376,7 +376,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 1. Ejecute Windows PowerShell como administrador.
 
-2. En el símbolo del sistema de PowerShell, escriba **cd c:\Program Files\Microsoft\AzureMfa\Config** y presione ENTRAR.
+2. En el símbolo del sistema de PowerShell, escriba **cd "c:\Program Files\Microsoft\AzureMfa\Config"** y presione ENTRAR.
 
 3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfsNpsExtnConfigSetup.ps1** y presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
  

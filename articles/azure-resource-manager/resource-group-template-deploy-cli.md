@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
-En este tema se explica cómo usar la CLI de Azure 2.0 con plantillas de Resource Manager para implementar recursos en Azure. Si no está familiarizado con los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).  
+En este artículo, se explica el uso de la CLI de Azure 2.0 con plantillas de Resource Manager para implementar recursos en Azure. Si no está familiarizado con los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).  
 
 La plantilla de Resource Manager que ha implementado puede ser un archivo local en su equipo, o un archivo externo ubicado en un repositorio como GitHub. La plantilla que se implementa en este artículo está disponible en la sección [Plantilla de ejemplo](#sample-template), o como [plantilla de la cuenta de almacenamiento en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -86,6 +86,10 @@ En Cloud Shell, use los comandos siguientes:
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementación en varios grupos de recursos o suscripciones
+
+Por lo general, todos los recursos de la plantilla se implementan en un único grupo de recursos. Sin embargo, existen escenarios en los que desea implementar un conjunto de recursos juntos pero colocarlos en distintos grupos de recursos o suscripciones. Cada implementación solo puede realizarse en cinco grupos de recursos. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="parameter-files"></a>Archivos de parámetros
 
@@ -183,7 +187,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Plantilla de ejemplo
 
-La plantilla siguiente se usa para los ejemplos de este tema. Cópiela y guárdela como un archivo denominado storage.json. Para comprender cómo crear esta plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).  
+La plantilla siguiente se usa para los ejemplos de este artículo. Cópiela y guárdela como un archivo denominado storage.json. Para comprender cómo crear esta plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).  
 
 ```json
 {

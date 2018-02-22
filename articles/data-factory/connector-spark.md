@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2682b6d149fc9a8b1a1a70351ea90fbd701dd4ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar datos de Spark con Azure Data Factory 
 
@@ -52,7 +52,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Spark:
 | thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP **. | Sin  |
 | authenticationType | Método de autenticación que se usa para tener acceso al servidor de Spark. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. | Sí |
 | Nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Spark.  | Sin  |
-| contraseña | Contraseña correspondiente con el nombre de usuario que ha proporcionado en el campo Nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarla de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| contraseña | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Spark.  | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |

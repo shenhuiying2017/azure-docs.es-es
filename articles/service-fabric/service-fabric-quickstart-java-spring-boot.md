@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>Implementación de una aplicación de Spring Boot
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
@@ -102,6 +102,14 @@ Ahora puede acceder a la aplicación de Spring Boot que se implementó en un cl�
 Para implementar la aplicación en un clúster de Azure, cree su propio clúster.
 
 Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los ejecuta el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
+
+Para poder realizar operaciones de administración en el clúster de entidad segura, puede utilizar Service Fabric Explorer, CLI o Powershell. Para usar Service Fabric Explorer, tendrá que descargar el archivo PFX desde el sitio web de Party Cluster e importar el certificado en el almacén de certificados (Windows o Mac) o en el explorador mismo (Ubuntu). No hay ninguna contraseña para los certificados autofirmados desde el clúster de entidad. 
+
+Para realizar operaciones de administración con Powershell o CLI, necesitará el PFX (Powershell) o PEM (CLI). Para convertir el archivo PFX en un archivo PEM, ejecute el siguiente comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 | Tipo |La propiedad type debe establecerse en: **Salesforce**. |Sí |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |Sin  |
 | Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| contraseña |Especifique la contraseña para la cuenta de usuario.<br/><br/>Este campo se puede marcar como SecureString para almacenarlo de forma segura en Data Factory. También puede almacenar la contraseña en Azure Key Vault y dejar que la actividad de copia la extraiga de ahí al realizar la copia de datos. Para más información, consulte [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). |Sí |
-| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Este campo se puede marcar como SecureString para almacenarlo de forma segura en Data Factory. También puede almacenar el token de seguridad en Key Vault y dejar que la actividad de copia la extraiga de ahí al realizar la copia de datos. Para más información, consulte [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). |Sí |
+| contraseña |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
@@ -322,4 +322,4 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 | URL |string |
 
 ## <a name="next-steps"></a>pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

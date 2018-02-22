@@ -14,19 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: 063926a5a98aeab62e191d372831a00c29b9f6d7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Incorporación de notificaciones push a la aplicación iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Información general
-En este tutorial, agregará notificaciones de inserción al proyecto de [inicio rápido de iOS] para que cada vez que se envíe una notificación de inserción al dispositivo, se inserte un registro.
+En este tutorial, se agregan notificaciones push al proyecto de [inicio rápido de iOS] para que, cada vez que se envíe una notificación de inserción al dispositivo, se inserte un registro.
 
-Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de la notificación de inserción. Vea [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obtener más información.
+Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de notificaciones push. Para más información, consulte la guía [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 El [simulador de iOS no admite notificaciones de inserción](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Necesita un dispositivo de iOS físico y una [suscripción de Apple Developer Program](https://developer.apple.com/programs/ios/).
 

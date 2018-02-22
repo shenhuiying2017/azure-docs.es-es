@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copia de datos desde orígenes OData mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de OData:
 | URL | Dirección URL raíz del servicio de OData. |Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al origen de OData.<br/>Los valores posibles son: **Anónima**, **Básica** y **Windows**. OAuth no es compatible. | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación Basic o Windows. | Sin  |
-| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | Sin  |
+| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo 1: Uso de autenticación anónima**

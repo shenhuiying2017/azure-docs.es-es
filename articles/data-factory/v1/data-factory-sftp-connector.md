@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3485120347923dd291663962d528a1e5996b477f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8871012458c97a36b1f8c2cca413319ec7d72e8e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -123,7 +123,7 @@ Para usar la autenticación de clave pública SSH, establezca `authenticationTyp
 | passPhrase | Especifique la contraseña o la frase de contraseña para descifrar la clave privada si el archivo de clave está protegido por una frase de contraseña. | Sí, si el archivo de clave privada está protegido por una frase de contraseña. |
 
 > [!NOTE]
-> El conector de SFTP solo admite la clave OpenSSH. Asegúrese de que el archivo de clave tenga el formato correcto. Puede usar la herramienta Putty para convertir de .ppk al formato OpenSSH.
+> El conector SFTP solo admite la clave OpenSSH de RSA/DSA. Asegúrese de que el contenido del archivo de claves comienza con "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Si el archivo de clave privada es un archivo con formato ppk, use la herramienta Putty para convertir del formato .ppk a OpenSSH.
 
 #### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Ejemplo: Autenticación de SshPublicKey mediante el valor de filePath de clave privada
 

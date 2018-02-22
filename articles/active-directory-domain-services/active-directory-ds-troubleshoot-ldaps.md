@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: ad98f3fb1ddb753976be627764d34864e5bf3d50
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services: solución de problemas de configuración del protocolo LDAP seguro
 
@@ -48,6 +48,9 @@ Con LDAP seguro habilitado, se recomienda crear reglas adicionales para permitir
 5. Verifique que se ha creado la regla.
 6. Compruebe el estado del dominio en dos horas para asegurarse de que ha completado los pasos correctamente.
 
+> [!TIP]
+> El puerto 636 no es la única regla necesaria para que se ejecuten sin problemas Azure AD Domain Services. Para obtener más información, consulte los artículos sobre las [directrices de redes](active-directory-ds-networking.md) o sobre la [solución de problemas de configuración de grupo de seguridad de red](active-directory-ds-troubleshoot-nsg.md).
+>
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](active-directory-ds-contact-us.md).

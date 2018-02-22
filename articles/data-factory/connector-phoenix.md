@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar datos de Phoenix con Azure Data Factory 
 
@@ -50,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Phoenix:
 | httpPath | Dirección URL parcial correspondiente al servidor de Phoenix. (es decir, /gateway/sandbox/phoenix/version). El valor predeterminado es `hbasephoenix` si usa WindowsAzureHDInsightService.  | Sin  |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Phoenix. <br/>Los valores permitidos son: **Anonymous**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. | Sí |
 | Nombre de usuario | Nombre de usuario que se usa para conectarse al servidor de Phoenix.  | Sin  |
-| contraseña | Contraseña que corresponde al nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin  |

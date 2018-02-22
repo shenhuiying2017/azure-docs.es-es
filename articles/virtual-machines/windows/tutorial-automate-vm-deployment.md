@@ -1,6 +1,6 @@
 ---
 title: "Personalizar una máquina virtual de Windows en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la extensión de script personalizado y Key Vault para personalizar las máquinas virtuales de Windows en Azure"
+description: "Aprenda a utilizar la extensión de script personalizada para automatizar la instalación de aplicaciones en las máquinas virtuales Windows de Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17a6c243aaf73fcd88261870fbdd9e8c936471b8
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 63858da0a4a47d67ec659e922ab10f9f7bc97938
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Cómo personalizar una máquina virtual de Windows en Azure
 Para configurar las máquinas virtuales de una manera rápida y coherente, normalmente se desea alguna forma de automatización. Un enfoque común para personalizar una máquina virtual de Windows consiste en usar la [Extensión de la secuencia de comandos personalizada para Windows](extensions-customscript.md). En este tutorial, aprenderá a:
@@ -32,7 +32,7 @@ Para configurar las máquinas virtuales de una manera rápida y coherente, norma
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure. 
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure. 
 
 
 ## <a name="custom-script-extension-overview"></a>Información general de la extensión de script personalizado
@@ -44,91 +44,25 @@ Se puede usar la extensión de script personalizado con máquinas virtuales de L
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-Antes de poder crear una máquina virtual, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *EastUS*:
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
-```
-
-Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Ahora puede crear la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crean los componentes de red virtual necesarios, la configuración del sistema operativo y, después, se crea una máquina virtual denominada *myVM*:
+Ahora puede crear la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en la ubicación *EastUS*. Si aún no existen, se crean el grupo de recursos *myResourceGroupAutomate* y los recursos de red de soporte. Para permitir el tráfico de web, el cmdlet también abre el puerto *80*.
 
 ```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine using the configuration
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Credential $cred
 ```
 
 Los recursos y la máquina virtual tardan unos minutos en crearse.
@@ -138,24 +72,24 @@ Los recursos y la máquina virtual tardan unos minutos en crearse.
 Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web de IIS y después actualiza la página *Default.htm* para mostrar el nombre de host de la máquina virtual:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
-    -ExtensionName IIS `
-    -VMName myVM `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+    -ExtensionName "IIS" `
+    -VMName "myVM" `
+    -Location "EastUS" `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.8 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 
 ## <a name="test-web-site"></a>Sitio web de prueba
-Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
+Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIPAddress* que se ha creado anteriormente:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Name myPublicIP | select IpAddress
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
 A continuación, puede escribir la dirección IP pública en un explorador web. Se muestra el sitio web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:

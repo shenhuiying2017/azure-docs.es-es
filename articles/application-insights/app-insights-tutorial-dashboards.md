@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -29,7 +29,7 @@ Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -88,7 +88,7 @@ El panel **Métricas** panel le permite representar una métrica recopilada por 
 
 3. En la parte superior de la pantalla, haga clic en **Ver panel** para volver al panel.
 
-4. Ya se ha agregado al panel la Escala de tiempo con información general.  Haga clic y arrástrela hasta su posición y, a continuación, haga clic en **Personalización finalizada** y **Publicar cambios**. 
+4. Ya se ha agregado al panel el gráfico de métricas de la escala de tiempo. Haga clic y arrástrela hasta su posición y, a continuación, haga clic en **Personalización finalizada** y **Publicar cambios**. 
 
     ![Panel con métricas](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
@@ -162,7 +162,7 @@ Dado que Azure Applications Insights Analytics es un servicio independiente, deb
 5. Haga clic en **Publicar cambios** para confirmar los cambios del panel, que ahora incluye una serie de gráficos y visualizaciones de Application Insights.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha aprendido a crear paneles personalizados, eche un vistazo al resto de la documentación de Application Insights, que incluye un caso práctico.
 
 > [!div class="nextstepaction"]

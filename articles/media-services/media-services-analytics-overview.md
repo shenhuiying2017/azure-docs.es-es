@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services
 ## <a name="overview"></a>Información general
@@ -50,6 +50,8 @@ El resumen de vídeo puede ayudarle a crear resúmenes de vídeos largos al sele
 Con Azure Media OCR (reconocimiento óptico de caracteres), puede convertir el contenido de texto de archivos de vídeo en texto digital modificable y utilizable en búsquedas. Luego puede automatizar la extracción de metadatos significativos de la señal de vídeo de los elementos multimedia.
 ### <a name="scalable-face-redaction"></a>Censura de rostros escalable
 Azure Media Redactor es un procesador multimedia de Análisis multimedia de Azure que ofrece censura de rostros escalable en la nube. Con la censura de rostros, puede modificar un vídeo para difuminar las caras de personas seleccionadas. Es posible que quiera usar el servicio de censura de rostros en noticias en los medios de comunicación o cuando se trate de la seguridad pública. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, la censura de caras solo conlleva unos cuantos pasos sencillos. Para más información, vea el artículo [Censura de rostros con Azure Media Analytics](media-services-face-redaction.md).
+### <a name="content-moderation"></a>Moderación de contenido
+Azure Content Moderator le permite usar la moderación automatizada en sus vídeos. Por ejemplo, puede usarlo para detectar el posible contenido para adultos en los vídeos y revisar el contenido que hayan indicado sus equipos de moderadores. La moderación manual de vídeos para detectar contenido no deseado es una tarea lenta y costosa. Con este servicio y las herramientas de revisión asociadas, se combina la moderación automática con funcionalidades de intervención humana para obtener los mejores resultados en cuanto a eficacia y rentabilidad. Para más información, consulte el artículo sobre el [procesamiento de vídeos con Azure Content Moderator](media-services-content-moderation.md).
 
 ## <a name="common-scenarios"></a>Escenarios comunes
 Análisis multimedia puede ayudar a las organizaciones y empresas a recopilar nuevos datos relevantes a partir del vídeo y a administrar más eficazmente grandes volúmenes de contenido de vídeo. Estos son algunos escenarios:
@@ -69,6 +71,7 @@ En esta sección se enumeran los procesadores de multimedia de Análisis multime
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 La siguiente función toma uno de los nombres de MP especificados y devuelve un objeto MP.
@@ -123,11 +126,6 @@ Respuesta:
 ## <a name="demos"></a>Demostraciones
 Vea [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Pasos siguientes
-Consulte las rutas de aprendizaje de Servicios multimedia.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Vea [Media Services Analytics announcement (Anuncio de análisis de Media Servic
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>pasos siguientes
+Consulte las rutas de aprendizaje de Media Services.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

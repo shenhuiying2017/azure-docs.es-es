@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
 En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,7 +132,8 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 | Microsoft Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad |
 | Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad |
 
-Para la copia de seguridad de máquinas virtuales de Azure, cada máquina virtual puede tener hasta 16 discos de datos con un tamaño cada uno de 1023 GB o inferior. 
+Para la copia de seguridad de máquinas virtuales de Azure, cada máquina virtual puede tener hasta 16 discos de datos con un tamaño cada uno de 1024 GB o inferior. <br>
+Disponemos de una [versión preliminar privada](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) para admitir discos de hasta 4 TB. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Puntos de recuperación y directiva de retención
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>¿Hay alguna diferencia entre las directiva de retención de DPM y Windows Server o cliente de Windows (es decir, en Windows Server sin DPM)?<br/>

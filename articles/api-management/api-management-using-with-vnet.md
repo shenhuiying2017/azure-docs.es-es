@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
     
     > [!NOTE]
-    > **Punto de conexión de servicio** en el diagrama anterior incluye la puerta de enlace o proxy, el portal para desarrolladores, el portal para editores, GIT y el punto de conexión de administración directa.
+    > El **punto de conexión de servicio** en el diagrama anterior incluye la puerta de enlace o proxy, Azure Portal, el portal para desarrolladores, el portal para editores, GIT y el punto de conexión de administración directa.
     > **Punto de conexión de administración** en el diagrama anterior es el punto de conexión hospedado en el servicio para administrar la configuración mediante Azure Portal y Powershell.
     > Además, tenga en cuenta que, aunque el diagrama muestra las direcciones IP para sus diversos puntos de conexión, el servicio API Management **solo** responde en sus nombres de host configurados.
     

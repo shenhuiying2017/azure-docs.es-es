@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Escalación del recuento de instancias de forma manual o automática
 En el [Azure Portal](https://portal.azure.com/), puede establecer manualmente el número de instancias de su servicio o bien establecer parámetros para que esta cantidad se escale automáticamente en función de la demanda. Esto se conoce normalmente como *escalar horizontalmente* o *reducir horizontalmente*.
@@ -30,7 +30,7 @@ Puede reducir horizontalmente en el portal, y también puede utilizar la [API de
 ## <a name="scaling-manually"></a>Escalado manual
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Examinar** y luego navegue hasta el recurso que desea escalar, como un **plan de App Service**.
 2. Haga clic en **Configuración > Escalar horizontalmente (plan de App Service).**
-3. En la parte superior de la hoja **Escalar** puede ver un historial de las acciones de escalado automático del servicio.
+3. En la parte superior de la hoja **Escalar**, en la pestaña **Historial de ejecución**, puede ver un historial de las acciones de escalado automático del servicio.
    
     ![Hoja Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Puede reducir horizontalmente en el portal, y también puede utilizar la [API de
    > Solo aparecerán en este gráfico las acciones que se lleven a cabo mediante el escalado automático. Si ajusta manualmente el recuento de instancias, el cambio no se reflejará en este gráfico.
    > 
    > 
-4. Puede ajustar manualmente el número de **Instancias** con el control deslizante.
+4. Puede ajustar manualmente el número de **Instancias** con la pestaña **Configurar**.
 5. Haga clic en el comando **Guardar** y se le escalará a ese número de instancias casi de inmediato.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Escalado según una métrica preestablecida
@@ -97,7 +97,7 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 3. Para tener un perfil que se aplique durante el día, establezca la **Hora de inicio** en la hora del día en que desee que comience.
    
     ![Periodicidad predeterminada](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 5. A continuación, deberá agregar el perfil que desee aplicar a otras horas. Haga clic en la fila **Agregar perfil** .
     ![No laborable](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. Ponga un nombre a su nuevo segundo perfil; por ejemplo, podría llamarlo **No laborable**.
@@ -108,18 +108,18 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
    > El escalado automático utilizará las reglas del horario de verano sin importar la **Zona horaria** que seleccione. Sin embargo, durante el horario de verano, la diferencia UTC mostrará la diferencia de la zona horaria básica, no la diferencia UTC del horario de verano.
    > 
    > 
-9. Haga clic en **Aceptar**.
+9. Haga clic en **OK**.
 10. Ahora, necesitará agregar las reglas que desee aplicar cuando esté en vigor el segundo perfil. Haga clic en **Agregar regla**, y, a continuación, puede crear la misma regla que tenga para el perfil predeterminado.
     
     ![Agregar una regla para el horario no laborable](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 11. Asegúrese de crear una regla tanto para el escalado horizontal como para la reducción horizontal; si no, cuando el perfil esté en vigor, el recuento de instancias únicamente crecerá (o disminuirá).
 12. Finalmente, haga clic en **Guardar**.
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y que responde adecuadamente.
+## <a name="next-steps"></a>pasos siguientes
+* [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y responde correctamente.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
-* [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo funciona su código en la nube.
+* [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo está actuando su código en la nube.
 * [Vea eventos y el registro de actividades](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 

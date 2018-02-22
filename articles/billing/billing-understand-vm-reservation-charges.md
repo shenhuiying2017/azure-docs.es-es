@@ -1,5 +1,5 @@
 ---
-title: "Información sobre la aplicación del descuento de instancias reservadas de máquinas virtuales de Azure | Microsoft Docs"
+title: "Información sobre la aplicación del descuento de Azure Reserved Virtual Machine Instances | Microsoft Docs"
 description: "Obtenga información sobre cómo se aplica el descuento de instancias reservadas de máquina virtual de Azure a las máquinas virtuales en ejecución."
 services: billing
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual
 Después de comprar una instancia reservada de máquina virtual, el descuento de reserva se aplica automáticamente a las máquinas virtuales que coincidan con los atributos y la cantidad de la reserva. Una reserva cubre los costos de infraestructura de las máquinas virtuales. En la tabla siguiente se muestran los costos de la máquina virtual después de comprar una reserva. En cualquier caso, se le cobrará por el almacenamiento y la administración de redes según las tarifas normales.
@@ -31,7 +31,7 @@ Después de comprar una instancia reservada de máquina virtual, el descuento de
 |Máquinas virtuales con Windows con la [Ventaja híbrida de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | La reserva cubre los costos de infraestructura. Los costos de software de Windows están cubiertos por la Ventaja híbrida de Azure. El software adicional se cobra por separado.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Aplicación del descuento de reserva en máquinas virtuales que no ejecutan Windows
- El descuento de reserva se aplica a las instancias de máquinas virtuales en ejecución en períodos de una hora. Las reservas que haya comprado se vinculan con el uso emitido por las máquinas virtuales en ejecución para aplicar el descuento de reserva. En el siguiente gráfico se muestra la aplicación de una reserva a un uso de máquina virtual facturable. La ilustración se basa en una compra de reserva y dos instancias de máquina virtual coincidentes.
+ El descuento de reserva se aplica a las instancias de máquinas virtuales en ejecución en períodos de una hora. Las reservas que haya comprado se vinculan con el uso emitido por las máquinas virtuales en ejecución para aplicar el descuento de reserva. Para las máquinas virtuales que no se pueden ejecutar la hora completa, se rellenará la reserva desde otras máquinas virtuales que no usen una reserva, incluidas las que se ejecutan simultáneamente. Al final de la hora, se bloquea la aplicación de reserva para las máquinas virtuales de dicha hora. En el caso de que una máquina virtual no se ejecute durante una hora o que haya máquinas virtuales concurrentes dentro de la hora que no llenen la hora de reserva, la reserva estará infrautilizada durante esa hora. En el siguiente gráfico se muestra la aplicación de una reserva a un uso de máquina virtual facturable. La ilustración se basa en una compra de reserva y dos instancias de máquina virtual coincidentes.
 
 ![Aplicación de instancia reservada de máquina virtual](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -44,6 +44,16 @@ Para obtener información sobre la aplicación de las reservas en informes de us
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicación del descuento de reserva a máquinas virtuales con Windows
 Cuando ejecuta instancias de máquina virtual con Windows, la reserva se aplica para cubrir los costos de infraestructuras. La aplicación de la reserva a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte los [costos de software de Windows con reservas](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencias de Windows con la [Ventaja para uso híbrido de Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="next-steps"></a>pasos siguientes
+Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
+
+- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
+- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
+- [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

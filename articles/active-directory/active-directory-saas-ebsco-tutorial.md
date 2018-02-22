@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integración de Azure Active Directory con EBSCO
 
@@ -119,9 +119,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     o   **Elementos únicos:**  
 
-     **Custid** = escriba el identificador de cliente único de EBSCO 
+    o   **Custid** = escriba el identificador de cliente único de EBSCO 
 
-     **Profile** = los clientes pueden personalizar el vínculo para dirigir a los usuarios a un perfil específico (en función de lo que compran en EBSCO). Pueden especificar un identificador de perfil específico. Los identificadores principales son eds (servicio de detección de EBSCO) y ehost (bases de datos EBSOCOhost). Se proporcionan [aquí](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile) instrucciones.
+    o   **Profile** = los clientes pueden personalizar el vínculo para dirigir a los usuarios a un perfil específico (en función de lo que compran en EBSCO). Pueden especificar un identificador de perfil específico. Los identificadores principales son eds (servicio de detección de EBSCO) y ehost (bases de datos EBSOCOhost). Se proporcionan [aquí](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile) instrucciones.
 
 5. La aplicación EBSCO espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
     

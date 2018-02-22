@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -69,6 +69,26 @@ Al abrir Eclipse, las herramientas de HDInsight detectan automáticamente si se 
    
    ![Expansión de un nombre de clúster para ver recursos](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Vinculación de un clúster
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+1. Haga clic en **Link a cluster** (Vincular un clúster) desde **Azure Explorer**.
+
+   ![menú contextual de vinculación de un clúster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Escriba los valores para **Cluster Name** (Nombre del clúster), **Storage Account** (Cuenta de almacenamiento) y **Storage Key** (Clave de almacenamiento), luego seleccione **Storage Container** (Contenedor de almacenamiento) y, finalmente, escriba el nombre de usuario y la contraseña. Haga clic en el botón Ok (Aceptar) para vincular el clúster.
+   
+   ![cuadro de diálogo de vinculación de clúster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados.
+
+3. Si la información de entrada es correcta, puede ver un clúster vinculado en el nodo de **HDInsight** tras hacer clic en el botón OK (Aceptar). Ahora puede enviar una aplicación a este clúster vinculado.
+
+   ![clúster vinculado](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. También puede desvincular un clúster de **Azure Explorer**.
+   
+   ![clúster no vinculado](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Configuración de un proyecto Spark en Scala de un clúster Spark en HDInsight
@@ -130,6 +150,7 @@ Al abrir Eclipse, las herramientas de HDInsight detectan automáticamente si se 
 6. La pestaña **Spark Submission** (Envío de Spark) debería empezar a mostrar el progreso. Puede detener la aplicación si selecciona el botón rojo de la ventana **Spark Submission** (Envío de Spark). También puede ver los registros de ejecución de esta aplicación concreta si selecciona el icono de globo (que se indica con el cuadro azul en la imagen).
       
    ![Ventana de envío de Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Acceso y administración de clústeres HDInsight Spark mediante las herramientas de HDInsight del kit de herramientas de Azure para Eclipse
 Puede realizar varias operaciones mediante herramientas de HDInsight, incluido el acceso a la salida del trabajo.

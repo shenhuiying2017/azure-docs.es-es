@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de Java en Application Insights
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
 ## <a name="install-the-java-sdk"></a>Instalación del SDK de Java
 
-Instale el [SDK de Application Insights para Java][java], si no ha hecho ya.
-
-(Si no desea realizar un seguimiento de las solicitudes HTTP, puede omitir la mayor parte del archivo de configuración .xml, pero debe incluir al menos el elemento `InstrumentationKey`. También debe llamar a `new TelemetryClient()` para inicializar el SDK).
-
+Siga las instrucciones para instalar el [SDK de Application Insights para Java][java], si aún no ha hecho.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Incorporación de bibliotecas de registro al proyecto
 *Elija la forma adecuada para su proyecto.*
@@ -101,13 +98,14 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 ```
 
 #### <a name="otherwise-"></a>De lo contrario...
-Descargue, extraiga el appender adecuado y agregue después la biblioteca adecuada a su proyecto:
+Siga las instrucciones para instalar manualmente el SDK de Java de Application Insights, descargar el archivo JAR (tras llegar a la página central de Maven, haga clic en el vínculo "jar" en la sección de descarga) para el appender adecuado y agregar al proyecto el archivo JAR del appender descargado.
 
 | Registrador | Descargar | Biblioteca |
 | --- | --- | --- |
-| Logback |[SDK con el appender de Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[SDK con el appender de Log4J v2](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[SDK con el appender de Log4J v1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[JAR del appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[JAR del appender de Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[JAR del appender de Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Incorporación del appender el marco de registro
 Para empezar a recibir los seguimientos, combine el fragmento de código relevante al archivo de configuración Log4J o Logback: 
@@ -128,7 +126,7 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -158,9 +156,11 @@ Los appenders de Application Insights pueden hacer referencia a cualquier regist
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>En el portal de Application Insights, explore los seguimientos.
 Ahora que ha configurado el proyecto para enviar el seguimiento a Application Insights, puede ver y buscar estos seguimientos en el portal de Application Insights, en la hoja [Búsqueda][diagnostic].
 
+Las excepciones enviadas a través de registradores se mostrarán en el portal como telemetría de excepciones.
+
 ![En el portal de Application Insights, abra Búsqueda.](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Búsqueda de diagnóstico][diagnostic]
 
 <!--Link references-->

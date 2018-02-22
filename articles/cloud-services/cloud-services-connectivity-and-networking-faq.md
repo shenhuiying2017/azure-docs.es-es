@@ -15,60 +15,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e89549f51abb896c1ddf48a46de78fb5e4988f22
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: preguntas más frecuentes (P+F)
 
-Este artículo incluye las preguntas frecuentes sobre conectividad y redes para [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
+Este artículo incluye preguntas frecuentes sobre conectividad y redes para [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Para obtener información del tamaño, consulte la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>No se puede reservar una dirección IP en un servicio en la nube con varias direcciones IP virtuales
-En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. **No** cambie la configuración mientras se está actualizando la implementación.
+## <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>No se puede reservar una dirección IP en un servicio en la nube con varias direcciones IP virtuales.
+En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. *No* cambie la configuración mientras se está actualizando la implementación.
 
-## <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>¿Cómo se usa el escritorio remoto con un NSG?
-Agregue reglas al NSG que permitan el tráfico en los puertos **3389** y **20000**.  El Escritorio remoto usa el puerto **3389**.  Las instancias del servicio en la nube tienen la carga equilibrada, por lo que no se puede controlar directamente a qué instancia conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico RDP y permiten al cliente enviar una cookie de RDP y especificar una instancia concreta a la que conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* requieren que ese puerto **20000** se abra (puede estar bloqueado si tiene un NSG).
+## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>¿Cómo se usa el escritorio remoto con un grupo de seguridad de red?
+Agregue reglas al NSG que permitan el tráfico en los puertos **3389** y **20000**. Escritorio remoto usa el puerto **3389**. Las instancias de Cloud Services tienen la carga equilibrada, por lo que no se puede controlar directamente a qué instancia conectarse. Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico del Protocolo de escritorio remoto (RDP) y permiten al cliente enviar una cookie de RDP y especificar una instancia concreta a la que conectarse. Los agentes *RemoteForwarder* y *RemoteAccess* requieren que se abra el puerto **20000**, que podría estar bloqueado si tiene un grupo de seguridad de red.
 
 ## <a name="can-i-ping-a-cloud-service"></a>¿Se puede hacer ping a un servicio de nube?
 
 No, no usando un "ping" normal / protocolo ICMP. No se permite el protocolo ICMP a través de Azure Load Balancer.
 
-Para probar la conectividad, se recomienda que realice un ping de puerto. Mientras que Ping.exe usa ICMP, otras herramientas, como PSPing, Nmap, y telnet permiten probar la conectividad con un puerto TCP específico.
+Para probar la conectividad, se recomienda que realice un ping de puerto. Aunque Ping.exe utiliza ICMP, puede usar otras herramientas, como PSPing, Nmap y telnet, que permiten probar la conectividad con un puerto TCP específico.
 
 Para más información, consulte [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/) (uso de pings de puerto en lugar de ICMP para probar la conectividad de la máquina virtual de Azure).
 
-## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-indicate-some-sort-of-malicious-attack-to-the-cloud-service"></a>¿Cómo se puede evitar la recepción de miles de aciertos de direcciones IP desconocidas que indican algún tipo de ataque malintencionado al servicio de nube?
-Azure implementa una seguridad de red multicapa para proteger sus servicios de plataforma contra los ataques de denegación de servicio distribuido (DDoS). El sistema de defensa DDoS de Azure forma parte del proceso de supervisión continuo de Azure, que mejora continuamente a través de pruebas de penetración. Este sistema de defensa DDoS está diseñado para resistir ataques no solo desde el exterior, sino también de otros inquilinos de Azure. Para información más detallada, consulte el documento sobre [Seguridad de red de Microsoft Azure](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
+## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>¿Cómo se puede evitar la recepción de miles de aciertos de direcciones IP desconocidas que indican un ataque malintencionado al servicio en la nube?
+Azure implementa una seguridad de red multicapa para proteger sus servicios de plataforma contra los ataques de denegación de servicio distribuido (DDoS). El sistema de defensa DDoS de Azure forma parte del proceso de supervisión continuo de Azure, que mejora continuamente a través de pruebas de penetración. Este sistema de defensa DDoS está diseñado para resistir ataques no solo desde el exterior, sino también de otros inquilinos de Azure. Para más información, consulte [Azure Network Security](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf) (Seguridad de red de Azure).
 
 También puede crear una tarea de inicio para bloquear de manera selectiva algunas direcciones IP específicas. Para más información, consulte [Bloqueo de una dirección IP específica](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
 
-## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Cuando intento ejecutar el protocolo de escritorio remoto (RDP) para la instancia de servicio de nube, obtengo el mensaje, "La cuenta de usuario ha expirado".
-Puede obtener el mensaje de error "Esta cuenta de usuario expiró" cuando ignora la fecha de expiración que está configurada en los ajustes de RDP. Puede cambiar la fecha de expiración desde el portal siguiendo estos pasos:
+## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Cuando intento ejecutar el Protocolo de escritorio remoto (RDP) para la instancia de servicio en la nube, obtengo el mensaje "La cuenta de usuario ha expirado".
+Puede obtener el mensaje de error "Esta cuenta de usuario expiró" cuando ignora la fecha de expiración que está configurada en las opciones de RDP. Puede cambiar la fecha de expiración desde el portal siguiendo estos pasos:
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com), vaya a su servicio en la nube y seleccione la pestaña **Escritorio remoto**.
+
 2. Seleccione la ranura de implementación **Producción** o **Ensayo**.
-3. Cambie la fecha "Expira en" y, a continuación, guarde la configuración.
+
+3. Cambie la fecha de **Expira en** y, a continuación, guarde la configuración.
 
 Ahora podrá ejecutar el RDP en el equipo.
 
-## <a name="why-is-loadbalancer-not-balancing-traffic-equally"></a>¿Por qué LoadBalancer no equilibra el tráfico de forma equitativa?
-Para información acerca de cómo funciona de equilibrador de carga interno, consulte [Azure Load Balancer new distribution mode](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/) (Nuevo modo de distribución de Azure Load Balancer).
+## <a name="why-is-azure-load-balancer-not-balancing-traffic-equally"></a>¿Por qué Azure Load Balancer no equilibra el tráfico de forma equitativa?
+Para información acerca de cómo funciona el equilibrador de carga interno, consulte [Azure Load Balancer new distribution mode](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/) (Nuevo modo de distribución de Azure Load Balancer).
 
-El algoritmo de distribución usado para asignar el tráfico a los servidores disponibles es una tupla de 5 componentes (IP de origen, puerto de origen, IP de destino, puerto de destino, tipo de protocolo). Dicho algoritmo solo proporciona adherencia dentro de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigirán a la misma instancia de IP del centro de datos (DIP) tras el extremo con equilibrio de carga. Cuando el cliente se cierra y vuelve a abrir la conexión o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia y provoca que el tráfico vaya hacia otro extremo DIP.
+El algoritmo de distribución usado para asignar el tráfico a los servidores disponibles es una tupla de cinco componentes (IP de origen, puerto de origen, IP de destino, puerto de destino y tipo de protocolo). Dicho algoritmo solo proporciona adherencia dentro de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigen a la misma instancia de IP del centro de datos (DIP) tras el punto de conexión con equilibrio de carga. Cuando el cliente cierra la conexión y vuelve a abrirla, o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia y provoca que el tráfico vaya hacia otro punto de conexión DIP.
 
-## <a name="how-can-i-redirect-the-incoming-traffic-to-my-default-url-of-cloud-service-to-a-custom-url"></a>¿Cómo puedo redirigir el tráfico que entra en mi dirección URL predeterminada de un servicio en la nube a una dirección URL personalizada predeterminada? 
+## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>¿Cómo puedo redirigir el tráfico que entra en la dirección URL predeterminada de un servicio en la nube a una dirección URL personalizada? 
 
-El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre DNS personalizados. Dado que el módulo URL Rewrite está habilitado de forma predeterminada en los roles web y sus reglas se configuran en el archivo web.config de la aplicación, siempre estará disponible en la máquina virtual con independencia de los reinicios o los restablecimientos de la imagen inicial. Para más información, consulte:
+El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre personalizados. Dado que el módulo URL Rewrite está habilitado de forma predeterminada en los roles web y sus reglas se configuran en el archivo web.config de la aplicación, siempre estará disponible en la máquina virtual con independencia de los reinicios o los restablecimientos de la imagen inicial. Para más información, consulte:
 
-- [Creating Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
-- [How to remove default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Eliminación de un vínculo predeterminado)
+- [Create Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
+- [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Quitar un vínculo predeterminado)
 
-## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de mi servicio en la nube? 
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de un servicio en la nube? 
 
-Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminados de su servicio en la nube (por ejemplo, \*.cloudapp.net) si establece el encabezado host en un nombre DNS personalizado (por ejemplo, www.MyCloudService.com) en la configuración de enlace de sitio en el archivo de definición de servicio en la nube ( * .csdef), como se indica a continuación: 
+Puede evitar el tráfico entrante para la dirección URL predeterminada o el nombre del servicio en la nube (por ejemplo, \*. cloudapp.net). Establezca el encabezado de host en un nombre DNS personalizado (por ejemplo, www.MiServicioEnLaNube.com) en la configuración de enlace de sitio del archivo de definición del servicio en la nube (*.csdef), como se indica a continuación: 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -90,19 +93,19 @@ Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminad
       </WebRole> 
     </ServiceDefinition> 
  
-Dado que este enlace de encabezado host se aplica mediante un archivo csdef, el servicio solo será accesible mediante el nombre personalizado "www.MyCloudService.com", siempre y cuando todas las solicitudes entrantes al dominio " * .cloudapp.net" produzcan error en todo momento. Dicho esto, si usa un sondeo de SLB personalizado o un equilibrador de carga interno en el servicio, el bloqueo de la dirección URL o el nombre predeterminados del servicio puede interferir con el comportamiento de sondeo. 
+Dado que este enlace de encabezado de host se aplica a través del archivo csdef, el servicio es accesible solo mediante el nombre personalizado "www.MiServicioEnLaNube.com". Todas las solicitudes entrantes para el dominio "*. cloudapp.net" siempre producen un error. Si usa un sondeo de SLB personalizado o un equilibrador de carga interno en el servicio, el bloqueo de la dirección URL o del nombre predeterminados del servicio puede interferir con el comportamiento del sondeo. 
 
-## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>¿Cómo se puede tener la seguridad de que la dirección IP de acceso público de un servicio en la nube (también conocida como VIP) no cambie nunca para que algunos clientes concretos puedan incluirla habitualmente en la lista de permitidos?
+## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>¿Cómo puedo asegurarme de que la dirección IP pública de un servicio en la nube nunca cambie?
 
-Para incluir la dirección IP de sus servicios en la nube en la lista de permitidos, se recomienda tener una IP reservada asociada a ella, si no, la IP virtual que proporciona Azure se desasignará de su suscripción si elimina la implementación. Tenga en cuenta que para que la operación de intercambio de direcciones IP virtuales se realice con éxito, necesitará direcciones IP reservadas para los espacios de producción y ensayo, o dicha operación dará error. Siga estos artículos para reservar una dirección IP y asociarla a su instancia de Cloud Services:  
+Para asegurarse de que la dirección IP pública de un servicio en la nube (también conocida como VIP) nunca cambie de modo que algunos clientes específicos puedan incluirla en la lista de elementos permitidos, se recomienda asociarle una dirección IP reservada. En caso contrario, la dirección IP virtual proporcionada por Azure se desasigna de su suscripción, si elimina la implementación. Para que la operación de intercambio de VIP sea correcta, necesita direcciones IP reservadas individuales tanto para las ranuras de almacenamiento provisional como para producción. Sin ellas, se produce un error en la operación de intercambio. Para reservar una dirección IP y asociarla a un servicio en la nube, consulte estos artículos:
  
 - [Reserva de la dirección IP de un servicio en la nube existente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
-Siempre que tenga más de una instancia de los roles, la asociación de RIP a su servicio en la nube no debería producir tiempo de inactividad. Como alternativa, puede incluir en la lista de permitidos el intervalo IP de su centro de datos de Azure. Puede encontrar todos los intervalos IP de Azure [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+Si tiene más de una instancia para los roles, la asociación de RIP al servicio en la nube no debería provocar ningún tiempo de inactividad. Como alternativa, puede incluir en la lista de permitidos el intervalo de direcciones IP de su centro de datos de Azure. Puede encontrar todos los intervalos de direcciones IP de Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
 
-Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Microsoft Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizarán en los centros de datos durante al menos una semana. Descargue el nuevo archivo XML cada semana y realizar los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Express Route observarán que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes. 
+Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana. Descargue el nuevo archivo .xml cada semana y realice los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute podrían apreciar que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes. 
 
-## <a name="how-can-i-use-azure-resource-manager-vnets-with-cloud-services"></a>¿Cómo puedo usar redes virtuales de Azure Resource Manager con Cloud Services? 
+## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>¿Cómo puedo usar redes virtuales de Azure Resource Manager con servicios en la nube? 
 
-Los servicios en la nube no se pueden colocar en redes virtuales de Azure Resource Manager, pero es posible conectar una red virtual de Azure Resource Manager y una red virtual clásica mediante emparejamiento. Para más información, consulte [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).
+Los servicios en la nube no se pueden colocar en las redes virtuales de Azure Resource Manager. Las redes virtuales de Resource Manager y las redes virtuales de implementación clásica pueden conectarse a través de emparejamiento. Para más información, consulte [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).

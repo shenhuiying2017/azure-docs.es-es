@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Ubicaciones POP de CDN de Azure
 En este artículo se enumeran las ubicaciones de puntos de presencia (POP) actuales para **Azure CDN de Verizon** y **Azure CDN de Akamai**.
 
 > [!IMPORTANT]
-> Las ubicaciones de ciudad POP de **Azure CDN de Akamai** no se revelan individualmente.  
+> Las ubicaciones de ciudades de POP de **Azure CDN de Akamai** no se revelan individualmente.  
 > 
 > Ambos proveedores crean sus infraestructuras de red CDN de manera distinta.  No se recomienda tener en cuenta las ubicaciones POP para decidir qué producto de red CDN de Azure usar. En su lugar, decida en función de sus características y su rendimiento para el usuario final.  Compruebe el rendimiento con ambos proveedores para elegir el producto de red CDN más adecuado para sus usuarios. 
 > 
@@ -32,9 +32,9 @@ En este artículo se enumeran las ubicaciones de puntos de presencia (POP) actua
 
 | Region | Verizon | Akamai |
 | --- | --- | --- |
-| Norteamérica | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, Colorado<br />Los Angeles, CA<br />Miami, FL<br />Nueva York, NY<br />Philadelphia, PA<br />San José, CA<br />Seattle, WA<br />Washington DC | Canadá<br />México<br />Estados Unidos |
+| Norteamérica | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, Colorado<br />Los Angeles, CA<br />Miami, FL<br />Nueva York, NY<br />Philadelphia, PA<br />San José, CA<br />Seattle, WA<br />Washington DC<br />Puebla, México<br />Querétaro, México | Canadá<br />México<br />Estados Unidos |
 | Sudamérica | Buenos Aires, Argentina<br />Río de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellín, Colombia<br />Quito, Ecuador<br />Lima, Perú | Brasil<br />Perú |
-| Europa del Norte y Europa del Este | Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Varsovia, Polonia<br />Estocolmo, Suecia | Dinamarca<br />Polonia<br />Suecia<br /> |
+| Europa del Norte y Europa del Este | Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Riga, Letonia<br />Varsovia, Polonia<br />Estocolmo, Suecia | Dinamarca<br />Polonia<br />Suecia<br /> |
 | Europa Occidental | Viena, Austria<br />París, Francia<br />Fráncfort, Alemania<br />Ámsterdam, Países Bajos<br />Londres, Reino Unido | Austria<br />Francia<br />Alemania<br />Irlanda<br />Países Bajos<br />Suiza<br />Reino Unido |
 | Europa del Sur | Milán, Italia<br />Madrid, España | Italia<br />España |
 | África | Johannesburgo (Sudáfrica) | |

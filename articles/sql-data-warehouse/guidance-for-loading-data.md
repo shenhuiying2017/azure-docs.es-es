@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse
 Recomendaciones y optimizaciones de rendimiento para cargar datos en Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ Es un buen procedimiento de seguridad cambiar la clave de acceso al almacenamien
 
 Para rotar las cuentas de Azure Storage:
 
-1. Cree una segunda credencial de ámbito de base de datos en función de la clave de acceso de almacenamiento secundaria.
-2. Cree un segundo origen de datos externo basado en esta nueva credencial.
-3. Coloque y cree las tablas externas para que señalen a los nuevos orígenes de datos externos. 
+Para cada cuenta de almacenamiento cuya clave haya cambiado, ejecute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Después de migrar las tablas externas al nuevo origen de datos, realice estas tareas de limpieza:
+Ejemplo:
 
-1. Coloque el primer origen de datos externo.
-2. Coloque la primera credencial de ámbito de base de datos en función de la clave de acceso de almacenamiento principal.
-3. Inicie sesión en Azure y vuelva a generar la clave de acceso principal para que esté lista para la próxima rotación.
+Se crea la clave original
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Se cambia de la clave 1 a la clave 2.
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+No es necesario cambiar nada más en los orígenes de datos externos subyacentes.
 
 
 ## <a name="next-steps"></a>pasos siguientes

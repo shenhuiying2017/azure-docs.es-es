@@ -1,6 +1,6 @@
 ---
-title: Proyecto de procesamiento de pagos para entornos compatibles con PCI DSS
-description: Requisito de PCI DSS
+title: 'Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS'
+description: 'Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS'
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint Automation: procesamiento de pagos para entornos compatibles con PCI DSS
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS
 
 ## <a name="overview"></a>Información general
 
@@ -43,7 +43,7 @@ La arquitectura fundamental consta de los siguientes componentes:
 - **Plantillas de implementación**. En esta implementación, las [plantillas de Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) se usan para implementar automáticamente los componentes de la arquitectura en Microsoft Azure; para ello, se especifican los parámetros de configuración durante la instalación.
 - **Scripts de implementación automatizados**. Estos scripts le permiten implementar la solución de extremo a extremo. Asimismo, estos scripts constan de los siguientes elementos:
     - Una instalación de módulo y un script de configuración del [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) se usan para instalar y comprobar que los roles de administrador global y los módulos de PowerShell necesarios están configurados correctamente.
-    - Un script de instalación de PowerShell se usa para implementar la solución de un extremo a otro, que se proporciona a través de un archivo .zip y un archivo .bacpac que contiene una aplicación web de demostración creada previamente con contenido de [ejemplo de la base de datos SQL](https://github.com/Microsoft/azure-sql-security-sample) . El código fuente de esta solución está disponible para su revisión en el [repositorio de código del plano técnico de procesamiento de pagos][code-repo]. 
+    - Un script de instalación de PowerShell se usa para implementar la solución de un extremo a otro, que se proporciona a través de un archivo .zip y un archivo .bacpac que contiene una aplicación web de demostración creada previamente con contenido de [ejemplo de la base de datos SQL](https://github.com/Microsoft/azure-sql-security-sample) . El código fuente de esta solución está disponible para su revisión en el [repositorio de código del plano técnico][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitectura
 
@@ -72,7 +72,7 @@ Los roles de usuario se emplean para ilustrar el caso de uso y proporcionan una 
 
 #### <a name="role-site-and-subscription-admin"></a>Rol: Administrador del sitio y la suscripción
 
-|Elemento      |Ejemplo|
+|item      |Ejemplo|
 |----------|------|
 |Nombre de usuario: |`adminXX@contosowebstore.com`|
 | Nombre: |`Global Admin Azure PCI Samples`|
@@ -84,7 +84,7 @@ Los roles de usuario se emplean para ilustrar el caso de uso y proporcionan una 
 
 #### <a name="role-sql-administrator"></a>Rol: Administrador de SQL
 
-|Elemento      |Ejemplo|
+|item      |Ejemplo|
 |----------|------|
 |Nombre de usuario: |`sqlAdmin@contosowebstore.com`|
 | Nombre: |`SQLADAdministrator PCI Samples`|
@@ -97,7 +97,7 @@ Los roles de usuario se emplean para ilustrar el caso de uso y proporcionan una 
 
 #### <a name="role-clerk"></a>Rol: distribuidor
 
-|Elemento      |Ejemplo|
+|item      |Ejemplo|
 |----------|------|
 |Nombre de usuario:| `receptionist_EdnaB@contosowebstore.com`|
 | Nombre: |`Edna Benson`|
@@ -110,8 +110,6 @@ Edna Benson es la directora del departamento de recepción y negocios. Es la res
 - Puede crear y leer la información de cliente.
 - Puede modificar la información del cliente.
 - Puede sobrescribir o reemplazar el número de tarjeta de crédito, la fecha de expiración y el número CVV.
-
-> El usuario de Contoso Webstore se muestra automáticamente como **Edna**, para así poder probar las funcionalidades del entorno implementado.
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore: precios estimados
 
@@ -357,7 +355,7 @@ Le recomendamos que use una instalación nueva de PowerShell para implementar la
     
 ## <a name="threat-model"></a>Modelo de amenazas
 
-Un diagrama de flujo de datos (DFD) y un modelo de amenazas de ejemplo para Contoso Webstore, en [modelo de amenazas en el plano técnico de procesamiento de pagos](https://aka.ms/pciblueprintthreatmodel).
+Un diagrama de flujo de datos (DFD) y un modelo de amenazas de ejemplo para Contoso Webstore, en el [modelo de amenazas del plano técnico](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

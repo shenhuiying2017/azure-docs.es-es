@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -20,7 +20,7 @@ La interfaz de línea de comandos (CLI) de Azure Service Fabric es una utilidad 
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de la instalación, asegúrese de que el entorno tiene Python y pip instalados. Para más información, consulte la [documentación de inicio rápido de pip](https://pip.pypa.io/en/latest/quickstart/) y la [documentación oficial de instalación de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -107,6 +107,19 @@ Si se produce un error en la instalación en el subsistema de Windows para Linux
 ```bash
 sudo pip3 install sfctl
 ```
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
+
+Para instalar la CLI de Service Fabric en Redhat, ejecute los siguientes comandos:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+Para probar la instalación puede consultar los pasos mencionados en la sección **Ubuntu y subsistema de Windows para Linux**
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -248,7 +261,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Implementación de una aplicación con la CLI de Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)

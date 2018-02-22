@@ -1,6 +1,7 @@
 1. Copie el instalador en una carpeta local (por ejemplo, /tmp) del servidor que desea proteger. En un terminal, ejecute los siguientes comandos:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. Para instalar Mobility Service, ejecute el siguiente comando:
@@ -21,11 +22,11 @@ Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|Parámetro|Tipo|Descripción|Valores posibles|
+|.|type|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |-r |Obligatorio|Especifica si se debe instalar Mobility Service (MS) o debe instalarse MasterTarget(MT)|MS </br> MT|
 |-d |Opcional|Ubicación en que se instalará Mobility Service|/usr/local/ASR|
-|-v|Obligatorio|Especifica la plataforma en la que se instala Mobility Service </br> </br>- **VMware**: utilice este valor si va a instalar Mobility Service en una máquina virtual que se ejecuta en *ESXi Hosts de VMware vSphere*, *Hosts de Hyper-V* y *servidores físicos* </br> - **Azure**: utilice este valor si va a instalar el agente en una máquina virtual de IaaS de Azure| VMware </br> Las tablas de Azure|
+|-v|Obligatorio|Especifica la plataforma en la que se instala Mobility Service </br> </br>-**VMware: use este valor si va a instalar Mobility Service en una máquina virtual que se ejecuta en *hosts ESXi de VMware vSphere*, *hosts de Hyper-V y *servidores físicos* </br> - **Azure: use este valor si va a instalar el agente en una máquina virtual de IaaS de Azure| VMware </br> Azure|
 |-q|Opcional|Especifica que se ejecute el programa de instalación en modo silencioso| N/D|
 
 
@@ -37,7 +38,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|Parámetro|Tipo|Descripción|Valores posibles|
+|.|type|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |-i |Obligatorio|Dirección IP del servidor de configuración|Cualquier dirección IP válida|
 |-P |Obligatorio|Ruta de acceso completa del archivo donde se guarda la frase de contraseña de conexión|Cualquier carpeta válida|

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
 En el vídeo siguiente se muestra cómo crear un back-end de API web cómo protegerlo mediante el protocolo OAuth 2.0 con Azure Active Directory y la administración de API.  En este artículo se ofrece una introducción e información adicional de los pasos del vídeo. Este vídeo de 24 minutos le muestra cómo:
@@ -33,7 +33,7 @@ En el vídeo siguiente se muestra cómo crear un back-end de API web cómo prote
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Crear un directorio de Azure AD
-Para proteger su API web con copia de seguridad con Azure Active Directory, primero debe disponer de un inquilino de AAD. En este vídeo se usa un inquilino denominado **APIMDemo** . Para crear un inquilino de AAD, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**App Services**->**Active Directory**->**Directorio**->**Creación personalizada**. 
+Para proteger su back-end de API Web con Azure Active Directory, primero debe disponer de un inquilino de AAD. En este vídeo se usa un inquilino denominado **APIMDemo** . Para crear un inquilino de AAD, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**App Services**->**Active Directory**->**Directorio**->**Creación personalizada**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

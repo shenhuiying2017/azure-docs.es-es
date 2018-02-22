@@ -1,10 +1,10 @@
 ---
 title: "Generación y exportación de certificados para conexiones de punto a sitio: PowerShell: Azure | Microsoft Docs"
-description: "Este artículo contiene pasos para crear un certificado raíz autofirmado, exportar la clave pública y generar los certificados de cliente mediante PowerShell en Windows 10."
+description: "Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante PowerShell en Windows 10 o Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Generación y exportación de certificados para conexiones de punto a sitio con PowerShell en Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generación y exportación de certificados para conexiones de punto a sitio con PowerShell en Windows 10 o Windows Server 2016
 
-Las conexiones de punto a sitio utilizan certificados para realizar la autenticación. En este artículo, se muestra cómo crear un certificado raíz autofirmado y generar certificados de cliente usando PowerShell en Windows 10. Si desea obtener los pasos de configuración de punto a sitio (por ejemplo, cómo cargar certificados raíz), seleccione uno de los artículos de "Configuración de punto a sitio" de la lista siguiente:
+Las conexiones de punto a sitio utilizan certificados para realizar la autenticación. En este artículo, se muestra cómo crear un certificado raíz autofirmado y generar certificados de cliente usando PowerShell en Windows 10 o Windows Server 2016. Si desea obtener los pasos de configuración de punto a sitio (por ejemplo, cómo cargar certificados raíz), seleccione uno de los artículos de "Configuración de punto a sitio" de la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Creación de certificados autofirmados: PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Las conexiones de punto a sitio utilizan certificados para realizar la autentica
 > 
 
 
-Debe realizar los pasos de este artículo en un equipo que ejecute Windows 10. Los cmdlets de PowerShell que se usan para generar certificados forman parte del sistema operativo Windows 10 y no funcionan en otras versiones de Windows. El equipo con Windows 10 solo es necesario para generar los certificados. Una vez que se generan los certificados, puede cargarlos o instalarlos en cualquier sistema operativo cliente compatible. 
+Debe realizar los pasos de este artículo en un equipo que ejecute Windows 10 o Windows Server 2016. Los cmdlets de PowerShell que se usan para generar certificados forman parte del sistema operativo y no funcionan en otras versiones de Windows. El equipo con Windows 10 o Windows Server 2016 solo es necesario para generar los certificados. Una vez que se generan los certificados, puede cargarlos o instalarlos en cualquier sistema operativo cliente compatible. 
 
-Si no tiene acceso a un equipo Windows 10, puede usar [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para generar certificados. Los certificados que genera mediante cualquiera de estos métodos pueden instalarse en cualquier sistema operativo cliente [compatible](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Si no tiene acceso a un equipo con Windows 10 o Windows Server 2016, puede usar [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para generar certificados. Los certificados que genera mediante cualquiera de estos métodos pueden instalarse en cualquier sistema operativo cliente [compatible](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ## <a name="rootcert"></a>Creación de un certificado raíz autofirmado
 
 Use el cmdlet New-SelfSignedCertificate para crear un certificado raíz autofirmado. Para obtener información adicional sobre los parámetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. En un equipo con Windows 10, abra una consola de Windows PowerShell con privilegios elevados.
+1. En un equipo con Windows 10 o Windows Server 2016, abra una consola de Windows PowerShell con privilegios elevados.
 2. Utilice el ejemplo siguiente para crear el certificado raíz autofirmado. En el ejemplo siguiente se crea un certificado raíz firmado automáticamente con el nombre "P2SRootCert" que se instala automáticamente en "Certificates-Current User\Personal\Certificates". Puede ver el certificado si abre *certmgr.msc*, o bien *Administrar certificados de usuario*.
 
   ```powershell
@@ -131,9 +131,11 @@ Si va a crear más certificados de cliente, o bien no está usando la misma sesi
 
 Para instalar un certificado de cliente, consulte cómo [instalar un certificado de cliente para conexiones de punto a sitio](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Continúe con la configuración de punto a sitio.
 
 * Para conocer los pasos del modelo de implementación de **Resource Manager**, consulte cómo [configurar una conexión de punto a sitio mediante la autenticación de certificados de Azure nativa](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Para ver los pasos del modelo de implementación **clásica**, consulte el artículo [Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+Para obtener información acerca de cómo solucionar problemas de P2S, consulte [Solución de problemas: conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

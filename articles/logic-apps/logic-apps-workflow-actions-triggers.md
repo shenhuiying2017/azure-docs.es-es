@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Desencadenadores y acciones para flujos de trabajo de aplicación lógica
 
-Todas las aplicaciones lógicas se inician con un desencadenador seguido de acciones. En este tema se describen los tipos de desencadenadores y acciones que puede usar para crear aplicaciones integradas del sistema y automatizar procesos o flujos de trabajo empresariales mediante la creación de aplicaciones lógicas. 
+Todas las aplicaciones lógicas se inician con un desencadenador seguido de acciones. En este artículo se describen los tipos de desencadenadores y acciones que puede usar para crear integraciones del sistema y automatizar procesos o flujos de trabajo empresariales mediante la creación de aplicaciones lógicas. 
   
 ## <a name="triggers-overview"></a>Introducción a los desencadenadores 
 
@@ -51,7 +51,7 @@ Todos los desencadenadores contienen estos elementos de nivel superior:
 
 Cada tipo de desencadenador tiene una interfaz diferente y distintas *entradas* que definen su comportamiento. 
 
-| Tipo de desencadenador | Descripción | 
+| Tipo de desencadenador | DESCRIPCIÓN | 
 | ------------ | ----------- | 
 | **Periodicidad** | Se desencadena en función de una programación definida. Puede establecer una fecha y hora futuras para activar este desencadenador. Según la frecuencia, también puede especificar horas y días para ejecutar el flujo de trabajo. | 
 | **Solicitud**  | Transforma la aplicación lógica en un punto de conexión que se puede llamar, también conocido como desencadenador "manual". | 
@@ -111,15 +111,15 @@ Esta es la definición para este desencadenador:
 }
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
-| frequency | Sí | String | La unidad de tiempo para la frecuencia con la que se activa el desencadenador. Use solo uno de estos valores: "second", "minute", "hour", "day", "week" o "month" | 
+| frequency | Sí | string | La unidad de tiempo para la frecuencia con la que se activa el desencadenador. Use solo uno de estos valores: "second", "minute", "hour", "day", "week" o "month" | 
 | interval | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
-| timeZone | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
-| startTime | No | String | Especifique la fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico". O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
-| weekDays | No | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando desee ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
-| hours | No | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
-| minutes | No | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a.m., 12:30 p.m. y las 2:30 p.m. | 
+| timeZone | Sin  | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
+| startTime | Sin  | string | Especifique la fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico". O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
+| weekDays | Sin  | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando desee ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
+| hours | Sin  | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
+| minutes | Sin  | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a.m., 12:30 p.m. y las 2:30 p.m. | 
 |||||| 
 
 Por ejemplo, este desencadenador de periodicidad especifica que la aplicación lógica se ejecuta semanalmente todos los lunes a las 10:30 a.m., a las 12:30 p.m. y a las 2:30 p.m. en hora estándar del Pacífico, y no empieza antes del 9 de septiembre de 2017 a las 2:00 p.m.:
@@ -178,9 +178,9 @@ Este desencadenador actúa como un punto de conexión que se usa para llamar a l
 
 Este desencadenador tiene una propiedad opcional denominada *schema*:
   
-| Nombre del elemento | Obligatorio | Tipo | Descripción |
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
 | ------------ | -------- | ---- | ----------- |
-| schema | No | Objeto | Un esquema JSON que valida la solicitud entrante. Resulta útil para ayudar a los pasos de flujo de trabajo subsiguientes a los que las propiedades hacen referencia. | 
+| schema | Sin  | Objeto | Un esquema JSON que valida la solicitud entrante. Resulta útil para ayudar a los pasos de flujo de trabajo subsiguientes a los que las propiedades hacen referencia. | 
 ||||| 
 
 Para invocar este punto de conexión, debe llamar a la API *listCallbackUrl*. Consulte [API de REST de servicio de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -189,24 +189,24 @@ Para invocar este punto de conexión, debe llamar a la API *listCallbackUrl*. Co
 
 Los desencadenadores HTTP sondean un punto de conexión especificado y comprueban la respuesta para determinar si se debe ejecutar el flujo de trabajo. En este caso, el objeto `inputs` toma estos parámetros necesarios para construir una llamada HTTP:  
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
-| estático | Sí | String | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
-| uri | Sí| String | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
-| Autenticación | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
+| estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
+| uri | Sí| string | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| retryPolicy | Sin  | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
+| Autenticación | Sin  | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
  
 Para que funcione bien con la aplicación lógica, el desencadenador HTTP necesita la API de HTTP para ajustarse a un patrón específico. El desencadenador reconoce estas propiedades:  
   
-| Respuesta | Obligatorio | Descripción | 
+| Response | Obligatorio | DESCRIPCIÓN | 
 | -------- | -------- | ----------- |  
 | Código de estado | Sí | El código de estado 200 ("Correcto") provoca una ejecución. Cualquier otro código de estado no provoca una ejecución. | 
-| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión. | 
-| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
+| Encabezado Retry-after | Sin  | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión. | 
+| Encabezado Location | Sin  | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
 Estos son algunos comportamientos de ejemplo para diferentes tipos de solicitudes:
@@ -222,10 +222,10 @@ Estos son algunos comportamientos de ejemplo para diferentes tipos de solicitude
 
 Estas son las salidas de desencadenador HTTP: 
   
-| Nombre del elemento | Tipo | Descripción |
+| Nombre del elemento | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
-| body | Objeto | El cuerpo de la respuesta HTTP | 
+| Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>Desencadenador de conexión de API  
@@ -252,20 +252,20 @@ El desencadenador de conexión de API es similar al desencadenador HTTP en su fu
 }
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | La puerta de enlace hospedada y el identificador de la aplicación API | 
-| estático | Sí | String | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
-| Autenticación | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
+| estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| retryPolicy | Sin  | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
+| Autenticación | Sin  | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 Para el objeto `host`, estas son las propiedades:  
   
-| Nombre del elemento | Obligatorio | Descripción | 
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN | 
 | ------------ | -------- | ----------- | 
 | api runtimeUrl | Sí | Punto de conexión de la API administrada | 
 | connection name |  | Nombre de la conexión de API administrada que utiliza el flujo de trabajo. Debe hacer referencia a un parámetro denominado `$connection`. |
@@ -273,12 +273,14 @@ Para el objeto `host`, estas son las propiedades:
 
 Estas son las salidas para un desencadenador de conexión de API:
   
-| Nombre del elemento | Tipo | Descripción |
+| Nombre del elemento | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
-| body | Objeto | El cuerpo de la respuesta HTTP | 
+| Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
 |||| 
-  
+
+Obtenga más información sobre [el funcionamiento de los precios de los desencadenadores de conexión de API](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>Desencadenador HTTPWebhook  
 
 El desencadenador HTTPWebhook proporciona un punto de conexión, similar al desencadenador Solicitud, pero también llama a una dirección URL especificada para registrar y anular el registro. Este es un ejemplo del aspecto que podría tener un desencadenador HTTPWebhook:  
@@ -316,10 +318,10 @@ El desencadenador HTTPWebhook proporciona un punto de conexión, similar al dese
 
 Muchas de estas secciones son opcionales y el comportamiento del desencadenador HTTPWebhook depende de las secciones que se proporcionan u omiten. Estas son las propiedades del desencadenador HTTPWebhook:
   
-| Nombre del elemento | Obligatorio | Descripción | 
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN | 
 | ------------ | -------- | ----------- |  
-| subscribe | No | Especifica la solicitud saliente a la que se llama cuando se crea el desencadenador y realiza el registro inicial. | 
-| unsubscribe | No | Especifica la solicitud saliente para llamar cuando se elimina el desencadenador. | 
+| subscribe | Sin  | Especifica la solicitud saliente a la que se llama cuando se crea el desencadenador y realiza el registro inicial. | 
+| unsubscribe | Sin  | Especifica la solicitud saliente para llamar cuando se elimina el desencadenador. | 
 |||| 
 
 Puede especificar límites sobre una acción de webhook de la misma manera que los [límites asincrónicos de HTTP](#asynchronous-limits). Aquí tiene más información sobre las acciones `subscribe` y `unsubscribe`:
@@ -338,15 +340,15 @@ Puede especificar límites sobre una acción de webhook de la misma manera que l
 
 Estas son las salidas del desencadenador HTTPWebhook y el contenido de la solicitud entrante:
   
-| Nombre del elemento | Tipo | Descripción |
+| Nombre del elemento | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
-| body | Objeto | El cuerpo de la respuesta HTTP | 
+| Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
 |||| 
 
 ## <a name="conditions"></a>Condiciones  
 
-Para cualquier desencadenador, puede usar una o varias condiciones para determinar si el flujo de trabajo debe ejecutarse o no. Por ejemplo:  
+Para cualquier desencadenador, puede usar una o varias condiciones para determinar si el flujo de trabajo debe ejecutarse o no. Por ejemplo:   
 
 ```json
 "myDailyReportTrigger": {
@@ -374,7 +376,7 @@ En este caso, el informe solo se desencadena mientras el parámetro `sendReports
 ```  
   
 > [!NOTE]  
-> Cuando alguna expresión hace referencia al código de estado del desencadenador de algún modo, se sustituye el comportamiento predeterminado, que es desencadenar solo en 200 "Correcto". Por ejemplo, si quiere desencadenar en el código de estado 200 y el código de estado 201, debe incluir: `@or(equals(triggers().code, 200),equals(triggers().code,201))` como condición.
+> Cuando alguna expresión hace referencia al código de estado del desencadenador de algún modo, se sustituye el comportamiento predeterminado, que se desencadena solo en 200 "Correcto". Por ejemplo, si quiere desencadenar en el código de estado 200 y el código de estado 201, debe incluir: `@or(equals(triggers().code, 200),equals(triggers().code,201))` como condición.
   
 ## <a name="start-multiple-runs-for-a-request"></a>Inicio de varias ejecuciones para una solicitud
 
@@ -460,7 +462,7 @@ Hay muchos tipos de acciones, cada una con un comportamiento único. Cada tipo d
 
 ### <a name="standard-actions"></a>Acciones estándar  
 
-| Tipo de acción | Descripción | 
+| Tipo de acción | DESCRIPCIÓN | 
 | ----------- | ----------- | 
 | **HTTP** | Llama a un punto de conexión web HTTP. | 
 | **ApiConnection**  | Funciona igual que la acción HTTP, pero usa [API administradas por Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
@@ -478,7 +480,7 @@ Hay muchos tipos de acciones, cada una con un comportamiento único. Cada tipo d
 
 ### <a name="collection-actions"></a>Acciones de colección
 
-| Tipo de acción | Descripción | 
+| Tipo de acción | DESCRIPCIÓN | 
 | ----------- | ----------- | 
 | **Condition** | Evalúa una expresión y en función del resultado, ejecuta la bifurcación correspondiente. | 
 | **Ámbito** | Se usa para agrupar lógicamente otras acciones. | 
@@ -488,7 +490,7 @@ Hay muchos tipos de acciones, cada una con un comportamiento único. Cada tipo d
 
 ## <a name="http-action"></a>Acción HTTP  
 
-Las acciones HTTP llaman a un punto de conexión especificado y comprueban la respuesta para determinar si se debe ejecutar el flujo de trabajo. Por ejemplo:
+Las acciones HTTP llaman a un punto de conexión especificado y comprueban la respuesta para determinar si se debe ejecutar el flujo de trabajo. Por ejemplo: 
   
 ```json
 "myLatestNewsAction": {
@@ -502,16 +504,16 @@ Las acciones HTTP llaman a un punto de conexión especificado y comprueban la re
 
 En este caso, el objeto `inputs` toma estos parámetros necesarios para construir una llamada HTTP: 
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
-| estático | Sí | String | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
-| uri | Sí| String | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
-| authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
+| estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
+| uri | Sí| string | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| retryPolicy | Sin  | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Sin  | string | Define el conjunto de comportamientos especiales para invalidar. | 
+| Autenticación | Sin  | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
 
 Esta acción HTTP de ejemplo reintenta la obtención de las últimas noticias dos veces si hay errores intermitentes para tres ejecuciones en total y con un retraso de 30 segundos entre cada intento:
@@ -537,7 +539,7 @@ El intervalo de reintento se especifica en [formato ISO 8601](https://en.wikiped
 
 De forma predeterminada, todas las acciones basadas en HTTP admiten el patrón estándar de operación asincrónica. Por tanto, si el servidor remoto indica que se acepta la solicitud para el procesamiento con una respuesta "202 ACEPTADO", el motor de Logic Apps sigue sondeando la dirección URL especificada en el encabezado de ubicación de la respuesta hasta alcanzar un estado terminal, que es una respuesta no 202.
   
-Para deshabilitar el comportamiento asincrónico descrito anteriormente, establezca `operationOptions` en `DisableAsyncPattern` en las entradas de la acción. En este caso, la salida de la acción se basa en la respuesta 202 inicial desde el servidor. Por ejemplo:
+Para deshabilitar el comportamiento asincrónico descrito anteriormente, establezca `operationOptions` en `DisableAsyncPattern` en las entradas de la acción. En este caso, la salida de la acción se basa en la respuesta 202 inicial desde el servidor. Por ejemplo: 
   
 ```json
 "invokeLongRunningOperationAction": {
@@ -594,17 +596,17 @@ Este es un ejemplo de acción APIConnection:
 }
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | Representa la información del conector, como `runtimeUrl` y la referencia al objeto connection. | 
-| estático | Sí | String | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
-| path | Sí | String | La ruta de acceso para la operación de API. | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
-| authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
+| path | Sí | string | La ruta de acceso para la operación de API. | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| retryPolicy | Sin  | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Sin  | string | Define el conjunto de comportamientos especiales para invalidar. | 
+| Autenticación | Sin  | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>Acción APIConnectionWebhook
@@ -638,16 +640,16 @@ La acción APIConnectionWebhook hace referencia a un conector administrado por M
 }
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | Representa la información del conector, como `runtimeUrl` y la referencia al objeto connection. | 
-| path | Sí | String | La ruta de acceso para la operación de API. | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
-| authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| path | Sí | string | La ruta de acceso para la operación de API. | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| retryPolicy | Sin  | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Sin  | string | Define el conjunto de comportamientos especiales para invalidar. | 
+| Autenticación | Sin  | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Acción de respuesta  
@@ -706,13 +708,13 @@ Esta acción le permite representar una [función de Azure](../azure-functions/f
     "runAfter": {}
 }
 ```
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- |  
-| function id | Sí | String | El identificador de recurso de la función de Azure que quiere llamar. | 
-| estático | No | String | El método HTTP que se usa para llamar a la función. Si no se especifica, "POST" es el método predeterminado. | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| function id | Sí | string | El identificador de recurso de la función de Azure que quiere llamar. | 
+| estático | Sin  | string | El método HTTP que se usa para llamar a la función. Si no se especifica, "POST" es el método predeterminado. | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
 |||||
 
 Cuando se guarda la aplicación lógica, Azure Logic Apps realiza comprobaciones en la función a la que se hace referencia:
@@ -756,12 +758,12 @@ Como alternativa, para esperar hasta un momento específico en el tiempo, puede 
 > [!NOTE]  
 > La duración de espera puede especificarse mediante el objeto `until`o el objeto `interval`, pero no ambos.
   
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
-| until | No | Objeto | La duración de espera se basa en un punto en el tiempo. | 
-| until timestamp | Sí | String | El punto en el tiempo en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) cuando la espera expira. | 
-| interval | No | Objeto | La duración de espera se basa en la unidad del intervalo y recuento. | 
-| interval unit | Sí | String | La unidad de tiempo. Use solo uno de estos valores: "second", "minute", "hour", "day", "week" o "month" | 
+| until | Sin  | Objeto | La duración de espera se basa en un punto en el tiempo. | 
+| until timestamp | Sí | string | El punto en el tiempo en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) cuando la espera expira. | 
+| interval | Sin  | Objeto | La duración de espera se basa en la unidad del intervalo y recuento. | 
+| interval unit | Sí | string | La unidad de tiempo. Use solo uno de estos valores: "second", "minute", "hour", "day", "week" o "month" | 
 | interval count | Sí | Entero | Un entero positivo que representa el número de unidades de intervalo que se usan para la duración de espera. | 
 ||||| 
 
@@ -795,13 +797,13 @@ Las salidas de esta acción se basan en lo que define en la acción `response` e
 }
 ```
 
-| Nombre del elemento | Obligatorio | Tipo | Descripción | 
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- |  
-| host id | Sí | String| El identificador de recurso del flujo de trabajo que desea llamar | 
-| host triggerName | Sí | String | El nombre del desencadenador que desea invocar | 
-| Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
-| encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
+| host id | Sí | string| El identificador de recurso del flujo de trabajo que desea llamar | 
+| host triggerName | Sí | string | El nombre del desencadenador que desea invocar | 
+| Consultas | Sin  | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
+| encabezados | Sin  | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Cuerpo | Sin  | Objeto | Representa la carga útil que se envía al punto de conexión. | 
 |||||   
 
 ## <a name="compose-action"></a>Acción Compose
@@ -839,7 +841,7 @@ Por ejemplo, para convertir una matriz de números en una matriz de objetos, pue
 }
 ```
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen |
 | select | Sí | Cualquiera | Proyección aplicada a cada elemento de la matriz de origen |
@@ -866,10 +868,10 @@ La salida de la acción `query` es una matriz que contiene elementos de la matri
 > [!NOTE]
 > Si ningún valor satisface la condición `where`, el resultado es una matriz vacía.
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen |
-| donde | Sí | String | La condición que se aplica a cada elemento de la matriz de origen |
+| donde | Sí | string | La condición que se aplica a cada elemento de la matriz de origen |
 ||||| 
 
 ## <a name="table-action"></a>Acción Table
@@ -903,7 +905,7 @@ Y define una acción de tabla como en este ejemplo:
 
 El resultado de este ejemplo es similar a esta tabla HTML: 
 
-<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Nombre</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
 
 Para personalizar esta tabla, puede especificar las columnas de forma explícita, por ejemplo:
 
@@ -929,15 +931,15 @@ Para personalizar esta tabla, puede especificar las columnas de forma explícita
 
 El resultado de este ejemplo es similar a esta tabla HTML: 
 
-<table><thead><tr><th>Generar identificador</th><th>Descripción</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
+<table><thead><tr><th>Generar identificador</th><th>DESCRIPCIÓN</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen. Si el valor de la propiedad `from` es una matriz vacía, el resultado es una tabla vacía. | 
-| formato | Sí | String | El formato de tabla que desea, ya sea **CSV** o **HTML** | 
-| columnas | No | Matriz | Las columnas de tabla que desea. Se usa para invalidar la forma de tabla predeterminada. | 
-| column header | No | String | El encabezado de columna | 
-| column value | Sí | String | El valor de columna | 
+| formato | Sí | string | El formato de tabla que desea, ya sea **CSV** o **HTML** | 
+| columnas | Sin  | Matriz | Las columnas de tabla que desea. Se usa para invalidar la forma de tabla predeterminada. | 
+| column header | Sin  | string | El encabezado de columna | 
+| column value | Sí | string | El valor de columna | 
 ||||| 
 
 ## <a name="terminate-action"></a>Acción Terminate
@@ -959,12 +961,12 @@ Por ejemplo, para detener una ejecución con el estado "Erróneo", puede utiliza
 }
 ```
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
-| runStatus | Sí | String | El estado de la ejecución de destino, que puede ser `Failed` o`Cancelled` |
-| runError | No | Objeto | Los detalles del error. Compatible sólo cuando `runStatus` se establece en `Failed`. |
-| runError code | No | String | El código de error de la ejecución |
-| runError message | No | String | El mensaje de error de la ejecución |
+| runStatus | Sí | string | El estado de la ejecución de destino, que puede ser `Failed` o`Cancelled` |
+| runError | Sin  | Objeto | Los detalles del error. Compatible sólo cuando `runStatus` se establece en `Failed`. |
+| runError code | Sin  | string | El código de error de la ejecución |
+| runError message | Sin  | string | El mensaje de error de la ejecución |
 ||||| 
 
 ## <a name="collection-actions-overview"></a>Información general de las acciones de colección
@@ -1005,11 +1007,11 @@ Esta acción le permite evaluar una condición y ejecutar una rama en función d
 }
 ``` 
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se ejecutan cuando `expression` se evalúa como `true` | 
-| expresión | Sí | String | La expresión para evaluar. |
-| else | No | Objeto | Las acciones internas que se ejecutan cuando `expression` se evalúa como `false` |
+| expresión | Sí | string | La expresión para evaluar. |
+| else | Sin  | Objeto | Las acciones internas que se ejecutan cuando `expression` se evalúa como `false` |
 ||||| 
 
 Si la condición se evalúa correctamente, la condición se marca como `Succeeded`. Las acciones en los objetos `actions` o `else` se evalúan como: 
@@ -1047,7 +1049,7 @@ Esta acción le permite agrupar de forma lógica las acciones de un flujo de tra
 }
 ```
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- |  
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del ámbito interno |
 ||||| 
@@ -1083,11 +1085,11 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones intern
 }
 ```
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del bucle | 
-| foreach | Sí | String | La matriz para recorrer en iteración | 
-| operationOptions | No | String | Especifica las opciones de la operación para personalizar el comportamiento. Actualmente solo admite `Sequential` para ejecutar secuencialmente iteraciones donde el comportamiento predeterminado es paralelo. |
+| foreach | Sí | string | La matriz para recorrer en iteración | 
+| operationOptions | Sin  | string | Especifica las opciones de la operación para personalizar el comportamiento. Actualmente solo admite `Sequential` para ejecutar secuencialmente iteraciones donde el comportamiento predeterminado es paralelo. |
 ||||| 
 
 ## <a name="until-action"></a>Acción Until
@@ -1116,16 +1118,16 @@ Esta acción de bucle ejecuta acciones internas hasta que una condición da como
 }
 ```
 
-| Nombre | Obligatorio | Tipo | Descripción | 
+| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del bucle | 
-| expresión | Sí | String | La expresión para evaluar después de cada iteración. | 
+| expresión | Sí | string | La expresión para evaluar después de cada iteración. | 
 | limit | Sí | Objeto | Los límites del bucle. Debe definir al menos un límite. | 
-| count | No | Entero | El límite del número de iteraciones que se desea realizar | 
-| timeout | No | String | El límite de tiempo de espera en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica cuánto tiempo se debe ejecutar el bucle |
+| count | Sin  | Entero | El límite del número de iteraciones que se desea realizar | 
+| timeout | Sin  | string | El límite de tiempo de espera en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica cuánto tiempo se debe ejecutar el bucle |
 ||||| 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md)
 * [API de REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows)

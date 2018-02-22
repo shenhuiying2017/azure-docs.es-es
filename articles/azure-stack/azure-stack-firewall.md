@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integración del firewall de Azure Stack
 Se recomienda que use un dispositivo de firewall para ayudar a proteger Azure Stack. Aunque los firewalls pueden ayudar en el caso de ataques por denegación de servicio distribuido (DDOS), detección de intrusiones e inspección de contenidos, también pueden convertirse en un cuello de botella de rendimiento para servicios de almacenamiento de Azure como blobs, tablas y colas.
@@ -41,7 +41,7 @@ Algunas de las desventajas del uso de NAT para una VIP pública son:
 - En el caso de escenarios de nube híbrida con Azure, debe tener en cuenta que Azure no admite la configuración de un túnel VPN a un punto de conexión con NAT.
 
 ### <a name="ssl-decryption"></a>Descifrado SSL
-Actualmente, nuestra recomendación respecto al descifrado SSL es deshabilitarlo en todo el tráfico de Azure Stack. En el futuro, proporcionaremos instrucciones acerca de cómo habilitar el descifrado SSL para Azure Stack.
+Actualmente, se recomienda deshabilitar el descifrado SSL en todo el tráfico de Azure Stack. En caso de que se admita en actualizaciones futuras, se proporcionarán instrucciones acerca de cómo habilitarlo en Azure Stack.
 
 ## <a name="edge-firewall-scenario"></a>Escenario de firewall perimetral
 En una implementación perimetral, Azure Stack se implementa directamente detrás del firewall o el enrutador perimetral. En estos casos, se admite que el firewall se encuentre por encima del borde o que actúe como dispositivo de borde, si admite varias rutas de acceso de igual costo (ECMP) con enrutamiento estático o BGP.

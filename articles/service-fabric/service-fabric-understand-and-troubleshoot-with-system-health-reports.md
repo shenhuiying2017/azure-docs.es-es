@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -637,6 +637,21 @@ Otras llamadas API que se pueden bloquear están en la interfaz **IReplicator**.
 - **IReplicator.CatchupReplicaSet**: esta advertencia indica una de estas dos cosas. O bien no hay suficiente réplicas activas, lo que se pueden determinar examinando el estado de las réplicas de la partición o el informe de mantenimiento de System.FM de una reconfiguración bloqueada. También es posible que las réplicas no estén confirmando las operaciones. El cmdlet de PowerShell `Get-ServiceFabricDeployedReplicaDetail` se puede utilizar para determinar el progreso de todas las réplicas. El problema radica en las réplicas cuyo valor de `LastAppliedReplicationSequenceNumber` está detrás del valor de `CommittedSequenceNumber` de la principal.
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: esta advertencia indica un problema en el proceso de compilación. Para más información, consulte el [ciclo de vida de las réplicas](service-fabric-concepts-replica-lifecycle.md). Puede ser debido a una configuración incorrecta de la dirección del replicador. Para más información, consulte [Configurar Reliable Services con estado](service-fabric-reliable-services-configuration.md) y [Especificar recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md). También podría ser un problema en el nodo remoto.
+
+### <a name="replicator-system-health-reports"></a>Informes de mantenimiento del sistema del replicador
+**Cola de replicación completa:**
+**System.Replicator** notifica una advertencia cuando la cola de replicación está llena. En la réplica principal, la cola de replicación suele llenarse porque una o varias réplicas secundarias son lentas a la hora de confirmar las operaciones. En la secundaria, esto suele ocurrir cuando el servicio es lento en aplicar las operaciones. La advertencia se borra cuando la cola ya no está llena.
+
+* **SourceId**: System.Replicator
+* **Propiedad**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, según el rol de réplica.
+* **Pasos siguientes**: si el informe se encuentra en la réplica principal, compruebe la conexión entre los nodos del clúster. Si todas las conexiones son correctas, puede haber al menos una réplica secundaria lenta con una elevada latencia de disco para aplicar las operaciones. Si el informe se encuentra en la réplica secundaria, compruebe el uso de disco y el rendimiento en el nodo en primer lugar y, a continuación, la conexión saliente del nodo lento a la réplica principal.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** en la réplica principal notifica una advertencia cuando la conexión a un replicador secundario (remoto) no es correcta. La dirección del replicador remoto se muestra en el mensaje del informe, lo que permite detectar fácilmente si se pasó una configuración incorrecta o si existen problemas de red entre los replicadores.
+
+* **SourceId**: System.Replicator
+* **Propiedad**: **RemoteReplicatorConnectionStatus**
+* **Pasos siguientes**: compruebe el mensaje de error y asegúrese de que la dirección del replicador remoto está configurada correctamente (por ejemplo, si el replicador remoto se abre con la dirección de escucha "localhost", no estará disponible desde el exterior). Si la dirección es correcta, compruebe la conexión entre el nodo principal y la dirección remota en busca de posibles problemas de red.
 
 ### <a name="replication-queue-full"></a>Cola de replicación completa
 **System.Replicator** notifica una advertencia cuando la cola de replicación está llena. En la réplica principal, la cola de replicación suele llenarse porque una o varias réplicas secundarias son lentas a la hora de confirmar las operaciones. En la secundaria, esto suele ocurrir cuando el servicio es lento en aplicar las operaciones. La advertencia se borra cuando la cola ya no está llena.

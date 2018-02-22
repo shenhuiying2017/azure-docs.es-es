@@ -1,6 +1,6 @@
 ---
-title: "Configurar la supervisión de eventos con Azure Event Hubs para Azure Logic Apps | Microsoft Docs"
-description: Supervisar flujos de datos para recibir eventos y enviar eventos para Azure Logic Apps con Azure Event Hubs
+title: "Configuración de la supervisión de eventos con Azure Event Hubs para Azure Logic Apps | Microsoft Docs"
+description: "Supervisión de flujos de datos para recibir y enviar eventos con aplicaciones lógicas en Azure Event Hubs"
 services: logic-apps
 keywords: "flujo de datos, supervisión de eventos, centros de eventos"
 author: ecfan
@@ -14,123 +14,104 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/31/2017
+ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Supervisar, recibir y enviar eventos con el conector de Event Hubs
 
-Para configurar la supervisión de eventos para que su aplicación lógica pueda detectar eventos, recibir eventos y enviar eventos, conéctese a un [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) desde la aplicación lógica. Obtenga más información acerca de los [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+Para configurar la supervisión de eventos para que su aplicación lógica pueda detectar eventos, recibir eventos y enviar eventos, conéctese a un [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) desde la aplicación lógica. Más información sobre [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) y [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>requisitos previos
 
-* Debe tener un [espacio de nombres de Event Hubs y un Event Hub](../event-hubs/event-hubs-create.md) en Azure. Obtenga información sobre [cómo crear un espacio de nombres de Event Hubs y un Event Hub](../event-hubs/event-hubs-create.md). 
+Para poder usar el conector de Event Hubs, debe tener estos elementos:
 
-* Para usar [cualquier conector](https://docs.microsoft.com/azure/connectors/apis-list) en su aplicación lógica, primero debe crearla. Obtenga información sobre [cómo crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Un [espacio de nombres de Azure Event Hubs y un centro de eventos](../event-hubs/event-hubs-create.md)
+* Una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="permissions-connection-string"></a>
-## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Comprobar los permisos del espacio de nombres de Event Hubs y buscar la cadena de conexión
 
-Para que la aplicación lógica tenga acceso a cualquier servicio, tendrá que crear una [*conexión*](./connectors-overview.md) entre la aplicación lógica y el servicio, si todavía no lo ha hecho. Esta conexión autoriza a la aplicación lógica a acceder a los datos.
-Para que la aplicación lógica acceda a su Event Hub, debe tener permisos de **Administrador** y la cadena de conexión para el espacio de nombres del Event Hubs.
+## <a name="connect-to-azure-event-hubs"></a>Conexión a Azure Event Hubs
 
-Para comprobar sus permisos y obtener la cadena de conexión, siga estos pasos.
+Para que la aplicación lógica tenga acceso a algún servicio, tendrá que crear una [*conexión*](./connectors-overview.md) entre la aplicación lógica y el servicio, si todavía no lo ha hecho. Esta conexión autoriza a la aplicación lógica a acceder a los datos. Para que la aplicación lógica acceda a su instancia de Event Hubs, debe tener permisos de administrador y la cadena de conexión para el espacio de nombres de Event Hubs.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
-2.  Vaya al *espacio de nombres* de los Event Hubs, no al Event Hub específico. En la hoja del espacio de nombres, haga clic en **Configuración** y elija **Políticas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
+2.  Vaya al *espacio de nombres* de sus instancias de Event Hubs, no a un centro de eventos específico. En la página del espacio de nombres, en **Configuración**, elija **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
 
     ![Administrar los permisos del espacio de nombres del Event Hub](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-3.  Para copiar la cadena de conexión para el espacio de nombres de Event Hubs, elija **RootManageSharedAccessKey**. Al lado de la cadena de conexión de su clave principal, elija el botón Copiar.
+3. Si más adelante desea escribir manualmente la información de conexión, obtenga la cadena de conexión para el espacio de nombres de sus instancias de Event Hubs. Elija **RootManageSharedAccessKey**. Al lado de la cadena de conexión de su clave principal, elija el botón Copiar. Guarde la cadena de conexión para usarla más adelante.
 
     ![Copie la cadena de conexión del espacio de nombres de los Event Hubs](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
     > [!TIP]
-    > Para confirmar si la cadena de conexión está asociada con el espacio de nombres de los Event Hubs o con un Event Hub específico, compruebe la cadena de conexión para el parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para la "entidad" de un Event Hub específico y no es la cadena correcta para utilizar con la aplicación lógica.
+    > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Event Hubs o a un centro de eventos específico, compruebe la cadena de conexión del parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para la "entidad" de un Event Hub específico y no es la cadena correcta para utilizar con la aplicación lógica.
 
-4.  Cuando se le soliciten las credenciales después de agregar un desencadenador de los Event Hubs o la acción a la aplicación lógica, puede conectarse al espacio de nombres de los Event Hubs. Asigne un nombre a la conexión, ingrese la cadena de conexión que copió y elija **Crear**.
-
-    ![Ingrese la cadena de conexión para el espacio de nombres de los Event Hubs](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
-
-    Después de crear la conexión, su nombre debe aparecer en el desencadenador o la acción de los Event Hubs. 
-    Ahora puede continuar con el resto de los pasos en la aplicación lógica.
-
-    ![Conexión del espacio de nombres de los Event Hubs creada](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
-
-## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Iniciar el flujo de trabajo cuando el Event Hub recibe eventos nuevos
+## <a name="trigger-workflow-when-your-event-hub-gets-new-events"></a>Inicio del flujo de trabajo cuando Event Hub recibe eventos nuevos
 
 Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un evento que inicia un flujo de trabajo en la aplicación lógica. Para iniciar un flujo de trabajo cuando se envían nuevos eventos al Event Hub, siga estos pasos para agregar el desencadenador que detecta este evento.
 
-1.  En [Azure Portal](https://portal.azure.com "Azure Portal"), vaya a la aplicación lógica existente o cree una aplicación de lógica en blanco.
+1. En [Azure Portal](https://portal.azure.com "Azure Portal"), vaya a la aplicación lógica existente o cree una aplicación de lógica en blanco.
 
-2.  En el cuadro de búsqueda del diseñador de aplicaciones lógicas, ingrese `event hubs` para el filtro. Seleccione este desencadenador: **Cuando los eventos estén disponibles en el Event Hub**
+2. En el Diseñador de aplicaciones lógicas, escriba "event hubs" en el cuadro de búsqueda como filtro. Seleccione este desencadenador: **Cuando los eventos estén disponibles en el Event Hub**
 
-    ![Seleccione el desencadenador para cuando el Event Hub reciba eventos nuevos](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
+   ![Seleccione el desencadenador para cuando el Event Hub reciba eventos nuevos](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
-    Si todavía no tiene una conexión al espacio de nombres de los Event Hubs, se le pedirá que cree ahora esta conexión. Asigne un nombre a la conexión e ingrese la cadena de conexión para el espacio de nombres de los Event Hubs. 
-    Si es necesario, obtenga información acerca de [cómo buscar la cadena de conexión](#permissions-connection-string).
+   1. Si todavía no tiene una conexión al espacio de nombres de los Event Hubs, se le pedirá que cree ahora esta conexión. Asigne un nombre a la conexión y seleccione el espacio de nombres de Event Hubs que desea usar.
 
-    ![Ingrese la cadena de conexión para el espacio de nombres de los Event Hubs](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
+      ![Creación de una conexión de Event Hubs](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-    Después de crear la conexión, aparecerá la configuración del desencadenador **Cuando los eventos estén disponibles en el Event Hub**.
+      O bien, para escribir de forma manual la cadena de conexión, elija **Especificar la información de conexión manualmente**. 
+      Obtenga información acerca de [cómo buscar la cadena de conexión](#permissions-connection-string).
 
-    ![Configuración del desencadenador para cuando el Event Hub reciba eventos nuevos](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
+   2. Ahora seleccione la directiva de Event Hubs que desea usar y elija **Crear**.
 
-3.  Escriba o seleccione el nombre para el Event Hub que desea supervisar. Seleccione la frecuencia y el intervalo con el que desea revisar el Event Hub.
+      ![Creación de la cadena de conexión de Event Hubs, parte 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
+
+3. Seleccione el centro de eventos que se desea supervisar y configure el intervalo y la frecuencia que determinan cuándo comprobarlo.
+
+    ![Especificar Event Hub o grupo de consumidores](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
 
     > [!TIP]
-    > Si desea, opcionalmente, seleccionar un grupo de consumidores para leer los eventos, elija **Mostrar opciones avanzadas**. 
+    > Si desea, opcionalmente, seleccionar un grupo de consumidores para leer los eventos, elija **Mostrar opciones avanzadas**.
 
-    ![Especificar Event Hub o grupo de consumidores](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-details.png)
+4. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
 
-    Ya ha configurado un desencadenador para iniciar un flujo de trabajo para la aplicación lógica. 
-    La aplicación lógica comprueba el Event Hub especificado según la programación que haya establecido. 
-    Si la aplicación detecta nuevos eventos en el Event Hub, el desencadenador ejecutará otras acciones o desencadenadores en la aplicación lógica.
+Ahora, cuando la aplicación lógica comprueba el centro de eventos seleccionado y encuentra un evento nuevo, el desencadenador ejecuta las acciones de la aplicación lógica para el evento encontrado.
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Enviar eventos al Event Hub desde la aplicación lógica
 
 Una [*acción*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una tarea realizada por el flujo de trabajo de la aplicación lógica. Después de agregar un desencadenador a la aplicación lógica, puede agregar una acción para llevar a cabo operaciones con los datos generados por ese desencadenador. Para enviar eventos al Event Hub desde la aplicación lógica, siga estos pasos.
 
-1.  En el Diseñador de aplicaciones lógicas, bajo el desencadenador de la aplicación lógica, elija **Nuevo paso** > **Agregar una acción**.
+1. En el Diseñador de aplicaciones lógicas, bajo el desencadenador, elija **Nuevo paso** > **Agregar una acción**.
 
-    ![Haga clic en "Nuevo paso" y en "Agregar una acción"](./media/connectors-create-api-azure-event-hubs/add-action.png)
+2. En el cuadro de búsqueda, escriba "event hubs" como filtro.
+Seleccione la acción **Event Hubs: Enviar evento**
 
-    Ahora puede buscar y seleccionar la acción que desea realizar. 
-    Aunque puede seleccionar cualquier acción, en este ejemplo, queremos que la acción de los Event Hubs envíe eventos.
+   ![Seleccione "Event Hubs: Enviar evento"](./media/connectors-create-api-azure-event-hubs/select-event-hubs-send-event-action.png)
 
-2.  En el cuadro de búsqueda, escriba`event hubs` para el filtro.
-Seleccione esta acción: **Enviar evento**
+3. Seleccione el centro de eventos donde enviar el evento. A continuación, escriba el contenido del evento y otros detalles.
 
-    ![Seleccione la acción "Event Hubs: Enviar evento"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
+   ![Seleccione el nombre del centro de eventos y proporcione su contenido](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-3.  Ingrese los detalles necesarios para el evento, como el nombre para el Event Hub al que desea enviar el evento. Escriba cualquier otro detalle sobre el evento, como el contenido para ese evento.
+4. Guarde la aplicación lógica.
 
-    > [!TIP]
-    > Para especificar la partición del Event Hub a la cual enviar el evento, elija **Mostrar opciones avanzadas**. 
-
-    ![Escriba el nombre del Event Hub y los detalles opcionales del evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
-
-6.  Guarde los cambios.
-
-    ![Guardado de la aplicación lógica](./media/connectors-create-api-azure-event-hubs/save-logic-app.png)
-
-    Ahora ha configurado una acción para enviar eventos desde la aplicación lógica. 
+Ahora ha configurado una acción que envía eventos desde la aplicación lógica. 
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/eventhubs/). 
+Para obtener más información acerca de los desencadenadores y las acciones definidos por el archivo Swagger y los límites, repase los [detalles del conector](/connectors/eventhubs/).
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-support"></a>Obtención de soporte técnico
 
-Para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-Para ayudar a mejorar Logic Apps y los conectores, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish).
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>pasos siguientes
 
-*  [Encuentre otros conectores para Azure Logic apps](./apis-list.md)
+* Más información sobre [otros conectores para Azure Logic Apps](../connectors/apis-list.md)

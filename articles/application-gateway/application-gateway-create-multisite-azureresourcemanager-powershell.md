@@ -1,284 +1,280 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones para hospedar varios sitios | Microsoft Docs"
-description: "Esta página proporciona instrucciones para crear y configurar una puerta de enlace de aplicaciones de Azure para hospedar varias aplicaciones web en la misma puerta de enlace."
-documentationcenter: na
+title: "Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell | Microsoft Docs"
+description: Aprenda a crear una puerta de enlace de aplicaciones que hospeda varios sitios mediante Azure PowerShell.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: b107d647-c9be-499f-8b55-809c4310c783
+author: davidmu1
+manager: timlt
+editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
-ms.author: amsriva
-ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/26/2018
+ms.author: davidmu
+ms.openlocfilehash: ed385eac624f5c59981c01ee70ba2a1700a78653
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Creación de una puerta de enlace de aplicaciones para hospedar varias aplicaciones web
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-multisite-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+Puede usar Azure PowerShell para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
 
-El hospedaje de varios sitios permite implementar más de una aplicación web en la misma puerta de enlace de aplicaciones. Se basa en la presencia de un encabezado host en la solicitud HTTP entrante para determinar el agente de escucha que recibe el tráfico. Luego, dicho agente dirige el tráfico al grupo de back-end adecuado, el configurado en la definición de las reglas de la puerta de enlace. En las aplicaciones web con SSL habilitado, la puerta de enlace de aplicaciones depende de la extensión de la indicación de nombre de servidor (SNI) para elegir el agente de escucha correcto para el tráfico web.En las aplicaciones web con SSL habilitado, Application Gateway depende de la extensión de la indicación de nombre de servidor (SNI) para elegir el agente de escucha correcto para el tráfico web. Un uso común del hospedaje de varios sitios es el equilibrio de carga de las solicitudes de diferentes dominios web entre diferentes grupos de servidores de back-end. De forma similar, varios subdominios del mismo dominio raíz también se pueden hospedar en la misma puerta de enlace de aplicaciones.
+En este artículo, aprenderá a:
 
-## <a name="scenario"></a>Escenario
+> [!div class="checklist"]
+> * Configuración de la red
+> * Creación de una puerta de enlace de aplicaciones
+> * Creación de agentes de escucha y reglas de enrutamiento
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
+> * Creación de un registro CNAME en el dominio
 
-En el siguiente ejemplo, la puerta de enlace de aplicaciones sirve el tráfico a contoso.com y a fabrikam.com con dos grupos de servidores back-end: el grupo de servidores de contoso y el grupo de servidores de fabrikam. Se puede usar una configuración similar para hospedar subdominios como app.contoso.com y blog.contoso.com.
+![Ejemplo de enrutamiento de varios sitios](./media/application-gateway-create-multisite-azureresourcemanager-powershell/scenario.png)
 
-![imageURLroute](./media/application-gateway-create-multisite-azureresourcemanager-powershell/multisite.png)
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](https://azure.microsoft.com/downloads/).
-2. Los servidores agregados al grupo de back-end para usar la puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual en una red virtual o con una dirección IP/VIP pública asignada.
+Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Para encontrar la versión, ejecute ` Get-Module -ListAvailable AzureRM`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
-## <a name="requirements"></a>Requisitos
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-* **Grupo de servidores back-end** : lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública. También puede utilizarse el FQDN.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). En el caso de las puertas de enlace de aplicaciones con sitios múltiples habilitados, también se agregan el nombre de host y los indicadores de SNI.
-* **Regla:** enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico que llegue a un agente de escucha concreto. Las reglas se procesan en el orden en que aparecen y el tráfico se dirige a través de la primera regla que coincida independientemente de la especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto.
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
+
+## <a name="create-network-resources"></a>Crear recursos de red
+
+Configure las subredes llamadas *myBackendSubnet* y *myAGSubnet* mediante [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
+
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-A continuación se muestran los pasos necesarios para crear una puerta de enlace de aplicaciones:
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
-1. Cree un grupo de recursos para el Administrador de recursos.
-2. Cree una red virtual, subredes y una IP pública para la puerta de enlace de aplicaciones.
-3. Cree un objeto de configuración de la Puerta de enlace de aplicaciones.
-4. Cree un recurso de Application Gateway.
+Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Asigne el elemento *myAGPublicIPAddress* a la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para el Administrador de recursos
-
-Asegúrese de que está usando la versión más reciente de Azure PowerShell. En [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md), encontrará más información al respecto.
-
-### <a name="step-1"></a>Paso 1
-
-Inicie sesión en Azure.
-
-```powershell
-Login-AzureRmAccount
-```
-Se le solicita que se autentique con sus credenciales.
-
-### <a name="step-2"></a>Paso 2
-
-Compruebe las suscripciones para la cuenta.
-
-```powershell
-Get-AzureRmSubscription
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-### <a name="step-3"></a>Paso 3
+### <a name="create-the-backend-pools-and-settings"></a>Creación de la configuración y los grupos de servidores back-end
 
-Elección de la suscripción de Azure que se va a usar.
+Cree los grupos de servidores back-end llamados *contosoPool* y *fabrikamPool* para la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configure los valores del grupo mediante [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+```azurepowershell-interactive
+$contosoPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name contosoPool 
+$fabrikamPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name fabrikamPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="create-the-listeners-and-rules"></a>Creación de las reglas y los agentes de escucha
 
-Cree un grupo de recursos (omita este paso si usa uno existente).
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada a los grupos de servidores back-end. En este tutorial, creará los agentes de escucha para cada uno de los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www.fabrikam.com*.
 
-```powershell
-New-AzureRmResourceGroup -Name appgw-RG -location "West US"
+Cree los agentes de escucha llamados*contosoListener* y *fabrikamListener* mediante [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end creados anteriormente. Se requieren reglas para que los agentes de escucha sepan qué grupo de servidores back-end se usa para el tráfico entrante. Cree las reglas básicas denominadas *contosoRule* y *fabrikamRule* con [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+
+```azurepowershell-interactive
+$contosolistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name contosoListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport `
+  -HostName "www.contoso.com"
+$fabrikamlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name fabrikamListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport `
+  -HostName "www.fabrikam.com"
+$contosoRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name contosoRule `
+  -RuleType Basic `
+  -HttpListener $contosoListener `
+  -BackendAddressPool $contosoPool `
+  -BackendHttpSettings $poolSettings
+$fabrikamRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name fabrikamRule `
+  -RuleType Basic `
+  -HttpListener $fabrikamListener `
+  -BackendAddressPool $fabrikamPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-También puede crear etiquetas para un grupo de recursos de la puerta de enlace de aplicaciones:
+### <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
+Ahora que ha creado los recursos de apoyo necesarios, especifique los parámetros para la puerta de enlace de aplicaciones llamada *myAppGateway* con [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) y, a continuación, cree la puerta de enlace mediante [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $contosoPool, $fabrikamPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $contosoListener, $fabrikamListener `
+  -RequestRoutingRules $contosoRule, $fabrikamRule `
+  -Sku $sku
 ```
 
-Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
+## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En el ejemplo anterior, creamos un grupo de recursos denominado **appgw-RG** cuya ubicación es **oeste de EE. UU**.
+En este ejemplo, creará dos conjuntos de escalado de máquinas virtuales que admiten los dos grupos de back-end que ha creado. Los conjuntos de escalado que se crean se llaman *myvmss1* y *myvmss2*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
 
-> [!NOTE]
-> Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
-
-## <a name="create-a-virtual-network-and-subnets"></a>Creación una red virtual y subredes
-
-En el ejemplo siguiente se muestra cómo crear una red virtual con el Administrador de recursos. En este paso, se crean dos subredes. La primera es para la propia puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones requiere una subred propia que contenga sus instancias. En dicha subred solo se pueden implementar otras puertas de enlace de aplicaciones. La segunda subred se usa para contener los servidores back-end de las aplicaciones.
-
-### <a name="step-1"></a>Paso 1
-
-Asigne el intervalo de direcciones 10.0.0.0/24 a la variable subnet que se va a usar para contener la puerta de enlace de aplicaciones.
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -AddressPrefix 10.0.0.0/24
-```
-### <a name="step-2"></a>Paso 2
-
-Asigne el intervalo de direcciones 10.0.1.0/24 a la variable subnet2 que se va a usar para los grupos back-end.
-
-```powershell
-$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPrefix 10.0.1.0/24
-```
-
-### <a name="step-3"></a>Paso 3
-
-Cree una red virtual denominada **appgwvnet** en el grupo de recursos **appgw-rg** para la región oeste de EE. UU. con el prefijo 10.0.0.0/16 y las subredes 10.0.0.0/24, y 10.0.1.0/24.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet,$subnet2
-```
-
-### <a name="step-4"></a>Paso 4
-
-Asignación de una variable de subred en los pasos siguientes para crear una puerta de enlace de aplicaciones
-
-```powershell
-$appgatewaysubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -VirtualNetwork $vnet
-$backendsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -VirtualNetwork $vnet
-```
-
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
-
-Cree un recurso IP público **publicIP01** en el grupo de recursos **appgw-rg** para la región Oeste de EE. UU.
-
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
-```
-
-Se asigna una dirección IP a la puerta de enlace de aplicaciones cuando se inicia el servicio.
-
-## <a name="create-application-gateway-configuration"></a>Creación de una configuración de puerta de enlace de aplicaciones
-
-Antes de crear la puerta de enlace de aplicaciones, debe configurar todos los elementos de configuración. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
-
-### <a name="step-1"></a>Paso 1
-
-Cree una configuración de IP de puerta de enlace de aplicaciones denominada **gatewayIP01**. Cuando se inicia la puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de la red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
-
-```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $appgatewaysubnet
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$contosoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name contosoPool `
+  -ApplicationGateway $appgw
+$fabrikamPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name fabrikamPool `
+  -ApplicationGateway $appgw
+for ($i=1; $i -le 2; $i++)
+{
+  if ($i -eq 1) 
+  {
+    $poolId = $contosoPool.Id
+  }
+  if ($i -eq 2)
+  {
+    $poolId = $fabrikamPool.Id
+  }
+  $ipConfig = New-AzureRmVmssIpConfig `
+    -Name myVmssIPConfig$i `
+    -SubnetId $vnet.Subnets[1].Id `
+    -ApplicationGatewayBackendAddressPoolsId $poolId
+  $vmssConfig = New-AzureRmVmssConfig `
+    -Location eastus `
+    -SkuCapacity 2 `
+    -SkuName Standard_DS2 `
+    -UpgradePolicyMode Automatic
+  Set-AzureRmVmssStorageProfile $vmssConfig `
+    -ImageReferencePublisher MicrosoftWindowsServer `
+    -ImageReferenceOffer WindowsServer `
+    -ImageReferenceSku 2016-Datacenter `
+    -ImageReferenceVersion latest
+  Set-AzureRmVmssOsProfile $vmssConfig `
+    -AdminUsername azureuser `
+    -AdminPassword "Azure123456!" `
+    -ComputerNamePrefix myvmss$i
+  Add-AzureRmVmssNetworkInterfaceConfiguration `
+    -VirtualMachineScaleSet $vmssConfig `
+    -Name myVmssNetConfig$i `
+    -Primary $true `
+    -IPConfiguration $ipConfig
+  New-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmssConfig
+}
 ```
 
-### <a name="step-2"></a>Paso 2
+### <a name="install-iis"></a>Instalación de IIS
 
-Configure el grupo de direcciones IP de back-end llamado **pool01** y **pool2** con las direcciones IP **134.170.185.46**, **134.170.188.221**, **134.170.185.50** para **pool1** y **134.170.186.46**, **134.170.189.221**, **134.170.186.50** para **pool2**.
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
-```powershell
-$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.1.100, 10.0.1.101, 10.0.1.102
-$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
+for ($i=1; $i -le 2; $i++)
+{
+  $vmss = Get-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -VMScaleSetName myvmss$i
+  Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+  Update-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmss
+}
 ```
 
-En este ejemplo, hay dos grupos de back-end para enrutar el tráfico de red en función del sitio solicitado. Un grupo recibe el tráfico del sitio "contoso.com" y otro lo recibe del sitio "fabrikam.com". Tiene que reemplazar las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación. En lugar de las direcciones IP internas, también se pueden usar direcciones IP públicas, el nombre de dominio completo o la NIC de una máquina virtual para las instancias de back-end. Use el parámetro "-BackendFQDNs" en PowerShell para especificar FQDN, en lugar de direcciones IP.
+## <a name="create-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
 
-### <a name="step-3"></a>Paso 3
+Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Puede usar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obtener la dirección DNS de la puerta de enlace de aplicaciones. Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
-Configure la opción de la puerta de enlace de aplicaciones **poolsetting01** y **poolsetting02** para el tráfico de red con carga equilibrada en el grupo de back-end. En este ejemplo, se configuran distintas opciones de configuración para los grupos de back-end. Cada grupo de back-end puede tener su propia configuración de grupo de back-end.
-
-```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-### <a name="step-4"></a>Paso 4
+## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Configuración de la dirección IP de front-end con el punto de conexión de IP pública
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
 
-```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
-```
+![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 
-### <a name="step-5"></a>Paso 5
+Cambie la dirección al otro dominio. Debería ver algo parecido al ejemplo siguiente:
 
-Configuración del puerto front-end de una puerta de enlace de aplicaciones
+![Prueba del sitio de fabrikam en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest2.png)
 
-```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 443
-```
+## <a name="next-steps"></a>pasos siguientes
 
-### <a name="step-6"></a>Paso 6
+En este artículo, ha aprendido cómo:
 
-Configuración de dos certificados SSL para los dos sitios web que vamos a admitir en este ejemplo. Uno de ellos es para el tráfico de contoso.com y el otro es para el de fabrikam.com. Deben ser certificados emitidos por una entidad de certificación para sus sitios web. Los certificados autofirmados se admiten, pero no se recomiendan para el tráfico de producción.
+> [!div class="checklist"]
+> * Configuración de la red
+> * Creación de una puerta de enlace de aplicaciones
+> * Creación de agentes de escucha y reglas de enrutamiento
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
+> * Creación de un registro CNAME en el dominio
 
-```powershell
-$cert01 = New-AzureRmApplicationGatewaySslCertificate -Name contosocert -CertificateFile <file path> -Password <password>
-$cert02 = New-AzureRmApplicationGatewaySslCertificate -Name fabrikamcert -CertificateFile <file path> -Password <password>
-```
-
-### <a name="step-7"></a>Paso 7
-
-Configuración de dos agentes de escucha para los dos sitios web del ejemplo. En este paso se configuran los agentes de escucha para la dirección IP pública, el puerto y el host usados para recibir el tráfico entrante. El parámetro HostName es necesario para lograr la compatibilidad con varios sitios y se debe establecer en el sitio web adecuado para el que se recibe el tráfico. El parámetro RequireServerNameIndication debe establecerse en true para los sitios web que necesitan compatibilidad con SSL en un escenario de múltiples hosts. Si se requiere compatibilidad con SSL, también es preciso especificar el certificado SSL que se usa para proteger el tráfico de esa aplicación web. La combinación de FrontendIPConfiguration, FrontendPort y HostName debe ser única en cada agente de escucha. Cada agente de escucha puede admitir solo un certificado.
-
-```powershell
-$listener01 = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "contoso11.com" -RequireServerNameIndication true  -SslCertificate $cert01
-$listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "fabrikam11.com" -RequireServerNameIndication true -SslCertificate $cert02
-```
-
-### <a name="step-8"></a>Paso 8
-
-Creación de la configuración de dos reglas para las dos aplicaciones web de este ejemplo. Una regla une los agentes de escucha, los grupos de back-end y la configuración de http. En este paso se configura la puerta de enlace de aplicaciones para que use una regla de enrutamiento básica, una para cada sitio web. El tráfico para cada sitio web lo recibe el agente de escucha que tenga configurado y, luego, se dirige a su grupo de back-end configurado, para lo que se usan las propiedades especificadas en BackendHttpSettings.
-
-```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule01" -RuleType Basic -HttpListener $listener01 -BackendHttpSettings $poolSetting01 -BackendAddressPool $pool1
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule02" -RuleType Basic -HttpListener $listener02 -BackendHttpSettings $poolSetting02 -BackendAddressPool $pool2
-```
-
-### <a name="step-9"></a>Paso 9:
-
-Configuración del número de instancias y el tamaño de la puerta de enlace de aplicaciones
-
-```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -Capacity 2
-```
-
-## <a name="create-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
-
-Cree una puerta de enlace de aplicaciones con todos los objetos de configuración de los pasos anteriores.
-
-```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01, $listener02 -RequestRoutingRules $rule01, $rule02 -Sku $sku -SslCertificates $cert01, $cert02
-```
-
-> [!IMPORTANT]
-> El aprovisionamiento de Application Gateway es una operación larga y puede tardar algún tiempo en completarse.
-> 
-> 
-
-## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
-
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
-```
-
-```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Aprenda a proteger sitios web con [Firewall de aplicaciones web de Application Gateway (versión preliminar)](application-gateway-webapplicationfirewall-overview.md)
-
+> [!div class="nextstepaction"]
+> [Obtenga más información sobre lo que puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md).

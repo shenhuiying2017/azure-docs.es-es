@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Copia de datos de Impala con Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Impala:
 | puerto | Puerto TCP que el servidor de Impala usa para escuchar las conexiones del cliente. El valor predeterminado es 21050.  | Sin  |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | Sí |
 | Nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Impala. El valor predeterminado es anonymous cuando se usa SASLUsername.  | Sin  |
-| contraseña | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Este campo se puede marcar como SecureString para almacenarlo de forma segura en Data Factory. También puede almacenar la contraseña en Azure Key Vault y dejar que la actividad de copia la extraiga de ahí al realizar la copia de datos. Para más información, consulte [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| contraseña | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es **false**.  | Sin  |
 | trustedCertPath | La ruta de acceso completa del archivo .pem que contiene certificados de entidad de certificación de confianza usados para comprobar el servidor cuando se conecta a través de SSL. Esta propiedad solo puede establecerse cuando se usa SSL en Integration Runtime autohospedado. El valor predeterminado es el archivo cacerts.pem instalado con Integration Runtime.  | Sin  |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es **false**.  | Sin  |
@@ -152,4 +152,4 @@ Para copiar datos de Impala, establezca el tipo de origen de la actividad de cop
 ```
 
 ## <a name="next-steps"></a>pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

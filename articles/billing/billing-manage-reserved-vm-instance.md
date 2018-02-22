@@ -1,6 +1,6 @@
 ---
-title: "Administración de instancias reservadas de máquina virtual de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo cambiar el ámbito de la suscripción y administrar el acceso para instancias reservadas de máquina virtual de Azure."
+title: "Administración Azure Reserved Virtual Machine Instances | Microsoft Docs"
+description: "Obtenga información sobre cómo cambiar el ámbito de la suscripción y administrar el acceso para Azure Reserved VM Instances."
 services: billing
 documentationcenter: 
 author: vikramdesai01
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Administración de instancias reservadas de máquina virtual
 
@@ -75,6 +75,16 @@ Para delegar la administración de acceso en una reserva:
 5.  Seleccione **Agregar** > **Rol** > **Propietario** (u otro rol si quiere conceder acceso limitado). 
 6. Escriba la dirección de correo electrónico del usuario al que quiera agregar como propietario. 
 7. Seleccione el usuario y, después, **Guardar**.
+
+## <a name="next-steps"></a>pasos siguientes
+Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
+
+- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
+- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
+- [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

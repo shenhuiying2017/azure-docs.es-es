@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: c1dfa969f8665fc06d365bdb91d57382ee04c315
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
 En este tutorial, se usa Azure Portal para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network (VNet). En este tutorial, realizará los siguientes pasos:
@@ -70,6 +70,8 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 4. Cargue el archivo **hivescript.hql** en la subcarpeta **hivescripts**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
+
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
 2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    

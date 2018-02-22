@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Información sobre el uso de instancias reservadas para suscripciones Pago por uso
 
@@ -35,7 +35,7 @@ En la siguiente sección se dará por hecho que está ejecutando una máquina vi
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Cantidad |1|
 |SKU | Standard_DS1_v2|
-|Region | eastus |
+|Region | estado |
 
 ## <a name="reservation-application"></a>Aplicación de reserva
 
@@ -55,7 +55,17 @@ Filtre la columna Additional Info y escriba su id. de reserva. En la siguiente c
 2. ConsumptionMeter es el id. de medidor de la máquina virtual.
 3. La línea Reservation-Base VM de la columna Meter Sub-category representa la línea de costo de 0 $ en la sección de instrucciones. El costo de la ejecución de esta máquina virtual ya lo cubre la reserva.
 4. Este es el id. de medidor de la reserva. El costo del medidor es de 0 $. Cualquier máquina virtual apta para la instancia reservada tiene este MeterId en el CSV para cubrir el costo. 
-5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Consulte los [costos de software de Windows de las instancias reservadas de máquina virtual de Azure](billing-reserved-instance-windows-software-costs.md). para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de la serie D. Si se usa la Ventaja híbrida de Azure, no se aplicará este cargo adicional. 
+5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Consulte los [costos de software de Windows de las instancias reservadas de máquina virtual de Azure](billing-reserved-instance-windows-software-costs.md) para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de la serie D. Si se usa la Ventaja híbrida de Azure, no se aplicará este cargo adicional. 
+
+## <a name="next-steps"></a>pasos siguientes
+Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
+
+- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
+- [Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
+- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
+- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Escalabilidad de un clúster de Service Fabric
 
@@ -36,10 +36,10 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
 > * Escalar o reducir un clúster horizontalmente
-> * [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Ahora que está conectado, puede usar un comando para obtener el estado de cada nodo del clúster. Para PowerShell, use el comando `Get-ServiceFabricClusterHealth` y, para **sfctl**, use el comando ``.
+Ahora que está conectado, puede usar un comando para obtener el estado de cada nodo del clúster. Para PowerShell, use el comando `Get-ServiceFabricClusterHealth` y, para **sfctl**, use el comando `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Escalado horizontal
 
@@ -95,7 +95,7 @@ Al escalar horizontalmente, agrega más instancias de máquina virtual al conjun
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Este código establece la capacidad en 6.
@@ -120,11 +120,11 @@ La reducción horizontal funciona de la misma forma que la escalabilidad horizon
 Al reducir horizontalmente un conjunto de escalado de máquinas virtuales, dicho conjunto, en la mayoría de los casos, elimina la última instancia de máquina virtual que se creó. Por tanto, debe buscar el último nodo creado, el nodo de coincidencia y el nodo de Service Fabric. Puede encontrar el último nodo si consulta la propiedad `NodeInstanceId` con el valor más alto en los nodos de Service Fabric. Los ejemplos de código siguientes se ordenan por la instancia del nodo y devuelven los detalles sobre la instancia con el valor de identificador más alto. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 El clúster de Service Fabric debe saber que este nodo se va a quitar. Debe realizar tres pasos:
@@ -146,8 +146,9 @@ Una vez que estos tres pasos se han aplicado al nodo, este último se puede quit
 El bloque de código siguiente obtiene el último nodo creado, deshabilita, detiene y quita el nodo del clúster.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-En el código de **sfctl** siguiente, el comando siguiente se usa para obtener los valores de **node-name** y **node-instance-id** del último nodo creado: `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+En el código de **sfctl** siguiente, el comando siguiente se usa para obtener el valor de **node-name** del último nodo creado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,10 +220,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > Use las siguientes consultas de **sfctl** para comprobar el estado de cada paso:
 >
 > **Comprobar el estado de desactivación**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Comprobar el estado de detención**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
@@ -248,9 +249,9 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Leer el recuento de nodos de clúster

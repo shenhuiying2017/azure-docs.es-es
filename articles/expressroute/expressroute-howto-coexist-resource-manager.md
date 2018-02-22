@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-La configuración de las conexiones coexistentes VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExressRoute, o bien usar unas VPN de sitio a sitio para conectarse a sitios que no están conectados mediante ExpressRoute. En este artículo se tratan los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. Esta configuración no está disponible en el Portal de Azure.
+La configuración de las conexiones coexistentes VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExpressRoute, o bien usar VPN de sitio a sitio para conectarse a sitios que no están conectados mediante ExpressRoute. En este artículo se tratan los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager y utiliza PowerShell. Esta configuración no está disponible en el Portal de Azure.
 
 > [!IMPORTANT]
 > Los circuitos ExpressRoute deben configurarse previamente antes de seguir las instrucciones siguientes. Asegúrese de que ha seguido las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y [configurar el enrutamiento](expressroute-howto-routing-arm.md) antes de continuar.
@@ -230,5 +230,5 @@ Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en
 
 Para más información sobre la VPN de punto a sitio, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

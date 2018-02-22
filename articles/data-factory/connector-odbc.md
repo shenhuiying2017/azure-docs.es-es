@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab29338b5ce2090166e75f3860744562aa9f6b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Odbc** | Sí |
-| connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `"DSN=<name of the DSN on IR machine>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).| Sí |
+| connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `"DSN=<name of the DSN on IR machine>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC.<br/>Los valores permitidos son: **Básica** y **Anónima**. | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | Sin  |
-| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | Sin  |
+| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como SecureString. | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 

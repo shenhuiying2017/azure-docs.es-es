@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -117,6 +117,8 @@ El código de Azure Functions es código abierto y está almacenado en repositor
 Esta es una tabla de todos los enlaces admitidos.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+¿Tiene algún problema con errores procedentes de los enlaces? Revise la documentación de los [códigos de error de los enlaces de Azure Functions](functions-bindings-error-pages.md).
 
 ## <a name="reporting-issues"></a>Problemas de informes
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

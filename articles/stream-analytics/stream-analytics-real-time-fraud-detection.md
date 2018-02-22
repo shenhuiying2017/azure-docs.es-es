@@ -1,3 +1,26 @@
+---
+title: "Stream Analytics: detección de fraudes en tiempo real | Microsoft Docs"
+description: "Aprenda a crear una solución para la detección de fraudes en tiempo real con Stream Analytics. Use un centro de eventos para el procesamiento de eventos en tiempo real."
+keywords: "detección de anomalías, detección de fraudes, detección de anomalías en tiempo real"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
 Este tutorial muestra de principio a fin cómo usar Azure Stream Analytics. Aprenderá a: 
@@ -14,7 +37,7 @@ En este tutorial, se usa el ejemplo de detección de fraudes en tiempo real basa
 
 Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía quiere detectar llamadas fraudulentas en tiempo real para poder notificarlo a los clientes o cancelar el servicio para un número concreto. Un tipo de fraude de SIM implica varias llamadas desde la misma identidad aproximadamente a la misma hora, pero en distintas ubicaciones geográficas. Para detectar este tipo de fraude, la compañía ha de examinar los registros de teléfono entrantes y buscar patrones concretos, en este caso, llamadas realizadas aproximadamente a la misma hora en distintos países. Los registros de teléfono que entren en esta categoría se escriben en el almacenamiento para su análisis posterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este tutorial, simulará datos de llamadas telefónicas mediante una aplicación cliente que genera metadatos de llamada telefónica de muestra. Algunos de los registros que genera la aplicación parecen llamadas fraudulentas. 
 
@@ -57,7 +80,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
     ![Hoja para la creación de un centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
-7. Haga clic en **Crear**.
+7. Haga clic en **Create**(Crear).
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Concesión de acceso al centro de eventos y obtención de una cadena de conexión
 
 Para que un proceso pueda enviar datos a un centro de eventos, este debe tener una directiva que permita el acceso adecuado. La directiva de acceso genera una cadena de conexión que incluye la información de autorización.
@@ -73,7 +96,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
 
     ![Hoja para la creación de una directiva de acceso al centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
-4.  Haga clic en **Crear**.
+4.  Haga clic en **Create**(Crear).
 
 5.  Una vez implementada la directiva, haga clic en ella en la lista de directivas de acceso compartido.
 
@@ -108,7 +131,7 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para que enví
 
     ![Archivo de configuración de la aplicación TelcoGenerator que muestra el nombre del centro de eventos y la cadena de conexión](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  Guarde el archivo . 
+4.  Guarde el archivo. 
 
 ### <a name="start-the-app"></a>Inicio de la aplicación
 1.  Abra una ventana de comandos y cambie a la carpeta en la que se ha descomprimido la aplicación TelcoGenerator.
@@ -150,7 +173,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
     ![Creación de un trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
     El trabajo se crea y el portal muestra los detalles del trabajo. Pero todavía no se ejecuta nada, hay que configurar el trabajo para poder iniciarlo.
 
@@ -173,7 +196,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
     ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
-4. Haga clic en **Crear**.
+4. Haga clic en **Create**(Crear).
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Creación de consultas para transformar datos en tiempo real
 
@@ -300,7 +323,7 @@ Cuando use una combinación con datos de streaming, la combinación debe especif
 
     ![Salida del trabajo de Stream Analytics correspondiente a la autocombinación que muestra seis registros generados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Haga clic en **Guardar**. Con esto guarda la consulta de autocombinación como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
+3. Haga clic en **Save**(Guardar). Con esto guarda la consulta de autocombinación como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
 
     ![Almacenamiento del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -330,7 +353,7 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. Aquí le mostraremos c
     
     ![Panel "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
-4. Haga clic en **Crear**. 
+4. Haga clic en **Create**(Crear). 
 
     Azure crea la cuenta de almacenamiento y genera una clave automáticamente. 
 
@@ -385,7 +408,7 @@ Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlo
 
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Puede seguir este tutorial con el artículo siguiente:
 

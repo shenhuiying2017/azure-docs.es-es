@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Actualizaciones de sistema operativo automáticas de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -40,9 +40,7 @@ La actualización automática del sistema operativo tiene las siguientes caracte
 Mientras la versión se encuentre en estado preliminar, existen las siguientes limitaciones y restricciones:
 
 - Las actualizaciones automáticas del sistema operativo solo admiten [cuatro SKU de sistema operativo](#supported-os-images). No hay ningún contrato de nivel de servicio ni garantías. Se recomienda que no utilice las actualizaciones automáticas en cargas de trabajo críticas de producción mientras la versión se encuentre en estado preliminar.
-- La compatibilidad con conjuntos de escalado en clústeres de Service Fabric estará disponible próximamente.
 - El cifrado de disco de Azure (actualmente en versión preliminar) **no** es compatible actualmente con la actualización del sistema operativo automática del conjunto de escalado de máquinas virtuales.
-- Una experiencia de portal estará disponible próximamente.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registro para usar la actualización automática del sistema operativo
@@ -58,17 +56,23 @@ El estado de registro tarda unos 10 minutos en aparecer como *Registrado*. Puede
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Se recomienda que las aplicaciones utilicen sondeos de estado. Para registrar la característica de proveedor para los sondeos de estado, utilice [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) como se indica a continuación:
+> [!NOTE]
+> Los clústeres de Service Fabric tienen su propia noción de estado de la aplicación, pero los conjuntos de escalado sin Service Fabric usan el sondeo de estado del equilibrador de carga para supervisar el estado de la aplicación. Para registrar la característica de proveedor para los sondeos de estado, utilice [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) como se indica a continuación:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> De nuevo, el estado de registro tarda unos 10 minutos en aparecer como *Registrado*. Puede comprobar el estado de registro actual con [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Una vez completado el proceso de registro, asegúrese de que el proveedor *Microsoft.Network* está registrado con [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) como se indica a continuación:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Experiencia del portal
+Tras seguir los pasos de registro anteriores, puede ir a [Azure Portal](https://aka.ms/managed-compute) para habilitar las actualizaciones automáticas del sistema operativo en sus conjuntos de escalado y ver el progreso de las actualizaciones:
 
-De nuevo, el estado de registro tarda unos 10 minutos en aparecer como *Registrado*. Puede comprobar el estado de registro actual con [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Una vez completado el proceso de registro, asegúrese de que el proveedor *Microsoft.Network* está registrado con [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) como se indica a continuación:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
@@ -85,7 +89,10 @@ Actualmente se admiten las siguientes SKU (se agregarán más):
 
 
 
-## <a name="application-health"></a>Estado de la aplicación
+## <a name="application-health-without-service-fabric"></a>Estado de la aplicación sin Service Fabric
+> [!NOTE]
+> Esta sección solo es aplicable a conjuntos de escalado sin Service Fabric. Service Fabric tiene su propia noción de estado de la aplicación. Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Durante una actualización del sistema operativo, las instancias de máquina virtual de un conjunto de escalado se actualizan en lote de uno en uno. La actualización debe continuar solo si la aplicación cliente se encuentra en buen estado en las instancias de máquina virtual actualizadas. Se recomienda que la aplicación proporcione señales de estado al motor de actualización de sistema operativo del conjunto de escalado. De forma predeterminada, durante las actualizaciones del sistema operativo, la plataforma se fija en el estado de energía de la máquina virtual y el estado de aprovisionamiento de la extensión para determinar si una instancia de máquina virtual está en buen estado después de una actualización. Durante la actualización del sistema operativo de una instancia de máquina virtual, se reemplaza el disco del sistema operativo en una instancia de máquina virtual por un nuevo disco basado en la versión más reciente de la imagen. Una vez finalizada la actualización del sistema operativo, las extensiones configuradas se ejecutan en estas máquinas virtuales. Solo cuando todas las extensiones en una máquina virtual se han aprovisionado correctamente, la aplicación se considera en buen estado. 
 
 Un conjunto de escalado puede configurarse opcionalmente con sondeos de estado de aplicación para proporcionar a la plataforma información precisa sobre el estado actual de la aplicación. Los sondeos de estado de aplicación son sondeos de Load Balancer personalizados que se usan como una señal de estado. La aplicación se ejecuta en una instancia VM del conjunto de escala puede responder a solicitudes HTTP o TCP externas que indica si es correcto. Para obtener más información sobre cómo funcionan los sondeos de Load Balancer personalizados, consulte [Descripción de los sondeos del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Un sondeo de estado de aplicación no es necesario para las actualizaciones automáticas del sistema operativo, pero su uso está muy recomendado.

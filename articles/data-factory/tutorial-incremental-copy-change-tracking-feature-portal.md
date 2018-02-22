@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -151,6 +151,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 2. Verá una nueva pestaña para configurar la canalización. También verá la canalización en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre de la canalización a **IncrementalCopyPipeline**.
 
     ![Nombre de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **LookupLastChangeTrackingVersionActivity**. Esta actividad obtiene la versión de seguimiento de cambios de la última operación de copia que se almacenó en la tabla **table_store_ChangeTracking_version**.
+3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **LookupLastChangeTrackingVersionActivity**. Esta actividad obtiene la versión de seguimiento de cambios de la última operación de copia que se almacenó en la tabla **table_store_ChangeTracking_version**.
 
     ![Actividad de búsqueda: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Cambie a **Settings** (Configuración) en la ventana **Properties** (Propiedades) y seleccione **ChangeTrackingDataset** en el campo **Source Dataset** (Conjunto de datos de origen). 
@@ -408,12 +409,13 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
     ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes: 
 
-    1. Escriba **Update_ChangeTracking_Version** como **Stored procedure name** (Nombre del procedimiento almacenado).  
-    2. En la sección **Stored procedure parameters** (Parámetros del procedimiento almacenado), utilice el botón **+ New** (+ Nuevo) para agregar los dos parámetros siguientes:
+    1. Como **Stored procedure name** (Nombre de procedimiento almacenado), seleccione **Update_ChangeTracking_Version**.  
+    2. Seleccione **Import parameter** (Importar parámetro). 
+    3. En la sección **Stored procedure parameters** (Parámetros de procedimiento almacenado), especifique estos valores: 
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | string | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Actividad de procedimiento almacenado: parámetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 15. Haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**. 
 
     ![Botón Validate (Comprobar)](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publish** (Publicar). Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta). 
+16.  Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publish All** (Publicar todo). Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta). 
 
         ![Botón Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Ejecución de la canalización de la copia incremental
-Haga clic en **Trigger** (Desencadenar) en la barra de herramientas de la canalización y en **Trigger Now** (Desencadenar ahora). 
+1. Haga clic en **Trigger** (Desencadenar) en la barra de herramientas de la canalización y en **Trigger Now** (Desencadenar ahora). 
 
-![Menú Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Menú Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar).
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
 1. Haga clic en la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de la canalización en la lista y su estado. Haga clic en **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna **Actions** (Acciones) permiten ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización. 

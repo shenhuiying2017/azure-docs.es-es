@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 45264d8ffb1953e80412e4ef30f289f7af5cf813
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2a300b45cba8b611d75a152060eaa2a4f95ac518
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-beta"></a>Copiar datos de Concur con Azure Data Factory (beta)
 
@@ -53,7 +53,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Concur:
 | Tipo | La propiedad type debe establecerse en: **Concur** | Sí |
 | clientId | Aplicación client_id proporcionada por la administración de aplicaciones de Concur.  | Sí |
 | Nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Concur.  | Sí |
-| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |

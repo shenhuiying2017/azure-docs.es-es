@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type tiene que establecerse en **AzureStorage**. |Sí |
-| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString. |Sí |
+| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -93,7 +93,7 @@ Para usar la autenticación con firma de acceso compartido de servicio, se admit
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type tiene que establecerse en **AzureStorage**. |Sí |
-| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
+| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -199,10 +199,10 @@ Para copiar datos a la Tabla de Azure, establezca el tipo de receptor de la acti
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **AzureTableSink**. |Sí |
-| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |No  |
+| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Sin  |
 | azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza "AzureTableDefaultPartitionKeyValue" como clave de la partición. |Sin  |
 | azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Sin  |
-| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y**replace**. <br/><br> Esta configuración aplica en el nivel de fila, no en el nivel de tabla. Ninguna opción elimina filas de la tabla de salida que no existen en la entrada. Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información acerca de cómo funcionan estas opciones (combinación y reemplazo). |No  |
+| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y**replace**. <br/><br> Esta configuración aplica en el nivel de fila, no en el nivel de tabla. Ninguna opción elimina filas de la tabla de salida que no existen en la entrada. Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información acerca de cómo funcionan estas opciones (combinación y reemplazo). |Sin  |
 | writeBatchSize |Inserta datos en Azure Table cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout |Inserta datos en Azure Table cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es "00:20:00" (20 minutos). |No (el valor predeterminado es 90 segundos; el tiempo de expiración predeterminado del cliente de almacenamiento) |
 

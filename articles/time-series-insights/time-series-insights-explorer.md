@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 En este artículo se analizan las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. Puede usar el explorador de Time Series Insights en el explorador web para crear visualizaciones de los datos.
  
 Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Ofrece una visión global de los datos que permite validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Puede detectar las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real. El explorador de Time Series Insights está actualmente en versión preliminar pública.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de que pueda usar el explorador de Time Series Insights, debe:
 - Crear un entorno de Time Series Insights
@@ -37,7 +37,7 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 2. Una vez que selecciona un entorno, use las configuraciones **FROM** y **TO** que aparecen en la parte superior, o bien haga clic y arrastre hasta el intervalo de tiempo deseado.  Haga clic en la lupa que se encuentra en la parte superior derecha o haga clic con el botón derecho en el intervalo de tiempo seleccionado y seleccione **Buscar**.  
 
-3. También puede actualizar automáticamente la disponibilidad cada minuto si selecciona el botón **Auto On** (Activado automáticamente).
+3. También puede actualizar automáticamente la disponibilidad cada minuto si selecciona el botón **Auto On** (Activado automáticamente).  Tenga en cuenta que el botón "Auto On" (Activación automática) solo se aplica al gráfico de disponibilidad, no al contenido de la visualización principal.
 
 4. Observe que el icono de la nube de Azure lo dirige a su entorno en Azure Portal.
 
@@ -60,7 +60,7 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Todos los operandos deben ser del mismo tipo o deben ser una constante NULL.        |
-         |HAS     | String        |  Solo los literales de cadenas constantes se permiten en el lado derecho. No se permiten cadenas vacías ni NULL.       |
+         |HAS     | string        |  Solo los literales de cadenas constantes se permiten en el lado derecho. No se permiten cadenas vacías ni NULL.       |
 
       - **Ejemplos de consultas**
       
@@ -106,6 +106,6 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 Ya ha visto las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 >[Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

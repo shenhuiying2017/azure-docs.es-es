@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>P+F de Azure Redis Cache
 Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache.
@@ -119,36 +119,36 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Rendimiento de Azure Redis Cache
-En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de memorias caché Estándar y Premium mediante `redis-benchmark.exe` desde una máquina virtual de Iaas en el punto de conexión de Azure Redis Cache. 
+En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de memorias caché Estándar y Premium mediante `redis-benchmark.exe` desde una máquina virtual de Iaas en el extremo de Azure Redis Cache. Para el rendimiento SSL, se usa redis-benchmark con stunnel para conectarse al punto de conexión de Azure Redis Cache.
 
 >[!NOTE] 
 >Estos valores no se garantizan y no hay ningún SLA para estos números, sino que deben ser los habituales. Debe realizar la prueba de carga de su propia aplicación para determinar el tamaño adecuado de caché para la aplicación.
->
+>Estas cifras pueden cambiar, puesto que se publican resultados más recientes de manera periódica.
 >
 
 A partir de esta tabla, podemos extraer las conclusiones siguientes:
 
-* El rendimiento de las memorias caché que tienen el mismo tamaño es mayor en el nivel Premium que en el nivel Estándar. Por ejemplo, en el caso de una memoria caché de 6 GB, el rendimiento de P1 es de 180 000 solicitudes por segundo frente a las 49 000 de C3.
+* El rendimiento de las memorias caché que tienen el mismo tamaño es mayor en el nivel Premium que en el nivel Estándar. Por ejemplo, en el caso de una memoria caché de 6 GB, el rendimiento de P1 es de 180 000 solicitudes por segundo frente a las 100 000 de C3.
 * Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 400 000 * 10 = 4 millones de solicitudes por segundo.
 * El rendimiento para los tamaños de clave más grandes es mayor en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB |
-| --- | --- | --- | --- | --- |
-| **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS)** |
-| C0 |250 MB |Compartido |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150 000 |
-| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS), por partición** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400.000 |
+| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB | Tamaño del valor de 1 kB |
+| --- | --- | --- | --- | --- | --- |
+| **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL** |**Solicitudes por segundo (RPS) SSL** |
+| C0 |250 MB |Compartido |100 / 12.5 |15 000 |7500 |
+| C1 |1 GB |1 |500 / 62.5 |38 000 |20 720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41 000 |37 000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90 000 |
+| C4 |13 GB |2 |500 / 62.5 |60 000 |55 000 |
+| C5 |26 GB |4 |1,000 / 125 |102 000 |93 000 |
+| C6 |53 GB |8 |2,000 / 250 |126 000 |120 000 |
+| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL por partición** |**Solicitudes por segundo (RPS) SSL por partición** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172 000 |
+| P2 |13 GB |4 |3,000 / 375 |350 000 |341 000 |
+| P3 |26 GB |4 |3,000 / 375 |350 000 |341 000 |
+| P4 |53 GB |8 |6,000 / 750 |400.000 |373 000 |
 
-Para obtener instrucciones acerca de cómo descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands) .
+Para obtener instrucciones sobre cómo configurar stunnel o descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands).
 
 <a name="cache-region"></a>
 

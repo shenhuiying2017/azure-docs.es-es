@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 
@@ -72,6 +72,22 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
+
+Los paquetes acumulativos se ejecutan para actualizar el servidor de configuración. Las actualizaciones se pueden aplicar para hasta las versiones N-4. Por ejemplo: 
+
+- Si ejecuta 9.7, 9.8, 9,9 o 9.10, puede actualizar directamente a 9.11.
+- Si ejecuta la versión 9.6 o anterior, y desea actualizar a 9.11, primero debe actualizar a la versión 9.7 antes de a la versión 9.11.
+
+En la [página wiki de actualizaciones](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx), hay disponibles vínculos a paquetes acumulativos para actualizar a todas las versiones del servidor de configuración.
+
+Actualice el servidor como se indica a continuación:
+
+1. Descargue el archivo del instalador de actualizaciones en el servidor de configuración.
+2. Haga doble clic para ejecutar el instalador.
+3. El instalador detecta la versión actual que se ejecuta en la máquina.
+4. Haga clic en **Aceptar** para confirmar y ejecutar la actualización. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Eliminación o anulación del registro de un servidor de configuración
 

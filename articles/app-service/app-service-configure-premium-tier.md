@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configuración del nivel PremiumV2 para Azure App Service
 
-El nuevo plan de tarifa **PremiumV2** incluye las [máquinas virtuales de la serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series), que cuentan con procesadores más rápidos, almacenamiento SSD y el doble de memoria en proporción de núcleo en comparación con el nivel **Estándar**. En este artículo, aprenderá a crear una aplicación en el nivel **PremiumV2** o escalar verticalmente una aplicación al nivel **PremiumV2**.
+Con el nuevo plan de tarifa **PremiumV2**, se obtienen procesadores más rápidos, almacenamiento SSD y el doble de relación memoria-núcleo que con los planes de tarifa actuales. Con la ventaja de rendimiento, puede ahorrar dinero mediante la ejecución de las aplicaciones en menos instancias. En este artículo, aprenderá a crear una aplicación en el nivel **PremiumV2** o escalar verticalmente una aplicación al nivel **PremiumV2**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para escalar verticalmente una aplicación web en **PremiumV2**, debe tener una aplicación web en Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2**.
 
@@ -33,7 +33,7 @@ Para escalar verticalmente una aplicación web en **PremiumV2**, debe tener una 
 
 ## <a name="premiumv2-availability"></a>Disponibilidad del nivel PremiumV2
 
-El nivel PremiumV2 actualmente solo está disponible para App Service en _Windows_. Los contenedores de Linux todavía no se admiten.
+El nivel PremiumV2 actualmente solo está disponible para App Service en _Windows_. Los contenedores Linux todavía no se admiten.
 
 PremiumV2 ya está disponible en la mayoría de las regiones de Azure y no deja de crecer. Para ver si está disponible en su región, ejecute el siguiente comando de la CLI de Azure en [Azure Cloud Shell](../cloud-shell/overview.md):
 
@@ -74,21 +74,21 @@ Seleccione uno de los tamaños de **PremiumV2** y haga clic en **Seleccionar**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-Si la operación finaliza correctamente, la página de información general de la aplicación muestra que ahora está en un nivel **PremiumV2**.
+Si la operación finaliza correctamente, la página de información general de la aplicación muestra que ahora está en un plan **PremiumV2**.
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Si recibe un error
 
-Algunos planes de App Service no se pueden escalar verticalmente al nivel PremiumV2. Si la operación de escalado vertical produce un error, necesitará un nuevo plan de App Service para la aplicación.
+Algunos planes de App Service no se pueden escalar verticalmente al plan PremiumV2. Si la operación de escalado vertical produce un error, necesitará un nuevo plan de App Service para la aplicación.
 
-Crear un plan de App Service _Windows_ en la misma región y grupo de recursos que la aplicación de App Service existente. Siga los pasos de [Creación de una aplicación en el nivel PremiumV2](#create) para establecerlo en el nivel **PremiumV2**. Si lo desea, utilice la misma configuración de escalado horizontal que el plan de App Service existente (número de instancias, escalado automático, etc).
+Crear un plan de App Service _Windows_ en la misma región y grupo de recursos que la aplicación de App Service existente. Siga los pasos de [Creación de una aplicación en el nivel PremiumV2](#create) para establecerlo en el nivel **PremiumV2**. Si lo desea, utilice la misma configuración de escalado horizontal que el plan de App Service existente (número de instancias, escalado automático, etc.).
 
 Vuelva a abrir la página de la aplicación de App Service. En el panel izquierdo de navegación de App Service, seleccione **Cambiar el plan de App Service**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Seleccione el plan de App Service que acaba de crear.
+Seleccione el plan de App Service que ha creado.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -105,13 +105,13 @@ Si la aplicación se ejecuta en una región donde **PremiumV2** todavía no est�
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    En la página **Clonar aplicación**, puede crear un nuevo plan de App Service en la región que desee y especificar la configuración que desea clonar.
+    En la página **Clonar aplicación**, puede crear un nuevo plan de App Service en la región que quiera y especificar la configuración que quiere clonar.
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
 Puede automatizar la creación de la aplicación en el nivel **PremiumV2** con scripts mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 El siguiente comando crea un plan de App Service en _P1V2_. También puede ejecutarlo en Cloud Shell. Las opciones para `--sku` son P1V2, _P2V2_ y _P3V2_.
 

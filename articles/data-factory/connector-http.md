@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copia de datos desde el punto de conexión HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | userName | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
-| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString. | Sí |
+| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 
 **Ejemplo**
 
@@ -100,7 +100,7 @@ Para usar la autenticación ClientCertificate, establezca la propiedad "authenti
 |:--- |:--- |:--- |
 | embeddedCertData | Datos del certificado codificados en Base64. | Especifique `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | La huella digital del certificado que se instaló en el almacén de certificados de la máquina Integration Runtime (autohospedado). Solo se aplica cuando se especifica un tipo autohospedado de un entorno Integration Runtime en connectVia. | Especifique `embeddedCertData` o `certThumbprint`. |
-| contraseña | Contraseña asociada con el certificado. Marque este campo como SecureString. | Sin  |
+| contraseña | Contraseña asociada con el certificado. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 
 Si utiliza "certThumbprint" para la autenticación y el certificado está instalado en el almacén personal del equipo local, necesita conceder el permiso de lectura al entorno Integration Runtime (autohospedado):
 

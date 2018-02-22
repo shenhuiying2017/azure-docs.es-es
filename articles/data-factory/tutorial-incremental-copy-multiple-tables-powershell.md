@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -44,7 +44,7 @@ En este tutorial, realizará los siguientes pasos:
 Estos son los pasos importantes para crear esta solución: 
 
 1. **Seleccione la columna de marca de agua**.
-    Seleccione una columna de cada tabla del almacén de datos de origen, que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
+    Seleccione una columna de cada tabla del almacén de datos de origen que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
 2. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
     En este tutorial, el valor de marca de agua se almacena en una base de datos SQL.
@@ -66,7 +66,7 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
 * **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
 
@@ -110,7 +110,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Creación de las tablas de destino en la base de datos SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creación de tablas de destino en Azure SQL Database
 1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server.
 
 2. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
@@ -133,7 +133,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL para almacenar el valor de límite máximo
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL de Azure para almacenar el valor del límite máximo
 1. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `watermarktable` y almacenar el valor de marca de agua: 
     
     ```sql
@@ -144,7 +144,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         WatermarkValue datetime,
     );
     ```
-2. Inserte los valores iniciales de marca de agua de ambas tablas de origen en la tabla de marcas de agua.
+2. Inserte los valores del límite inicial de ambas tablas de origen en la tabla de límites.
 
     ```sql
 
@@ -155,7 +155,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL de Azure 
 
 Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL. Este procedimiento almacenado actualiza el valor de la marca de agua después de cada ejecución de canalización. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Creación de tipos de datos y procedimientos almacenados adicionales
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en la base de datos SQL de Azure
 Ejecute la consulta siguiente para crear dos procedimientos almacenados y dos tipos de datos en la base de datos SQL. Estos procedimientos se usan para combinar los datos de las tablas de origen en las tablas de destino.
 
 ```sql
@@ -812,7 +812,7 @@ VALUES
 4. De manera opcional, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en **Acciones** para ver todas las ejecuciones de actividad asociadas a esta ejecución de canalización. 
 
 ## <a name="review-the-final-results"></a>Revisión de los resultados finales
-En SQL Server Management Studio, ejecute las siguientes consultas contra la base de datos de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 
+En SQL Server Management Studio, ejecute las siguientes consultas en la base de datos de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 
 
 **Consultar** 
 ```sql

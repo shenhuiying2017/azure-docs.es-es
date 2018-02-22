@@ -1,10 +1,10 @@
 ---
 title: "Generación y exportación de certificados para conexiones de punto a sitio: MakeCert: Azure | Microsoft Docs"
-description: "Este artículo contiene pasos para crear un certificado raíz autofirmado, exportar la clave pública y generar los certificados de cliente mediante MakeCert."
+description: "Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante MakeCert."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2beacc461370f268e54e1eedcb32939f7c606b14
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generación y exportación de certificados para conexiones de punto a sitio con MakeCert
 
@@ -93,9 +93,11 @@ Los pasos siguientes lo llevan por el proceso de generación de un certificado d
 
 Para instalar un certificado de cliente, consulte [Instalación de un certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Continúe con la configuración de punto a sitio. 
 
 * Para conocer los pasos del modelo de implementación de **Resource Manager**, consulte cómo [configurar una conexión de punto a sitio mediante la autenticación de certificados de Azure nativa](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Para ver los pasos del modelo de implementación **clásica**, consulte el artículo [Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+Para obtener información acerca de cómo solucionar problemas de P2S, consulte [Solución de problemas: conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

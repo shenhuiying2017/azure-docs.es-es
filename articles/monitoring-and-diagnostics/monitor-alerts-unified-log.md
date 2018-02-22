@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de registro en Azure Monitor: Alertas (versión preliminar)
 En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure (versión preliminar) y se describen las diferencias entre los distintos tipos de reglas de alertas de registro.
-Actualmente, Alertas de Azure (versión preliminar) solo admite las alertas de registro en consultas de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) escritas en el [nuevo lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md).
+
+Actualmente, Alertas de Azure (versión preliminar) admite las alertas de registro en consultas de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) y [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Las alertas de registro de Alertas de Azure (versión preliminar) actualmente no admiten consultas entre áreas de trabajo o entre aplicaciones. 
+
+> Actualmente, las alertas de registro de Alertas de Azure (versión preliminar) no admiten consultas entre áreas de trabajo ni entre aplicaciones.
 
 ## <a name="log-alert-rules"></a>Reglas de alertas de registro
 
@@ -70,7 +72,16 @@ Las reglas de alertas para **unidades métricas** crean una alerta para cada obj
 
 **Función de agregado**: determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devuelve el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo.
 
+> [!NOTE]
+
+> La función de agregado en la consulta debe denominarse/llamarse AggregatedValue y proporcionar un valor numérico.
+
+
 **Campo de grupo**: se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo).   
+
+> [!NOTE]
+
+> Para las reglas de alerta de unidades métricas que se basan en Application Insights, puede especificar el campo para agrupar los datos. Para ello, use la opción **Agregado en** en la definición de la regla.   
 
 **Intervalo**: define el intervalo de tiempo durante el cual se agregan los datos.  Por ejemplo, si especifica **cinco minutos**, se crearía un registro para cada instancia del campo de grupo que se agrega a intervalos de cinco minutos en la ventana de tiempo especificada para la alerta.
 
@@ -93,6 +104,6 @@ En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque ha
 
 
 ## <a name="next-steps"></a>pasos siguientes
-* [Obtenga información general sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md). 
+* [Obtenga información general sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
 * Obtenga información sobre cómo [utilizar Alertas de Azure (versión preliminar)](monitor-alerts-unified-usage.md).
 * Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

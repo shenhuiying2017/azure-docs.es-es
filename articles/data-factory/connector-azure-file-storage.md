@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
@@ -47,7 +47,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Fi
 | Tipo | La propiedad type debe establecerse en: **FileServer**. | Sí |
 | host | Especifica el punto de conexión de Azure File Storage como `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sí |
 | userid | Especifique el usuario para acceder a Azure File Storage como `"userid": "AZURE\\<storage name>"`. | Sí |
-| contraseña | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString.<br/> | Sí |
+| contraseña | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No para el origen, sí para el receptor |
 
 >[!IMPORTANT]

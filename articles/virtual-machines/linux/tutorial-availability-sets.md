@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7780a29f6633b444608d96012fabe67b9b6d924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 504c4a666d1abd7a495d6759d62815f53f0b54fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Cómo usar conjuntos de disponibilidad
 
@@ -43,14 +43,14 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Un conjunto de disponibilidad es una funcionalidad de agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se ve afectado y la aplicación se mantiene actualizada y sigue estando disponible para los clientes. Los conjuntos de disponibilidad son una funcionalidad fundamental para compilar soluciones en la nube confiables.
 
-Veamos una solución basada en máquina virtual típica en la podría haber 4 servidores web front-end y usar 2 máquinas virtuales de back-end que hospedan una base de datos. Con Azure, desea definir 2 conjuntos de disponibilidad antes de implementar las máquinas virtuales: un conjunto de disponibilidad para el nivel de "web" y otro para el nivel de "base de datos". Al crear una máquina virtual, podrá especificar el conjunto de disponibilidad como un parámetro en el comando az vm create, y Azure garantiza automáticamente que las máquinas virtuales que cree en el conjunto de disponibilidad estén aisladas en varios recursos de hardware físico. Si el hardware físico que está ejecutando una de sus máquinas virtuales del servidor web o del servidor de base de datos tiene un problema, sabe que las demás instancias de las máquinas virtuales del servidor de base de datos y del servidor web siguen ejecutándose correctamente porque están en un hardware diferente.
+Veamos una solución basada en máquina virtual típica en la podría haber cuatro servidores web front-end y usar dos máquinas virtuales de back-end que hospedan una base de datos. Con Azure, desea definir 2 conjuntos de disponibilidad antes de implementar las máquinas virtuales: un conjunto de disponibilidad para el nivel de "web" y otro para el nivel de "base de datos". Al crear una máquina virtual, podrá especificar el conjunto de disponibilidad como un parámetro en el comando az vm create, y Azure garantiza automáticamente que las máquinas virtuales que cree en el conjunto de disponibilidad estén aisladas en varios recursos de hardware físico. Si el hardware físico que está ejecutando una de sus máquinas virtuales del servidor web o del servidor de base de datos tiene un problema, sabe que las demás instancias de las máquinas virtuales del servidor de base de datos y del servidor web siguen ejecutándose correctamente porque están en un hardware diferente.
 
 Use los conjuntos de disponibilidad cuando quiera implementar soluciones basadas en máquinas virtuales confiables en Azure.
 
 
 ## <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
-Puede crear el conjunto de disponibilidad mediante [az vm availability-set create](/cli/azure/vm/availability-set#create). En este ejemplo, se establece el número de dominios de actualización y error en *2* para el conjunto de disponibilidad denominado *myAvailabilitySet* en el grupo de recursos *myResourceGroupAvailability*.
+Puede crear el conjunto de disponibilidad mediante [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). En este ejemplo, se establece el número de dominios de actualización y error en *2* para el conjunto de disponibilidad denominado *myAvailabilitySet* en el grupo de recursos *myResourceGroupAvailability*.
 
 Cree un grupo de recursos.
 
@@ -74,7 +74,7 @@ Los conjuntos de disponibilidad permiten aislar los recursos en dominios de erro
 
 Las máquinas virtuales deben crearse en el conjunto de disponibilidad para asegurarse de que se distribuyan correctamente en el hardware. No se puede agregar una máquina virtual existente a un conjunto de disponibilidad después de crearla. 
 
-Cuando se crea una máquina virtual mediante [az vm create](/cli/azure/vm#create), se especifica el conjunto de disponibilidad mediante el parámetro `--availability-set` para especificar el nombre del conjunto de disponibilidad.
+Cuando se crea una máquina virtual mediante [az vm create](/cli/azure/vm#az_vm_create), se especifica el conjunto de disponibilidad mediante el parámetro `--availability-set` para especificar el nombre del conjunto de disponibilidad.
 
 ```azurecli-interactive 
 for i in `seq 1 2`; do
@@ -92,13 +92,13 @@ done
 
 Ahora tenemos dos máquinas virtuales en nuestro conjunto de disponibilidad recién creado. Como se encuentran en el mismo conjunto de disponibilidad, Azure se asegura de que las máquinas virtuales y todos sus recursos (incluidos los discos de datos) se distribuyen entre el hardware físico aislado. Esta distribución ayuda a garantizar una mayor disponibilidad de nuestra solución de máquina virtual.
 
-Si observa el conjunto de disponibilidad en el portal en Grupos de recursos > disponibilidadDeMiGrupoDeRecursos > miConjuntoDeDisponibilidad, debería ver cómo se distribuyen las máquinas virtuales en ambos dominios, el de error y el de actualización.
+Si observa el conjunto de disponibilidad en el portal en Grupos de recursos > myResourceGroupAvailability > myAvailabilitySet, debería ver cómo se distribuyen las máquinas virtuales en ambos dominios, el de error y el de actualización.
 
 ![Conjunto de disponibilidad en el portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Comprobación de los tamaños de VM disponibles 
 
-Se pueden agregar más máquinas virtuales al conjunto de disponibilidad posteriormente, pero debe saber qué tamaños de máquina virtual están disponibles en el hardware.  Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) para enumerar todos los tamaños disponibles en el clúster de hardware para el conjunto de disponibilidad.
+Se pueden agregar más máquinas virtuales al conjunto de disponibilidad posteriormente, pero debe saber qué tamaños de máquina virtual están disponibles en el hardware.  Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) para enumerar todos los tamaños disponibles en el clúster de hardware para el conjunto de disponibilidad.
 
 ```azurecli-interactive 
 az vm availability-set list-sizes \
@@ -107,9 +107,9 @@ az vm availability-set list-sizes \
      --output table  
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un conjunto de disponibilidad

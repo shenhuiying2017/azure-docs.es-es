@@ -10,15 +10,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure PowerShell
 
-Puede usar Azure PowerShell para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento que garantizan que el tráfico web llega a los servidores adecuados de los grupos.
+Puede usar Azure PowerShell para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). A continuación, creará reglas de enrutamiento que garanticen que el tráfico web llega a los servidores adecuados de los grupos.
 
 En este artículo, aprenderá a:
 
@@ -352,7 +352,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Cambie la dirección URL a http://<dirección ip>:8080/video/test.htm al final de la dirección URL base y verá algo parecido al ejemplo siguiente:
+Cambie la dirección URL por http://<dirección-ip>:8080/video/test.htm, sustituyendo su dirección IP por <dirección-ip> y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 

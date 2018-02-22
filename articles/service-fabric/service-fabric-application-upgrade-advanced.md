@@ -12,50 +12,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/5/2018
 ms.author: subramar;chackdan
-ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b0ca553fb96b0a54f3b76d306ed98d95026dcd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
-## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Adición o eliminación de servicios durante la actualización de una aplicación
-Si se agrega un nuevo servicio a una aplicación que ya está implementada y publicada como una actualización, el nuevo servicio se agrega a la aplicación implementada.  Dicha actualización no afecta a ninguno de los servicios que ya formaban parte de la aplicación. Sin embargo, tendrá que iniciarse una instancia del servicio que se agregó para que el nuevo servicio esté activo (mediante el cmdlet `New-ServiceFabricService` ).
+## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Adición o eliminación de tipos de servicio durante la actualización de una aplicación
+Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de una actualización, el nuevo tipo de servicio se agrega a la aplicación implementada. Esta actualización no afecta a ninguna de las instancias de servicio que ya formaban parte de la aplicación, pero debe crearse una instancia del tipo de servicio que se ha agregado para que el nuevo tipo de servicio esté activo (consulte [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, se deben detener todas las instancias actuales del servicio se va a eliminar antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService` ).
+De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="manual-upgrade-mode"></a>Modo de actualización manual
 > [!NOTE]
-> El modo manual no supervisado debe considerarse solo si la actualización presenta errores o si se suspende. El modo supervisado es el modo de actualización recomendado para las aplicaciones de Service Fabric.
+> El modo de actualización *Monitored* se recomienda para todas las actualizaciones de Service Fabric.
+> El modo de actualización *UnmonitoredManual* debe considerarse solo si la actualización presenta errores o si se suspende. 
 >
 >
 
-Azure Service Fabric ofrece varios modos de actualización para admitir clústeres de desarrollo y producción. Las opciones de implementación elegidas pueden ser diferentes para distintos entornos.
+En el modo *Monitored*, Service Fabric aplica directivas de mantenimiento para asegurarse de que la aplicación esté en un estado correcto a medida que avance la actualización. Si se infringen las directivas de mantenimiento, la actualización se suspende o se revierte automáticamente según la *FailureAction* especificada.
 
-La actualización gradual de la aplicación en modo supervisado es la actualización más típica que se usa en el entorno de producción. Cuando se especifica la directiva de actualización, Service Fabric garantiza que la aplicación sea correcta antes de que la actualización continúe.
+En modo *UnmonitoredManual*, el administrador de la aplicación tiene un control total sobre el avance de la actualización. Este modo resulta útil al aplicar las directivas de evaluación de mantenimiento personalizadas o realizar actualizaciones no convencional al omitir completamente la supervisión de estado (por ejemplo, la aplicación ya está en pérdida de datos). Una actualización que se ejecuta en este modo se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Cuando se suspende una actualización y está lista para que el usuario la reanude, su estado de actualización mostrará *RollforwardPending* (consulte [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
- El Administrador de aplicaciones puede utilizar el modo de actualización de aplicación gradual manual para tener control total sobre el progreso de la actualización a través de los distintos dominios de actualización. Este modo es útil cuando se necesita una directiva de evaluación de estado personalizada o compleja, o tiene lugar una actualización poco convencional (por ejemplo, la aplicación ya tiene pérdida de datos).
-
-Por último, la actualización de la aplicación gradual automatizada es útil para que los entornos de desarrollo o prueba proporcionen un ciclo de iteración rápido durante el desarrollo de servicios.
-
-## <a name="change-to-manual-upgrade-mode"></a>Cambio al modo de actualización manual
-**Manual**: detenga la actualización de la aplicación en el dominio de actualización actual y cambie el modo de actualización a manual no supervisado. El administrador debe llamar manualmente a **MoveNextApplicationUpgradeDomainAsync** para continuar con la actualización o desencadenar una reversión iniciando una nueva actualización. Una vez que la actualización adopte el modo manual, permanecerá en dicho modo hasta que se inicie una nueva actualización. El comando **GetApplicationUpgradeProgressAsync** devuelve FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
+Por último, el modo *UnmonitoredAuto* es útil para realizar iteraciones rápidas de actualización durante el desarrollo o las pruebas del servicio, ya que no se necesitan entradas del usuario y no se evalúa ninguna directiva de mantenimiento de la aplicación.
 
 ## <a name="upgrade-with-a-diff-package"></a>Actualización con un paquete de diferencias
-Puede actualizarse una aplicación de Service Fabric mediante el aprovisionamiento de un paquete de aplicación completo y autocontenido. También se puede actualizar una aplicación mediante un paquete de diferencias que contenga solo los archivos de la aplicación actualizados y los archivos de los manifiestos de aplicación y servicio actualizados.
+En lugar de aprovisionar un paquete de aplicación completo, las actualizaciones también pueden realizarse mediante el aprovisionamiento de paquetes de diferencias que contienen solo los paquetes actualizados de código, de configuración y de datos, junto con el manifiesto de aplicación completo y los manifiestos de servicio completos. Los paquetes de aplicación completos se requieren únicamente para la instalación inicial de una aplicación en el clúster. Las actualizaciones subsiguientes pueden provenir de paquetes de aplicación completos o de diferencias.  
 
-Un paquete de aplicación completo contiene todos los archivos necesarios para iniciar y ejecutar una aplicación de Service Fabric. Un paquete de diferencias contiene solo los archivos que cambiaron entre el último aprovisionamiento y la actualización actual, además de los archivos de los manifiestos de aplicación y servicio completos. Cualquier referencia en el manifiesto de aplicación o de servicio que no se encuentra en el diseño de compilación se busca en el almacén de imágenes.
+Toda referencia en el manifiesto de aplicación o los manifiestos de servicio de un paquete de diferencias, que no se encuentre en el paquete de aplicación se reemplazará automáticamente por la versión aprovisionada actualmente.
 
-Los paquetes de aplicación completos se requieren para la instalación inicial de una aplicación en el clúster. Las actualizaciones posteriores pueden ser un paquete de aplicación completo o un paquete de diferencias.
+Los escenarios de uso de un paquete de diferencias son:
 
-Casos en los que usar un paquete de diferencias sería una buena opción:
+* Cuando tiene un paquete de aplicación grande que hace referencia a varios archivos del manifiesto de servicio o varios paquetes de código, de configuración o de datos.
+* Cuando dispone de un sistema de implementación que genera el diseño de compilación directamente desde el proceso de compilación de la aplicación. En este caso, aunque el código no ha cambiado, los ensamblados recién creados obtienen una suma de comprobación diferente. Para usar un paquete de aplicación completo, sería necesario que actualizara la versión de todos los paquetes de código. Con un paquete de diferencias, solo proporciona los archivos que cambiaron y los archivos de manifiesto cuya versión ha cambiado.
 
-* Se prefiere un paquete de diferencias cuando tiene un paquete de aplicación grande que hace referencia a varios archivos del manifiesto de servicio o varios paquetes de código, configuración o datos.
-* Asimismo, se prefiere un paquete de diferencias cuando dispone de un sistema de implementación que genera el diseño de compilación directamente desde el proceso de compilación de su aplicación. En este caso, aunque el código no ha cambiado, los ensamblados recién creados obtienen una suma de comprobación diferente. Para usar un paquete de aplicación completo, sería necesario que actualizara la versión de todos los paquetes de código. Con un paquete de diferencias, solo proporciona los archivos que cambiaron y los archivos de manifiesto cuya versión ha cambiado.
-
-Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final.
+Cuando se actualiza una aplicación mediante Visual Studio, un paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final.
 
 Por ejemplo, comencemos con la siguiente aplicación (se proporcionan los números de versión para facilitar la comprensión):
 
@@ -69,7 +63,7 @@ app1           1.0.0
     config     1.0.0
 ```
 
-Ahora, supongamos que desea actualizar solo el paquete de código de service1 mediante un paquete de diferencias con PowerShell. Ahora, la aplicación actualizada tiene la siguiente estructura de carpetas:
+Supongamos que desea actualizar solo el paquete de código de service1 mediante un paquete de diferencias. La aplicación actualizada tiene los cambios de versión siguientes:
 
 ```text
 app1           2.0.0      <-- new version
@@ -81,7 +75,7 @@ app1           2.0.0      <-- new version
     config     1.0.0
 ```
 
-En este caso, actualice el manifiesto de aplicación 2.0.0 y el manifiesto de servicio de service1 para reflejar la actualización del paquete de código. La estructura de carpetas para el paquete de aplicación sería similar a la siguiente:
+En este caso, actualice el manifiesto de aplicación a 2.0.0 y el manifiesto de servicio de service1 para que refleje la actualización del paquete de código. La estructura de carpetas para el paquete de aplicación sería similar a la siguiente:
 
 ```text
 app1/
@@ -89,7 +83,17 @@ app1/
     code/
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+En otras palabras, cree un paquete de aplicación completo normalmente, a continuación, quite las carpetas de paquetes de datos, de configuración y de código para las que no haya cambiado la versión.
+
+## <a name="rolling-back-application-upgrades"></a>Reversión de actualizaciones de aplicaciones
+
+Si bien las actualizaciones se pueden poner al día en uno de tres modos (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), solo se pueden revertir en el modo *UnmonitoredAuto* o *UnmonitoredManual*. La reversión en modo *UnmonitoredAuto* funciona del mismo modo que la puesta al día, con la excepción de que el valor predeterminado de *UpgradeReplicaSetCheckTimeout* es diferente; consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md). La reversión en el modo *UnmonitoredManual* funciona del mismo modo que la puesta al día: la reversión se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar con la reversión.
+
+Las reversiones pueden activarse automáticamente cuando se infringen las directivas de mantenimiento de una actualización en modo *Monitored* con una *FailureAction* de *Rollback* (consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)), o explícitamente con [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+
+Durante la reversión, el valor de *UpgradeReplicaSetCheckTimeout* y el modo se pueden cambiar en cualquier momento con [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+
+## <a name="next-steps"></a>pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 [actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.

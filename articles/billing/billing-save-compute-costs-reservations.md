@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual 
 Las instancias reservadas de máquina virtual le permiten pagar por adelantado por uno o tres años de capacidad de proceso. De esta forma, obtendrá un descuento en las máquinas virtuales que use. Reduce significativamente los costos de máquinas virtuales (hasta un 72 % con respecto a precios de pago por uso) con el compromiso por adelantado de uno o tres años. Debido a que las instancias reservadas de máquina virtual conforman un descuento en la facturación, su compra no afectará al estado de tiempo de ejecución de las máquinas virtuales.
@@ -25,7 +25,7 @@ Las instancias reservadas de máquina virtual le permiten pagar por adelantado p
 Puede comprar instancias reservadas de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ## <a name="why-should-i-buy-a-reserved-virtual-machine-instance"></a>¿Por qué debería comprar una instancia reservada de máquina virtual?
-Si tiene máquinas virtuales que se ejecuten durante largos períodos de tiempo, la compra de una instancia reservada de máquina virtual le proporcionará el mejor precio efectivo. Por ejemplo, si ejecuta continuamente cuatro instancias de Estándar D2 en la región Oeste de EE. UU., sin una reserva se le cobra según las tarifas de pago por uso. Si compra una instancia reservada de máquina virtual para esas máquinas, estas obtendrán inmediatamente las ventajas de facturación, por lo que ya no se le cobrará según las tarifas de pago por uso. 
+Si tiene máquinas virtuales que se ejecuten durante largos períodos de tiempo, la compra de una instancia reservada de máquina virtual le proporcionará el mejor precio efectivo. Por ejemplo, si ejecuta continuamente cuatro instancias de Estándar D2 en la región Oeste de EE. UU., sin una reserva se le cobra según las tarifas de pago por uso. Si compra una instancia reservada de máquina virtual para esas cuatro máquinas virtuales, estas disfrutarán inmediatamente de las ventajas de facturación. Ya no se aplicarán las tarifas de pago por uso. 
 
 ## <a name="what-charges-does-a-reserved-virtual-machine-instance-cover"></a>¿Qué cargos cubre la instancia reservada de máquina virtual?
 Una reserva solo cubre los cargos de infraestructura de máquina virtual para las máquinas virtuales Windows o Linux. Por lo tanto, no cubre cargos por software adicional, administración de redes ni almacenamiento. Para máquinas virtuales de Windows, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -58,7 +58,16 @@ Las reservas están disponibles para la mayoría de tamaños de máquina virtual
 - Cuota insuficiente: una instancia reservada de máquina virtual cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la familia de la serie D, no podrá comprar una instancia reservada de máquina virtual para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la familia de serie D. Si esta suscripción tiene dos instancias standard_D1 implementadas, podrá comprar una instancia reservada de VM para 10 instancias standard_D1 en esta suscripción. 
 - Restricciones de capacidad: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas para un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Empiece a ahorrar en sus máquinas virtuales con la compra de una [instancia reservada de máquina virtual](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
+
+- [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
+- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
+- [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
 
 Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

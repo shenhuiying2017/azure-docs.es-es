@@ -1,6 +1,6 @@
 ---
-title: Opciones de proceso de Azure (Cloud Services) | Microsoft Docs
-description: "Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: App Service, Cloud Services y Virtual Machines"
+title: Opciones de proceso de Azure (Azure Cloud Services) | Microsoft Docs
+description: "Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: App Service, Azure Cloud Services y Virtual Machines"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -13,53 +13,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2871a8c02db0ffc6d9033724e7c9f4a454afef8e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="should-i-choose-cloud-services-or-something-else"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
-¿Es Azure Cloud Services la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
+# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>¿Debo elegir Azure Cloud Services u otra opción?
+¿Es Azure Cloud Services la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una ofrece un conjunto diferente de servicios. Su elección dependerá de lo que pretenda.
 
 [!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
 
-## <a name="tell-me-about-cloud-services"></a>Información sobre los servicios en la nube
-Cloud Services es un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [App Service](../app-service/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Al igual que una instancia de App Service, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
+## <a name="tell-me-about-azure-cloud-services"></a>Información sobre Azure Cloud Services
+Azure Cloud Services es un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Azure App Service](../app-service/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.
 
-![cs_diagram](./media/cloud-services-choose-me/diagram.png)
+![Diagrama de Azure Cloud Services](./media/cloud-services-choose-me/diagram.png)
 
-Más control también significa menos facilidad de uso. A menos que necesite opciones de control adicionales, por lo general es más rápido y fácil poner en marcha una aplicación web y que funcione en Web Apps en App Service que en Cloud Services.
+Más control también significa menos facilidad de uso. A menos que necesite opciones de control adicionales, por lo general es más rápido y fácil poner en marcha una aplicación web en la característica Web Apps de App Service que en Azure Cloud Services.
 
-Existen dos tipos de roles de servicio en la nube. La única diferencia entre los dos es cómo se hospeda el rol en la máquina virtual.
+Hay dos tipos de roles de Azure Cloud Services. La única diferencia entre ambos es cómo se hospeda el rol en las máquinas virtuales:
 
-* **Rol web**  
-Implementa y hospeda automáticamente la aplicación a través de IIS.
+* **Rol Web**: implementa y hospeda automáticamente la aplicación a través de IIS.
 
-* **Rol de trabajo**  
-No usa IIS y ejecuta la aplicación independiente.
+* **Rol de trabajo**: no usa IIS y ejecuta la aplicación independiente.
 
-Por ejemplo, una aplicación simple podría utilizar solo un rol web, para dar servicio a un sitio web. Una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir esas solicitudes a un rol de trabajo para su procesamiento. (esta comunicación podría utilizar [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queues](../storage/common/storage-introduction.md)).
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, para dar servicio a un sitio web. Una aplicación más compleja podría utilizar un rol web para tratar las solicitudes entrantes provenientes de los usuarios y luego transmitirlas a un rol de trabajo para su procesamiento. (Esta comunicación podría usar [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queue Storage](../storage/common/storage-introduction.md)).
 
-Como sugiere la ilustración anterior, todas las VM de una sola aplicación se ejecutan en el mismo servicio en la nube. Los usuarios acceden a la aplicación a través de una sola dirección IP pública y el equilibrio de carga de las solicitudes se realiza automáticamente en todas las VM de la aplicación. La plataforma [escala e implementa](cloud-services-how-to-scale-portal.md) las máquinas virtuales en una aplicación de Cloud Services para así evitar un único punto de errores de hardware.
+Como sugiere la ilustración anterior, todas las VM de una sola aplicación se ejecutan en el mismo servicio en la nube. Los usuarios acceden a la aplicación a través de una sola dirección IP pública y el equilibrio de carga de las solicitudes se realiza automáticamente en todas las VM de la aplicación. La plataforma [escala e implementa](cloud-services-how-to-scale-portal.md) las máquinas virtuales en una aplicación de Azure Cloud Services para así evitar un único punto de errores de hardware.
 
-A pesar de que las aplicaciones se ejecutan en máquinas virtuales, resulta importante comprender que Cloud Services proporciona PaaS y no IaaS. Piénselo así: con IaaS, como en Azure Virtual Machines, primero crea y configura el entorno en el que se ejecuta la aplicación, para luego implementar la aplicación en este entorno. Es responsabilidad suya administrar gran parte de este mundo, como por ejemplo, implementar nuevas versiones revisadas del sistema operativo en cada máquina virtual. Por el contrario, en PaaS ocurre como si el entorno ya existiese. Todo lo que tiene que hacer es implementar la aplicación. Usted maneja la administración de la plataforma en que se ejecuta, incluida la implementación de versiones nuevas del sistema operativo.
+A pesar de que las aplicaciones se ejecutan en máquinas virtuales, resulta importante comprender que Azure Cloud Services proporciona PaaS y no una infraestructura como servicio (IaaS). Esta es una manera de considerarlo. Con IaaS, como Azure Virtual Machines, primero crea y configura el entorno en el que la aplicación se ejecuta. A continuación, implementa la aplicación en este entorno. Es responsabilidad suya administrar gran parte de él, por ejemplo, debe implementar las nuevas versiones revisadas del sistema operativo en cada máquina virtual. Por el contrario, en PaaS ocurre como si el entorno ya existiese. Todo lo que tiene que hacer es implementar la aplicación. Usted maneja la administración de la plataforma en que se ejecuta, incluida la implementación de versiones nuevas del sistema operativo.
 
 ## <a name="scaling-and-management"></a>Escalado y administración
-Con Cloud Services no se crean máquinas virtuales. En lugar de eso, se proporciona un archivo de configuración que le indica a Azure qué cantidad de cada una le gustaría tener, como por ejemplo, **tres instancias de rol web** y **dos instancias de rol de trabajo**, y la plataforma las crea por usted.  Sigue siendo necesario que elija [qué tamaño](cloud-services-sizes-specs.md) deben tener esas máquinas virtuales (las opciones son las mismas que con las máquinas virtuales de Azure), pero no tiene que crearlas por sí mismo explícitamente. Si la aplicación necesita manejar una carga mayor, puede pedir más VM y Azure creará esas instancias. Si la carga disminuye, puede apagar esas instancias y así dejar de pagar por ellas.
+Con Azure Cloud Services no se crean máquinas virtuales. En cambio, se proporciona un archivo de configuración que le indica a Azure qué cantidad de cada una le gustaría tener, por ejemplo, tres instancias de rol web y dos instancias de rol de trabajo. La plataforma se crea entonces automáticamente. Sigue siendo necesario que elija [qué tamaño](cloud-services-sizes-specs.md) deben tener esas máquinas virtuales (las opciones son las mismas que con las máquinas virtuales de Azure), pero no tiene que crearlas por sí mismo explícitamente. Si la aplicación necesita manejar una carga mayor, puede pedir más VM y Azure creará esas instancias. Si la carga disminuye, puede apagar esas instancias y así dejar de pagar por ellas.
 
-Una aplicación de Cloud Services normalmente está a disposición de los usuarios a través de un proceso de dos pasos. Un desarrollador primero [carga la aplicación](cloud-services-how-to-create-deploy-portal.md) en el área de ensayo de la plataforma. Cuando el desarrollador está preparado para activar definitivamente la aplicación, utiliza Azure Portal para intercambiar el ensayo por la producción. Este [intercambio entre el área de ensayo y la producción](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) se puede llevar a cabo sin tiempo de inactividad, lo que permite actualizar una aplicación en ejecución a una versión nueva sin interrumpir ni molestar a sus usuarios.
+Una aplicación de Azure Cloud Services normalmente está a disposición de los usuarios a través de un proceso de dos pasos. Un desarrollador primero [carga la aplicación](cloud-services-how-to-create-deploy-portal.md) en el área de ensayo de la plataforma. Cuando el desarrollador está preparado para activar definitivamente la aplicación, utiliza Azure Portal para intercambiar el ensayo por la producción. Este [intercambio entre el área de ensayo y la producción](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) se puede llevar a cabo sin tiempo de inactividad, lo que permite actualizar una aplicación en ejecución a una versión nueva sin interrumpir ni molestar a sus usuarios.
 
 ## <a name="monitoring"></a>Supervisión
-Cloud Services también brinda supervisión. Al igual que con Azure Virtual Machines, detecta un servidor físico con errores y reinicia las VM que se ejecutaban en ese servidor en una máquina nueva. Pero Cloud Services también detecta máquinas virtuales y aplicaciones con errores, no solo errores de hardware. A diferencia de Máquinas virtuales, Servicios en la nube tiene un agente dentro de cada rol web o rol de trabajo, por lo que puede iniciar nuevas instancias de aplicaciones y máquinas virtuales cuando se produce un error.
+Azure Cloud Services también proporciona supervisión. Al igual que con Azure Virtual Machines, detecta un servidor físico con errores y reinicia las máquinas virtuales que se ejecutaban en ese servidor en una máquina nueva. Pero Azure Cloud Services también detecta las máquinas virtuales y aplicaciones con errores, no solo los errores de hardware. A diferencia de Máquinas virtuales, Servicios en la nube tiene un agente dentro de cada rol web o rol de trabajo, por lo que puede iniciar nuevas instancias de aplicaciones y máquinas virtuales cuando se produce un error.
 
-La naturaleza de PaaS de Cloud Services tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Cloud Services no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Azure Virtual Machines, las escrituras que se realizan en las máquinas virtuales de Cloud Services no son permanentes; no hay nada parecido a un disco de datos de Virtual Machines. En lugar de eso, una aplicación de Cloud Services debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Cloud Services.
+La naturaleza PaaS de Azure Cloud Services tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Azure Cloud Services no debería mantener el estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de lo que ocurre en las máquinas virtuales creadas con Azure Virtual Machines, las escrituras realizadas en máquinas virtuales de Azure Cloud Services no son persistentes. No es como un disco de datos de Azure Virtual Machines. En su lugar, una aplicación de Azure Cloud Services debe escribir explícitamente todo el estado en Azure SQL Database, blobs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, y ambos son objetivos importantes de Azure Cloud Services.
 
-## <a name="next-steps"></a>Pasos siguientes
-[Crear una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md)  
-[Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md)  
-[Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)  
-[Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Crear una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) 
+* [Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) 
+* [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) 
+* [Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
+
+
 

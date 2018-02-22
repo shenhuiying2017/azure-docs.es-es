@@ -3,7 +3,7 @@ title: "Elevación del acceso para administradores de inquilinos - Azure AD | Mi
 description: En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC).
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevación del acceso como administrador de inquilinos con Control de acceso basado en rol
 
@@ -101,7 +101,7 @@ El proceso básico funciona con los siguientes pasos:
 
 Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted mismo, por lo que para revocar esos privilegios debe eliminar la asignación.
 
-1.  Llame a las definiciones de roles de GET, donde roleName = Administrador de accesos de usuario para determinar el GUID del nombre del rol de administrador de accesos de usuario.
+1.  Llame a GET roleDefinitions, donde roleName es el administrador de acceso de usuario, para determinar el GUID del nombre del rol de administrador de acceso de usuario.
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -127,7 +127,7 @@ Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted m
     1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Un administrador de inquilinos no debe tener muchas asignaciones. Si la consulta anterior devuelve muchas asignaciones, también puede consultar todas las asignaciones en el nivel de ámbito de inquilino y, a continuación, filtrar los resultados: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        >Un administrador de inquilinos no debe tener muchas asignaciones. Si la consulta anterior devuelve demasiadas asignaciones, también puede consultar todas las asignaciones en el nivel del ámbito de inquilino y filtrar después los resultados: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
     2. Las llamadas anteriores devuelven una lista de asignaciones de roles. Busque la asignación de roles cuando el ámbito sea "/" y RoleDefinitionId termine con la GUID del nombre de rol que se encuentra en el paso 1 y PrincipalId coincida con el ObjectId del administrador de inquilinos. La asignación de roles tiene este aspecto:
 
@@ -152,7 +152,7 @@ Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted m
 
         DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Obtener más información sobre la [administración del control de acceso basado en rol con REST](role-based-access-control-manage-access-rest.md)
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -101,6 +101,26 @@ Para poder enviar scripts a los clústeres de HDInsight desde VS Code, debe cone
     - Envíe consultas de PySpark interactivas
     - Enviar scripts por lotes de PySpark
     - Establecer configuraciones
+
+**Vinculación de un clúster**
+
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+1. Para abrir la paleta de comandos, seleccione **CTRL + MAYÚS + P** y, a continuación, escriba **HDInsight: Unlink a cluster**.
+
+   ![comando de clúster de vinculación](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Escriba la dirección URL del clúster de HDInsight, escriba el nombre de usuario y la contraseña y seleccione el tipo de clúster; si la comprobación se realiza correctamente, se muestra información de operación completada con éxito.
+   
+   ![cuadro de diálogo de vinculación de clúster](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan el nombre de usuario y la contraseña vinculados. 
+   
+3. Puede ver un clúster vinculado mediante el comando **List cluster**. Ahora puede enviar un script a este clúster vinculado.
+
+   ![clúster vinculado](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. También puede desvincular un clúster si inserta **HDInsight: Unlink a cluster** desde la paleta de comandos.
 
 ## <a name="list-hdinsight-clusters"></a>Enumerar los clústeres de HDInsight
 
@@ -256,6 +276,9 @@ Herramientas de HDInsight para VS Code también le permite enviar consultas de P
    ![Enviar el resultado del trabajo de Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 Después de enviar un trabajo de Python, los registros de envío aparecen en la ventana **SALIDA** de VS Code. También se muestran la **dirección URL de interfaz de usuario de Spark** y la **dirección URL de interfaz de usuario de Yarn**. Puede abrir la dirección URL en un explorador web para realizar el seguimiento de estado del trabajo.
+
+
+   
 
 
 ## <a name="additional-features"></a>Características adicionales

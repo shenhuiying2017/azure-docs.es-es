@@ -16,21 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 
-En este tutorial, se implementa y explora la aplicación independiente SaaS Wingtip Tickets. La aplicación está diseñada para presentar las características de Azure SQL Database que simplifican escenarios de SaaS.
+En este tutorial, implementará y explorará la aplicación SaaS Wingtip Tickets de ejemplo desarrollada con el patrón de aplicación independiente (o aplicación por inquilino).  La aplicación está diseñada para exhibir las características de Azure SQL Database que simplifican escenarios de SaaS multiinquilino.
 
-El patrón de aplicación independiente implementa un grupo de recursos de Azure que contiene una aplicación de inquilino único y una base de datos de inquilino único para cada inquilino.  Es posible aprovisionar varias instancias de la aplicación para proporcionar una solución multiinquilino.
+El patrón de aplicación independiente (o aplicación por inquilino) implementa una instancia de la aplicación para cada inquilino.  Cada aplicación se configura para un inquilino determinado y se implementa en un grupo de recursos de Azure independiente. Varias instancias de la aplicación se aprovisionan para proporcionar una solución multiinquilino. Este patrón se adapta mejor a una cantidad reducida de inquilinos, cuando el aislamiento de inquilinos es una prioridad. Azure tiene programas para socios que permiten implementar recursos en la suscripción de un inquilino y que un proveedor de servicios los administre en nombre del inquilino. 
 
-En este tutorial va a implementar los grupos de recursos para varios inquilinos en la suscripción de Azure.  Este patrón permite a los grupos de recursos implementarse en una suscripción de Azure del inquilino. Azure tiene programas para asociados que permiten que un proveedor de servicios administre estos grupos de recursos en el nombre del inquilino. El proveedor de servicios es un administrador de la suscripción del inquilino.
-
-En la sección de implementación que aparece más adelante, hay tres botones azules con el texto **Implementar en Azure**. Cada botón implementa una instancia diferente de la aplicación. Cada instancia está personaliza para un inquilino específico. Cuando se pulsa cada botón, la aplicación correspondiente se implementa totalmente en menos de cinco minutos.  Las aplicaciones se implementan en la suscripción a Azure.  Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación.
+En este tutorial, implementará tres aplicaciones independientes para tres inquilinos en su suscripción de Azure.  Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación.
 
 El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) de GitHub.
 
@@ -61,11 +59,10 @@ Implemente la aplicación para los tres inquilinos proporcionados:
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. **Cree un nuevo grupo de recursos** para cada implementación de aplicación.  No use un grupo de recursos existente. No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Elimine todos los grupos de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con ellos.
 
     Se recomienda usar solo letras minúsculas, números y guiones en los nombres de recurso.
-    * En **Grupo de recursos**: seleccione **Crear nuevo** y, luego, proporcione un **nombre** en minúsculas para el grupo de recursos.
-        * Le recomendamos anexar un guión, seguido de sus iniciales, y después un dígito, por ejemplo: *wingtip-sa-af1*.
-        * Seleccione una **ubicación** en la lista desplegable.
+    * En **Grupo de recursos**, seleccione Crear nuevo y, luego, proporcione un nombre en minúsculas para el grupo de recursos. **wingtip-sa-\<venueName\>-\<usuario\>** es el patrón recomendado.  Para \<venueName\>, sustituya el nombre del lugar sin espacios. Para \<usuario\>, sustituya el valor de usuario a continuación.  Con este patrón, los nombres de grupos de recursos podrían ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1* y *wingtip-sa-fabrikamjazzclub-af1*.
+    * Seleccione una **ubicación** en la lista desplegable.
 
-    * En **Usuario**: se recomienda elegir un valor de usuario corto, como sus iniciales más un dígito, por ejemplo: *af1*.
+    * En **Usuario**, se recomienda elegir un valor de usuario corto, como sus iniciales más un dígito, por ejemplo: *af1*.
 
 
 3. **Implemente la aplicación**.
@@ -73,25 +70,25 @@ Implemente la aplicación para los tres inquilinos proporcionados:
     * Haga clic para aceptar los términos y condiciones.
     * Haga clic en **Comprar**.
 
-4. Supervise el estado de implementación de las tres implementaciones, para lo que debe hacer clic en **Notificaciones** (el icono de la campana de la derecha del cuadro de búsqueda). La implementación de la aplicación tarda cinco minutos.
+4. Supervise el estado de las tres implementaciones, para lo que debe hacer clic en **Notificaciones** (el icono de la campana de la derecha del cuadro de búsqueda). La implementación de las aplicaciones tarda aproximadamente cinco minutos.
 
 
-## <a name="run-the-application"></a>Ejecución de la aplicación
+## <a name="run-the-applications"></a>Ejecución de las aplicaciones
 
-La aplicación presenta lugares que albergan eventos. Entre los tipos de lugares hay salas de concierto, clubs de jazz y clubs deportivos. Estos lugares son los clientes de la aplicación Wingtip Tickets. En Wingtip Tickets, los lugares se registran como *inquilinos*. El hecho de ser un inquilino ofrece a un lugar una manera sencilla de enumerar eventos y vender entradas para estos a sus clientes. Cada lugar obtiene un sitio web personalizado para mostrar sus eventos y vender entradas. Cada inquilino está aislado de los demás y es independiente. En segundo plano, cada inquilino obtiene una instancia de aplicación independiente con su propia base de datos SQL independiente.
+La aplicación presenta lugares que albergan eventos.  Los lugares son los inquilinos de la aplicación. Cada lugar obtiene un sitio web personalizado para mostrar sus eventos y vender entradas. Entre los tipos de lugares hay salas de concierto, clubs de jazz y clubs deportivos. En el ejemplo, el tipo de lugar determina la fotografía de fondo que se muestra en el sitio web del lugar.   En el modelo de aplicación independiente, cada lugar tiene una instancia de aplicación independiente con su propia base de datos SQL independiente.
 
 1. Abra la página de eventos para cada uno de los tres inquilinos en pestañas independientes del explorador:
 
-    - http://events.contosoconcerthall.&lt;USUARIO&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;USUARIO&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;USUARIO&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    (En cada dirección URL, reemplace &lt;USUARIO&gt; por el valor de usuario de la implementación).
+    (En cada dirección URL, reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación usa [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Cada instancia de aplicación específica del inquilino incluye el nombre del inquilino como parte del nombre de dominio de la dirección URL. Todas las direcciones URL de inquilino incluyen el valor específico de **usuario**. Las direcciones URL tienen el formato siguiente:
-- http://events.&lt;venuename&gt;.&lt;USUARIO&gt;.trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 La **ubicación** de la base de datos de cada inquilino se incluye en la configuración de la aplicación implementada correspondiente.
 
@@ -103,10 +100,10 @@ En un entorno de producción, lo habitual sería crear un registro DNS CNAME que
 Veamos algunos de los recursos que se implementaron:
 
 1. En [Azure Portal](http://portal.azure.com), navegue a la lista de los grupos de recursos.
-2. Consulte el grupo de recursos **wingtip-sa-catalog-&lt;USUARIO&gt;**.
-    - En este grupo de recursos, se ha implementado el servidor **catalog-sa-&lt;USUARIO&gt;**. El servidor contiene la base de datos **tenantcatalog**.
+2. Consulte el grupo de recursos **wingtip-sa-catalog-&lt;usuario&gt;**.
+    - En este grupo de recursos, se ha implementado el servidor **catalog-sa-&lt;usuario&gt;**. El servidor contiene la base de datos **tenantcatalog**.
     - También debería ver los tres grupos de recursos de inquilino.
-3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;USUARIO&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;USUARIO&gt;** contiene la base de datos **fabrikamjazzclub**.
+3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;usuario&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;usuario&gt;** contiene la base de datos **fabrikamjazzclub**.
 
 Cada base de datos de inquilino es una base de datos *independiente* de 50 DTU.
 
@@ -120,8 +117,12 @@ Cada base de datos de inquilino es una base de datos *independiente* de 50 DTU.
 
 - Para más información acerca de aplicaciones SaaS multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
 
+ 
+## <a name="delete-resource-groups-to-stop-billing"></a>Eliminación de grupos de recursos para detener la facturación ##
 
-## <a name="next-steps"></a>Pasos siguientes
+Cuando haya terminado de utilizar el ejemplo, elimine todos los grupos de recursos que ha creado para detener la facturación asociada.
+
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha obtenido información:
 
@@ -129,4 +130,7 @@ En este tutorial ha obtenido información:
 > * Implementación de la aplicación independiente SaaS Wingtip Tickets.
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
+
+A continuación, pruebe el tutorial de [aprovisionamiento y catalogación](saas-standaloneapp-provision-and-catalog.md).
+ 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 En este artículo se describe cómo proteger la comunicación entre los diversos nodos de un clúster de Windows independiente. También se describe cómo autenticar a los clientes que se conectan a este clúster mediante certificados X.509. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, así como realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -48,6 +48,12 @@ Para empezar, [descargue Service Fabric para el paquete de clúster independient
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Para empezar, [descargue Service Fabric para el paquete de clúster independient
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Para empezar, [descargue Service Fabric para el paquete de clúster independient
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ En la siguiente tabla se enumeran los certificados que va a necesitar en su inst
 | --- | --- |
 | ClusterCertificate |Se recomienda para un entorno de prueba. Este certificado es necesario para proteger la comunicación entre los nodos de un clúster. Puede utilizar dos certificados diferentes, uno principal y otro secundario para la actualización. Establezca la huella digital del certificado principal en la sección Thumbprint y la del secundario en la variable ThumbprintSecondary. |
 | ClusterCertificateCommonNames |Se recomienda para un entorno de producción. Este certificado es necesario para proteger la comunicación entre los nodos de un clúster. Puede utilizar uno o dos nombres comunes del certificado de clúster. CertificateIssuerThumbprint corresponde a la huella digital del emisor del certificado. Si se está usando más de 1 certificado con el mismo nombre común, puede especificar varias huellas digitales de emisor.|
+| ClusterCertificateIssuerStores |Se recomienda para un entorno de producción. Este certificado corresponde al emisor del certificado de clúster. Puede proporcionar el nombre común del emisor y el nombre de almacén correspondiente en esta sección en lugar de especificar la huella digital del emisor en ClusterCertificateCommonNames.  Esto facilita la sustitución de los certificados del emisor de clúster. Se pueden especificar varios emisores si se usa más de un certificado de clúster. Un IssuerCommonName vacío incluye una lista blanca de todos los certificados de los almacenes correspondientes especificados en X509StoreNames.|
 | ServerCertificate |Se recomienda para un entorno de prueba. Este certificado se presenta al cliente cuando intenta conectarse a este clúster. Para mayor comodidad, puede utilizar el mismo certificado para ClusterCertificate y ServerCertificate. Puede utilizar dos certificados de servidor diferentes, uno principal y otro secundario para la actualización. Establezca la huella digital del certificado principal en la sección Thumbprint y la del secundario en la variable ThumbprintSecondary. |
 | ServerCertificateCommonNames |Se recomienda para un entorno de producción. Este certificado se presenta al cliente cuando intenta conectarse a este clúster. CertificateIssuerThumbprint corresponde a la huella digital del emisor del certificado. Si se está usando más de 1 certificado con el mismo nombre común, puede especificar varias huellas digitales de emisor. Por comodidad, puede utilizar el mismo certificado para ClusterCertificateCommonNames y ServerCertificateCommonNames. Puede utilizar uno o dos nombres comunes de certificado de servidor. |
+| ServerCertificateIssuerStores |Se recomienda para un entorno de producción. Este certificado corresponde al emisor del certificado de servidor. Puede proporcionar el nombre común del emisor y el nombre de almacén correspondiente en esta sección en lugar de especificar la huella digital del emisor en ServerCertificateCommonNames.  Esto facilita la sustitución de los certificados del emisor de servidor. Se pueden especificar varios emisores si se usa más de un certificado de servidor. Un IssuerCommonName vacío incluye una lista blanca de todos los certificados de los almacenes correspondientes especificados en X509StoreNames.|
 | ClientCertificateThumbprints |Instale este conjunto de certificados en los clientes autenticados. Puede tener varios certificados de cliente diferentes instalados en los equipos a los que desea permitir el acceso al clúster. Establece la huella digital de cada certificado en la variable CertificateThumbprint. Si establece IsAdmin en *True*, el cliente con este certificado instalado puede realizar actividades de administración en el clúster. Si IsAdmin es *false*, el cliente con este certificado solo puede realizar las acciones permitidas para los derechos de acceso de usuario, normalmente de solo lectura. Para obtener más información sobre roles, consulte [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Establezca el nombre común del primer certificado de cliente para CertificateCommonName. CertificateIssuerThumbprint es la huella digital del emisor de este certificado. Consulte [Trabajar con certificados](https://msdn.microsoft.com/library/ms731899.aspx) para obtener más información sobre los nombres comunes y el emisor. |
+| ClientCertificateIssuerStores |Se recomienda para un entorno de producción. Este certificado corresponde al emisor del certificado de cliente (roles de administrador y de otro tipo). Puede proporcionar el nombre común del emisor y el nombre de almacén correspondiente en esta sección en lugar de especificar la huella digital del emisor en ClientCertificateCommonNames.  Esto facilita la sustitución de los certificados del emisor de cliente. Se pueden especificar varios emisores si se usa más de un certificado de cliente. Un IssuerCommonName vacío incluye una lista blanca de todos los certificados de los almacenes correspondientes especificados en X509StoreNames.|
 | ReverseProxyCertificate |Se recomienda para un entorno de prueba. Se puede especificar este certificado opcional si desea proteger el [proxy inverso](service-fabric-reverseproxy.md). Asegúrese de que reverseProxyEndpointPort está establecido en nodeTypes si usa este certificado. |
 | ReverseProxyCertificateCommonNames |Se recomienda para un entorno de producción. Se puede especificar este certificado opcional si desea proteger el [proxy inverso](service-fabric-reverseproxy.md). Asegúrese de que reverseProxyEndpointPort está establecido en nodeTypes si usa este certificado. |
 
@@ -123,7 +144,7 @@ Este es un ejemplo de configuración del clúster en el que se han proporcionado
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Este es un ejemplo de configuración del clúster en el que se han proporcionado
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Este es un ejemplo de configuración del clúster en el que se han proporcionado
 
 ## <a name="certificate-rollover"></a>Sustitución del certificado
 Al utilizar el nombre común del certificado en lugar de la huella digital, el proceso de sustitución de certificados no precisa actualizar la configuración de clúster. Para las actualizaciones de huella digital de emisor, asegúrese de que la nueva lista de huella tenga intersección con la lista anterior. Primero, tiene que realizar una actualización de configuración con las huellas digitales del emisor nuevo y, a continuación, instalar los nuevos certificados (certificados de clúster o servidor, y de emisor) en el almacén. Mantenga el certificado de emisor antiguo en el almacén de certificados durante al menos dos horas después de instalar el nuevo certificado de emisor.
+Si usa almacenes de emisor, no es necesario realizar ninguna actualización de configuración para la sustitución del certificado de emisor. Instale el nuevo certificado de emisor con una fecha de expiración de este último en el almacén de certificados correspondiente y quite el antiguo certificado de emisor tras unas horas.
 
 ## <a name="acquire-the-x509-certificates"></a>Adquisición de certificados X.509
 Para proteger la comunicación en el clúster, primero debe obtener certificados X.509 para los nodos del clúster. Además, para limitar la conexión a este clúster a los equipos o usuarios autorizados, debe obtener e instalar certificados para los equipos cliente.
@@ -315,7 +346,7 @@ Después de configurar la sección security del archivo ClusterConfig.X509.Multi
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Una vez que el clúster de Windows independiente seguro se ejecuta correctamente y que ha configurado los clientes autenticados para conectarse a él, siga los pasos de la sección [Conexión a un clúster con PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para conectarse a él. Por ejemplo:
+Una vez que el clúster de Windows independiente seguro se ejecuta correctamente y que ha configurado los clientes autenticados para conectarse a él, siga los pasos de la sección [Conexión a un clúster con PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para conectarse a él. Por ejemplo: 
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

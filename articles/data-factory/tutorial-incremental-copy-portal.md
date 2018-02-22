@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -181,7 +182,7 @@ END
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
    ![Página principal Factoría de datos](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Haga clic en el icono **Author & Monitor** para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
+10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y un procedimiento almacenado encadenada en una canalización. 
@@ -192,7 +193,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 3. En la página **General** (General) de la ventana **Properties** (Propiedades) de la canalización, escriba el nombre **IncrementalCopyPipeline**. 
 
    ![Nombre de la canalización](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Agreguemos la primera actividad de búsqueda para recuperar el valor de marca de agua anterior. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Cambie el nombre de la actividad a **LookupOldWaterMarkActivity**.
+4. Agreguemos la primera actividad de búsqueda para recuperar el valor de marca de agua anterior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Cambie el nombre de la actividad a **LookupOldWaterMarkActivity**.
 
    ![Nombre de la primera actividad de búsqueda](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Cambie a la pestaña **Settings** (Configuración) y haga clic en **+ New** (+ Nuevo) para **Source Dataset** (Conjunto de datos de origen). En este paso, creará conjuntos de datos que representarán los datos de **watermarktable**. Esta tabla contiene la marca de agua que se utilizó anteriormente en la operación de copia anterior. 
@@ -224,7 +225,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 11. Cambie al editor de canalización; para ello, haga clic en la pestaña de la canalización de la parte superior o en el nombre de esta de la vista de árbol de la izquierda. En la ventana de propiedades de la actividad de **búsqueda**, confirme que **WatermarkDataset** está seleccionado en el campo **Source Dataset** (Conjunto de datos de origen). 
 
     ![Canalización: conjunto de datos antiguo de marca de agua](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, y arrastre otra actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones; después, establezca el nombre en  **LookupNewWaterMarkActivity** en la pestaña **General** (General) de la ventana de propiedades. Esta actividad de búsqueda obtiene el nuevo valor de marca de agua de la tabla y copia los datos de origen en el destino. 
+12. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), y arrastre otra actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones; después, establezca el nombre en **LookupNewWaterMarkActivity** en la pestaña **General** (General) de la ventana de propiedades. Esta actividad de búsqueda obtiene el nuevo valor de marca de agua de la tabla y copia los datos de origen en el destino. 
 
     ![Nombre de la segunda actividad de búsqueda](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. En la ventana de propiedades de la segunda actividad de **búsqueda**, cambie a la pestaña **Settings** (Configuración) y haga clic en **New** (Nuevo). Creará un conjunto de datos que apuntará a la tabla de origen con el nuevo valor de marca de agua (valor máximo de LastModifyTime). 
@@ -295,7 +296,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
         ![Conjunto de datos receptor: configuración de la conexión](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Cambie al editor de **canalización**; para ello, haga clic en la pestaña de la canalización de la parte superior o en el nombre de esta de la vista de árbol de la izquierda. 
-29. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Stored Procedure** (Procedimiento almacenado) de allí para colocarla en la superficie del diseñador de canalizaciones. **Conecte** el resultado verde (correcto) de la actividad **Copy** (Copiar) con la actividad **Stored Procedure** (Procedimiento almacenado). 
+29. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Stored Procedure** (Procedimiento almacenado) del cuadro de herramientas **Actividades** para colocarla en la superficie del diseñador de canalizaciones. **Conecte** el resultado verde (correcto) de la actividad **Copy** (Copiar) con la actividad **Stored Procedure** (Procedimiento almacenado). 
     
     ![Actividad de copia: origen](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Seleccione **Storage Procedure Activity** (Actividad Procedimiento almacenado) en el diseñador de canalizaciones y cámbiele el nombre a **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,8 +307,8 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes: 
 
-    1. Escriba **sp_write_watermark** en **Stored procedure name** (Nombre del procedimiento almacenado). 
-    2. Para especificar valores para los parámetros del procedimiento almacenado, haga clic en **+ New** (+ Nuevo) en la sección **Stored procedure parameters** (Parámetros de los procedimientos almacenados) y escriba los valores siguientes: 
+    1. Como **Stored procedure name** (Nombre del procedimiento almacenado), seleccione **sp_write_watermark**. 
+    2. Para especificar valores para los parámetros del procedimiento almacenado, haga clic en **Import parameter** (Importar parámetro) y escriba los valores siguientes: 
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 27. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en >>.   
 
     ![Comprobar la canalización](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Azure Data Factory, haga clic en el botón **Publish** (Publicar). Espere hasta que vea un mensaje de que la publicación se completó correctamente. 
+28. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Azure Data Factory, seleccione el botón **Publish All** (Publicar todo). Espere hasta que vea un mensaje de que la publicación se completó correctamente. 
 
     ![Botón Publicar](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
-Haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger Now** (Desencadenar ahora). 
+1. Haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger Now** (Desencadenar ahora). 
 
-![Botón Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Botón Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 

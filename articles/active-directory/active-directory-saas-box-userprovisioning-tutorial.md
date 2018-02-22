@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configuración de Box para el aprovisionamiento automático de usuarios
 
@@ -108,9 +108,9 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 14. Haga clic en **Guardar**.
 
-Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Box en la sección Usuarios y grupos. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos, si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación Box.
+Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Box en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación Box.
 
-Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con Box.
+Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](active-directory-saas-provisioning-reporting.md).
 
 En su inquilino de Box, los usuarios sincronizados se muestran en **Usuarios administrados** en la **Consola de administración**.
 

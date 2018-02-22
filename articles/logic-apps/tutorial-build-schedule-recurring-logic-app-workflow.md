@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Comprobación del tráfico con una aplicación lógica basada en un programador
 
@@ -43,13 +43,13 @@ Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/f
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* Una cuenta de correo electrónico con cualquier proveedor de correo electrónico que sea compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta guía de inicio rápido usa una cuenta de Outlook.com. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
+* Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta guía de inicio rápido usa una cuenta de Outlook.com. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
 * Para obtener el tiempo de desplazamiento para una ruta, necesita una clave de acceso para la API de Mapas de Bing. Para obtener esta clave, siga los pasos sobre <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">cómo obtener una clave de Mapas de Bing</a>. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
-Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con las credenciales de su cuenta de Azure.
+Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
 
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
 
@@ -70,7 +70,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
    |||| 
 
-3. Una vez que Azure haya implementado la aplicación, el Diseñador de aplicaciones lógicas se abre y muestra una página con un vídeo de introducción y plantillas para patrones de aplicaciones lógicas comunes. En **Plantillas**, elija **Aplicación lógica en blanco**.
+3. Una vez que Azure haya implementado la aplicación, el Diseñador de aplicaciones lógicas se abre y muestra una página con un vídeo de introducción y plantillas para patrones de aplicaciones lógicas comunes. En **plantillas**, elija **Aplicación lógica en blanco**.
 
    ![Selección de la plantilla de aplicación lógica en blanco](./media/tutorial-build-scheduled-recurring-logic-app-workflow/choose-logic-app-template.png)
 
@@ -94,7 +94,7 @@ A continuación, agregue el [desencadenador](../logic-apps/logic-apps-overview.m
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones. | 
+   | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones | 
    | **Frecuencia** | Semana | Unidad de tiempo que se usa para la periodicidad. | 
    | **Zona horaria** | None | Se aplica únicamente cuando se especifica una hora de inicio. Resulta útil para especificar una zona horaria no local. | 
    | **Hora de inicio** | None | La periodicidad se retrasa hasta una fecha y hora específicas. Para más información, consulte [Programación de tareas y flujos de trabajo ejecutados con regularidad](../connectors/connectors-native-recurrence.md). | 
@@ -148,7 +148,7 @@ Ahora que ya tiene un desencadenador, agregue una [acción](../logic-apps/logic-
    | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Unidad de distancia para la ruta. En este artículo se usa esta unidad: "Mile" (Milla).  | 
    | **Travel mode** (Modo de desplazamiento) | Conducción | Modo de desplazamiento para la ruta. Seleccione este modo: "Driving" (Conducción). | 
    | **Transit Date-Time** (Fecha y hora de tránsito) | None | Se aplica solo al modo de tránsito. | 
-   | **Transit Date-Type Type** (Fecha y tipo de tránsito) | None | Se aplica solo al modo de tránsito. | 
+   | **Tipo de fecha y hora** | None | Se aplica solo al modo de tránsito. | 
    |||| 
 
    Para más información acerca de estos parámetros, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Cálculo de una ruta).

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
@@ -63,15 +63,15 @@ Los registros de la categoría **OperationalLogs** capturan lo que sucede durant
 
 Las cadenas JSON de registros operativos incluyen elementos enumerados en la tabla siguiente:
 
-Nombre | Descripción
+NOMBRE | DESCRIPCIÓN
 ------- | -------
 ActivityId | El identificador interno, usado con fines de seguimiento
 EventName | Nombre de la operación           
-resourceId | El identificador de recursos de Azure Resource Manager
+ResourceId | El identificador de recursos de Azure Resource Manager
 SubscriptionId | Id. de suscripción
 EventTimeString | Hora de la operación
 EventProperties | Propiedades de la operación
-Estado | Estado de la operación
+Status | Estado de la operación
 Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client)
 categoría | OperationalLogs
 
@@ -91,9 +91,9 @@ Este es un ejemplo de una cadena JSON de registro operativo:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Visite los siguientes vínculos para más información acerca de Service Bus:
+Consulte los siguientes vínculos para más información acerca de Service Bus:
 
 * [Introducción a Service Bus](service-bus-messaging-overview.md)
 * [Introducción a Service Bus](service-bus-dotnet-get-started-with-queues.md)

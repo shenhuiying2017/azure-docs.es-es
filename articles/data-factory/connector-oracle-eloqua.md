@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a389f4be625dd301b7210000555d71018b4cdec8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: af1da8c77ebe499cb413168b3234c02db941c3d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Copiar datos de Oracle Eloqua con Azure Data Factory (beta)
 
@@ -45,12 +45,12 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Oracle Eloqua:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Eloqua** | Sí |
 | endpoint | Punto de conexión del servidor de Eloqua. (es decir, eloqua.example.com)  | Sí |
 | Nombre de usuario | Nombre del sitio y nombre de usuario de la cuenta de Eloqua con el siguiente formato: nombre del sitio/nombre de usuario. (es decir, Eloqua/Alice)  | Sí |
-| contraseña | Contraseña que corresponde al nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -103,7 +103,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Oracle Eloqua, establezca el tipo de origen de la actividad de copia en **EloquaSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **EloquaSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Accounts"`. | Sí |

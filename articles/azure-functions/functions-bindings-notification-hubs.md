@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: cbc22721bbe06fdc5a8a9026b113071e1616bcb8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Enlace de salida de Notification Hubs para Azure Functions
 
@@ -320,6 +320,12 @@ Para configurar la cadena de conexión a un Centro de notificaciones existente:
 El nombre de esta configuración de aplicación es lo que va en la configuración de conexión del enlace de salida en *function.json* o el atributo .NET. Consulte la [sección Configuración](#configuration) que apareció anteriormente en este artículo.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace | Referencia |
+|---|---|
+| Centro de notificaciones | [Guía de operaciones](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>pasos siguientes
 

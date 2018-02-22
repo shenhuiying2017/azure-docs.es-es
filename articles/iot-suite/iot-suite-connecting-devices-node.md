@@ -1,6 +1,6 @@
 ---
 title: "Aprovisionamiento de dispositivos para la supervisión remota en Node.js con Azure | Microsoft Docs"
-description: "Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante una aplicación creada en Node.js."
+description: "Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada de Azure IoT Suite mediante una aplicación creada en Node.js."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: b88ed25e4f434e32423be122569070d896ef7c68
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: df89150867a3c95116ba8ca8cd684af4b32a36de
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Conectar el dispositivo a la solución preconfigurada de supervisión remota (Node.js)
 
@@ -31,32 +31,31 @@ Este tutorial muestra cómo conectar un dispositivo físico a la solución preco
 
 Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](https://nodejs.org/) en la máquina de desarrollo. Para comprobar la versión, puede ejecutar `node --version` en la línea de comandos.
 
-1. Cree una carpeta denominada `RemoteMonitoring` en la máquina de desarrollo. Vaya a esta carpeta en el entorno de línea de comandos.
+1. Cree una carpeta denominada `remotemonitoring` en la máquina de desarrollo. Vaya a esta carpeta en el entorno de línea de comandos.
 
 1. Para descargar e instalar los paquetes que necesita para realizar la aplicación de ejemplo, ejecute los comandos siguientes:
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. En la carpeta `RemoteMonitoring`, cree un archivo llamado **remote_monitoring.js**. Abra este archivo en un editor de texto.
+1. En la carpeta `remotemonitoring`, cree un archivo llamado **remote_monitoring.js**. Abra este archivo en un editor de texto.
 
 1. En el archivo **remote_monitoring.js**, agregue las siguientes instrucciones `require`:
 
     ```nodejs
-    'use strict';
-
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
+    var async = require('async');
     ```
 
-1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya los valores de marcador de posición `{Device Id}` y `{Device Key}` por los valores que anotó para el dispositivo que aprovisionó en la solución de supervisión remota. Use el nombre de host de IoT Hub de la solución para sustituir a `{IoTHub Name}`. Por ejemplo, si el nombre de host de IoT Hub es `contoso.azure-devices.net`, reemplace `{IoTHub Name}` por `contoso`:
+1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya el valor del marcador de posición `{device connection string}` por el valor que anotó para el dispositivo que aprovisionó en la solución de supervisión remota:
 
     ```nodejs
-    var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
+    var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
@@ -84,6 +83,7 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
     var deviceLocation = "Building 44";
     var deviceLatitude = 47.638928;
     var deviceLongitude = -122.13476;
+    var deviceOnline = true;
     ```
 
 1. Agregue la siguiente variable para definir las propiedades notificadas para enviar a la solución. Estas propiedades incluyen los metadatos para describir los métodos y la telemetría que el dispositivo usa:
@@ -135,7 +135,8 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
       "FirmwareUpdateStatus": deviceFirmwareUpdateStatus,
       "Location": deviceLocation,
       "Latitude": deviceLatitude,
-      "Longitude": deviceLongitude
+      "Longitude": deviceLongitude,
+      "Online": deviceOnline
     }
     ```
 
@@ -157,7 +158,7 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
     }
     ```
 
-1. Agregue la siguiente función para controlar las llamadas al método directo desde la solución. La solución utiliza métodos directos para actuar en los dispositivos:
+1. Agregue la siguiente función genérica para controlar las llamadas al método directo desde la solución. La función muestra información sobre el método directo que se ha invocado, pero en este ejemplo no se modifica el dispositivo en modo alguno. La solución utiliza métodos directos para actuar en los dispositivos:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -166,14 +167,116 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
 
       // Complete the response
       response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (!!err) {
-          console.error('An error ocurred when sending a method response:\n' +
-            err.toString());
+        if (err) console.error('Error sending method response :\n' + err.toString());
+        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+      });
+    }
+    ```
+
+1. Agregue la siguiente función para controlar las llamadas al método directo **FirmwareUpdate** desde la solución. La función verifica los parámetros pasados en la carga del método directo y, a continuación, ejecuta de forma asincrónica una simulación de actualización de firmware:
+
+    ```node.js
+    function onFirmwareUpdate(request, response) {
+      // Get the requested firmware version from the JSON request body
+      var firmwareVersion = request.payload.Firmware;
+      var firmwareUri = request.payload.FirmwareUri;
+      
+      // Ensure we got a firmware values
+      if (!firmwareVersion || !firmwareUri) {
+        response.send(400, 'Missing firmware value', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+        });
+      } else {
+        // Respond the cloud app for the device method
+        response.send(200, 'Firmware update started.', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else {
+            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+
+            // Run the simulated firmware update flow
+            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+          }
+        });
+      }
+    }
+    ```
+
+1. Agregue la siguiente función para simular un flujo de actualización de firmware de larga duración que informe del progreso a la solución:
+
+    ```node.js
+    // Simulated firmwareUpdate flow
+    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+      console.log('Simulating firmware update flow...');
+      console.log('> Firmware version passed: ' + firmwareVersion);
+      console.log('> Firmware URI passed: ' + firmwareUri);
+      async.waterfall([
+        function (callback) {
+          console.log("Image downloading from " + firmwareUri);
+          var patch = {
+            FirmwareUpdateStatus: 'Downloading image..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Downloaded, applying firmware " + firmwareVersion);
+          deviceOnline = false;
+          var patch = {
+            FirmwareUpdateStatus: 'Applying firmware..',
+            Online: false
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(8000, callback);
+        },
+        function (callback) {
+          console.log("Rebooting");
+          var patch = {
+            FirmwareUpdateStatus: 'Rebooting..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Firmware updated to " + firmwareVersion);
+          deviceOnline = true;
+          var patch = {
+            FirmwareUpdateStatus: 'Firmware updated',
+            Online: true,
+            Firmware: firmwareVersion
+          };
+          reportUpdateThroughTwin(patch, callback);
+          callback(null);
+        }
+      ], function(err) {
+        if (err) {
+          console.error('Error in simulated firmware update flow: ' + err.message);
         } else {
-          console.log('Response to method \'' + request.methodName +
-            '\' sent successfully.');
+          console.log("Completed simulated firmware update flow");
         }
       });
+
+      // Helper function to update the twin reported properties.
+      function reportUpdateThroughTwin(patch, callback) {
+        console.log("Sending...");
+        console.log(JSON.stringify(patch, null, 2));
+        client.getTwin(function(err, twin) {
+          if (!err) {
+            twin.properties.reported.update(patch, function(err) {
+              if (err) callback(err);
+            });      
+          } else {
+            if (err) callback(err);
+          }
+        });
+      }
+
+      function sleep(milliseconds, callback) {
+        console.log("Simulate a delay (milleseconds): " + milliseconds);
+        setTimeout(function () {
+          callback(null);
+        }, milliseconds);
+      }
     }
     ```
 
@@ -181,15 +284,19 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
 
     ```node.js
     function sendTelemetry(data, schema) {
-      var d = new Date();
-      var payload = JSON.stringify(data);
-      var message = new Message(payload);
-      message.properties.add('$$CreationTimeUtc', d.toISOString());
-      message.properties.add('$$MessageSchema', schema);
-      message.properties.add('$$ContentType', 'JSON');
+      if (deviceOnline) {
+        var d = new Date();
+        var payload = JSON.stringify(data);
+        var message = new Message(payload);
+        message.properties.add('$$CreationTimeUtc', d.toISOString());
+        message.properties.add('$$MessageSchema', schema);
+        message.properties.add('$$ContentType', 'JSON');
 
-      console.log('Sending device message data:\n' + payload);
-      client.sendEvent(message, printErrorFor('send event'));
+        console.log('Sending device message data:\n' + payload);
+        client.sendEvent(message, printErrorFor('send event'));
+      } else {
+        console.log('Offline, not sending telemetry');
+      }
     }
     ```
 
@@ -204,7 +311,7 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
     * Abrir la conexión.
     * Configurar un controlador para propiedades deseadas.
     * Enviar propiedades notificadas.
-    * Registrar controladores para métodos directos.
+    * Registrar controladores para métodos directos. El ejemplo utiliza un controlador independiente para el método directo de actualización de firmware.
     * Empezar a enviar telemetría.
 
     ```nodejs
@@ -228,13 +335,13 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
             // Send reported properties
             twin.properties.reported.update(reportedProperties, function (err) {
               if (err) throw err;
-              console.log('twin state reported');
+              console.log('Twin state reported');
             });
 
             // Register handlers for all the method names we are interested in.
             // Consider separate handlers for each method.
             client.onDeviceMethod('Reboot', onDirectMethod);
-            client.onDeviceMethod('FirmwareUpdate', onDirectMethod);
+            client.onDeviceMethod('FirmwareUpdate', onFirmwareUpdate);
             client.onDeviceMethod('EmergencyValveRelease', onDirectMethod);
             client.onDeviceMethod('IncreasePressure', onDirectMethod);
           }

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
@@ -29,8 +29,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Supervisión de las canalizaciones de factorías de datos v2
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya a la hoja de factoría de datos creada en Azure Portal y haga clic en el icono 'Supervisar & Administrar'. Se iniciará la experiencia de supervisión de ADF v2 visual.
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+3. Vaya a la hoja de factoría de datos creada en Azure Portal y haga clic en el icono 'Supervisar & Administrar'. Se iniciará la experiencia de supervisión de ADF v2 visual.
 
 ## <a name="list-view-monitoring"></a>Supervisión de la vista de lista
 

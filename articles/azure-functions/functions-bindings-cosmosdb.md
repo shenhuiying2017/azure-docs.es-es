@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Azure Cosmos DB para Azure Functions
 
@@ -142,7 +142,7 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     }
 ```
 
-Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
@@ -745,6 +745,12 @@ De forma predeterminada, cuando se escribe en el parámetro de salida de la func
 
 > [!Note]  
 > Cuando especifica el identificador de un documento existente, se sobrescribe con el nuevo documento de salida. 
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace | Referencia |
+|---|---|
+| DocumentDB | [Códigos de error de DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>pasos siguientes
 

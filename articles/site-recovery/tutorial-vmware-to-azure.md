@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -37,8 +37,8 @@ Antes de empezar, es útil [revisar la arquitectura](concepts-vmware-to-azure-ar
 
 1. En **Almacenes de Recovery Services**, haga clic en el nombre del almacén y **ContosoVMVault**.
 2. En **Introducción**, haga clic en Site Recovery. Haga clic en **Preparar infraestructura**.
-3. En **Objetivo de protección** > **¿Dónde se encuentran sus máquinas?**, seleccione **Local**.
-4. En **¿Dónde quiere replicar las máquinas?**, seleccione **En Azure**.
+3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
+4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
 5. En **¿Las máquinas están virtualizadas?**, seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). A continuación, haga clic en **Aceptar**.
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
@@ -64,7 +64,7 @@ Para configurar el servidor de configuración como máquina virtual de VMware de
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
 1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
-2. En el menú **Archivo**, seleccione **Deploy OVF Template** (Implementar plantilla de OVF) para iniciar el asistente para implementar plantillas de OVF.  
+2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla de OVF) para iniciar el asistente para implementar plantillas de OVF.  
 
      ![Plantilla de OVF](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 
@@ -101,16 +101,16 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ### <a name="configure-settings-and-connect-to-vmware"></a>Valores de configuración y conexión a VMware
 
-1. En el asistente para administración del servidor de configuración > **Setup connectivity** (Configurar conectividad), seleccione la NIC que va a recibir tráfico de replicación. A continuación, haga clic en **Guardar**. Una vez configurado, este valor no se puede cambiar.
-2. En **Select Recovery Services vault** (Seleccionar almacén de Recovery Services), seleccione la suscripción de Azure y los grupo de recursos y almacén correspondientes.
-3. En **Install third-party software** (Instalar software de terceros), acepte la licencia agreeemtn y haga clic en **Download and Install** (Descargar e instalar) para instalar MySQL Server.
-4. Haga clic en **Install VMware PowerLCI** (Instalar VMware PowerLCI). Asegúrese de todas las ventanas del explorador estén cerradas antes. A continuación, haga clic en **Continue** (Continuar).
+1. En el asistente para administración del servidor de configuración > **Configurar conectividad**, seleccione la NIC que va a recibir tráfico de replicación. A continuación, haga clic en **Guardar**. Una vez configurado, este valor no se puede cambiar.
+2. En **Seleccionar almacén de Recovery Services**, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.
+3. En **Instalar software de terceros**, acepte el acuerdo de licencia y haga clic en **Descargar e instalar** para instalar MySQL Server.
+4. Haga clic en **Install VMware PowerCLI** (Instalar VMware PowerCLI). Asegúrese de que todas las ventanas del explorador están cerradas antes. A continuación, haga clic en **Continue** (Continuar)
 5. En **Validate appliance configuration** (Comprobar configuración del dispositivo), se comprobarán los requisitos previos antes de continuar.
 6. En **Configure vCenter Server/vSphere ESXi server** (Configurar vCenter Server/vSphere ESXi Server), especifique la dirección IP o FQDN del servidor vCenter o host de vSphere en los se encuentran las máquinas virtuales donde desea realizar la replicación. Especifique el puerto de escucha del servidor y un nombre descriptivo para el servidor de VMware en el almacén.
 7. Especifique las credenciales que usará el servidor de configuración para conectarse al servidor de VMware. Site Recovery usa estas credenciales para detectar automáticamente las máquinas virtuales de VMware disponibles para la replicación. Haga clic en **Add** (Agregar) y en **Continue** (Continuar).
 8. En **Configure virtual machine credentials** (Configurar las credenciales de la máquina virtual), especifique el nombre de usuario y la contraseña que se usarán para instalar automáticamente Mobility Service en las máquinas (cuando se habilite la replicación). Para las máquinas Windows, la cuenta necesita privilegios de administrador local en las máquinas que se vayan a replicar. Para Linux, proporcione los detalles de la cuenta raíz.
 9. Haga clic en **Finalize configuration** (Terminar configuración) para completar el registro. 
-10. Cuando finalice el registro, en Azure Portal, verifique que el servidor de configuración y el servidor de VMware aparecen en la página **Source** (Origen) del almacén. Haga clic en **OK** (Aceptar) para configurar el destino.
+10. Cuando finalice el registro, en Azure Portal, verifique que el servidor de configuración y el servidor de VMware aparecen en la página **Origen** del almacén. Haga clic en **Aceptar** para configurar el destino.
 
 
 Site Recovery se conecta a los servidores de VMware con la configuración especificada y detecta máquinas virtuales.

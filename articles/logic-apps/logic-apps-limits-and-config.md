@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
-En este tema se describen los límites actuales y los detalles de configuración de Azure Logic Apps.
+En este artículo se describen los límites actuales y los detalles de configuración de Azure Logic Apps.
 
 ## <a name="limits"></a>límites
 
@@ -66,7 +66,7 @@ Estos límites se aplican a una única ejecución de aplicación lógica.
 | Intervalo de periodicidad máxima | 500 días | 
 ||| 
 
-Si desea superar los límites de la duración de ejecución o la retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
+Si desea superar los límites de la duración de ejecución o de la retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con el equipo del producto](mailto://logicappsemail@microsoft.com) para recibir asistencia según sus necesidades.
 
 ### <a name="looping-and-debatching-limits"></a>Límites de bucle y anulación de procesamiento por lotes
 
@@ -82,18 +82,18 @@ Estos límites se aplican a una única ejecución de aplicación lógica.
 
 ### <a name="throughput-limits"></a>Límites de rendimiento
 
-Estos límites se aplican a una única instancia de aplicación lógica.
+Estos límites se aplican a un único recurso de aplicación lógica.
 
 | NOMBRE | Límite | Notas | 
 | ----- | ----- | ----- | 
-| Ejecuciones de acciones cada 5 minutos | 100 000 |<p>El límite se puede aumentar hasta 300 000 mediante la ejecución de una aplicación lógica en el modo `High Througput` y, para hacerlo, establezca la propiedad `operationOptions` de `runtimeConfiguration` del recurso de flujo de trabajo en `OptimizedForHighThroughput`. <p>Tenga en cuenta que el modo de alto rendimiento está en versión preliminar. Además, una carga de trabajo se puede distribuir entre varias aplicaciones, según sea necesario. | 
+| Ejecuciones de acciones cada 5 minutos | 100 000 |<p>Se puede aumentar el límite a 300 000 mediante la ejecución de una aplicación lógica en modo `High Througput`. Para configurar el modo de alto rendimiento, puede establecer la propiedad `operationOptions` de `runtimeConfiguration` del recurso de flujo de trabajo en `OptimizedForHighThroughput`. <p>Tenga en cuenta que el modo de alto rendimiento se encuentra en versión preliminar. Además, una carga de trabajo se puede distribuir entre varias aplicaciones, según sea necesario. | 
 | Llamadas salientes simultáneas de acciones | Aproximadamente 2500 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
 | Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas |~1000 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
 | Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos  | 60 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
 | Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos| 45 000 |Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
 |||| 
 
-Si desea superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
+Si desea superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con el equipo del producto](mailto://logicappsemail@microsoft.com) para recibir asistencia según sus necesidades.
 
 ### <a name="logic-app-definition-limits"></a>Límites de definición de aplicación lógica
 

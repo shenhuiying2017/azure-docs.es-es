@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaquetar e implementar contenedores como aplicación de Service Fabric
 
@@ -34,7 +34,7 @@ Este tutorial es la segunda parte de una serie. En este tutorial, se emplea una 
 > * Implementar y ejecutar la aplicación. 
 > * Limpiar la aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Se usan las imágenes de contenedor insertadas en Azure Container Registry creadas en la [Parte 1](service-fabric-tutorial-create-container-images.md) de esta serie del tutorial.
 - Se [configura](service-fabric-tutorial-create-container-images.md) el entorno de desarrollo de Linux.
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 En este punto del tutorial, la plantilla para una aplicación de paquete de servicio está disponible para su implementación en un clúster. En el tutorial posterior, se implementa esta aplicación y se ejecuta en un clúster de Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
-Para implementar la aplicación en un clúster de Azure, use su propio clúster o use un Party Cluster.
+Para implementar la aplicación en un clúster de Azure, cree su propio clúster.
 
-Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los mantiene el equipo de Service Fabric y aquí cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
+Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los ejecuta el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
+
+Para poder realizar operaciones de administración en el clúster de entidad segura, puede utilizar Service Fabric Explorer, CLI o Powershell. Para usar Service Fabric Explorer, tendrá que descargar el archivo PFX desde el sitio web de Party Cluster e importar el certificado en el almacén de certificados (Windows o Mac) o en el explorador mismo (Ubuntu). No hay ninguna contraseña para los certificados autofirmados desde el clúster de entidad. 
+
+Para realizar operaciones de administración con Powershell o CLI, necesitará el PFX (Powershell) o PEM (CLI). Para convertir el archivo PFX en un archivo PEM, ejecute el siguiente comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -230,7 +238,7 @@ Puede implementar la aplicación en el clúster de Azure mediante la CLI de Serv
 Conéctese al clúster de Service Fabric en Azure. Reemplace el punto de conexión del marcador de posición por uno propio. El punto de conexión debe ser una dirección URL completa similar a la siguiente.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 Use el script de instalación proporcionado en el directorio **TestContainer** para copiar el paquete de aplicación en el almacén de imágenes del clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.

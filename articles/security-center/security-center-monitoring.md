@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Supervisión del estado de seguridad en el Centro de seguridad de Azure
 Este artículo le ayuda a usar las funcionalidades de supervisión de Azure Security Center para supervisar el cumplimiento de las directivas.
@@ -87,6 +87,13 @@ Para ver los detalles de recomendación, haga clic en el nombre de la actualizac
 > [!NOTE]
 > Las recomendaciones de seguridad que se indican aquí son las mismas que aparecen en la opción **Recomendaciones**. Para más información sobre cómo resolver las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md). Esto no solo se aplica a máquinas virtuales o equipos, sino también a todos los recursos disponibles en el icono **Resource Health**.
 >
+
+#### <a name="unmonitored-vms"></a>Máquinas virtuales no supervisadas
+Una máquina virtual no está supervisada por Security Center si no está ejecutando la extensión de Microsoft Monitoring Agent. Una máquina virtual puede tener ya instalado un agente local, por ejemplo un agente directo de OMS o el agente SCOM. Las máquinas virtuales con estos agentes se identifican como sin supervisar porque estos agentes no son totalmente compatibles en Security Center. Para aprovechar al máximo todas las funcionalidades de Security Center, se necesita la extensión de Microsoft Monitoring Agent.
+
+Puede instalar la extensión en la máquina virtual no supervisada además del agente local ya instalado. Configure de la misma forma a ambos agentes, conectándolos a la misma área de trabajo. Esto permite que Security Center interactúe con la extensión de Microsoft Monitoring Agent y recopile datos.  Consulte [Habilitar la extensión de VM](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) para obtener instrucciones acerca de cómo instalar la extensión de Microsoft Monitoring Agent.
+
+Consulte [Supervisión de problemas de Agent Health](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para saber más acerca de los motivos por los que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático.
 
 #### <a name="vms--computers-section"></a>Sección de máquinas virtuales y equipos
 La sección de máquinas virtuales y equipos ofrece una visión general de todas las recomendaciones de máquinas virtuales y equipos. Cada columna representa un conjunto de recomendaciones tal como se muestra en la siguiente captura de pantalla:

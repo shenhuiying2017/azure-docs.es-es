@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
 Puede almacenar las credenciales de los almacenes de datos en una instancia de [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory las recupera al ejecutar una actividad que usa el almacén de datos.
 
-Actualmente, solo el [conector de Dynamics](connector-dynamics-crm-office-365.md), el [conector de Salesforce](connector-salesforce.md) y algunos conectores recientemente habilitados admiten esta característica. Habrá más próximamente. En los detalles, puede consultar el tema de cada uno de los conectores. En el caso de los campos secretos que admiten esta característica, verá la siguiente nota en la descripción: "*Puede seleccionar este campo como SecureString para almacenarlo de forma segura en ADF, o almacenar la contraseña en Azure Key Vault y permitir que se copie la extracción de la actividad desde allí al realizar la copia de datos. Obtenga más información sobre el Almacenamiento de credenciales en Key Vault*".
+En la actualidad, la actividad de copia admite esta característica con todos los tipos de conectores. Para más información, consulte la sección "Propiedades del servicio vinculado" en los [temas de cada conector](copy-activity-overview.md#supported-data-stores-and-formats). La compatibilidad con otros tipos de actividades y los servicios vinculados a un proceso se agregará más adelante.
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-introduction.md).
@@ -35,10 +35,10 @@ Esta característica se basa en la identidad de servicio de Data Factory. Obteng
 
 Para hacer referencia a una credencial almacenada en Azure Key Vault, deberá seguir estos pasos:
 
-1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
-2. Conceda a la identidad de servicio acceso a su instancia de Azure Key Vault. En el almacén de claves -> Control de acceso -> Agregar ->, busque este identificador de aplicación de la identidad de servicio para agregar por lo menos el permiso de **Lector**. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
-3. Cree un servicio vinculado que apunte a su instancia de Azure Key Vault. Consulte [Servicio vinculado de Azure Key Vault](#azure-key-vault-linked-service).
-4. Cree un servicio vinculado de almacén de datos, en el que se haga referencia al secreto correspondiente almacenado en el almacén de claves. Consulte [Credencial de referencia almacenada en el almacén de claves](#reference-credential-stored-in-key-vault).
+1. **[Recuperación de la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity)**: copie el valor de "ID. DE LA APLICACIÓN DE IDENTIDAD DE SERVICIO" que se generó junto con la factoría.
+2. **Concesión del acceso de identidad de servicio a Azure Key Vault**: en el almacén de claves -> Directivas de acceso -> Agregar nueva ->, busque este identificador de la aplicación de identidad de servicio para conceder el permiso **Get** en el menú desplegable Permisos de secretos. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
+3. **Creación de un servicio vinculado que apunte a Azure Key Vault.** Consulte [Servicio vinculado de Azure Key Vault](#azure-key-vault-linked-service).
+4. **Creación de un servicio vinculado a un almacén de datos en el que se hace referencia al secreto correspondiente guardado en el almacén de claves.** Consulte [Secreto de referencia almacenado en el almacén de claves](#reference-secret-stored-in-key-vault).
 
 ## <a name="azure-key-vault-linked-service"></a>Servicio vinculado de Azure Key Vault
 
@@ -63,7 +63,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 }
 ```
 
-## <a name="reference-credential-stored-in-key-vault"></a>Credencial de referencia almacenada en el almacén de claves
+## <a name="reference-secret-stored-in-key-vault"></a>Secreto de referencia almacenado en el almacén de claves
 
 Al configurar un campo en un servicio vinculado que hace referencia a un secreto del almacén de claves, se admiten las siguientes propiedades:
 

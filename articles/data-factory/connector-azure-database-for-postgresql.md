@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: adc8ebe282fa4e4b242924bf1fea9b62d704835e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 13be3144455e36b19871d68982b1e9ec40d05d89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar datos de Azure Database for PostgreSQL con Azure Data Factory 
 
@@ -42,10 +42,10 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Database for PostgreSQL:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **AzurePostgreSql** | Sí |
-| connectionString | Cadena de conexión de ODBC para conectarse a Azure Database for PostgreSQL. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| connectionString | Cadena de conexión de ODBC para conectarse a Azure Database for PostgreSQL. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -94,7 +94,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Azure Database for PostgreSQL, establezca el tipo de origen de la actividad de copia en **AzurePostgreSqlSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzurePostgreSqlSource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |

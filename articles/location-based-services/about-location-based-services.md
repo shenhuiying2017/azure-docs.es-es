@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Una introducción a Azure Location Based Services (versión preliminar)
 Azure Location Based Services es una cartera de servicios geoespaciales que incluyen API de servicio para mapas, búsqueda, rutas, tráfico y zonas horarias. La cartera de servicios compatibles con Azure OneAPI le permite usar herramientas de desarrollador conocidas para desarrollar y escalar rápidamente soluciones que integran la información de ubicación en las soluciones de Azure. Azure Location Based Services proporciona a desarrolladores de todos los sectores unas poderosas funcionalidades geoespaciales, integradas con unos nuevos datos de mapas que son imprescindibles para proporcionar contexto geográfico a aplicaciones web y móviles. Azure Location Based Services es un conjunto de API de REST compatible con Azure One API, que viene acompañado de un control JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil entre varios medios. 
@@ -65,11 +65,12 @@ Azure Location Based Services se crea para la movilidad y puede potenciar las ap
 
 Azure Location Based Services usa un esquema de autenticación basado en claves, donde el acceso a los servicios se realiza mediante la navegación a [Azure Portal](http://portal.azure.com) y la creación de una cuenta de Azure Location Based Services. Su cuenta incluye dos claves que se generan previamente de manera automática. Comience a integrar estas funcionalidades de ubicación directamente en sus aplicaciones mediante el uso de una de sus claves en las solicitudes al servicio Azure Location Based Services.
 
-**Relación con mapas de Bing**: tenga en cuenta que el servicio Azure Location Based Services descrito en este documento es distinto de los que mapas de Bing proporciona.  Aunque comparten gran parte de la funcionalidad, los dos servicios son diferentes y no están relacionados.  No hay ningún efecto en la oferta de productos de mapas de Bing o el mapa de ruta con la disponibilidad de este nuevo servicio dentro de Azure, que serán administrados por separado.
+## <a name="relationship-with-bing-maps"></a>Relación con Mapas de Bing
+El servicio Azure Location Based Services descrito en este documento es distinto de los que Mapas de Bing proporciona.  Aunque comparten gran parte de la funcionalidad, los dos servicios son diferentes y no están relacionados.  No hay ningún efecto en la oferta de productos de mapas de Bing o el mapa de ruta con la disponibilidad de este nuevo servicio dentro de Azure, que serán administrados por separado.
 
 El objetivo de Microsoft es permitir elegir a la comunidad de desarrolladores con respecto a la ubicación de las ofertas de servicio.  A continuación se muestran algunas instrucciones rápidas para desarrolladores acerca de qué servicio usar para varios casos prácticos y situaciones de los clientes.  Tenga en cuenta que esta guía se aplica actualmente a Azure LBS, ya que está en fase de versión preliminar pública, y se actualizará cuando alcance la disponibilidad general en 2018.
 
-| Criterios de los clientes | Use Azure Location Based Services cuando: | Use los mapas de Bing cuando: |
+| Criterios de los clientes | Use Azure Location Based Services cuando: | Use Mapas de Bing cuando: |
 | ------------- | ------------- | ------------- |
 | Entorno de desarrollo | Cree o saque provecho de otros servicios de Azure | Utilice una nube de terceros u otro entorno de desarrollador |
 | Fase de desarrollo  | Dado que Azure LBS está actualmente en la versión preliminar pública, está optimizado para las primeras pruebas y el desarrollo de la prueba de concepto | Un Acuerdo de Nivel de Servicio de nivel empresarial es necesario para un entorno de producción |

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -39,6 +39,8 @@ cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get
 |OpenLogic |CentOS |7-CI |más reciente |Vista previa |
 |Redhat |RHEL |7-RAW-CI |más reciente |Vista previa |
 
+Durante la versión preliminar, Azure Stack no admitirá el aprovisionamiento de RHEL 7.4 y CentOS 7.4 mediante cloud-init.
+
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>¿Cuál es la diferencia entre cloud-init y el agente de Linux (WALA)?
 WALA es un agente específico de la plataforma de Azure que se usa para aprovisionar y configurar VM y controlar extensiones de Azure. Estamos mejorando la tarea de configuración de VM para usar cloud-init en lugar del agente de Linux para permitir que los clientes existentes de cloud-init usen sus scripts actuales de cloud-init.  Si tiene inversiones existentes en scripts de cloud-init para configurar sistemas Linux, **no se necesitan configuraciones adicionales** para habilitarlos. 
 
@@ -49,7 +51,7 @@ Las configuraciones de WALA de máquinas virtuales tienen un límite de tiempo p
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementación de una máquina Virtual con cloud-init habilitado
 La implementación de una máquina virtual con cloud-init habilitado es tan simple como hacer referencia a una distribución con cloud-init habilitado durante la implementación.  Los encargados de mantener la distribución de Linux tienen que elegir habilitar e integrar cloud-init en sus imágenes básicas publicadas de Azure. Cuando haya confirmado que la imagen que quiere implementar tiene habilitado cloud- init, puede usar la CLI de Azure para implementar la imagen. 
 
-El primer paso para implementar esta imagen es crear un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+El primer paso para implementar esta imagen es crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 

@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Administración de la capacidad de almacenamiento para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 La información en este artículo ayuda al operador en la nube de Azure Stack a supervisar y administrar la capacidad de almacenamiento de su implementación de Azure Stack. La infraestructura de almacenamiento Azure Stack asigna un subconjunto de la capacidad total de almacenamiento de la implementación de Azure Stack a los **servicios de almacenamiento**. Los servicios de almacenamiento almacenan los datos del inquilino en recursos compartidos de volúmenes que corresponden a los nodos de la implementación.
 
-Como operador en la nube, dispone de una cantidad limitada de almacenamiento con la que trabajar. La cantidad de almacenamiento se define por la solución que se implementa. La solución la proporciona el proveedor OEM cuando se usa una solución de varios nodo, o el hardware en el que se instala Azure Stack Development Kit.
+Como operador en la nube, dispone de una cantidad limitada de almacenamiento con la que trabajar. La cantidad de almacenamiento se define por la solución que se implementa. La solución la proporciona el proveedor OEM cuando se usa una solución de varios nodo, o el hardware en el que se instala el Kit de desarrollo de Azure Stack.
 
 Como Azure Stack no admite la expansión de la capacidad de almacenamiento, es importante [supervisar](#monitor-shares) el almacenamiento disponible para asegurarse de que se mantengan las operaciones eficientes.  
 
@@ -108,7 +108,7 @@ Cuando utiliza el portal de administración, recibe alertas sobre los recursos c
 Cuando sea necesario liberar espacio en un recurso compartido, primero utilice los métodos menos invasivos. Por ejemplo, intente recuperar espacio antes de elegir migrar un contenedor.  
 
 ### <a name="reclaim-capacity"></a>Reclamación de capacidad
-*Esta opción se aplica a las implementaciones de varios nodos y a Azure Stack Development Kit.*
+*Esta opción se aplica a las implementaciones de varios nodos y al Kit de desarrollo de Azure Stack.*
 
 Puede reclamar la capacidad que utilizan las cuentas de inquilinos que se han eliminado. Esta capacidad se reclama de manera automática cuando se alcanza el [período de retención](azure-stack-manage-storage-accounts.md#set-the-retention-period) de datos, o bien puede actuar para reclamarla de forma inmediata.
 
@@ -130,7 +130,7 @@ La migración consolida todos los blobs de contenedores en el nuevo recurso comp
 - Si carece de permisos para un grupo de recursos y no puede utilizar PowerShell para consultar los volúmenes adicionales de datos de desbordamiento, trabaje con el propietario de esos grupos de recursos y contenedores para comprender el tamaño total de los datos que se van a migrar antes de realizar la migración.  
 
 > [!IMPORTANT]
-> La migración de blobs para un contenedor es una operación sin conexión que requiere el uso de PowerShell. Hasta que se complete la migración, todos los blobs del contenedor que se va a migrar permanecen sin conexión y no se pueden utilizar.
+> La migración de blobs para un contenedor es una operación sin conexión que requiere el uso de PowerShell. Hasta que se complete la migración, todos los blobs del contenedor que se va a migrar permanecen sin conexión y no se pueden utilizar. También debe evitar la actualización de Azure Stack hasta que se completen todas las migraciones en curso.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Para migrar contenedores mediante PowerShell
 1. Confirme que ha [instalado y configurado Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkId=394767).

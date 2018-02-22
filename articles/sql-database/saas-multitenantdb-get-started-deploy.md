@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
-En este tutorial se implementa y explora una aplicación de base de datos multiinquilino SaaS de ejemplo, denominada Wingtip Tickets. La aplicación Wingtip está diseñada para presentar las características de Azure SQL Database que simplifican la implementación de los escenarios de SaaS.
+En este tutorial, se implementa y explora una aplicación SaaS multiinquilino de ejemplo denominada Wingtip Tickets. La aplicación Wingtip Tickets está diseñada para presentar las características de Azure SQL Database que simplifican la implementación de los escenarios de SaaS.
 
-Esta implementación de Wingtips usa un patrón de base de datos multiinquilino con particiones. El particionamiento se realiza por identificador del inquilino. Los datos del inquilino se distribuyen a una base de datos determinada según los valores del identificador del inquilino. Independientemente de cuántos inquilinos contiene una base de datos determinada, todas las bases de datos son multiinquilino en el sentido de que los esquemas de tabla incluyen un identificador de inquilino. 
+Esta implementación de la aplicación Wingtips Tickets usa un patrón de base de datos multiinquilino con particiones. El particionamiento se realiza por identificador del inquilino. Los datos del inquilino se distribuyen a una base de datos determinada según los valores del identificador del inquilino. 
 
 Este patrón de base de datos permite almacenar uno o varios inquilinos en cada partición o base de datos. Para optimizar la disminución del costo, varios inquilinos pueden compartir cada base de datos. O bien puede optimizar el aislamiento, haciendo que cada base de datos solo almacene un inquilino. Puede tomar la opción de optimización por separado para cada inquilino específico. Puede tomar la opción la primera vez que se almacena el inquilino, o bien puede decidirlo más adelante. El diseño de la aplicación le permite funcionar bien de cualquier modo.
 
 #### <a name="app-deploys-quickly"></a>La aplicación se implementa rápidamente
 
-La sección de implementación que sigue proporciona el botón **Implementar en Azure** azul. Cuando se presiona el botón, la aplicación Wingtip se implementa completamente unos cinco minutos después. La aplicación Wingtip se ejecuta en la nube de Azure y usa Azure SQL Database. Wingtip se implementa en la suscripción de Azure. Tiene acceso completo para trabajar con los componentes individuales de la aplicación.
+La aplicación se ejecuta en la nube de Azure y usa Azure SQL Database. La sección de implementación que sigue proporciona el botón **Implementar en Azure** azul. Cuando se presiona el botón, la aplicación se implementa totalmente en su suscripción a Azure en cinco minutos. Tiene acceso completo para trabajar con los componentes individuales de la aplicación.
 
 La aplicación se implementa con los datos para los tres inquilinos de ejemplo. Los inquilinos se almacenan juntos en una base de datos multiinquilino.
 
@@ -40,7 +40,7 @@ Cualquier usuario puede descargar el código fuente de C# y PowerShell para Wing
 #### <a name="learn-in-this-tutorial"></a>En este tutorial
 
 > [!div class="checklist"]
-> - Cómo implementar la aplicación SaaS de Wingtip.
+> - Implementación de la aplicación SaaS Wingtip Tickets.
 > - Dónde obtener el código fuente de la aplicación y los scripts de administración.
 > - Información sobre los servidores y las bases de datos que componen la aplicación.
 > - Cómo se asignan los inquilinos a sus datos con el *catálogo*.

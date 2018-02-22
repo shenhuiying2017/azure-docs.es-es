@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
 En este artículo se describen los distintos parámetros que se aplican durante la actualización de una aplicación de Azure Service Fabric. Los parámetros incluyen el nombre y la versión de la aplicación. Son mecanismos que controlan los tiempos de expiración y las comprobaciones de estado que se aplican durante la actualización y especifican las directivas que deben aplicarse cuando se produce un error en una actualización.
 
 <br>
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | ApplicationName |Nombre de la aplicación que se actualiza. Ejemplos: fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion |La versión del tipo de aplicación al que se dirige la actualización. |
@@ -45,24 +45,24 @@ Los criterios de evaluación de estado son opcionales. Si no se especifican los 
 
 <br>
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | ConsiderWarningAsError |El valor predeterminado es False. Trate los eventos de estado de advertencia para la aplicación como errores al evaluar el estado de la aplicación durante la actualización. De forma predeterminada, Service Fabric no evalúa los eventos de estado de advertencia en los que se producen errores, por lo que puede continuar la actualización incluso si hay eventos de advertencia. |
-| MaxPercentUnhealthyDeployedApplications |El valor predeterminado y recomendado es 0. Especifique el número máximo de aplicaciones implementadas (consulte la [sección Estado](service-fabric-health-introduction.md)) que puede ser incorrecto antes de que la aplicación se considere incorrecta y provoque un error en la actualización. Este parámetro define el estado de la aplicación en el nodo y ayuda a detecta problemas durante la actualización. Normalmente, la carga de las réplicas de la aplicación se equilibrará en el otro nodo, lo que permite que la aplicación figure como correcta y, por lo tanto, continúe la actualización. Al especificar un estado MaxPercentUnhealthyDeployedApplications estricto, Service Fabric puede encontrar un problema con el paquete de aplicación de forma rápida y hacer que se produzca un error en la actualización rápida. |
+| MaxPercentUnhealthyDeployedApplications |El valor predeterminado y recomendado es 0. Especifique el número máximo de aplicaciones implementadas (consulte la [sección Estado](service-fabric-health-introduction.md)) que puede ser incorrecto antes de que la aplicación se considere incorrecta y provoque un error en la actualización. Este parámetro define el estado de la aplicación en el nodo y ayuda a detecta problemas durante la actualización. Normalmente, la carga de las réplicas de la aplicación se equilibrará en el otro nodo, lo que permite que la aplicación figure como correcta y, por lo tanto, continúe la actualización. Al especificar un estado MaxPercentUnhealthyDeployedApplications estricto, Service Fabric puede encontrar un problema con el paquete de aplicación de forma rápida y hacer que la actualización fracase para responder rápido a los errores. |
 | MaxPercentUnhealthyServices |El valor predeterminado y recomendado es 0. Especifique el número máximo de servicios en la instancia de aplicación que puede ser incorrecto antes de que la aplicación se considere incorrecta y haga que se produzca un error en la actualización. |
 | MaxPercentUnhealthyPartitionsPerService |El valor predeterminado y recomendado es 0. Especifique el número máximo de particiones en un servicio que puede ser incorrecto antes de que el servicio se considere incorrecto. |
 | MaxPercentUnhealthyReplicasPerPartition |El valor predeterminado y recomendado es 0. Especifique el número máximo de réplicas en la partición que puede ser incorrecto antes de que esta se considere incorrecta. |
-| UpgradeReplicaSetCheckTimeout |**Servicio sin estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar la disponibilidad de instancias adicionales del servicio. Si el recuento de instancias de destino es superior a uno, Service Fabric espera la disponibilidad de más de una instancia, hasta un valor de tiempo de espera máximo. Este tiempo de espera se especifica mediante la propiedad UpgradeReplicaSetCheckTimeout. Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del número de instancias de servicio. Si el recuento de instancias de destino es uno, Service Fabric no espera e inmediatamente continúa con la actualización. **Servicio con estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar que el conjunto de réplicas tenga un cuórum. Service Fabric espera la disponibilidad de un cuórum, hasta un valor de tiempo de expiración máximo (especificado por la propiedad UpgradeReplicaSetCheckTimeout). Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del cuórum. Este valor se establece en Nunca (infinito) si avanza, y en 900 segundos si retrocede. |
+| UpgradeReplicaSetCheckTimeout |<p>**Servicio sin estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar la disponibilidad de instancias adicionales del servicio. Si el recuento de instancias de destino es superior a uno, Service Fabric espera la disponibilidad de más de una instancia, hasta un valor de tiempo de espera máximo. Este tiempo de espera se especifica mediante la propiedad UpgradeReplicaSetCheckTimeout. Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del número de instancias de servicio. Si el recuento de instancias de destino es uno, Service Fabric no espera e inmediatamente continúa con la actualización.</p><p>**Servicio con estado**: dentro de un único dominio de actualización, Service Fabric intenta garantizar que el conjunto de réplicas tenga un cuórum. Service Fabric espera la disponibilidad de un cuórum, hasta un valor de tiempo de expiración máximo (especificado por la propiedad UpgradeReplicaSetCheckTimeout). Si se agota el tiempo de expiración, Service Fabric continúa con la actualización, independientemente del cuórum. Este valor se establece como Nunca (infinito) si avanza, y en 1200 segundos si retrocede.</p> |
 | ForceRestart |Si actualiza una configuración o un paquete de datos sin actualizar el código del servicio, el servicio se reinicia solo si la propiedad ForceRestart se establece en true. Una vez completada la actualización, Service Fabric notifica al servicio que un nuevo paquete de configuración o datos está disponible. El servicio es responsable de aplicar los cambios. Si es necesario, el servicio puede reiniciarse automáticamente. |
 
 <br>
 <br>
 Los criterios MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService y MaxPercentUnhealthyReplicasPerPartition se pueden especificar por tipo de servicio para una instancia de aplicación. Establecer estos parámetros por servicio permite que una aplicación contenga diferentes tipos de servicios con diferentes directivas de evaluación. Por ejemplo, un tipo de servicio de pasarela sin estado puede tener un MaxPercentUnhealthyPartitionsPerService distinto de un tipo de servicio del motor con estado para una instancia de aplicación determinada.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
+[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
 
 [Actualización de la aplicación mediante la CLI de Service Fabric en Linux](service-fabric-application-lifecycle-sfctl.md#upgrade-application) le lleva por los pasos para actualizar una aplicación mediante la CLI de Service Fabric.
 

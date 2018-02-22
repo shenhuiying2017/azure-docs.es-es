@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guía de inicio rápido para Bash en Azure Cloud Shell
 
@@ -59,7 +59,7 @@ Cree una máquina virtual con Ubuntu en su nuevo grupo de recursos. La CLI de Az
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> La CLI de Azure 2.0 coloca las claves públicas y privadas usadas para autenticar la máquina virtual en `/User/.ssh/id_rsa` y `/User/.ssh/id_rsa.pub` de forma predeterminada. La carpeta .ssh se conserva en la imagen de 5 GB adjunta del recurso compartido de Azure Files.
+> La CLI de Azure 2.0 coloca las claves públicas y privadas usadas para autenticar la máquina virtual en `/home/<user>/.ssh/id_rsa` y `/home/<user>/.ssh/id_rsa.pub` de forma predeterminada. La carpeta .ssh se conserva en la imagen de 5 GB adjunta del recurso compartido de Azure Files.
 
 Su nombre de usuario en esta máquina virtual será el nombre de usuario utilizado en Cloud Shell ($User@Azure:).
 
@@ -76,7 +76,7 @@ Al establecer la conexión SSH, debería ver el aviso de bienvenida de Ubuntu. <
 Elimine el grupo de recursos y cualquier recurso dentro del mismo: <br>
 Ejecute `az group delete -n MyRG`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Información sobre la persistencia de los archivos para Bash en Cloud Shell](persisting-shell-storage.md) <br>
 [Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Información sobre el almacenamiento de Azure Files](../storage/files/storage-files-introduction.md) <br>
+[Más información sobre el almacenamiento en Azure Files](../storage/files/storage-files-introduction.md) <br>

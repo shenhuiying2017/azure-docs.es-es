@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
 Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Service Fabric con Windows en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
@@ -93,7 +93,7 @@ Se implementa un clúster de Windows con las siguientes características:
 - punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Se implementa un equilibrador de carga y se configuran sondeos y reglas para los siguientes puertos:
+Se implementa un equilibrador de carga, y se configuran sondeos y reglas para los siguientes puertos:
 - punto de conexión de la conexión de cliente: 19000
 - punto de conexión de la puerta de enlace HTTP: 19080 
 - puerto de la aplicación: 80

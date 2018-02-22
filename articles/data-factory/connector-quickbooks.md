@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9151647e29251b627db605d1f1c6c5809bd67269
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Copiar datos de QuickBooks con Azure Data Factory (beta)
 
@@ -52,8 +52,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de QuickBoo
 | Tipo | La propiedad type debe establecerse en: **QuickBooks** | Sí |
 | endpoint | Punto de conexión del servidor de QuickBooks. (es decir, quickbooks.api.intuit.com)  | Sí |
 | companyId | Id. de empresa de la compañía de QuickBooks que se debe autorizar.  | Sí |
-| accessToken | Token de acceso para la autenticación de OAuth 1.0. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
-| accessTokenSecret | Secreto del token de acceso para la autenticación de OAuth 1.0. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| accessToken | Token de acceso para la autenticación de OAuth 1.0. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| accessTokenSecret | Secreto del token de acceso para la autenticación de OAuth 1.0. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 
 **Ejemplo:**

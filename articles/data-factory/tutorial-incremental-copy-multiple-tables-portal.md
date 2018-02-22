@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -45,7 +45,7 @@ Estos son los pasos importantes para crear esta solución:
 
 1. **Seleccione la columna de marca de agua**.
     
-    Seleccione una columna de cada tabla del almacén de datos de origen, que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
+    Seleccione una columna de cada tabla del almacén de datos de origen que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
 2. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
     
@@ -68,7 +68,7 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
 * **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
 
@@ -135,7 +135,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL para almacenar el valor de límite máximo
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL de Azure para almacenar el valor del límite máximo
 1. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `watermarktable` y almacenar el valor de marca de agua: 
     
     ```sql
@@ -146,7 +146,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         WatermarkValue datetime,
     );
     ```
-2. Inserte los valores iniciales de marca de agua de ambas tablas de origen en la tabla de marcas de agua.
+2. Inserte los valores del límite inicial de ambas tablas de origen en la tabla de límites.
 
     ```sql
 
@@ -157,7 +157,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL de Azure 
 
 Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL. Este procedimiento almacenado actualiza el valor de la marca de agua después de cada ejecución de canalización. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Creación de tipos de datos y procedimientos almacenados adicionales
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en la base de datos SQL de Azure
 Ejecute la consulta siguiente para crear dos procedimientos almacenados y dos tipos de datos en la base de datos SQL. Estos procedimientos se usan para combinar los datos de las tablas de origen en las tablas de destino.
 
 ```sql
@@ -228,12 +228,13 @@ END
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 2. En la página **Nueva factoría de datos**, escriba **ADFMultiIncCopyTutorialDF** como **nombre**. 
       
-     ![Página Nueva factoría de datos](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
+     ![Página New data factory (Nueva factoría de datos)](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
  
    El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFMultiIncCopyTutorialDF) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
@@ -422,7 +423,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     3. Seleccione **Object** en el parámetro **type**.
 
     ![Parámetros de canalización](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Arrastre la actividad **ForEach** del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de **propiedades**, escriba **IterateSQLTables**. 
+4. En el cuadro de herramientas **Activities** (Actividades), expanda **Iteration & Conditionals** (Iteraciones y condiciones), arrastre la actividad **ForEach** (Para cada uno) y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de **propiedades**, escriba **IterateSQLTables**. 
 
     ![Actividad ForEach: nombre](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Cambie a la pestaña **Settings** (Configuración) de la ventana de **propiedades** y escriba `@pipeline().parameters.tableList` en **Items** (Elementos). La actividad ForEach recorre en iteración una lista de tablas y realiza la operación de copia incremental. 
@@ -431,7 +432,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 6. Seleccione la actividad **ForEach** en la canalización, en caso de que aún no esté seleccionada. Haga clic en el botón **Edit (icono del lápiz)**.
 
     ![Actividad ForEach: editar](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Arrastre y coloque la actividad **Lookup** (Búsqueda) del cuadro de herramientas **Activities** (Actividades) y escriba **LookupOldWaterMarkActivity** en **Name** (Nombre).
+7. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda), colóquela en la superficie del diseñador de canalizaciones y escriba **LookupOldWaterMarkActivity** como **Name** (Nombre).
 
     ![Primera actividad de búsqueda: nombre](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Cambie a la pestaña **Settings** (Configuración) de la ventana de **propiedades** y realice los pasos siguientes: 
@@ -497,8 +498,9 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes:
 
-    1. Escriba `sp_write_watermark` en **Stored procedure name** (Nombre de procedimiento almacenado). 
-    2. Use el botón **New** (Nuevo) para agregar los siguientes parámetros: 
+    1. Como **Stored procedure name** (Nombre de procedimiento almacenado), seleccione `sp_write_watermark`. 
+    2. Seleccione **Import parameter** (Importar parámetro). 
+    3. Especifique los siguientes valores para los parámetros: 
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- |
@@ -652,7 +654,7 @@ VALUES
     ![Ejecuciones de actividad](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 
 ## <a name="review-the-final-results"></a>Revisión de los resultados finales
-En SQL Server Management Studio, ejecute las siguientes consultas contra la base de datos de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 
+En SQL Server Management Studio, ejecute las siguientes consultas en la base de datos de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 
 
 **Consultar** 
 ```sql

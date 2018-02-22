@@ -12,20 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
-
-Para la supervisión externa de la infraestructura de Azure Stack, deberá supervisar el software Azure Stack, los equipos físicos y los modificadores de red físicos. Cada una de estas áreas ofrece un método para recuperar información sobre el estado de mantenimiento y las alertas.
+Para la supervisión externa de la infraestructura de Azure Stack, deberá supervisar el software Azure Stack, los equipos físicos y los modificadores de red físicos. Cada una de estas áreas ofrece un método para recuperar la información sobre el estado de mantenimiento y las alertas:
 
 - El software Azure Stack ofrece una API basada en REST para recuperar el estado de mantenimiento y las alertas. (Con el uso de tecnologías definidas por software, como Espacios de almacenamiento directo, las alertas y el estado de mantenimiento del almacenamiento forman parte de la supervisión de software).
 - Los equipos físicos pueden hacer que la información acerca del estado de mantenimiento y las alertas esté disponible a través de los controladores de administración de placa base (BMC).
@@ -57,7 +55,7 @@ El módulo de administración de Azure Stack proporciona las siguientes funciona
 - Puede agregar información personalizada a una región.
 - Admite notificaciones e informes.
 
-Puede descargar el Módulo de administración de System Center para Microsoft Azure Stack y la guía de usuario asociada [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=55184), o directamente desde Operations Manager.
+Puede descargar el Módulo de administración de System Center para Microsoft Azure Stack y la [guía de usuario](https://www.microsoft.com/en-us/download/details.aspx?id=55184) asociada, o directamente desde Operations Manager.
 
 Para obtener una solución de vales, puede integrar Operations Manager con System Center Service Manager. El conector de producto integrado habilita la comunicación bidireccional que permite cerrar una alerta de Azure Stack y Operations Manager después de resolver una solicitud de servicio en Service Manager.
 

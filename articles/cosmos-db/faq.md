@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
 ### <a name="what-is-azure-cosmos-db"></a>¿Qué es Azure Cosmos DB?
-Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido de forma global que ofrece consultas enriquecidas de datos sin esquemas, ayuda a proporcionar un rendimiento configurable y de confianza, y posibilita un desarrollo rápido. Todo ello gracias a una plataforma administrada respaldada por la potencia y el alcance de Microsoft Azure. 
+Azure Cosmos DB es un servicio de base de datos de varios modelos replicado de forma global que ofrece consultas enriquecidas de datos sin esquemas, ayuda a proporcionar un rendimiento configurable y de confianza, y posibilita un desarrollo rápido. Todo ello gracias a una plataforma administrada respaldada por la potencia y el alcance de Microsoft Azure. 
 
 Azure Cosmos DB es la solución adecuada para aplicaciones web, móviles, de juego e IoT cuando un rendimiento predecible, una alta disponibilidad, una baja latencia y un modelo de datos sin esquemas son requisitos clave. Ofrece flexibilidad de esquemas e indexación enriquecida, e incluye compatibilidad transaccional de documentos múltiples con JavaScript integrado. 
 

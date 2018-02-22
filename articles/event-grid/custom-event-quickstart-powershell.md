@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 2d8fc892a91f0dfd4ba7a5c8561bcb222bf81965
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24366df54fa4fc32ebbff7c1303183707dea17c6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure PowerShell y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure PowerShell para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, los eventos se envían a un punto de conexión que responde al evento, como un webhook o Azure Function. Sin embargo, para simplificar las cosas, en este artículo los eventos se envían a una dirección URL que simplemente recopila los mensajes. Debe crear esta dirección URL mediante herramientas de terceros desde [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+>Tenga en cuenta que **RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
 
 Cuando haya terminado, verá que los datos del evento se han enviado a un punto de conexión.
 
@@ -51,7 +51,7 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
-Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
+Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas a este. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
 
 ## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
 
@@ -70,13 +70,30 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 ```
 
-Para simplificar las cosas, en este artículo hemos configurado datos de evento de ejemplo para enviar al tema. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. En el ejemplo siguiente se obtienen los datos del evento:
+Para simplificar las cosas, en este artículo hemos configurado datos de evento de ejemplo para enviar al tema. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. El ejemplo siguiente utiliza una tabla hash para construir los datos del evento `htbody` y, a continuación, convertirlos en el objeto de carga JSON `$body` con un formato correcto:
 
 ```powershell
 $eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
 $eventDate = Get-Date -Format s
 
-$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
 ```
 
 En `$body` verá el evento completo. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.

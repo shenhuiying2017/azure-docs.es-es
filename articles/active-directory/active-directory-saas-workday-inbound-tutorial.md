@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -297,7 +297,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
          * **Expresión**: le permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de Workday. [Para obtener más información, consulte este artículo sobre las expresiones](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Atributo de origen**: el atributo de usuario de Workday.
+      * **Atributo de origen**: el atributo de usuario de Workday. Si el atributo que está buscando no está presente, consulte [Personalización de la lista de atributos de usuario de Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Valor predeterminado**: opcional. Si el atributo de origen tiene un valor vacío, la asignación escribirá este valor.
             La configuración más habitual consiste en dejarlo en blanco.
@@ -549,7 +549,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * **Expresión**: le permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de Workday. [Para obtener más información, consulte este artículo sobre las expresiones](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Atributo de origen**: el atributo de usuario de Workday.
+   * **Atributo de origen**: el atributo de usuario de Workday. Si el atributo que está buscando no está presente, consulte [Personalización de la lista de atributos de usuario de Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Valor predeterminado**: opcional. Si el atributo de origen tiene un valor vacío, la asignación escribirá este valor.
             La configuración más habitual consiste en dejarlo en blanco.
@@ -646,7 +646,7 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Personalización de la lista de atributos de usuario de Workday
 Las aplicaciones de aprovisionamiento de Workday para Active Directory y Azure AD incluyen ambas una lista predeterminada de atributos de usuario de Workday que puede seleccionar. Sin embargo, estas listas no son exhaustivas. Workday admite muchos cientos de posibles atributos de usuario, que pueden ser estándar o exclusivos de su inquilino de Workday. 
 
-El servicio de aprovisionamiento de Azure AD admite la posibilidad de personalizar la lista o los atributos de Workday para incluir cualquiera de los atributos expuestos en la operación [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) de la API de Recursos Humanos.
+El servicio de aprovisionamiento de Azure AD admite la posibilidad de personalizar la lista o los atributos de Workday para incluir cualquiera de los atributos expuestos en la operación [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) de la API de Recursos Humanos.
 
 Para ello, debe usar [Workday Studio](https://community.workday.com/studio-download) para extraer las expresiones XPath que representan los atributos que quiere usar y, luego, agregarlas a la configuración de aprovisionamiento mediante el editor de atributos avanzados de Azure Portal.
 
@@ -654,7 +654,7 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
 1. Descargue e instale [Workday Studio](https://community.workday.com/studio-download). Necesitará una cuenta de la comunidad de Workday para acceder al instalador.
 
-2. Descargue el archivo WDSL Human_Resources de Workday desde esta dirección URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Descargue el archivo WDSL Human_Resources de Workday desde esta dirección URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Inicie Workday Studio.
 
@@ -680,12 +680,23 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>
