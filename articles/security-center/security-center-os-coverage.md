@@ -43,10 +43,10 @@ Sistemas operativos Linux compatibles:
 
 * Versiones de Ubuntu 12.04, 14.04 y 16.04 y 16.10
 * Versiones de Debian 7, 8
-* Versiones de CentOS 6.\*, 7.*
-* Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-* Versiones de SUSE Linux Enterprise Server (SLES) 11 SP4+, 12.*
-* Versiones de Oracle Linux 6.\*, 7.*
+* Versiones de CentOS 6.\*, 7.\*
+* Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.\*
+* Versiones de SUSE Linux Enterprise Server (SLES) 11 SP4+, 12.\*
+* Versiones de Oracle Linux 6.\*, 7.\*
 
 > [!NOTE]
 > El análisis de comportamiento de máquinas virtuales todavía no está disponible para los sistemas operativos Linux.

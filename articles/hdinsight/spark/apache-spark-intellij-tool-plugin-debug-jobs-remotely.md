@@ -60,7 +60,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 2. En la interfaz de usuario de Ambari, seleccione **Hosts**.
 
     ![Selección de Hosts en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn***. Seleccione el primer nodo principal.
+3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn** \*. Seleccione el primer nodo principal.
 
     ![Búsqueda del nodo principal en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 4. En el panel **Resumen** de la parte inferior de la página que se abre, copie la **Dirección IP** del nodo principal y el **Nombre de host**.
