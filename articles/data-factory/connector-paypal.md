@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b0cc1bca6035104aba655bdb6fc63a1a66483f0c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ee15e92a6d6b7054b818a46fb5c207614f6d535f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-beta"></a>Copiar datos de PayPal con Azure Data Factory (beta)
 
@@ -50,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de PayPal:
 | Tipo | La propiedad type debe establecerse en: **PayPal**. | Sí |
 | host | Dirección URL de la instancia de PayPal (es decir, api.sandbox.paypal.com).  | Sí |
 | clientId | Id. de cliente asociado a la aplicación PayPal.  | Sí |
-| clientSecret | Secreto de cliente asociado a la aplicación PayPal. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| clientSecret | Secreto de cliente asociado a la aplicación PayPal. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |

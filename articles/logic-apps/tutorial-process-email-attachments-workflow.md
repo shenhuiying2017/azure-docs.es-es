@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 210731ce2e792452650b7a92cfc542c78a0e8014
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Procesamiento de correos electrónicos y datos adjuntos con una aplicación lógica
 
@@ -71,7 +71,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
    | **Replicación** | Almacenamiento con redundancia local (LRS) | Esta configuración especifica cómo se copian, se almacenan, se administran y se sincronizan los datos. Consulte [Replicación](../storage/common/storage-introduction.md#replication). | 
    | **Se requiere transferencia segura** | Disabled | Esta configuración especifica la seguridad que necesitan las solicitudes en las conexiones. Consulte [Exigencia de transferencia segura](../storage/common/storage-require-secure-transfer.md). | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
-   | **Grupos de recursos** | LA-Tutorial-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar y administrar los recursos relacionados. <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponible en todas las regiones, intente usar la misma región siempre que sea posible. | 
+   | **Grupos de recursos** | LA-Tutorial-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar y administrar los recursos relacionados. <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponibles en todas las regiones, intente usar la misma región siempre que sea posible. | 
    | **Ubicación** | Este de EE. UU. 2 | La región dónde almacenar la información sobre su cuenta de almacenamiento | 
    | **Configuración de redes virtuales** | Disabled | En este tutorial, mantenga el valor **Deshabilitado**. | 
    |||| 
@@ -211,11 +211,11 @@ Después de comprobar que funciona la función, cree la aplicación lógica. Aun
 
 2. En **Crear aplicación lógica**, proporcione esta información sobre la aplicación lógica tal como se muestra y se describe a continuación. Cuando esté listo, elija **Anclar al panel** > **Crear**.
 
-   ![Proporcionar información de la aplicación lógica](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
+   ![Especificación de información de la aplicación lógica](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-ProcessAttachment | El nombre de la aplicación lógica. | 
+   | **Name** | LA-ProcessAttachment | Nombre de la aplicación lógica | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | La misma suscripción de Azure que usó anteriormente. | 
    | **Grupos de recursos** | LA-Tutorial-RG | El mismo grupo de recursos de Azure que usó anteriormente. |
    | **Ubicación** | Este de EE. UU. 2 | La misma región que usó anteriormente. | 

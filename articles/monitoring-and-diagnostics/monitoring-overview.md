@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Supervisión de aplicaciones y recursos de Azure
 
@@ -57,8 +57,11 @@ Los siguientes servicios de Azure proporcionan funcionalidades enriquecidas para
 [Service Map](../operations-management-suite/operations-management-suite-service-map.md) proporciona información de su entorno de IaaS mediante el análisis de las máquinas virtuales con sus distintos procesos y dependencias de otros equipos y procesos externos.  Integra eventos, datos de rendimiento y soluciones de administración en Log Analytics, para que pueda ver estos datos en el contexto de cada equipo y su relación con el resto de su entorno.  Service Map es similar al [mapa de aplicación de Application Insights](../application-insights/app-insights-app-map.md), pero se centra en los componentes de la infraestructura que respaldan las aplicaciones.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) proporciona supervisión y diagnóstico basados en escenarios para distintos escenarios de red de Azure.  Almacena datos de métricas y diagnósticos de Azure para realizar análisis y trabajos adicionales con [soluciones de administración de Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), para realizar la supervisión completa de los recursos de red.
-
+[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) proporciona supervisión y diagnóstico basados en escenarios para distintos escenarios de red de Azure.  Almacena datos de métricas y diagnósticos de Azure para realizar análisis y trabajos adicionales con las siguientes soluciones de supervisión de red para controlar distintos aspectos de la red:
+* [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): una solución de supervisión basada en la nube, que controla la conectividad entre las nubes públicas, los centros de datos y los entornos locales.
+* [ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): funcionalidad de NPM que supervisa la conectividad de un extremo a otro y el rendimiento a través de circuitos ExpressRoute.
+* Análisis de tráfico: solución basada en la nube, que proporciona visibilidad de la actividad de usuarios y aplicaciones en la red en la nube.
+* [DNS Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns): proporciona información relacionada con la seguridad, el rendimiento y las operaciones, en función de los servidores DNS.
 
 ### <a name="management-solutions"></a>Soluciones de administración
 Las [soluciones de administración](../log-analytics/log-analytics-add-solutions.md) son conjuntos de lógica empaquetados que ofrecen información para una aplicación o servicio concretos.  Se basan en Log Analytics para almacenar y analizar los datos de supervisión que recopilan.  Las soluciones de administración las pone a disposición Microsoft y asociados que ofrecen supervisión de distintos servicios de Azure y de terceros. Como ejemplo de soluciones de supervisión se incluyen la [supervisión de contenedores](../log-analytics/log-analytics-containers.md), que ayuda a ver y administrar los hosts de contenedores, y [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), que recopila y visualiza métricas de rendimiento de instancias de Azure SQL Database.

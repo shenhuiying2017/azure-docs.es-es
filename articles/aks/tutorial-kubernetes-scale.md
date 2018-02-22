@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Escalado de una aplicación en Azure Container Service (AKS)
 
@@ -38,10 +38,10 @@ Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creaci
 
 Si creó el clúster de Kubernetes mediante los comandos en el tutorial anterior, este tiene un nodo. Puede ajustar el número de nodos manualmente si tiene previsto usar más o menos cargas de trabajo de contenedor en el clúster.
 
-En el ejemplo siguiente, el número de nodos aumenta a tres en el clúster de Kubernetes denominado *myK8sCluster*. El comando tarda unos minutos en completarse.
+En el ejemplo siguiente, el número de nodos aumenta a tres en el clúster de Kubernetes denominado *myAKSCluster*. El comando tarda unos minutos en completarse.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 La salida es parecida a esta:
@@ -52,7 +52,7 @@ La salida es parecida a esta:
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -138,7 +138,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 Después de unos minutos con carga mínima en la aplicación Azure Vote, el número de réplicas del pod se reduce automáticamente a tres.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Las tareas tratadas incluyen:
 

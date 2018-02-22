@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
@@ -26,8 +26,14 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 ## <a name="january-guest-os"></a>SO invitado de enero
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-| N/D | [4056898] |Indicador de seguridad de Windows |4.50 |3 de enero de 2018 |
-| N/D | [4056890] |Indicador de seguridad de Windows |5.15 |3 de enero de 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Indicador de seguridad de Windows |2.70, 3.57, 4.50 |3 de enero de 2018 |
+| Rel 18-01 | [4056890], [4056892] |Indicador de seguridad de Windows |5.15 |3 de enero de 2018 |
+| N/D | [4054518] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre |2.70 |12 de diciembre de 2017 |
+| N/D | [4054520] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre |3.57 |12 de diciembre de 2017 |
+| N/D | [4054519] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre |4.50 |12 de diciembre de 2017 |
+| N/D | [4051956] |Actualización de zona horaria de enero |2.70, 3.57, 4.50 |12 de diciembre de 2017 |
+
+
 
 ## <a name="december-guest-os"></a>SO invitado de diciembre
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -36,7 +42,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 17-12 | [4054521], [4054522], [4054523] |Indicador de seguridad de Windows |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
 | Versión 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
 | Versión 17-12 | [4052978] |Intermitente |3.56, 4.49, 5.14 |12 de diciembre de 2017 |
-| N/D | [4048957] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |2.67 |14 de noviembre de 2017 |
+| N/D | [4048957] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |2.69 |14 de noviembre de 2017 |
 | N/D | [4048959] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |3.56 |14 de noviembre de 2017 |
 | N/D | [4048958] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre |4.49 |14 de noviembre de 2017 |
 | N/D | [4049068] |Actualización de zona horaria de diciembre |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
@@ -48,7 +54,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Rel 17-11 | [4048960], [4048962], [4048961] |Indicador de seguridad de Windows |2.68, 3.55, 4.48 |14 de noviembre de 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 de noviembre de 2017 |
 | Rel 17-11 | [4048951] |Intermitente |3.55, 4.48, 5.13 |14 de noviembre de 2017 |
-| N/D | [4041681] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |2.67 |10 de octubre de 2017 |
+| N/D | [4041681] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |2.68 |10 de octubre de 2017 |
 | N/D | [4041690] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |3.55 |10 de octubre de 2017 |
 | N/D | [4041693] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de octubre |4.48 |10 de octubre de 2017 |
 | N/D | [3191566] |Actualización de Windows Management Framework 5.1  |2.68 |14 de noviembre de 2017 |
@@ -582,7 +588,14 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

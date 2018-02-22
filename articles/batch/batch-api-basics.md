@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -134,7 +134,7 @@ Al crear un grupo de Batch, puede especificar la configuración de máquina virt
     La lista de los sistemas operativos disponibles para los grupos de configuración de Cloud Services aparece en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando crea un grupo que contiene nodos de Cloud Services, debe especificar el tamaño del nodo y su *familia de sistema operativo*. Cloud Services se implementa en Azure de forma más rápida que las máquinas virtuales que ejecutan Windows. Si desea grupos de nodos de proceso Windows, es posible que Cloud Services proporcione una mejora en el rendimiento en términos de tiempo de implementación.
 
     * La *familia de sistema operativo* también determina qué versiones de .NET se instalan con el sistema operativo.
-    * Al igual que con los roles de trabajo en Cloud Services, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la sección [Información sobre Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) en la [introducción a Cloud Services](../cloud-services/cloud-services-choose-me.md)).
+    * Al igual que con los roles de trabajo en Cloud Services, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la [introducción a Cloud Services](../cloud-services/cloud-services-choose-me.md)).
     * Como con los roles de trabajo, se recomienda que se especifique `*` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
 
 Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, en función del sistema operativo de la imagen base de su VHD. Puede obtener una asignación de identificadores de SKU de agentes de nodos disponibles a sus referencias de imágenes del sistema operativo mediante una llamada a la operación [List supported node agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Lista de SKU admitidas de agentes de nodos).
@@ -479,6 +479,8 @@ Puede realizar tareas adicionales de depuración y solución de problemas si se 
 > Para conectarse a un nodo a través de RDP o SSH, primero debe crear un usuario en el nodo. Para ello, puede usar Azure Portal, [agregar una cuenta de usuario a un nodo][rest_create_user] con la API de REST de Batch y llamar al método [ComputeNode.CreateComputeNodeUser][net_create_user] en .NET de Batch o al método [add_user][py_add_user] en el módulo Python de Batch.
 >
 >
+
+Si debe restringir o deshabilitar el acceso de los protocolos RDP o SSH a los nodos de proceso, consulte [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md) (Configuración o deshabilitación del acceso remoto a los nodos de proceso de un grupo de Azure Batch).
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Solución de problemas de nodos de proceso problemáticos
 Si algunas de las tareas producen errores, el servicio o la aplicación de cliente de Batch pueden examinar los metadatos de las tareas con errores para identificar un nodo con un comportamiento incorrecto. Cada nodo de un grupo recibe un identificador único y el nodo en el que se ejecuta una tarea se incluye en los metadatos de la tarea. Una vez que haya identificado un "nodo problemático", puede llevar a cabo varias acciones con él:

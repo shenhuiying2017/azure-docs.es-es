@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -89,8 +89,7 @@ La cantidad de nodos de una máquina virtual determina la escala de un clúster.
 
 Dependiendo del tipo de clúster, aumentar el número de nodos de trabajo agrega capacidad de cálculo adicional (por ejemplo, más núcleos), pero también puede agregar la cantidad total de memoria necesaria para que todo el clúster admita el almacenamiento en memoria de los datos procesados. Al igual que sucede con la elección del tamaño y el tipo de máquina virtual, la selección de la escala correcta del clúster suele realizarse de forma empírica con la utilización de cargas de trabajo simuladas o consultas de valores controlados.
 
-Puede escalar horizontalmente el clúster para satisfacer los picos de demandas de carga y, después, volver a reducir verticalmente cuando dichos nodos adicionales ya no sean necesarios.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Puede escalar horizontalmente el clúster para satisfacer los picos de demandas de carga y, después, volver a reducir verticalmente cuando dichos nodos adicionales ya no sean necesarios. Para más información, consulte [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida del clúster
 

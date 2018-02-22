@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copia de datos de Google BigQuery con Azure Data Factory (beta)
 
@@ -51,12 +51,17 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Google B
 | proyecto | Identificador del proyecto predeterminado de BigQuery para el que se realizarán consultas.  | Sí |
 | additionalProjects | Lista separada por comas de identificadores de proyectos públicos de BigQuery para su acceso.  | Sin  |
 | requestGoogleDriveScope | Si desea solicitar acceso a Google Drive. Al permitir el acceso a Google Drive, se habilita la compatibilidad para las tablas federadas que combinan datos de BigQuery con datos de Google Drive. El valor predeterminado es **false**.  | Sin  |
-| authenticationType | Mecanismo de autenticación OAuth 2.0 que se usa para autenticar. ServiceAuthentication solo puede usarse en Integration Runtime autohospedado. <br/>Los valores permitidos son: **ServiceAuthentication** y **UserAuthentication**. | Sí |
-| refreshToken | El token de actualización obtenido de Google usado para autorizar el acceso a BigQuery para UserAuthentication. Este campo se puede marcar como SecureString para almacenarlo de forma segura en Data Factory. También puede almacenar la contraseña en Azure Key Vault y dejar que la actividad de copia la extraiga de ahí al realizar la copia de datos. Para más información, consulte [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
-| email | El identificador de correo electrónico de la cuenta de servicio que se usa para ServiceAuthentication. Solo se puede usar en Integration Runtime autohospedado.  | Sin  |
-| keyFilePath | La ruta de acceso completa al archivo de clave. p12 que se usa para autenticar la dirección de correo electrónico de la cuenta de servicio. Solo se puede usar en Integration Runtime autohospedado.  | Sin  |
-| trustedCertPath | La ruta de acceso completa del archivo .pem que contiene certificados de entidad de certificación de confianza usados para comprobar el servidor cuando se conecta a través de SSL. Esta propiedad solo puede establecerse cuando se usa SSL en Integration Runtime autohospedado. El valor predeterminado es el archivo cacerts.pem instalado con Integration Runtime.  | Sin  |
-| useSystemTrustStore | Especifica si se usa un certificado de entidad de certificación del almacén de confianza del sistema o de un archivo .pem especificado. El valor predeterminado es **false**.  | Sin  |
+| authenticationType | Mecanismo de autenticación OAuth 2.0 que se usa para autenticar. ServiceAuthentication solo puede usarse en Integration Runtime autohospedado. <br/>Los valores permitidos son: **UserAuthentication** y **ServiceAuthentication**. Consulte en las secciones después de esta tabla más propiedades y ejemplos de JSON para esos tipos de autenticación respectivamente. | Sí |
+
+### <a name="using-user-authentication"></a>Uso de la autenticación de usuarios
+
+Establezca la propiedad "authenticationType" en **UserAuthentication** y especifique las siguientes propiedades junto con las propiedades genéricas descritas en la sección anterior:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| clientId | Identificador de la aplicación usada para generar el token de actualización. | Sin  |
+| clientSecret | Secreto de la aplicación usado para generar el token de actualización. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| refreshToken | El token de actualización obtenido de Google usado para autorizar el acceso a BigQuery. Aprenda cómo obtener uno en [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) (Obtención de tokens de acceso de OAuth 2.0). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 
 **Ejemplo:**
 
@@ -70,6 +75,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Google B
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Google B
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Uso de la autenticación de servicio
+
+Establezca la propiedad "authenticationType" en **ServiceAuthentication** y especifique las siguientes propiedades junto con las propiedades genéricas descritas en la sección anterior. Este tipo de autenticación solo puede usarse en Integration Runtime autohospedado.
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| email | El identificador de correo electrónico de la cuenta de servicio que se usa para ServiceAuthentication. Solo se puede usar en Integration Runtime autohospedado.  | Sin  |
+| keyFilePath | La ruta de acceso completa al archivo de clave. p12 que se usa para autenticar la dirección de correo electrónico de la cuenta de servicio. | Sin  |
+| trustedCertPath | La ruta de acceso completa del archivo .pem que contiene certificados de entidad de certificación de confianza usados para comprobar el servidor cuando se conecta a través de SSL. Esta propiedad solo puede establecerse cuando se usa SSL en Integration Runtime autohospedado. El valor predeterminado es el archivo cacerts.pem instalado con Integration Runtime.  | Sin  |
+| useSystemTrustStore | Especifica si se usa un certificado de entidad de certificación del almacén de confianza del sistema o de un archivo .pem especificado. El valor predeterminado es **false**.  | Sin  |
+
+**Ejemplo:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -146,4 +189,4 @@ Para copiar datos de Google BigQuery, establezca el tipo de origen de la activid
 ```
 
 ## <a name="next-steps"></a>pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

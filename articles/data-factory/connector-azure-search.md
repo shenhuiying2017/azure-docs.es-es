@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 63081e2e5a2c792c8e688e7b8aaff0eca40e48a1
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1afb1980f5056482d94aef80d076c8b31d29e7a6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copia de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 
@@ -48,7 +48,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Se
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
 | URL | La URL del servicio Azure Search. | Sí |
-| key | La clave de administración del servicio Azure Search. Marque este campo como SecureString. | Sí |
+| key | La clave de administración del servicio Azure Search. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 > [!IMPORTANT]

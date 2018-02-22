@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en la versión 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Data Management Gateway ahora se denomina Integration Runtime autohospedado.  
 
 Data Management Gateway es un agente de cliente que debe instalar en el entorno local para copiar datos entre almacenes de datos en la nube y locales. Los almacenes de datos locales compatibles con Data Factory se muestran en la sección de [orígenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Tutorial de Hadoop: introducción al uso de Hadoop en HDInsight
 
@@ -52,7 +52,7 @@ La plantilla de Resource Manager utilizada en este tutorial se encuentra en [Git
     * **Grupo de recursos**: cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. 
     * **Ubicación**: seleccione una ubicación de Azure donde desea crear el clúster.  Elija una ubicación más cercana a usted para mejorar el rendimiento. 
     * **Tipo de clúster**: seleccione **Hadoop** para este tutorial.
-    * **Nombre del clúster**: escriba el nombre del clúster de Hadoop.
+    * **Nombre del clúster**: escriba el nombre del clúster de Hadoop. Dado que todos los clústeres de HDInsight comparten el mismo espacio de nombres de DNS, este nombre debe ser único. El nombre puede constar de hasta 59 caracteres, letras, números y guiones incluidos. Tenga en cuenta que el primer y último carácter del nombre no pueden ser guiones.
     * **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es **admin**.
     * **Nombre de usuario y contraseña de SSH**: el nombre de usuario predeterminado es **sshuser**.  Puede cambiarlo. 
      

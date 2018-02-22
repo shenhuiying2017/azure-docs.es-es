@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones del planeamiento de una implementación conectada de Azure en sistemas integrados de Azure Stack
-Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-deployment-decisions.md), puede concluir sus decisiones de implementación de Azure Stack.
+Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
 
 Si implementa Azure Stack conectado a Azure, significa que puede tener Azure Active Directory (Azure AD) o Servicios de federación de Active Directory (AD FS) para el almacén de identidades. También puede elegir el modelo de facturación: pago por uso o según la capacidad. Una implementación conectada es la opción predeterminada porque permite a los clientes obtener el máximo valor de Azure Stack, especialmente en los escenarios de nube híbrida que implican tanto a Azure como a Azure Stack. 
 
@@ -45,7 +45,7 @@ Cuando se usa Azure AD para el almacén de identidades, se requieren dos cuentas
 Elija esta opción si desea usar su propio almacén de identidades, como su entidad de Active Directory corporativa, para las cuentas de administrador de servicios.  
 
 ## <a name="choose-a-billing-model"></a>Elección de un modelo de facturación
-Puede elegir el modelo de facturación de **pago por uso** o por **capacidad**. Las implementaciones de modelo de facturación de pago por uso deben ser capaces de informar del uso mediante una conexión a Azure al menos una vez cada 30 días; por lo tanto, si no va a haber conectividad, el modelo de facturación por capacidad es la única opción. 
+Puede elegir el modelo de facturación de **pago por uso** o por **capacidad**. Las implementaciones del modelo de facturación de pago por uso deben ser capaces de informar del uso a través de una conexión a Azure al menos una vez cada 30 días. Por lo tanto, el modelo de facturación de pago por uso solo está disponible para implementaciones conectadas.  
 
 ### <a name="pay-as-you-use"></a>Pago por uso
 Con el modelo de facturación de pago por uso, el uso se cobra en una suscripción de Azure. Solo se paga cuando se utilizan los servicios de Azure Stack. Si este es el modelo que decide usar, necesitará una suscripción de Azure y el identificador de cuenta asociado a esa suscripción (por ejemplo, serviceadmin@contoso.onmicrosoft.com). Se admiten suscripciones CSL, EA y CSP. Los informes de uso se configuran durante el [registro de Azure Stack](azure-stack-registration.md).

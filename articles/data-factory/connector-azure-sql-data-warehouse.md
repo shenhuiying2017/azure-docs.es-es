@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,10 +49,10 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure SQL Data Warehouse:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **AzureSqlDW** | Sí |
-| connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad connectionString. Solo se admite la autenticación básica. Marque este campo como SecureString. |Sí |
+| connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad connectionString. Solo se admite la autenticación básica. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 
@@ -86,7 +86,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con Azure SQL Data Warehouse como origen o destino, establezca la propiedad type del conjunto de datos en **AzureSqlDWTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureSqlDWTable**. | Sí |
 | tableName |Nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | Sí |
@@ -118,7 +118,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Azure SQL Data Warehouse, establezca el tipo de origen de la actividad de copia en **SqlDWSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlDWSource**. | Sí |
 | SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |Sin  |
@@ -222,7 +222,7 @@ GO
 
 Para copiar datos a Azure SQL Data Warehouse, establezca el tipo de receptor de la actividad de copia en **SqlDWSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlDWSink**. | Sí |
 | allowPolyBase |Indica si se usa PolyBase (si procede) en lugar del mecanismo BULKINSERT. <br/><br/> **El uso de PolyBase es el método recomendado para cargar datos en SQL Data Warehouse.** Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información.<br/><br/>Los valores permitidos son: **True** (valor predeterminado) y **False**.  |Sin  |
@@ -269,7 +269,7 @@ PolyBase de SQL Data Warehouse admite directamente Azure Blob y Azure Data Lake 
 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
-1. El **servicio de origen vinculado** es de tipo **AzureStorage** o **AzureDataLakeStore**.
+1. El **servicio de origen vinculado** es de tipo **AzureStorage** o **AzureDataLakeStore** con autenticación de la entidad de servicio.
 2. El **conjunto de datos de entrada** es del tipo **AzureBlob** o **AzureDataLakeStoreFile**, y el tipo de formato de las propiedades `type` es **OrcFormat**, **ParquetFormat** o **TextFormat** con las siguientes configuraciones:
 
    1. `rowDelimiter` debe ser **\n**.

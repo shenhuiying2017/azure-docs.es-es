@@ -11,16 +11,16 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Python para conectarse y consultar datos
-En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL.
+En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL. Para más detalles del SDK, consulte la documentación de [referencia de las bibliotecas de Azure PostgreSQL para el SDK de Python](/python/api/overview/azure/postgresql) y el [ejemplo psycopg](http://initd.org/psycopg/docs/usage.html).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI](quickstart-create-server-database-azure-cli.md)
@@ -206,6 +206,6 @@ cursor.close()
 conn.close()
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

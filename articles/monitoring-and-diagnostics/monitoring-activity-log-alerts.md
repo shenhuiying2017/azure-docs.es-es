@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Creación de alertas del registro de actividad
 
 ## <a name="overview"></a>Información general
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta. Son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad.
+
+> [!NOTE]
+
+>  [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md) actualmente ofrece una experiencia mejorada para crear y administrar los registros de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
 
 Por lo general, se crean alertas del registro de actividad para recibir notificaciones cuando:
 
@@ -43,15 +47,13 @@ Puede configurar una alerta del registro de actividad según las propiedades de 
 - **Estado**: el estado del evento, normalmente Iniciado, Error o Correcto.
 - **Evento iniciado por**: también se conoce como el "llamador." La dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.
 
->[!NOTE]
->Debe especificar al menos dos de los criterios anteriores en la alerta, siendo uno de ellos la categoría. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
->
->
+> [!NOTE]
+> Cuando la categoría es "administrativo", debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
 
 Cuando se activa una alerta del registro de actividad, usa un grupo de acciones para generar acciones o notificaciones. Un grupo de acciones es un conjunto reutilizable de destinatarios de notificación, como direcciones de correo electrónico, direcciones URL del webhook o números de teléfono para SMS. Se puede hacer referencia a los receptores desde varias alertas para centralizar y agrupar los canales de notificación. Al definir la alerta del registro de actividad, tiene dos opciones. Puede:
 
-* Usar un grupo de acciones existente en la alerta del registro de actividad. 
-* Crear un nuevo grupo de acciones. 
+* Usar un grupo de acciones existente en la alerta del registro de actividad.
+* Crear un nuevo grupo de acciones.
 
 Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](monitoring-action-groups.md).
 
@@ -121,7 +123,7 @@ Después de crear una alerta, es visible en la sección Alertas de la hoja Super
 * Eliminarla.
 * Deshabilitarla o habilitarla, si desea detener temporalmente o reanudar la recepción de notificaciones de la alerta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Obtener una [Introducción a las alertas](monitoring-overview-alerts.md).
 - Más información sobre la [Limitación del número de notificaciones](monitoring-alerts-rate-limiting.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).

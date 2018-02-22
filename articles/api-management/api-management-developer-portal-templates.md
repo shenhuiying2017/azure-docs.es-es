@@ -1,6 +1,6 @@
 ---
 title: "Personalización del portal para desarrolladores para API Management mediante plantillas - Azure| Microsoft Docs"
-description: "Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas"
+description: "Obtenga información sobre cómo personalizar el portal para desarrolladores para Azure API Management mediante plantillas"
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas
 
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
 
@@ -31,13 +31,7 @@ Existen tres maneras fundamentales de personalizar el portal para desarrolladore
 Las plantillas se usan para personalizar el contenido de las páginas del portal para desarrolladores generadas por el sistema (por ejemplo, documentos de API, productos, autenticación de usuario, etc.). Mediante la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y un conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de una gran flexibilidad para configurar el contenido de las páginas según le convenga.
 
 ## <a name="developer-portal-templates-overview"></a>Información general sobre las plantillas del portal para desarrolladores
-La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para editores** en la barra de herramientas de servicios de su instancia de API Management.
-
-![Portal del publicador][api-management-management-console]
-
-A continuación, haga clic en **Portal para desarrolladores de** en la parte superior derecha. 
-
-![Menú del portal para desarrolladores][api-management-developer-portal-menu]
+La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para desarrolladores** en la barra de herramientas de servicios de su instancia de API Management.
 
 Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas**.
 
@@ -47,7 +41,7 @@ La lista de plantillas muestra varias categorías de plantillas que abarcan las 
 
 ![Plantillas del portal para desarrolladores][api-management-templates-menu]
 
-Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos** . La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo. 
+Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos**. La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo. 
 
 ![Plantilla de lista de productos][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ El panel **Template data** (Datos de plantilla) proporciona indicaciones sobre e
 
 ![Modelo de datos de plantilla][api-management-template-data]
 
-En el ejemplo anterior, se muestran en el portal para desarrolladores dos productos que se recuperaron de los datos mostrados en el panel **Template data** (Datos de plantilla), tal como se muestra en el ejemplo siguiente.
+En el ejemplo anterior, se muestran en el portal para desarrolladores dos productos que se recuperaron de los datos mostrados en el panel **Template data** (Datos de plantilla), tal como se muestra en el ejemplo siguiente:
 
 ```json
 {
@@ -185,8 +179,8 @@ Para restaurar todas las plantillas a las versiones predeterminadas, haga clic e
 
 Las plantillas restauradas deben publicarse individualmente o a la vez siguiendo los pasos descritos en [Para publicar una plantilla](#to-publish-a-template).
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](api-management-developer-portal-templates-reference.md).
+## <a name="next-steps"></a>pasos siguientes
+Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de API Management](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md
 [customize-styles]: api-management-customize-styles.md

@@ -4,9 +4,7 @@
 
 * Las máquinas virtuales de la serie N solo se pueden implementar en el modelo de implementación de Resource Manager.
 
-* Al crear una máquina virtual de la serie N mediante Azure Portal, en la hoja **Datos básicos**, seleccione el **Tipo de disco de máquina virtual** llamado **HDD**. Para elegir un tamaño disponible de la serie N, en la hoja **Tamaño**, haga clic en **Ver todos**.
-
-* Las máquinas virtuales NC y NV no admiten discos de máquina virtual que estén respaldados por Azure Premium Storage.
+* Las máquinas virtuales de serie N difieren en el tipo de Azure Storage que admiten en sus discos. Las máquinas virtuales NC y NV solo admiten discos de máquina virtual respaldados por Disk Storage (HDD) estándar. Las máquinas virtuales NCv2, ND y NCv3 (versión preliminar) solo admiten discos de máquina virtual respaldados por Disk Storage (SSD) premium.
 
 * Si desea implementar más de un pequeño número de máquinas virtuales de la serie N, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
 

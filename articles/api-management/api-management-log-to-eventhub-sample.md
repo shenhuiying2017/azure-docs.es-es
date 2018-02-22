@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de las API con Azure API Management, Event Hubs y Runscope
-El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio Administración de API mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel del portal de Publisher, pero aparte de eso, los detalles desaparecen.
+El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio API Management mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel de Azure Portal, pero aparte de eso, los detalles desaparecen.
 
 Mediante la directiva log-to-eventhub del servicio API Management, puede enviar los detalles de la solicitud y la respuesta a un [centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existen diversos motivos por los que puede desear generar eventos de mensajes HTTP que se envían a las API. Algunos ejemplos incluyen traza de auditoría de las actualizaciones, análisis de uso, alertas de excepción e integraciones de terceros.   
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -57,6 +57,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guía de configuración*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ejemplos de configuración**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/D |No compatible |No compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Guía de configuración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |
 | F5 |Serie BIG-IP |12.0 |[Guía de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guía de configuración](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guía de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -138,7 +139,7 @@ En las tablas siguientes:
 | Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Vigencia de SA (tiempo)            |3.600 segundos  |27 000 segundos                                |
 | Vigencia de SA (bytes)           |102.400.000 KB | -                                           |
-| Confidencialidad directa perfecta (PFS) |No             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
+| Confidencialidad directa perfecta (PFS) |Sin              |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |
 
 
@@ -180,7 +181,7 @@ En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IK
 | 17|AES256        |SHA256            |1            |
 | 18|AES256        |SHA256            |2            |
 | 19|AES256        |SHA256            |14           |
-| 20 ||AES256        |SHA1              |24           |
+| 20 |AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
 | 22|AES128        |SHA256            |None         |
 | 23|AES128        |SHA256            |1            |

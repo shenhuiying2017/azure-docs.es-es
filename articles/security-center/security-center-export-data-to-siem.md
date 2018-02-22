@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: aef623f047bd7e14cb5bd17fb2a2c18e3c5d42b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportación de datos de seguridad de Azure a SIEM: configuración de canalización [versión preliminar]
 
@@ -61,7 +61,7 @@ A continuación, hay un par de consultas de Splunk que puede usar para extraer d
 | **Descripción de la consulta**                                | **Consultar**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Todas las alertas                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| Resumen del recuento de operaciones por su nombre             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
+| Resumen del recuento de operaciones por su nombre             | index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | Obtención de información de las alertas: hora, nombre, estado, identificador y suscripción | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 

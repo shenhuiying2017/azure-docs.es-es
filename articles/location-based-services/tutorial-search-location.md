@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Búsqueda de un punto de interés cercano mediante Azure Location Based Services
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Búsqueda de puntos de interés cercanos mediante Azure Location Based Services
 
 En este tutorial se muestra cómo configurar una cuenta con Azure Location Based Services y luego usar las API proporcionadas para buscar un punto de interés. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una cuenta con Azure Location Based Services
+> * Creación de una cuenta con Azure Location Based Services
 > * Conocer la clave principal de una cuenta de Azure Location Based Services
-> * Crear una nueva página web mediante la API de Control de mapa
+> * Creación de una página web con la API de Control de mapa
 > * Uso de Search Service para encontrar un punto de interés cercano
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-# <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>

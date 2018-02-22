@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.
@@ -75,6 +75,11 @@ Para restaurar el servicio, siga estos pasos:
 
 Antes de comenzar, lea la sección sobre **el espacio de direcciones IPv4 privado** en [este artículo](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+Dentro de la red virtual, las máquinas pueden realizar solicitudes a los recursos de Azure que se encuentran en el mismo intervalo de direcciones IP que los configurados para la subred. Sin embargo, puesto que la red virtual se configura para este intervalo, esas solicitudes se enrutarán dentro de la red virtual y no llegarán a los recursos web deseados. Ello puede conducir a errores impredecibles con Azure AD Domain Services.
+
+**Si es propietario del intervalo de direcciones IP que está configurado en la red virtual, puede omitir esta alerta. Sin embargo, no se puede confirmar Azure AD Domain Services para el [Acuerdo de nivel de servicio](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] con esta configuración, ya que puede conducir a errores impredecibles.**
+
+
 1. [Elimine el dominio administrado](active-directory-ds-disable-aadds.md) del directorio.
 2. Corrija el intervalo de direcciones IP de la subred.
   1. Navegue a la [página de redes virtuales en Azure Portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Antes de comenzar, lea la sección sobre **el espacio de direcciones IPv4 privad
   7. Actualice el intervalo de direcciones y guarde los cambios.
 3. Siga la [guía de introducción al uso de Azure AD Domain Services](active-directory-ds-getting-started.md) para volver a crear el dominio administrado. Asegúrese de elegir una red virtual con un intervalo de direcciones IP privado.
 4. Para unir las máquinas virtuales al dominio nuevo, siga [esta guía](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Compruebe el estado del dominio en dos horas para asegurarse de que ha completado los pasos correctamente.
+8. Para asegurarse de que la alerta se resuelve, compruebe el estado de su dominio transcurridas dos horas.
 
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros

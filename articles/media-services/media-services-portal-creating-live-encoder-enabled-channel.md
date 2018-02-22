@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con el portal de Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API DE REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [API de REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -39,7 +39,7 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
-> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
+> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 > 
 > 
 
@@ -70,15 +70,15 @@ En este tutorial, se utiliza el portal de Azure para realizar las tareas siguien
 5. Reproduzca el contenido.
 6. Realice la limpieza.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
-* Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. 
+* Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. 
   Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
 
-## <a name="create-a-channel"></a>Creación de un canal
+## <a name="create-a-channel"></a>Crear un canal
 1. En [Azure Portal](https://portal.azure.com/), seleccione Media Services y, luego, haga clic en el nombre de la cuenta de Media Services.
 2. Seleccione **Streaming en vivo**.
 3. Seleccione **Creación personalizada**. Esta opción le permite crear un canal habilitado para la codificación en directo.
@@ -190,10 +190,10 @@ Incluso después de detener y eliminar el evento, los usuarios podrán transmiti
 
 Para administrar los recursos seleccione **Configuración** y haga clic en **Recursos**.
 
-![recursos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Recursos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Consideraciones
-* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
+* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 * Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución).
 
 ## <a name="next-step"></a>Paso siguiente

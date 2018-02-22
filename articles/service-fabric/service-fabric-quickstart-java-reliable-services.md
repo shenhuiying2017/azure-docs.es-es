@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>Creación de una aplicación Java
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
@@ -36,7 +36,7 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 > * Implementar la aplicación en un clúster en Azure
 > * Escalar horizontalmente la aplicación en varios nodos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar esta guía de inicio rápido:
 1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Instalación de Git](https://git-scm.com/)
@@ -79,16 +79,42 @@ Ahora puede agregar una serie de opciones de votación y empezar a recibir votos
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configuración del clúster de Service Fabric
-Para implementar la aplicación en un clúster de Azure, cree su propio clúster o use un Party Cluster.
+Para implementar la aplicación en un clúster de Azure, cree su propio clúster.
 
 Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los ejecuta el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
+
+Para poder realizar operaciones de administración en el clúster de entidad segura, puede utilizar Service Fabric Explorer, CLI o Powershell. Para usar Service Fabric Explorer, tendrá que descargar el archivo PFX desde el sitio web de Party Cluster e importar el certificado en el almacén de certificados (Windows o Mac) o en el explorador mismo (Ubuntu). No hay ninguna contraseña para los certificados autofirmados desde el clúster de entidad. 
+
+Para realizar operaciones de administración con Powershell o CLI, necesitará el PFX (Powershell) o PEM (CLI). Para convertir el archivo PFX en un archivo PEM, ejecute el siguiente comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> El servicio front-end web está configurado para escuchar en el puerto 8080 el tráfico entrante. Asegúrese de que dicho puerto está abierto en el clúster. Si está usando el Party Cluster, el puerto estará abierto.
+> El servicio Spring Boot está configurado para escuchar en el puerto 8080 el tráfico entrante. Asegúrese de que dicho puerto está abierto en el clúster. Si está usando el Party Cluster, el puerto estará abierto.
 >
 
+### <a name="add-certificate-information-to-your-application"></a>Incorporación de información de certificado a la aplicación
+
+Es necesario agregar una huella digital a la aplicación porque esta está usando modelos de programación de Service Fabric. 
+
+1. Necesitará la huella digital del certificado en el archivo ```Voting/VotingApplication/ApplicationManiest.xml``` cuando se ejecuta en un clúster seguro. Ejecute el siguiente comando para extraer la huella digital del certificado.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. En el archivo ```Voting/VotingApplication/ApplicationManiest.xml```, agregue el siguiente fragmento en la etiqueta **ApplicationManifest**. **X509FindValue** debe ser la huella digital del paso anterior (sin punto y coma). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>Implementación de la aplicación con Eclipse
 Ahora que la aplicación y el clúster están listos, puede implementarlos en el clúster directamente desde Eclipse.
 
@@ -100,8 +126,8 @@ Ahora que la aplicación y el clúster están listos, puede implementarlos en el
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y e
 
 Para escalar el servicio front-end web, siga estos pasos:
 
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Abra Service Fabric Explorer en el clúster, por ejemplo, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
     ![Escalar servicio de Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -137,7 +163,7 @@ Para escalar el servicio front-end web, siga estos pasos:
 
 Mediante esta sencilla tarea de administración, hemos duplicado los recursos disponibles para el servicio front-end para procesar la carga de usuarios. Es importante entender que no hacen falta varias instancias de un servicio para que se ejecute de forma confiable. Si se produce un error en un servicio, Service Fabric se asegurará de que se ejecute una nueva instancia de servicio en el clúster.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 
 > [!div class="checklist"]

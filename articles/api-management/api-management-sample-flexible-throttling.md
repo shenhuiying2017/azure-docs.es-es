@@ -1,6 +1,6 @@
 ---
-title: "Limitación avanzada de solicitudes con Administración de API de Azure"
-description: "Aprenda a crear y aplicar directivas de limitación de velocidad y de cuota flexibles con Administración de API de Azure."
+title: "Limitación avanzada de solicitudes con Azure API Management"
+description: "Aprenda a crear y aplicar directivas de limitación de velocidad y de cuota flexibles con Azure API Management."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Administración de API de Azure
-La posibilidad de limitar las solicitudes entrantes es un rol clave de Administración de API de Azure. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Azure API Management
+La posibilidad de limitar las solicitudes entrantes es un rol clave de Azure API Management. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.
 
 ## <a name="product-based-throttling"></a>Limitación por producto
-Hasta la fecha, las capacidades de limitación de velocidad se han circunscrito al ámbito de una suscripción de producto concreta (esencialmente una clave), que se define en el portal para editores de Administración de API. Resulta útil para que el proveedor de la API aplique límites a los desarrolladores que inicien sesión para usar su API, pero no ayuda, por ejemplo, a imponer limitaciones a los usuarios finales individuales de la API. Es posible que un solo usuario de la aplicación del desarrollador consuma toda la cuota e impida que otros clientes del desarrollador puedan usar la aplicación. Además, es posible que varios clientes que generen un gran volumen de solicitudes limiten el acceso a los usuarios ocasionales.
+Hasta la fecha, las funcionalidades de limitación de velocidad se han circunscrito al ámbito de una suscripción de producto concreta (esencialmente una clave), que se define en Azure Portal. Resulta útil para que el proveedor de la API aplique límites a los desarrolladores que inicien sesión para usar su API, pero no ayuda, por ejemplo, a imponer limitaciones a los usuarios finales individuales de la API. Es posible que un solo usuario de la aplicación del desarrollador consuma toda la cuota e impida que otros clientes del desarrollador puedan usar la aplicación. Además, es posible que varios clientes que generen un gran volumen de solicitudes limiten el acceso a los usuarios ocasionales.
 
 ## <a name="custom-key-based-throttling"></a>Limitación por clave personalizada
 Las nuevas directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) ofrecen una solución considerablemente más flexible para el control del tráfico. Estas nuevas directivas permiten definir expresiones para identificar las claves que se usarán para realizar un seguimiento del uso del tráfico. El funcionamiento de esto se ilustra más claramente con un ejemplo. 
@@ -71,9 +71,9 @@ Cuando la clave de limitación se define con una [expresión de directiva](https
 Así se permite a la aplicación cliente del desarrollador elegir cómo se quiere crear la clave de limitación de velocidad. Con un poco de ingenio un desarrollador del cliente puede crear sus propios niveles de velocidad asignando conjuntos de claves a los usuarios y rotando el uso de claves.
 
 ## <a name="summary"></a>Resumen
-Administración de API de Azure ofrece limitación de velocidad y de cuota para proteger y agregar valor al servicio de API. Las nuevas directivas de limitación con reglas de ámbito personalizadas permiten un control más preciso sobre las directivas para permitir a los clientes crear aplicaciones aún mejores. Los ejemplos de este artículo muestran el uso de estas nuevas directivas fabricando claves de limitación de velocidad con direcciones IP de cliente, identidad de usuario y valores generados por el cliente. Pero hay muchas más partes del mensaje que podrían usarse como, por ejemplo, agente de usuario, fragmentos de ruta de dirección URL, tamaño del mensaje.
+Azure API Management ofrece limitación de velocidad y de cuota para proteger y agregar valor al servicio de API. Las nuevas directivas de limitación con reglas de ámbito personalizadas permiten un control más preciso sobre las directivas para permitir a los clientes crear aplicaciones aún mejores. Los ejemplos de este artículo muestran el uso de estas nuevas directivas fabricando claves de limitación de velocidad con direcciones IP de cliente, identidad de usuario y valores generados por el cliente. Pero hay muchas más partes del mensaje que podrían usarse como, por ejemplo, agente de usuario, fragmentos de ruta de dirección URL, tamaño del mensaje.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Háganos sus comentarios en la conversación Disqus sobre este tema. Sería estupendo conocer otros posibles valores de clave que hayan sido una elección lógica en sus escenarios.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Ver un vídeo de información general de estas directivas

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Cómo programar el inicio y la detención de una instancia de Integration Runtime de SSIS en Azure 
 La ejecución de una instancia de IR de SSIS (SQL Server Integration Services) en Azure tiene un costo asociado. Por lo tanto, quiere ejecutar el entorno de ejecución de integración solo cuando necesite ejecutar paquetes de SSIS en Azure y detenerlo cuando ya no lo necesite. Puede usar la interfaz de usuario de Data Factory o Azure PowerShell para [iniciar o detener manualmente una instancia de IR de SSIS en Azure](manage-azure-ssis-integration-runtime.md)). En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Automation y Azure Data Factory. Estos son los pasos de alto nivel que se describen en este artículo:
@@ -44,8 +44,9 @@ En esta sección se realizarán los pasos siguientes:
 ### <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 Si no tiene una cuenta de Azure Automation, cree una siguiendo las instrucciones de este paso. Para obtener instrucciones detalladas, consulte [Creación de una cuenta de Azure Automation](../automation/automation-quickstart-create-account.md). Como parte de este paso, va a crear una cuenta **de ejecución de Azure** (una entidad de servicio en su instancia de Azure Active Directory) y la va a agregar al rol **Colaborador** de su suscripción a Azure. Asegúrese de que es igual que la suscripción que contiene la factoría de datos que tiene la instancia de Integration Runtime de SSIS en Azure. Azure Automation utiliza esta cuenta para autenticarse en Azure Resource Manager y trabajar con sus recursos. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
-2. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Supervisión y administración** y seleccione **Automation**. 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
+3. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Supervisión y administración** y seleccione **Automation**. 
 
     ![Nuevo -> Supervisión y administración -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. En la ventana **Agregar una cuenta de Automation**, siga estos pasos: 

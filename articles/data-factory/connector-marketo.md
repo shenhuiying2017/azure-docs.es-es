@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 58ae292514a1f5c98218d7a879beb9c15cb25f60
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Copia de datos de Marketo con Azure Data Factory (beta)
 
@@ -50,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Marketo:
 | Tipo | La propiedad type debe establecerse en: **Marketo**. | Sí |
 | endpoint | Punto de conexión del servidor de Marketo (es decir, 123-ABC-321.mktorest.com).  | Sí |
 | clientId | Identificador de cliente del servicio Marketo.  | Sí |
-| clientSecret | Secreto de cliente del servicio Marketo. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF, o almacenar la contraseña en Azure Key Vault y permitir que ADF copie la extracción de la actividad desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| clientSecret | Secreto de cliente del servicio Marketo. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |

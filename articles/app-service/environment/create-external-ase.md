@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment #
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo crear un ASE externo. Para obtener informaci�
 
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
-- Ubicación
+- La ubicación
 - La suscripción
 - Grupos de recursos
 - Red virtual usada
@@ -87,7 +87,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
     b. Escribir un nuevo nombre de subred.
 
-    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/25`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura usa al menos cinco direcciones. En una subred de tamaño `/28`, dispone de una escala máxima de once instancias.
+    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/25`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura utiliza al menos siete direcciones, mientras que Redes de Azure utiliza otras cinco. En una subred `/28`, se quedará con un escalado máximo de cuatro instancias de planes de App Service para un ASE externo y solo tres instancias de planes de App Service para un ASE de ILB.
 
     d. Seleccione el intervalo IP de subred.
 

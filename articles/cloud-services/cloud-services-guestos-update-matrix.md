@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +42,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="january-29-2018"></a>**29 de enero de 2018**
+El sistema operativo invitado de enero se ha publicado para las familias de SO 2 (WA-GUEST-OS-2.70_201801-01) y 3 (WA-GUEST-OS-3.57_201801-01).
+
 ###### <a name="january-4-2018"></a>**4 de enero de 2018**
 El sistema operativo invitado de enero se ha publicado para cuatro familias de SO (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) y contiene revisiones de seguridad importantes.  
 
@@ -92,7 +95,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 | --- | --- | --- | --- |
 | WA-GUEST-OS-5.15_201801-01 |4 de enero de 2018 |Post 5.17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 de enero de 2018 |Post 5.16 |TBD |
-| WA-GUEST-OS-5.13_201711-01 |14 de diciembre de 2017 |Post 5.15 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 de agosto de 2017 |14 de diciembre de 2017 |TBD |
@@ -117,7 +120,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 | --- | --- | --- | --- |
 | WA-GUEST-OS-4.50_201801-01 |4 de enero de 2018 |Post 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 de enero de 2018 |Post 4.51 |TBD |
-| WA-GUEST-OS-4.48_201711-01 |14 de diciembre de 2017 |Post 4.50 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 de agosto de 2017 |14 de diciembre de 2017 |TBD |
@@ -140,8 +143,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.57_2017801-01 |29 de enero de 2018 |Post 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 de enero de 2018 |Post 3.58 |TBD |
-| WA-GUEST-OS-3.55_201711-01 |14 de diciembre de 2017 |Post 3.57 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 de agosto de 2017 |14 de diciembre de 2017 |TBD |
@@ -164,8 +168,9 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.70_201801-01 |29 de enero de 2018 |Post 2.72 |TBD |
 | WA-GUEST-OS-2.69_201712-01 |4 de enero de 2018 |Post 2.71 |TBD |
-| WA-GUEST-OS-2.68_201711-01 |14 de diciembre de 2017 |Post 2.70 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 de agosto de 2017 |14 de diciembre de 2017 |TBD |

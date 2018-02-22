@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Streams API de Apache Kafka
 
@@ -100,6 +100,12 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     * Iniciar un productor que escriba en el tema `test`.
     * Iniciar un consumidor para que pueda ver la salida escrita en el tema `wordcounts`
 
+    > [!NOTE]
+    > Debe verificar que la propiedad `auto.create.topics.enable` está establecida en `true` en el archivo de configuración de Kafka Broker. Esta propiedad se puede ver y modificar en el archivo de configuración avanzada de Kafka Broker mediante la interfaz de usuario de Ambari Web. En caso contrario, debe crear el tema intermedio `RekeyedIntermediateTopic` manualmente antes de ejecutar este ejemplo con el comando siguiente:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Puede realizar estas operaciones abriendo tres sesiones SSH. Pero, a continuación, tendrá que establecer `$KAFKABROKERS` y `$KAFKAZKHOSTS` para cada una ejecutando el paso 4 de esta sección en cada sesión SSH. Una solución más fácil consiste en usar la utilidad `tmux`, que puede dividir la pantalla actual de SSH en varias secciones. Para iniciar el flujo, el productor y el consumidor mediante `tmux`, use el siguiente comando:
 
     ```bash

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -173,7 +173,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
   }
   ```
 
-  Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+  Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -468,6 +468,13 @@ En C# y el script de C#, acceda a la cola o al tema mediante un parámetro de m�
 Para crear varios mensajes en una función de C# o script de C#, puede utilizar `ICollector<T>` o `IAsyncCollector<T>`. Se crea un mensaje al llamar al método `Add` .
 
 En JavaScript, puede obtener acceso a la cola o al tema mediante el uso de `context.bindings.<name>`. `<name>` es el valor especificado en la propiedad `name` de *function.json*. Puede asignar una cadena, una matriz de bytes o un objeto de JavaScript (deserializado en JSON) a `context.binding.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace | Referencia |
+|---|---|
+| Azure Service Bus | [Códigos de error de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Azure Service Bus | [Límites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 ## <a name="next-steps"></a>pasos siguientes
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -40,6 +40,9 @@ En Visual Studio, la plantilla de proyecto de **Azure Functions** crea un proyec
 
 * [host.json](functions-host-json.md): almacena los valores de configuración que afectan a todas las funciones del proyecto cuando se ejecuta localmente o en Azure.
 * [local.settings.json](functions-run-local.md#local-settings-file): almacena la configuración de la aplicación y las cadenas de conexión que se utilizan cuando se ejecuta localmente.
+
+> [!IMPORTANT]
+> El proceso de compilación crea un archivo *function.json* para cada función. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para deshabilitar una función, utilice el atributo [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Por ejemplo, agregue una configuración de aplicación booleana MY_TIMER_DISABLED y aplique `[Disable("MY_TIMER_DISABLED")]` a la función. A continuación, puede habilitarlo y deshabilitarlo al cambiar la configuración de la aplicación.
 
 ### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName y desencadenador
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Conversión a function.json
 
-El proceso de compilación crea un archivo *function.json* en una carpeta de la función en la carpeta de compilación. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. 
+El proceso de compilación crea un archivo *function.json* en una carpeta de la función en la carpeta de compilación. Como se indicó anteriormente, este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. 
 
 El propósito de este archivo es proporcionar información al controlador de escala que se usará para [escalar decisiones en el plan de consumo](functions-scale.md#how-the-consumption-plan-works). Por esta razón, el archivo solo tiene información del desencadenador, no sobre los enlaces de entrada o salida.
 

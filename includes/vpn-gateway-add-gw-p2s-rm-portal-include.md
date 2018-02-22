@@ -1,4 +1,4 @@
-1. En el portal, a la izquierda, haga clic en **+** y escriba "Puerta de enlace de red virtual" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear** en la parte inferior de la página para abrir la página **Crear puerta de enlace de red virtual**.
+1. En el portal, a la izquierda, haga clic en **+ Crear un recurso** y escriba "Virtual Network Gateway" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear** en la parte inferior de la página para abrir la página **Crear puerta de enlace de red virtual**.
 2. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.
 
   ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Campos de la página Crear puerta de enlace de red virtual")

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?
 
@@ -115,7 +115,7 @@ Azure HDInsight es un paquete opcional que puede agregar en su clúster de HDIns
 
     En el pasado, solo se podían crear clústeres de HDInsight con un usuario administrador local y un usuario de SSH local. El usuario administrador local podía acceder a todos los archivos, carpetas, tablas y columnas.  Con el paquete de seguridad de la empresa, puede habilitar el control de acceso basado en rol mediante la integración de clústeres de HDInsight con su propia instancia de Active Directory, incluyendo Active Directory local, Azure Active Directory Domain Services o Active Directory en una máquina virtual de IaaS. El administrador de dominio del clúster puede conceder a los usuarios permiso para utilizar sus propias credenciales corporativas (dominio) de nombre de usuario y contraseña para acceder al clúster. 
 
-    Para obtener más información, consulte 
+    Para más información, consulte:
 
     - [Introducción a la seguridad de Hadoop con clústeres de HDInsight unidos a dominio](./domain-joined/apache-domain-joined-introduction.md)
     - [Planeamiento de clústeres de Hadoop unidos a un dominio de Azure en HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -127,7 +127,7 @@ Azure HDInsight es un paquete opcional que puede agregar en su clúster de HDIns
     - Integración con Apache Ranger para la autorización de Hive, Spark SQL y colas de Yarn.
     - Puede establecer un control de acceso en archivos y carpetas.
 
-    Para obtener más información, consulte 
+    Para más información, consulte:
 
     - [Configuración de directivas de Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
 

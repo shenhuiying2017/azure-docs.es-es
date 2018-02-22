@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -33,7 +33,7 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Dir
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitación de SSPR para el inquilino de Azure AD
 
-1. En su inquilino de Azure AD existente, seleccione **Restablecimiento de contraseña**.
+1. Desde el inquilino de Azure AD existente, en **Azure Active Directory** de **Azure Portal**, seleccione **Restablecimiento de contraseña**.
 
 2. En la página **Propiedades**, en **Se habilitó el restablecimiento de contraseña del autoservicio**, elija una de las siguientes opciones:
    * **Ninguno**: nadie puede usar la funcionalidad SSPR.
@@ -72,7 +72,7 @@ Llegados a este punto, ya ha configurado SSPR para su inquilino de Azure AD. Los
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configuración de la sincronización con un origen de identidades existente
 
-Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD. Para obtener más información, consulte 
+Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD. Para más información, consulte:
 
 * [Actualización desde DirSync o Azure AD Sync a Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introducción a Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md)

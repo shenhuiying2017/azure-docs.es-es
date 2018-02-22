@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
 Este artículo explica las importantes diferencias entre implementar Windows Server Active Directory Domain Services (ADDS) y Servicios de federación de Active Directory (ADFS) localmente en comparación con la implementación en máquinas virtuales de Microsoft Azure.
@@ -52,8 +52,7 @@ Puede descargar y ejecutar la herramienta de [evaluación de preparación de má
 Se recomienda que revise también en primer lugar los tutoriales, guías y vídeos que tratan de los siguientes temas:
 
 * [Creación de una red virtual mediante de Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
-* 
-            [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Portal clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Portal clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS para profesionales de TI: (01) Principios básicos sobre máquinas virtuales](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
@@ -259,7 +258,7 @@ La siguiente sección describe los escenarios de implementación comunes para ll
 ![Implementación de AD DS solo en la nube](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figura 1**
 
-#### <a name="description"></a>Descripción
+#### <a name="description"></a>DESCRIPCIÓN
 SharePoint se implementa en una máquina virtual de Azure y la aplicación no tiene dependencias en recursos de la red corporativa. La aplicación requiere Windows Server AD DS, pero *no* la versión corporativa. No son necesarias relaciones de confianza de Kerberos ni federadas ya que los usuarios se aprovisionan automáticamente a través de la aplicación en el dominio de Windows Server AD DS que también se hospeda en la nube en las máquinas virtuales de Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Consideraciones sobre el escenario y cómo se aplican las áreas de tecnología al mismo
@@ -279,7 +278,7 @@ SharePoint se implementa en una máquina virtual de Azure y la aplicación no ti
 ![Federación con conectividad entre locales](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figura 2**
 
-#### <a name="description"></a>Descripción
+#### <a name="description"></a>DESCRIPCIÓN
 Una aplicación de notificaciones que se ha implementado correctamente de forma local, utilizada por usuarios corporativos, y que debe ser accesible directamente desde Internet. La aplicación actúa como un front-end web para una Base de datos SQL en la que almacena los datos. Los servidores de SQL Server utilizados por la aplicación también se encuentran en la red corporativa. Se han implementado dos STS de Windows Server AD FS y un equilibrador de carga de forma local para proporcionar acceso a los usuarios corporativos. Ahora, tanto los socios comerciales mediante sus propias identidades corporativas como los usuarios corporativos ya existentes necesitan acceder adicionalmente a la aplicación directamente a través de Internet.
 
 En un esfuerzo por simplificar y satisfacer las necesidades de implementación y configuración de este nuevo requisito, se decidió que se instalaran dos front-end web y dos servidores proxy de Windows Server AD FS en las máquinas virtuales de Azure. Las cuatro máquinas virtuales se expondrán directamente a Internet y se proporcionará conectividad a la red local con la funcionalidad VPN de sitio a sitio de la instancia de Azure Virtual Network.
@@ -303,7 +302,7 @@ Para obtener más información, consulte la [guía de implementación de AD DS](
 ![Implementación de AD DS entre locales](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figura 3**
 
-#### <a name="description"></a>Descripción
+#### <a name="description"></a>DESCRIPCIÓN
 Una aplicación compatible con LDAP se implementa en una máquina virtual de Azure. Admite la autenticación integrada de Windows y usa Windows Server AD DS como repositorio para los datos de configuración y de perfil de usuario. El objetivo para la aplicación es aprovechar la aplicación Windows Server AD DS corporativa ya existente y proporcionar un inicio de sesión único. La aplicación no es compatible con notificaciones. Los usuarios también necesitan tener acceso a la aplicación directamente desde Internet. Para optimizar el rendimiento y el costo, se decide que dos controladores de dominio adicionales que forman parte del dominio corporativo se implementen junto con la aplicación en Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Consideraciones sobre el escenario y cómo se aplican las áreas de tecnología al mismo
@@ -434,7 +433,7 @@ No utilice SYSPREP para implementar o clonar controladores de dominio. La capaci
 Seleccione dónde desea almacenar la base de datos, los registros y SYSVOL de Windows Server AD DS. Se deben implementar en discos de datos de Azure.
 
 > [!NOTE]
-> Los discos de datos de Azure están limitados a 1 TB.
+> Los discos de datos de Azure están limitados a 4 TB.
 > 
 > 
 

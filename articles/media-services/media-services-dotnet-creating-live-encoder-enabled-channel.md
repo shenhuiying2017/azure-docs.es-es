@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 571467b88668aa2933ada9953b8ea33a9741a03f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Para más información sobre los canales habilitados para Live Encoding, consult
 En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
-> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
+> Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 > 
 > 
 
@@ -87,17 +87,17 @@ En el artículo se muestra cómo hacer lo siguiente:
 7. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 8. Limpiar el canal y todos los recursos asociados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
-* Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica Web Apps de Azure App Service.
+* Una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica Web Apps de Azure App Service.
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
 * Debe usar el SDK de Media Services para .NET versión 3.2.0.0 o posterior.
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
 
 ## <a name="considerations"></a>Consideraciones
-* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
+* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@Microsoft.com.
 * Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artículo.
 
 ## <a name="download-sample"></a>Descarga de un ejemplo

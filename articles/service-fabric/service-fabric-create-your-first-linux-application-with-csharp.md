@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Service Fabric ofrece SDK para compilar servicios en Linux tanto en .NET Core como Java. En este tutorial, veremos cómo crear una aplicación para Linux y cómo compilar un servicio con C# en .NET Core 2.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar, asegúrese de [configurar el entorno de desarrollo Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno one-box de Linux en una máquina virtual mediante Vagrant](service-fabric-get-started-mac.md).
 
 También deberá instalar la [CLI de Service Fabric](service-fabric-cli.md)
@@ -40,10 +40,18 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
 
 1. Instalación de nodejs y NPM en la máquina
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Instalación del generador de plantillas [Yeoman](http://yeoman.io/) en la máquina desde NPM
 
   ```bash
@@ -119,12 +127,7 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
 2. Ejecute `yo azuresfcsharp:AddService`
 
-## <a name="migrating-from-projectjson-to-csproj"></a>Migración de project.json a .csproj
-1. Al ejecutar "dotnet migrate" en el directorio raíz del proyecto se migran todos los archivos project.json al formato csproj.
-2. Actualice las referencias del proyecto de acuerdo con los archivos csproj de los archivos de proyecto.
-3. Actualice los nombres de archivo de proyecto a archivos csproj en build.sh.
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Interacción con los clústeres de Service Fabric mediante la CLI de Service Fabric](service-fabric-cli.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)

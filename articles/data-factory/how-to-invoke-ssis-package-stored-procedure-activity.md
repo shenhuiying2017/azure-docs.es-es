@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -39,8 +39,9 @@ En esta sección, usará la interfaz de usuario de Data Factory para crear una c
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 El primer paso es crear una factoría de datos con Azure Portal. 
 
-1. Acceda a [Azure Portal](https://portal.azure.com). 
-2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. Acceda a [Azure Portal](https://portal.azure.com). 
+3. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. En la página **New data factory** (Nueva factoría de datos), escriba **ADFTutorialDataFactory** en **Name** (Nombre). 
@@ -75,7 +76,7 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
 1. En la página de introducción, haga clic en **Create pipeline** (Crear canalización): 
 
     ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. En el cuadro de herramientas **Activities** (Actividades), expanda **SQL Database**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
+2. En el cuadro de herramientas **Activities** (Actividades), expanda **General**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
 
     ![Operación de arrastrar y colocar la actividad de procedimiento almacenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la instancia de Azure SQL Database que hospeda el catálogo de SSIS (base de datos SSIDB). 
@@ -94,11 +95,12 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
         ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. En la ventana de propiedades, cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) de la pestaña **SQL Account** (Cuenta de SQL) y lleve a cabo estos pasos: 
 
-    1. En el campo **Stored procedure name** (Nombre del procedimiento almacenado), escriba `sp_executesql`. 
-    2. Haga clic en **+ New** (+ Nuevo) en la sección **Stored procedure parameters** (Parámetros del procedimiento almacenado). 
-    3. En el **nombre** del parámetro, escriba **stmt**. 
-    4. En el **tipo** de parámetro, escriba **Cadena**. 
-    5. En el **valor** del parámetro, escriba la consulta SQL siguiente:
+    1. Seleccione **Editar**. 
+    2. En el campo **Stored procedure name** (Nombre del procedimiento almacenado), escriba `sp_executesql`. 
+    3. Haga clic en **+ New** (+ Nuevo) en la sección **Stored procedure parameters** (Parámetros del procedimiento almacenado). 
+    4. En el **nombre** del parámetro, escriba **stmt**. 
+    5. En el **tipo** de parámetro, escriba **Cadena**. 
+    6. En el **valor** del parámetro, escriba la consulta SQL siguiente:
 
         En la consulta SQL, especifique los valores correctos para los parámetros **folder_name**, **project_name** y **package_name**. 
 
@@ -120,7 +122,8 @@ En esta sección, desencadena una ejecución de canalización y luego la supervi
 1. Para desencadenar una ejecución de canalización, haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
 
     ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información (como la hora de inicio de la ejecución). Para actualizar la vista, haga clic en **Refresh** (Actualizar).
+2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
+3. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información (como la hora de inicio de la ejecución). Para actualizar la vista, haga clic en **Refresh** (Actualizar).
 
     ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Solo verá una ejecución de actividad porque la canalización solo tiene una actividad (actividad de procedimiento almacenado).

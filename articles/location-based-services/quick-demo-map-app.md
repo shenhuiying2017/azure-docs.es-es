@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Inicio de una búsqueda de mapa interactiva de demostración con Azure Location Based Services (versión preliminar)
 
-En este artículo se demuestran las funcionalidades de Azure Location Based Services (versión preliminar), LBS, para usar una búsqueda interactiva con Azure Maps. También le guía por los pasos básicos para crear su propia cuenta de LBS y obtener la clave de la cuenta para usarla en la aplicación web de demostración. 
+En este artículo se demuestran las funcionalidades de Azure Location Based Services (LBS) para realizar una búsqueda interactiva con Azure Maps. También le guía por los pasos básicos para crear su propia cuenta de LBS y obtener la clave de la cuenta para usarla en la aplicación web de demostración. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -34,7 +34,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 2. En el cuadro *Buscar en Marketplace*, escriba **location based services**.
 3. En *Resultados*, haga clic en **Location Based Services (versión preliminar)**. Haga clic en el botón **Crear** que aparece debajo del mapa. 
-4. En la página **Crear una cuenta de Location Based Services**, escriba el *nombre* de la cuenta nueva, seleccione la *suscripción* que se va a usar y escriba el nombre de un *grupo de recursos* nuevo o existente. Seleccione la ubicación del grupo de recursos, acepte los *términos de la versión preliminar* y haga clic en **Crear**.
+4. En la página **Creación de una cuenta con Azure Location Based Services**, escriba el *nombre* de la cuenta nueva, seleccione la *suscripción* que se va a usar y escriba el nombre de un *grupo de recursos* nuevo o existente. Seleccione la ubicación del grupo de recursos, acepte los *términos de la versión preliminar* y haga clic en **Crear**.
 
     ![Creación de una cuenta de Location Based Services en el portal](./media/quick-demo-map-app/create-lbs-account.png)
 

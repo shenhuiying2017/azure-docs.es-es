@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -26,7 +26,7 @@ Con Azure Virtual Network, Azure API Management puede administrar las API que no
 * Interno
 
 
-Cuando API Management se implementa en el modo de red virtual interna, todos los puntos de conexión de servicio (puerta de enlace, portal del desarrollador, portal del editor, administración directa y Git) solamente están visibles en una red virtual en la que usted controla el acceso. Ninguno de los puntos de conexión de servicio está registrado en el servidor DNS público.
+Cuando API Management se implementa en el modo de red virtual interna, todos los puntos de conexión de servicio (puerta de enlace, portal del desarrollador, Azure Portal, administración directa y Git) solamente están visibles en una red virtual en la que usted controla el acceso. Ninguno de los puntos de conexión de servicio está registrado en el servidor DNS público.
 
 Si utiliza API Management en modo interno, puede conseguir los siguientes escenarios:
 * Puede conseguir que terceras personas puedan obtener acceso de forma segura a las API hospedadas en el centro de datos privado desde fuera de este centro utilizando conexiones de sitio a sitio o conexiones de VPN de Azure ExpressRoute.
@@ -34,7 +34,7 @@ Si utiliza API Management en modo interno, puede conseguir los siguientes escena
 * Puede administrar las API hospedadas en varias ubicaciones geográficas mediante un único punto de conexión de puerta de enlace. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -42,7 +42,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Una instancia de Azure API Management**. Para más información, consulte [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ **Una instancia de Azure API Management**. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
 En las redes virtuales internas, el servicio API Management se hospeda detrás de un equilibrador de carga interno (ILB).
@@ -72,14 +72,14 @@ También puede habilitar la conectividad de la red virtual utilizando cmdlets de
 Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio enrutamiento.
 
 > [!NOTE]
-> El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión de servicio pueden ser la puerta de enlace, el portal del desarrollador, el portal del editor, el punto de conexión de administración directa y Git.
+> El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión pueden ser la puerta de enlace, el portal del desarrollador, Azure Portal, el punto de conexión de administración directa y Git.
 
 ### <a name="access-on-default-host-names"></a>Acceso de nombres de host predeterminados
 Cuando se crea un servicio de API Management (por ejemplo, "contoso"), los siguientes puntos de conexión de servicio se configuran de forma predeterminada:
 
    * Puerta de enlace o proxy: contoso.azure-api.net
 
-   * Portal del desarrollador y portal del editor: contoso.portal.azure-api.net
+   * Azure Portal y portal del desarrollador: contoso.portal.azure-api.net
 
    * Punto de conexión de administración directa: contoso.management.azure-api.net
 

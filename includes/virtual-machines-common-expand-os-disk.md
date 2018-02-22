@@ -8,6 +8,9 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: Resource Manager y el clásico. Este artículo trata sobre el uso del modelo de Resource Manager. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > 
 > 
+> [!WARNING]
+> Cambiar el tamaño del disco del sistema operativo de una máquina virtual de Azure hará que se reinicie.
+>
 
 ## <a name="resize-the-os-drive"></a>Cambio del tamaño de la unidad del sistema operativo
 En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad del sistema operativo con módulos de Resource Manager de [Azure Powershell](/powershell/azureps-cmdlets-docs). Le vamos a mostrar cómo cambiar el tamaño de la unidad del sistema operativo tanto para los discos no administrados como para los administrados porque el método para cambiar el tamaño de los discos es diferente en los dos tipos.

@@ -1,6 +1,6 @@
 ---
-title: "Automatización del programa Azure Blueprint de FedRAMP: protección del sistema y de las comunicaciones"
-description: "Aplicaciones web para FedRAMP: protección del sistema y de las comunicaciones"
+title: "Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (protección del sistema y las comunicaciones)"
+description: "Automatización de aplicaciones web para FedRAMP: protección del sistema y las comunicaciones"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protección del sistema y de las comunicaciones
 
 > [!NOTE]
-> Estos controles se definen por NIST y Estados Unidos. Departamento de Comercio como parte de publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-sc-1"></a>NIST 800-53 Control SC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este documento Azure Blueprint separa la funcionalidad del usuario de la funcionalidad de administración del sistema mediante la aplicación de controles de acceso lógico y arquitectura del sistema. La funcionalidad del usuario se limita a las interfaces de aplicación web implementadas por el cliente. Las interfaces para la funcionalidad de administración del sistema son independientes de las interfaces de usuario. Toda la conectividad de administración tiene lugar a través de un host bastión (jumpbox) seguro ubicado en una subred de administración con reglas del grupo de seguridad de red para limitar el acceso a los recursos de producción según corresponda. |
+| **Cliente** | Este plano separa la funcionalidad del usuario de la funcionalidad de administración del sistema mediante la aplicación de controles de acceso lógico y arquitectura del sistema. La funcionalidad del usuario se limita a las interfaces de aplicación web implementadas por el cliente. Las interfaces para la funcionalidad de administración del sistema son independientes de las interfaces de usuario. Toda la conectividad de administración tiene lugar a través de un host bastión (jumpbox) seguro ubicado en una subred de administración con reglas del grupo de seguridad de red para limitar el acceso a los recursos de producción según corresponda. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. Además, la solución implementa una arquitectura y controles de acceso diseñados para aislar la funcionalidad de seguridad donde corresponda. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. Además, la solución implementa una arquitectura y controles de acceso diseñados para aislar la funcionalidad de seguridad donde corresponda. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint ejecutan sistemas operativos Windows. El sistema operativo administra los recursos (por ejemplo, memoria, almacenamiento) de manera que la información sea accesible solo para los usuarios y los roles con los permisos adecuados. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. El sistema operativo administra los recursos (por ejemplo, memoria, almacenamiento) de manera que la información sea accesible solo para los usuarios y los roles con los permisos adecuados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa una instancia de Application Gateway que incluye un firewall de aplicaciones web y funciones de equilibrio de carga. Las máquinas virtuales implementadas que brindan soporte al nivel web, el nivel de base de datos y Active Directory se implementan en un conjunto de disponibilidad escalable. |
+| **Cliente** | Este plano implementa una instancia de Application Gateway que incluye un firewall de aplicaciones web y funcionalidades de equilibrio de carga. Las máquinas virtuales implementadas que brindan soporte al nivel web, el nivel de base de datos y Active Directory se implementan en un conjunto de disponibilidad escalable. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint ejecutan sistemas operativos Windows. Cada proceso de Windows proporciona los recursos necesarios para ejecutar un programa. La prioridad de recursos se administra por parte del sistema operativo. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Cada proceso de Windows proporciona los recursos necesarios para ejecutar un programa. La prioridad de recursos se administra por parte del sistema operativo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa una instancia de Application Gateway y un equilibrador de carga y configura reglas de grupos de seguridad de red para controlar las conmutaciones en los límites externos y entre subredes internas. La instancia de Application Gateway, el equilibrador de carga y los registros de diagnóstico y evento del grupo seguridad de red se recopilan por parte de OMS Log Analytics para permitir la supervisión del cliente. |
+| **Cliente** | Este plano implementa una instancia de Application Gateway y un equilibrador de carga, y configura reglas de grupos de seguridad de red para controlar las conmutaciones en los límites externos y entre subredes internas. La instancia de Application Gateway, el equilibrador de carga y los registros de diagnóstico y evento del grupo seguridad de red se recopilan por parte de OMS Log Analytics para permitir la supervisión del cliente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente a lo necesario para la funcionalidad de administración y del sistema (por ejemplo, el tráfico externo no puede acceder a la base de datos, la administración o las subredes de Active Directory). |
+| **Cliente** | Este plano implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente a lo necesario para la funcionalidad de administración y del sistema (por ejemplo, el tráfico externo no puede acceder a la base de datos, la administración o las subredes de Active Directory). |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa una instancia de Application Gateway para administrar las conexiones externas a una aplicación web implementada por el cliente. Las conexiones externas para el acceso de administración se limitan a un host bastión/jumpbox implementado en una subred de administración con las reglas de seguridad de red aplicadas para restringir las conexiones externas a direcciones IP autorizadas. |
+| **Cliente** | Este plano implementa una instancia de Application Gateway para administrar las conexiones externas a una aplicación web implementada por el cliente. Las conexiones externas para el acceso de administración se limitan a un host bastión/jumpbox implementado en una subred de administración con las reglas de seguridad de red aplicadas para restringir las conexiones externas a direcciones IP autorizadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra asociada al host bastión/jumpbox de administración. |
+| **Cliente** | Este plano implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra al host bastión o jumpbox de administración. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra asociada al host bastión/jumpbox de administración. La administración de estas interfaces se habilita a través de redes definidas por software. |
+| **Cliente** | Este plano implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra al host bastión o jumpbox de administración. La administración de estas interfaces se habilita a través de redes definidas por software. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra asociada al host bastión/jumpbox de administración. La administración de estas interfaces se habilita a través de redes definidas por software. |
+| **Cliente** | Este plano implementa dos direcciones IP públicas: una asociada a la instancia de Application Gateway y la otra al host bastión o jumpbox de administración. La administración de estas interfaces se habilita a través de redes definidas por software. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La puerta de enlace de la aplicación web implementada por esta solución de Azure Blueprint se configura con un agente de escucha HTTPS, lo que genera confidencialidad e integridad para las sesiones de comunicación. Las conexiones del Escritorio remoto al jumpbox también se cifran para proporcionar confidencialidad e integridad. |
+| **Cliente** | La puerta de enlace de la aplicación web implementada por este plano se configura con un agente de escucha HTTPS, lo que genera confidencialidad e integridad para las sesiones de comunicación. Las conexiones del Escritorio remoto al jumpbox también se cifran para proporcionar confidencialidad e integridad. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los conjuntos de reglas aplicados a los grupos de seguridad de red implementados por esta solución de Azure Blueprint se configuran mediante un esquema de denegación predeterminada. |
+| **Cliente** | Los conjuntos de reglas aplicados a los grupos de seguridad de red implementados por este plano se configuran mediante un esquema de denegación predeterminada. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint se configuran con un firewall basado en host habilitado. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano se configuran con un firewall basado en host habilitado. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa recursos en una arquitectura con una subred de administración independiente para la implementación del cliente de herramientas y componentes de soporte para la seguridad de información. Las subredes se separan lógicamente mediante reglas del grupo de seguridad de red. |
+| **Cliente** | Este plano implementa recursos en una arquitectura con una subred de administración independiente para la implementación del cliente de componentes de soporte técnico y herramientas para la seguridad de información. Las subredes se separan lógicamente mediante reglas del grupo de seguridad de red. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente a lo necesario para la funcionalidad de administración y del sistema. |
+| **Cliente** | Este plano implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint configura los recursos para comunicarse solo mediante protocolos seguros. El componente WAF de Application Gateway está configurado para aceptar comunicadores de usos externos a través de HTTPS/TLS y para comunicarse con el grupo de back-end solo a través de HTTPS/TLS. SQL Server está configurado para comunicarse solo a través de HTTPS/TLS. Los servicios de Escritorio remoto están configurados para usar conexiones seguras. |
+| **Cliente** | Este plano configura los recursos para comunicarse solo mediante protocolos seguros. El componente WAF de Application Gateway está configurado para aceptar comunicadores de usos externos a través de HTTPS/TLS y para comunicarse con el grupo de back-end solo a través de HTTPS/TLS. SQL Server está configurado para comunicarse solo a través de HTTPS/TLS. Los servicios de Escritorio remoto están configurados para usar conexiones seguras. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint implementa una instancia de Azure Key Vault. Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Azure Key Vault puede generar claves mediante una función de generación de claves del módulo de seguridad de hardware catalogada como 140-2 nivel 2 según el FIPS. |
+| **Cliente** | Este plano implementa una instancia de Azure Key Vault. Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Azure Key Vault puede generar claves mediante una función de generación de claves del módulo de seguridad de hardware catalogada como 140-2 nivel 2 según el FIPS. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Key Vault se usa para almacenar secretos y claves criptográficas utilizados en esta solución de Azure Blueprint. Key Vault simplifica el proceso de administración de claves para las claves que acceden a los datos y los cifran. Los siguientes autenticadores se almacenan en Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual y la contraseña de la cuenta de servicio de SQL Server. |
+| **Cliente** | Azure Key Vault se usa para almacenar secretos y claves criptográficas utilizados en este plano. Key Vault simplifica el proceso de administración de claves para las claves que acceden a los datos y los cifran. Los siguientes autenticadores se almacenan en Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual y la contraseña de la cuenta de servicio de SQL Server. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta solución de Azure Blueprint utiliza Autenticación de Windows, Escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
+| **Cliente** | Este plano utiliza la autenticación de Windows, el escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No hay dispositivos informáticos de colaboración implementados como parte de esta solución de Azure Blueprint. Nota: Hay dispositivos informáticos de colaboración físicos dentro del ámbito de sistemas implementados en Azure. |
+| **Cliente** | No hay dispositivos informáticos de colaboración implementados como parte de este plano. Nota: Hay dispositivos informáticos de colaboración físicos dentro del ámbito de sistemas implementados en Azure. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No hay dispositivos informáticos de colaboración implementados como parte de esta solución de Azure Blueprint. Nota: Hay dispositivos informáticos de colaboración físicos dentro del ámbito de sistemas implementados en Azure. |
+| **Cliente** | No hay dispositivos informáticos de colaboración implementados como parte de este plano. Nota: Hay dispositivos informáticos de colaboración físicos dentro del ámbito de sistemas implementados en Azure. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No hay tecnologías de voz sobre IP (VoIP) implementadas como parte de esta solución de Azure Blueprint. |
+| **Cliente** | No hay tecnologías de voz sobre IP (VoIP) implementadas como parte de este plano. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No hay tecnologías de voz sobre IP (VoIP) implementadas como parte de esta solución de Azure Blueprint. |
+| **Cliente** | No hay tecnologías de voz sobre IP (VoIP) implementadas como parte de este plano. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso remoto a los recursos implementados por esta solución de Azure Blueprint, como Azure Portal, la conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. TLS proporciona autenticidad para las comunicaciones en el nivel de sesión. |
+| **Cliente** | El acceso remoto a los recursos implementados por este plano, como Azure Portal, Conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. TLS proporciona autenticidad para las comunicaciones en el nivel de sesión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso remoto a los recursos implementados por esta solución de Azure Blueprint, como Azure Portal, la conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. Las sesiones de Azure Portal y Escritorio remoto invalidan los identificadores de sesión en el cierre de sesión. La invalidación de la sesión web se aplica a través de reglas de Azure Application Gateway y el firewall de aplicaciones web (WAF). El firewall de aplicaciones web aplica la afinidad de cookies por sesión y agota el tiempo de espera de la sesión después de 30 minutos (configurable tras la implementación a las reglas específicas de organización) de inactividad del cliente. |
+| **Cliente** | El acceso remoto a los recursos implementados por este plano, como Azure Portal, Conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. Las sesiones de Azure Portal y Escritorio remoto invalidan los identificadores de sesión en el cierre de sesión. La invalidación de la sesión web se aplica a través de reglas de Azure Application Gateway y el firewall de aplicaciones web (WAF). El firewall de aplicaciones web aplica la afinidad de cookies por sesión y agota el tiempo de espera de la sesión después de 30 minutos (configurable tras la implementación a las reglas específicas de organización) de inactividad del cliente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint implementan el cifrado de disco para proteger la confidencialidad y la integridad de la información en reposo. El cifrado del disco de Azure para Windows se implementa mediante la función BitLocker de Windows. SQL Server está configurado para usar el cifrado de datos transparente (TDE), que realiza el cifrado y descifrado de archivos de datos y de registro en tiempo real para proteger la información en reposo. TDE garantiza que los datos almacenados no hayan estado sujetos a un acceso no autorizado. El cliente puede optar por implementar controles adicionales a nivel de aplicación para proteger la integridad de la información almacenada. La confidencialidad y la integridad de todos los blobs de almacenamiento implementados mediante esta solución de Azure Blueprint están protegidas gracias al uso del cifrado del servicio Azure Storage (SSE). SSE protege los datos en reposo dentro de las cuentas de Azure Storage con el cifrado AES de 256 bits. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano implementan el cifrado de disco para proteger la confidencialidad y la integridad de la información en reposo. El cifrado del disco de Azure para Windows se implementa mediante la función BitLocker de Windows. SQL Server está configurado para usar el cifrado de datos transparente (TDE), que realiza el cifrado y descifrado de archivos de datos y de registro en tiempo real para proteger la información en reposo. TDE garantiza que los datos almacenados no hayan estado sujetos a un acceso no autorizado. El cliente puede optar por implementar controles adicionales a nivel de aplicación para proteger la integridad de la información almacenada. La confidencialidad y la integridad de todos los blobs de almacenamiento implementados mediante este plano están protegidas gracias al uso del cifrado del servicio Azure Storage (SSE). SSE protege los datos en reposo dentro de las cuentas de Azure Storage con el cifrado AES de 256 bits. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por esta solución de Azure Blueprint ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. |
+| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. |
 | **Proveedor (Microsoft Azure)** | No aplicable |

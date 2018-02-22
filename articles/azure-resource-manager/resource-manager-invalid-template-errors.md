@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolución de errores de plantilla no válida
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Compruebe los valores permitidos de la plantilla y proporcione uno durante la implementación.
 
-### <a name="solution-4---circular-dependency-detected"></a>Solución 4: se detectó una dependencia circular
+### <a name="solution-4---too-many-target-resource-groups"></a>Solución 4: hay demasiados grupos de recursos de destino
+
+Si especifica más de cinco grupos de recursos de destino en una sola implementación, recibirá este error. Considere la posibilidad de consolidar el número de grupos de recursos de la implementación o implementar algunas de las plantillas en diferentes implementaciones. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Solución 5: se detectó una dependencia circular
 
 Este error se recibe cuando los recursos dependen unos de otros de una forma que impide que se inicie la implementación. Una combinación de interdependencias hace que dos o más recursos esperen otros recursos que también están esperando. Por ejemplo, resource1 depende de resource3, resource2 depende de resource1 y resource3 depende de resource2. Para resolver este problema, normalmente se eliminan las dependencias innecesarias.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -54,6 +54,13 @@ Los puertos de acceso de aplicación normales son:
 |  Depuración remota en Visual Studio  |  Configurable por el usuario |  4016, 4018, 4020, 4022 |
 
 Es así tanto si está en un ASE externo como en un ASE de ILB. Si se encuentra en un ASE externo, llega a esos puertos en la VIP pública. Si se encuentra en un ASE de ILB, llega a esos puertos en el ILB. Si bloquea el puerto 443, puede afectar a algunas características que se exponen en el portal. Para más información, consulte [Dependencias del portal](#portaldep).
+
+## <a name="ase-subnet-size"></a>Tamaño de la subred de ASE ##
+
+El tamaño de la subred que se utiliza para hospedar una instancia de ASE no se puede modificar una vez que dicha instancia de ASE se ha implementado.  La instancia de ASE utiliza una dirección para cada rol de la infraestructura, así como para cada instancia del plan de App Service en entorno aislado.  Además, hay cinco direcciones que Redes de Azure utiliza para cada una de las subredes generadas.  Las instancias de ASE que no tengan ningún plan de App Service utilizarán 12 direcciones antes de que se cree una aplicación.  Si se trata de un ASE de ILB, utilizará 13 direcciones antes de que se cree una aplicación en dicho ASE. A medida que escale horizontalmente los planes de App Service, se necesitarán más direcciones para cada uno de los front-end que se agreguen.  De forma predeterminada, los servidores front-end se agregan por cada 15 instancias del plan de App Service. 
+
+   > [!NOTE]
+   > Puede no haber nada más en la subred excepto el ASE. Asegúrese de elegir un espacio de direcciones que pueda crecer en el futuro. No puede cambiar esta configuración posteriormente. Se recomienda un tamaño de `/25` con ciento veintiocho direcciones.
 
 ## <a name="ase-dependencies"></a>Dependencias de ASE ##
 
@@ -150,7 +157,7 @@ En un ASE, no tiene acceso a las máquinas virtuales que se utilizan para hosped
 
 Los NSG pueden configurarse mediante Azure Portal o a través de PowerShell. Esta información muestra Azure Portal. Puede crear y administrar los NSG en el portal como un recurso de nivel superior en **Redes**.
 
-Cuando los requisitos de entrada y salida se tienen en cuenta, los NSG deben ser similares a lo que se muestra en este ejemplo. El intervalo de direcciones de red virtual es _192.168.250.0/16_ y la subred a la que pertenece el ASE es _192.168.251.128/25_.
+Cuando los requisitos de entrada y salida se tienen en cuenta, los NSG deben ser similares a lo que se muestra en este ejemplo. El intervalo de direcciones de VNet es _192.168.250.0/23_ y la subred en la que está ASE es _192.168.251.128/25_.
 
 Los dos primeros requisitos de entrada para que el ASE funcione están en la parte superior de la lista en este ejemplo. Estos habilitan la administración del ASE y permiten que el ASE se comunique consigo mismo. Las demás entradas son todas configurables por inquilino y pueden controlar el acceso por red a las aplicaciones hospedadas en el ASE. 
 
@@ -168,13 +175,13 @@ Una vez que haya definido los NSG, asígnelos a la subred en la que se encuentra
 
 ## <a name="routes"></a>Rutas ##
 
-Las rutas presentan problemas sobre todo cuando la red virtual se configura con Azure ExpressRoute. Hay tres tipos de rutas en una red virtual:
+Las rutas constituyen un aspecto crucial del concepto de tunelización forzada y de cómo tratar con ella. En una instancia de Azure Virtual Network, el enrutamiento se realiza según la coincidencia de prefijo más larga (LPM). Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
 
--   Rutas del sistema
--   Rutas BGP
--   Rutas definidas por el usuario (UDR)
+- Ruta definida por el usuario (UDR)
+- Ruta BGP (cuando se utiliza ExpressRoute)
+- Ruta del sistema
 
-Las rutas BGP reemplazan a las rutas del sistema. Las UDR reemplazan a las rutas BGP. Para más información acerca de las rutas en las redes virtuales de Azure, consulte la [Introducción a las rutas definidas por el usuario][UDRs].
+Para más información sobre el enrutamiento en una red virtual, lea [Rutas definidas por el usuario y reenvío IP][UDRs].
 
 La base de datos SQL de Azure que ASE utiliza para administrar el sistema tiene un firewall. Necesita una comunicación que se origine desde la VIP pública del ASE. Las conexiones con la base de datos SQL desde el ASE se denegarán si se envían a través de la conexión ExpressRoute y fuera de otra dirección IP.
 

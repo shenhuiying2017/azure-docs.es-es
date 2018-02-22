@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -198,7 +198,7 @@ Ya está listo para crear el servicio web en tiempo real.
    * `-n`: el nombre de la aplicación, que debe estar en minúsculas.
    * `-f`: el nombre de archivo del script de puntuación.
    * `--model-file`: el archivo de modelo. En este caso, es el archivo model.pkl de pickle.
-   * `-r`: el tipo de modelo. En este caso, es un modelo de Python.
+   * `-r`: entorno de tiempo de ejecución del modelo. En este caso, es un modelo de Python. Los entornos de tiempo de ejecución válidos son `python` y `spark-py`.
    * `--collect-model-data true`: esto permite la recopilación de datos.
    * `-c`: ruta de acceso al archivo de dependencias de conda en el que se especifican los paquetes adicionales.
 

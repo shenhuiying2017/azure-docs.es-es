@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
 Por lo general, todos los recursos de la plantilla se implementan en un único [grupo de recursos](resource-group-overview.md). Sin embargo, existen escenarios en los que desea implementar un conjunto de recursos juntos pero colocarlos en distintos grupos de recursos o suscripciones. Por ejemplo, puede que desee implementar la máquina virtual de copia de seguridad para Azure Site Recovery en un grupo de recursos y una ubicación independientes. Resource Manager permite usar plantillas anidadas para tener como destino grupos de recursos y suscripciones diferentes a los usados para la plantilla principal.
+
+> [!NOTE]
+> Cada implementación solo puede realizarse en cinco grupos de recursos.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especificación de una suscripción y un grupo de recursos
 

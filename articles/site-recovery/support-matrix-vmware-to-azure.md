@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -130,10 +130,14 @@ RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
 Disco de invitado/servidor > 1 TB | Sí<br/><br/>Hasta 4095 GB 
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | Sí
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | Sí 
-Volumen de invitado/servidor con disco en bandas > 1 TB<br/><br/> LVM: invitado/servidor de administración del volumen lógico; espacios de almacenamiento | No se ha agregado ningún invitado/servidor en caliente o se ha quitado el disco | Sin invitado/servidor: excluir disco | Sí: múltiples rutas de invitado/servidor (MPIO) | N/A
+Volumen de invitado/servidor con disco en bandas > 4 TB <br><br/>Administración de volúmenes lógicos (LVM) | Sí
+Invitado/servidor: espacios de almacenamiento | Sin  
+Invitado/servidor: adición/eliminación de disco en caliente | Sin  
+Invitado/servidor: disco de exclusión | Sí 
+Varias rutas (MPIO) de invitado/servidor | N/D
 
 > [!NOTE]
-> ** Es posible migrar a Azure las máquinas virtuales de VMware con arranque UEFI o los servidores físicos que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación.
+> Es posible migrar a Azure las máquinas virtuales de VMware con arranque ** UEFI ** o los servidores físicos que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación.
 > - Se admite solo la migración a Azure. No se admite la conmutación por recuperación a sitios de VMware locales.
 > - El servidor no debe tener más de 4 particiones en el disco del sistema operativo.
 > - Requiere el servicio de movilidad de Azure Site Recovery (versión 9.13 o posterior).

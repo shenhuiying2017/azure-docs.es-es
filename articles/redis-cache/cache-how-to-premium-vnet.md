@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Cómo configurar la compatibilidad de red virtual para una instancia de Azure Redis Cache Premium
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Redis Cache se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con red virtual de una instancia de Azure Redis Cache Premium.
@@ -117,6 +117,7 @@ Existen siete requisitos de puerto de salida.
 | 20226 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 13000-13999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 15000-15999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
+| 6379-6380 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
 
 ### <a name="inbound-port-requirements"></a>Requisitos de puerto de entrada
@@ -125,7 +126,7 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) |Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer |
 | 8443 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer |
@@ -146,7 +147,7 @@ Existen requisitos de conectividad de red para entornos para una instancia de Az
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>¿Cómo se puede comprobar que la memoria caché funciona una red virtual?
 
 >[!IMPORTANT]
->Al conectarse a una instancia de Azure Redis Cache que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual, incluidas las aplicaciones de prueba o herramientas de hacer ping de diagnóstico.
+>Al conectarse a una instancia de Azure Redis Cache que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual o en una red virtual con el emparejamiento de VNET habilitado. Esto incluye cualquier aplicación de prueba o herramienta de diagnóstico de hacer ping. Independientemente de dónde se hospede la aplicación cliente, los grupos de seguridad de red deben configurarse de modo que el tráfico de red del cliente pueda llegar a la instancia de Redis.
 >
 >
 

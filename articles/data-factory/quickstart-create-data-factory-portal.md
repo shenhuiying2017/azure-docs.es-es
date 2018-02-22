@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7065b0b6e0576238e3b32fdbf7ac43b7fc2ae9e6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -38,8 +38,9 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Vaya a [Azure Portal](https://portal.azure.com). 
-2. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Datos y análisis** y, después, seleccione **Data Factory**. 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. Vaya a [Azure Portal](https://portal.azure.com). 
+3. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Datos y análisis** y, después, seleccione **Data Factory**. 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. En la página **Nueva factoría de datos**, escriba **ADFTutorialDataFactory** en **Nombre**. 

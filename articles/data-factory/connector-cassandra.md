@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bc57e54b051ff8831ba38e91ed682b8f5d868d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Cassandr
 | puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 9042). |
 | authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
 | Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
-| contraseña |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString. |Sí, si el valor de authenticationType es Basic. |
+| contraseña |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí, si el valor de authenticationType es Basic. |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**

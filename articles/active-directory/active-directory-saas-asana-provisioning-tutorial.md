@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios
 
@@ -93,7 +93,7 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
 12. Seleccione **Guardar**. 
 
-Ahora, se inicia la sincronización inicial para todos los usuarios asignados a Asana en la sección **Usuarios**. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos, si se está ejecutando el servicio. Use la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los informes de actividad de aprovisionamiento. En los informes se describen todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación Asana.
+Ahora, se inicia la sincronización inicial para todos los usuarios asignados a Asana en la sección **Usuarios**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Use la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento. En los registros de auditoría se describen todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación Asana.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](active-directory-saas-provisioning-reporting.md).
 

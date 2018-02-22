@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
-ms.author: kaanan
-ms.openlocfilehash: 679c3093a1feb4589ff96dab398d38a866c9ad2a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 02/08/2018
+ms.author: pareshmu
+ms.openlocfilehash: b65e27e1499c60fa9be731c8bdc94ded89cc556b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -69,38 +69,38 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 ### <a name="production-azure"></a>Azure para producción
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
-| **Ámsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo Group |
+| **Ámsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
 | **Atlanta** |Equinix |
 | **Busán** |LG CNS |
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
+| **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Verizon, Zayo |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo|
 | **Denver** |CoreSite |
-| **Dublín** |Colt, Interxion, Telecity Group |
+| **Dublín** |Colt, eir, Interxion, Megaport, Telecity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications y Verizon |
 | **Las Vegas** |Level 3 Communications+ y Megaport |
-| **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
-| **Los Ángeles** |CoreSite, Equinix, Megaport, NTT y Zayo Group |
+| **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo |
+| **Los Ángeles** |CoreSite, Equinix, Megaport, NTT, Zayo |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC y Telstra Corporation |
 | **Miami** |C3ntro+, Megaport, Neutrona Networks |
-| **Montreal** |Bell Canada, Cologix, Telus |
+| **Montreal** |Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai (Bombay)** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
-| **Nueva York** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
+| **Nueva York** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo |
 | **Newport (Gales)** |Level 3 Communications, Next Generation Data |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **París** |Colt, Intercloud, Interxion, Equinix, Orange |
-| **Quebec ciudad** | Megaport |
+| **Quebec ciudad** | Bell Canada, Megaport |
 | **San Antonio** |Level 3 Communications+ y Megaport |
 | **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
 | **Seattle** |Equinix, Level 3 Communications y Megaport |
 | **Seúl** |KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
+| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Singapur2** |Megaport, SingTel |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Level 3 Communications, NTT Communications, Softbank, Verizon |
-| **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
-| **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo |
+| **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo |
 
  **+** indica próximamente
 
@@ -135,10 +135,10 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 * Consulte con el proveedor de conectividad para ver si existe una conexión con cualquiera de los intercambios de la tabla anterior. Puede comprobar los vínculos siguientes para recopilar más información sobre los servicios ofrecidos por proveedores de Exchange. Varios proveedores de conectividad ya están conectados a los intercambios de Ethernet.
   * [Cologix](http://www.cologix.com/)
-  * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](http://www.interxion.com/)
+  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)

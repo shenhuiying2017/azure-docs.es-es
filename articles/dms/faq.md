@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 En este artículo aparecen las preguntas más comunes sobre el uso de Azure Database Migration Service junto con las respuestas relacionadas.
@@ -81,6 +81,9 @@ Hay algunas opciones que puede realizar para acelerar la migración de las bases
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>P: ¿Cómo se configura una instancia de Azure Virtual Network?
 Si bien existen varios tutoriales de Microsoft que pueden guiarlo en el proceso de configurar una red virtual de Azure, la documentación oficial aparece en el artículo [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>P: ¿Por qué mi instancia de Azure Database Migration Service no está disponible o está detenida?
+Si el usuario detiene explícitamente la instancia de Azure Database Migration Service (DMS) o si el servicio está inactivo durante un período de 24 horas, este estará en pausa o detenido. En cada caso, el servicio no estará disponible y se encontrará en estado detenido.  Para reanudar las migraciones activas, reinicie el servicio.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>P: ¿Dónde puedo dejar comentarios sobre Azure Database Migration Service?
 Queremos saber de usted. Envíe sus comentarios e ideas sobre Azure Database Migration Service a través de UserVoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service).

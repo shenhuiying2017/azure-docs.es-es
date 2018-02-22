@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configuración de Pingboard para el aprovisionamiento automático de usuarios
 
@@ -93,7 +93,7 @@ Esta sección le guía en el proceso de conectar su instancia de Azure AD a la A
 
 12. Haga clic en **Guardar** para iniciar la sincronización inicial de los usuarios asignados a Pingboard.
 
-La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos, si se está ejecutando el servicio. Use la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los informes de actividad de aprovisionamiento. En los informes se describen todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación Pingboard.
+La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos, si se está ejecutando el servicio. Use la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento. En los registros se describen todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación Pingboard.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](active-directory-saas-provisioning-reporting.md).
 

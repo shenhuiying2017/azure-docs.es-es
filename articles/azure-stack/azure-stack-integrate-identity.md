@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
 
 En la tabla siguiente se muestran las diferencias entre las dos opciones de identidad:
 
-||Físicamente desconectado|Físicamente conectado|
+||Desconectado del servidor|Conectado a Internet|
 |---------|---------|---------|
 |Facturación|Debe ser capacidad<br> Solo Contrato Enterprise (EA)|Capacidad o de pago por uso<br>EA o proveedor de soluciones en la nube (CSP)|
 |Identidad|Debe ser AD FS|Azure AD o AD FS|

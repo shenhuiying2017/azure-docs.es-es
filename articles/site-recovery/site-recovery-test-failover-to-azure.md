@@ -1,27 +1,20 @@
 ---
-title: "Conmutación por error de prueba a Azure en Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre cómo ejecutar una conmutación por error de prueba desde su entorno local a Azure"
+title: "Conmutación por error de prueba a Azure en Azure Site Recovery | Microsoft Docs"
+description: "Obtenga información sobre cómo ejecutar una conmutación por error de prueba desde su entorno local a Azure con el servicio Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/16/2017
-ms.author: pratshar
-ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/08/2018
+ms.author: raynew
+ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test--failover-to-azure-in-site-recovery"></a>Conmutación por error de prueba a Azure en Site Recovery
-
+# <a name="test-failover-to-azure-in-site-recovery"></a>Conmutación por error de prueba a Azure en Site Recovery
 
 
 En este artículo se describe cómo obtener detalles de recuperación ante desastres en Azure mediante una conmutación por error de prueba de Site Recovery.  
@@ -50,7 +43,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
     - Si la misma dirección IP no está disponible en la subred, la máquina virtual recibirá otra dirección IP que sí lo esté. [Más información](#creating-a-network-for-test-failover).
 4. Si realiza la conmutación por error a Azure y el cifrado de datos está habilitado, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado durante la instalación del proveedor. Puede omitir este paso si no está habilitado el cifrado.
 5. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Debe poder ver la máquina de réplica de prueba en el Portal de Azure.
-6. Para iniciar una conexión RDP con la máquina virtual de Azure, debe [agregar una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) en la interfaz de red de la máquina virtual conmutada por error. 
+6. Para iniciar una conexión RDP con la máquina virtual de Azure, debe [agregar una dirección IP pública](https://aka.ms/addpublicip) en la interfaz de red de la máquina virtual conmutada por error. 
 7. Cuando todo funciona según lo esperado, haga clic en **Limpiar conmutación por error de prueba**. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.
 8. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba. 
 
@@ -113,9 +106,9 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la c
 **Conmutación por error** | **Ubicación** | **Acciones**
 --- | --- | ---
 **Máquina virtual de Azure que ejecuta Windows** | En la máquina local antes de la conmutación por error | Para acceder a la máquina virtual de Azure a través de Internet, habilite RDP, asegúrese de que se hayan agregado las reglas de TCP y UDP para **Público**, y que RDP esté permitido en **Firewall de Windows** > **Aplicaciones permitidas**, para todos los perfiles.<br/><br/> Para acceder a la máquina virtual de Azure a través de una conexión de sitio a sitio, habilite el protocolo RDP en la máquina y asegúrese de que este está permitido en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes **Dominio y Privadas**.<br/><br/>  Asegúrese de que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](https://support.microsoft.com/kb/3031135).<br/><br/> Asegúrese de que no haya actualizaciones de Windows pendientes en la máquina virtual cuando se desencadena una conmutación por error. La actualización de Windows puede que comience cuando realice la conmutación por error y no podrá iniciar sesión en la máquina virtual hasta que se complete la actualización. 
-**Máquina virtual de Azure que ejecuta Windows** | Máquina virtual de Azure después de la conmutación por error |  [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual.<br/><br/> Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) deben permitir las conexiones entrantes al puerto RDP.<br/><br/> Seleccione **Diagnósticos de arranque** para comprobar una captura de pantalla de la máquina virtual.<br/><br/> Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise estas [sugerencias de solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Máquina virtual de Azure que ejecuta Windows** | Máquina virtual de Azure después de la conmutación por error |  [Agregue una dirección IP pública](https://aka.ms/addpublicip) para la máquina virtual.<br/><br/> Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) deben permitir las conexiones entrantes al puerto RDP.<br/><br/> Seleccione **Diagnósticos de arranque** para comprobar una captura de pantalla de la máquina virtual.<br/><br/> Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise estas [sugerencias de solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Máquina virtual de Azure que ejecuta Linux** | En la máquina local antes de la conmutación por error | Asegúrese de que el servicio de Secure Shell en la máquina virtual está configurado para iniciarse automáticamente en el arranque del sistema.<br/><br/> Compruebe que las reglas de firewall permiten una conexión SSH.
-**Máquina virtual de Azure que ejecuta Linux** | Máquina virtual de Azure después de la conmutación por error | Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) necesitan permitir las conexiones entrantes al puerto SSH.<br/><br/> [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual.<br/><br/> Seleccione **Diagnósticos de arranque** para obtener una captura de pantalla de la máquina virtual.<br/><br/>
+**Máquina virtual de Azure que ejecuta Linux** | Máquina virtual de Azure después de la conmutación por error | Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) necesitan permitir las conexiones entrantes al puerto SSH.<br/><br/> [Agregue una dirección IP pública](https://aka.ms/addpublicip) para la máquina virtual.<br/><br/> Seleccione **Diagnósticos de arranque** para obtener una captura de pantalla de la máquina virtual.<br/><br/>
 
 
 

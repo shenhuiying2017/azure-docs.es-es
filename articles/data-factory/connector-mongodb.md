@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2c8157e27c608ed08b4bd3c790c232d968ed7109
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
 | Nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| contraseña |Contraseña del usuario. Marque este campo como SecureString. |Sí (si se usa la autenticación básica). |
+| contraseña |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Nº Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 

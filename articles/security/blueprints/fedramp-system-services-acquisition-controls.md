@@ -1,6 +1,6 @@
 ---
-title: "Automatización del programa Azure Blueprint de FedRAMP: la adquisición de servicios y el sistema"
-description: "Aplicaciones web para FedRAMP: la adquisición del sistema y los servicios"
+title: "Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (adquisición del sistema y los servicios)"
+description: "Automatización de aplicaciones web para FedRAMP: adquisición del sistema y los servicios"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Adquisición del sistema y los servicios (SA)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio de Estados Unidos como parte de la publicación especial del NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-sa-1"></a>NIST 800-53 Control SA-1
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP define los requisitos de seguridad que deben cumplir los CSP. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP define los requisitos de seguridad que deben cumplir los CSP. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP proporciona un proceso de supervisión para cumplir sus requisitos de seguridad. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP proporciona un proceso de supervisión para cumplir sus requisitos de seguridad. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP proporciona un proceso de supervisión para cumplir sus requisitos de seguridad. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP proporciona un proceso de supervisión para cumplir sus requisitos de seguridad. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP está diseñado para abordar el riesgo asociado a un modelo de responsabilidad de seguridad compartida. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos.  |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP está diseñado para abordar el riesgo asociado a un modelo de responsabilidad de seguridad compartida. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP está diseñado para abordar el riesgo asociado a un modelo de responsabilidad de seguridad compartida.  Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. FedRAMP está diseñado para abordar el riesgo asociado a un modelo de responsabilidad de seguridad compartida.  La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Azure es evaluado por una organización de evaluación de terceros aprobada por FedRAMP (3PAO) para comprobar el cumplimiento del control de seguridad de FedRAMP y otros requisitos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. Un SSP que documenta la arquitectura de seguridad de Azure está disponible para los clientes a través de FedRAMP. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Se puede acceder al Portal de administración de Azure mediante un explorador web. |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. Un SSP que documenta la arquitectura de seguridad de Azure está disponible para los clientes a través de FedRAMP. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO). Se puede acceder al Portal de administración de Azure mediante un explorador web. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. Los centros de datos de Microsoft Azure Government se encuentran dentro de los Estados Unidos. Joint Authorization Board (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO).  |
+| **Cliente** | La directiva de adquisición de los servicios del sistema de información externa empresarial del cliente incluyen una cláusula relativa al uso de las ofertas de servicios en la nube según FedRAMP. Los centros de datos de Microsoft Azure Government se encuentran dentro de los Estados Unidos. La Junta de Autorizaciones Conjuntas (JAB) de FedRAMP ha concedido a Azure una autorización provisional para operar (P-ATO).  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Creación de una alerta del registro de actividad con una plantilla de Resource Manager
 En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar alertas del registro de actividad. Mediante el uso de plantillas, puede configurar fácilmente muchas alertas que se activarán según condiciones de eventos del registro de actividad específicas como parte del proceso de implementación automatizada.
@@ -82,10 +82,10 @@ Para crear una alerta del registro de actividad mediante una plantilla de Resour
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -100,7 +100,11 @@ Para crear una alerta del registro de actividad mediante una plantilla de Resour
 
 Visite nuestra [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) para encontrar algunos ejemplos de plantillas de alertas del registro de actividad.
 
-## <a name="next-steps"></a>Pasos siguientes
+> [!NOTE]
+
+> También puede crear reglas de alerta de registros de actividad mediante la experiencia de usuario mejorada en Monitor > [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md). Para más información sobre cómo crearlas, consulte [este artículo](monitoring-activity-log-alerts-new-experience.md).
+
+## <a name="next-steps"></a>pasos siguientes
 - Obtenga más información sobre [alertas](monitoring-overview-alerts.md).
 - Aprenda a agregar [grupos de acciones mediante una plantilla de Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - Aprenda a [crear una alerta del registro de actividad para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -111,7 +111,12 @@ El procesamiento por lotes no afecta al número de operaciones de mensajería fa
 
 ## <a name="batching-store-access"></a>Acceso al almacén de procesamiento por lotes
 
-Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. Si se habilita en una cola o en un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o en una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
+Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. Si se habilita en una cola o en un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o en una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. 
+
+> [!NOTE]
+> No hay ningún riesgo de pérdida de mensajes con procesamiento por lotes, aunque se produzca un error de Service Bus al final de un intervalo de procesamiento por lotes de 20 ms. 
+
+Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
 
 Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de manera predeterminada. Para deshabilitar el acceso al almacén de procesamiento por lotes, establezca la propiedad [EnableBatchedOperations][EnableBatchedOperations] en **false** antes de crear la entidad. Por ejemplo: 
 

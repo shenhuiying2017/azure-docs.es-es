@@ -19,7 +19,7 @@ El dispositivo de ejemplo también:
 * Responde a las acciones que se desencadenan desde la página **Dispositivos** de la solución.
 * Responde a los cambios de configuración que se envían desde la página **Dispositivos** de la solución.
 
-Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -36,13 +36,13 @@ Cuando finalice el proceso de aprovisionamiento para la solución de supervisió
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Aprovisionar el dispositivo en la solución de supervisión remota
 
 > [!NOTE]
-> Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Necesitará las credenciales del dispositivo cuando cree la aplicación cliente.
+> Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Necesitará la cadena de conexión del dispositivo, que puede recuperar de Azure Portal, cuando se crea la aplicación cliente.
 
-Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en Azure IoT Hub con credenciales válidas. Puede recuperar las credenciales del dispositivo desde la página **Dispositivos** de la solución. Incluirá las credenciales del dispositivo en la aplicación de cliente más adelante en este tutorial.
+Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en Azure IoT Hub con credenciales válidas. Tendrá la oportunidad de guardar la cadena de conexión del dispositivo que contiene las credenciales cuando agregue el dispositivo a la solución. Más adelante en este tutorial incluirá esta cadena en su aplicación cliente.
 
 Para agregar un dispositivo a su solución de supervisión remota, realice los pasos siguientes en la página **Dispositivos** de la solución:
 
-1. Elija **Aprovisionar** y, a continuación, elija **Físico** como el **Tipo de dispositivo**:
+1. Elija **+ Nuevo dispositivo** y, luego, **Físico** en **Tipo de dispositivo**:
 
     ![Aprovisione un dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Para agregar un dispositivo a su solución de supervisión remota, realice los p
 
     ![Elección de las opciones de dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Elija **Aplicar**. A continuación, anote los valores de **Id. de dispositivo**, **Clave principal** y **Cadena de conexión: clave principal**:
+
+    ![Recuperación de las credenciales](media/iot-suite-selector-connecting/credentials.png)
+
 Para buscar las credenciales que el dispositivo debe usar para conectarse a la solución preconfigurada, desplácese hasta Azure Portal en el explorador. Inicie sesión en su suscripción.
-
-1. Busque el grupo de recursos que contiene los servicios de Azure que la solución de supervisión remota utiliza. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada.
-
-1. Navegue hasta el centro de IoT de este grupo de recursos. A continuación, elija **dispositivos de IoT**:
-
-    ![Explorador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Elija el **Id. de dispositivo** que creó en la página **Dispositivos** de la solución de supervisión remota.
-
-1. Anote el **identificador del dispositivo** y la **clave principal**. Use estos valores al agregar código para conectar el dispositivo a la solución.
 
 Ahora ha aprovisionado un dispositivo físico en la solución preconfigurada de supervisión remota. En las siguientes secciones, se implementa la aplicación cliente que utiliza las credenciales del dispositivo para conectarse a la solución.
 
@@ -68,4 +62,4 @@ La aplicación cliente implementa el modelo de dispositivo **Chiller** integrado
 
 * Las propiedades que el dispositivo notifica a la solución. Por ejemplo, un dispositivo **Chiller** notifica información acerca de su ubicación y firmware.
 * Los tipos de telemetría que el dispositivo envía a la solución. Por ejemplo, un dispositivo **Chiller** envía los valores de temperatura, humedad y presión.
-* Los métodos que puede programar desde la solución para ejecutarse en el dispositivo. Por ejemplo, un dispositivo **Chiller** debe implementar los métodos **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressuree**.
+* Los métodos que puede programar desde la solución para ejecutarse en el dispositivo. Por ejemplo, un dispositivo **refrigerador** debe implementar los métodos **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressuree**.

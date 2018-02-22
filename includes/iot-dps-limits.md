@@ -9,7 +9,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos del
 | Número máximo de CA | 10 |
 
 > [!NOTE]
-> Estos límites son para la versión preliminar pública. Una vez que el servicio esté disponible con carácter general, puede ponerse en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/) para aumentar el número de instancias de la suscripción.
+> Puede ponerse en contacto con el [servicio de soporte técnico de Microsoft](https://azure.microsoft.com/support/options/) para aumentar el número de instancias de la suscripción.
 
 El servicio Device Provisioning limita las solicitudes cuando se superan las cuotas siguientes:
 

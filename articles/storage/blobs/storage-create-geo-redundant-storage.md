@@ -9,20 +9,20 @@ editor:
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Logre alta disponibilidad de los datos de aplicación con Azure Storage
 
-Este tutorial es la primera parte de una serie. Este tutorial muestra cómo conseguir alta disponibilidad de los datos de aplicación en Azure. Cuando haya terminado, tendrá una aplicación de consola básica . NET que carga un blob a una cuenta de almacenamiento con [redundancia geográfica y acceso de lectura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera. RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación utiliza el patrón de [disyuntor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) patrón para determinar a qué punto de conexión conectarse. La aplicación cambia al punto de conexión secundario cuando se simula un error.
+Este tutorial forma parte de una serie que muestra cómo conseguir alta disponibilidad de los datos de aplicación en Azure. Cuando haya terminado, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera. RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación utiliza el patrón de [disyuntor](/azure/architecture/patterns/circuit-breaker) patrón para determinar a qué punto de conexión conectarse. La aplicación cambia al punto de conexión secundario cuando se simula un error.
 
 En la primera parte de la serie, se aprende a:
 
@@ -32,16 +32,25 @@ En la primera parte de la serie, se aprende a:
 > * Establecimiento de la cadena de conexión
 > * Ejecución de la aplicación de consola
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
-
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
   - **Desarrollo de Azure**
 
   ![Desarrollo de Azure (en web y la nube)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Descargue e instale [Fiddler](https://www.telerik.com/download/fiddler)
+* (Opcional) Descargue e instale [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+* Instalación de [Python](https://www.python.org/downloads/)
+* Descargue e instale el [SDK de Azure Storage para Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python).
+* (Opcional) Descargue e instale [Fiddler](https://www.telerik.com/download/fiddler)
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -76,10 +85,22 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
-[Descarga del proyecto de ejemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Extraiga (descomprima) el archivo storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip.
-El proyecto de ejemplo contiene una aplicación de consola.
+[Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) y extraiga (descomprima) el archivo storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de consola.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+```
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+[Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) y extraiga (descomprima) el archivo storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Python.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+---
+
 
 ## <a name="set-the-connection-string"></a>Establecimiento de la cadena de conexión
 
@@ -87,34 +108,47 @@ En la aplicación, debe proporcionar la cadena de conexión para la cuenta de al
 
 En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
 
-### <a name="linux"></a>Linux
+# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
 
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
+# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
 
-### <a name="windows"></a>Windows
+---
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
-
-![archivo App.config](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Ejecución de la aplicación de consola
 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes de NuGet que falten (si se ha configurado); consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información.
 
 Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
-En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Antes de la descarga, se define [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Antes de la descarga, se define [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al directorio **circuitbreaker.py** y escriba `python circuitbreaker.py`. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
+
+![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
+
+En el código de ejemplo, el método `run_circuit_breaker` del archivo `circuitbreaker.py` se usa para descargar una imagen de la cuenta de almacenamiento con el método [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
+
+La función de reintento de objeto de Storage se establece en una directiva de reintento lineal. La función de reintento determina si se debe reintentar una solicitud y especifica el número de segundos que deben transcurrir para reintentar la solicitud. Establezca el valor de **retry\_to\_secondary** en true, si la solicitud debe reintentarse en el elemento secundario en caso de que la solicitud inicial al principal produzca error. En la aplicación de ejemplo, una directiva de reintento personalizada se define en la función `retry_callback` del objeto de almacenamiento.
+ 
+Antes de la descarga, se definen el objeto de servicio [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) y la función [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Estas funciones definen los controladores de eventos que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.  
+
+---
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
-El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
+El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
+
+En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Antes de la descarga, se define [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +173,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+El controlador de eventos `retry_callback` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) de la solicitud cambia a `SECONDARY`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
 ### <a name="request-completed-event-handler"></a>Controlador de eventos de solicitud completada
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
-
+El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -159,6 +220,25 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
     }
 }
 ```
+
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+El controlador de eventos `response_callback` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) en `PRIMARY` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
 
 ## <a name="next-steps"></a>pasos siguientes
 

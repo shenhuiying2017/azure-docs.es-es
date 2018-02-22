@@ -1,6 +1,6 @@
 ---
-title: "Automatización de Azure Blueprint de FedRAMP: evaluación de riesgos"
-description: "Aplicaciones web para FedRAMP: evaluación de riesgos"
+title: "Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (evaluación de riesgos)"
+description: "Automatización de aplicaciones web para FedRAMP: evaluación de riesgos"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Evaluación de riesgos (RA)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-ra-1"></a>NIST 800-53 Control RA-1
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Esta solución proporciona una visión completa de la actitud frente a la seguridad. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de base de referencia evalúa un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. La evaluación de actualizaciones evalúa el estado de las actualizaciones disponibles en todas las máquinas virtuales implementadas. |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de base de referencia evalúa un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. La evaluación de actualizaciones evalúa el estado de las actualizaciones disponibles en todas las máquinas virtuales implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Para los problemas identificados, se asigna un nivel de gravedad. Los identificadores de Common Configuration Enumeration (CCE) se proporcionan para las reglas de evaluación de la base de referencia.  |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Para los problemas identificados, se asigna un nivel de gravedad. Los identificadores de Common Configuration Enumeration (CCE) se proporcionan para las reglas de evaluación de la base de referencia.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de actualizaciones realiza una evaluación en las máquinas virtuales Windows y Linux. La evaluación de base de referencia realiza una evaluación en máquinas virtuales Windows mediante una base de referencia desarrollada por Microsoft basada en los procedimientos recomendados del sector. |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de actualizaciones realiza una evaluación en las máquinas virtuales Windows y Linux. La evaluación de base de referencia realiza una evaluación en máquinas virtuales Windows mediante una base de referencia desarrollada por Microsoft basada en los procedimientos recomendados del sector. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El servicio Agente de supervisión de Microsoft, que está configurado en máquinas virtuales implementadas por este plano técnico de Azure, se configura como un servicio automático con los privilegios necesarios para las actividades de evaluación. |
+| **Cliente** | El servicio Microsoft Monitoring Agent, que está configurado en máquinas virtuales implementadas por este plano, se configura como un servicio automático con los privilegios necesarios para las actividades de evaluación. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este programa Azure Blueprint implementa la solución Security and Audit de OMS. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel de información Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. |
+| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel de información Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |

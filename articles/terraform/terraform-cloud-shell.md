@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Desarrollo de Cloud Shell de Terraform 
 
@@ -36,16 +36,16 @@ provider "azurerm" {
 }
 ```
 
-Cloud Shell pasa los valores necesarios para el `azurerm` proveedor a través de variables de entorno cuando se usa cualquier comando de CLI de `terraform`.
+Cloud Shell pasa los valores necesarios para el proveedor `azurerm` a través de variables de entorno cuando se usa alguno de los comandos de la CLI de `terraform`.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Otras herramientas de desarrollo de Cloud Shell
 
 Los archivos y los estados de shell se conservan en Azure Storage entre sesiones de Cloud Shell. Use [Explorador de Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar y cargar archivos a Cloud Shell desde el equipo local.
 
-CLI de Azure 2.0 está disponible en Cloud Shell y es una fantástica herramienta para probar configuraciones y comprobar el trabajo después de una acción `terraform apply` o `terraform destroy`.
+La CLI de Azure 2.0 está disponible en Cloud Shell y es una fantástica herramienta para probar las configuraciones y comprobar el trabajo después de completarse una acción `terraform apply` o `terraform destroy`.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Crear un pequeño clúster de VM mediante el registro de módulo](terraform-create-vm-cluster-module.md)
 [Crear un pequeño clúster de VM mediante HCL personalizado](terraform-create-vm-cluster-with-infrastructure.md)

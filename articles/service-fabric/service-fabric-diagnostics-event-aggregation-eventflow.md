@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
 
@@ -43,6 +43,9 @@ Una vez instalados todos los paquetes, el siguiente paso es configurar y habilit
 
 ## <a name="configure-and-enable-log-collection"></a>Configuración y habilitación de la colección de registros
 La canalización de EventFlow, responsable del envío de los registros, se crea a partir de una especificación almacenada en un archivo de configuración. El paquete `Microsoft.Diagnostics.EventFlow.ServiceFabric` instala un archivo de configuración inicial de EventFlow en la carpeta de la solución `PackageRoot\Config`, llamada `eventFlowConfig.json`. Este archivo de configuración debe modificarse para capturar los datos de la clase `EventSource` del servicio predeterminado y cualquier otra entrada que desee configurar y enviar los datos al servicio Application Insights.
+
+>[!NOTE]
+>Si el archivo de proyecto tiene un formato de VisualStudio 2017, el archivo `eventFlowConfig.json` no se añadirá automáticamente. Para corregir esto, cree el archivo en la carpeta `Config` y establezca la acción de compilación en `Copy if newer`. 
 
 A continuación, se presenta un ejemplo de *eventFlowConfig.json* basado en los paquetes NuGet mencionados anteriormente:
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Inicie el servicio y observe la ventana de resultados de depuración de Visual Studio. Una vez iniciado el servicio, deberá comenzar a ver la evidencia de que el servicio está enviando registros a la salida configurada. Vaya a la plataforma de visualización y análisis de eventos y confirme que los registros han empezado a mostrarse, una operación que puede tardar algunos minutos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis y visualización de eventos con OMS](service-fabric-diagnostics-event-analysis-oms.md)

@@ -3,7 +3,7 @@ title: Crear roles personalizados de control de acceso basado en roles y asignar
 description: Asignar roles personalizados de RBAC creados con PowerShell y la CLI para usuarios internos y externos
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introducción al control de acceso basado en roles
 
@@ -28,7 +28,7 @@ El control de acceso basado en roles es una característica de Azure Portal que 
 
 RBAC permite una mejor administración de seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. RBAC proporciona la flexibilidad de tener una suscripción de Azure administrada por el administrador de la cuenta (rol de administrador de servicio en el nivel de suscripción) y tener múltiples usuarios invitados que trabajen con la misma suscripción pero sin tener derechos administrativos en ella. Desde una perspectiva de facturación y administración, la característica RBAC resulta ser una opción de administración eficaz y rápida para el uso de Azure en distintos escenarios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 El uso de RBAC en el entorno de Azure requiere:
 
 * Tener una suscripción de Azure independiente asignada al usuario como propietario (rol de suscripción)
@@ -50,7 +50,7 @@ RBAC puede aplicarse en tres ámbitos diferentes de Azure. Del ámbito más alto
 Hay dos ejemplos comunes (entre otros) en los que se utiliza RBAC:
 
 * Existencia de usuarios externos a las organizaciones (no forman parte del inquilino de Azure Active Directory del usuario administrador) invitados a administrar determinados recursos o la suscripción completa
-* Existencia de usuarios dentro de la organización (forman parte del inquilino de Azure Active Directory del usuario administrador) que son parte de equipos o grupos distintos y necesitan acceso granular bien a la suscripción completa o a determinados grupos de recursos o ámbitos de recursos del entorno.
+* Existencia de usuarios dentro de la organización (forman parte del inquilino de Azure Active Directory del usuario) que son parte de equipos o grupos distintos y necesitan acceso granular bien a la suscripción completa o a determinados grupos de recursos o ámbitos de recursos del entorno.
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Conceder acceso en el nivel de suscripción para un usuario fuera de Azure Active Directory
 Solo los **Propietarios** de la suscripción pueden conceder roles RBAC, por tanto, el usuario administrador debe haber iniciado sesión con un nombre de usuario que tiene este rol asignado previamente o que ha creado la suscripción de Azure.
@@ -59,7 +59,7 @@ En Azure Portal, una vez que inicie sesión como administrador, seleccione "Susc
 ![Hoja Suscripciones en Azure Portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) De forma predeterminada, si el usuario administrador adquirió la suscripción de Azure, el usuario aparecerá como **Administrador de la cuenta**, siendo este el rol de la suscripción. Para más detalles sobre los roles de la suscripción de Azure, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o los servicios](/billing/billing-add-change-azure-subscription-administrator.md).
 
 En este ejemplo, el usuario "alflanigan@outlook.com" es el **Propietario** de la suscripción "Free Trial" en el inquilino de AAD "Default tenant Azure". Puesto que este usuario es el creador de la suscripción de Azure con la cuenta de Microsoft "Outlook" inicial (Microsoft Account = Outlook, Live, etc.), el nombre de dominio predeterminado para todos los demás usuarios agregados en este inquilino será **"@alflaniganuoutlook.onmicrosoft.com"**. Por diseño, la sintaxis del nuevo dominio se forma uniendo el nombre de usuario y el nombre de dominio del usuario que creó el inquilino y agregando la extensión **".onmicrosoft.com"**.
-Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de agregarlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](/active-directory/active-directory-add-domain).
+Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de añadirlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](/active-directory/active-directory-add-domain).
 
 En este ejemplo, el directorio "Default tenant Azure" contiene solo usuarios con el nombre de dominio "@alflanigan.onmicrosoft.com".
 
@@ -77,7 +77,7 @@ Después de seleccionar la suscripción, el usuario administrador debe hacer cli
 
 ![Agregar un nuevo usuario en la característica de control de acceso IAM en Azure Portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol** el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para obtener explicaciones detalladas de cada rol y sus ámbitos asignables, consulte [Roles integrados en el control de acceso basado en roles de Azure](role-based-access-built-in-roles.md).
+El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol**, el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para obtener explicaciones detalladas de cada rol y sus ámbitos asignables, consulte [Roles integrados en el control de acceso basado en roles de Azure](role-based-access-built-in-roles.md).
 
 El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, será visible en **Suscripciones > Control de acceso (IAM)** con todos los usuarios que están asignados actualmente a un rol de RBAC en el ámbito de la suscripción.
 
@@ -116,7 +116,7 @@ El usuario externo aparece en el inquilino de Azure Active Directory a partir de
 
 En la vista **Usuarios**, los usuarios externos pueden reconocerse por el tipo de icono diferente en Azure Portal.
 
-Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, el **Tipo de usuario**, que tiene dos parámetros comunes, se pueden identificar **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
+Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, se puede identificar el **Tipo de usuario**, que tiene dos parámetros comunes, **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
 
 > [!NOTE]
 > Asegúrese de que, después de escribir las credenciales en el portal, el usuario externo selecciona el directorio correcto en el que se iniciará sesión. El mismo usuario puede tener acceso a varios directorios y puede seleccionar cualquiera de ellos haciendo clic en el nombre de usuario en la parte superior derecha de Azure Portal y, a continuación, seleccionando el directorio adecuado en la lista desplegable.

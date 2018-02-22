@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copiar datos de ServiceNow con Azure Data Factory (beta)
 
@@ -48,12 +48,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **ServiceNow**. | Sí |
-| endpoint | Punto de conexión del servidor de ServiceNow. (es decir, http://ServiceNowData.com)  | Sí |
+| endpoint | El punto de conexión del servidor de ServiceNow (`http://ServiceNowData.com`).  | Sí |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | Sí |
 | Nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sin  |
-| contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | clientId | Id. de cliente para la autenticación OAuth2.  | Sin  |
-| clientSecret | Secreto de cliente para la autenticación OAuth2. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| clientSecret | Secreto de cliente para la autenticación OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -103,14 +103,22 @@ Para copiar datos de ServiceNow, establezca la propiedad type del conjunto de da
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades compatibles con el origen de ServiceNow.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource como origen
+### <a name="servicenow-as-source"></a>ServiceNow como origen
 
 Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de copia en **ServiceNowSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource**. | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM alm.asset"`. | Sí |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | Sí |
+
+Cuando se especifica el esquema y la columna para ServiceNow en la consulta, tenga en cuenta lo siguiente:
+
+- **Esquema:** consulta a ServiceNow necesaria para especificar el esquema como `Actual` o `Display`, que se puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Columna:** el nombre de columna del valor real es `[columne name]_value` mientras que el valor de visualización es `[columne name]_display_value`.
+
+**Consulta de ejemplo:**
+`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` O `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Ejemplo:**
 
@@ -134,7 +142,7 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

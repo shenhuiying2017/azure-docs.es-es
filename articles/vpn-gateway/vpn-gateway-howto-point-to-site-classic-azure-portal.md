@@ -1,10 +1,10 @@
 ---
 title: "Conexión de un equipo a una red virtual de Azure mediante la conectividad de punto a sitio y autenticación de certificado: Azure Portal clásico | Microsoft Docs"
-description: "Conéctese de forma segura a Azure Virtual Network clásico mediante la creación de una conexión de punto a sitio de VPN Gateway con Azure Portal."
+description: "Cree una conexión de puerta de enlace de VPN de punto a sitio clásica mediante Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado (clásica): Azure Portal
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación clásico desde Azure Portal. Esta configuración utiliza certificados para autenticar al cliente que se conecta. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación clásico desde Azure Portal. Esta configuración utiliza certificados para autenticar al cliente que se conecta, ya sean autofirmados o emitidos por una entidad de certificación. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [portal de Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -262,3 +262,5 @@ Puede revocar un certificado de cliente si agrega la huella digital a la lista d
 
 ## <a name="next-steps"></a>pasos siguientes
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+
+Para información de solución de problemas de P2S, consulte el artículo de [solución de problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

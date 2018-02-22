@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implementación de una aplicación en un clúster de entidad en Azure
 Este tutorial es la segunda parte de una serie y le muestra cómo implementar una aplicación de Azure Service Fabric en un Party Cluster en Azure.
@@ -59,14 +59,33 @@ Puede utilizar su propio clúster en lugar del clúster de la entidad, si lo des
 > [!NOTE]
 > Los clústeres de entidades no están protegidos, por lo que las aplicaciones y los datos que coloque en ellos los pueden ver otros usuarios. No implemente nada que no desea que vean los demás usuarios. Asegúrese de leer nuestros términos de uso para conocer todos los detalles.
 
+Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. El certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
+
+![PFX y punto de conexión](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+En un equipo Windows, instale el archivo PFX en el almacén de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Implementación de la aplicación en Azure
 Ahora que la aplicación está lista, puede implementarla en un clúster de entidad directamente desde Visual Studio.
 
-1. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de soluciones y seleccione **Publicar**.
+1. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de soluciones y seleccione **Publicar**. 
 
-    ![Cuadro de diálogo de publicación](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Escriba el punto de conexión del clúster de entidad en el campo **Punto de conexión** y haga clic en **Publicar**.
+2. Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión**. Por ejemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Haga clic en **Parámetros de conexión avanzada** y rellene la información siguiente.  Los valores de *FindValue* y *ServerCertThumbprint* deben coincidir con la huella digital del certificado instalado en el paso anterior. Haga clic en **Publicar**. 
 
     Cuando la publicación haya finalizado, debería poder enviar una solicitud a la aplicación a través de un explorador.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer es una interfaz gráfica de usuario para explorar y admi
 
 Para quitar la aplicación del clúster de entidad:
 
-1. Vaya a Service Fabric Explorer mediante el vínculo que proporciona la página de suscripción del clúster de entidad. Por ejemplo, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Vaya a Service Fabric Explorer mediante el vínculo que proporciona la página de suscripción del clúster de entidad. Por ejemplo, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. En Service Fabric Explorer, navegue hasta el nodo **fabric://Voting** en la vista de árbol del lado izquierdo.
+2. En Service Fabric Explorer, vaya al nodo **fabric://Voting** en la vista de árbol del lado izquierdo.
 
 3. Haga clic en el botón **Acción** en el recuadro **Essentials** de la derecha y elija **Eliminar aplicación**. Confirme la eliminación de la instancia de aplicación, lo que eliminará la instancia de la aplicación que se ejecuta en el clúster.
 

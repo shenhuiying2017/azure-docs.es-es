@@ -6,17 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
 En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md). Azure Migrate evalúa máquinas para comprobar si son adecuadas para la migración a Azure. El servicio proporciona estimaciones de tamaño y costo para ejecutar las máquinas en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
@@ -38,7 +38,7 @@ Planee las detecciones y evaluaciones en función de los límites siguientes:
 - Si tiene entre 1001 y 1500 máquinas, necesita un solo proyecto con dos detecciones.
 - Si tiene más de 1500 máquinas, debe crear varios proyectos y realizar varias detecciones, según sus requisitos. Por ejemplo: 
     - Si tiene 3000 máquinas, puede configurar dos proyectos con dos detecciones o tres proyectos con una sola detección.
-    - Si tiene 5000 máquinas, puede configurar cuatro proyectos: dos con una detección de 1500 máquinas y uno con una detección de 500 máquinas. También puede configurar cinco proyectos con una sola detección en cada uno. 
+    - Si tiene 5000 máquinas, puede configurar cuatro proyectos: tres con una detección de 1500 máquinas y uno con una detección de 500 máquinas. También puede configurar cinco proyectos con una sola detección en cada uno. 
 
 ## <a name="plan-multiple-discoveries"></a>Planeación de varias detecciones
 
@@ -88,9 +88,9 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
 
     **Algoritmo** | **Valor del código hash**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Para la versión 1.0.8.40 de OVA:
 

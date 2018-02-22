@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/20/2018
-ms.openlocfilehash: 3ab65ad99b3219060bb044b0e6b84edf3f1737e0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.date: 02/12/2018
+ms.openlocfilehash: d0852f59d6463a4e73bfb2ca75b285701a897864
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal
 Las reglas de firewall de nivel de servidor permiten a los administradores acceder a un servidor de Azure Database for MySQL desde una dirección IP especificada o desde un intervalo de direcciones IP. 

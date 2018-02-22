@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>API de SQL para el SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Se ha corregido la regresión en la que FeedOptions.MaxItemCount = -1 produjo una excepción System.ArithmeticException: el tamaño de la página es negativo.
+* Se agregó una nueva función ToString() a QueryMetrics.
+* Se expusieron las estadísticas de partición en la lectura de las colecciones.
+* Se agregó la propiedad PartitionKey a ChangeFeedOptions.
+* Correcciones de errores leves.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Agrega la capacidad de especificar índices únicos para los documentos mediante el uso de la propiedad UniqueKeyPolicy en DocumentCollection.
@@ -277,6 +285,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |5 de febrero de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de noviembre de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de noviembre de 2017 |--- |
 | [1.18.1](#1.18.1) |07 de noviembre de 2017 |--- |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
 
@@ -39,7 +39,7 @@ Comenzaremos con ejemplos sencillos y prácticos y luego construiremos sobre ell
 Cuando se haya familiarizado con las técnicas de búsqueda, puede repasar la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Uso de filtros básicos
-Lo primero que debe saber es que la primera parte de una consulta de búsqueda, antes de cualquier carácter de barra vertical "|", es siempre un *filtro*. Se puede considerar como una cláusula WHERE de TSQL en el sentido de que determina *qué* subconjunto de datos se va a extraer del área de trabajo de Analytics. La búsqueda en el almacén de datos consiste en gran medida en especificar las características de los datos que quiere extraer, por lo que es natural que una consulta comience con la cláusula WHERE.
+Lo primero que debe saber es que la primera parte de una consulta de búsqueda, antes de cualquier carácter de barra vertical "|", es siempre un *filtro*. Se puede considerar como una cláusula WHERE de TSQL en el sentido de que determina *qué* subconjunto de datos se va a extraer del área de trabajo de Log Analytics. La búsqueda en el almacén de datos consiste en gran medida en especificar las características de los datos que quiere extraer, por lo que es natural que una consulta comience con la cláusula WHERE.
 
 Los filtros más básicos que puede usar son *palabras clave*, como 'error' o 'tiempo de espera', o un nombre de equipo. Estos tipos de consultas sencillas generalmente devuelven diversas formas de datos en el mismo conjunto de resultados. Este es el motivo de que Log Analytics tenga distintos *tipos* de datos en el sistema.
 

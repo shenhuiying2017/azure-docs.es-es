@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, debería comprender algunas de las principales consideraciones de planeamiento acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
@@ -45,7 +45,7 @@ Debe tener en cuenta qué proveedor de identidades desea usar para la implementa
 
 Su elección del proveedor de identidades no repercute en máquinas virtuales de inquilinos, en el sistema de identidades ni en las cuentas que utilizan, en si puede unirse a un dominio de Active Directory, etc. Esto es independiente.
 
-Puede obtener más información sobre cómo elegir un proveedor de identidades en el [artículo sobre decisiones de implementación para sistemas integrados de Azure Stack](.\azure-stack-deployment-decisions.md).
+Puede obtener más información sobre cómo elegir un proveedor de identidades en el [artículo sobre modelos de conexión a sistemas integrados de Azure Stack](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integración de AD FS y Graph
 Si decide implementar Azure Stack mediante AD FS como proveedor de identidades, debe integrar la instancia de AD FS en Azure Stack con una instancia existente de AD FS a través de una confianza de federación. Esto permite autenticar las identidades de un bosque de Active Directory existente con los recursos de Azure Stack.
@@ -53,18 +53,25 @@ Si decide implementar Azure Stack mediante AD FS como proveedor de identidades, 
 También puede integrar el servicio de Graph en Azure Stack con el Active Directory existente. Esto le permite administrar el control de acceso basado en rol (RBAC) en Azure Stack. Cuando se delega el acceso a un recurso, el componente de Graph busca la cuenta de usuario en el bosque de Active Directory existente mediante el protocolo LDAP.
 
 El siguiente diagrama muestra el flujo de tráfico de AD FS y Graph integrado.
-![Diagrama que muestra el flujo de tráfico de AD FS y Graph](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagrama que muestra el flujo de tráfico de AD FS y Graph](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Modelo de licencia
+Debe decidir qué modelo de licencia desea usar. Las opciones disponibles dependen de si implementa Azure Stack conectado a Internet o no:
+- Para una [implementación conectada](azure-stack-connected-deployment.md), puede elegir licencias de pago por uso o según la capacidad. El pago por uso requiere una conexión a Azure para informar del uso, que, a continuación, se factura a través del comercio de Azure. 
+- La licencia según la capacidad solo se admite si [implementa desconectado](azure-stack-disconnected-deployment.md) desde Internet. 
 
-Debe decidir qué modelo de licencia desea usar. Para una implementación conectada, puede elegir licencias de pago por uso o según la capacidad. El pago por uso requiere una conexión a Azure para informar del uso, que, a continuación, se factura a través del comercio de Azure. La licencia según la capacidad solo se admite si implementa desconectado desde Internet. Para obtener más información acerca de los modelos de licencias, consulte [Paquetes y precios de Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Para obtener más información acerca de los modelos de licencias, consulte [Paquetes y precios de Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Decisiones de nomenclaturas
 
-Debe pensar en cómo desea planear el espacio de nombres de Azure Stack, especialmente el nombre de la región y del dominio externo. El nombre de dominio completo (FQDN) de la implementación de Azure Stack para puntos de conexión de acceso público es la combinación de estos dos nombres, &lt; *región*&gt;&lt;*external_FQDN* &gt;, por ejemplo, *east.cloud.fabrikam.com*. En este ejemplo, los portales de Azure Stack estarían disponibles en las direcciones URL siguientes:
+Debe pensar en cómo desea planear el espacio de nombres de Azure Stack, especialmente el nombre de la región y del dominio externo. El nombre de dominio completo (FQDN) externo de la implementación de Azure Stack para puntos de conexión de acceso público es la combinación de estos dos nombres: &lt;*región*&gt;.&lt;*fqdn*&gt;. Por ejemplo, *east.cloud.fabrikam.com*. En este ejemplo, los portales de Azure Stack estarían disponibles en las direcciones URL siguientes:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> El nombre de región que elija para su implementación de Azure Stack debe ser único y se mostrará en las direcciones del portal. 
 
 En la tabla siguiente se resumen estas decisiones de nomenclatura de dominio.
 
@@ -128,14 +135,14 @@ Puede conectar Azure Stack a Azure a través de [ExpressRoute](https://docs.micr
 
 El siguiente diagrama muestra ExpressRoute para un escenario de inquilino único (donde "Conexión del cliente" es el circuito de ExpressRoute).
 
-![Diagrama que muestra un escenario de ExpressRoute de inquilino único](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagrama que muestra un escenario de ExpressRoute de inquilino único](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 El siguiente diagrama muestra ExpressRoute para un escenario de varios inquilinos.
 
-![Diagrama que muestra un escenario de ExpressRoute de varios inquilinos](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagrama que muestra un escenario de ExpressRoute de varios inquilinos](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Supervisión externa
-Para obtener una vista única de todas las alertas de la implementación de Azure Stack y dispositivos, así como para integrar las alertas en flujos de trabajo existentes de administración de servicio de TI para el control de vales, puede integrar Azure Stack con soluciones de supervisión del centro de datos externo.
+Para obtener una vista única de todas las alertas de la implementación de Azure Stack y dispositivos, así como para integrar las alertas en flujos de trabajo existentes de Administración de servicios de TI para el control de vales, puede [integrar Azure Stack en soluciones de supervisión del centro de datos externo](azure-stack-integrate-monitor.md).
 
 Incluido con la solución de Azure Stack, el host de ciclo de vida de hardware es un equipo situado fuera de Azure Stack que ejecuta herramientas de administración proporcionadas por el distribuidor OEM para hardware. Puede usar estas herramientas u otras soluciones que se integran directamente con las soluciones de supervisión existentes en su centro de datos.
 
@@ -143,10 +150,10 @@ En la tabla siguiente se resume la lista de opciones disponibles actualmente.
 
 | Ámbito | Solución de supervisión externa |
 | -- | -- |
-| Software de Azure Stack | - [Módulo de administración de Azure Stack para Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Complemento de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- Llamadas API basadas en REST | 
-| Servidores físicos (BMC a través de IPMI) | - Módulo de administración del distribuidor de Operations Manager<br>- Solución suministrada por el distribuidor de hardware OEM<br>- Complementos de Nagios del distribuidor de hardware | Solución de supervisión admitida por el asociado de OEM (incluido) | 
-| Dispositivos de red (SNMP) | -Detección de dispositivos de red de Operations Manager<br>- Solución suministrada por el distribuidor de hardware OEM<br>-Complemento conmutador de Nagios |
-| Supervisión del estado de suscripción del inquilino | - [Módulo de administración de System Center para Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Software de Azure Stack | [Módulo de administración de Azure Stack para Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Complemento de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Llamadas API basadas en REST | 
+| Servidores físicos (BMC a través de IPMI) | Hardware OEM: módulo de administración del distribuidor de Operations Manager<br>Solución suministrada por el distribuidor de hardware OEM<br>Complementos de Nagios del distribuidor de hardware | Solución de supervisión admitida por el asociado de OEM (incluido) | 
+| Dispositivos de red (SNMP) | Detección de dispositivos de red de Operations Manager<br>Solución suministrada por el distribuidor de hardware OEM<br>Complemento conmutador de Nagios |
+| Supervisión del estado de suscripción del inquilino | [Módulo de administración de System Center para Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Tenga en cuenta los siguientes requisitos:
@@ -159,7 +166,7 @@ El planeamiento de copia de seguridad y recuperación ante desastres implica pla
 
 ### <a name="protect-infrastructure-components"></a>Protección de los componentes de infraestructura
 
-Azure Stack realiza una copia de seguridad de los componentes de infraestructura en el recurso compartido que especifique.
+Puede realizar una [copia de seguridad de los componentes de infraestructura de Azure Stack](azure-stack-backup-back-up-azure-stack.md) en el recurso compartido SMB que especifique:
 
 - Necesitará un recurso compartido de archivos SMB externo en un servidor de archivos existente basado en Windows o un dispositivo de terceros.
 - Debe usar este mismo recurso compartido para la copia de seguridad de los conmutadores de red y el host de ciclo de vida de hardware. El distribuidor de hardware OEM le servirá como guía para la copia de seguridad y la restauración de estos componentes ya que son externos a Azure Stack. Es responsable de ejecutar los flujos de trabajo de copia de seguridad según la recomendación del distribuidor de OEM.

@@ -9,19 +9,19 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
 
@@ -31,6 +31,9 @@ SQL Database comparte su base de código con el [motor de base de datos de Micro
 
 - **[Azure Roadmap para SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**: el lugar idóneo donde puede encontrar las novedades y lo que vendrá después. 
 - **[Blog de Azure SQL Database](https://azure.microsoft.com/blog/topics/database)**: el lugar en el que los miembros del equipo de producto de SQL Server escriben entradas acerca de las noticias y características de SQL Database. 
+
+> [!IMPORTANT]
+> Para entender las diferentes características de SQL Database y SQL Server, consulte las [características de SQL](sql-database-features.md). 
 
 SQL Database ofrece un rendimiento predecible en varios niveles de servicio que proporciona escalabilidad dinámica sin tiempo de inactividad, optimización inteligente integrada, escalabilidad y disponibilidad globales, y opciones de seguridad avanzadas (todo ello casi sin necesidad de administración). Estas funcionalidades permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de máquinas virtuales como de la infraestructura. El servicio SQL Database está actualmente en 38 centros de datos de todo el mundo, y constantemente se incorporan más, lo que le permite ejecutar la base de datos en un centro de datos próximo.
 
@@ -44,7 +47,7 @@ Con SQL Database, cada base de datos está aislada de las demás y es portátil,
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
 
-SQL Database ofrece cuatro niveles de servicio para dar soporte a cargas de trabajo de base de datos tanto ligeras como pesadas: Básico, Estándar, Premium y Premium RS. La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+SQL Database ofrece tres niveles de servicio para dar soporte a cargas de trabajo de base de datos tanto ligeras como pesadas: Básico, Estándar y Premium. La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
    ![escalado](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

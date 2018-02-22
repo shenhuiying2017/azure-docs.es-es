@@ -2,23 +2,17 @@
 title: "Azure Site Recovery: Preguntas más frecuentes (P+F) | Microsoft Docs"
 description: "En este artículo se analizan las preguntas más frecuentes acerca de Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
 En este artículo se incluyen las preguntas más frecuentes sobre Azure Site Recovery. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -166,17 +160,17 @@ Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manage
 * [Más información](site-recovery-failback-azure-to-vmware.md) acerca de la conmutación por recuperación de servidores físicos y máquinas virtuales de VMware
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>¿Si mi host local no responde o se ha bloqueado, puedo conmutar por error a otro host?
-Sí, puede usar la recuperación en una ubicación alternativa para realizar la conmutación por recuperación a otro host de Azure. Lea más sobre las opciones de los vínculos siguientes para las máquinas virtuales de Hyper-v y VMware.
+Sí, puede usar la recuperación en una ubicación alternativa para realizar la conmutación por recuperación a otro host de Azure. Lea más sobre las opciones de los vínculos siguientes para las máquinas virtuales de Hyper-V y VMware.
 
-* [Para máquinas virtuales de VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Para máquinas virtuales de Hyper-v](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [Para máquinas virtuales de VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Para máquinas virtuales de Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Proveedores de servicios
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Soy un proveedor de servicios. ¿Site Recovery funciona para los modelos de infraestructura compartida o específica?
 Sí, Site Recovery admite ambos modelos de infraestructura, dedicados y compartidos.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>Para un proveedor de servicios, ¿la identidad de mi inquilino se comparte con el servicio Site Recovery?
-No. La identidad del inquilino permanece anónima. Los inquilinos no necesitan acceso al portal de Site Recovery. Solo el administrador del proveedor de servicios realiza acciones en el portal.
+Nº La identidad del inquilino permanece anónima. Los inquilinos no necesitan acceso al portal de Site Recovery. Solo el administrador del proveedor de servicios realiza acciones en el portal.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>¿Los datos de la aplicación de mis inquilinos llegarán a Azure?
 Cuando se replica entre sitios que pertenecen al proveedor de servicios, los datos de la aplicación nunca llegan a Azure. Los datos se cifran en tránsito y se replican directamente entre los sitios del proveedor de servicios.
@@ -184,7 +178,7 @@ Cuando se replica entre sitios que pertenecen al proveedor de servicios, los dat
 Si está replicando a Azure, los datos de la aplicación se envían al almacenamiento de Azure, pero no al servicio Site Recovery. Los datos se cifran en tránsito y permanecen cifrados en Azure.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>¿Recibirán mis inquilinos una factura por los servicios de Azure?
-No. La relación de facturación de Azure se entabla directamente con el proveedor de servicios. Los proveedores de servicios son responsables de generar facturas específicas para sus inquilinos.
+Nº La relación de facturación de Azure se entabla directamente con el proveedor de servicios. Los proveedores de servicios son responsables de generar facturas específicas para sus inquilinos.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Si se está replicando a Azure, ¿es necesario ejecutar máquinas virtuales en Azure en todo momento?
 No, los datos se replican en una cuenta de almacenamiento de Azure en su suscripción. Al realizar una conmutación por error de prueba (obtención de detalles de recuperación ante desastres) o una conmutación por error real, Site Recovery crea automáticamente las máquinas virtuales en su suscripción.
@@ -198,6 +192,6 @@ Se admite Azure Pack, el sistema de plataforma en la nube e implementaciones bas
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>¿Se admite un paquete Azure Pack sencillo e implementaciones de servidor VMM individuales?
 Sí, es posible replicar máquinas virtuales de Hyper-V en Azure, o entre sitios del proveedor de servicios.  Tenga en cuenta que si se replica entre sitios del proveedor de servicios, la integración de runbooks de Azure no estará disponible.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Lea la [Información general sobre Site Recovery](site-recovery-overview.md)
 * Obtenga información acerca de la [Arquitectura de Site Recovery](site-recovery-components.md)  

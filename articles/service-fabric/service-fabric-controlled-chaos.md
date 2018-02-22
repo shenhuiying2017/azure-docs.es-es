@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 9475774b99ee6bc01fb43ffc6fcddea025779c05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios distribuidos confiables en una infraestructura no confiable. Para escribir servicios distribuidos sólidos en una infraestructura no confiable, los desarrolladores necesitan poder probar la estabilidad de sus servicios, mientras que la infraestructura no confiable subyacente pasa por transiciones de estado complicadas debido a los errores.
@@ -33,7 +33,7 @@ Una vez haya configurado Chaos con la velocidad y el tipo de errores, puede inic
 > En su forma actual, Chaos solo induce errores seguros, lo que implica que, si no hay errores externos, nunca se producirá una pérdida de cuórum o de datos.
 >
 
-Mientras se ejecuta Caos, se producen diferentes eventos que obtienen el estado de la ejecución en ese momento. Por ejemplo, ExecutingFaultsEvent contiene todos los errores que Chaos ha decidido ejecutarse en esa iteración. ValidationFailedEvent contiene los detalles de un error de validación (problemas de estabilidad o de mantenimiento) que se ha encontrado durante la validación del clúster. Puede invocar la API de GetChaosReportAsync (REST, C# o Powershell) para obtener el informe de las ejecuciones de Chaos. Estos eventos se guardan en un [diccionario confiable](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tiene una directiva de truncamiento dictada por dos configuraciones: **MaxStoredChaosEventCount** (el valor predeterminado es 25 000) y **StoredActionCleanupIntervalInSeconds** (el valor predeterminado es 3600). Todas las instancias de *StoredActionCleanupIntervalInSeconds* que Chaos comprueba y todos los eventos de *MaxStoredChaosEventCount*, salvo los más recientes, se purgan del diccionario confiable.
+Mientras se ejecuta Caos, se producen diferentes eventos que obtienen el estado de la ejecución en ese momento. Por ejemplo, ExecutingFaultsEvent contiene todos los errores que Chaos ha decidido ejecutarse en esa iteración. ValidationFailedEvent contiene los detalles de un error de validación (problemas de estabilidad o de mantenimiento) que se ha encontrado durante la validación del clúster. Puede invocar la API de GetChaosReportAsync (REST, C# o Powershell) para obtener el informe de las ejecuciones de Chaos. Estos eventos se guardan en un [diccionario confiable](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tiene una directiva de truncamiento dictada por dos configuraciones: **MaxStoredChaosEventCount** (el valor predeterminado es 25 000) y **StoredActionCleanupIntervalInSeconds** (el valor predeterminado es 3600). Todas las instancias de *StoredActionCleanupIntervalInSeconds* que Chaos comprueba y todos los eventos de *MaxStoredChaosEventCount*, salvo los más recientes, se purgan del diccionario confiable.
 
 ## <a name="faults-induced-in-chaos"></a>Errores inducidos en Caos
 Caos genera errores en todo el clúster de Service Fabric y comprime todos los detectados que se ven en meses o años en tan solo unas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pueden pasar desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio.
@@ -65,11 +65,14 @@ Para obtener los errores que ha provocado Chaos, puede usar la API de GetChaosRe
 > Independientemente de lo alto que sea el valor de *MaxConcurrentFaults* Chaos garantiza que, si no hay errores externos, no habrá pérdida de cuórum ni de datos.
 >
 
-* **EnableMoveReplicaFaults**: Habilita o deshabilita los errores que provocan el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
+* **EnableMoveReplicaFaults**: Habilita o deshabilita los errores que provocan el movimiento de las réplicas principales o secundarias. Estos errores están habilitados de forma predeterminada.
 * **WaitTimeBetweenIterations**: cantidad de tiempo que se espera entre iteraciones. Es decir, la cantidad de tiempo que Chaos estará en pausa después de haber ejecutado una ronda de errores y haber finalizó la validación correspondiente del estado del clúster. Cuanto mayor sea el valor, menor será la tasa media de inserción de errores.
 * **WaitTimeBetweenFaults**: cantidad de tiempo que se espera entre dos errores consecutivos en una sola iteración. Cuanto mayor sea el valor, menor será la simultaneidad de los errores (o la superposición entre ellos).
 * **ClusterHealthPolicy**: la directiva de mantenimiento de clúster se utiliza para validar el mantenimiento del clúster entre las iteraciones de Chaos. Si el mantenimiento del clúster está en estado de error o si se produce una excepción inesperada durante la ejecución del error, Chaos esperará 30 minutos para realizar la siguiente comprobación de estado (para proporcionar el clúster un tiempo para recuperarse).
 * **Context**: colección de (cadena, cadena) pares de tipo clave-valor. El mapa se puede usar para registrar información acerca de la ejecución de Chaos. No puede haber más de 100 de dicho pares y cada cadena (clave o valor) puede tener una longitud máxima de 4095. Este mapa lo establece el inicio de la ejecución de Chaos para almacenar, opcionalmente, el contexto de la ejecución específica.
+* **ChaosTargetFilter**: puede usar este filtro para los errores de Chaos de destino solo para determinados tipos de nodos o solo para determinadas instancias de la aplicación. Si no se utiliza ChaosTargetFilter, Chaos produce un error en todas las entidades de clúster. Si se utiliza ChaosTargetFilter, Chaos produce un error solo en las entidades que cumplen la especificación de ChaosTargetFilter. NodeTypeInclusionList y ApplicationInclusionList solo permiten semánticas de unión. En otras palabras, no es posible especificar una intersección de NodeTypeInclusionList y ApplicationInclusionList. Por ejemplo, no es posible especificar "Error de esta aplicación solo si se encuentra en ese tipo de nodo". Una vez que una entidad se incluye en NodeTypeInclusionList o ApplicationInclusionList, dicha entidad no se puede excluir mediante ChaosTargetFilter. Aunque la applicationX no aparezca en ApplicationInclusionList, en alguna iteración de Chaos, la applicationX puede dar error porque se produce en un nodo de nodeTypeY que se incluye en NodeTypeInclusionList. Si NodeTypeInclusionList y ApplicationInclusionList son nulas o están vacías, se produce una excepción ArgumentException.
+    * **NodeTypeInclusionList**: una lista de tipos de nodos para incluir en los errores de Chaos. Todos los tipos de errores (reiniciar el nodo, reiniciar codepackage, quitar la réplica, reiniciar la réplica, mover principal y mover secundaria) están habilitados para los nodos de estos tipos de nodos. Si un valor de nodetype (es decir, NodeTypeX) no aparece en NodeTypeInclusionList, nunca se habilitarán los errores de nivel de nodo (por ejemplo, NodeRestart) para los nodos de NodeTypeX, pero los errores de la réplica y el paquete de código todavía pueden habilitarse para NodeTypeX si se da que una aplicación de ApplicationInclusionList reside en un nodo de NodeTypeX. Como máximo pueden incluirse 100 nombres de tipo de nodo en esta lista. Para aumentar este número, es necesaria una actualización de configuración para la configuración de MaxNumberOfNodeTypesInChaosTargetFilter.
+    * **ApplicationInclusionList**: una lista de URI de la aplicación para incluir en los errores de Chaos. Todas las réplicas que pertenecen a los servicios de estas aplicaciones son susceptibles de errores de réplica (reiniciar réplica, quitar réplica, mover principal y mover secundaria) debido a Chaos. Chaos puede reiniciar un paquete de código solo si el paquete de código hospeda réplicas solamente de estas aplicaciones. Si no aparece una aplicación en esta lista, todavía puede registrar un error en alguna iteración de Chaos si la aplicación termina en un nodo de un tipo de nodo que está incluido en NodeTypeInclusionList. Sin embargo, si la applicationX está enlazada a nodeTypeY a través de las restricciones de posición y la applicationX no se encuentra en la ApplicationInclusionList y nodeTypeY no está presente en NodeTypeInclusionList, la applicationX nunca generará un error. Como máximo pueden incluirse 1000 nombres de aplicaciones en esta lista. Para aumentar este número, es necesaria una actualización de configuración para la configuración de MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Ejecución de Caos
 
@@ -136,7 +139,23 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-            
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of type 'FrontEndType'
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            // List of cluster entities to target for Chaos faults.
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
+
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -145,7 +164,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy);
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
 
             try
             {
@@ -250,12 +269,26 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
+#List of cluster entities to target for Chaos faults.
+$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
+$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+# for nodes of type 'FrontEndType'
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
+$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# In addition to the faults included by nodetypeInclusionList, 
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
+
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
 
 while($true)
 {
@@ -286,5 +319,4 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
-
 ```
