@@ -49,7 +49,7 @@ En una ventana de terminal, diríjase al directorio raíz del proyecto de ejempl
 
 ## <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
 
-Ejecute la aplicación localmente abriendo una ventana de terminal y utilice el comando `php` para iniciar el servidor web de PHP integrado.
+Ejecute la aplicación localmente. Para ello, abra una ventana de terminal y use el comando "php" para iniciar el servidor web de PHP integrado.
 
 ```bash
 php -S localhost:8080
@@ -83,7 +83,7 @@ En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de a
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"
 ```
 
-Cuando se haya creado la aplicación web, la CLI (Command Line Interface/Interfaz de Línea de Comandos) de Azure mostrará información similar a la del siguiente ejemplo:
+Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
 
 ```json
 {
