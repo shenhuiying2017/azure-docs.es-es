@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Creación de una cuenta de almacenamiento y rotación de sus claves de acceso de cuenta
 
@@ -45,14 +45,14 @@ az group delete --name myResourceGroup
 
 Este script usa los siguientes comandos para crear la cuenta de almacenamiento y recuperar y rotar sus claves de acceso. Cada elemento de la tabla incluye vínculos a la documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account create](/cli/azure/storage/account#create) | Crea una cuenta de Azure Storage en el grupo de recursos especificado. |
-| [az storage account keys list](/cli/azure/storage/account/keys#list) | Muestra las claves de acceso de la cuenta de almacenamiento para la cuenta especificada. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#renew) | Vuelve a generar la clave de acceso de la cuenta de almacenamiento primaria o secundaria. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de Azure Storage en el grupo de recursos especificado. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Muestra las claves de acceso de la cuenta de almacenamiento para la cuenta especificada. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Vuelve a generar la clave de acceso de la cuenta de almacenamiento primaria o secundaria. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure/overview).
 

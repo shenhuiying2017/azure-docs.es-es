@@ -3,8 +3,8 @@ title: "Introducción a los planes, ofertas, cuotas y suscripciones de Azure Sta
 description: Como operador de nube, es importante que comprenda los planes, ofertas, cuotas y suscripciones de Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Introducción a los planes, ofertas, cuotas y suscripciones
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 [Azure Stack](azure-stack-poc.md) le permite proporcionar una amplia variedad de servicios, como máquinas virtuales, bases de datos SQL Server, SharePoint, Exchange e incluso [elementos de Azure Marketplace](azure-stack-marketplace-azure-items.md). Como operador de Azure Stack, debe configurar y entregar esos servicios en Azure Stack por medio de planes, ofertas y cuotas.
 
@@ -49,7 +50,7 @@ Los planes son agrupaciones de uno o varios servicios. Como operador de Azure St
 
 Para ayudarle a administrar la capacidad de la nube, seleccione o cree una cuota para cada servicio de un plan. Las cuotas definen los límites de recursos superiores que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Las cuotas pueden limitar una variedad de recursos, como máquinas virtuales, RAM y límites de CPU.
 
-Las cuotas se pueden configurar por región. Por ejemplo, un plan que contiene servicios de proceso de la Región A podría tener una cuota de dos máquinas virtuales, 4 GB de RAM y 10 núcleos de CPU. En el kit de desarrollo de Azure Stack, solo hay una región (denominada *local*) disponible.
+Las cuotas se pueden configurar por región. Por ejemplo, un plan que contiene servicios de proceso de la Región A podría tener una cuota de dos máquinas virtuales, 4 GB de RAM y 10 núcleos de CPU. En el Kit de desarrollo de Azure Stack, solo hay una región (denominada *local*) disponible.
 
 ### <a name="base-plan"></a>Plan base
 
@@ -73,8 +74,8 @@ Una suscripción es la forma en que los inquilinos acceden a las ofertas. Si es 
 
 ### <a name="default-provider-subscription"></a>Suscripción de proveedor predeterminada
 
-La suscripción de proveedor predeterminada se crea automáticamente al implementar el kit de desarrollo de Azure Stack. Esta suscripción puede utilizarse para administrar Azure Stack, implementar más proveedores de recursos, y crear ofertas y planes para usuarios. Por motivos de seguridad y concesión de licencias, no debe usarse para ejecutar aplicaciones y cargas de trabajo de cliente. 
+La suscripción de proveedor predeterminada se crea automáticamente al implementar el Kit de desarrollo de Azure Stack. Esta suscripción puede utilizarse para administrar Azure Stack, implementar más proveedores de recursos, y crear ofertas y planes para usuarios. Por motivos de seguridad y concesión de licencias, no debe usarse para ejecutar aplicaciones y cargas de trabajo de cliente. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Creación de un plan](azure-stack-create-plan.md)

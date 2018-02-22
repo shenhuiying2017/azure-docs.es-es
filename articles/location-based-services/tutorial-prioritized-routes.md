@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Location Based Services
 
@@ -209,9 +209,9 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
     ```
     Este fragmento de código crea un elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para obtener una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y agrega la capa `truckRouteLayerName` del mapa. 
     
-    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado.  
-        - Los parámetros `vehicleWidth`, `vehicleHeight` y `vehicleLength` especifican las dimensiones del vehículo en metros y solo se tienen en cuenta si el modo de desplazamiento es *camión*.  
-        -El parámetro `vehicleLoadType` clasifica la carga como peligrosa y restringida en algunas carreteras. Actualmente, este parámetro solo se tiene en cuenta para el modo de desplazamiento *camión*.  
+    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado.
+        - Los parámetros `vehicleWidth`, `vehicleHeight` y `vehicleLength` especifican las dimensiones del vehículo en metros y solo se tienen en cuenta si el modo de desplazamiento es *camión*.
+        -El parámetro `vehicleLoadType` clasifica la carga como peligrosa y restringida en algunas carreteras. Actualmente, este parámetro solo se tiene en cuenta para el modo de desplazamiento *camión*.
 
 2. Agregue el siguiente código JavaScript para obtener la ruta en coche mediante Route Service:
 
