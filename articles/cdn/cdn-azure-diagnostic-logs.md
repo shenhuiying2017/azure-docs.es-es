@@ -318,7 +318,7 @@ En la tabla siguiente se muestra una lista de métricas disponibles en los regis
 | EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP.                   |Sí   | No  |
 | EgressCacheOthers |  Transferencias de datos de salida para otros escenarios de caché.             |Sí   | No  |
 
-*Con transferencia de datos de salida nos referimos al tráfico entregado al cliente desde los servidores POP de la red CDN.
+\*Con transferencia de datos de salida nos referimos al tráfico entregado al cliente desde los servidores POP de la red CDN.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Esquema de los registros de análisis básico 

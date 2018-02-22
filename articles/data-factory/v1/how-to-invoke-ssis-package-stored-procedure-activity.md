@@ -301,7 +301,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
 
 ### <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-2. Ejecute **Get-AzureRmDataFactorySlice** para obtener la información sobre todos los segmentos del conjunto de datos de salida**, que es la tabla de salida de la canalización.
+2. Ejecute **Get-AzureRmDataFactorySlice** para obtener la información sobre todos los segmentos del conjunto de datos de salida\**, que es la tabla de salida de la canalización.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

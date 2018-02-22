@@ -150,7 +150,7 @@ La información de ruta de acceso después del primer segmento de URI se conserv
 | `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
 | `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
 
-\*Como anteriormente, las rutas de acceso absolutas al directorio cambiarán a lo largo del ciclo de vida de la VM, pero no dentro de una ejecución única de la extensión CustomScript.
+\* Como anteriormente, las rutas de acceso absolutas al directorio cambiarán a lo largo del ciclo de vida de la VM, pero no dentro de una ejecución única de la extensión CustomScript.
 
 ### <a name="support"></a>Soporte técnico
 

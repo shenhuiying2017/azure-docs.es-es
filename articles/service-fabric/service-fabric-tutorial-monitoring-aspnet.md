@@ -220,7 +220,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a [localhost: 8080](localhost:8080), y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event" junto con la telemetría de respuesta. 
+Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a [localhost: 8080](localhost:8080), y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event* junto con la telemetría de respuesta. 
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
