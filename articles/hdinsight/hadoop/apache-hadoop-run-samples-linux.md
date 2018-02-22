@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 1882412236e630322d52cb1875060798fef6c017
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/01/2017
 
 Aprenda a ejecutar los ejemplos de MapReduce incluidos con Hadoop en HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Un clúster de HDInsight**: consulte [Introducción al uso de Hadoop con Hive en HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md)
 
@@ -211,7 +211,7 @@ Utilice los siguientes pasos para generar datos, ordenarlos y, a continuación, 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplos incluidos en los clústeres de HDInsight basado en Linux. Para obtener acceso a tutoriales sobre cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 

@@ -5,15 +5,15 @@ services: backup
 keywords: "copia de seguridad de máquinas virtuales; copia de seguridad de máquina virtual; copia de seguridad de VM; copia de seguridad de VM de Azure; copia de seguridad y recuperación ante desastres"
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -33,7 +33,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 El almacén de Recovery Services contiene los datos de la copia de seguridad y la directiva de copia de seguridad que se aplica a las máquinas virtuales protegidas. La copia de seguridad de máquinas virtuales es un proceso local. No puede hacer copias de seguridad de una máquina virtual de una ubicación en un almacén de Recovery Services que está en otra ubicación. Por lo tanto, para cada ubicación de Azure que tenga máquinas virtuales de las que se tengan que realizar copias de seguridad, debe existir al menos un almacén de Recovery Services en esa ubicación.
 
-1. En el menú izquierdo, seleccione **Más servicios** y en la lista de servicios, escriba *Recovery Services*. A medida que escribe, se filtra la lista de recursos. Cuando vea la opción Almacenes de Recovery Services en la lista, selecciónela para abrir el menú Almacenes de Recovery Services.
+1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba *Recovery Services*. A medida que escribe, se filtra la lista de recursos. Cuando vea la opción Almacenes de Recovery Services en la lista, selecciónela para abrir el menú Almacenes de Recovery Services.
 
     ![Abrir el menú Almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
@@ -171,7 +171,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
     Una vez eliminado el almacén, se volverá a mostrar la lista de almacenes de Recovery Services.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial se usa Azure Portal para las siguientes acciones:
 

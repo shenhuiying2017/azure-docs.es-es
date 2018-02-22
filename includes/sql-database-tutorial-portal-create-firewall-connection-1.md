@@ -8,7 +8,7 @@ Se crea una instancia de Azure SQL Database con un conjunto definido de [recurso
 
 Siga estos pasos para crear una instancia en blanco de SQL Database. 
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
 2. Seleccione **Bases de datos** en la página **Nuevo** y seleccione **Crear** en **SQL Database** en la página **Nuevo**.
 

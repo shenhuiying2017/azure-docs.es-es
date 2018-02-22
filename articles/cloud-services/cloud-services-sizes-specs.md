@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -147,23 +147,23 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 
 | Tamaño            | Núcleos de CPU | Memoria: GiB   | SSD local: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / moderado |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / alto |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / alto |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremadamente alto |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremadamente alto |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremadamente alto |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / moderado |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / alto |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / alto |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremadamente alto |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremadamente alto |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremadamente alto |
 
 ## <a name="ev3-series"></a>Serie Ev3
 
 | Tamaño            | Núcleos de CPU | Memoria: GiB   | SSD local: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / moderado |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / alto |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / alto |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremadamente alto |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremadamente alto |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremadamente alto |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / moderado |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / alto |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / alto |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremadamente alto |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremadamente alto |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremadamente alto |
 
 
 ## <a name="g-series"></a>Serie G

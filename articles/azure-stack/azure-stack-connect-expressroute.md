@@ -3,8 +3,8 @@ title: "Conexión de Azure Stack a Azure mediante ExpressRoute"
 description: "Cómo conectar redes virtuales en Azure Stack a redes virtuales en Azure mediante ExpressRoute."
 services: azure-stack
 documentationcenter: 
-author: victorar
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Conexión de Azure Stack a Azure mediante ExpressRoute
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Hay dos métodos admitidos para conectar redes virtuales de Azure Stack a redes virtuales de Azure:
    * **De sitio a sitio**
@@ -64,7 +65,7 @@ Ahora creará los recursos que necesita para configurar el entorno de Azure Stac
 Antes de empezar la configuración, necesita:
 * Una implementación de Azure Stack.
 
-   Para obtener información sobre cómo implementar Azure Stack Development Kit, consulte [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md) (Inicio rápido de implementación de Azure Stack Development Kit).
+   Para obtener información sobre cómo implementar el Kit de desarrollo de Azure Stack, consulte [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md) (Inicio rápido de implementación del Kit de desarrollo de Azure Stack).
 * Una oferta de Azure Stack a la que el usuario pueda suscribirse.
 
   Para obtener instrucciones, consulte [Máquinas virtuales disponibles para los usuarios de Azure Stack](azure-stack-tutorial-tenant-vm.md).
@@ -179,11 +180,11 @@ Para cada VNet de inquilino a la que desee conectarse, repita los pasos anterior
 
 ### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Configuración de la máquina virtual de NAT para cada recorrido de puerta de enlace
 > [!IMPORTANT]
-> Esta sección está dirigida únicamente a implementaciones de Azure Stack Development Kit. La NAT no es necesaria para las implementaciones de varios nodos.
+> Esta sección está dirigida únicamente a implementaciones del Kit de desarrollo de Azure Stack. La NAT no es necesaria para las implementaciones de varios nodos.
 
-El Azure Stack Development Kit está autocontenido y aislado de la red en el que se implementa el host físico. Por lo tanto, la red de VIP “externa” a la que están conectadas las puertas de enlace no es externa, sino que, está oculta detrás de un enrutador que realiza la traducción de direcciones de red (NAT).
+El Kit de desarrollo de Azure Stack está autocontenido y aislado de la red en el que se implementa el host físico. Por lo tanto, la red de VIP “externa” a la que están conectadas las puertas de enlace no es externa, sino que, está oculta detrás de un enrutador que realiza la traducción de direcciones de red (NAT).
  
-El enrutador es una máquina virtual Windows Server (**AzS-BGPNAT01**) que ejecuta el rol de Servicios de enrutamiento y acceso remoto (RRAS) en la infraestructura de Azure Stack Development Kit. Tiene que configurar NAT en la máquina virtual AzS-BGPNAT01 para permitir la conexión VPN de sitio a sitio en ambos extremos.
+El enrutador es una máquina virtual Windows Server (**AzS-BGPNAT01**) que ejecuta el rol de Servicios de enrutamiento y acceso remoto (RRAS) en la infraestructura del Kit de desarrollo de Azure Stack. Tiene que configurar NAT en la máquina virtual AzS-BGPNAT01 para permitir la conexión VPN de sitio a sitio en ambos extremos.
 
 #### <a name="configure-the-nat"></a>Configuración de la NAT
 

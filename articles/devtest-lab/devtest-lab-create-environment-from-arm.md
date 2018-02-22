@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -65,7 +65,7 @@ Hay un par de reglas que seguir para organizar las plantillas de Azure Resource 
 Los siguientes pasos le ayudarán a agregar un repositorio al laboratorio a través de Azure Portal. 
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el laboratorio que desee.   
 1. En el panel **Introducción** del laboratorio, seleccione **Configuración y directivas**.
 
@@ -95,7 +95,7 @@ La siguiente sección le guiará a través de la creación de entornos a partir 
 Una vez configurado un repositorio de plantillas de Azure Resource Manager en el laboratorio, los usuarios de este pueden crear un entorno a través de Azure Portal mediante los pasos siguientes:
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el laboratorio que desee.   
 1. En el panel del laboratorio, seleccione **+ Agregar**.
 1. En el panel **Elegir una base** se muestran las imágenes de las bases de datos que se pueden usar con las plantillas de Azure Resource Manager en primer lugar. Seleccione la plantilla de Azure Resource Manager que desee.

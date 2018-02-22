@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Plantillas del Administrador de recursos de Azure
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Conceptos
   items:
     - name: Base de datos sin servidor
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Administración de claves y coherencia
           href: manage-account.md
+        - name: Control de acceso
+          href: access-control.md
         - name: Explorador de Azure Storage
           href: storage-explorer.md
         - name: Seguridad

@@ -1,26 +1,26 @@
 ---
 title: "Restauración de un disco de máquina virtual con Azure Backup | Microsoft Docs"
 description: "Obtenga información acerca de cómo restaurar un disco y crear una máquina virtual recuperada en Azure con Backup and Recovery Services."
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restauración de un disco y creación de una máquina virtual recuperada en Azure
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se explica cómo restaurar una máquina virtual completa. En este tutorial, aprenderá a:
@@ -35,7 +35,7 @@ Azure Backup crea puntos de recuperación que se almacenan en almacenes de recup
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y eliminación de máquina virtual accidental, cree una máquina virtual desde un disco en un punto de recuperación. Si necesita una máquina virtual Linux que esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
 
@@ -169,7 +169,7 @@ El último paso es crear una máquina virtual desde el disco administrado.
     ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha restaurado un disco desde un punto de recuperación y, a continuación, ha creado una máquina virtual desde el disco. Ha aprendido a:
 
 > [!div class="checklist"]

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
 
@@ -52,7 +52,7 @@ Se crea una instancia de Azure SQL Database con un conjunto definido de [recurso
 
 Siga estos pasos para crear una instancia en blanco de SQL Database. 
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
 2. Seleccione **Bases de datos** en la página **Nuevo** y seleccione **Crear** en **SQL Database** en la página **Nuevo**.
 

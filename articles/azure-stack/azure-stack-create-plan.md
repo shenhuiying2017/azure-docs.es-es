@@ -3,8 +3,8 @@ title: "Creación de un plan en Azure Stack | Microsoft Docs"
 description: "Como administrador de la nube, cree un plan que permita a los suscriptores aprovisionar máquinas virtuales."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: erikje
-ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 5eefca3541ae9f73514f80b0f8df9e5027600f87
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Creación de un plan en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Los [planes](azure-stack-key-features.md) son agrupaciones de uno o varios servicios. Como proveedor puede crear planes y ofrecérselos a sus usuarios. A su vez, los usuarios se suscriben a las ofertas para usar los planes y los servicios que incluyen. Este ejemplo muestra cómo crear un plan que incluya a los proveedores de recursos de proceso, de red y de almacenamiento. Este plan ofrece a los suscriptores la capacidad de aprovisionar máquinas virtuales.
 
@@ -65,5 +66,5 @@ Los [planes](azure-stack-key-features.md) son agrupaciones de uno o varios servi
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 [Creación de una oferta](azure-stack-create-offer.md)

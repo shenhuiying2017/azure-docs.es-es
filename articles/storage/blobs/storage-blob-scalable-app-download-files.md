@@ -3,22 +3,20 @@ title: Descargar grandes cantidades de datos aleatorios desde Azure Storage | Mi
 description: "Obtenga información acerca de cómo usar el SDK de Azure para descargar grandes cantidades de datos aleatorios de una cuenta de Azure Storage."
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Descargar grandes cantidades de datos aleatorios desde Azure Storage
 
@@ -31,7 +29,7 @@ En la tercera parte de la serie, se aprende a:
 > * Ejecución de la aplicación
 > * Validar el número de conexiones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, debe completar el tutorial anterior de Storage: [Upload large amounts of random data in parallel to Azure storage][previous-tutorial] (Cargar en paralelo grandes cantidades de datos aleatorios en Azure Storage).
 

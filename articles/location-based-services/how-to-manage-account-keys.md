@@ -9,11 +9,11 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Administración de la cuenta y las claves de Azure Location Based Services
 
@@ -27,7 +27,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 ## <a name="create-a-new-account"></a>Creación de una nueva cuenta
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
 2. Busque y seleccione **Location Based Services** y, a continuación, haga clic en **Crear**.
 

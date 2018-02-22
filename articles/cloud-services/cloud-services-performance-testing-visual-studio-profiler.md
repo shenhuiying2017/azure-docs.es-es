@@ -15,13 +15,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio
+# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio
 Se encuentran disponibles diversas herramientas y técnicas para probar el rendimiento de los servicios en la nube.
 Al publicar un servicio en la nube en Azure, puede usar Visual Studio para recopilar datos para la generación de perfiles y, luego, analizarlos localmente, como se describe en [Generación de un perfil de una aplicación de Azure][1].
 También puede usar un diagnóstico para hacer un seguimiento de una amplia variedad de contadores de rendimiento, como se describe en [Uso de contadores de rendimiento en Azure][2].
@@ -44,31 +44,35 @@ Puede usar estas instrucciones con un proyecto existente o con un proyecto nuevo
 
 Para propósitos de ejemplo, agregue parte del código al proyecto que tarda demasiado tiempo y demuestra un problema de rendimiento obvio. Por ejemplo, agregue el siguiente código a un proyecto de rol de trabajo:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Llame a este código desde el método RunAsync en la clase derivada de RoleEntryPoint del rol de trabajo. (Ignore la advertencia sobre el método que se ejecuta sincrónicamente).
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Compile y ejecute localmente su servicio en la nube sin depuración (Ctrl+F5), con la configuración de solución establecida en **Liberar**. Esto asegura que todos los archivos y carpetas se crean para ejecutar la aplicación localmente y asegura que se inicien todos los emuladores. Comience la interfaz de usuario del emulador de proceso desde la barra de tareas para comprobar que el rol de trabajo se está ejecutando.
 
@@ -88,9 +92,11 @@ Si la carpeta de su proyecto se encuentra en una unidad de red, el generador de 
  Se puede también asociar a un rol web asociándose al archivo WaIISHost.exe.
 Si hay varios procesos de rol de trabajo en su aplicación, necesita usar processID para distinguirlos. Puede consultar el processID de manera programática al tener acceso al objeto del proceso. Por ejemplo, si agrega este código al método Run de la clase derivada de RoleEntryPoint en un rol, puede ver el registro en la interfaz de usuario del emulador de proceso para conocer el proceso al que debe conectarse.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Para ver el registro, inicie la interfaz de usuario del emulador de proceso.
 
@@ -126,16 +132,18 @@ Si agregó el código de concatenación de cadena en este artículo, debería ve
 ## <a name="4-make-changes-and-compare-performance"></a>4: Realización de cambios y comparación del rendimiento
 Puede también comparar el rendimiento antes y después de un cambio en el código.  Detenga el proceso de ejecución y edite el código para reemplazar la operación de concatenación de cadena con el uso de StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Realice otra ejecución de rendimiento y, a continuación, compárelo. En el Explorador de rendimiento, si las ejecuciones se encuentran en la misma sesión, simplemente puede seleccionar ambos informes, abrir el menú de acceso directo y seleccionar **Comparar informes de rendimiento**. Si desea realizar una comparación con una ejecución en otra sesión de rendimiento, abra el menú **Analizar** y seleccione **Comparar informes de rendimiento**. En el cuadro de diálogo que aparece, especifique ambos archivos.
 
@@ -145,9 +153,9 @@ Los informes resaltan las diferencias entre las dos ejecuciones.
 
 ![Informe de comparación][16]
 
-¡Enhorabuena! Ya ha empezado a usar el generador de perfiles.
+Felicidades. Ya ha empezado a usar el generador de perfiles.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 * Asegúrese de que va a generar un perfil de una compilación de versión e iniciar sin depuración.
 * Si la opción Asociar/Desasociar no está habilitada en el menú del Generador de perfiles, ejecute el Asistente de rendimiento.
 * Use la interfaz de usuario del emulador de proceso para ver el estado de la aplicación. 

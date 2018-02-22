@@ -3,8 +3,8 @@ title: Uso de plantillas de Azure Resource Manager en Azure Stack | Microsoft Do
 description: "Obtenga información sobre cómo usar plantillas de Azure Resource Manager en Azure Stack para aprovisionar recursos."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 6d4ef16881ef8dc249116aec706f760b163a2972
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Uso de plantillas de Administrador de recursos de Azure en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las plantillas de Azure Resource Manager implementan y aprovisionan todos los recursos para su aplicación en una única operación coordinada. También se pueden reimplementar plantillas para realizar cambios en los recursos del grupo de recursos.
 
@@ -57,8 +58,8 @@ Use la extensión DSC de PowerShell para crear un servidor independiente de SQL 
 * Una máquina virtual configurada como controlador de dominio para un nuevo bosque con un único dominio
 * Una máquina virtual configurada como un servidor independiente de SQL Server 2014
 
-## <a name="vm-dsc-extension-azure-automation-pull-server"></a>Extensión DSC de máquina virtual para un servidor de extracción de Automatización de Azure
-Utilice la extensión de DSC de PowerShell para configurar Administrador de configuración Local (LCM) de una máquina virtual existente y registrarlo en un servidor de extracción de DSC de la cuenta de Automatización de Azure.
+## <a name="vm-dsc-extension-azure-automation-pull-server"></a>Extensión DSC de máquina virtual para un servidor de extracción de Azure Automation
+Utilice la extensión de DSC de PowerShell para configurar Administrador de configuración Local (LCM) de una máquina virtual existente y registrarlo en un servidor de extracción de DSC de la cuenta de Azure Automation.
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Creación de una máquina virtual desde una imagen de usuario
 Cree una máquina virtual desde una imagen de usuario personalizada. Esta plantilla también implementa una red virtual (con DNS), una dirección IP pública y una interfaz de red.
@@ -69,7 +70,7 @@ Implemente una máquina virtual de Windows que incluya una red virtual (con DNS)
 ## <a name="cancel-a-running-template-deployment"></a>Cancelación de una implementación de la plantilla en ejecución
 Para cancelar la implementación de una plantilla en ejecución, use el cmdlet `Stop-AzureRmResourceGroupDeployment` de PowerShell.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Implementación de plantillas con el portal](azure-stack-deploy-template-portal.md)
 
 [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

@@ -1,26 +1,26 @@
 ---
 title: "Restauración de archivos en una máquina virtual con Azure Backup | Microsoft Docs"
 description: "Obtenga información acerca de cómo realizar la restauración en el nivel de archivo en una máquina virtual de Azure con Backup and Recovery Services."
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restauración de archivos en una máquina virtual de Azure
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se detalla cómo restaurar archivos individuales. En este tutorial, aprenderá a:
@@ -35,7 +35,7 @@ Azure Backup crea puntos de recuperación que se almacenan en almacenes de recup
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y la eliminación accidental de archivos, elimine una página desde un servidor web. Si necesita una máquina virtual Linux que ejecute un servidor web y esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
 
@@ -198,7 +198,7 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, conectó un punto de recuperación a una máquina virtual y restauró los archivos de un servidor web. Ha aprendido a:
 
 > [!div class="checklist"]

@@ -1,26 +1,26 @@
 ---
 title: Copia de seguridad de Windows Server en Azure | Microsoft Docs
 description: "En este tutorial se detalla la copia de seguridad de servidores Windows Server locales en un almacén de Recovery Services."
-services: back up
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
 keywords: "copia de seguridad de Windows Server; copia de seguridad de Windows Server; copia de seguridad y recuperación ante desastres"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -116,9 +116,9 @@ Use el agente de Microsoft Azure Recovery Services para programar cuándo se rea
 
 3. Haga clic en **Siguiente** para navegar hasta la página **Seleccionar elementos de los que realizar copia de seguridad**.
 
-4. Haga clic en **Agregar elementos** y, desde el cuadro de diálogo que aparece, seleccione **Estado del sistema** y los archivos o las carpetas de los que quiera realizar una copia de seguridad. y, a continuación, haga clic en **Aceptar**.
+4. Haga clic en **Agregar elementos** y, desde el cuadro de diálogo que aparece, seleccione **Estado del sistema** y los archivos o las carpetas de los que quiera realizar una copia de seguridad. A continuación, haga clic en **Aceptar**.
 
-5. Haga clic en **Siguiente**.
+5. Haga clic en **Next**.
 
 6. En la página **Especificar la programación de copia de seguridad (estado del sistema)**, especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**. 
 
@@ -142,7 +142,7 @@ La programación está establecida cuando se ejecutan los trabajos de copia de s
 4.  Una vez completada la copia de seguridad inicial, el estado **Trabajo completado** se refleja en el panel **Trabajos** de la consola del agente de MARS.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial se usa Azure Portal para las siguientes acciones: 
  

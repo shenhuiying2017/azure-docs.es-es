@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 Los servidores de Azure Analysis Services admiten la conexión a orígenes de datos en la nube y de forma local en su organización. Con el tiempo se van agregando más orígenes de datos compatibles, por lo que se recomienda consultarlos con asiduidad. 
@@ -29,7 +29,7 @@ Actualmente se admiten los siguientes orígenes de datos:
 | Nube  |
 |---|
 | Azure Blob Storage*  |
-| Base de datos SQL de Azure  |
+| Azure SQL Database  |
 | Almacenamiento de datos de Azure |
 
 
@@ -59,8 +59,8 @@ Los siguientes proveedores de orígenes de datos se admiten en los modelos de da
 ### <a name="cloud"></a>Nube
 | **Origen de datos** | **En memoria** | **DirectQuery** |
 |  --- | --- | --- |
-| Almacenamiento de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server |
-| Base de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
+| Azure SQL Data Warehouse |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server |
+| Azure SQL Database |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Local (mediante una puerta de enlace)
 |**Origen de datos** | **En memoria** | **DirectQuery** |
@@ -99,7 +99,7 @@ Para orígenes de datos en la nube:
 
 * Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si tiene orígenes de datos locales, asegúrese de instalar la [puerta de enlace local](analysis-services-gateway.md).   
 Para aprender más acerca de la administración del servidor en SSDT o SSMS, consulte el artículo sobre la[administración del servidor](analysis-services-manage.md).
 

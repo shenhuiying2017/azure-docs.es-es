@@ -4,7 +4,7 @@ description: "Se explica la característica Automated Backup para SQL Server 201
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 281aac8229c55cde1f36857a8f1042aa08f7e372
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e7e4aab3a4c4f1ccca6868134ec0b829cb7af2f2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automated Backup para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automated Backup configura automáticamente [Automated Backup para Microsoft Azu
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -64,7 +64,7 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 > [!NOTE]
 > Automated Backup se basa en la Extensión Agente de IaaS de SQL Server. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="settings"></a>Configuración
+## <a name="settings"></a>Settings
 
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 

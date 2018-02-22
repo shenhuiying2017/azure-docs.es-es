@@ -20,13 +20,10 @@
 #### [Blob Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Configuración de paquetes para la compilación e implementación continua
-#### [TFS y Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configuración de reglas de tráfico para un rol](cloud-services-enable-communication-role-instances.md)
 ### [Control de eventos de ciclo de vida de servicio en la nube](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Uso de Twilio para realizar una llamada telefónica (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configuración de las tareas de inicio
 #### [Creación de tareas de inicio](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Almacenamiento y visualización de los datos de diagnóstico en Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Seguimiento de un servicio en la nube con Diagnósticos](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Envío de datos de diagnóstico a App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Solución de problemas
 ### Depurar 
-#### [Habilitación de la depuración remota con entrega continua](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opciones para un servicio en la nube](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Servicio en la nube local con Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Servicio en la nube publicado con Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

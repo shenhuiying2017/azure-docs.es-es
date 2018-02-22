@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 **Requisitos mínimos:**
 
 * .NET Framework 4.5
@@ -69,14 +69,14 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 1.  Seleccione **Registrar una nueva puerta de enlace en este equipo**.
 
-    ![Registro](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register ](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Escriba el nombre y la clave de recuperación de la puerta de enlace. De forma predeterminada, la puerta de enlace usa la región predeterminada de la suscripción. Si tiene que seleccionar otra región diferente, elija **Cambiar la región**.
 
     > [!IMPORTANT]
     > Guarde la clave de recuperación en un lugar seguro. La clave de recuperación es necesaria para adquirir, migrar o restaurar una puerta de enlace. 
 
-   ![Registro](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register ](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creación de un recurso de puerta de enlace de Azure
@@ -117,6 +117,6 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúrese de consultar [Puerta de enlace de datos local](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Administración de Analysis Services](analysis-services-manage.md)   
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)

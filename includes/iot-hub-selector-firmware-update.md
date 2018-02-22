@@ -3,5 +3,6 @@
 > * [Dispositivo: Servicio Node.js: C#](../articles/iot-hub/iot-hub-csharp-node-firmware-update.md)
 > * [Dispositivo: Servicio C#: C#](../articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md)
 > * [Dispositivo: Servicio de Java: Java](../articles/iot-hub/iot-hub-java-java-firmware-update.md)
+> * [Dispositivo: Servicio de Python: Python](../articles/iot-hub/iot-hub-python-python-firmware-update.md)
 > 
 

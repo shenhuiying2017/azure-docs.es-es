@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
 En este artículo se incluyen las preguntas más frecuentes sobre Azure Site Recovery. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -163,7 +163,7 @@ Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manage
 Sí, puede usar la recuperación en una ubicación alternativa para realizar la conmutación por recuperación a otro host de Azure. Lea más sobre las opciones de los vínculos siguientes para las máquinas virtuales de Hyper-V y VMware.
 
 * [Para máquinas virtuales de VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Para máquinas virtuales de Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
+* [Para máquinas virtuales de Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Proveedores de servicios
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Soy un proveedor de servicios. ¿Site Recovery funciona para los modelos de infraestructura compartida o específica?

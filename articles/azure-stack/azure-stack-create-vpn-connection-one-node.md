@@ -1,10 +1,10 @@
 ---
-title: "Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos de Azure Stack Development Kit | Microsoft Docs"
-description: "Procedimiento paso a paso que permite a un administrador en la nube crear una conexión VPN de sitio a sitio entre dos entornos de Azure Stack Development Kit de un solo nodo."
+title: "Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack | Microsoft Docs"
+description: "Procedimiento paso a paso que permite a un administrador en la nube crear una conexión VPN de sitio a sitio entre dos entornos del Kit de desarrollo de Azure Stack de un solo nodo."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos de Azure Stack Development Kit
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo crear una conexión VPN de sitio a sitio entre dos redes virtuales en dos entornos independientes de prueba de Azure Stack Development Kit. Al configurar las conexiones, obtendrá información sobre cómo funcionan las puertas de enlace de VPN en Azure Stack.
+En este artículo se muestra cómo crear una conexión VPN de sitio a sitio entre dos redes virtuales en dos entornos independientes de prueba del Kit de desarrollo de Azure Stack. Al configurar las conexiones, obtendrá información sobre cómo funcionan las puertas de enlace de VPN en Azure Stack.
 
 ### <a name="connection-diagram"></a>Diagrama de conexión
 El diagrama siguiente muestra el aspecto que debería tener la configuración de la conexión cuando haya terminado.
@@ -32,20 +33,20 @@ El diagrama siguiente muestra el aspecto que debería tener la configuración de
 ### <a name="before-you-begin"></a>Antes de empezar
 Para completar esta configuración de conexión, asegúrese de tener los elementos siguientes antes de empezar:
 
-* Dos servidores que cumplan los requisitos de hardware de Azure Stack Development Kit que se definen en [Requisitos previos de la implementación de Azure Stack](azure-stack-deploy.md). Asegúrese de que los otros requisitos previos que aparecen en el [artículo](azure-stack-deploy.md) también se cumplen.
-* Paquete de implementación de [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/).
+* Dos servidores que cumplan los requisitos de hardware del Kit de desarrollo de Azure Stack que se definen en [Requisitos previos de la implementación de Azure Stack](azure-stack-deploy.md). Asegúrese de que los otros requisitos previos que aparecen en el [artículo](azure-stack-deploy.md) también se cumplen.
+* Paquete de implementación del [Kit de desarrollo de Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/try/).
 
-## <a name="deploy-the-azure-stack-development-kit-environments"></a>Implementación de los entornos de Azure Stack Development Kit
-Para completar la configuración de conexión, debe implementar dos entornos de Azure Stack Development Kit.
+## <a name="deploy-the-azure-stack-development-kit-environments"></a>Implementación de los entornos del Kit de desarrollo de Azure Stack
+Para completar la configuración de conexión, debe implementar dos entornos del Kit de desarrollo de Azure Stack.
 > [!NOTE] 
-> Siga las [instrucciones de implementación](azure-stack-run-powershell-script.md) para cada Azure Stack Development Kit que implemente. En este artículo, los entornos de Azure Stack Development Kit se llaman *POC1* y *POC2*.
+> Siga las [instrucciones de implementación](azure-stack-run-powershell-script.md) para cada Kit de desarrollo de Azure Stack que implemente. En este artículo, los entornos del Kit de desarrollo de Azure Stack se llaman *POC1* y *POC2*.
 
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Preparación de una oferta en POC1 y POC2
 En POC1 y POC2, prepare una oferta para que un usuario pueda suscribirse a la oferta e implementar las máquinas virtuales. Para obtener información sobre cómo crear una oferta, consulte [Máquinas virtuales disponibles para los usuarios de Azure Stack](azure-stack-tutorial-tenant-vm.md).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Revisión y realización de la tabla de configuración de red
-En la tabla siguiente se resume la configuración de red para ambos entornos de Azure Stack Development Kit. Utilice el procedimiento que aparece después de la tabla para agregar la dirección de BGPNAT externa específica de la red.
+En la tabla siguiente se resume la configuración de red para ambos entornos del Kit de desarrollo de Azure Stack. Utilice el procedimiento que aparece después de la tabla para agregar la dirección de BGPNAT externa específica de la red.
 
 **Tabla de configuración de red**
 |   |POC1|POC2|
@@ -58,7 +59,7 @@ En la tabla siguiente se resume la configuración de red para ambos entornos de 
 |Dirección BGPNAT externa     |         |         |
 
 > [!NOTE]
-> Las direcciones IP BGPNAT externas en el entorno de ejemplo son 10.16.167.195 para POC1 y 10.16.169.131 para POC2. Utilice el procedimiento siguiente para determinar las direcciones IP BGPNAT externas de los hosts de Azure Stack Development Kit y, a continuación, agréguelos a la tabla de configuración de red anterior.
+> Las direcciones IP BGPNAT externas en el entorno de ejemplo son 10.16.167.195 para POC1 y 10.16.169.131 para POC2. Utilice el procedimiento siguiente para determinar las direcciones IP BGPNAT externas de los hosts del Kit de desarrollo de Azure Stack y, a continuación, agréguelos a la tabla de configuración de red anterior.
 
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Obtención de la dirección IP del adaptador externo de la máquina virtual de NAT
@@ -132,7 +133,7 @@ La implementación de una *puerta de enlace de red local* en esta implementació
 
 En una implementación de Azure, una puerta de enlace de red local representa un dispositivo físico local (en el inquilino) que se usa para conectar a una puerta de enlace de red virtual en Azure. En esta implementación de evaluación de Azure Stack, ambos extremos de la conexión son puertas de enlace de red virtual.
 
-Una manera de ver esto de forma más genérica es que el recurso de la puerta de enlace de red local siempre indica la puerta de enlace remota en el otro extremo de la conexión. Debido al modo en que se diseñó Azure Stack Development Kit, es necesario proporcionar la dirección IP del adaptador de red externo en la máquina virtual de traducción de direcciones de red (NAT) del otro entorno de Azure Stack Development Kit como la dirección IP pública de la puerta de enlace de red local. A continuación, cree asignaciones de NAT en la máquina virtual de NAT para asegurarse de que ambos extremos están conectados correctamente.
+Una manera de ver esto de forma más genérica es que el recurso de la puerta de enlace de red local siempre indica la puerta de enlace remota en el otro extremo de la conexión. Debido al modo en que se diseñó el Kit de desarrollo de Azure Stack, es necesario proporcionar la dirección IP del adaptador de red externo en la máquina virtual de traducción de direcciones de red (NAT) del otro entorno del Kit de desarrollo de Azure Stack como la dirección IP pública de la puerta de enlace de red local. A continuación, cree asignaciones de NAT en la máquina virtual de NAT para asegurarse de que ambos extremos están conectados correctamente.
 
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creación del recurso de puerta de enlace de red local
@@ -157,8 +158,8 @@ Una manera de ver esto de forma más genérica es que el recurso de la puerta de
 9. En **Clave compartida (PSK)**, escriba **12345** y, a continuación, seleccione **Aceptar**.
 10. En la hoja **Resumen**, seleccione **Aceptar**.
 
-### <a name="create-a-vm"></a>Creación de una VM
-Para validar los datos que pasan por la conexión VPN, debe tener las máquinas virtuales para enviar y recibir datos en cada entorno de Azure Stack Development Kit. Ahora, cree una máquina virtual en POC1 y colóquela en la subred de máquina virtual en la red virtual.
+### <a name="create-a-vm"></a>Crear una VM
+Para validar los datos que pasan por la conexión VPN, debe tener las máquinas virtuales para enviar y recibir datos en cada entorno del Kit de desarrollo de Azure Stack. Ahora, cree una máquina virtual en POC1 y colóquela en la subred de máquina virtual en la red virtual.
 
 1. En Azure Portal, seleccione **Nuevo**.
 2. Vaya a **Marketplace** y, a continuación, seleccione **Compute**.
@@ -248,26 +249,26 @@ Ahora, cree una máquina virtual en POC2 y colóquela en la subred de máquina v
 8. En la hoja **Configuración**, acepte los valores predeterminados. Asegúrese de que la red virtual **VNET-02** está seleccionada y compruebe que la subred está establecida en **10.0.20.0/24**. Seleccione **Aceptar**.
 9. En la hoja **Resumen**, revise la configuración y, a continuación, seleccione **Aceptar**.
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Configuración de la máquina virtual de NAT en cada entorno de Azure Stack Development Kit para el cruce seguro de puerta de enlace
-Dado que Azure Stack Development Kit es independiente y aislado de la red en la que se implementa el host físico, la red VIP *externa* a la que están conectadas las puertas de enlace no es realmente externa. En su lugar, la red de VIP está oculta detrás de un enrutador que realiza la traducción de direcciones de red. 
+## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Configuración de la máquina virtual de NAT en cada entorno del Kit de desarrollo de Azure Stack para el cruce seguro de puerta de enlace
+Dado que el Kit de desarrollo de Azure Stack es independiente y aislado de la red en la que se implementa el host físico, la red VIP *externa* a la que están conectadas las puertas de enlace no es realmente externa. En su lugar, la red de VIP está oculta detrás de un enrutador que realiza la traducción de direcciones de red. 
 
-El enrutador es una máquina virtual Windows Server llamada *AzS-bgpnat01*, que ejecuta el rol de Enrutamiento y servicios de acceso remoto (RRAS) en la infraestructura de Azure Stack Development Kit. Tiene que configurar NAT en la máquina virtual AzS-bgpnat01 para permitir la conexión VPN de sitio a sitio en ambos extremos. 
+El enrutador es una máquina virtual Windows Server llamada *AzS-bgpnat01*, que ejecuta el rol de Enrutamiento y servicios de acceso remoto (RRAS) en la infraestructura del Kit de desarrollo de Azure Stack. Tiene que configurar NAT en la máquina virtual AzS-bgpnat01 para permitir la conexión VPN de sitio a sitio en ambos extremos. 
 
 Para configurar la conexión VPN, debe crear una ruta de asignación de NAT estática que asigne la interfaz externa en la máquina virtual BGPNAT a la dirección VIP del grupo de puerta de enlace de perímetro. Se necesita una ruta de asignación de NAT estática para cada puerto en una conexión VPN.
 
 > [!NOTE]
-> Esta configuración es necesaria solo para entornos de Azure Stack Development Kit.
+> Esta configuración es necesaria solo para entornos del Kit de desarrollo de Azure Stack.
 > 
 > 
 
 ### <a name="configure-the-nat"></a>Configuración de la NAT
 > [!IMPORTANT]
-> Debe realizar este procedimiento para *ambos* entornos de Azure Stack Development Kit.
+> Debe realizar este procedimiento para *ambos* entornos del Kit de desarrollo de Azure Stack.
 
 1. Determine la **Dirección IP interna** a utilizar en el siguiente script de PowerShell. Abra la puerta de enlace de red virtual (GW1 y GW2) y, a continuación, en la hoja **Información general**, guarde el valor de la **Dirección IP pública** para su uso posterior.
 ![Dirección IP interna](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 2. Inicie sesión en la máquina física de Azure Stack para POC1.
-3. Copie y edite el siguiente script de PowerShell. Para configurar la NAT en cada Azure Stack Development Kit, ejecute el script en un equipo con Windows PowerShell ISE con privilegios elevados. En el script, agregue valores a los marcadores de posición *Dirección BGPNAT externa* y *Dirección IP interna*:
+3. Copie y edite el siguiente script de PowerShell. Para configurar la NAT en cada Kit de desarrollo de Azure Stack, ejecute el script en un equipo con Windows PowerShell ISE con privilegios elevados. En el script, agregue valores a los marcadores de posición *Dirección BGPNAT externa* y *Dirección IP interna*:
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -312,7 +313,7 @@ Para configurar la conexión VPN, debe crear una ruta de asignación de NAT est�
 4. Repita este procedimiento en POC2.
 
 ## <a name="test-the-connection"></a>Comprobación de la conexión
-Ahora que se ha establecido la conexión de sitio a sitio, debe comprobar que puede hacer que fluya tráfico a través de ella. Para comprobar, inicie sesión en una de las máquinas virtuales que ha creado en cada entorno de Azure Stack Development Kit. A continuación, haga ping a la máquina virtual que creó en el otro entorno. 
+Ahora que se ha establecido la conexión de sitio a sitio, debe comprobar que puede hacer que fluya tráfico a través de ella. Para comprobar, inicie sesión en una de las máquinas virtuales que ha creado en cada entorno del Kit de desarrollo de Azure Stack. A continuación, haga ping a la máquina virtual que creó en el otro entorno. 
 
 Para confirmar que el tráfico se envía a través de la conexión de sitio a sitio, asegúrese de que hace ping a la dirección IP directa (DIP) de la máquina virtual en la subred remota, no a la dirección VIP. Para ello, debe encontrar la dirección DIP en el otro extremo de la conexión. Guarde la dirección para su uso posterior.
 

@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Administración de Azure Analysis Services con PowerShell
 
@@ -34,7 +34,7 @@ Para las operaciones del servidor mediante cmdlets de AzureRm, su cuenta o la cu
 ## <a name="server-operations"></a>Operaciones del servidor 
 Los cmdlets de Azure Analysis Services se incluyen en el módulo del componente [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Para instalar los módulos de cmdlets de AzureRM, consulte [Azure Resource Manager cmdlets](/powershell/azure/overview) (Cmdlets de Azure Resource Manager) en la Galería de PowerShell.
 
-|Cmdlet|Descripción| 
+|Cmdlet|DESCRIPCIÓN| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Agrega una cuenta autenticada para utilizarla con las solicitudes de cmdlet de servidor de Azure Analysis Services.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtiene los detalles de una instancia del servidor.|  
@@ -53,7 +53,7 @@ Las operaciones de la base de datos de Azure Analysis Services utilizan el mismo
 El módulo SqlServer proporciona cmdlets de administración de base de datos específicos de la tarea, así como el cmdlet de uso general Invoke-ASCmd que acepta una consulta o script de Tabular Model Scripting Language (TMSL). Los siguientes cmdlets del módulo SqlServer son compatibles con Azure Analysis Services.
 
   
-|Cmdlet|Descripción|
+|Cmdlet|DESCRIPCIÓN|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Agrega un miembro a un rol de base de datos.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Realiza una copia de seguridad de una base de datos de Analysis Services.|  

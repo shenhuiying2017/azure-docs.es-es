@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Información de los módulos de Azure IoT Edge (versión preliminar)
 
@@ -50,7 +50,7 @@ Cada instancia de módulo también tiene un módulo gemelo correspondiente que p
 
 Un módulo gemelo es un documento JSON que almacena las propiedades de configuración e información de los módulos. Este concepto se asemeja al del [dispositivo gemelo][lnk-device-twin] de IoT Hub. La estructura de un módulo gemelo es exactamente igual que la de un dispositivo gemelo. La API que se usa para interactuar con los dos tipos de gemelos también es la misma. La única diferencia entre ambas es la identidad utilizada para crear una instancia del SDK del cliente. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
@@ -61,7 +61,7 @@ await client.OpenAsync();
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  - [Información de la instancia de Azure IoT Edge en tiempo de ejecución y su arquitectura][lnk-runtime]
 
 <!-- Images -->

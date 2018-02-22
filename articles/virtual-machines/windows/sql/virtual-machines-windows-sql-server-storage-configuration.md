@@ -4,7 +4,7 @@ description: "En este tema se describe cómo Azure configura el almacenamiento p
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 Al configurar una imagen de máquina virtual de SQL Server en Azure, el Portal le ayuda a automatizar la configuración del almacenamiento. Esto incluye asociar el almacenamiento a la máquina virtual, hacer que el almacenamiento esté accesible para SQL Server y configurarlo para optimizarlo para sus requisitos de rendimiento específicos.
@@ -27,7 +27,7 @@ Este tema explica cómo Azure configura el almacenamiento para sus máquinas vir
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para usar la configuración del almacenamiento automática, la máquina virtual requiere las siguientes características:
 
 * Aprovisionada con una [imagen de la galería de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -117,8 +117,8 @@ Azure usa la siguiente configuración para crear el grupo de almacenamiento en m
 | Tamaños de disco |1 TB cada uno |
 | Memoria caché |Lectura |
 | Tamaño de la asignación |Tamaño de la unidad de asignación NTFS = 64 KB |
-| Inicialización de archivo instantáneo |Enabled |
-| Bloquear páginas en memoria |Enabled |
+| Inicialización de archivo instantáneo |habilitado |
+| Bloquear páginas en memoria |habilitado |
 | Recuperación |Recuperación simple (sin resistencia) |
 | Número de columnas |Número de discos de datos<sup>1</sup> |
 | TempDB location (Ubicación de TempDB) |Almacenada en discos de datos<sup>2</sup> |
@@ -130,7 +130,7 @@ Azure usa la siguiente configuración para crear el grupo de almacenamiento en m
 ## <a name="workload-optimization-settings"></a>Configuración de optimización de la carga de trabajo
 En la tabla siguiente se describen las opciones de tres tipos de carga de trabajo disponibles y sus optimizaciones correspondientes:
 
-| Tipo de carga de trabajo | Description | Optimizaciones |
+| Tipo de carga de trabajo | DESCRIPCIÓN | Optimizaciones |
 | --- | --- | --- |
 | **General** |Configuración predeterminada que admite la mayoría de las cargas de trabajo |None |
 | **Procesamiento transaccional** |Optimiza el almacenamiento para las cargas de trabajo OLTP de bases de datos tradicionales. |Marca de seguimiento 1117<br/>Marca de seguimiento 1118 |
@@ -141,5 +141,5 @@ En la tabla siguiente se describen las opciones de tres tipos de carga de trabaj
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

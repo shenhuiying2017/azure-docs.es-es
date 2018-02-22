@@ -3,8 +3,8 @@ title: "Delegación de ofertas en Azure Stack | Microsoft Docs"
 description: "Obtenga información acerca de cómo delegar a otras personas sus tareas de crear ofertas y registrar a usuarios."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: alfredop
-ms.openlocfilehash: 1a1f2789076b610ee557bde5981a331c55cc1c95
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: brenduns
+ms.reviewer: alfredop
+ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegación de ofertas en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Como operador de Azure Stack, es posible que a veces quiera delegar en otras personas las tareas de creación de ofertas y registro de usuarios. Por ejemplo, si es un proveedor de servicios puede desear que los distribuidores registren a los clientes y los administren en su nombre. Si forma parte de un grupo central de TI en una empresa, puede que quiera que las subsidiarias registren usuarios sin su intervención.
 
@@ -149,6 +150,6 @@ La delegación de varios niveles permite al proveedor delegado delegar la oferta
 
 Para crear varios niveles de delegación de ofertas, el proveedor delegado, a su vez, delega la oferta al siguiente proveedor. El proceso es el mismo para el proveedor delegado que para el operador de Azure Stack (consulte [El operador de Azure Stack crea la oferta delegada](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Aprovisionar una máquina virtual](azure-stack-provision-vm.md)
 

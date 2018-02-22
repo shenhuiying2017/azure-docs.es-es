@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Más detalles sobre las características de vista previa
 En este tema se describe cómo usar las características que actualmente forman parte de la versión preliminar.
@@ -26,7 +26,7 @@ En este tema se describe cómo usar las características que actualmente forman 
 ## <a name="group-writeback"></a>Escritura diferida de grupos
 La opción para la escritura diferida de grupos en las características opcionales le permitirá escribir en diferido **Grupos de Office 365** en un bosque con Exchange instalado. Se trata de un tipo de grupo que siempre se controla en la nube. Si dispone de Exchange local, puede reescribir estos grupos en el entono local, por lo que los usuarios con un buzón de Exchange local pueden enviar y recibir correos electrónicos de ellos.
 
-Puede encontrar más información sobre los grupos de Office 365 y cómo utilizarlos [aquí](http://aka.ms/O365g).
+Puede encontrar más información sobre los grupos de Office 365 y cómo utilizarlos [aquí](https://aka.ms/O365g).
 
 Este grupo de Office 365 se representará como un grupo de distribución en AD DS local. El servidor de Exchange local debe tener la actualización acumulativa 8 de Exchange 2013 (publicada en marzo de 2015) o Exchange 2016 para reconocer este nuevo tipo de grupo.
 
