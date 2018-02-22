@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalación y configuración de Ansible para la administración de máquinas virtuales en Azure
 En este artículo se indica cómo instalar Ansible y los módulos de SDK de Python de Azure para algunas de las distribuciones más habituales de Linux. Es posible instalar Ansible en otras distribuciones ajustando los paquetes instalados para adaptarlos a la plataforma en concreto. Para crear recursos de Azure de forma segura, también obtendrá información sobre cómo crear credenciales y definirlos para uso en Ansible. 
@@ -144,7 +144,7 @@ Ansible se comunica con Azure mediante un nombre de usuario y una contraseña, o
 Cree una entidad de servicio en el equipo host con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y obtenga las credenciales necesarias para Ansible:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 A continuación puede ver un ejemplo del resultado de los comandos anteriores:

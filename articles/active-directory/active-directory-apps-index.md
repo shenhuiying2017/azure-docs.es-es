@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ El inicio de sesión único permite a los usuarios acceder a varias aplicaciones
 | Guía de artículos |  |
 |:---:| --- |
 | Una introducción a la federación y otros tipos de inicio de sesión |[Inicio de sesión único con Azure AD](active-directory-appssoaccess-whatis.md) |
-| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados |[Introducción a la Galería de aplicaciones de Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de las aplicaciones integradas previamente que admiten federación](http://aka.ms/aadfederatedapps)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md) |
+| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados |[Introducción a la Galería de aplicaciones de Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de las aplicaciones integradas previamente que admiten federación](active-directory-saas-tutorial-list.md)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md) |
 | Tutoriales de más de 150 aplicaciones en los que se explica cómo configurar el inicio de sesión único de aplicaciones como [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md) y [Workday](active-directory-saas-workday-tutorial.md), entre otras |[Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Configuración y personalización manual de una configuración de inicio de sesión único |[Configuración del inicio de sesión único federado en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md) |
 | Guía de solución de problemas de aplicaciones federadas que utilizan el protocolo SAML |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |

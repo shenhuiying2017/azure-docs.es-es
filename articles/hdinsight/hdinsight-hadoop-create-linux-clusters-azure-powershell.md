@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4d109fa61d0fcd0c516a519f3b3eb0ad01ccbf05
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: adfc1158a907156ffddd27cd4eabc25c81930476
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
 
@@ -31,10 +31,10 @@ Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar
 > [!NOTE]
 > Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, consulte [Crear clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información sobre el uso de la CLI de Azure para crear un clúster.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de iniciar este procedimiento, debe tener lo siguiente:
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
     > [!IMPORTANT]
@@ -92,7 +92,7 @@ El script siguiente crea un objeto de configuración para configurar un R Server
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes recursos para aprender a trabajar con él.
 
@@ -116,8 +116,7 @@ Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes r
 ### <a name="spark-clusters"></a>Clústeres de Spark
 
 * [Crear una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](spark/apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](spark/apache-spark-livy-rest-interface.md)
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](spark/apache-spark-eventhub-streaming.md)
 

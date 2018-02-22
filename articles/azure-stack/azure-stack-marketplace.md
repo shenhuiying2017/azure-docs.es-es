@@ -3,8 +3,8 @@ title: Publicar un elemento de Marketplace personalizado en Azure Stack (operado
 description: "Como operador de Azure Stack, aprenda cómo publicar un elemento de Marketplace personalizado en Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
-ms.openlocfilehash: 7b5f976eb2d51eb86761a2bd0be6adb45ca87681
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Información general de Azure Stack Marketplace
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Marketplace es un conjunto de servicios, aplicaciones y recursos personalizados para Azure Stack, como redes, máquinas virtuales, almacenamiento, etc. Es el lugar donde los usuarios vienen para crear nuevos recursos e implementar nuevas aplicaciones. Piense que es como un catálogo de compras donde los usuarios pueden examinar y elegir los elementos que se quieren usar. Los usuarios, para utilizar un elemento de Marketplace, deben suscribirse a una oferta que les concede acceso al elemento.
 
@@ -43,6 +44,6 @@ Cada elemento de Marketplace tiene:
 
 Cada elemento publicado en Marketplace utiliza un formato denominado paquete de galería de Azure (azpkg). Agregue recursos de implementación o de entorno en tiempo de ejecución (por ejemplo, código, archivos comprimidos con software o imágenes de máquinas virtuales) a Azure Stack por separado, no como parte del elemento de Marketplace. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Crear y publicar un elemento en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

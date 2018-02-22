@@ -529,7 +529,11 @@
         - name: Conexión a un clúster seguro
           href: service-fabric-connect-to-secure-cluster.md
         - name: Aplicación de parches a nodos de clúster
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: Supervisión y diagnóstico
       items:
         - name: OMS
@@ -599,7 +603,7 @@
     - name: Ruta de aprendizaje
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculadora de precios

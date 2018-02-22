@@ -4,7 +4,7 @@ description: "Se proporcionan procedimientos recomendados para elegir el modelo 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
@@ -91,7 +91,7 @@ Se recomienda traer su propia licencia de SQL a través de License Mobility para
 
 Para usar BYOL con una máquina virtual con SQL Server, debe tener una licencia para SQL Server Standard o Enterprise y [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que es una opción necesaria en algunos programas de [licencias por volumen](https://www.microsoft.com/en-us/download/details.aspx?id=10585) y una adquisición opcional en otros.  Los niveles de precios proporcionados a través de programas de licencias por volumen varían según el tipo de contrato y la cantidad y el compromiso con SQL Server. No obstante, por norma general, el modelo traiga su propia licencia para cargas de trabajo de producción continuas tiene las siguientes ventajas:
 
-| Ventaja de BYOL | Descripción |
+| Ventaja de BYOL | DESCRIPCIÓN |
 |-----|-----|
 | **Ahorros en costos** | Traer su propia licencia de SQL Server resulta más rentable que pagar por uso si una carga de trabajo ejecuta continuamente SQL Server Standard o Enterprise durante *más de diez meses*. |
 | **Ahorros a largo plazo** | Como promedio, resulta un *30 % más barato por año* comprar o renovar una licencia de SQL Server durante los tres primeros años. Además, después de tres años, ya no es necesario volver a renovar la licencia, y solo se paga por Software Assurance. En ese momento, resulta un *200 % más barato*. |
@@ -143,7 +143,7 @@ Para otros flujos de trabajo, considere la posibilidad de parar y reiniciar auto
 > [!IMPORTANT]
 > Apagar la máquina virtual y desasignarla es la única manera de evitar cargos. Incurre en cargos por uso si solo detiene o usa opciones de energía para parar la máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para consultar una guía de precios general de Azure, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../../billing/billing-getting-started.md).
 

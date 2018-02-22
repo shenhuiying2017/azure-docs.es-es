@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
 
@@ -46,7 +46,7 @@ Azure AD y el sistema de cuentas de Microsoft usan enfoques de demostrada eficac
 * Contraseñas prohibidas dinámicamente
 * Smart Password Lockout
 
-Para más información sobre la administración de contraseñas basada en la investigación actual, consulte el documento técnico [Password Guidance](http://aka.ms/passwordguidance) (Guía de contraseñas).
+Para más información sobre la administración de contraseñas basada en la investigación actual, consulte el documento técnico [Password Guidance](https://aka.ms/passwordguidance) (Guía de contraseñas).
 
 ### <a name="dynamically-banned-passwords"></a>Contraseñas prohibidas dinámicamente
 
@@ -80,7 +80,7 @@ Para más información sobre el restablecimiento de contraseña en Azure Active 
   >Los administradores de Azure AD pueden usar [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que los usuarios creen contraseñas tradicionales.
   >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 * [Aspectos básicos de la administración de identidades de Azure](fundamentals-identity.md)

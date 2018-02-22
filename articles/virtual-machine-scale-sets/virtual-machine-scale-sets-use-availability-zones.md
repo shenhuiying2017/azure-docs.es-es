@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad (versión preliminar)
 Para proteger los conjuntos de escalado de máquinas virtuales de los errores en el nivel de centro de datos, puede crear un conjunto de escalado en todas las zonas de disponibilidad. Las regiones de Azure que admiten las Zonas de disponibilidad tienen un mínimo de tres zonas independientes, cada una de las cuales con su propia fuente de alimentación, red y sistema de refrigeración. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Para proteger los conjuntos de escalado de máquinas virtuales de los errores en
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de escalado de una sola zona y con redundancia de zona
 Cuando implementa un conjunto de escalado de máquinas virtuales, puede elegir usar una sola zona de disponibilidad en una región o varias zonas.
 
-Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se ejecutan todas esas instancias de VM y el conjunto de escalado se administra y se escala automáticamente solo dentro de esa zona. En el diagrama siguiente se muestra un ejemplo de cómo se pueden crear varios conjuntos de escalado de una sola zona con un equilibrador de carga con redundancia de zona que distribuye el tráfico:
-
-![Implementación de conjunto de escalado de una sola zona con equilibrador de carga con redundancia de zona](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Un conjunto de escalado con redundancia de zona permite crear un conjunto de escalado único que abarque varias zonas. De manera predeterminada, cuando se crean las instancias de VM, se equilibran de manera uniforme entre las distintas zonas. En caso de que se produzca una interrupción en una de las zonas, un conjunto de escalado no escala automáticamente de manera horizontal para aumentar la capacidad. Un procedimiento recomendado sería configurar reglas de escalado automático según el uso de la memoria o CPU. Las reglas de escalado automático permitirían que el conjunto de escalado responda ante una pérdida de las instancias de VM en esa zona mediante el escalado horizontal de instancias nuevas en las zonas operativas. En el diagrama siguiente aparece un ejemplo de un conjunto de escalado único que se implementa en varias zonas:
-
-![Implementación de conjunto de escalado con redundancia de zona y equilibrador de carga](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se ejecutan todas esas instancias de VM y el conjunto de escalado se administra y se escala automáticamente solo dentro de esa zona. Un conjunto de escalado con redundancia de zona permite crear un conjunto de escalado único que abarque varias zonas. De manera predeterminada, cuando se crean las instancias de VM, se equilibran de manera uniforme entre las distintas zonas. En caso de que se produzca una interrupción en una de las zonas, un conjunto de escalado no escala automáticamente de manera horizontal para aumentar la capacidad. Un procedimiento recomendado sería configurar reglas de escalado automático según el uso de la memoria o CPU. Las reglas de escalado automático permitirían que el conjunto de escalado responda ante una pérdida de las instancias de VM en esa zona mediante el escalado horizontal de instancias nuevas en las zonas operativas.
 
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#regions-that-support-availability-zones). También necesita [registrarse para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 

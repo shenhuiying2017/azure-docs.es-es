@@ -4,7 +4,7 @@ description: "En este tema se describe cómo administrar la extensión Agente de
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar las tareas de administración en Azure Virtual Machines con la extensión del Agente SQL Server (implementación clásica)
 > [!div class="op_single_selector"]
@@ -32,18 +32,18 @@ ms.lasthandoff: 12/21/2017
 La extensión del agente de IaaS SQL Server (SQLIaaSAgent) se ejecuta en máquinas virtuales de Azure para automatizar las tareas de administración. En este tema se proporciona información general sobre los servicios admitidos por la extensión, así como instrucciones para la instalación, el estado y la eliminación.
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para ver la versión de Resource Manager de este artículo, consulte [SQL Server Agent Extension for SQL Server VMs Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md) (Extensión del Agente SQL Server para máquinas virtuales SQL Server (Resource Manager)).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Para ver la versión de Resource Manager de este artículo, consulte [SQL Server Agent Extension for SQL Server VMs Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md) (Extensión del Agente SQL Server para máquinas virtuales SQL Server (Resource Manager)).
 
 ## <a name="supported-services"></a>Servicios admitidos
 La extensión del Agente de IaaS SQL Server es compatible con las siguientes tareas de administración:
 
-| Característica de administración | Descripción |
+| Característica de administración | DESCRIPCIÓN |
 | --- | --- |
 | **Automated Backup de SQL** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada de SQL Server en la máquina virtual. Para obtener más información, consulte [Copia de seguridad automatizada para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-backup.md). |
 | **Aplicación de revisiones automatizada de SQL** |Configura una ventana de mantenimiento durante la cual tienen lugar las actualizaciones de la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta para la carga de trabajo. Para obtener más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-patching.md). |
 | **Integración de Azure Key Vault** |Permite instalar y configurar automáticamente Azure Key Vault en la máquina virtual SQL Server. Para obtener más información, consulte [Configuración de la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure (implementación clásica)](../classic/ps-sql-keyvault.md). |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina virtual:
 
 ### <a name="operating-system"></a>Sistema operativo:
@@ -83,7 +83,7 @@ Si actualiza a la versión más reciente de la Extensión Agente de IaaS de SQL,
 > 
 > 
 
-## <a name="status"></a>Estado
+## <a name="status"></a>Status
 Una manera de comprobar que la extensión está instalada consiste en ver el estado del agente en Azure Portal. Seleccione una máquina virtual en la hoja de la máquina virtual y haga clic en **Extensiones**. Debería aparecer la extensión **SQLIaaSAgent** .
 
 ![Extensión del Agente de IaaS SQL Server en Azure Portal](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)

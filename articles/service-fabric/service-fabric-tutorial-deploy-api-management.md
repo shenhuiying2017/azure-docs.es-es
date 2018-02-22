@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implementación de API Management con Service Fabric
 Este tutorial es la cuarta parte de una serie.  La implementación de Azure API Management con Service Fabric es un escenario avanzado.  API Management es útil cuando es necesario publicar API con un completo conjunto de reglas de enrutamiento para los servicios de Service Fabric de back-end. Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado diseñado para la entrada de tráfico, como una aplicación ASP.NET Core, Event Hubs, IoT Hub o Azure API Management. 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
-> * [Escalado o reducción horizontal](/service-fabric-tutorial-scale-cluster.md)
+> * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * Implementación de API Management con Service Fabric
 

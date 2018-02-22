@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: v-craic
-ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 037c3dd1ae3cc77ee6a0224149f3b099b3af8641
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configuración de una red virtual en Azure DevTest Labs
 Como se explica en el artículo [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada. Por ejemplo, puede que necesite acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio.
@@ -29,7 +29,7 @@ En este artículo se explica cómo agregar la red virtual existente a la configu
 Los pasos siguientes le guiarán en el proceso de agregar una red virtual existente (y la subred) a un laboratorio para que esta se pueda utilizar al crear una máquina virtual en el mismo laboratorio. 
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el laboratorio que desee. 
 1. En el panel principal del laboratorio, seleccione **Configuración y directivas**.
 

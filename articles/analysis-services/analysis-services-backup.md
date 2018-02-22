@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: f96e72e4decd475e7859eb7f70046a277b718ac8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 52db3916392c3ff304311717b12a163213197717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -80,7 +80,7 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 ### <a name="powershell"></a>PowerShell
 Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
-## <a name="restore"></a>Restauración
+## <a name="restore"></a>Restore
 Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 

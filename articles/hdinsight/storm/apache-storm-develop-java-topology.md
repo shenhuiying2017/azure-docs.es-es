@@ -14,28 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
 
 Aprenda a crear una topología de Apache Storm basada en Java. Vamos a crear una topología de Storm que implemente una aplicación de recuento de palabras. Para compilar y empaquetar el proyecto, usaremos Maven. Después, aprende a definir la topología con el marco de trabajo Flux.
-
-> [!NOTE]
-> El marco de trabajo Flux está disponible en Storm 0.10.0 o versiones posteriores. Storm 0.10.0 está disponible con HDInsight 3.3 y 3.4.
 
 Después de completar los pasos descritos en este documento, puede implementar la topología en Apache Storm en HDInsight.
 
 > [!NOTE]
 > En [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) encontrará una versión completa de los ejemplos de topologías de Storm creadas en este documento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

@@ -4,7 +4,7 @@ description: "En este tutorial se muestra cómo configurar los requisitos previo
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -41,7 +41,7 @@ En este tutorial se da por supuesto que tiene conocimientos básicos de grupos d
 Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 2. Haga clic en **+** para crear un nuevo objeto en el portal.
 
    ![Nuevo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -50,7 +50,7 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pri
 
    ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Haga clic en **Grupo de recursos**.
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 6. En la hoja **Grupo de recursos**, en **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
 7. Si tiene varias suscripciones de Azure, compruebe que la suscripción es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
 8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. Para este tutorial, vamos a crear todos los recursos en una ubicación de Azure.
@@ -84,7 +84,7 @@ Para crear la red virtual:
    | --- | --- |
    | **Name** |autoHAVNET |
    | **Espacio de direcciones** |10.33.0.0/24 |
-   | **Nombre de subred** |Administrador |
+   | **Nombre de subred** |Administración |
    | **Intervalo de direcciones de subred** |10.33.0.0/29 |
    | **Suscripción** |Especifique la suscripción que quiere usar. El campo **Suscripción** está en blanco si solo tiene una suscripción. |
    | **Grupos de recursos** |Elija la opción **Usar existente** y seleccione el nombre del grupo de recursos. |
@@ -94,7 +94,7 @@ Para crear la red virtual:
 
    En el ejemplo se usa el nombre de subred **Admin**. Esta subred es para los controladores de dominio.
 
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 
    ![Configuración de la red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
@@ -114,7 +114,7 @@ La nueva red virtual tiene una subred denominada **Admin**. Los controladores de
    ![Configuración de la red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Cree una segunda subred. Haga clic en **+ Subred**.
 6. En la hoja **Agregar subred**, configure la subred escribiendo **sqlsubnet** en **Nombre**. Azure especifica automáticamente un valor válido en **Intervalo de direcciones**. Compruebe que este intervalo de direcciones tiene al menos 10 direcciones. En un entorno de producción, puede que necesite más direcciones.
-7. Haga clic en **Aceptar**.
+7. Haga clic en **OK**.
 
     ![Configuración de la red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
 
@@ -189,7 +189,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 | **Dirección IP pública** |*Mismo nombre que la máquina virtual* |
 | **Grupo de seguridad de red** |*Mismo nombre que la máquina virtual* |
 | **El conjunto de disponibilidad** |adavailabilityset </br>**Dominios de error**: 2</br>**Dominios de actualización**: 2|
-| **Diagnóstico** |Enabled |
+| **Diagnóstico** |habilitado |
 | **Cuenta de almacenamiento de información de diagnóstico** |*Se crea automáticamente* |
 
    >[!IMPORTANT]
@@ -261,7 +261,7 @@ Después de crear el primer controlador de dominio y habilitar el DNS en el prim
 
 3. Haga clic en **Personalizar** y escriba la dirección IP privada del controlador de dominio principal.
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 ### <a name="configure-the-second-domain-controller"></a>Configuración del segundo controlador de dominio
 Una vez reiniciado el controlador de dominio principal, puede configurar el segundo controlador de dominio. Este paso opcional es para lograr alta disponibilidad. Para configurar el segundo controlador de dominio siga estos pasos:
@@ -314,7 +314,7 @@ En los pasos siguientes configurará las cuentas de Active Directory. En la tabl
 | |Cuenta de instalación<br/> |sqlserver-0 <br/>Cuenta del servicio Agente SQL y SQL Server |sqlserver-1<br/>Cuenta del servicio Agente SQL y SQL Server
 | --- | --- | --- | ---
 |**Nombre** |Instalar |SQLSvc1 | SQLSvc2
-|**Usuario NombreDeCuentaSam** |Instalar |SQLSvc1 | SQLSvc2
+|**Usuario NombreDeCuentaSam** |Instalación |SQLSvc1 | SQLSvc2
 
 Para crear cada cuenta, siga estos pasos.
 
@@ -389,7 +389,7 @@ Ahora ya puede unir las máquinas virtuales a **corp.contoso.com**. Realice los 
 2. En **Administrador del servidor**, haga clic en **Servidor local**.
 3. Haga clic en el vínculo **GRUPO DE TRABAJO**.
 4. En la sección **Nombre de equipo**, haga clic en **Cambiar**.
-5. Active la casilla **Dominio** y escriba **corp.contoso.com** en el cuadro de texto. Haga clic en **Aceptar**.
+5. Active la casilla **Dominio** y escriba **corp.contoso.com** en el cuadro de texto. Haga clic en **OK**.
 6. En el cuadro de diálogo emergente **Seguridad de Windows**, especifique las credenciales de la cuenta de administrador del dominio predeterminado (**CORP\DomainAdmin**) y la contraseña (**Contoso!0000**).
 7. Cuando vea el mensaje "Bienvenida al dominio corp.contoso.com", haga clic en **Aceptar**.
 8. Haga clic en **Cerrar** y luego en **Reiniciar ahora** en el cuadro de diálogo emergente.
@@ -443,7 +443,7 @@ Use la cuenta de instalación (CORP\install) para configurar el grupo de disponi
 
 1. Establezca el inicio de sesión como un miembro del rol de servidor fijo **sysadmin**.
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 Repita los pasos anteriores en la otra máquina virtual con SQL Server.
 
@@ -486,13 +486,13 @@ El método de abrir los puertos depende de la solución de firewall que use. En 
 
    ![Firewall de SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Haga clic en **Siguiente**.
+5. Haga clic en **Next**.
 6. En la página **Acción**, mantenga seleccionado **Permitir la conexión** y luego haga clic en **Siguiente**.
 7. En la página **Perfiles**, acepte la configuración predeterminada y luego haga clic en **Siguiente**.
 8. En la página **Nombre**, especifique el nombre de una regla, como **Sondeo de Azure Load Balancer** en el cuadro de texto **Nombre** y haga clic en **Finalizar**.
 
 Repita estos pasos en la segunda máquina virtual con SQL Server.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Creación de un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

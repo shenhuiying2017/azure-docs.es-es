@@ -1,10 +1,10 @@
 ---
 title: "Integración de Key Vault con SQL Server en máquinas virtuales Windows en Azure (clásicas) | Microsoft Docs"
-description: "Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Azure Key Vault. En este tema se explica cómo usar la integración de Azure Key Vault con la creación de máquinas virtuales de SQL Server en el modelo de implementación clásica."
+description: "Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Azure Key Vault. En este tema se explica cómo usar la integración de Azure Key Vault con la creación de máquinas virtuales de SQL Server en el modelo de implementación clásico."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/21/2017
 SQL Server tiene varias características de cifrado, como el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), el [cifrado de nivel de columna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) y el [cifrado de copia de seguridad](https://msdn.microsoft.com/library/dn449489.aspx). Estas formas de cifrado requieren administrar y almacenar las claves criptográficas que se usan para el cifrado. El servicio Azure Key Vault (AKV) está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El [conector de SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) permite que SQL Server use estas claves de Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 Si ejecuta SQL Server con máquinas locales, hay una serie de [pasos que puede seguir para acceder a Azure Key Vault desde la máquina de SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo usando la característica *Integración de Azure Key Vault* . Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
 
@@ -50,7 +50,7 @@ Primero, [instale la extensión IaaS de SQL Server](../classic/sql-server-agent-
 ### <a name="understand-the-input-parameters"></a>Descripción de los parámetros de entrada
 En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el script de PowerShell en la sección siguiente.
 
-| Parámetro | Description | Ejemplo |
+| . | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | **$akvURL** |**La dirección URL del Almacén de claves** |"https://contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nombre de entidad de servicio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |

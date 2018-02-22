@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cd452ff46f8a87fd04eaca037b6bc0120ca86e4d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-analysis-services"></a>Administración de Analysis Services
 Una vez que se ha creado un servidor de Analysis Services en Azure, es posible que haya que realizar varias tareas de administración inmediatamente o en algún momento del futuro. Por ejemplo, ejecutar el procesamiento de los datos de la actualización, controlar quién puede acceder a los modelos del servidor o supervisar el estado del servidor. Varias de estas tareas solo se pueden realizar en Azure Portal, otras en SQL Server Management Studio (SSMS) y otras se pueden realizar indistintamente en ambos.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 [Azure Portal](http://portal.azure.com/) es el lugar donde se puede crear y eliminar servidores, supervisar los recursos de los servidores, y cambiar el tamaño de los servidores y administrar quién tiene acceso a ellos.  Si tiene problemas, también puede enviar una solicitud de soporte técnico.
 
 ![Obtención del nombre del servidor en Azure](./media/analysis-services-manage/aas-manage-portal.png)
@@ -64,7 +64,7 @@ En Azure Analysis Services hay dos tipos de usuarios: los administradores del se
 ## <a name="troubleshooting-connection-problems"></a>Solución de problemas de conexión
 Cuando se conecta mediante SSMS, si experimenta problemas, puede que deba borrar la caché de inicio de sesión. Nada se almacena en caché en el disco. Para borrar la caché, cierre y reinicie el proceso de conexión. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si aún no ha implementado un modelo tabular en el nuevo servidor, ahora es buen momento para hacerlo. Para más información, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementación en Azure Analysis Services).
 
 Si ha implementado un modelo en un servidor, está listo para conectarse a él mediante un cliente o un explorador. Para más información, consulte [Get data from Azure Analysis Services](analysis-services-connect.md) (Obtención de datos del servidor de Azure Analysis Services).

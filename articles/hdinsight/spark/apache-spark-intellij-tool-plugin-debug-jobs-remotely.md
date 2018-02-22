@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en HDInsight mediante VPN
 
@@ -34,7 +34,7 @@ En este artículo se proporcionan instrucciones paso a paso para usar las herram
 4. Cree una aplicación Scala en IntelliJ IDEA y luego configúrela para la depuración remota.
 5. Ejecución y depuración de la aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Una suscripción de Azure**. Para más información, vea [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un clúster de Apache Spark en HDInsight**. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 * **Kit de desarrollo de Oracle Java**. Puede instalarlo desde el [sitio web de Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -60,7 +60,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 2. En la interfaz de usuario de Ambari, seleccione **Hosts**.
 
     ![Selección de Hosts en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn** \*. Seleccione el primer nodo principal.
+3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn***. Seleccione el primer nodo principal.
 
     ![Búsqueda del nodo principal en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 4. En el panel **Resumen** de la parte inferior de la página que se abre, copie la **Dirección IP** del nodo principal y el **Nombre de host**.
@@ -160,7 +160,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
                  <name>net.topology.script.file.name</name>
                  <value>/etc/hadoop/conf/topology_script.py</value>
            </property>
-   c. Guarde el archivo .
+   c. Guarde el archivo.
 7. Agregue la clase Main para la aplicación. En el **Explorador de proyectos**, haga clic con el botón derecho en **src**, elija **Nuevo** y luego seleccione **Scala class** (Clase de Scala).
 
     ![Selección de la clase Main](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
@@ -275,12 +275,11 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 * [Spark con BI: realización del análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](apache-spark-eventhub-streaming.md)
-* [Análisis del registro del sitio web con Spark en HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md)

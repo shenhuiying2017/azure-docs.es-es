@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 Este tema responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
@@ -80,7 +80,7 @@ Cuando varias cuentas de AD Azure de distintos inquilinos de Azure AD se encuent
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>¿Cuáles son las opciones de configuración de itinerancia de las aplicaciones de escritorio de Windows existentes?
 La itinerancia solo funciona en las aplicaciones universales de Windows. Hay dos opciones disponibles para habilitar la itinerancia en aplicaciones de escritorio de Windows existentes:
 
-* [Desktop Bridge](http://aka.ms/desktopbridge) le ayuda transferir fácilmente sus aplicaciones de escritorio de Windows a la plataforma universal de Windows. A partir de aquí, habrá que realizar cambios mínimos en el código para aprovechar las ventajas de la itinerancia de datos de la aplicación de Azure AD. Desktop Bridge proporciona a las aplicaciones una identidad de aplicación, que se requiere para habilitar la itinerancia de datos de las aplicaciones de escritorio existentes.
+* [Desktop Bridge](https://aka.ms/desktopbridge) le ayuda transferir fácilmente sus aplicaciones de escritorio de Windows a la plataforma universal de Windows. A partir de aquí, habrá que realizar cambios mínimos en el código para aprovechar las ventajas de la itinerancia de datos de la aplicación de Azure AD. Desktop Bridge proporciona a las aplicaciones una identidad de aplicación, que se requiere para habilitar la itinerancia de datos de las aplicaciones de escritorio existentes.
 * [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) le permite crear una plantilla de configuración personalizada para aplicaciones de escritorio de Windows existentes y habilitar la itinerancia para las aplicaciones de Win32. Esta opción no precisa que el desarrollador cambie el código de la aplicación. Solo los clientes que han comprado el paquete de optimización de escritorio de Microsoft pueden utilizar UE-V para habilitar la itinerancia de Active Directory local.
 
 Los administradores pueden configurar UE-V para usar un perfil itinerante en los datos de aplicación de escritorio de Windows cambiando la itinerancia de la configuración de sistema operativo Windows y de los datos de aplicación universal mediante las [directivas de grupo de UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), entre ellas:

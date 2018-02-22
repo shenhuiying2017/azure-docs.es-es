@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 27a80ddb110ba47bf9c1284aa48d2f3af1a87145
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c940f5646bc7845db7b774d7ada40b8105534d69
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Carga de archivos VHD en la cuenta de almacenamiento del laboratorio mediante PowerShell
 
@@ -32,7 +32,7 @@ Los siguientes pasos le guían en la carga de un archivo VHD en Azure DevTest La
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
 1. En la lista de laboratorios, seleccione el laboratorio que desee.  
 

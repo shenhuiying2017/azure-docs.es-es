@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creación de una máquina virtual Windows en una zona de disponibilidad con Azure Portal
 
@@ -35,7 +35,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
 2. Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
 
@@ -122,6 +122,6 @@ Location           : eastus2
 Tags               : {}
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre las [regiones y la disponibilidad](regions-and-availability.md) de las máquinas virtuales de Azure.

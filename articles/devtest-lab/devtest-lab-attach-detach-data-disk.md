@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Asociación de un disco de datos, o su desasociación, a una máquina virtual en Azure DevTest Labs
 [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
@@ -35,7 +35,7 @@ Antes de asociar un disco de datos a una máquina virtual, revise estas sugerenc
 Siga estos pasos para crear y asociar un nuevo disco de datos administrado a una máquina virtual en Azure DevTest Labs.
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el laboratorio que desee. 
 1. En la lista **Mis máquinas virtuales**, seleccione una máquina virtual en ejecución.
 1. En el menú de la izquierda, seleccione **Discos**.

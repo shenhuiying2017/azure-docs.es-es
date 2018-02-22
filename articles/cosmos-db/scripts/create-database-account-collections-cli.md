@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e66515c88b5b2a24d72ff5f40cd822521a71bcf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: creación de una cuenta de API de SQL mediante la CLI
 
@@ -46,13 +46,13 @@ az group delete --name myResourceGroup
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az cosmosdb create](/cli/azure/cosmosdb#create) | Crea una cuenta de Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea una cuenta de Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 

@@ -3,8 +3,8 @@ title: "Administración de cuentas de almacenamiento de Azure Stack | Microsoft 
 description: Aprenda a buscar, administrar, recuperar y reclamar cuentas de almacenamiento de Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: AniAnirudh
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
-ms.author: anirudha
-ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anirudha
+ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Administración de cuentas de almacenamiento en Azure Stack
 Aprenda a administrar cuentas de almacenamiento en Azure Stack para buscar, recuperar y reclamar capacidad de almacenamiento según las necesidades empresariales.

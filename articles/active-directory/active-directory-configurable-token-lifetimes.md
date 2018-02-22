@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
@@ -73,7 +73,7 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
 | --- | --- | --- | --- | --- | --- |
 | Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
-| Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |14 días |10 minutos |90 días |
+| Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
 | Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
@@ -194,7 +194,7 @@ En los ejemplos, puede aprender a:
 * Crear una directiva para una aplicación nativa que llama a una API web
 * Administrar una directiva avanzada
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de aplicaciones, entidades de servicio y de la organización en general. Si no está familiarizado con Azure AD, se recomienda que aprenda [cómo obtener un inquilino de Azure AD](active-directory-howto-tenant.md) antes de continuar con estos ejemplos.  
 
 Para comenzar, realice uno de los pasos siguientes:
@@ -363,7 +363,7 @@ Crea una nueva directiva.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| parameters | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |La matriz de cadenas JSON que contiene todas las reglas de la directiva. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
@@ -380,7 +380,7 @@ Obtiene todas las directivas de AzureAD o una directiva especificada.
 Get-AzureADPolicy
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Opcional] |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
@@ -393,7 +393,7 @@ Obtiene todas las aplicaciones y entidades de servicio vinculadas a una directiv
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
@@ -406,7 +406,7 @@ Actualiza una directiva existente.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
@@ -424,7 +424,7 @@ Elimina la directiva especificada.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. | `-Id <ObjectId of Policy>` |
 
@@ -440,7 +440,7 @@ Vincula la directiva especificada a una aplicación.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
@@ -454,7 +454,7 @@ Obtiene la directiva asignada a una aplicación.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
@@ -467,7 +467,7 @@ Quita una directiva de una aplicación.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |
@@ -484,7 +484,7 @@ Vincula la directiva especificada a una entidad de servicio.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
@@ -498,7 +498,7 @@ Obtiene cualquier directiva vinculada a la entidad de servicio especificada.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
@@ -511,7 +511,7 @@ Quita la directiva de la entidad de servicio especificada.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parámetros | Descripción | Ejemplo |
+| Parámetros | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |

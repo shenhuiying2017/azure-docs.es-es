@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -46,7 +46,7 @@ Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o gru
   
 4.  Seleccione uno de estos permisos:  
   
-    |Permiso|Descripción|  
+    |Permiso|DESCRIPCIÓN|  
     |----------------|-----------------|  
     |**None**|Los miembros no pueden modificar el esquema de modelo ni tampoco consultar datos.|  
     |**Lectura**|Los miembros pueden consultar datos (según los filtros de fila), pero no pueden modificar el esquema de modelo.|  
@@ -73,7 +73,7 @@ Para agregar roles y usuarios a una base de datos modelo implementada, debe esta
 2. En **Crear rol**, escriba un nombre de rol y su descripción.
 
 3. Seleccione un permiso.
-   |Permiso|Descripción|  
+   |Permiso|DESCRIPCIÓN|  
    |----------------|-----------------|  
    |**Control total (administrador)**|Los miembros pueden modificar el esquema modelo, el proceso y pueden consultar todos los datos.| 
    |**Proceso de una base de datos**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
@@ -121,7 +121,7 @@ En este ejemplo, se agrega un grupo y un usuario externo de B2B al rol de analis
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para agregar roles y usuarios mediante PowerShell
 El módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) proporciona cmdlets de administración de base de datos específicos de la tarea y el cmdlet Invoke-ASCmd de uso general que acepta un script o una consulta de Tabular Model Scripting Language (TMSL). Los cmdlets siguientes se usan para administrar usuarios y roles de base de datos.
   
-|Cmdlet|Descripción|
+|Cmdlet|DESCRIPCIÓN|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Agrega un miembro a un rol de base de datos.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Quita un miembro de un rol de base de datos.|   
@@ -146,7 +146,7 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
   
  Puede usar el filtro, *=FALSE()*, para denegar el acceso a todas las filas de una tabla completa.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
   [Administración de administradores del servidor](analysis-services-server-admins.md)   
   [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
   [Referencia Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

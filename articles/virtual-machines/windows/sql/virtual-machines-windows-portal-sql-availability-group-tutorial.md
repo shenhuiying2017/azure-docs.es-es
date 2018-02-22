@@ -4,7 +4,7 @@ description: "Este tutorial muestra cómo crear un grupo de disponibilidad de SQ
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -32,13 +32,13 @@ El diagrama muestra lo que va a crear en el tutorial.
 
 ![Grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 En la tabla siguiente se enumeran los requisitos previos que debe completar antes de iniciar este tutorial:
 
-|  |Requisito |Descripción |
+|  |Requisito |DESCRIPCIÓN |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dos servidores SQL Server | - En un conjunto de disponibilidad de Azure <br/> - En un solo dominio <br/> - Con la característica Clústeres de conmutación por error instalada |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Recurso compartido de archivos para testigo de clúster |  
@@ -69,7 +69,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
    ![Crear clúster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. En el Asistente para crear clúster, cree un clúster de un solo nodo avanzando por las páginas con la configuración de la tabla siguiente:
 
-   | Page | Configuración |
+   | Page | Settings |
    | --- | --- |
    | Antes de empezar |Usar predeterminados |
    | Seleccionar servidores |Escriba el primer nombre de SQL Server en **Escriba un nombre de servidor** y haga clic en **Agregar**. |
@@ -107,7 +107,7 @@ Agregue el otro servidor SQL Server al clúster.
     >[!WARNING]
    >Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](https://technet.microsoft.com/library/hh831739).
 
-1. Haga clic en **Siguiente**.
+1. Haga clic en **Next**.
 
 1. Haga clic en **Finalizar**
 
@@ -131,9 +131,9 @@ En este ejemplo, el clúster de Windows usa un recurso compartido de archivos pa
 
    Use **Asistente para crear una carpeta compartida** para crear un recurso compartido.
 
-1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida. Haga clic en **Siguiente**.
+1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida. Haga clic en **Next**.
 
-1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Siguiente**.
+1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Next**.
 
 1. En **Permisos de la carpeta compartida**, establezca **Personalizar permisos**. Clic en **Personalizado...**
 
@@ -143,7 +143,7 @@ En este ejemplo, el clúster de Windows usa un recurso compartido de archivos pa
 
    ![Nuevo recurso compartido](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 1. En **Permisos de la carpeta compartida**, haga clic en **Finalizar**. Haga clic de nuevo en **Finalizar**.  
 
@@ -168,9 +168,9 @@ A continuación, establezca el quórum de clúster.
    >[!TIP]
    >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
 
-1. En **Configurar un testigo de recurso compartido de archivos**, escriba la ruta de acceso para el recurso compartido que creó. Haga clic en **Siguiente**.
+1. En **Configurar un testigo de recurso compartido de archivos**, escriba la ruta de acceso para el recurso compartido que creó. Haga clic en **Next**.
 
-1. Compruebe la configuración en **Confirmación**. Haga clic en **Siguiente**.
+1. Compruebe la configuración en **Confirmación**. Haga clic en **Next**.
 
 1. Haga clic en **Finalizar**
 
@@ -186,7 +186,7 @@ A continuación, habilite la característica **Grupos de disponibilidad AlwaysOn
 
     ![Habilitación de grupos de disponibilidad AlwaysOn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Haga clic en **Apply**. Haga clic en **Aceptar** en el cuadro de diálogo emergente.
+4. Haga clic en **Aplicar**. Haga clic en **Aceptar** en el cuadro de diálogo emergente.
 
 5. Reinicie el servicio de SQL Server.
 
@@ -233,9 +233,9 @@ Repeat these steps on the second SQL Server.
 
    Use **Asistente para crear una carpeta compartida** para crear un recurso compartido.
 
-1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida de copia de seguridad de base de datos. Haga clic en **Siguiente**.
+1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida de copia de seguridad de base de datos. Haga clic en **Next**.
 
-1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Siguiente**.
+1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Next**.
 
 1. En **Permisos de la carpeta compartida**, establezca **Personalizar permisos**. Clic en **Personalizado...**
 
@@ -245,7 +245,7 @@ Repeat these steps on the second SQL Server.
 
    ![Nuevo recurso compartido](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 1. En **Permisos de la carpeta compartida**, haga clic en **Finalizar**. Haga clic de nuevo en **Finalizar**.  
 
@@ -271,7 +271,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Iniciar el Asistente para nuevo grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. En la página **Introducción**, haga clic en **Siguiente**. En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad, por ejemplo **AG1**, en **Nombre de grupo de disponibilidad**. Haga clic en **Siguiente**.
+2. En la página **Introducción**, haga clic en **Siguiente**. En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad, por ejemplo **AG1**, en **Nombre de grupo de disponibilidad**. Haga clic en **Next**.
 
     ![Asistente para nuevo grupo de disponibilidad, especificar el nombre del grupo](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -294,7 +294,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\**. Haga clic en **Siguiente**.
+8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\**. Haga clic en **Next**.
 
    >[!NOTE]
    >La sincronización completa realiza una copia de seguridad completa de la base de datos en la primera instancia de SQL Server y la restaura en la segunda instancia. Para bases de datos grandes, no se recomienda la sincronización completa porque puede llevar mucho tiempo. Puede reducir este tiempo realizando manualmente una copia de seguridad de la base de datos y restaurándola con `NO RECOVERY`. Si ya se ha restaurado la base de datos con `NO RECOVERY` en el segundo servidor SQL Server antes de configurar el grupo de disponibilidad, elija **Solo unirse**. Si desea realizar la copia de seguridad después de configurar el grupo de disponibilidad, elija **Omitir la sincronización de datos iniciales**.
@@ -342,11 +342,11 @@ En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias 
 En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
 
 1. En Azure Portal, vaya al grupo de recursos donde están los servidores SQL Server y haga clic en **+Agregar**.
-2. Busque **Equilibrador de carga**. Elija el equilibrador de carga publicado por Microsoft.
+2. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.
 
    ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error.](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Haga clic en **Crear**.
+1.  Haga clic en **Create**(Crear).
 3. Configure los parámetros siguientes para el equilibrador de carga.
 
    | Configuración | Campo |
@@ -355,7 +355,7 @@ En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un 
    | **Tipo** |Interno |
    | **Red virtual** |Use el nombre de la red virtual de Azure. |
    | **Subred** |Utilice el nombre de la subred en la que se encuentra la máquina virtual.  |
-   | **Asignación de dirección IP** |Estática |
+   | **Asignación de dirección IP** |estática |
    | **Dirección IP** |Use una dirección disponible en la subred. |
    | **Suscripción** |Utilice la misma suscripción que la de la máquina virtual. |
    | **Ubicación** |Use la misma ubicación que la de la máquina virtual. |
@@ -376,7 +376,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Haga clic en el equilibrador de carga, en **Grupos de back-end** y en **+Agregar**. Configure el grupo de back-end del modo siguiente:
 
-   | Configuración | Descripción | Ejemplo
+   | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
    | **Name** | Escribir un nombre de texto | SQLLBBE
    | **Asociado a** | Elegir de la lista | Conjunto de disponibilidad
@@ -399,7 +399,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Configure el sondeo de estado del modo siguiente:
 
-   | Configuración | Descripción | Ejemplo
+   | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
    | **Name** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
@@ -414,7 +414,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 1. Haga clic en el equilibrador de carga, en **Reglas de equilibrio de carga** y en **+Agregar**.
 
 1. Configure las reglas de equilibrio de carga del modo siguiente.
-   | Configuración | Descripción | Ejemplo
+   | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
    | **Name** | Texto | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
@@ -424,7 +424,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
-   | **IP flotante (Direct Server Return)** | |Enabled |
+   | **IP flotante (Direct Server Return)** | |habilitado |
 
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.
@@ -497,6 +497,6 @@ La conexión SQLCMD se establece automáticamente con la instancia de SQL Server
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Agregar una dirección IP a un equilibrador de carga para un segundo grupo de disponibilidad](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

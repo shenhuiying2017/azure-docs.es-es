@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protección del acceso con privilegios en Azure AD
 La protección del acceso con privilegios es un primer paso esencial para ayudar a proteger los activos empresariales en las organizaciones modernas. Las cuentas con privilegios son cuentas que administran los sistemas de TI. Estas cuentas son el objetivo de los ciberatacantes ya que les proporcionan acceso a los datos y los sistemas de una organización. Para proteger el acceso con privilegios, debe aislar las cuentas y los sistemas del riesgo de exposición a usuarios malintencionados.
@@ -50,7 +50,7 @@ Para más información, consulte [MFA for Office 365 and MFA for Azure](https://
 ## <a name="time-bound-privileges"></a>Privilegios de tiempo limitado
 Algunas organizaciones pueden encontrarse con que tienen demasiados usuarios en roles con privilegios elevados. Un usuario podría haberse agregado al rol de una determinada actividad, por ejemplo, registrarse en un servicio, pero luego no usar esos privilegios con frecuencia.
 
-Para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad sobre su uso, puede limitar a los usuarios a tomar los privilegios "justo a tiempo" (JIT) o asignar estos roles para una duración reducida con la confianza de que los privilegios se revocarán automáticamente. Para Azure Active Directory, Azure Resources (versión preliminar) y Microsoft Online Services, puede usar [Privileged Identity Management (PIM) de Azure AD](http://aka.ms/AzurePIM).
+Para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad sobre su uso, puede limitar a los usuarios a tomar los privilegios "justo a tiempo" (JIT) o asignar estos roles para una duración reducida con la confianza de que los privilegios se revocarán automáticamente. Para Azure Active Directory, Azure Resources (versión preliminar) y Microsoft Online Services, puede usar [Privileged Identity Management (PIM) de Azure AD](https://aka.ms/AzurePIM).
 
 ![Panel de PIM][2]
 
@@ -68,7 +68,7 @@ Con el control de acceso condicional, Azure Active Directory comprueba las condi
 * Habilitación de [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Habilitación de los [controles de acceso condicional](../active-directory-conditional-access-azure-portal.md)
 
-Para más información sobre la creación de un plan de seguridad completo, consulte la sección sobre responsabilidades del cliente y plan de acción en el documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) (Seguridad de Microsoft Cloud para los arquitectos de empresa). Para más información sobre cómo interactuar con los servicios de Microsoft para que le ayuden con alguno de estos temas, póngase en contacto con su representante de Microsoft o visite nuestra [página de soluciones de ciberseguridad](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Para más información sobre la creación de un plan de seguridad completo, consulte la sección sobre responsabilidades del cliente y plan de acción en el documento [Microsoft Cloud Security for Enterprise Architects](https://aka.ms/securecustomer) (Seguridad de Microsoft Cloud para los arquitectos de empresa). Para más información sobre cómo interactuar con los servicios de Microsoft para que le ayuden con alguno de estos temas, póngase en contacto con su representante de Microsoft o visite nuestra [página de soluciones de ciberseguridad](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

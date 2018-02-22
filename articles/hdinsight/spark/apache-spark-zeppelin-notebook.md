@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 19e363c9802d712937b4c1e9db550346e60a01c0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e20b347c1171afa48f9f2a7d9ab2151f827a96f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Zeppelin con un clúster Apache Spark en Azure HDInsight
 
@@ -31,7 +31,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
 
 **Requisitos previos:**
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="launch-a-zeppelin-notebook"></a>Inicio de un cuaderno de Zeppelin Notebook
@@ -159,19 +159,18 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
     ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 
-## <a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Consulte también
 * [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](apache-spark-eventhub-streaming.md)
-* [Análisis del registro del sitio web con Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](apache-spark-intellij-tool-plugin.md)
