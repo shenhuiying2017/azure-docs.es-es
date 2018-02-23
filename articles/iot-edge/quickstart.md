@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
 
@@ -21,7 +21,7 @@ En esta guía de inicio rápido, use la interfaz en la nube de Azure IoT Edge pa
 
 Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita][lnk-account] antes de comenzar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este tutorial se asume que utiliza un equipo o máquina virtual con Windows para simular un dispositivo de Internet de las cosas. Si ejecuta Windows en una máquina virtual, habilite la [virtualización anidada][lnk-nested] y asigne al menos 2 GB de memoria. 
 
@@ -32,7 +32,7 @@ En este tutorial se asume que utiliza un equipo o máquina virtual con Windows p
 3. Instale [Python 2.7 en Windows][lnk-python] y asegúrese de que puede usar el comando pip.
 4. Ejecute el comando siguiente para descargar el script de control de IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ En este tutorial se asume que utiliza un equipo o máquina virtual con Windows p
 >    * Windows IoT Core (compilación 16299) en un dispositivo basado en x64
 >
 > Para Windows IoT Core, siga las instrucciones del artículo sobre cómo [instalar el entorno en tiempo de ejecución de IoT Edge en Windows IoT Core][lnk-install-iotcore]. En caso contrario, simplemente [configure Docker para que use contenedores Windows][lnk-docker-containers] y, opcionalmente, valide los requisitos previos con el siguiente comando de PowerShell:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Cons
 
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie el runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Compruebe Docker para ver si el agente de IoT Edge se ejecuta como un módulo.
 
-```
+```cmd
 docker ps
 ```
 
@@ -129,7 +129,7 @@ Cuando ya no necesite la instancia de IoT Hub que ha creado, puede usar el coman
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha aprendido a implementar un módulo de IoT Edge en un dispositivo de IoT Edge. Ahora intente implementar distintos tipos de servicios de Azure como módulos, para poder analizar los datos en el perímetro. 
 

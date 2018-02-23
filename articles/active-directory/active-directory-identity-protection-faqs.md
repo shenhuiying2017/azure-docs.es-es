@@ -25,14 +25,14 @@ ms.lasthandoff: 12/11/2017
 Este artículo incluye respuestas a preguntas más frecuentes sobre los informes de Azure Active Directory (Azure AD) Identity Protection. Para obtener más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md). 
 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>¿Por qué algunos eventos de riesgo tienen el estado \"\ Cerrada (sistema) \"\ ?
+## <a name="why-do-some-risk-events-have-closed-system-status"></a>¿Por qué algunos eventos de riesgo tienen el estado "Cerrada (sistema)"?
 
 **R:** Son eventos que Azure Active Directory Identity Protection detectó y más adelante cerró porque dejaron de considerarse arriesgados. Estos eventos no cuentan para el nivel de riesgo del usuario. 
 
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>¿Es necesario ser administrador global para usar Identity Protection en Azure Portal?
-**R**: No. Puede ser lector de seguridad, administrador de seguridad o administrador global para usar Identity Protection.
+**R:** No. Puede ser lector de seguridad, administrador de seguridad o administrador global para usar Identity Protection.
 
 ---
 

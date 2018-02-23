@@ -378,9 +378,9 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Administración de esquemas de inquilino
               href: saas-tenancy-schema-management.md
-            - name: Ejecución de consultas ad hoc
-              href: saas-tenancy-adhoc-analytics.md
-            - name: 'Extracción, transformación y carga de datos para análisis'
+            - name: Informes entre inquilinos
+              href: saas-tenancy-cross-tenant-reporting.md
+            - name: 'Extracción, transformación y carga de datos para Analytics'
               href: saas-tenancy-tenant-analytics.md
         - name: Base de datos multiinquilino
           items:
@@ -394,7 +394,7 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Administración de esquemas de inquilino
               href: saas-multitenantdb-schema-management.md
-            - name: 'Extracción, transformación y carga de datos para análisis'
+            - name: 'Extracción, transformación y carga de datos para Analytics'
               href: saas-multitenantdb-tenant-analytics.md
     - name: Desarrollo de aplicaciones
       items:

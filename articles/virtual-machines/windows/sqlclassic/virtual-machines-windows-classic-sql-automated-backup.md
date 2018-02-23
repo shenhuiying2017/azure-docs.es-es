@@ -4,7 +4,7 @@ description: "Explica la característica Automated Backup para SQL Server que se
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Backup para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 
 * [Instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
-## <a name="settings"></a>Configuración
+## <a name="settings"></a>Settings
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup. Para las máquinas virtuales clásicas, debe usar PowerShell para configurar estas opciones.
 
 | Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |

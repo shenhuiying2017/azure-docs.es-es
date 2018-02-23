@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -66,14 +66,11 @@ Todos los ejemplos de plantillas de Azure Policy están en [Plantillas para Azur
 
 ## <a name="mode"></a>Mode
 
-Se recomienda establecer `mode` en `all` para hacer que una asignación de directiva evalúe todos los tipos y grupos de recursos. Puede ver un ejemplo de una definición de directiva que aplica etiquetas en un grupo de recursos en el artículo sobre cómo [autorizar la imagen de máquina virtual personalizada desde un grupo de recursos](scripts/allow-custom-vm-image.md).
+El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
+* `all`: evalúe los grupos de recursos y todos los tipos de recurso 
+* `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
-Cuando se establece en **all**, los grupos de recursos y todos los tipos de recursos se evalúan para la directiva. El portal usa **all** para todas las directivas. Si usa PowerShell o CLI de Azure, tiene que especificar el parámetro `mode`, establézcalo en **all**.
-
-Todas las definiciones de directiva que se crean con el portal usan un modo `all`, pero si desea usar PowerShell o la CLI de Azure, debe especificar el parámetro `mode` y establecerlo en `all`.
-
-Si establece el modo en `indexed`, la asignación de directivas solo se evaluará en los tipos de recurso que admiten etiquetas y ubicaciones.
-
+Se recomienda que establezca el **modo** en `all`. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro de **modo** y establecerlo en `all`. 
 
 ## <a name="parameters"></a>Parámetros
 
@@ -265,6 +262,7 @@ Los alias de propiedad se usan para tener acceso a propiedades específicas de u
 | Microsoft.Compute/virtualMachines/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Establezca el URI de VHD. |
 | Microsoft.Compute/virtualMachines/sku.name | Establezca el tamaño de la máquina virtual. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Establece el identificador de conjunto de disponibilidad para la máquina virtual. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ Los alias de propiedad se usan para tener acceso a propiedades específicas de u
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Establezca si el servicio cifra los datos como si estuvieran almacenados en el servicio File Storage. |
 | Microsoft.Storage/storageAccounts/sku.name | Establezca el nombre de SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Establezca permitir solo el tráfico https en el servicio de almacenamiento. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Compruebe si el punto de conexión de servicio de red virtual está habilitado. |
 
 ## <a name="initiatives"></a>Iniciativas
 

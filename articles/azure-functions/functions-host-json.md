@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referencia de host.json para Azure Functions
 
@@ -115,7 +115,7 @@ Especifica cuántas llamadas a funciones se agregan cuando se [calculan las mét
 }
 ```
 
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|Propiedad |Valor predeterminado  | DESCRIPCIÓN |
 |---------|---------|---------| 
 |batchSize|1000|Número máximo de solicitudes para agregar.| 
 |flushTimeout|00:00:30|Período máximo de tiempo para agregar.| 
@@ -237,25 +237,7 @@ Controla el filtrado de los registros escritos por un [objeto ILogger](functions
 
 Opciones de configuración para los [desencadenadores y enlaces de la cola de Storage](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
-|---------|---------|---------| 
-|maxPollingInterval|60000|Intervalo máximo, en milisegundos, entre sondeos de la cola.| 
-|visibilityTimeout|0|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje.| 
-|batchSize|16|Número de mensajes en cola para recuperar y procesar en paralelo. El valor máximo es 32.| 
-|maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.| 
-|newBatchThreshold|batchSize/2|Umbral en el que se debe capturar un nuevo lote de mensajes.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ Opción de configuración para los [desencadenadores y enlaces de Service Bus](f
 Opciones de configuración para el comportamiento de bloqueo Singleton. Para más información, consulte [problema de compatibilidad de GitHub con singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bases de datos MySQL en Microsoft Azure Stack
 
@@ -88,7 +88,7 @@ Esta cuenta del sistema debe tener los siguientes privilegios:
 
     - En DependencyFilesLocalPath solo existe un archivo de certificado individual.
     
-    - El nombre de archivo no debe contener caracteres especiales.
+    - El nombre de archivo no debe contener caracteres especiales o espacios.
 
 
 5. Abra una **nueva** consola de PowerShell con privilegios elevados (administrativos). A continuación, cambie al directorio desde el que extrajo los archivos. Use una nueva ventana para evitar problemas que puedan surgir de los módulos de PowerShell incorrectos que ya están cargados en el sistema.

@@ -41,6 +41,8 @@
 #### [Transferencia, bloqueo y liquidación de mensajes](message-transfers-locks-settlement.md)
 #### [Secuenciación y marcas de tiempo del mensaje](message-sequencing.md)
 #### [Expiración de mensajes (período de vida)](message-expiration.md)
+#### [Control de mensajes mediante Azure Event Grid](service-bus-to-event-grid-integration-concept.md)
+#### [Ejemplos de Azure Event Grid](service-bus-to-event-grid-integration-example.md)
 ### [Autenticación y autorización](service-bus-authentication-and-authorization.md)
 #### [Migración de ACS a SAS](service-bus-migrate-acs-sas.md)
 #### [Autenticación con Firmas de acceso compartido](service-bus-sas.md)

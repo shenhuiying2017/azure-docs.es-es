@@ -3,8 +3,8 @@ title: Aplicaciones web y API disponibles para los usuarios de Azure Stack | Mic
 description: Tutorial para instalar el proveedor de recursos de App Service y crear ofertas que permitan a los usuarios de Azure Stack crear aplicaciones web y de API.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Aplicaciones web y API disponibles para los usuarios de Azure Stack
 
@@ -32,7 +33,7 @@ Como administrador en la nube de Azure Stack, puede crear ofertas que permitan a
 
 ## <a name="deploy-the-app-service-resource-provider"></a>Implementar el proveedor de recursos de App Service
 
-1. [Prepare el host de Azure Stack Development Kit](azure-stack-app-service-before-you-get-started.md). Esto incluye implementar el proveedor de recursos de SQL Server, que se requiere para crear algunas aplicaciones.
+1. [Prepare el host del Kit de desarrollo de Azure Stack](azure-stack-app-service-before-you-get-started.md). Esto incluye implementar el proveedor de recursos de SQL Server, que se requiere para crear algunas aplicaciones.
 2. [Descargue los scripts de aplicación auxiliar y del instalador](azure-stack-app-service-deploy.md).
 3. [Ejecute el script de aplicación auxiliar para crear los certificados necesarios](azure-stack-app-service-deploy.md).
 4. [Instale el proveedor de recursos de App Service](azure-stack-app-service-deploy.md) (tardará un par de horas en instalarse y que todos los roles de trabajo aparezcan).
@@ -70,7 +71,7 @@ Ahora que ha implementado el proveedor de recursos de App Service y ha creado un
     - **Grupo de recursos**: DNN-RG
 3. Haga clic en **Configuración de inicio de sesión**, escriba las credenciales de la base de datos y, a continuación, haga clic en **Aceptar**. Usará estas credenciales más adelante en estos pasos.
 4. Haga clic en **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > **Aceptar**.
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 
 ### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN    
 
@@ -79,9 +80,9 @@ Ahora que ha implementado el proveedor de recursos de App Service y ha creado un
 3. Haga clic en **Configurar los valores obligatorios** > **Crear nuevo** > escriba un nombre de **Plan de App Service**.
 4. Haga clic en **Nivel de precios** > **F1 gratuito** > **Seleccionar** > **Aceptar**.
 5. Haga clic en **Base de datos** y escriba la información de la base de datos SQL que creó anteriormente.
-6. Haga clic en **Crear**.
+6. Haga clic en **Create**(Crear).
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Implementar el proveedor de recursos de App Service

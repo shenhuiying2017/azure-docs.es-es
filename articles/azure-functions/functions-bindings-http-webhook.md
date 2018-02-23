@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -493,6 +493,9 @@ De forma predeterminada, todas las rutas de la función tienen el prefijo *api*.
 ### <a name="authorization-keys"></a>Claves de autorización
 
 Los desencadenadores HTTP permiten usar claves para una mayor seguridad. Un desencadenador HTTP estándar puede usarlas como claves de API, lo que exige que la clave esté en la solicitud. Los webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor.
+
+> [!NOTE]
+> Al ejecutar las funciones de forma local, la autorización se deshabilita independientemente de `authLevel` establecido en `function.json`. En cuanto realice la publicación en Azure Functions, `authLevel` se aplicará de inmediato.
 
 Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear unas nuevas o asignarles nuevos valores, navegue a una de las funciones en el portal y seleccione "Administrar". 
 

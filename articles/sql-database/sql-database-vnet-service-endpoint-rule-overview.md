@@ -4,7 +4,7 @@ description: "Marque una subred como punto de conexión del servicio de Virtual 
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -127,9 +128,6 @@ Si quiere, puede optar por la opción de usar el [control de acceso basado en ro
 
 Para Azure SQL Database, la característica de las reglas de red virtual tiene las siguientes limitaciones:
 
-- En la actualidad, una instancia de Azure Web App en una subred que tenga **puntos de conexión de servicio** activados aún no funciona según lo previsto. Estamos trabajando para habilitar esta funcionalidad.
-    - Hasta que esta característica esté implementada totalmente, se recomienda que pase su instancia de Web App a una subred diferente que no tenga puntos de conexión de servicio activados para SQL.
-
 - En el firewall de su instancia de SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos SQL.
 
 - Cada servidor de Azure SQL Database puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
@@ -142,6 +140,12 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
     - Entorno local a través de [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="considerations-when-using-service-endpoints"></a>Consideraciones al usar los puntos de conexión de servicio
+Al utilizar los puntos de conexión de servicio para Azure SQL Database, revise las consideraciones siguientes:
+
+- **Se requiere la salida a IP públicas de Azure SQL Database**: los grupos de seguridad de red (NSG) deben estar abiertos en las IP de Azure SQL Database para permitir la conectividad. Puede hacerlo mediante el uso de [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) de NSG para Azure SQL Database.
+- **Azure Database for PostgreSQL y MySQL no se admiten**: los puntos de conexión de servicio para Azure Database for PostgreSQL o MySQL no son compatibles. Al habilitar puntos de conexión de servicio en SQL Database se interrumpirá la conectividad a estos servicios. Tenemos una solución; póngase en contacto con *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -170,6 +174,8 @@ El editor de consultas de Azure SQL Database se implementa en máquinas virtuale
 #### <a name="table-auditing"></a>Auditoría de tablas
 En la actualidad hay dos maneras de habilitar la auditoría en SQL Database. La auditoría de tablas produce un error después de haber habilitado los puntos de conexión de servicio en el servidor de Azure SQL Server. La solución en este caso consiste en cambiar a la auditoría de blobs.
 
+#### <a name="impact-on-data-sync"></a>Impacto en la sincronización de datos
+Azure SQLDB tiene la característica de sincronización de datos que se conecta a las bases de datos con direcciones IP de Azure. Al utilizar los puntos de conexión de servicio, es probable que desactive el acceso **Allow all Azure Services** (Permitir todos los servicios de Azure) a su servidor lógico. Esto inhabilitará la característica de sincronización de datos.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage
 
@@ -177,7 +183,7 @@ Azure Storage ha implementado la misma característica que le permite limitar la
 Si decide usar esta característica con una cuenta de Storage que se está usando como un servidor de Azure SQL Server puede que se produzcan errores. A continuación, aparece una lista y una explicación de las características de Azure SQLDB que se ven afectadas por esto.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de Storage. Si la cuenta de Storage desde la que está cargando los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta.
+PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de Storage. Si la cuenta de Storage desde la que está cargando los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Hay una solución; póngase en contacto con *dmalik@microsoft.com* para obtener más información.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoría de blobs de Azure SQLDB
 La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica VENT de puntos de conexión de servicio, la conectividad entre Azure SQLDB y la cuenta de almacenamiento se interrumpirá.

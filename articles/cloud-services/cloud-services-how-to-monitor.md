@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
@@ -39,9 +39,9 @@ La supervisión básica no requiere una cuenta de almacenamiento.
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-La supervisión avanzada conlleva el uso de la extensión de **Azure Diagnostics** y, de forma opcional, del SDK de Application Insights en el rol que se desea supervisar. La extensión de Diagnostics usa un archivo de configuración (por rol) denominado **diagnostics.wadcfgx** para configurar las métricas de diagnóstico supervisadas. Los datos que la extensión de Azure Diagnostics recopila se almacenan en una cuenta de almacenamiento de Azure, que se configura en los archivos **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) y [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Esto significa que existe un costo adicional asociado con la supervisión avanzada.
+La supervisión avanzada conlleva el uso de la extensión de **Azure Diagnostics** y, de forma opcional, del SDK de Application Insights en el rol que se desea supervisar. La extensión de Diagnostics usa un archivo de configuración (por rol) denominado **diagnostics.wadcfgx** para configurar las métricas de diagnóstico supervisadas. La extensión Azure Diagnostic recopila y almacena los datos en una cuenta de Azure Storage. Estos valores se configuran en los archivos **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) y [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Esto significa que existe un costo adicional asociado con la supervisión avanzada.
 
-A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Diagnostics. Esta extensión puede recopilar los siguientes tipos de información:
+A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Diagnostics. Esta extensión de diagnósticos puede recopilar los siguientes tipos de información:
 
 * Contadores de rendimiento personalizados
 * Registros de aplicación
@@ -54,12 +54,6 @@ A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Di
 
 > [!IMPORTANT]
 > Aunque todos estos datos se agregan a la cuenta de almacenamiento, el portal **no** ofrece una forma nativa de crear gráficos de los datos. Se recomienda encarecidamente que integre otro servicio, como Application Insights, en la aplicación.
-
-### <a name="use-application-insights"></a>Uso de Application Insights
-
-Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción de enviar datos de diagnóstico a Application Insights. Puede crear el recurso de Azure Application Insights en cualquier momento o enviar los datos a un recursos existente de Azure. Application Insights puede supervisar la disponibilidad, el rendimiento, los errores y el uso del servicio en la nube. Se pueden agregar gráficos personalizados a Application Insights, para poder ver los datos que más interesan. Los datos de instancias de rol pueden recopilarse con el SDK de Application Insights en el proyecto del servicio en la nube. Para más información sobre cómo integrar Application Insights, vea [Application Insights para Azure Cloud Services](../application-insights/app-insights-cloudservices.md).
-
-Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento y otra configuración especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
 
 ## <a name="setup-diagnostics-extension"></a>Configuración de la extensión Diagnostics
 
@@ -82,7 +76,7 @@ En el archivo **ServiceDefinition.csdef**, agregue una configuración nueva llam
 
 De esta forma se define una configuración nueva que debe agregarse a cada archivo **ServiceConfiguration.cscfg**. 
 
-Lo más probable es que tenga dos archivos de configuración **.cscfg**, uno denominado **ServiceConfiguration.cloud.cscfg**, para implementar en Azure, y otro llamado **ServiceConfiguration.local.cscfg**, que se usa para las implementaciones locales en el entorno emulado. Abra y modifique cada archivo **.cscfg**. Agregue una configuración llamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Establezca el valor de la **Cadena de conexión principal** de la cuenta de almacenamiento clásica. Si desea usar el almacenamiento local en el equipo de desarrollo, utilice `UseDevelopmentStorage=true`.
+Lo más probable es que tenga dos archivos de configuración **.cscfg**, uno denominado **ServiceConfiguration.cloud.cscfg**, para implementar en Azure, y otro llamado **ServiceConfiguration.local.cscfg**, que se usa para las implementaciones locales en el entorno emulado. Abra y modifique cada archivo **.cscfg**. Agregue una configuración llamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Establezca el valor en la **cadena de conexión principal** de la cuenta de almacenamiento clásica. Si desea usar el almacenamiento local en el equipo de desarrollo, utilice `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -96,7 +90,15 @@ Lo más probable es que tenga dos archivos de configuración **.cscfg**, uno den
       -->
 ```
 
+## <a name="use-application-insights"></a>Uso de Application Insights
+
+Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción de enviar datos de diagnóstico a Application Insights. Puede crear el recurso de Azure Application Insights en cualquier momento o enviar los datos a un recursos existente de Azure. Application Insights puede supervisar la disponibilidad, el rendimiento, los errores y el uso del servicio en la nube. Se pueden agregar gráficos personalizados a Application Insights, para poder ver los datos que más interesan. Los datos de instancias de rol pueden recopilarse con el SDK de Application Insights en el proyecto del servicio en la nube. Para más información sobre cómo integrar Application Insights, vea [Application Insights para Azure Cloud Services](../application-insights/app-insights-cloudservices.md).
+
+Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento (y otra configuración) especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
+
+
 ## <a name="next-steps"></a>pasos siguientes
 
 - [Información sobre Application Insights con Cloud Services](../application-insights/app-insights-cloudservices.md)
+- [Configuración de contadores de rendimiento](diagnostics-performance-counters.md)
 

@@ -6,7 +6,7 @@
       href: storage-blobs-introduction.md
     - name: 'Elección de blobs, archivos o discos de datos'
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   items:
     - name: Crear una cuenta de almacenamiento
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -62,7 +62,7 @@
           href: storage-blob-scalable-app-download-files.md
         - name: Comprobar las métricas de rendimiento y latencia
           href: storage-blob-scalable-app-verify-metrics.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: .NET
       href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -70,7 +70,7 @@
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: storage-samples-blobs-cli.md
 - name: Conceptos
   items:
@@ -373,7 +373,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
@@ -385,6 +385,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Solución de problemas del Explorador de Storage
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Accesibilidad al Explorador de Storage
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Paquetes NuGet
       items:
         - name: Biblioteca de cliente de Azure Storage para .NET

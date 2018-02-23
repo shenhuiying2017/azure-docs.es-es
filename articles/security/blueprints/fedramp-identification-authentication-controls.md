@@ -1,6 +1,6 @@
 ---
-title: "Automatización de Azure Blueprint para FedRAMP - Identificación y autenticación"
-description: "Aplicaciones web para FedRAMP - Identificación y autenticación"
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (identificación y autenticación)"
+description: "Automatización de aplicaciones web para FedRAMP (identificación y autenticación)"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificación y autenticación (IA)
 
 ## <a name="nist-800-53-control-ia-1"></a>NIST 800-53 Control IA-1
 
 > [!NOTE]
-> Estos controles se definen por NIST y Estados Unidos. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 #### <a name="identification-and-authentication-policy-and-procedures"></a>Procedimientos y directivas de identificación y autenticación
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las cuentas creadas por esta instancia de Azure Blueprint tienen identificadores únicos. Las cuentas integradas con identificadores no únicos se deshabilitan o se eliminan. |
+| **Cliente** | Las cuentas creadas con este plano técnico tienen identificadores únicos. Las cuentas integradas con identificadores no únicos se deshabilitan o se eliminan. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos implementados por esta instancia de Azure Blueprint. |
+| **Cliente** | No hay ninguna cuenta compartida o de grupo habilitada en los recursos implementados con este plano técnico. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso a los recursos implementados por esta instancia de Azure Blueprint está protegido contra los ataques de repetición gracias a la funcionalidad Kerberos integrada de Azure Active Directory, Active Directory y el sistema operativo Windows. En la autenticación de Kerberos, el autenticador que envía el cliente contiene datos adicionales, como una lista de IP cifrada, marcas de tiempo de clientes y la vigencia del vale. Si se reproduce un paquete, se comprueba la marca de tiempo. Si la marca de tiempo es anterior a un autenticador anterior, o la misma, el paquete se rechaza. |
+| **Cliente** | El acceso a los recursos implementados con este plano técnico está protegido contra los ataques de repetición gracias a la funcionalidad Kerberos integrada de Azure Active Directory, Active Directory y el sistema operativo Windows. En la autenticación de Kerberos, el autenticador que envía el cliente contiene datos adicionales, como una lista de IP cifrada, marcas de tiempo de clientes y la vigencia del vale. Si se reproduce un paquete, se comprueba la marca de tiempo. Si la marca de tiempo es anterior que un autenticador anterior, o la misma, el paquete se rechaza. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso a los recursos implementados por esta instancia de Azure Blueprint está protegido contra los ataques de repetición gracias a la funcionalidad Kerberos integrada de Azure Active Directory, Active Directory y el sistema operativo Windows. En la autenticación de Kerberos, el autenticador que envía el cliente contiene datos adicionales, como una lista de IP cifrada, marcas de tiempo de clientes y la vigencia del vale. Si se reproduce un paquete, se comprueba la marca de tiempo. Si la marca de tiempo es anterior a un autenticador anterior, o la misma, el paquete se rechaza. |
+| **Cliente** | El acceso a los recursos implementados con este plano técnico está protegido contra los ataques de repetición gracias a la funcionalidad Kerberos integrada de Azure Active Directory, Active Directory y el sistema operativo Windows. En la autenticación de Kerberos, el autenticador que envía el cliente contiene datos adicionales, como una lista de IP cifrada, marcas de tiempo de clientes y la vigencia del vale. Si se reproduce un paquete, se comprueba la marca de tiempo. Si la marca de tiempo es anterior que un autenticador anterior, o la misma, el paquete se rechaza. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint solicita durante la implementación identificadores especificados por el cliente para cuentas individuales.  |
+| **Cliente** | Este plano técnico solicita durante la implementación identificadores especificados por el cliente para cuentas individuales.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa una tarea programada para que Active Directory deshabilite automáticamente las cuentas después de 35 días de inactividad. |
+| **Cliente** | Este plano técnico implementa una tarea programada para que Active Directory deshabilite automáticamente las cuentas después de 35 días de inactividad. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todo el contenido inicial del autenticador para las cuentas creadas por esta instancia de Azure Blueprint cumple con los requisitos establecidos en IA-5 (1) comprobado cuando lo especifique el cliente durante la implementación.  |
+| **Cliente** | Todo el contenido inicial del autenticador para las cuentas creadas con este plano técnico cumple con los requisitos establecidos en IA-5 (1) comprobado cuando lo especifique el cliente durante la implementación.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Los autenticadores utilizados por esta instancia de Azure Blueprint cumplen con los requisitos de seguridad requeridos por FedRAMP. |
+| **Cliente** | Los autenticadores utilizados por este plano técnico cumplen con los requisitos de seguridad requeridos por FedRAMP. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todos los autenticadores para los componentes de esta instancia de Azure Blueprint se han cambiado de sus valores predeterminados. Los autenticadores los especifica el cliente durante la implementación de esta solución. |
+| **Cliente** | Todos los autenticadores para los componentes de este plano técnico se han cambiado a partir de sus valores predeterminados. Los autenticadores los especifica el cliente durante la implementación de esta solución. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece una directiva de grupo y se configura para implementar restricciones de vigencia de la contraseña (60 días). |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece una directiva de grupo y se configura para implementar restricciones de vigencia de la contraseña (60 días). |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio Key Vault para proteger el contenido del autenticador de la divulgación y modificación no autorizadas. Los siguientes autenticadores se almacenan en una instancia de Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual, la contraseña de la cuenta de servicio de SQL Server. |
+| **Cliente** | Con este plano técnico se implementa el servicio Key Vault para proteger el contenido del autenticador de la divulgación y modificación no autorizadas. Los siguientes autenticadores se almacenan en una instancia de Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual, la contraseña de la cuenta de servicio de SQL Server. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa el servicio Key Vault para proteger el contenido del autenticador de la divulgación y modificación no autorizadas. Los siguientes autenticadores se almacenan en una instancia de Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual, la contraseña de la cuenta de servicio de SQL Server. Key Vault cifra claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). |
+| **Cliente** | Con este plano técnico se implementa el servicio Key Vault para proteger el contenido del autenticador de la divulgación y modificación no autorizadas. Los siguientes autenticadores se almacenan en una instancia de Key Vault: la contraseña de Azure para la cuenta de implementación, la contraseña de administrador de la máquina virtual, la contraseña de la cuenta de servicio de SQL Server. Key Vault cifra claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos implementados por esta instancia de Azure Blueprint. |
+| **Cliente** | No hay ninguna cuenta compartida o de grupo habilitada en los recursos implementados con este plano técnico. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece y configura una directiva de grupo para aplicar los requisitos de complejidad de contraseñas para las cuentas locales de máquinas virtuales y las cuentas de AD.  |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece y configura una directiva de grupo para aplicar los requisitos de complejidad de contraseñas para las cuentas locales de máquinas virtuales y las cuentas de AD.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece y se configura una directiva de grupo para aplicar restricciones a las contraseñas que impongan restricciones de duración mínima (1 día) y máxima (60 días) para las cuentas locales y las cuentas de AD. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece y se configura una directiva de grupo para aplicar restricciones a las contraseñas que impongan restricciones de duración mínima (1 día) y máxima (60 días) para las cuentas locales y las cuentas de AD. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece una directiva de grupo y se configura para aplicar restricciones a las condiciones de reutilización (24 contraseñas) para cuentas locales y cuentas de AD. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se establece una directiva de grupo y se configura para aplicar restricciones a las condiciones de reutilización (24 contraseñas) para cuentas locales y cuentas de AD. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Las cuentas de usuario implementadas con esta instancia de Azure Blueprint incluyen cuentas de usuario locales y de AD. Ambas proporcionan mecanismos que obligan al cumplimiento de los requisitos de contraseña establecidos para crear una contraseña inicial y durante los cambios de contraseña. Azure Active Directory es la herramienta automatizada que se emplea para determinar si los autenticadores de contraseña son suficientemente seguros como para satisfacer las restricciones de longitud, complejidad, rotación y duración de contraseña establecidas en IA-5 (1). Azure Active Directory garantiza que la seguridad del autenticador de contraseñas durante la creación cumple estos estándares. Las contraseñas especificadas por el cliente que se utilizan para implementar esta solución se comprueban para cumplir con los requisitos de seguridad de las contraseñas. |
+| **Cliente** | Las cuentas de usuario implementadas con este plano técnico incluyen cuentas de usuario locales y de AD. Ambas proporcionan mecanismos que obligan al cumplimiento de los requisitos de contraseña establecidos para crear una contraseña inicial y durante los cambios de contraseña. Azure Active Directory es la herramienta automatizada que se emplea para determinar si los autenticadores de contraseña son suficientemente seguros como para satisfacer las restricciones de longitud, complejidad, rotación y duración de contraseña establecidas en IA-5 (1). Azure Active Directory garantiza que la seguridad del autenticador de contraseñas durante la creación cumple estos estándares. Las contraseñas especificadas por el cliente que se utilizan para implementar esta solución se comprueban para cumplir con los requisitos de seguridad de las contraseñas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | No hay uso de autenticadores estáticos no cifrados insertados en aplicaciones, scripts de acceso o teclas de función implementados por esta instancia de Azure Blueprint. Cualquier script o aplicación que utilice un autenticador realiza una llamada a un contenedor de Azure Key Vault antes de cada uso. El acceso a los contenedores de almacén Azure Key Vault se audita, lo que permite la detección de infracciones de esta prohibición si se usa una cuenta de servicio para acceder a un sistema sin una llamada correspondiente al contenedor de Azure Key Vault. |
+| **Cliente** | No hay uso de autenticadores estáticos no cifrados insertados en aplicaciones, scripts de acceso o teclas de función implementados con este plano técnico. Cualquier script o aplicación que utilice un autenticador realiza una llamada a un contenedor de Azure Key Vault antes de cada uso. El acceso a los contenedores de almacén Azure Key Vault se audita, lo que permite la detección de infracciones de esta prohibición si se usa una cuenta de servicio para acceder a un sistema sin una llamada correspondiente al contenedor de Azure Key Vault. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Ningún recurso implementado por esta instancia de Azure Blueprint está configurado para permitir el uso de autenticadores almacenados en caché. La autenticación para las máquinas virtuales implementadas requiere que se introduzca un autenticador en el momento de la autenticación. |
+| **Cliente** | Ningún recurso implementado con este plano técnico está configurado para permitir el uso de autenticadores almacenados en caché. La autenticación para las máquinas virtuales implementadas requiere que se introduzca un autenticador en el momento de la autenticación. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | El acceso a los recursos implementados por esta instancia de Azure Blueprint es a través del Escritorio remoto y se basa en la autenticación de Windows. El comportamiento predeterminado de las sesiones de autenticación de Windows enmascara las contraseñas cuando se introducen durante una sesión de autenticación.  |
+| **Cliente** | El acceso a los recursos implementados con este plano técnico es a través del Escritorio remoto y se basa en la autenticación de Windows. El comportamiento predeterminado de las sesiones de autenticación de Windows enmascara las contraseñas cuando se introducen durante una sesión de autenticación.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Azure Blueprint utiliza Autenticación de Windows, Escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
+| **Cliente** | En este plano técnico se usa la autenticación de Windows, Escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajuste del rendimiento en Azure SQL Database
 
@@ -34,7 +34,7 @@ Estos son métodos manuales porque necesita decidir qué [niveles de servicio](s
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del nivel de rendimiento de su base de datos
 
-Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tiers.md) que puede elegir de entre: Básico, Estándar, Premium y Premium RS (el rendimiento se mide en unidades de procesamiento de base de datos o [DTU](sql-database-what-is-a-dtu.md)). Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
+Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tiers.md) que puede elegir de entre: Básico, Estándar y Premium RS (el rendimiento se mide en unidades de procesamiento de base de datos o [DTU](sql-database-what-is-a-dtu.md)). Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
 
 > [!NOTE]
 > Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo elástico y obtener ventajas de rendimiento similares.
@@ -49,7 +49,6 @@ Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tier
   * **Carga máxima elevada**. Una aplicación que requiere mucha CPU, memoria o entrada/salida (E/S) para completar sus operaciones necesita un nivel de rendimiento alto dedicado. Por ejemplo, una operación de base de datos que se sabe que consume varios núcleos de CPU durante mucho tiempo es candidata al nivel de servicio Premium.
   * **Muchas solicitudes simultáneas**. Algunas aplicaciones de base de datos atienden muchas solicitudes simultáneas, por ejemplo, cuando dan servicio a un sitio web con un volumen elevado de tráfico. Los niveles de servicio Básico y Estándar limitan el número de solicitudes simultáneas por base de datos. Las aplicaciones que requieren más conexiones necesitarían elegir un tamaño de reserva adecuado para controlar el número máximo de solicitudes necesarias.
   * **Baja latencia**. Algunas aplicaciones necesitan garantizar una respuesta de la base de datos en un tiempo mínimo. Si se llama a un procedimiento almacenado determinado como parte de una operación de cliente más amplia, podría ser necesario volver de esa llamada en no más de 20 milisegundos el 99 % del tiempo. Este tipo de aplicación se beneficia del nivel de servicio Premium para asegurarse de que haya la capacidad de proceso necesaria.
-* **Premium RS**: El nivel Premium RS se ha diseñado para cargas de trabajo intensivas de E/S pero que no requieren las mayores garantías de disponibilidad. Los ejemplos incluyen las pruebas en cargas de trabajo de alto rendimiento, o en una carga de trabajo analítico en el que la base de datos no es el sistema de registro.
 
 El nivel de servicio que necesite para su base de datos SQL depende de los requisitos de carga máxima para cada dimensión de recursos. Algunas aplicaciones usan pocas cantidades de un recurso pero tienen necesidades considerables de otros.
 
@@ -77,8 +76,8 @@ En esta sección, examinamos algunas técnicas que puede usar para optimizar Azu
 ### <a name="identify-performance-issues-using-azure-portal"></a>Identificación de problemas de rendimiento mediante Azure Portal
 Las siguientes herramientas en Azure Portal pueden ayudarlo a analizar y corregir problemas de rendimiento con SQL Database:
 
-* [Query Performance Insight](sql-database-query-performance.md)
-* [Asesor de Base de datos SQL](sql-database-advisor.md)
+* [Información de rendimiento de consultas](sql-database-query-performance.md)
+* [Asesor de SQL Database](sql-database-advisor.md)
 
 En Azure Portal puede encontrar más información sobre estas dos herramientas y cómo usarlas. Para diagnosticar y corregir problemas de forma eficaz, se recomienda probar primero las herramientas en Azure Portal. Es recomendable que use los enfoques de optimización manual que describimos a continuación, para índices que faltan y optimización de consultas, en casos especiales.
 
@@ -255,7 +254,7 @@ Si una carga de trabajo contiene un conjunto de consultas repetidas, con frecuen
 Como Azure SQL Database se ejecuta en hardware estándar, los límites de capacidad para una base de datos única son inferiores a los de una instalación local de SQL Server tradicional. Algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando las operaciones no entran en los límites de una base de datos única en Azure SQL Database. La mayoría de los clientes que usan técnicas de particionamiento en Azure SQL Database divide sus datos en una única dimensión entre varias bases de datos. En este enfoque, debe comprender que las aplicaciones OLTP a menudo realizan transacciones que se aplican a una sola fila o a un pequeño grupo de filas del esquema.
 
 > [!NOTE]
-> Tenga en cuenta que Base de datos SQL ahora proporciona una biblioteca para ayudar con el particionamiento. Para obtener más información, consulte [Información general de la biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
+> Tenga en cuenta que SQL Database ahora proporciona una biblioteca para ayudar con el particionamiento. Para obtener más información, consulte [Información general de la biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
 > 
 > 
 
@@ -276,7 +275,7 @@ Algunas aplicaciones requieren operaciones de escritura intensivas. En ocasiones
 ### <a name="application-tier-caching"></a>Almacenamiento en caché de la capa de aplicación
 Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones de lectura intensivas. El almacenamiento en caché de las capas podría reducir la carga en la base de datos y también, posiblemente, el nivel de rendimiento necesario para admitir una base de datos con Azure SQL Database. Con [Azure Redis Cache](https://azure.microsoft.com/services/cache/), si tiene una carga de trabajo con muchas operaciones de lectura, puede leer los datos una vez (o quizás una vez por máquina de nivel de aplicación, según cómo esté configurada) y luego almacenar esos datos fuera de la base de datos SQL. Se trata de una forma de reducir la carga de la base de datos (CPU y E/S de lectura), pero tiene efectos sobre la coherencia transaccional porque los datos que se leen de la caché podrían estar desincronizados con respectos a los datos de la base de datos. Aunque en muchas aplicaciones algún nivel de incoherencia es aceptable, esto no se aplica a todas las cargas de trabajo. Debería comprender totalmente los requisitos de una aplicación antes de emplear una estrategia de almacenamiento en caché de la capa de aplicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información sobre los niveles de servicio, consulte [Opciones y rendimiento de SQL Database](sql-database-service-tiers.md)
 * Para obtener más información sobre los grupos elásticos, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 * Para información sobre el rendimiento y los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)

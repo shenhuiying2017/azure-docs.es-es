@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de Data Science Virtual Machine de Windows en Azure
 Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Windows Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
+* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python Distribution
 * Notebook de Jupyter (con kernels R, Python y PySpark)
 * Visual Studio Community Edition
@@ -35,7 +35,7 @@ Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de
   * Marcos de aprendizaje profundo: amplio conjunto de marcos de IA, como [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras, incluido en la máquina virtual.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
-  * [Rattle](http://rattle.togaware.com/) (sigla del inglés “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R
+  * [Rattle](http://rattle.togaware.com/) (la herramienta de análisis de R intuitiva): herramienta gráfica que facilita comenzar a trabajar con análisis de datos y aprendizaje automático. Incluye modelado y exploración de datos basados en GUI con generación automática de código R.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software de minería de datos visual y aprendizaje automático de Java.
   * [Apache Drill](https://drill.apache.org/): motor de consultas SQL sin esquemas para Hadoop, NoSQL y almacenamiento en la nube.  Es compatible con las interfaces ODBC y JDBC para habilitar consultas NoSQL y archivos de herramientas de BI estándar como Power BI, Excel o Tableau.
 * Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
@@ -57,7 +57,7 @@ No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Sol
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
 También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con muchas herramientas similares más otros marcos de trabajo de aprendizaje profundo. También hay una imagen de [CentOS](linux-dsvm-intro.md) disponible. También ofrecemos la [versión Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la máquina virtual de ciencia de datos, aunque algunas herramientas solo están disponibles para la versión Windows Server 2016.  Respecto al resto, este artículo también se aplica a la versión Windows Server 2012.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](http://azure.com/free).
@@ -83,8 +83,8 @@ Estos son los pasos para crear una instancia de Microsoft Data Science Virtual M
    3. **Configuración**:
       
       1. **Usar Managed Disks**: elija Administrado si desea que Azure administre los discos de la máquina virtual.  En caso contrario, debe especificar una cuenta de almacenamiento nueva o existente. 
-      2. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos en caso de que desee considerar el uso de valores no predeterminados.
-   4. **Resumen**: compruebe que toda la información que ha especificado es correcta y haga clic en **Crear**. **NOTA**: La máquina virtual no tiene ningún cargo aparte del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
+      2. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
+    a. **Resumen**: compruebe que toda la información que ha especificado es correcta y haga clic en **Crear**. **NOTA**: La máquina virtual no tiene ningún cargo aparte del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
 
 > [!NOTE]
 > El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en Azure Portal.
@@ -114,7 +114,7 @@ Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 
 > 
 > 
 
-Anaconda Python 2.7 se instala en C:\Anaconda y Anaconda Python 3.5 se instala en c:\Anaconda\envs\py35. Consulte la [documentación de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver los pasos detallados. 
+Anaconda Python 2.7 se instala en C:\Anaconda y Anaconda Python 3.5 se instala en c:\Anaconda\envs\py35. Consulte la [documentación de PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) para ver los pasos detallados. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 La distribución de Anaconda también incluye una instancia de Jupyter Notebook, un entorno para compartir código y análisis. Previamente se ha configurado un servidor de notebooks de Jupyter con kernels de Python 2.7, Python 3.5, PySpark, Julia y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el servidor de Jupyter y el explorador para acceder al servidor de Notebook. 
@@ -196,9 +196,9 @@ Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.micros
 Estos son algunos pasos para proseguir con el aprendizaje y la exploración. 
 
 * Explore las diversas herramientas de Data Science Virtual Machine haciendo clic en el menú Inicio y comprobando las herramientas incluidas en el menú.
-* Más información acerca de Azure Machine Learning Services y Workbench en la [página de las guías de inicio rápido y los tutoriales](https://docs.microsoft.com/azure/machine-learning/preview/) del producto. 
+* Más información acerca de Azure Machine Learning Services y Workbench en la [página de las guías de inicio rápido y los tutoriales](../preview/index.yml) del producto. 
 * Vaya a **C:\Archivos de programa\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admiten análisis de datos a escala empresarial.  
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](http://aka.ms/dsvmtenthings)
-* Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [Proceso de ciencia de los datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [Proceso de ciencia de los datos en equipos (TDSP)](../team-data-science-process/index.yml).
 * Visite la [Galería de Azure AI](http://gallery.cortanaintelligence.com) para ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
 

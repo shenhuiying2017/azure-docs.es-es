@@ -3,8 +3,8 @@ title: "Implementación de una aplicación en Azure Stack | Microsoft Docs"
 description: "Aprenda a implementar aplicaciones en Azure y Azure Stack con una canalización de CI/CD híbrida."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Implementación de aplicaciones en Azure y Azure Stack
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Una canalización de [integración continua](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[entrega continua](https://www.visualstudio.com/learn/what-is-continuous-delivery/) (CI/CD) híbrida le permite crear, probar e implementar una aplicación en varias nubes.  En este tutorial, se crea un entorno de ejemplo para aprender el modo en que una canalización de CI/CD híbrida puede ayudarle a:
  
@@ -31,7 +32,7 @@ Una canalización de [integración continua](https://www.visualstudio.com/learn/
 > * Una vez que el código haya pasado las pruebas, se implementan automáticamente en Azure Stack. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Se requieren algunos componentes para crear una canalización de CI/CD híbrida y pueden tardar algún tiempo en prepararse.  Si ya tiene algunos de estos componentes, asegúrese de que cumplen los requisitos antes de comenzar.
 
 En este tema también se da por supuesto que tiene algunos conocimientos de Azure y Azure Stack. Si desea más información antes de continuar, asegúrese de empezar con estos temas:
@@ -111,7 +112,7 @@ Ahora que ha creado una definición de versión vacía y vinculada a la compilac
 2.  Seleccione **Todos** y, a continuación, en la lista, agregue **Carga por FTP** y seleccione **Cerrar**.
 3.  Seleccione la tarea **Carga por FTP** recién agregada y configure los parámetros siguientes:
     
-    | Parámetro | Valor |
+    | . | Valor |
     | ----- | ----- |
     |Método de autenticación| Escribir credenciales|
     |Dirección URL del servidor | Dirección URL de FTP de la aplicación web recuperada de Azure Portal |
@@ -155,7 +156,7 @@ Ahora que ha creado una versión, configurará los pasos necesarios para publica
 
 1.  Seleccione la tarea **Carga por FTP** recién agregada y configure los parámetros siguientes:
     
-    | Parámetro | Valor |
+    | . | Valor |
     | -----     | ----- |
     |Método de autenticación| Escribir credenciales|
     |Dirección URL del servidor | Dirección URL de FTP de la aplicación web recuperada de Azure Stack Portal |
@@ -198,7 +199,7 @@ Ahora puede probar la canalización de CI/CD híbrida, con el paso final de la p
 
 Ahora puede usar la nueva canalización de CI/CD híbrida como un bloque de creación para otros modelos de nube híbrida.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, aprendió a crear una canalización de CI/CD híbrida que:
 
 > [!div class="checklist"]

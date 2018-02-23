@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este artículo introductorio, debe crear un conjunto de escalado de máquinas virtuales en Azure Portal. También puede crear un conjunto de escalado con la [CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 ## <a name="create-virtual-machine-scale-set"></a>Creación de un conjunto de escalado de máquinas virtuales
 Puede implementar un conjunto de escalado con una imagen de Windows Server o Linux como RHEL, CentOS, Ubuntu o SLES.
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Busque el *conjunto de escalado* elija **Conjunto de escalado de máquinas virtuales** y seleccione **Crear**.
 3. Escriba un nombre para el conjunto de escalado, como *myScaleSet*.
 4. Seleccione el tipo de sistema operativo deseado, como *Windows Server 2016 Datacenter*.

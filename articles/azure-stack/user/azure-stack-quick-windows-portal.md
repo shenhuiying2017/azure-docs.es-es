@@ -2,18 +2,19 @@
 title: "Guía de inicio rápido de Azure Stack: creación de una máquina virtual Windows"
 description: "Guía de inicio rápido de Azure Stack: creación de una máquina virtual Windows con el portal"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Creación de una máquina virtual Windows con el portal de Azure Stack
 
@@ -23,7 +24,7 @@ Puede crear una máquina virtual Windows mediante el portal de Azure Stack. El p
 
 Inicie sesión en el portal de Azure Stack. La dirección del portal de Azure Stack depende del producto de Azure Stack al que se vaya a conectar:
 
-* Para Azure Stack Development Kit (ASDK), vaya a https://portal.local.azurestack.external.
+* Para obtener el Kit de desarrollo de Azure Stack (ASDK), vaya a https://portal.local.azurestack.external.
 * Para un sistema integrado de Azure Stack, vaya a la dirección URL que proporciona su operador de Azure Stack.
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
@@ -46,5 +47,5 @@ Inicie sesión en el portal de Azure Stack. La dirección del portal de Azure St
 
 Cuando ya no necesite la máquina virtual, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la página de la máquina virtual y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta guía rápida, ha implementado una máquina virtual Windows sencilla. Para aprender más sobre las máquina virtuales de Azure Stack, continúe con el artículo [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones sobre Virtual Machines en Azure Stack).

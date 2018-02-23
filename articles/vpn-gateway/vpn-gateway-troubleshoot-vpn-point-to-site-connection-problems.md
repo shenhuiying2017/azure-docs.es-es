@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: conexión de punto a sitio de Azure
 
@@ -65,11 +65,18 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 ### <a name="cause"></a>Causa
 
-Este problema se produce si la clave pública del certificado raíz no se carga a la puerta de enlace VPN de Azure. También se puede producir si la clave está dañada o expiró.
+Este problema se produce si se cumple una de las condiciones siguientes:
+
+- Las rutas definidas por el usuario (UDR) usadas con la ruta predeterminada en la subred de puerta de enlace no están establecidas correctamente.
+- La clave pública del certificado raíz no se ha cargado en la puerta de enlace de VPN de Azure. 
+- La clave está dañada o caducada.
 
 ### <a name="solution"></a>Solución
 
-Para resolver este problema, compruebe el estado del certificado raíz en Azure Portal para ver si se revocó. Si no se ha revocado, pruebe a eliminar el certificado raíz y a volver a cargarlo. Para más información, vea [Crear certificados](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+Para solucionar este problema, siga estos pasos:
+
+1. Quite UDR en la subred de puerta de enlace. Asegúrese de que UDR reenvía todo el tráfico correctamente.
+2. Compruebe el estado del certificado raíz en Azure Portal para ver si se revocó. Si no se ha revocado, pruebe a eliminar el certificado raíz y a volver a cargarlo. Para más información, vea [Crear certificados](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Error de cliente de VPN: una cadena de certificados se ha procesado pero ha finalizado 
 
@@ -146,7 +153,7 @@ Extraiga el paquete de configuración del cliente de VPN y busque el archivo .ce
 
 Al intentar guardar los cambios de la puerta de enlace de la VPN en Azure Portal, aparece el mensaje de error siguiente:
 
-**Error al guardar la puerta de enlace de red &lt;*nombre de puerta de enlace*&gt;. Los datos del certificado &lt;*identificador de certificado*&gt; no son válidos.**
+**Error al guardar la puerta de enlace de red virtual&lt; *nombre de la puerta de enlace*&gt;. Los datos del certificado &lt;*identificador de certificado*&gt;** no son válidos.
 
 ### <a name="cause"></a>Causa 
 
@@ -181,7 +188,7 @@ Asegúrese de que los datos del certificado no contienen caracteres no válidos 
 
 Al intentar guardar los cambios de la puerta de enlace de la VPN en Azure Portal, aparece el mensaje de error siguiente: 
 
-**Error al guardar la puerta de enlace de red &lt;*nombre de puerta de enlace*&gt;. El nombre del recurso &lt;*nombre del certificado que intenta cargar*&gt; no es válido**.
+**Error al guardar la puerta de enlace de red virtual&lt; *nombre de la puerta de enlace*&gt;. El nombre del recurso &lt;*nombre del certificado que intenta cargar*&gt;** no es válido.
 
 ### <a name="cause"></a>Causa
 
@@ -199,7 +206,7 @@ Al intentar descargar el paquete de configuración del cliente de VPN, aparece e
 
 Este error puede deberse a un problema de red temporal. Vuelva a intentar descargar el paquete VPN pasados unos minutos.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Actualización de Azure VPN Gateway: todos los clientes de punto a sitio no se pueden conectar
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Actualización de Azure VPN Gateway: todos los clientes de punto a sitio no se pueden conectar
 
 ### <a name="cause"></a>Causa
 
@@ -207,7 +214,7 @@ Si el certificado cubre más del 50 por ciento durante su vigencia, se deshace.
 
 ### <a name="solution"></a>Solución
 
-Para resolver este problema, cree y redistribuya los nuevos certificados a los clientes de VPN. 
+Para resolver este problema, vuelva a implementar el paquete de punto a sitio en todos los clientes.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Demasiados clientes de VPN conectados a la vez
 
@@ -234,6 +241,10 @@ Si la dirección pertenece a la clase A --> se aplica /8
 Si la dirección pertenece a la clase B --> se aplica /16
 
 Si la dirección pertenece a la clase C --> se aplica /24
+
+### <a name="solution"></a>Solución
+
+Haga que las rutas de otras redes se inyecten en la tabla de enrutamiento con la coincidencia de prefijo más largo o la métrica más baja (y, por tanto, la prioridad más alta) que las de la conexión de punto a sitio. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>El cliente de VPN no puede acceder a recursos compartidos de archivos de red
 
@@ -262,7 +273,7 @@ Se quita la conexión VPN de punto a sitio y luego se vuelve a instalar el clien
 
 ### <a name="solution"></a>Solución
 
-Para resolver el problema, elimine los archivos de configuración antiguos del cliente de VPN de **C:\Usuarios\Nombre de usuario\AppData\Roaming\Microsoft\Network\Connections** y luego vuelva a ejecutar el instalador del cliente de VPN.
+Para resolver el problema, elimine los archivos de configuración antiguos del cliente de VPN de **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** y luego ejecute de nuevo el instalador de clientes de VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>El cliente VPN de punto a sitio no puede resolver el FQDN de los recursos en el dominio local
 
@@ -301,7 +312,7 @@ Compruebe la configuración del servidor proxy y asegúrese de que el cliente pu
 
 ### <a name="cause"></a>Causa
 
-Este error se produce si el servidor RADIUS utilizado para autenticar el cliente VPN tiene una configuración incorrecta. 
+Este error se produce si el servidor RADIUS que se usa para autenticar el cliente de VPN tiene una configuración incorrecta o la puerta de enlace de Azure no se puede comunicar con el servidor Radius.
 
 ### <a name="solution"></a>Solución
 
@@ -312,3 +323,45 @@ Asegúrese de que el servidor RADIUS está configurado correctamente. Para más 
 ### <a name="cause"></a>Causa
 
 No se instaló el certificado raíz. El certificado raíz está instalado en el almacén de **certificados de confianza** del cliente.
+
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Error del cliente VPN: No se pudo establecer la conexión remota porque se produjo un error en los túneles VPN probados. (Error 800) 
+
+### <a name="cause"></a>Causa
+
+El controlador NIC está obsoleto.
+
+### <a name="solution"></a>Solución
+
+Actualice el controlador NIC:
+
+1. Haga clic en **Inicio**, escriba **Administrador de dispositivos** y selecciónelo en la lista de resultados. Si se le pide una contraseña de administrador o una confirmación, escriba la contraseña o proporcione la confirmación.
+2. En las categorías de adaptadores de red, busque la NIC que quiere actualizar.  
+3. Haga doble clic en el nombre del dispositivo, seleccione **Actualizar controlador** y, luego, **Buscar software de controlador actualizado automáticamente**.
+4. Si Windows no encuentra un nuevo controlador, puede intentar buscar uno en el sitio web del fabricante del dispositivo y seguir sus instrucciones.
+5. Reinicie el equipo e intente la conexión de nuevo.
+
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Error: "Error en la descarga del archivo. No se ha especificado el URI de destino"
+
+### <a name="cause"></a>Causa
+
+El motivo es un tipo de puerta de enlace incorrecto configurado.
+
+### <a name="solution"></a>Solución
+
+El tipo de puerta de enlace de VPN de Azure debe ser VPN y el tipo de VPN debe ser **RouteBased**.
+
+## <a name="vpn-package-installer-doesnt-complete"></a>El instalador del paquete VPN no finaliza
+
+### <a name="cause"></a>Causa
+
+Este problema puede deberse a instalaciones anteriores del cliente de VPN. 
+
+### <a name="solution"></a>Solución
+
+Elimine los archivos de configuración antiguos del cliente de VPN de **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** y ejecute de nuevo el instalador del cliente de VPN. 
+
+## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>El cliente de VPN hiberna o entra en modo de suspensión al cabo de un tiempo
+
+### <a name="solution"></a>Solución
+
+Compruebe la configuración de suspensión e hibernación en el equipo donde se ejecuta el cliente de VPN.

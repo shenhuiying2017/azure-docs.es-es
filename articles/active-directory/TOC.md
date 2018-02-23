@@ -88,6 +88,7 @@
 #### [Ejemplos de Azure PowerShell para licencias basadas en grupos](active-directory-licensing-ps-examples.md)
 #### [Referencia de productos y planes de servicio en Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configuración de la expiración de los grupos de Office 365](active-directory-groups-lifecycle-azure-portal.md)
+### [Aplicación una directiva de nomenclatura para grupos](groups-naming-policy.md)
 ### [Visualización de todos los grupos](active-directory-groups-view-azure-portal.md)
 ### [Administración del acceso de grupo a aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restauración de un grupo eliminado de Office 365](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Escritorio remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Solución de problemas](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Administración de aplicaciones empresariales
 #### [Asignación de usuarios](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,7 +300,7 @@
 #### [Condiciones](active-directory-conditional-access-conditions.md)
 #### [Condición de ubicación](active-directory-conditional-access-locations.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
@@ -319,7 +322,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
+#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)

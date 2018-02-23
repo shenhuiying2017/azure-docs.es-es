@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -58,6 +58,14 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Se ha corregido la regresión en la que FeedOptions.MaxItemCount = -1 producía una excepción System.ArithmeticException: el tamaño de la página es negativo.
+* Se agregó una nueva función ToString() a QueryMetrics.
+* Se expusieron las estadísticas de partición en la lectura de las colecciones.
+* Se agregó la propiedad PartitionKey a ChangeFeedOptions.
+* Correcciones de errores leves.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |5 de febrero de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de noviembre de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de noviembre de 2017 |--- |
 | [1.6.0](#1.6.0) |17 de octubre de 2017 |--- |
