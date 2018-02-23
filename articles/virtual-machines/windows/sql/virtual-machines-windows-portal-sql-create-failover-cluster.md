@@ -4,7 +4,7 @@ description: "En este artículo se explica cómo crear una instancia de clúster
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
-En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines con el modelo de Resource Manager. Esta solución usa [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como una SAN virtual de software que sincroniza el almacenamiento (discos de datos) entre los nodos (máquinas virtuales de Azure) de Windows Cluster. S2D es una novedad de Windows Server 2016.
+En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines con el modelo de Resource Manager. Esta solución usa [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como una SAN virtual de software que sincroniza el almacenamiento (discos de datos) entre los nodos (Azure Virtual Machines) de Windows Cluster. S2D es una novedad de Windows Server 2016.
 
 El siguiente diagrama muestra la solución completa en máquinas virtuales de Azure:
 
@@ -93,7 +93,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
 
    - En Azure Portal, haga clic en **+** para abrir Azure Marketplace. Busque **Conjunto de disponibilidad**.
    - Haga clic en **Conjunto de disponibilidad**.
-   - Haga clic en **Crear**.
+   - Haga clic en **Create**(Crear).
    - En la hoja **Crear conjunto de disponibilidad**, configure los siguientes valores:
       - **Nombre**: nombre del conjunto de disponibilidad.
       - **Suscripción**: su suscripción a Azure.
@@ -117,7 +117,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
       >[!IMPORTANT]
       >Una vez creada una máquina virtual el conjunto de disponibilidad no se puede establecer o cambiar.
 
-   Elija una imagen en Azure Marketplace. Puede usar una imagen de Marketplace que incluya Windows Server y SQL Server, o solo Windows Server. Para más información, consulte [Información general de SQL Server en máquinas virtuales de Azure](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Elija una imagen en Azure Marketplace. Puede usar una imagen de Marketplace que incluya Windows Server y SQL Server, o solo Windows Server. Para más información, consulte [Información general de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Las imágenes oficiales de SQL Server de la galería de Azure incluyen una instancia de SQL Server instalada, más el software de instalación de SQL Server y la clave necesaria.
 
@@ -221,14 +221,14 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
 
 1. En **Administrador del servidor**, haga clic en **Herramientas** y, después, en **Administrador de clústeres de conmutación por error**.
 1. En **Administrador de clústeres de conmutación por error**, haga clic en **Acción** y, después, en **Validar configuración...**.
-1. Haga clic en **Siguiente**.
+1. Haga clic en **Next**.
 1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas**, elija **Ejecutar solo las pruebas que seleccione**. Haga clic en **Siguiente**.
-1. En **Selección de pruebas**, incluya todas las pruebas, excepto **Almacenamiento**. Vea la siguiente imagen:
+1. En **Opciones de pruebas**, elija **Ejecutar solo las pruebas que seleccione**. Haga clic en **Next**.
+1. En **Selección de pruebas**, incluya todas las pruebas, excepto **Storage**. Vea la siguiente imagen:
 
    ![Pruebas de validación](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Haga clic en **Siguiente**.
+1. Haga clic en **Next**.
 1. En **Confirmación**, haga clic en **Siguiente**.
 
 El **Asistente para validar una configuración** ejecuta las pruebas de validación.
@@ -343,13 +343,13 @@ Para crear el equilibrador de carga:
 
 1. Haga clic en **+ Agregar**. Busque **Equilibrador de carga** en Marketplace. Haga clic en **Equilibrador de carga**.
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 1. Configure el equilibrador de carga con:
 
    - **Nombre**: un nombre que identifica el equilibrador de carga.
    - **Tipo**: el equilibrador de carga puede ser público o privado. A los equilibradores de carga privados se puede acceder desde la misma red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
-   - **Red virtual**: la misma red que la de las máquinas virtuales.
+   - **Virtual Network**: la misma red que la de las máquinas virtuales.
    - **Subred**: la misma subred que la de las máquinas virtuales.
    - **Dirección IP privada**: la misma dirección IP que asignó al recurso de red de clúster de la FCI de SQL Server.
    - **Suscripción**: su suscripción a Azure.
@@ -419,7 +419,7 @@ Para crear el equilibrador de carga:
    - **Tiempo de espera de inactividad (minutos)**: 4.
    - **IP flotante (Direct Server Return)**: habilitado
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 ## <a name="step-6-configure-cluster-for-probe"></a>Paso 6: Configurar el clúster para el sondeo
 

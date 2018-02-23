@@ -1,35 +1,37 @@
 ---
-title: "Aplicación SQL SaaS de Azure con vídeo indexado | Microsoft Docs"
+title: "Vídeo indexado, aplicación SQL SaaS de Azure | Microsoft Docs"
 description: "En este artículo se indexan diversos puntos en nuestro vídeo de 81 minutos sobre el diseño de aplicaciones de inquilinos de base de datos de SaaS, de la conferencia de Ignite celebrada el 11 de octubre de 2017. Puede avanzar directamente a la parte que le interese. Se describen al menos 3 patrones. Se describen las características de Azure que simplifican el desarrollo y la administración."
 ms.custom: 
 ms.date: 12/06/2017
-ms.prod: sql-server
+ms.prod: 
+ms.service: sql-database
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
 ms.workload: Inactive
-ms.openlocfilehash: db47d1dd0a6114ebca0715da179cc0629b26781a
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Aplicación SaaS indexada por vídeo y anotada para multiinquilinos mediante Azure SQL Database
+# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
 
-Este artículo es un índice anotado en las ubicaciones de tiempo de un vídeo de 81 minutos sobre modelos o patrones de inquilinos de SaaS. Este artículo le permite avanzar o retroceder en el vídeo hasta la parte que le interese. El vídeo explica las opciones de diseño principales de una aplicación de base de datos de varios inquilinos en la base de datos de SQL Azure. El vídeo incluye demostraciones, tutoriales de código de administración y, a veces, una cantidad mayor de detalles fundamentados en la experiencia que los que pueden encontrarse en nuestra documentación escrita.
+Este artículo es un índice anotado en las ubicaciones de tiempo de un vídeo de 81 minutos sobre modelos o patrones de inquilinos de SaaS. Este artículo le permite avanzar o retroceder en el vídeo hasta la parte que le interese. El vídeo explica las opciones de diseño principales de una aplicación de base de datos multiinquilino en la base de datos de SQL Azure. El vídeo incluye demostraciones, tutoriales de código de administración y, a veces, una cantidad mayor de detalles fundamentados en la experiencia que los que pueden encontrarse en nuestra documentación escrita.
 
 El vídeo amplifica la información de nuestra documentación escrita, que se encuentra en: 
 - *Conceptual:* [Multi-tenant SaaS database tenancy patterns (Patrones de arrendamiento de base de datos SaaS multiinquilino)][saas-concept-design-patterns-563e]
 - *Tutoriales:* [Aplicación SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-En el vídeo y los artículos se describen las diferentes fases de creación de una aplicación multiinquilino en Azure SQL Database en la nube. Las características especiales de Microsoft Azure SQL Database facilitan el desarrollo y la implementación de aplicaciones multiinquilino que son fáciles de administrar y de rendimiento confiable.
+En el vídeo y los artículos se describen las diferentes fases de creación de una aplicación multiinquilino en Azure SQL Database en la nube. Las características especiales de Azure SQL Database facilitan el desarrollo y la implementación de aplicaciones multiinquilino que son fáciles de administrar y de rendimiento confiable.
 
-Actualizamos habitualmente nuestra documentación escrita. El vídeo no se modifica ni actualiza, por lo que es posible que su contenido se quede eventualmente obsoleto.
+Actualizamos habitualmente nuestra documentación escrita. El vídeo no se modifica ni actualiza, por lo que es posible que al final su contenido se quede obsoleto.
 
 
 
@@ -37,7 +39,7 @@ Actualizamos habitualmente nuestra documentación escrita. El vídeo no se modif
 
 En esta sección se indexa la ubicación temporal de las 38 situaciones en todo el vídeo de 81 minutos. Cada índice de tiempo se anotará con una captura de pantalla del vídeo y, a veces, con información adicional.
 
-Cada índice de tiempo se presenta en el formato de *h:mm:ss*. Por ejemplo, la segundo ubicación temporal indizada, con la etiqueta **Objetivos de la sesión**, comienza en la ubicación temporal aproximada de **0:03:11**.
+Cada índice de tiempo se presenta en el formato de *h:mm:ss*. Por ejemplo, la segunda ubicación temporal indizada, con la etiqueta **Objetivos de la sesión**, comienza en la ubicación temporal aproximada de **0:03:11**.
 
 
 ### <a name="compact-links-to-video-indexed-time-locations"></a>Vínculos compactos a las ubicaciones de tiempo indexadas por vídeo
@@ -50,11 +52,11 @@ Los títulos siguientes son vínculos a sus correspondientes secciones anotadas 
 - [4. Aplicación web multiinquilino, 0:05:05](#anchor-image-wtip-min00505)
 - [5. Formulario web de aplicaciones en acción, 0:05:55](#anchor-image-wtip-min00555)
 - [6. Costo por inquilino (escala, aislamiento, recuperación), 0:09:31](#anchor-image-wtip-min00931)
-- [7. Modelos de base de datos para varios inquilinos: ventajas y desventajas, 0:11:59](#anchor-image-wtip-min01159)
+- [7. Modelos de base de datos multiinquilino: ventajas y desventajas, 0:11:59](#anchor-image-wtip-min01159)
 - [8. Modelo híbrido que combina las ventajas de MT/ST, 0:13:01](#anchor-image-wtip-min01301)
 - [9. Inquilino único o multiinquilino: ventajas y desventajas, 0:16:44](#anchor-image-wtip-min01644)
 - [10. Los grupos son rentables para cargas de trabajo impredecibles, 0:19:36](#anchor-image-wtip-min01936)
-- [11. Demostración de la base de datos por inquilino y híbridos ST/MT, 0:20:08](#anchor-image-wtip-min02008)
+- [11. Demostración de la base de datos por inquilino e híbridos ST/MT, 0:20:08](#anchor-image-wtip-min02008)
 - [12. Formulario de aplicación en directo que muestra Dojo, 0:20:29](#anchor-image-wtip-min02029)
 - [13. MYOB y no un DBA a la vista, 0:28:54](#anchor-image-wtip-min02854)
 - [14. Ejemplo de uso de grupo elástico MYOB, 0:29:40](#anchor-image-wtip-min02940)
@@ -80,7 +82,7 @@ Los títulos siguientes son vínculos a sus correspondientes secciones anotadas 
 - [34. Análisis ad hoc de SSMS, 1:12:46](#anchor-image-wtip-min11246)
 - [35. Extracción de datos de inquilino en SQL DW, 1:16:32](#anchor-image-wtip-min11632)
 - [36. Gráfico de distribución de ventas diaria, 1:16:48](#anchor-image-wtip-min11648)
-- [37. Resumen y llamado a la acción, 1:19:52](#anchor-image-wtip-min11952)
+- [37. Resumen y llamada a la acción, 1:19:52](#anchor-image-wtip-min11952)
 - [38. Recursos para obtener más información, 1:20:42](#anchor-image-wtip-min12042)
 
 
@@ -108,10 +110,10 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 #### <a name="2-session-objectives-00153"></a>2. Objetivos de la sesión, 0:01:53
 [![Objetivos de la sesión][image-wtip-min00311-session]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=113)
 
-- Modelos alternativos para las aplicaciones de varios inquilinos, con las ventajas y desventajas.
+- Modelos alternativos para las aplicaciones multiinquilino, con las ventajas y desventajas.
 - Modelos de SaaS para reducir los costos de desarrollo, administración y recursos.
 - Una aplicación de ejemplo y scripts.
-- Las características de PaaS y los patrones de SaaS hacen que SQL Database sea una plataforma de datos altamente escalable y rentable para varios inquilinos SaaS.
+- Las características de PaaS y los patrones de SaaS hacen que SQL Database sea una plataforma de datos altamente escalable y rentable para SaaS multiinquilino.
 
 
 &nbsp;<a name="anchor-image-wtip-min00417"/>
@@ -135,8 +137,8 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 
 &nbsp;<a name="anchor-image-wtip-min01159"/>
-#### <a name="7-database-models-for-multi-tenant-pros-and-cons-00952"></a>7. Modelos de base de datos para varios inquilinos: ventajas y desventajas, 0:09:52
-[![Modelos de base de datos para varios inquilinos: ventajas y desventajas][image-wtip-min01159-db-models-pros-cons]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=592)
+#### <a name="7-database-models-for-multi-tenant-pros-and-cons-00952"></a>7. Modelos de base de datos multiinquilino: ventajas y desventajas, 0:09:52
+[![Modelos de base de datos multiinquilino: ventajas y desventajas][image-wtip-min01159-db-models-pros-cons]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=592)
 
 
 &nbsp;<a name="anchor-image-wtip-min01301"/>
@@ -155,8 +157,8 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 
 &nbsp;<a name="anchor-image-wtip-min02008"/>
-#### <a name="11-demo-of-database-per-tenant-and-hybrid-stmt-01959"></a>11. Demostración de la base de datos por inquilino y híbridos ST/MT, 0:19:59
-[![Demostración de la base de datos por inquilino y híbridos ST/MT][image-wtip-min02008-demo-st-hybrid]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1199)
+#### <a name="11-demo-of-database-per-tenant-and-hybrid-stmt-01959"></a>11. Demostración de la base de datos por inquilino e híbridos ST/MT, 0:19:59
+[![Demostración de la base de datos por inquilino e híbridos ST/MT][image-wtip-min02008-demo-st-hybrid]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1199)
 
 
 &nbsp;<a name="anchor-image-wtip-min02029"/>
@@ -284,8 +286,8 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 
 &nbsp;<a name="anchor-image-wtip-min11952"/>
-#### <a name="37-wrap-up-and-call-to-action-11743"></a>37. Resumen y llamado a la acción, 1:17:43
-[![Resumen y llamado a la acción][image-wtip-min11952-wrap-up-call-action]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4663)
+#### <a name="37-wrap-up-and-call-to-action-11743"></a>37. Resumen y llamada a la acción, 1:17:43
+[![Resumen y llamada a la acción][image-wtip-min11952-wrap-up-call-action]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4663)
 
 
 &nbsp;<a name="anchor-image-wtip-min12042"/>
@@ -328,7 +330,7 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 [image-wtip-min00931-per-tenant-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00931-saas-data-management-concerns.png "Costo por inquilino (escala, aislamiento, recuperación)"
 
-[image-wtip-min01159-db-models-pros-cons]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01159-db-models-multi-tenant-saas-apps.png "Modelos de base de datos para varios inquilinos: ventajas y desventajas"
+[image-wtip-min01159-db-models-pros-cons]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01159-db-models-multi-tenant-saas-apps.png "Modelos de base de datos multiinquilino: ventajas y desventajas"
 
 [image-wtip-min01301-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01301-hybrib-model-blends-benefits-mt-st.png "Modelo híbrido que combina las ventajas de MT/ST"
 
@@ -336,7 +338,7 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 [image-wtip-min01936-pools-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01936-pools-cost-effective-unpredictable-workloads.png "Los grupos son rentables para cargas de trabajo impredecibles"
 
-[image-wtip-min02008-demo-st-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02008-demo-st-hybrid.png "Demostración de la base de datos por inquilino y híbridos ST/MT"
+[image-wtip-min02008-demo-st-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02008-demo-st-hybrid.png "Demostración de la base de datos por inquilino e híbridos ST/MT"
 
 [image-wtip-min02029-live-app-form-dojo]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02029-app-form-dogwwod-dojo.png "Formulario de aplicación en directo que muestra Dojo"
 
@@ -388,7 +390,7 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 [image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.png "Gráfico de distribución de ventas diaria"
 
-[image-wtip-min11952-wrap-up-call-action]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11952-wrap-call-action-saasfeedback.png "Resumen y llamado a la acción"
+[image-wtip-min11952-wrap-up-call-action]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11952-wrap-call-action-saasfeedback.png "Resumen y llamada a la acción"
 
 [image-wtip-min12042-resources-more-info]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min12042-resources-blog-github-tutorials-get-started.png "Recursos para obtener más información"
 

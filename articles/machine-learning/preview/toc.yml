@@ -7,7 +7,7 @@
       href: overview-what-is-azure-ml.md
     - name: Introducción a la administración de modelos
       href: model-management-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   items:
     - name: Instalación y creación
       href: quickstart-installation.md
@@ -160,6 +160,8 @@
           href: data-prep-appendix10-sample-custom-column-transforms-python.md
         - name: API de ejecución de preparación de datos
           href: data-prep-python-execution-api.md
+        - name: Operacionalización de la preparación de los datos
+          href: data-prep-operationalization.md
     - name: Experimentación
       items:
         - name: Configuración del servicio Experimentación
@@ -204,7 +206,7 @@
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

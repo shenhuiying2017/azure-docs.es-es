@@ -30,6 +30,9 @@
 #### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)
 ### [Uso de discos de datos con conjuntos de escalado](virtual-machine-scale-sets-attached-disks.md)
+### Cifrado de discos en conjuntos de escalado
+#### [Uso de PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Uso de grandes conjuntos de escalado](virtual-machine-scale-sets-placement-groups.md)
 ### [Conversión de una plantilla de conjunto de escalado para que use un disco administrado](virtual-machine-scale-sets-convert-template-to-md.md)
 

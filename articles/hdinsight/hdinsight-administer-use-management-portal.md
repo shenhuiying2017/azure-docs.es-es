@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
 
@@ -32,18 +32,18 @@ La información de este artículo solo se aplica a los clústeres de HDInsight p
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Cuenta de Azure Storage**: un clúster de HDInsight usa contenedores de Azure Blob Storage como sistemas de archivos predeterminados. Para obtener más información acerca de cómo Azure Blob Storage ofrece una experiencia perfecta con los clústeres de HDInsight, consulte [Uso de Azure Blob Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de Azure Storage, consulte [Creación de una cuenta de Almacenamiento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Abrir el portal
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
 2. Después de abrir el portal, puede:
 
-   * Hacer clic en **Nuevo** en el menú de la izquierda para crear un nuevo clúster:
+   * Hacer clic en **Crear un recurso** en el menú de la izquierda para crear un nuevo clúster:
 
        ![botón nuevo clúster de HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.
@@ -153,7 +153,7 @@ Vea también [Pausa o apagado de clústeres](#pauseshut-down-clusters).
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
 > [!NOTE]
-> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 >
 >
 
@@ -164,7 +164,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
     Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
-* HBase
+* hbase
 
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
@@ -258,7 +258,7 @@ De manera predeterminada, estos servicios se conceden para el acceso. Puede revo
     ![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="find-the-default-storage-account"></a>Búsqueda de la cuenta de almacenamiento predeterminada
-Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster aparecen en **Configuración**/**Propiedades**/**Claves de Azure Storage**. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster aparecen en **Configuración**/**Propiedades**/**Claves de Azure Storage**. Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 ## <a name="find-the-resource-group"></a>Búsqueda del grupo de recursos
 En el modo de Azure Resource Manager, cada clúster de HDInsight se crea con un grupo de recursos de Azure. El grupo de recursos de Azure al que pertenece un clúster aparece en:
@@ -266,7 +266,7 @@ En el modo de Azure Resource Manager, cada clúster de HDInsight se crea con un 
 * La lista de clústeres tiene una columna **Grupo de recursos** .
 * Icono **Esencial** del clúster.  
 
-Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 ## <a name="open-hdinsight-query-console"></a>Apertura de la consola de consulta de HDInsight
 La consola de consulta de HDInsight incluye las siguientes características:
@@ -356,7 +356,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 
     Para obtener más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión se puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo:
+En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión se puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo: 
 
     cd %hadoop_home%
     cd %hive_home%
@@ -365,7 +365,7 @@ En la captura de pantalla anterior, el nombre de la carpeta tiene el número de 
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)

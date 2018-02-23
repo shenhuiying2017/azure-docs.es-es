@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: f5dc9551013445b11e3eaf579dfb883451647315
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 17c3624804475f1f711130372a7442ddd8dbeb3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-samples"></a>Ejemplos de Azure Analysis Services
 Use los siguientes recursos de ejemplo para obtener información sobre Analysis Services para su entorno y realizar una prueba.
@@ -43,7 +43,7 @@ Si tiene un servidor de Analysis Services en Azure Portal, puede crear rápida y
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Tutorial de Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
 [Puerta de enlace de datos local de Azure](analysis-services-gateway.md)  

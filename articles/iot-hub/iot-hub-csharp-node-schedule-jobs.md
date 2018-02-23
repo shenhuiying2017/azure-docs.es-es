@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbc548ff7394ebdf158d8040eb8e188de951be2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Programación y difusión de trabajos (.NET/Node.js)
 
@@ -52,7 +52,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio 2015 o Visual Studio 2017.
 * Node.js, versión 4.0.x o posterior. El artículo [Preparación del entorno de desarrollo][lnk-dev-setup] describe cómo instalar Node.js para este tutorial en Windows o Linux.
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -80,6 +80,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que u
 1. Agregue la siguiente instrucción `using` si no está ya presente en las instrucciones predeterminadas.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -251,7 +252,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
     ![Ejecutar las aplicaciones para programar trabajos][img-schedulejobs]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 

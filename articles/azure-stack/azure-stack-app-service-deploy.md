@@ -3,8 +3,8 @@ title: "Implementación de App Services: Azure Stack | Microsoft Docs"
 description: "Guía detallada para implementar App Service en Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*

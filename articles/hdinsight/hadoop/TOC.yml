@@ -41,7 +41,7 @@
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Uso de BeeLine
               href: apache-hadoop-use-hive-beeline.md
-            - name: Uso de cURL
+            - name: Use la API de REST
               href: apache-hadoop-use-hive-curl.md
             - name: Uso de Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
@@ -288,6 +288,9 @@
               maintainContext: true
         - name: Escalado de un clúster de HDInsight
           href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: Uso de almacenes de metadatos externos
+          href: ../hdinsight-use-external-metadata-stores.md
           maintainContext: true
         - name: Administración de registros de un clúster de HDInsight
           href: ../hdinsight-log-management.md

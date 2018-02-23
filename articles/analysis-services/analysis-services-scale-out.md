@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -69,7 +69,7 @@ En **Información general** > modelo > **Sincronizar el modelo**.
 
 ![Control deslizante de escalabilidad horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>API de REST
+### <a name="rest-api"></a>API DE REST
 Use la operación **sync**.
 
 #### <a name="synchronize-a-model"></a>Sincronización de un modelo   

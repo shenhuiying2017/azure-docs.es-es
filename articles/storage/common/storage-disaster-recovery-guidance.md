@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio Azure Storage
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Azure Storage.
@@ -27,9 +27,9 @@ En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre 
 Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Para recuperarse de una interrupción de los servicios de almacenamiento, normalmente hay que realizar procedimientos automatizados e implicar al personal de operaciones con el objetivo de reactivar las aplicaciones para que funcionen con normalidad. Consulte la documentación de Azure para crear su propio plan de recuperación ante desastres:
 
 * [Lista de comprobación de disponibilidad](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Diseño de aplicaciones resistentes de Azure](/azure/architecture/resiliency)
+* [Diseño de aplicaciones resistentes de Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Servicio Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Replicación de Azure Storage](storage-redundancy)
+* [Replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Detección

@@ -3,8 +3,8 @@ title: "Características y conceptos clave de Azure Stack | Microsoft Docs"
 description: "Más información sobre las características y conceptos clave de Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: fd16748e1369b8abcab38ce1945f72c681c344b8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: b252d3d52c9bf3825ae2b443065e007dda141b24
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Características y conceptos clave de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Si nunca ha usado Microsoft Azure Stack, estos términos y las descripciones de las características pueden resultar útiles.
 
@@ -30,7 +31,7 @@ Si nunca ha usado Microsoft Azure Stack, estos términos y las descripciones de 
 Hay dos tipos de usuarios de Microsoft Azure Stack, el operador de nube (proveedor) y el inquilino (consumidor).
 
 * Un **operador de nube** puede configurar Azure Stack y administrar ofertas, planes, servicios, cuotas y precios para proporcionar recursos a sus inquilinos.  Los operadores de nube también administran la capacidad y responden a las alertas.  
-* Un **inquilino** (también llamado “usuario”) consume los servicios que ofrece el administrador de la nube. Los inquilinos pueden aprovisionar, supervisar y administrar los servicios a los que se han suscrito, como Aplicaciones Web, Almacenamiento y Máquinas virtuales.
+* Un **inquilino** (también llamado “usuario”) consume los servicios que ofrece el administrador de la nube. Los inquilinos pueden aprovisionar, supervisar y administrar los servicios a los que se han suscrito, como Web Apps, Storage y Virtual Machines.
 
 ## <a name="portal"></a>Portal
 Los métodos principales de interacción con Microsoft Azure Stack son el portal de administración, el portal de usuarios y PowerShell.
@@ -44,7 +45,7 @@ Azure Stack usa Azure Active Directory (AAD) o los Servicios de federación de A
 Azure Active Directory es el proveedor de identidades multiinquilino basado en la nube de Microsoft.  La mayoría de los escenarios híbridos usa Azure Active Directory como almacén de identidades.
 
 ### <a name="active-directory-federation-services"></a>Servicios de federación de Active Directory
-Puede elegir usar los Servicios de federación de Active Directory (AD FS) para las implementaciones desconectadas de Azure Stack.  Azure Stack, los proveedores de recursos y otras aplicaciones funcionan con AD FS de manera muy similar a como lo hacen con Azure Active Directory. Azure Stack incluye su propia instancia de AD FS y Active Directory, así como una API de Active Directory Graph. Azure Stack Development Kit admite los siguientes escenarios de AD FS:
+Puede elegir usar los Servicios de federación de Active Directory (AD FS) para las implementaciones desconectadas de Azure Stack.  Azure Stack, los proveedores de recursos y otras aplicaciones funcionan con AD FS de manera muy similar a como lo hacen con Azure Active Directory. Azure Stack incluye su propia instancia de AD FS y Active Directory, así como Graph API de Active Directory. El Kit de desarrollo de Azure Stack admite los siguientes escenarios de AD FS:
 
 - Inicio de sesión en la implementación mediante AD FS.
 - Creación de una máquina virtual con secretos en Key Vault.
@@ -64,7 +65,7 @@ En Azure Stack, los servicios se prestan a los inquilinos mediante regiones, pla
 Ejemplo de jerarquía de suscripciones de un inquilino a las ofertas, cada una de ellas con distintos planes y servicios.
 
 ### <a name="regions"></a>Regiones
-Las regiones de Azure Stack son un elemento básico de escala y administración. Una organización puede tener varias regiones con recursos disponibles en cada región. Las regiones también pueden tener distintas ofertas de servicio disponibles. En Azure Stack Development Kit, solo se admite una única región, a la que se asigna el nombre *local* automáticamente.
+Las regiones de Azure Stack son un elemento básico de escala y administración. Una organización puede tener varias regiones con recursos disponibles en cada región. Las regiones también pueden tener distintas ofertas de servicio disponibles. En el Kit de desarrollo de Azure Stack, solo se admite una única región, a la que se asigna el nombre *local* automáticamente.
 
 ### <a name="services"></a>Services
 Microsoft Azure Stack permite a los proveedores ofrecer una amplia variedad de servicios y aplicaciones, como máquinas virtuales, bases de datos SQL Server, SharePoint, Exchange, etc.
@@ -90,13 +91,13 @@ Las suscripciones ayudan a los proveedores a organizar los recursos y servicios 
 
 Para el administrador, se crea una suscripción de proveedor predeterminado durante la implementación. Esta suscripción puede utilizarse para administrar Azure Stack, implementar más proveedores de recursos, y crear ofertas y planes para inquilinos. No debe usarse para ejecutar aplicaciones y cargas de trabajo de cliente. 
 
-## <a name="azure-resource-manager"></a>Administrador de recursos de Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 Con Azure Resource Manager, puede trabajar con los recursos de la infraestructura en un modelo declarativo basado en plantillas.   Proporciona una única interfaz que puede usar para implementar y administrar los componentes de la solución. Para obtener información e instrucciones completas, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Grupos de recursos
 Los grupos de recursos son colecciones de recursos, servicios y aplicaciones (y cada recurso tiene un tipo, como máquinas virtuales, redes virtuales, IP públicas, cuentas de almacenamiento y sitios web). Cada recurso debe estar en un grupo de recursos, por lo que los grupos de recursos ayudan a organizar los recursos de manera lógica, por ejemplo, por carga de trabajo o ubicación.  En Microsoft Azure Stack, los recursos, como los planes y ofertas, también se administran en grupos de recursos.
  
-### <a name="azure-resource-manager-templates"></a>Plantillas de Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 Con Azure Resource Manager, puede crear una plantilla (en formato JSON) que defina la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla del Administrador de recursos de Azure y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
 
 ## <a name="resource-providers-rps"></a>Proveedores de recursos (RP)
@@ -111,9 +112,9 @@ El proveedor de recursos de proceso (CRP) permite a los inquilinos de Azure Stac
 El proveedor de recursos de red (NRP) ofrece una serie de características de Redes definidas por software (SDN) y Virtualización de función de red (NFV) a la nube privada.  El NRP puede usarse para crear recursos, como equilibradores de carga de software, IP públicas, grupos de seguridad de red y redes virtuales.
 
 ### <a name="storage-rp"></a>RP de almacenamiento
-El RP Storage ofrece cuatro servicios de almacenamiento coherentes con Azure: blob, tabla cola y administración de cuentas. También ofrece un servicio de administración del almacenamiento en la nube para facilitar la administración del proveedor de los servicios de almacenamiento coherentes con Azure. Almacenamiento de Azure proporciona la flexibilidad necesaria para almacenar y recuperar grandes cantidades de datos no estructurados, como documentos y archivos multimedia con Blobs de Azure y datos estructurados basados en NoSQL con Tablas de Azure. Para obtener más información sobre Azure Storage, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md).
+El RP Storage ofrece cuatro servicios de almacenamiento coherentes con Azure: blob, tabla cola y administración de cuentas. También ofrece un servicio de administración del almacenamiento en la nube para facilitar la administración del proveedor de los servicios de almacenamiento coherentes con Azure. Azure Storage proporciona la flexibilidad necesaria para almacenar y recuperar grandes cantidades de datos no estructurados, como documentos y archivos multimedia con Blobs de Azure y datos estructurados basados en NoSQL con Tablas de Azure. Para obtener más información sobre Azure Storage, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
-#### <a name="blob-storage"></a>Almacenamiento de blobs
+#### <a name="blob-storage"></a>Blob Storage
 Almacenamiento de blobs almacena cualquier conjunto de datos. Un blob puede ser un tipo cualquiera de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El almacenamiento de tablas almacena conjuntos de datos estructurados. Se trata de un almacén de datos de clave-atributo NoSQL, que permite el desarrollo rápido de grandes cantidades de datos y el acceso inmediato a los mismos. El almacenamiento de colas ofrece una solución de mensajería confiable para el procesamiento de flujos de trabajo y para la comunicación entre los componentes de los servicios en la nube.
 
 Cada blob se organiza en un contenedor. Los contenedores también ofrecen una forma útil de asignar directivas de seguridad a grupos de objetos. Una cuenta de almacenamiento puede incluir un número cualquiera de contenedores y, a su vez, un contenedor puede incluir un número cualquiera de blobs, hasta alcanzar el límite de capacidad de 500 TB de la cuenta de almacenamiento. Blob Storage ofrece tres tipos de blobs: blobs en bloques, blobs en anexos y blobs en páginas (discos). Los blobs en bloques están optimizados para el streaming y para el almacenamiento de objetos en la nube, y constituyen una opción idónea para almacenar documentos, archivos multimedia y copias de seguridad, entre otros. Los blobs en anexos son similares a los blobs en bloques, pero están optimizados para anexar las operaciones. Un blob de anexos puede actualizarse solo al agregar un nuevo bloque al final. Los blob en anexos son una buena opción para escenarios como el registro, donde es necesario escribir solo al final del blob nuevos datos. Los blobs en páginas están optimizados para representar discos IaaS y admitir la escritura aleatoria. Pueden tener un tamaño máximo de 1 TB. Un disco IaaS asociado a una red de máquinas virtuales de Azure es un VHD almacenado como blob en páginas.
@@ -135,14 +136,14 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 ## <a name="usage-data"></a>Datos de uso
 Microsoft Azure Stack recopila y agrega los datos de uso de todos los proveedores de recursos y los transmite a Azure para su procesamiento por parte de Comercio de Azure. Los datos de uso recopilados en Azure Stack pueden verse a través de una API de REST. Hay una API de inquilino coherente con Azure coherente, así como API de proveedor y de proveedor delegado para obtener datos de uso de todas las suscripciones del inquilino. Estos datos se pueden utilizar para realizar la integración con una herramienta o servicio externos con fines de facturación o contracargo. Una vez que Comercio de Azure ha procesado el uso, puede verse en el portal de facturación de Azure.
 
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Compilación en desarrollo de Azure Stack Development Kit
-Las compilaciones en desarrollo permiten a los pioneros evaluar la versión más reciente de Azure Stack Development Kit. Son compilaciones incrementales basadas en la versión principal más reciente. Mientras que las versiones principales se seguirán lanzando cada pocos meses, las compilaciones en desarrollo se lanzarán de forma intermitente entre las versiones principales.
+## <a name="in-development-build-of-azure-stack-development-kit"></a>Compilación en desarrollo del Kit de desarrollo de Azure Stack
+Las compilaciones en desarrollo permiten a los pioneros evaluar la versión más reciente del Kit de desarrollo de Azure Stack. Son compilaciones incrementales basadas en la versión principal más reciente. Mientras que las versiones principales se seguirán lanzando cada pocos meses, las compilaciones en desarrollo se lanzarán de forma intermitente entre las versiones principales.
 
 Las compilaciones en desarrollo proporcionarán las siguientes ventajas:
 - Corrección de errores
 - Nuevas características
 - Otra mejoras
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Requisitos previos de implementación de Azure Stack](azure-stack-deploy.md)
 

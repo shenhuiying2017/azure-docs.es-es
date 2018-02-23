@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solución Start/Stop VMs during off-hours (versión preliminar) en Azure Automation
 
@@ -30,9 +30,9 @@ Esta solución proporciona una opción de automatización descentralizada para l
 * Programar el inicio y la detención de las máquinas virtuales mediante etiquetas de Azure (no se admite en las máquinas virtuales clásicas).
 * Detener automáticamente las máquinas virtuales si se detecta un bajo uso de la CPU.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-- Los runbooks funcionan con una [cuenta de ejecución de Azure](automation-offering-get-started.md#authentication-methods).  La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.  
+- Los Runbooks funciona con una [cuenta de ejecución de Azure](automation-offering-get-started.md#authentication-methods).  La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.  
 
 - Esta solución solo administrar máquinas virtuales que se encuentren en la misma suscripción que la cuenta de Azure Automation.  
 
@@ -79,7 +79,7 @@ Todos los runbooks primarios incluyen el parámetro All *WhatIf*. Cuando se esta
 |ScheduledStartStop_Parent | Acción: iniciar o detener <br> WhatIf: True o False | Esto afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**. *WhatIf* se comporta igual que en otros runbooks.|  
 |SequencedStartStop_Parent | Acción: iniciar o detener <br> WhatIf: True o False | Crear etiquetas denominadas **SequenceStart** y **SequenceStop** en todas las máquinas virtuales en las que desee secuenciar la actividad de inicio y detención. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. *WhatIf* se comporta igual que en otros runbooks. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
 
-### <a name="variables"></a>Variables
+### <a name="variables"></a>variables
 
 En la tabla siguiente se enumeran las variables creadas en su cuenta de Automation.  Solo se deben modificar las variables cuyo prefijo sea **External**. La modificación de variables con el prefijo **Internal** produce efectos no deseados.  
 
@@ -129,9 +129,9 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 
 Realice los siguientes pasos para agregar la solución Start/Stop VMs during off-hours a su cuenta de Automation y, después, configure las variables para personalizar la solución.
 
-1. En Azure Portal, haga clic en **Nuevo**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. En Azure Portal, haga clic en **Crear un recurso**.<br> ![portal de Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. En el panel de Marketplace, escriba una palabra clave como **Start** o **Start/Stop**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Como alternativa, puede escribir en una o varias palabras clave del nombre completo de la solución y presione Entrar.  Seleccione **Start/Stop VMs during off-hours [Preview]** (Iniciar o detener máquinas virtuales fuera de las horas de trabajo [versión preliminar]) desde los resultados de la búsqueda.  
-3. En el panel **Start/Stop VMs during off-hours [Preview]** de la solución seleccionada, revise la información de resumen y haga clic en **Crear**.  
+3. En el panel **Start/Stop VMs during off-hours [Preview]** (Iniciar o detener máquinas virtuales fuera de las horas de trabajo [versión preliminar]), revise la información de resumen y luego haga clic en **Crear**.  
 4. Aparece el panel **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.<br><br> ![Hoja Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
 5.  En el panel **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de OMS que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En el panel **Área de trabajo de OMS**, realice las siguientes operaciones: 
    - Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
@@ -316,7 +316,7 @@ No se eliminarán la cuenta de Automation ni el área de trabajo de Log Analytic
 2. En el panel **Log Analytics**, seleccione el área de trabajo.
 3. Seleccione **Eliminar** en el menú del panel de configuración del área de trabajo.  
       
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de trabajos de Automation con Log Analytics, consulte [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).

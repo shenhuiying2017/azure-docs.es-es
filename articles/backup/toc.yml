@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure Backup?
       href: backup-introduction-to-azure-backup.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Copia de seguridad de una máquina virtual: Portal'
@@ -25,7 +25,7 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restauración de archivos en Windows Server
       href: tutorial-backup-restore-files-windows-server.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Recuperación de datos de Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Recursos compartidos de archivos de Azure
+      items:
+        - name: Copia de seguridad de recursos compartidos de archivos de Azure
+          href: backup-azure-files.md
+        - name: Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure
+          href: backup-azure-files-faq.md
+        - name: Solución de problemas de copia de seguridad de recursos compartidos de archivos de Azure
+          href: troubleshoot-azure-files.md
     - name: Máquinas virtuales de Azure
       items:
         - name: Preparación de la VM

@@ -36,15 +36,15 @@
         - name: Preparación de Azure
           href: tutorial-prepare-azure.md
         - name: Preparación de un entorno de Hyper-V local
-          href: tutorial-prepare-on-premises-hyper-v.md
+          href: hyper-v-prepare-on-premises-tutorial.md
         - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V
-          href: tutorial-hyper-v-to-azure.md
+          href: hyper-v-azure-tutorial.md
         - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM
-          href: tutorial-hyper-v-vmm-to-azure.md
+          href: hyper-v-vmm-azure-tutorial.md
         - name: Ejecución de un simulacro de recuperación ante desastres
           href: tutorial-dr-drill-azure.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
-          href: tutorial-hyper-v-to-azure-failover-failback.md
+          href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migración a Azure
       items:
         - name: Preparación de Azure para la replicación local
@@ -64,11 +64,11 @@
         - name: Arquitectura de VMware a Azure
           href: concepts-vmware-to-azure-architecture.md
         - name: Arquitectura de Hyper-V a Azure
-          href: concepts-hyper-v-to-azure-architecture.md
+          href: hyper-v-azure-architecture.md
         - name: Arquitectura de dispositivo físico a Azure
           href: concepts-physical-to-azure-architecture.md
         - name: Arquitectura de Hyper-V a sitio secundario
-          href: concepts-hyper-v-to-secondary-architecture.md
+          href: hyper-v-vmm-architecture.md
     - name: Matriz de requisitos de compatibilidad
       items:
         - name: Matriz de compatibilidad de Azure a Azure
@@ -76,7 +76,7 @@
         - name: Matriz de compatibilidad de VMware a Azure
           href: support-matrix-vmware-to-azure.md
         - name: Matriz de compatibilidad de Hyper-V a Azure
-          href: support-matrix-hyper-v-to-azure.md
+          href: hyper-v-azure-support-matrix.md
         - name: Matriz de compatibilidad de local a Azure
           href: site-recovery-support-matrix-to-azure.md
         - name: Matriz de compatibilidad de local a sitio secundario
@@ -97,6 +97,8 @@
           href: azure-to-azure-about-networking.md
         - name: Configuración de la asignación de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
           href: azure-to-azure-network-mapping.md
+        - name: Configuración de la replicación de la asignación de red de máquinas virtuales de Hyper-V en VMM
+          href: hyper-v-vmm-network-mapping.md
         - name: Conservación de la dirección IP de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Preparación de la asignación de redes para la replicación de una máquina virtual de Hyper-V en Azure
@@ -104,7 +106,7 @@
         - name: Configuración de direcciones IP para el acceso a Azure después de una conmutación por error
           href: concepts-on-premises-to-azure-networking.md
         - name: Configuración de direcciones IP para el acceso a un sitio secundario después de una conmutación por error
-          href: concepts-on-premises-to-on-premises-networking.md
+          href: hyper-v-vmm-networking.md
         - name: Administración de interfaz de red para escenarios de entornos locales a Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperación ante desastres
@@ -113,19 +115,17 @@
           href: azure-to-azure-replicate-after-migration.md
         - name: Recuperación ante desastres de servidores físicos en Azure
           href: tutorial-physical-to-azure.md
-        - name: Replicación de máquinas virtuales de Hyper-V a un sitio secundario
-          href: tutorial-vmm-to-vmm.md
-        - name: Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario
+        - name: Recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
+          href: hyper-v-vmm-disaster-recovery.md
+        - name: Recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario
           href: tutorial-vmware-to-vmware.md
         - name: |-
             Ejecución de un simulacro de recuperación ante desastres
              en Azure
           href: site-recovery-test-failover-to-azure.md
-        - name: |-
-            Ejecución de un simulacro de recuperación ante desastres
-            en un sitio secundario
-          href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Máquinas virtuales de VMware con compatibilidad para multiinquilinos en Azure
+        - name: Ejecución de una exploración de recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
+          href: hyper-v-vmm-test-failover.md
+        - name: Recuperación ante desastres de máquinas virtuales de VMware con compatibilidad con multiinquilino en Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Conmutación por error y conmutación por recuperación
       items:
@@ -134,17 +134,15 @@
         - name: Adición de runbooks de Azure a los planes de recuperación
           href: site-recovery-runbook-automation.md
         - name: Adición de scripts de VMM a los planes de recuperación
-          href: site-recovery-how-to-add-vmmscript.md
+          href: hyper-v-vmm-recovery-script.md
         - name: Conmutación por error
           items:
             - name: Acerca de la conmutación por error
               href: site-recovery-failover.md
-            - name: Ejecución de una prueba de conmutación por error a un sitio secundario
-              href: tutorial-dr-drill-secondary.md
             - name: Ejecución de una conmutación por error y una conmutación por recuperación en servidores físicos
               href: physical-to-azure-failover-failback.md
-            - name: Ejecución de una conmutación por error y una conmutación por recuperación entre sitios locales
-              href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Ejecución de una conmutación por error y una conmutación por recuperación de máquinas virtuales de Hyper-V entre sitios locales
+              href: hyper-v-vmm-failover-failback.md
         - name: Reprotección de las máquinas después de la conmutación por error
           items:
             - name: Reprotección de una región secundaria de Azure en una principal
@@ -156,7 +154,7 @@
             - name: Conmutación por recuperación de Azure a VMware
               href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Conmutación por recuperación de Azure a Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
+              href: hyper-v-azure-failback.md
         - name: Configuración de un servidor de destino maestro de Linux para la conmutación por recuperación
           href: site-recovery-how-to-install-linux-master-target.md
     - name: Migrar
@@ -186,15 +184,15 @@
           href: null
           items:
             - name: Introducción y requisitos previos
-              href: site-recovery-hyper-v-deployment-planner.md
+              href: hyper-v-deployment-planner-overview.md
             - name: Ejecución de la herramienta Deployment Planner
-              href: site-recovery-hyper-v-deployment-planner-run.md
+              href: hyper-v-deployment-planner-run.md
             - name: Análisis del informe generado
-              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+              href: hyper-v-deployment-planner-analyze-report.md
             - name: Análisis del informe de estimación de costo
-              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
-        - name: Pruebas de escalado de rendimiento para la replicación de Hyper-V entre sitios locales
-          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
+              href: hyper-v-deployment-planner-cost-estimation.md
+        - name: Pruebas de escala de rendimiento para la replicación de Hyper-V en un sitio secundario
+          href: hyper-v-vmm-performance-results.md
     - name: Configuración
       items:
         - name: Configuración del entorno de origen
@@ -218,7 +216,7 @@
             - name: Exclusión de discos de replicación de VMware en Azure
               href: site-recovery-exclude-disk.md
             - name: Exclusión de discos de replicación de Hyper-V en Azure
-              href: site-recovery-hyper-v-exclude-disk.md
+              href: hyper-v-exclude-disk.md
         - name: Habilitar replicación
           items:
             - name: Habilitación de la replicación de Azure a Azure
@@ -238,11 +236,11 @@
         - name: Replicación de máquinas virtuales de VMware en Azure mediante PowerShell
           href: site-recovery-vmware-to-azure-powershell.md
         - name: Configuración de la replicación de Hyper-V a Azure (sin VMM) mediante PowerShell
-          href: site-recovery-deploy-with-powershell-resource-manager.md
+          href: hyper-v-azure-powershell-resource-manager.md
         - name: Configuración de la replicación de Hyper-V a Azure (con VMM) mediante PowerShell
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Configuración de la replicación de Hyper-V a un sitio secundario de VMM mediante PowerShell
-          href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
     - name: Cargas de trabajo
       items:
         - name: Active Directory y DNS

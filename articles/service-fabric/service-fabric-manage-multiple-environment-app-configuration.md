@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Administración de aplicaciones en varios entornos
 
@@ -55,8 +55,8 @@ Al crear instancias de aplicación con nombre en Service Fabric, tiene la opció
 ## <a name="next-steps"></a>pasos siguientes
 En los artículos siguientes se muestra cómo usar algunos de los conceptos aquí descritos:
 
-- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md) (Especificación de variables de entorno para servicios en Service Fabric)
-- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-environment-variables.md) (Especificación del número de puerto de un servicio mediante parámetros en Service Fabric)
+- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-environment-variables.md) (Especificación de variables de entorno para servicios en Service Fabric)
+- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md) (Especificación del número de puerto de un servicio mediante parámetros en Service Fabric)
 - [How to parameterize configuration files](service-fabric-how-to-parameterize-configuration-files.md) (Parametrización de los archivos de configuración)
 
 - [Environment variable reference](service-fabric-environment-variables-reference.md) (Referencia de variables de entorno)

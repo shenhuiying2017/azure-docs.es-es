@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Supervisión de las puertas de enlace de VPN con la solución de problemas de Network Watcher
 
@@ -25,7 +25,7 @@ Obtener información detallada sobre el rendimiento de la red es fundamental par
 
 ## <a name="scenario"></a>Escenario
 
-El escenario en la siguiente imagen es una aplicación de varios niveles, con conectividad local establecida mediante una puerta de enlace de VPN y un túnel. Asegurarse de que VPN Gateway está activo y ejecutándose es fundamental para el correcto rendimiento de aplicaciones.
+El escenario en la siguiente imagen es una aplicación de varios niveles, con conectividad local establecida mediante VPN Gateway y un túnel. Asegurarse de que VPN Gateway está activo y ejecutándose es fundamental para el correcto rendimiento de aplicaciones.
 
 Se crea un runbook con un script para comprobar el estado de la conexión de túnel de VPN, usando la API de solución de problemas de recursos para comprobar el estado del túnel de conexión. Si el estado no es correcto, se envía a los administradores un desencadenador de correo electrónico.
 
@@ -51,7 +51,7 @@ Antes de comenzar con este escenario, tiene que cumplir los siguientes requisito
 
 ### <a name="create-the-runbook"></a>Creación del runbook
 
-El primer paso para configurar el ejemplo es crear el runbook. Este ejemplo utiliza una cuenta de ejecución. Para obtener información acerca de las cuentas de ejecución, visite [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
+El primer paso para configurar el ejemplo es crear el runbook. Este ejemplo utiliza una cuenta de ejecución. Para obtener información acerca de las cuentas de ejecución, visite [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Paso 1
 
@@ -183,7 +183,7 @@ Haga clic en Guardar para guardar la programación del runbook.
 
 ![Paso 10][10]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que comprende mejor cómo integrar la solución de problemas de Network Watcher con Azure Automation, aprenda a desencadenar capturas de paquetes en las alertas de máquina virtual consultando el artículo en el que se describe cómo [crear una captura de paquetes desencadenada mediante alertas con Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
 

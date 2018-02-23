@@ -61,6 +61,7 @@
 # Procedimientos
 ## [Supervisión de VPN Gateway con Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnóstico de la conectividad local a través de VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Supervisión de conexiones de red](connection-monitor.md)
 ## [Realización de auditoría y comprobación del cumplimiento en la red con PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Análisis de los registros de Application Gateway en Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Captura de paquetes
