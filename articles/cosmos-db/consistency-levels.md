@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
 El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. Obsolescencia limitada, sesión, prefijo coherente y posible se denominan "modelos de coherencia moderada", ya que proporcionan menos coherencia que la coherencia fuerte, que es el modelo más coherente disponible. 
@@ -118,7 +118,11 @@ De manera predeterminada, para los recursos definidos por el usuario, el nivel d
 
 Al igual que con las solicitudes de lectura, puede disminuir el nivel de coherencia de una solicitud de consulta concreta en cada API.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="consistency-levels-for-the-mongodb-api"></a>Niveles de coherencia de la API de MongoDB
+
+Azure Cosmos DB implementa actualmente la versión 3.4 de MongoDB, que tiene dos opciones de configuración de coherencia: fuerte y eventual. Como Azure Cosmos DB tiene varias API, la configuración de coherencia se puede aplicar en el nivel de cuenta y cada una de las API controla el cumplimiento de la coherencia.  Hasta MongoDB 3.6, no había ningún concepto de una coherencia de sesión, por lo que si establece una cuenta de API de MongoDB para usar coherencia de sesión, la coherencia cambia a eventual al usar las API de MongoDB. Si necesita una garantía de lectura de lo que ha escrito para una cuenta de API de MongoDB, el nivel de coherencia predeterminado para la cuenta se debe establecer en fuerte u obsolescencia limitada.
+
+## <a name="next-steps"></a>pasos siguientes
 Si desea leer más sobre los niveles de coherencia y los compromisos, recomendamos los siguientes recursos:
 
 * Doug Terry. Vídeo Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol).   

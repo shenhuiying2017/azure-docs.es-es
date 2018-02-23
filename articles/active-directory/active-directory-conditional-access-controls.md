@@ -1,6 +1,6 @@
 ---
-title: Controles de acceso condicional de Azure Active Directory | Microsoft Docs
-description: "Aprenda cómo funcionan los controles en el acceso condicional de Azure Active Directory."
+title: Controles de acceso en el acceso condicional de Azure Active Directory | Microsoft Docs
+description: "Aprenda cómo funcionan los controles de acceso en el acceso condicional de Azure Active Directory."
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Controles en el acceso condicional de Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acceso en el acceso condicional de Azure Active Directory 
 
-Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, se define la respuesta ("hacer esto") a una condición específica ("cuando esto sucede"). En el contexto del acceso condicional, 
+Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
 
-- "**Cuando esto sucede**" se denomina **declaración de condición**
+![Control](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Entonces haga esto**" se denomina **controles**.
 
-![Control](./media/active-directory-conditional-access-controls/11.png)
+En el contexto del acceso condicional, 
+
+- "**Cuando esto suceda**" son las **condiciones** y
+
+- "**Entonces haga esto**" son los **controles de acceso**.
+
 
 La combinación de una declaración de condición con los controles representa una directiva de acceso condicional.
 
-![Control](./media/active-directory-conditional-access-controls/12.png)
+![Control](./media/active-directory-conditional-access-controls/61.png)
 
 Cada control es un requisito que la persona o el sistema que inicia sesión deben cumplir, o una restricción en lo que el usuario puede hacer tras iniciar sesión. 
 

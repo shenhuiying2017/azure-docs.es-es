@@ -1,10 +1,10 @@
 ---
 title: "Conexión de punto a sitio de un equipo a una red virtual con autenticación RADIUS: PowerShell | Azure"
-description: "Conecte de forma segura un equipo a su instancia de Azure Virtual Network mediante la creación de una conexión de puerta de enlace de VPN de punto a sitio con autenticación RADIUS."
+description: "Conecte clientes Windows y Mac OS X de forma segura a una red virtual con autenticación RADIUS y P2S."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 
@@ -235,6 +235,8 @@ En el cuadro de diálogo Red, localice el perfil de cliente que desea utilizar y
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
+
+Para solucionar problemas de conexión de P2S, vea [Solución de problemas: conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Conexión a una máquina virtual
 

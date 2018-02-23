@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -38,7 +38,9 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 
 3. En **Base de datos**, si conoce el nombre de la base de datos de modelo tabular o la perspectiva a la que desea conectarse, péguelo aquí. En caso contrario, puede dejar este campo en blanco y seleccionar una base de datos o una perspectiva más adelante.
 
-4. Deje la opción predeterminada **Conectar en directo** y presione **Conectar**. Las conexiones de importación no se admiten actualmente.
+4. Seleccione una opción de conexión y presione **Conectar**. 
+
+    Se admiten las opciones **Conectar en directo** e **Importar**. Sin embargo, se recomienda usar conexiones en directo porque el modo de importación tiene algunas limitaciones. En particular, durante la importación se puede afectar el rendimiento del servidor. Además, si el modelo se actualizará en el servicio Power BI, la configuración **Allow access from Power BI** (Permitir el acceso desde Power BI) solo se aplica cuando se elige **Conectar en directo**.
 
 5. Escriba sus credenciales de inicio de sesión, si se le solicitan. 
 

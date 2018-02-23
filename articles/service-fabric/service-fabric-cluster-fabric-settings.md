@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -482,17 +482,32 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-securityclientx509names"></a>Nombre de sección: Security/ClientX509Names
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
+|PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 
 ### <a name="section-name-securityclusterx509names"></a>Nombre de sección: Security/ClusterX509Names
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
+|PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 
 ### <a name="section-name-securityserverx509names"></a>Nombre de sección: Security/ServerX509Names
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
+|PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>Nombre de sección: Security/ClientCertificateIssuerStores
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, el valor predeterminado es None |Dinámica|Almacenes de certificados de emisor X509 para certificados de cliente; nombre = clientIssuerCN; valor = lista de almacenes separados por comas |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>Nombre de sección: Security/ClusterCertificateIssuerStores
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, el valor predeterminado es None |Dinámica|Almacenes de certificados de emisor X509 para certificados de clúster; nombre = clusterIssuerCN; valor = lista de almacenes separados por comas |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>Nombre de sección: Security/ServerCertificateIssuerStores
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, el valor predeterminado es None |Dinámica|Almacenes de certificados de emisor X509 para certificados de servidor; nombre = serverIssuerCN; valor = lista de almacenes separados por comas |
 
 ### <a name="section-name-securityclientaccess"></a>Nombre de sección: Security/ClientAccess
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
@@ -555,31 +570,31 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 | StartClusterConfigurationUpgrade |string, el valor predeterminado es "Admin". |Dinámica| Produce StartClusterConfigurationUpgrade en una partición. |
 | GetUpgradesPendingApproval |string, el valor predeterminado es "Admin". |Dinámica| Produce GetUpgradesPendingApproval en una partición. |
 | StartApprovedUpgrades |string, el valor predeterminado es "Admin". |Dinámica| Produce StartApprovedUpgrades en una partición. |
-| Ping |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para pings de cliente. |
-| Consultar |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para consultas. |
-| NameExists |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para comprobaciones de existencia de URI de nomenclatura. |
-| EnumerateSubnames |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para enumeración de URI de nomenclatura. |
-| EnumerateProperties |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para enumeración de propiedad de nomenclatura. |
-| PropertyReadBatch |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para operaciones de lectura de propiedad de nomenclatura. |
-| GetServiceDescription |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para notificaciones de servicio de sondeo largo y descripciones de servicio de lectura. |
-| ResolveService |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para resolución de servicio basada en reclamaciones. |
-| ResolveNameOwner |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para resolver propietario de URI de nomenclatura. |
-| ResolvePartition |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para resolver servicios del sistema. |
-| ServiceNotifications |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para notificaciones del servicio basadas en eventos. |
-| PrefixResolveService |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para resolución de prefijo de servicio basada en reclamaciones. |
-| GetUpgradeStatus |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
-| GetFabricUpgradeStatus |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización del clúster. |
-| InvokeInfrastructureQuery |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para consultar tareas de infraestructura. |
-| Enumerar |string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
-| ResetPartitionLoad |string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para restablecer una carga para una unidad de conmutación por error. |
-| ToggleVerboseServicePlacementHealthReporting | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para alternar informes de mantenimiento detallados de ubicación de servicio. |
-| GetPartitionDataLossProgress | string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Captura el progreso de una llamada de API para invocar la pérdida de datos. |
-| GetPartitionQuorumLossProgress | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Captura el progreso de una llamada de API para invocar la pérdida de cuórum. |
-| GetPartitionRestartProgress | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Captura el progreso de una llamada de API para el reinicio de una partición. |
-| GetChaosReport | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Captura el estado de Chaos dentro de un intervalo de tiempo determinado. |
-| GetNodeTransitionProgress | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Configuración de seguridad para obtener el progreso en un comando de transición de nodo. |
-| GetClusterConfigurationUpgradeStatus | string, el valor predeterminado es "Admin\.|\|User" |Dinámica| Produce GetClusterConfigurationUpgradeStatus en una partición. |
-| GetClusterConfiguration | string, el valor predeterminado es "Admin\.|\|User" | Dinámica|Produce GetClusterConfiguration en una partición. |
+| Ping |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para pings de cliente. |
+| Consultar |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para consultas. |
+| NameExists |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para comprobaciones de existencia de URI de nomenclatura. |
+| EnumerateSubnames |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para enumeración de URI de nomenclatura. |
+| EnumerateProperties |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para enumeración de propiedad de nomenclatura. |
+| PropertyReadBatch |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para operaciones de lectura de propiedad de nomenclatura. |
+| GetServiceDescription |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para notificaciones de servicio de sondeo largo y descripciones de servicio de lectura. |
+| ResolveService |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para resolución de servicio basada en reclamaciones. |
+| ResolveNameOwner |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para resolver propietario de URI de nomenclatura. |
+| ResolvePartition |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para resolver servicios del sistema. |
+| ServiceNotifications |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para notificaciones del servicio basadas en eventos. |
+| PrefixResolveService |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para resolución de prefijo de servicio basada en reclamaciones. |
+| GetUpgradeStatus |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
+| GetFabricUpgradeStatus |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para sondeo de estado de actualización del clúster. |
+| InvokeInfrastructureQuery |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para consultar tareas de infraestructura. |
+| Enumerar |string, el valor predeterminado es "Admin\|\|User" | Dinámica|Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
+| ResetPartitionLoad |string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para restablecer una carga para una unidad de conmutación por error. |
+| ToggleVerboseServicePlacementHealthReporting | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para alternar informes de mantenimiento detallados de ubicación de servicio. |
+| GetPartitionDataLossProgress | string, el valor predeterminado es "Admin\|\|User" | Dinámica|Captura el progreso de una llamada de API para invocar la pérdida de datos. |
+| GetPartitionQuorumLossProgress | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Captura el progreso de una llamada de API para invocar la pérdida de cuórum. |
+| GetPartitionRestartProgress | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Captura el progreso de una llamada de API para el reinicio de una partición. |
+| GetChaosReport | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Captura el estado de Chaos dentro de un intervalo de tiempo determinado. |
+| GetNodeTransitionProgress | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Configuración de seguridad para obtener el progreso en un comando de transición de nodo. |
+| GetClusterConfigurationUpgradeStatus | string, el valor predeterminado es "Admin\|\|User" |Dinámica| Produce GetClusterConfigurationUpgradeStatus en una partición. |
+| GetClusterConfiguration | string, el valor predeterminado es "Admin\|\|User" | Dinámica|Produce GetClusterConfiguration en una partición. |
 |CreateComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Crea una implementación compuesta descrita por archivos compuestos. |
 |DeleteComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Elimina la implementación compuesta. |
 |UpgradeComposeDeployment|string, el valor predeterminado es L"Admin"| Dinámica|Actualiza la implementación compuesta. |
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 |MaxDataMigrationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo para operaciones de recuperación de migración de datos después de que ha tenido lugar una actualización de Fabric. |
 |MaxOperationRetryDelay |Tiempo en segundos, el valor predeterminado es 5.|Dinámica| Especifique el intervalo de tiempo en segundos. El retraso máximo de reintentos internos cuando se producen errores. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tiempo en segundos, el valor predeterminado es 1200. |Dinámica| Especifique el intervalo de tiempo en segundos. Si ReplicaSetCheckTimeout se establece en el valor máximo de DWORD, entonces se reemplaza por el valor de esta configuración de cara a la reversión. El valor usado para la puesta al día nunca se reemplaza. |
-|ImageBuilderJobQueueThrottle |Int, el valor predeterminado es 10. |Dinámica|Limitación de recuento de subprocesos para la cola de trabajo del proxy de Image Builder en solicitudes de aplicación. |
-|MaxExponentialOperationRetryDelay|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|Dinámica|Especifique el intervalo de tiempo en segundos. Retraso máximo exponencial de reintentos internos cuando se producen errores repetidamente. |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Nombre de sección: DefragmentationEmptyNodeDistributionPolicy
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |

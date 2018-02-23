@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 > [!NOTE]
-> Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
+> Si tiene preguntas sobre Premium Encoder, envíe un correo electrónico a mepd@microsoft.com.
 > 
 > El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China. 
 > 
@@ -120,12 +120,12 @@ En la salida, están disponibles las siguientes opciones:
 5. Archivo de subtítulos SRT
 6. Secuencias de subtítulos DVB
 
-Nota: no todos los formatos de salida anteriores se admiten para la entrega mediante streaming en Servicios multimedia de Azure.
+Nota: no todos los formatos de salida anteriores se admiten para la entrega mediante streaming en Azure Media Services.
 
 ## <a name="known-issues"></a>Problemas conocidos
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío. 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

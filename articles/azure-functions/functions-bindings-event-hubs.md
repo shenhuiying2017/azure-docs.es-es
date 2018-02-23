@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -49,7 +49,7 @@ Cuando se habilita la función por primera vez, solo hay una instancia de la fun
 
 * **Agregue 1 más instancia de función**: la lógica de escalado de Azure Functions determina que Function_0 tiene más mensajes de los que puede procesar, por lo que se crea una nueva instancia, Function_1. Event Hubs detecta que una nueva instancia de EPH está tratando leer los mensajes. Event Hubs comenzará a equilibrar la carga de las particiones entre las instancias de EPH, p. ej., 0-4 particiones se asignan a Function_0 y 5-9 particiones se asignan a Function_1. 
 
-* **Agregue N instancias de función más**: la lógica de escalado de Azure Functions determina que Function_0 y Function_1 tiene más mensajes que los que puede procesar. Se volverá a escalar para Function_2... N, donde N es mayor que las particiones de Event Hubs. Event Hubs equilibrará la carga de las particiones entre las instancias de Function_0...9.
+* **Agregue N instancias de función más**: la lógica de escalado de Azure Functions determina que Function_0 y Function_1 tiene más mensajes que los que puede procesar. Se volverá a escalar hasta Function_2... N, donde N es mayor que las particiones de Event Hubs. Event Hubs equilibrará la carga de las particiones entre las instancias de Function_0...9.
 
 El hecho de que N sea mayor que el número de particiones es algo que solo pasa en la lógica de escalado actual de Azure Functions. Esto se hace para garantizar que siempre haya instancias de EPH disponibles listas para su uso para obtener rápidamente un bloqueo en las particiones cuando estén disponibles de otras instancias. Solo se cobra a los usuarios por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obtener un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
@@ -405,6 +405,12 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 En C# y scripts de C#, envíe mensajes mediante un parámetro de método, como `out string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Para escribir varios mensajes, puede usar `ICollector<string>` o `IAsyncCollector<string>` en lugar de `out string`.
 
 En JavaScript, puede obtener acceso al evento de salida usando `context.bindings.<name>`. `<name>` es el valor especificado en la propiedad `name` de *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace | Referencia |
+|---|---|
+| Centro de eventos | [Guía de operaciones](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>pasos siguientes
 

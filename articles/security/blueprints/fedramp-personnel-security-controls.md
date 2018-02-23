@@ -1,6 +1,6 @@
 ---
-title: "Automatización de Azure Blueprint de FedRAMP: seguridad del personal"
-description: 'Aplicaciones Web para FedRAMP: seguridad del personal'
+title: "Azure Security and Compliance Blueprint: Automatización de aplicaciones web para FedRAMP: seguridad personal"
+description: "Automatización de aplicaciones web para FedRAMP: seguridad personal"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Seguridad del personal (PS)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-ps-1"></a>NIST 800-53 Control PS-1
 

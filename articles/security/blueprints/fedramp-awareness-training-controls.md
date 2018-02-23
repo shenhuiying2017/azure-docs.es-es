@@ -1,6 +1,6 @@
 ---
-title: "Automatización de Azure Blueprint de FedRAMP: reconocimiento y aprendizaje"
-description: 'Aplicaciones web para FedRAMP: reconocimiento y aprendizaje'
+title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (reconocimiento y aprendizaje)"
+description: "Automatización de aplicaciones web para FedRAMP (reconocimiento y aprendizaje)"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>Reconocimiento y aprendizaje (AT)
 
 > [!NOTE]
-> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el NIST 800-53 Rev. 4 para obtener información sobre procedimientos de pruebas y guía para cada control.
+> NIST y los Estados Unidos definen estos controles. Departamento de Comercio como parte de la publicación especial de NIST 800-53 Revisión 4. Consulte el informe NIST 800-53 Rev. 4 para obtener información sobre la guía y los procedimientos de prueba de cada control.
 
 ## <a name="nist-800-53-control-at-1"></a>NIST 800-53 Control AT-1
 

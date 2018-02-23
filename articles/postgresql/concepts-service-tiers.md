@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for PostgreSQL: información sobre lo que está disponible en cada plan de tarifa
 Al crear un servidor de Azure Database for PostgreSQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
@@ -42,7 +42,7 @@ En la tabla siguiente se proporcionan ejemplos de los planes de tarifa más adec
 
 Para decidirse por un plan de tarifa, empiece por determinar si la carga de trabajo necesita un valor garantizado de E/S por segundo. Si es así, seleccione el plan de tarifa Estándar.
 
-| **Características del plan de tarifa** | **Básico** | **Standard** |
+| **Características del plan de tarifa** | **Básico** | **Estándar** |
 | :------------------------ | :-------- | :----------- |
 | Unidades de proceso máximas | 100 | 800 | 
 | Almacenamiento total máximo | 1 TB | 1 TB | 
@@ -81,7 +81,7 @@ Las unidades de proceso son una medida de la capacidad de proceso de la CPU que 
 \* El tamaño máximo de almacenamiento en servidor se refiere al tamaño máximo de almacenamiento aprovisionado para el servidor.
 
 ## <a name="storage"></a>Storage 
-La configuración de almacenamiento define la cantidad de capacidad de almacenamiento disponible para un servidor de Azure Database for PostgreSQL. El almacenamiento usado por el servicio incluye los archivos de base de datos, los registros de transacciones de los registros de servidor de PostgreSQL. Tenga en cuenta el tamaño de almacenamiento necesario para hospedar las bases de datos y los requisitos de rendimiento (E/S por segundo) a la hora de seleccionar la configuración de almacenamiento.
+La configuración de almacenamiento define la cantidad de capacidad de almacenamiento disponible para un servidor de Azure Database for PostgreSQL. El almacenamiento usado por el servicio incluye los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros de servidor PostgreSQL. Tenga en cuenta el tamaño de almacenamiento necesario para hospedar las bases de datos y los requisitos de rendimiento (E/S por segundo) a la hora de seleccionar la configuración de almacenamiento.
 
 Se incluye cierta capacidad de almacenamiento mínima con cada plan de tarifa, denominada en la tabla anterior "Tamaño de almacenamiento incluido". Es posible agregar capacidad de almacenamiento adicional al crear el servidor en incrementos de 125 GB y hasta el valor máximo permitido. La capacidad de almacenamiento adicional puede configurarse con independencia de la configuración de las unidades de proceso. Los precios varían en función de la cantidad de almacenamiento seleccionada.
 
@@ -101,6 +101,6 @@ En segundo plano, al cambiar el nivel de rendimiento de una base de datos, se cr
 
 La duración de todo el proceso de escalado depende tanto del tamaño como del plan de tarifa del servidor antes y después del cambio. Por ejemplo, el cambio de unidades de proceso de un servidor dentro del plan de tarifa Estándar debería tardar unos pocos minutos en completarse. Las nuevas propiedades del servidor no se aplican hasta que se completan los cambios.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener más información sobre unidades de proceso, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 - Más información en [Supervisión y escalado de un solo servidor PostgreSQL mediante la CLI de Azure](scripts/sample-scale-server-up-or-down.md).

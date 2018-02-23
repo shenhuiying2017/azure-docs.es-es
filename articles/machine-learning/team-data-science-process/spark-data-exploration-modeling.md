@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploración y modelado de datos con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -42,7 +42,7 @@ Los pasos de modelado también contienen código que muestra cómo entrenar, eva
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Clústeres y cuadernos de Spark

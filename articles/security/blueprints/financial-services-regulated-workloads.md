@@ -1,6 +1,6 @@
 ---
-title: 'Azure Blueprint Automation: Financial Services for Regulated Workloads'
-description: "Plano técnico de servicios financieros para cargas de trabajo reguladas"
+title: "Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC"
+description: "Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Azure Blueprint Automation: plano técnico de servicios financieros para cargas de trabajo reguladas
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC
 
 ## <a name="overview"></a>Información general
 
-Financial Services Blueprint for Regulated Workloads ayuda a implementar una aplicación web de plataforma como servicio (PaaS) segura y compatible diseñada para administrar datos confidenciales en la nube. El plano técnico consta de scripts automatizados e instrucciones que exponen una arquitectura de referencia sencilla y un diseño que ayuda a simplificar la adopción de soluciones de Microsoft Azure. En él se ilustra una solución completa que satisface las necesidades de las organizaciones que buscan reducir la carga y los costos de implementación en la nube.
+Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC ayuda a implementar una aplicación web de plataforma como servicio (PaaS) segura y compatible diseñada para administrar datos confidenciales en la nube. El plano técnico consta de scripts automatizados e instrucciones que exponen una arquitectura de referencia sencilla y un diseño que ayuda a simplificar la adopción de soluciones de Microsoft Azure. En él se ilustra una solución completa que satisface las necesidades de las organizaciones que buscan reducir la carga y los costos de implementación en la nube.
 
 Está diseñado para satisfacer los requisitos de los estándares de compatibilidad más estrictos establecidos por el Instituto Americano de Contables Públicos Certificados (American Institute of Certified Public Accountants), como SOC 1, SOC 2, el DSS 3.2 del consejo de Estándares de Seguridad de Datos para la Industria de Tarjeta de Pago (Payment Card Industry Data Security Standards) y el FFIEC para la recopilación, el almacenamiento y la recuperación de datos financieros de carácter confidencial. Demuestra el tratamiento adecuado de dichos datos mediante la implementación de una solución que administra los datos financieros en un entorno seguro, compatible y de niveles múltiples. La solución se implementa como una solución PaaS basada en Azure de extremo a extremo. 
 
@@ -52,7 +52,7 @@ La arquitectura está formada por los siguientes componentes y usa las funcional
 
 En el plano técnico se incluye el caso de uso que se describe a continuación.
 
-> En este escenario se ilustra cómo una tienda web ficticia mueve datos confidenciales a una solución PaaS en la nube basada en Azure. La solución de ejemplo ilustra el tratamiento y la recopilación de información básica del usuario y los datos confidenciales seleccionados. Este trabajo toma prestado Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments for payment card processing. Para más información sobre la expansión de este trabajo, en el documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Revisión e instrucciones de implementación) se proporciona una revisión de los entornos compatibles con PCI DSS.
+> En este escenario se ilustra cómo una tienda web ficticia mueve datos confidenciales a una solución PaaS en la nube basada en Azure. La solución de ejemplo ilustra el tratamiento y la recopilación de información básica del usuario y los datos confidenciales seleccionados. Este trabajo se toma prestado de Plano técnico de seguridad y cumplimiento de Azure: entornos de procesamiento de pagos compatibles con PCI DSS. Para más información sobre la expansión de este trabajo, en el documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Revisión e instrucciones de implementación) se proporciona una revisión de los entornos compatibles con PCI DSS.
 
 ### <a name="use-case"></a>Caso de uso
 Una pequeña tienda web llamada *Contoso Webstore* está lista para mover a la nube datos financieros, entre los que se incluye la información de pago de los clientes. 
@@ -111,7 +111,7 @@ Edna Benson es la directora del departamento de recepción y negocios. Es la res
 - Puede sobrescribir la información financiera.
 - La cuenta de Edna no puede ver la información financiera sin filtrar.
 
-> El usuario de Contoso Webstore se muestra automáticamente como **Edna**, para así poder probar las funcionalidades del entorno implementado.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore: precios estimados
 
@@ -172,7 +172,7 @@ Cada uno de los niveles de red tiene un grupo de seguridad de red dedicado (NSG)
 - Un NSG para un jumpbox de administración (host de tipo bastión)
 - Un NSG para el entorno del servicio de la aplicación
 
-Cada uno de los NSG tiene determinados puertos y protocolos abiertos para así permitir que la solución funcione con seguridad y como es debido. Para obtener más información, consulte [Guía de PCI: grupos de seguridad de red](#network-security-groups).
+Cada uno de los NSG tiene determinados puertos y protocolos abiertos para así permitir que la solución funcione con seguridad y como es debido. 
 
 Además, las siguientes opciones de configuración están habilitadas para cada NSG:
 
@@ -305,7 +305,7 @@ La implementación predeterminada está diseñada para proporcionar una base de 
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
-Los componentes para implementar esta solución están disponibles en el [repositorio de código del plano técnico de procesamiento de pago][code-repo]. Para implementar la arquitectura fundamental, debe ejecutar una serie de pasos mediante Microsoft PowerShell v5. Para conectarse al sitio web, debe proporcionar un nombre de dominio personalizado (por ejemplo, contoso.com). Esto se especifica mediante el conmutador `-customHostName` del paso 2. Para obtener más información, consulte [Comprar un nombre de dominio personalizado para Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). No es necesario tener un nombre de dominio personalizado para implementar y ejecutar la solución correctamente, pero no se podrá conectar al sitio web si quiere realizar alguna demostración.
+Los componentes para implementar esta solución están disponibles en el [repositorio de código del proyecto][code-repo]. Para implementar la arquitectura fundamental, debe ejecutar una serie de pasos mediante Microsoft PowerShell v5. Para conectarse al sitio web, debe proporcionar un nombre de dominio personalizado (por ejemplo, contoso.com). Esto se especifica mediante el conmutador `-customHostName` del paso 2. Para obtener más información, consulte [Comprar un nombre de dominio personalizado para Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). No es necesario tener un nombre de dominio personalizado para implementar y ejecutar la solución correctamente, pero no se podrá conectar al sitio web si quiere realizar alguna demostración.
 
 Los scripts agregan usuarios de dominio al inquilino de Azure AD que especifique. Microsoft recomienda crear un nuevo inquilino de Azure AD para usarlo como prueba.
 
@@ -361,7 +361,7 @@ Microsoft recomienda firmemente el uso de una instalación nueva de PowerShell p
     
 ## <a name="threat-model"></a>Modelo de amenazas
 
-Un diagrama de flujo de datos (DFD) y un modelo de amenazas de ejemplo para Contoso Webstore, en [modelo de amenazas en el plano técnico de procesamiento de pagos](https://aka.ms/pciblueprintthreatmodel).
+Un diagrama de flujo de datos (DFD) y un modelo de amenazas de ejemplo para Contoso Webstore, en el [modelo de amenazas del plano técnico](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

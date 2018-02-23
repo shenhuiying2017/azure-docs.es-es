@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
@@ -45,7 +45,7 @@ Las sesiones proporcionan la demultiplexación simultánea de flujos de mensajes
 
 ![][1]
 
-El cliente que acepta la sesión crea un receptor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession). El cliente llama a [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. En el modelo de devolución de llamada reactivo, se registra un controlador de sesión, tal y como se describe más adelante.
+El cliente que acepta la sesión crea un receptor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession). El cliente llama a [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. En el modelo de devolución de llamada reactivo, se registra un controlador de sesión.
 
 Cuando el objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) se acepta y mientras tiene lugar en el cliente, ese cliente mantiene un bloqueo exclusivo sobre todos los mensajes con ese valor de [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) de la sesión, que existe en la cola o la suscripción y también sobre todos los mensajes con ese valor de **SessionId** que sigan llegando mientras tiene lugar la sesión.
 
@@ -72,6 +72,8 @@ El servicio de estado de sesión permite una anotación definida por la aplicaci
 Desde el punto de vista de Service Bus, el estado de la sesión de mensajes es un objeto binario opaco que puede contener datos del tamaño de un mensaje, que es de 256 KB para Service Bus Standard y 1 MB para Service Bus Premium. El estado de procesamiento relativo a una sesión puede estar contenido en el estado de sesión, o el estado de sesión puede apuntar a alguna ubicación de almacenamiento o registro de base de datos que contiene dicha información.
 
 Las API para administrar el estado de sesión, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) y [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), se encuentran en el objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) en las API de C# y Java. Una sesión que no tenía anteriormente un estado de sesión definido devuelve una referencia **null** para **GetState**. Para borrar el estado de sesión establecido previamente se usa [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Tenga en cuenta que el estado de sesión permanecerá siempre y cuando no se borre (devolviendo **null**), incluso si se consumen todos los mensajes en una sesión.
 
 Todas las sesiones existentes de una cola o suscripción se pueden enumerar con el método **SessionBrowser** de la API de Java y con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) y [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) en el cliente .NET.
 

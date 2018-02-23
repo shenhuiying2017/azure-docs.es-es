@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="what-are-azure-sql-database-service-tiers"></a>Qué son los niveles de servicio de Azure SQL Database
+# <a name="what-are-azure-sql-database-service-tiers"></a>¿Qué son los niveles de servicio de Azure SQL Database?
 
-[Azure SQL Database](sql-database-technical-overview.md) ofrece los niveles de servicio **Básico**, **Estándar**, **Premium** y **Premium RS** tanto para [bases de datos únicas](sql-database-single-database-resources.md) como para [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Los niveles de servicio se diferencian sobre todo en un rango de opciones relativas al nivel de rendimiento y al tamaño de almacenamiento, así como de precio.  Todos los niveles de servicio proporcionan flexibilidad para cambiar el tamaño de almacenamiento y el nivel de rendimiento.  Las bases de datos únicas y los grupos elásticos se facturan por horas en función de nivel de servicio, el nivel de rendimiento y el tamaño de almacenamiento.   
+[Azure SQL Database](sql-database-technical-overview.md) ofrece los niveles de servicio **Básico**, **Estándar** y **Premium** tanto para [bases de datos únicas](sql-database-single-database-resources.md) como para [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Los niveles de servicio se diferencian sobre todo en un rango de opciones relativas al nivel de rendimiento y al tamaño de almacenamiento, así como de precio.  Todos los niveles de servicio proporcionan flexibilidad para cambiar el tamaño de almacenamiento y el nivel de rendimiento.  Las bases de datos únicas y los grupos elásticos se facturan por horas en función de nivel de servicio, el nivel de rendimiento y el tamaño de almacenamiento.   
 
 ## <a name="choosing-a-service-tier"></a>Selección de un nivel de servicio
 
 La selección de un nivel de servicio depende sobre todo de los requisitos de continuidad del negocio, de almacenamiento y de rendimiento.
-| | **Básico** | **Estándar** |**Premium** |**Premium RS** |
+| | **Básico** | **Estándar** |**Premium**  |
 | :-- | --: |--:| --:| --:| 
-|Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|Carga de trabajo que puede tolerar una pérdida de datos de hasta 5 minutos debido a errores en el servicio|
+|Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción||
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|N/D en versión preliminar|
-|Retención de copias de seguridad|7 días|35 días|35 días|35 días|
-|CPU|Bajo|Bajo, medio, alto|Medio, alto|Mediano|
-|Rendimiento de E/S|Bajo  | Mediano | Orden de magnitud mayor que Estándar|Igual que Premium|
-|Latencia de E/S|Mayor que Premium|Mayor que Premium|Menor que Básico y Estándar|Igual que Premium|
-|Indexación de almacén de columnas y OLTP en memoria|N/D|N/D|Compatible|Compatible|
+|Retención de copias de seguridad|7 días|35 días|35 días|
+|CPU|Bajo|Bajo, medio, alto|Medio, alto|
+|Rendimiento de E/S|Bajo  | Mediano | Orden de magnitud mayor que Estándar|
+|Latencia de E/S|Mayor que Premium|Mayor que Premium|Menor que Básico y Estándar|
+|Indexación de almacén de columnas y OLTP en memoria|N/D|N/D|Compatible|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Límites de nivel de rendimiento y de tamaño de almacenamiento
@@ -46,27 +46,27 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 
 ### <a name="single-databases"></a>Bases de datos únicas
 
-|  | **Básico** | **Estándar** | **Premium** | **Premium RS**|
+|  | **Básico** | **Estándar** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Tamaño máximo de almacenamiento* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| Cantidad máxima de DTU | 5 | 3000 | 4000 | 1000 |
+| Tamaño máximo de almacenamiento* | 2 GB | 1 TB | 4 TB  | 
+| Cantidad máxima de DTU | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>Grupos elásticos
 
-| | **Básico** | **Estándar** | **Premium** | **Premium RS**|
+| | **Básico** | **Estándar** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Tamaño máximo de almacenamiento por base de datos*  | 2 GB | 1 TB | 1 TB | 1 TB |
-| Tamaño máximo de almacenamiento por grupo* | 156 GB | 4 TB | 4 TB | 1 TB |
-| Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 | 1000 |
-| Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 | 1000 |
-| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 100 |
+| Tamaño máximo de almacenamiento por base de datos*  | 2 GB | 1 TB | 1 TB | 
+| Tamaño máximo de almacenamiento por grupo* | 156 GB | 4 TB | 4 TB | 
+| Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 | 
+| Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 | 
+| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
 > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Para más información sobre las opciones específicas de niveles de rendimiento y de tamaño de almacenamiento disponibles, consulte [Límites de recursos de SQL Database](sql-database-resource-limits.md).

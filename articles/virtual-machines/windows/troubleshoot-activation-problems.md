@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Si tiene algún problema al activar una máquina virtual (VM) Windows de Azure que se crea a partir de una imagen personalizada, puede usar la información proporcionada en este documento para solucionar el problema. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Descripción de los puntos de conexión de KMS de Azure para la activación de productos Windows de Azure Virtual Machines
+Azure usa puntos de conexión diferentes para la activación de KMS en función de la región en la nube donde resida la máquina virtual. Al usar esta guía de solución de problemas, utilice el punto de conexión de KMS adecuado que se aplica a su región.
+
+* Regiones de la nube pública de Azure: kms.core.windows.net:1688
+* Regiones de la nube nacional de Azure China: kms.core.chinacloudapi.cn:1688
+* Regiones de la nube nacional de Azure Alemania: kms.core.cloudapi.de:1688
+* Regiones de la nube nacional de Azure US Gov: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Síntoma
 

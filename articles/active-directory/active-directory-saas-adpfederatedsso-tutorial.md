@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ffac9ea033c1df462297fdb134bf0ead185b09f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Tutorial: Integración de Azure Active Directory con ADP Federated SSO
 
@@ -196,9 +196,10 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-7. En el cuadro de diálogo **Inicio de sesión único**, seleccione **Modo** como **Inicio de sesión vinculado**. De este modo, se vincula la aplicación a **ADP Federated SSO**.
+7. En el cuadro de diálogo **Inicio de sesión único**, seleccione **Modo** como **Inicio de sesión vinculado** para vincular la aplicación a **ADP Federated SSO**.
+<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Inicio de sesión único vinculado](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navegue hasta la sección **Configurar la dirección URL de inicio de sesión** y realice los pasos siguientes:
 
