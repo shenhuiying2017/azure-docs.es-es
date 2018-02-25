@@ -4,13 +4,13 @@
   items:
     - name: Acerca de Web Apps
       href: app-service-web-overview.md
-    - name: Acerca de Web Apps for Containers
+    - name: Acerca de App Service en Linux
       href: containers/app-service-linux-intro.md
     - name: Acerca de App Service Environment
       href: environment/intro.md
     - name: Comparación entre opciones de hospedaje
       href: choose-web-site-cloud-service-vm.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de una aplicación .NET Core
@@ -51,9 +51,9 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4 - Incorporación de CDN
       href: app-service-web-tutorial-content-delivery-network.md
-- name: Muestras
+- name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
@@ -175,7 +175,7 @@
           href: websites-dotnet-deploy-webjobs.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
@@ -219,7 +219,7 @@
           href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
     - name: Procedimientos recomendados
       href: app-service-best-practices.md
-    - name: Muestras
+    - name: Ejemplos
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
