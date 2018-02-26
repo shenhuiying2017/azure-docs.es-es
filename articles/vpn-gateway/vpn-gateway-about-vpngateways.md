@@ -1,10 +1,10 @@
 ---
 title: "Información general sobre VPN Gateway: creación de conexiones VPN entre locales con redes virtuales de Azure | Microsoft Docs"
-description: "Esta información general sobre VPN Gateway explica las distintas formas de conectarse a redes virtuales de Azure mediante una conexión VPN a través de Internet. Se incluyen los diagramas de las configuraciones de conexión básica."
+description: "En este artículo se explica lo que es VPN Gateway muestra las distintas formas de conectarse a redes virtuales de Azure mediante una conexión VPN a través de Internet. Se incluyen los diagramas de las configuraciones de conexión básica."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>Acerca de VPN Gateway
 
@@ -27,15 +27,11 @@ Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que en
 
 Cada red virtual solo puede tener una puerta de enlace de VPN; sin embargo, puede crear varias conexiones a la misma puerta de enlace de VPN. Un ejemplo de esto es una configuración de conexión multisitio. Al crear varias conexiones a la misma puerta de enlace de VPN, todos los túneles VPN, incluidos las VPN de punto a sitio, comparten el ancho de banda que está disponible para la puerta de enlace.
 
-### <a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
+## <a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
 
 Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada GatewaySubnet. Las máquinas virtuales que se encuentran en GatewaySubnet se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No puede configurar directamente máquinas virtuales que formen parte de la puerta de enlace de red virtual y nunca debería implementar recursos adicionales en GatewaySubnet.
 
 Cuando se crea una puerta de enlace de red virtual con el tipo de puerta de enlace "Vpn", se crea un tipo específico de puerta de enlace de red virtual que cifra el tráfico: una puerta de enlace de VPN. Una puerta de enlace de VPN puede tardar hasta 45 minutos en crearse, ya que sus máquinas virtuales se implementan en GatewaySubnet y se configuran con los valores especificados. La SKU de la puerta de enlace seleccionado determina la potencia de las máquinas virtuales.
-
-## <a name="gwsku"></a>SKU de puerta de enlace
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Configuración de una instancia de VPN Gateway
 
@@ -47,11 +43,15 @@ La configuración que ha elegido para cada recurso es fundamental para crear una
 
 ### <a name="tools"></a>Herramientas de implementación
 
-Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Más adelante puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. 
+Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como el portal de Azure. Más adelante puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. 
 
 ### <a name="models"></a>Modelo de implementación
 
 Cuando configure una instancia de VPN Gateway, los pasos que realice dependen del modelo de implementación que ha utilizado para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Para más información sobre los modelos de implementación, consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>SKU de puerta de enlace
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Diagramas de la topología de conexión
 
@@ -148,9 +148,9 @@ Para más información acerca de las SKU de puerta de enlace para VPN Gateway, c
 
 Para conocer las preguntas más frecuentes acerca de VPN Gateway, consulte [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
 - Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
 - Consulte [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#networking-limits).
-- Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
+- Obtenga información sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.

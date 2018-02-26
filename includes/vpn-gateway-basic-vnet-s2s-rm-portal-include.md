@@ -6,7 +6,7 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 >
 
 1. Desde un explorador, navegue al [Portal de Azure](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
-2. Haga clic en **Nuevo**. En el campo **Buscar en el Marketplace**, escriba "Red virtual". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
+2. Haga clic en **Crear un recurso**. En el campo **Buscar en el Marketplace**, escriba "Red virtual". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
 3. En la parte inferior de la página Virtual Network, en la lista **Seleccionar un modelo de implementación**, seleccione **Resource Manager** y, finalmente, haga clic en **Crear**. Se abre la página "Crear red virtual".
 
     ![Página Crear red virtual](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Página Crear red virtual")

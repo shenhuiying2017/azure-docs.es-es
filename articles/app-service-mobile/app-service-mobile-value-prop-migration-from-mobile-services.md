@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"></a>Uso de Mobile Services: ¿cómo ayuda App Service?
 ## <a name="overview"></a>Información general
@@ -28,7 +28,7 @@ Servicios móviles existentes es seguro y seguirá siendo compatible. No obstant
 * Nuevas características de host como trabajos web, CNAME personalizado y una mejor supervisión
 * Integración inmediata con Traffic Manager
 * Conectividad a los recursos locales y VPN mediante una red virtual además de las conexiones híbridas
-* Supervisión, alertas y solución de problemas para su aplicación mediante NewRelic o AppInsights
+* Supervisión, alertas y solución de problemas para su aplicación mediante AppInsights
 * Espectro más completo de los recursos de procesos subyacentes y precios
 * Escalado automático integrado, equilibrio de carga y supervisión del rendimiento
 * Capacidades de prueba en producción, reversión, copia de seguridad y almacenamiento provisional incorporadas
@@ -54,7 +54,7 @@ Con Mobile Services ahora puede usar Conexiones híbridas para acceder a los rec
 Con Mobile Services, todas las instancias de su código de back-end se ejecutaban en máquinas virtuales pequeñas. *Azure App Service* le permite seleccionar el tamaño de las máquinas virtuales desde un conjunto mucho más completo de opciones. También puede escalar de forma vertical u horizontal rápidamente para controlar cualquier carga de cliente entrante basándose en varias métricas de rendimiento.
 
 ## <a name="be-in-the-know"></a>Sepa lo que ocurre
-Reaccione a los problemas en tiempo real gracias a la supervisión y a las alertas que le avisan tanto a usted como a su equipo automáticamente. Integre la funcionalidad avanzada de supervisión y análisis de aplicaciones de New Relic y AppInsights para obtener una perspectiva incluso más completa acerca de cómo funciona la aplicación móvil. Con *Azure App Service*, ahora puede configurar alertas basadas en varias métricas de rendimiento, ya sea mediante programación o a través de Azure Portal.
+Reaccione a los problemas en tiempo real gracias a la supervisión y a las alertas que le avisan tanto a usted como a su equipo automáticamente. Integre la funcionalidad avanzada de supervisión y análisis de aplicaciones de AppInsights para obtener una perspectiva incluso más completa acerca de cómo funciona la aplicación móvil. Con *Azure App Service*, ahora puede configurar alertas basadas en varias métricas de rendimiento, ya sea mediante programación o a través de Azure Portal.
 
 ## <a name="keep-your-assets-safe"></a>Proteja los activos
 Realice una copia de seguridad automática del back-end y la base de datos. El código y los datos están seguros frente a desastres y se restauran fácilmente, por lo que puede llevar a cabo su actividad comercial con confianza.

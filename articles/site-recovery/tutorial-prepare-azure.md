@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos de Azure para la replicación de máquinas locales
 
@@ -60,8 +60,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
-1. En el menú de Azure Portal, haga clic en **Nuevo** > **Supervisión y administración** >
-    **Backup and Site Recovery**.
+1. En Azure Portal, haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
 2. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. En este tutorial, se usa **ContosoVMVault**.
 3. Seleccione el grupo de recursos existente denominado **contosoRG**.
 4. Especifique la región de Azure **Europa Occidental**, que se está usando en este conjunto de tutoriales.
@@ -75,8 +74,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 
 Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de la conmutación por error, se unen a esta red.
 
-1. En el menú [Azure Portal](https://portal.azure.com), haga clic en **Nuevo** > **Redes** >
-   **Red virtual**
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Redes** > **Red virtual**.
 2. Deje **Resource Manager** seleccionado como modelo de implementación. Resource Manager es el modelo de implementación recomendado.
    - Especifique un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Se usará el nombre **ContosoASRnet**.
    - Seleccione el grupo de recursos existente **contosoRG**.

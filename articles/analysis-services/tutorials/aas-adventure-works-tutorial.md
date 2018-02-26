@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3bc0ed965aea043fd5c105752ec39d07c4af818f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: Tutorial de Adventure Works
 
@@ -43,7 +43,7 @@ Si no está familiarizado con Analysis Services y los modelos tabulares, este tu
   
 -   Cómo proteger los datos y los objetos de modelo mediante la creación de roles con miembros de usuario.  
   
--   Cómo implementar un modelo tabular en un servidor de **Azure Analysis Services** o en un servidor local de SQL Server 2017 Analysis Services.  
+-   Cómo implementar un modelo tabular en un servidor de **Azure Analysis Services** o en un servidor de **SQL Server 2017 Analysis Services** mediante SSDT.  
   
 ## <a name="prerequisites"></a>requisitos previos  
 Para completar este tutorial, necesita:  

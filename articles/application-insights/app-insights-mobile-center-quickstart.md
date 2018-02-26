@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
 Esta guía de inicio rápido le orienta a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) de App Center.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este inicio rápido necesita instalar:
 
@@ -66,20 +66,20 @@ Para asegurarse de que se reciben los eventos personalizados, vaya a la pestaña
 Cuando la aplicación envía eventos personalizados y App Center los recibe, tiene que crear un recurso de Application Insights para App Center en Azure Portal:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Nuevo** > **Supervisión y administración** > **Application Insights**.
+2. Seleccione **Crear un recurso** > **Supervisión y administración** > **Application Insights**.
 
     ![Incorporación del recurso Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
 
     Aparecerá un cuadro de configuración. Use la tabla siguiente para rellenar los campos de entrada.
 
-    | Settings        |  Valor           | Descripción  |
+    | Settings        |  Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Name**      | Algún valor único global, como "myApp-iOS" | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación de App Center | Tipo de aplicación que se está supervisando |
    | **Grupo de recursos**     | Un grupo de recursos nuevo o uno existente desde el menú | El grupo de recursos en que se va a crear el recurso de Application Insights |
    | **Ubicación** | Una ubicación en el menú | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
 Si la aplicación admite varias plataformas (iOS, Android, etc.), es mejor crear recursos de Application Insights independientes, uno para cada plataforma.
 
@@ -164,7 +164,7 @@ Para eliminar el recurso de Application Insights:
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y después elija el grupo de recursos en que se creó el recurso de Application Insights.
 2. Abra el recurso de Application Insights que desea eliminar. Después haga clic en **Eliminar** en el menú superior del recurso y confirme. Se eliminará de forma permanente la copia de los datos exportados a Application Insights.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Información sobre la forma en que los clientes usan la aplicación](app-insights-usage-overview.md)

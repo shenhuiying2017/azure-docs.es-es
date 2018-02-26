@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
 
@@ -33,17 +33,17 @@ En este tutorial, aprenderá lo siguiente:
 * [Cambiar la contraseña de SA](#password)
 * [Realizar la configuración para conexiones remotas](#remote)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
 ## <a id="create"></a>Creación de una máquina virtual Linux con SQL Server instalado
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. En el panel izquierdo, haga clic en **Nuevo**.
+1. En el panel izquierdo, haga clic en **Crear un recurso**.
 
-1. En el panel **Nuevo**, haga clic en **Proceso**.
+1. En el panel **Crear un recurso**, haga clic en **Proceso**.
 
 1. Haga clic en **See all** (Ver todos) junto al encabezado **Featured** (Destacados).
 
@@ -60,7 +60,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    > [!TIP]
    > La edición Developer permite probar o desarrollar con las características de la edición Enterprise, pero sin los costos de licencia de SQL Server. Solo se paga el costo de ejecutar la máquina virtual Linux.
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 1. En la ventana **Fundamentos**, rellene los detalles de la máquina virtual Linux. 
 
@@ -69,7 +69,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     > [!Note]
     > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 1. En la ventana **Tamaño**, elija el tamaño de la máquina. Para ver otros tamaños, seleccione **Ver todos**. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
@@ -82,7 +82,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En la ventana **Configuración** ventana, puede realizar cambios en la configuración o mantener la configuración predeterminada.
 
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 1. En la página **Resumen**, haga clic en **Comprar** para crear la máquina virtual.
 
@@ -174,7 +174,7 @@ Este tutorial le ha indicado que cree una máquina virtual de Red Hat Enterprise
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que tiene una máquina virtual con SQL Server 2017 en Azure, puede conectarse localmente con **sqlcmd** para ejecutar consultas Transact-SQL.
 

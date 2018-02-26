@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal
 
@@ -30,7 +30,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Actualización de datos
 > * Restauración de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
@@ -41,7 +41,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
 
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
-1.  Haga clic en el botón **+ Nuevo** de la esquina superior izquierda de Azure Portal.
+1.  Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2.  En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
  ![Azure Database for PostgreSQL: creación de la base de datos](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
@@ -50,7 +50,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
     - Suscripción: si tiene varias, elija la suscripción donde se encuentre el recurso o para la cual se facture.
     - Grupo de recursos: **myresourcegroup**
     - El inicio de sesión de administrador y la contraseña que elija para el servidor
-    - Ubicación
+    - La ubicación
     - Versión de PostgreSQL
 
   > [!IMPORTANT]
@@ -192,7 +192,7 @@ Imagine que eliminó accidentalmente esta tabla. No se puede recuperar con facil
   - **Plan de tarifa**: no se puede cambiar este valor al restaurar un servidor. Es el mismo que el del servidor de origen. 
 3.  Haga clic en **Aceptar** para [restaurar el servidor a un momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Restaurar un servidor a un momento dado distinto crea un servidor nuevo duplicado como el servidor original a partir del momento dado que especifique, siempre que se encuentren dentro del período de retención para el [nivel de servicio](./concepts-service-tiers.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, aprendió a usar Azure Portal y otras utilidades para hacer lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for PostgreSQL

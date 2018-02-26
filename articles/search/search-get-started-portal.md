@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creación, consulta y filtro de un índice en el portal de Azure Search
 
@@ -36,17 +36,17 @@ Esta introducción sin código le permitirá comenzar a trabajar con datos prede
 
 Como alternativa, puede empezar con la [introducción basada en código a la programación de Azure Search en .NET](search-howto-dotnet-sdk.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este tutorial se supone que tiene una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y un [servicio de Azure Search](search-create-service-portal.md). 
 
 Si no desea aprovisionar un servicio inmediatamente, puede ver una demostración de 6 minutos de los pasos de este tutorial, a partir del minuto 3 de este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Búsqueda del servicio
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Abra el panel del servicio Azure Search. Si no ancló el icono del servicio en el panel, pude encontrar su servicio de esta manera: 
    
-   * En la barra de accesos, haga clic en **More services** (Más servicios) en la parte inferior del panel de navegación izquierdo.
+   * En la barra de accesos, haga clic en **Todos los servicios** en el panel de navegación izquierdo.
    * En el cuadro de búsqueda, escriba *búsqueda* para obtener una lista de servicios de búsqueda de sus suscripción. El servicio debe aparecer en la lista. 
 
 ## <a name="check-for-space"></a>Búsqueda de espacio
@@ -211,7 +211,7 @@ Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint]
 
 + La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una característica "buscar cerca de mí" o utiliza la navegación mediante mapas. No obstante, no es una búsqueda de texto completo. Si tiene requisitos de usuario de buscar en una ciudad o país por nombre, agregue campos que contengan nombres de ciudades o de países, además de coordenadas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 + Modifique cualquiera de los objetos que acaba de crear. Después de ejecutar el Asistente una vez, puede volver atrás y ver o modificar componentes individuales: índice, indexador u origen de datos. No se permiten algunas modificaciones en el índice, como cambiar el tipo de datos de campo, pero la mayoría de las propiedades y configuraciones son modificables.
 

@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Respuesta a eventos con las alertas de Log Analytics
-Las alertas de Log Analytics identifican información importante en el repositorio de Log Analytics.  Se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registro en intervalos regulares, y si los resultados de la búsqueda de registro coinciden con criterios determinados, se crea un registro de alerta y se puede configurar para realizar una respuesta automatizada.  Este tutorial es la continuación del tutorial [Creación y uso compartido de paneles de datos de Log Analytics](log-analytics-tutorial-dashboards.md).   
+Las alertas de Log Analytics identifican información importante en el repositorio de Log Analytics. Se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registro en intervalos regulares, y si los resultados de la búsqueda de registro coinciden con criterios determinados, se crea un registro de alerta y se puede configurar para realizar una respuesta automatizada.  Este tutorial es la continuación del tutorial [Creación y uso compartido de paneles de datos de Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 En este tutorial, aprenderá a:
 
@@ -39,16 +39,16 @@ Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.a
 
 Las alertas se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registros a intervalos regulares.  Puede crear alertas basadas en métricas de rendimiento específicas o cuando se creen determinados eventos, haya un evento ausente o se cree una serie de eventos dentro de una ventana de tiempo determinada.  Por ejemplo, se pueden usar alertas para avisarle cuando el uso medio de la CPU supere un determinado umbral o generar un evento cuando un servicio de Windows específico o Linux Daemon no funcionen.   Si los resultados de la búsqueda de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle proactivamente de la alerta o invocar otro proceso. 
 
-En el ejemplo siguiente crearemos una regla de alertas de unidades métricas, que generarán una alerta para cada objeto de equipo en la consulta con un valor que supere un umbral del 90 %.
+En el ejemplo siguiente creará una regla de alertas de unidades métricas, que generará una alerta para cada objeto de equipo en la consulta con un valor que supere un umbral del 90 %.
 
-1. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione de **Log Analytics**.
+1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. Inicie el portal de OMS; para ello, seleccione el portal de OMS y en la página **Introducción**, seleccione **Búsqueda de registros**.  
 3. Seleccione **Favoritos** en la parte superior del portal y en el panel **Búsquedas guardadas** de la derecha, seleccione la consulta *Máquinas virtuales de Azure - Uso del procesador*.  
 4. Haga clic en **Alerta** en la parte superior de la página para abrir la pantalla **Agregar regla de alerta**.  
 5. Configure la regla de alertas con la siguiente información:  
    a. Proporcione un **nombre** para la alerta, como *Utilización del procesador de máquina virtual excedido >90*  
    b. Para **Ventana de tiempo**, especifique un intervalo de tiempo para la consulta, como *30*.  La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual.  
-   c. **Frecuencia de alerta** especifica con qué frecuencia se debe ejecutar la consulta.  En este ejemplo, especifique *5* minutos, que estará dentro de la ventana de tiempo que hemos especificado.  
+   c. **Frecuencia de alerta** especifica con qué frecuencia se debe ejecutar la consulta.  En este ejemplo, especifique *5* minutos, que está dentro de la ventana de tiempo que hemos especificado.  
    d. Seleccione **Unidades métricas** y especifique *90* para **Valor agregado** y especifique *3* para **Desencadenar alerta según** .  
    e. En **Acciones**, deshabilite la notificación por correo electrónico.
 6. Haga clic en **Guardar** para completar la regla de alerta. Se iniciará la ejecución de inmediato.<br><br> ![Ejemplo de regla de alertas](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
@@ -67,7 +67,7 @@ Las acciones de correo electrónico envían un correo electrónico con los detal
 5. Agregue direcciones de uno o más destinatarios de correo electrónico en el campo **Destinatarios**.  Si especifica más de una dirección, separe las direcciones con un punto y coma (;).
 6. Haga clic en **Guardar** para completar la regla de alerta. Se iniciará la ejecución de inmediato.<br><br> ![Regla de alertas con notificación por correo electrónico](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial ha aprendido cómo las reglas de alerta pueden identificar un problema y resolverlo de forma proactiva cuando se ejecuten búsquedas de registro en intervalos programados y coincidan con criterios determinados.  
 
 Siga este vínculo para ver ejemplos de scripts de Log Analytics creados previamente.  

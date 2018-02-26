@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -34,7 +34,7 @@ Para crear un área de trabajo, necesitará:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinación del número de áreas de trabajo necesarias
 Un área de trabajo es un recurso de Azure y un contenedor donde los datos se recopilan, se agregan, se analizan y se presentan en Azure Portal.
 
-Puede tener varias áreas de trabajo por suscripción de Azure y puede tener acceso a más de una área de trabajo. Minimizar el número de áreas de trabajo le permite consultar y correlacionar la mayoría de los datos, ya que no es posible realizar consultas a través de varias áreas de trabajo. En esta sección se describe cuándo puede resultar útil la creación de más de un área de trabajo.
+Puede tener varias áreas de trabajo por suscripción de Azure y puede tener acceso a más de una área de trabajo. Anteriormente, solo podía analizar datos desde dentro del área de trabajo actual, lo que limitaba la capacidad de consulta a través de varias áreas de trabajo definidas en la suscripción. Ahora puede [consultar en varias áreas de trabajo](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), lo que proporciona una vista de todo el sistema de datos. En esta sección se describe cuándo puede resultar útil la creación de más de un área de trabajo.
 
 En la actualidad, un área de trabajo proporciona:
 
@@ -61,11 +61,11 @@ Puede ver los detalles sobre el área de trabajo en Azure Portal.
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Visualización de la información de un área de trabajo en Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Más servicios**, en la esquina inferior izquierda de Azure Portal.  En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
-    ![Menú central de Azure](./media/log-analytics-manage-access/hub.png)  
-3. En la hoja de suscripciones de Log Analytics, seleccione un área de trabajo.
-4. La hoja del área de trabajo muestra información detallada sobre el área de trabajo y vínculos a información adicional.  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Todos los servicios**.  En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
+    ![Captura de pantalla que muestra el menú izquierdo de Azure](./media/log-analytics-manage-access/hub.png)  
+3. En la página de suscripciones de Log Analytics, seleccione un área de trabajo.
+4. La página del área de trabajo muestra información detallada acerca del área de trabajo, así como vínculos a información adicional.  
     ![detalles de área de trabajo](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -83,7 +83,7 @@ En la tabla siguiente se resume el acceso que se puede establecer con cada model
 
 |                          | Portal de Log Analytics | Azure Portal | API (incluido PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Roles de usuario de Log Analytics | Sí                  | No           | No                         |
+| Roles de usuario de Log Analytics | Sí                  | Sin            | Sin                          |
 | Acceso basado en roles de Azure  | Sí                  | Sí          | Sí                        |
 
 > [!NOTE]
@@ -95,7 +95,7 @@ Los roles de usuario heredados de Log Analytics solo controlan el acceso a las a
 
 Las siguientes actividades también requieren permisos de Azure:
 
-| Acción                                                          | Permisos de Azure necesarios | Notas |
+| .                                                          | Permisos de Azure necesarios | Notas |
 |-----------------------------------------------------------------|--------------------------|-------|
 | Agregar y quitar soluciones de administración                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Cambiar el plan de tarifa                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -114,12 +114,12 @@ Los miembros del rol *Lector de Log Analytics* pueden:
 - Ver y buscar todos los datos de supervisión 
 - Ver la configuración de supervisión, incluida la visualización de la configuración de Azure Diagnostics en todos los recursos de Azure.
 
-| Tipo    | Permiso | Descripción |
+| type    | Permiso | DESCRIPCIÓN |
 | ------- | ---------- | ----------- |
-| Acción | `*/read`   | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
-| Acción | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |
-| Acción | `Microsoft.OperationalInsights/workspaces/search/action` | Capacidad de realizar consultas de búsqueda de registros v1 |
-| Acción | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
+| . | `*/read`   | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
+| . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |
+| . | `Microsoft.OperationalInsights/workspaces/search/action` | Capacidad de realizar consultas de búsqueda de registros v1 |
+| . | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
 |No acción | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Evita la lectura de la clave del área de trabajo necesaria para usar la API de recopilación de datos e instalar agentes |
 
 
@@ -136,7 +136,7 @@ Los miembros del rol *Colaborador de Log Analytics* pueden:
 > [!NOTE] 
 > Puede usar la capacidad para agregar una extensión de máquina virtual a una máquina virtual para obtener el control total sobre una máquina virtual.
 
-| Permiso | Descripción |
+| Permiso | DESCRIPCIÓN |
 | ---------- | ----------- |
 | `*/read`     | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
 | `Microsoft.Automation/automationAccounts/*` | Capacidad para crear y configurar cuentas de Azure Automation, incluido agregar y editar runbooks |
@@ -257,7 +257,7 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
     > Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular.  En otras palabras, la cuenta que use para acceder a Azure Portal deberá ser **la misma** cuenta que usa para acceder al área de trabajo. Si no lo es, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en Azure Portal
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Haga clic en **Agregar**.  
    ![lista de áreas de trabajo](./media/log-analytics-manage-access/manage-access-link-azure01.png)
@@ -270,10 +270,10 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
 7. Si es necesario, puede cambiar los valores de los elementos siguientes:
    * La suscripción
    * Grupos de recursos
-   * Ubicación
-   * Plan de tarifa   
+   * La ubicación
+   * Nivel de precios  
      ![cambiar valores](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. Haga clic en **Aceptar**. Ahora, el área de trabajo está vinculada a su cuenta de Azure.
+8. Haga clic en **OK**. Ahora, el área de trabajo está vinculada a su cuenta de Azure.
 
 > [!NOTE]
 > Si no ve el área de trabajo que quiere vincular, significa que su suscripción de Azure no tiene acceso al área de trabajo que creó mediante el portal de OMS.  Para conceder acceso a esta cuenta desde el portal OMS, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
@@ -292,6 +292,6 @@ Puede cambiar la organización de Azure Active Directory para un área de trabaj
 3. Especifique los datos de identidad del administrador del dominio de Azure Active Directory. A continuación, verá un mensaje de confirmación en el que se indica que el área de trabajo se ha vinculado al dominio de Azure Active Directory.  
     ![confirmación de área de trabajo vinculada](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Consulte [Entender la utilización de datos](log-analytics-usage.md) para saber cómo analizar el volumen de datos recopilados por las soluciones y enviados desde los equipos.
 * [Agregue soluciones de administración de Log Analytics desde Azure Marketplace](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar datos.

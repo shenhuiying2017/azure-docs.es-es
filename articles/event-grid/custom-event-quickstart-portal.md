@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure Portal y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure Portal para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, los eventos se envían a un punto de conexión que responde al evento, como un webhook o Azure Function. Sin embargo, para simplificar las cosas, en este artículo los eventos se envían a una dirección URL que simplemente recopila los mensajes. Debe crear esta dirección URL mediante herramientas de terceros desde [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+>Tenga en cuenta que **RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
 
 Cuando haya terminado, verá que los datos del evento se han enviado a un punto de conexión.
 
@@ -43,7 +43,7 @@ Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de 
 
 Un tema proporciona un punto de conexión definido por el usuario en el que se registran los eventos. 
 
-1. Para crear un tema en el grupo de recursos, seleccione **Más servicios** y busque *Event Grid*. Seleccione **Temas de Event Grid** entre las opciones disponibles.
+1. Para crear un tema en el grupo de recursos, seleccione **Todos los servicios** y busque *Event Grid*. Seleccione **Temas de Event Grid** entre las opciones disponibles.
 
    ![Creación del tema de Event Grid](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -61,13 +61,13 @@ Un tema proporciona un punto de conexión definido por el usuario en el que se r
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
-Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
+Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas a este. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
 
 ## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
 
 Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. 
 
-1. Para crear una suscripción de Event Grid, seleccione **Más servicios** y busque *Event Grid* de nuevo. Seleccione **Suscripciones de Event Grid** entre las opciones disponibles.
+1. Para crear una suscripción de Event Grid, seleccione **Todos los servicios** y busque *Event Grid* de nuevo. Seleccione **Suscripciones de Event Grid** entre las opciones disponibles.
 
    ![Creación de una suscripción de Event Grid](./media/custom-event-quickstart-portal/create-subscription.png)
 

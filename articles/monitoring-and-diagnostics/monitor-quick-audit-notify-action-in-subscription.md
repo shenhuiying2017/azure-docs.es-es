@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure
 
@@ -28,7 +28,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 
 2. Seleccione **Redes** y **Grupo de seguridad de red**.
 
@@ -42,7 +42,7 @@ Se ha agregado ahora un evento al Registro de actividad que describe la creació
 
 1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda. Se abrirá la sección Registro de actividad. Esta sección contiene un historial de todas las acciones que los usuarios han realizado en los recursos en su suscripción, que se puede filtrar por varias propiedades como el **Grupo de recursos**, el **Intervalo de tiempo** y la  **Categoría**.
 
-2. En la sección **Registro de actividad**, haga clic en la lista desplegable **Grupo de recursos** y seleccione **myResourceGroup**. Cambie la lista desplegable **Intervalo de tiempo** a **Última hora**. Haga clic en **Apply**.
+2. En la sección **Registro de actividad**, haga clic en la lista desplegable **Grupo de recursos** y seleccione **myResourceGroup**. Cambie la lista desplegable **Intervalo de tiempo** a **Última hora**. Haga clic en **Aplicar**.
 
     ![Filtrado en el Registro de actividad](./media/monitor-quick-audit-notify-action-in-subscription/browse-activity-log.png)
 
@@ -93,7 +93,7 @@ Para probar la alerta, repita la sección anterior a **Creación de un grupo de 
 
 Cuando ya no sea necesario, elimine el grupo de recursos y el grupo de seguridad de red. Para ello, escriba el nombre del grupo de recursos que creó en el cuadro de búsqueda en la parte superior del portal y haga clic en el nombre del grupo de recursos. En la sección que se muestra, haga clic en el botón **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este inicio rápido, ha realizado una operación para generar un evento del Registro de actividad y, después, ha creado una alerta del Registro de actividad para que se notifique cuando esta operación se produzca de nuevo en el futuro. A continuación, ha probado la alerta mediante la realización de esa operación de nuevo. Azure proporciona los eventos del Registro de actividad de los últimos 90 días. Si necesita conservar eventos posteriores a 90 días, pruebe a archivar los datos del Registro de actividad junto con los demás datos de supervisión.
 

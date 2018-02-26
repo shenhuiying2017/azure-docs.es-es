@@ -2,23 +2,19 @@
 title: "Alta disponibilidad en Azure para los datos de aplicación | Microsoft Docs"
 description: "Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr alta disponibilidad para los datos de aplicación"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Logre alta disponibilidad de los datos de aplicación con Azure Storage
 
@@ -64,7 +60,7 @@ Una cuenta de almacenamiento proporciona un espacio de nombres único para almac
 
 Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográfica con acceso de lectura:
 
-1. Seleccione el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 
 2. Seleccione **Storage** desde la página **Nuevo** y **Cuenta de almacenamiento: blob, archivo, tabla, cola** en **Destacadas**.
 3. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:

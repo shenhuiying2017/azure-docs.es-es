@@ -1,4 +1,4 @@
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal y seleccione **Proceso** > **Function App**. 
+1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal y seleccione **Proceso** > **Function App**. 
 
     ![Creación de una aplicación de función en Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 

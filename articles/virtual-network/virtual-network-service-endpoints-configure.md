@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configuración de los puntos de conexión de servicio de Virtual Network
 
@@ -62,8 +62,8 @@ Durante la versión preliminar, se admite la característica de puntos de conexi
 
 1. Abra [Azure Portal](https://portal.azure.com/).
 Inicie sesión con la cuenta de Azure. Si no tiene una cuenta de Azure, puede registrarse para obtener una evaluación gratuita. La cuenta debe tener todos los [permisos](#provisioning) necesarios para crear una red virtual y un punto de conexión de servicio.
-2. Haga clic en +Nuevo > Redes > Red virtual > +Agregar.
-3. En la hoja "Crear red virtual", escriba los valores siguientes y luego haga clic en Crear:
+2. Haga clic en **Crear un recurso** > **Redes** > **Red virtual** > **+Agregar**.
+3. En la hoja "Crear red virtual", escriba los valores siguientes y luego haga clic en **Crear**:
 
 Configuración | Valor
 ------- | -----

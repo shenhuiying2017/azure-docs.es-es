@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
@@ -38,7 +38,7 @@ En este tutorial, se usarán las [bibliotecas de cliente de Azure Search .NET](h
 > * Buscar en el índice
 > * Ver la configuración del indexador en el portal
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/free/). 
 
@@ -121,7 +121,7 @@ En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). 
 
-2. Haga clic en **Nuevo** > **SQL Database** para crear una base de datos, un servidor y un grupo de recursos. Puede usar los valores predeterminados y el plan de tarifa más bajo. Una ventaja de la creación de un servidor es que puede especificar un nombre de usuario y una contraseña de administrador, que son necesarios para crear y cargar las tablas en un paso posterior.
+2. Haga clic en **Crear un recurso** > **SQL Database** para crear una base de datos, un servidor y un grupo de recursos. Puede usar los valores predeterminados y el plan de tarifa más bajo. Una ventaja de la creación de un servidor es que puede especificar un nombre de usuario y una contraseña de administrador, que son necesarios para crear y cargar las tablas en un paso posterior.
 
    ![Página Nueva base de datos](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

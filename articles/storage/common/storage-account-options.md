@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opciones de la cuenta de Azure Storage
 
@@ -69,7 +69,7 @@ Las cuentas de uso general v1 proporcionan acceso a todos los servicios de Azure
 
 Las cuentas de uso general v1 son el tipo más antiguo y el único que se puede usar con el modelo de implementación clásica. 
 
-### <a name="blob-storage-accounts"></a>Cuentas de almacenamiento de blobs
+### <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
 
 Las cuentas de almacenamiento de blobs admiten las mismas características de blob en bloques que las de uso general v2, pero tienen la limitación de que solo admiten blobs en bloques. Los precios son muy similares a los de las cuentas de uso general v2. Los clientes deben examinar las diferencias de precio entre las cuentas de almacenamiento de blobs y las de uso general v2, y considerar la posibilidad de actualizar a estas ultimas. Esta actualización no se puede deshacer.
 
@@ -84,7 +84,7 @@ Para más información acerca de las cuentas de almacenamiento, consulte [Acerca
 
 En el caso de aplicaciones que requieren solo el almacenamiento de blobs en bloques o en anexos, se recomienda el uso de cuentas de almacenamiento de uso general v2, con el fin de aprovechar el modelo de precios diferenciado de almacenamiento por niveles. Sin embargo, puede que desee usar cuentas de uso general v1 en escenarios concretos, como:
 
-* Aún necesita usar el modelo de implementación clásica. Las cuentas de Blob Storage solo están disponibles a través del modelo de implementación de Azure Resource Manager.
+* Aún necesita usar el modelo de implementación clásica. Las cuentas de Almacenamiento de blobs solo están disponibles a través del modelo de implementación de Azure Resource Manager.
 
 * Usa volúmenes elevados de transacciones o ancho de banda de replicación geográfica, que cuestan más en cuentas de uso general v2 y de almacenamiento de blobs que en cuentas de uso general v1, y no tiene almacenamiento suficiente para beneficiarse de los costos más bajos de almacenamiento por GB.
 
@@ -125,7 +125,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En el menú del concentrador, seleccione **Nuevo** > **Datos y almacenamiento** > **Cuenta de almacenamiento**.
+2. En el menú del concentrador, seleccione **Crear un recurso** > **Datos y almacenamiento** > **Cuenta de almacenamiento**.
 
 3. Escriba un nombre para la cuenta de almacenamiento.
 
@@ -159,7 +159,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
+2. Para ir a su cuenta de almacenamiento, seleccione **Todos los recursos** y, después, seleccione la cuenta de almacenamiento.
 
 3. En la sección Configuración, haga clic en **Configuración**.
 
@@ -173,7 +173,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
+2. Para ir a su cuenta de almacenamiento, seleccione **Todos los recursos** y, después, seleccione la cuenta de almacenamiento.
 
 3. En la hoja Configuración, haga clic en **Configuración** para ver o cambiar la configuración de la cuenta.
 
@@ -185,7 +185,7 @@ No se puede establecer el nivel de acceso en archivo en los ejemplos siguientes 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
+2. Para ir a un blob en su cuenta de almacenamiento, seleccione **Todos los recursos**, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
 
 3. En la hoja de propiedades del blob, haga clic en el menú desplegable **Nivel de acceso** para seleccionar el nivel de almacenamiento **Frecuente**, **Esporádico** o **Archivo**.
 
@@ -276,7 +276,7 @@ Una cuenta de uso general v1 se puede actualizar fácilmente a uso general v2 si
 
 Sin embargo, si tiene que migrar a una cuenta de almacenamiento de blobs, puede usar las instrucciones siguientes.
 
-Las cuentas de almacenamiento de blobs son especiales para almacenar solo blobs y anexar blobs. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Blob Storage. Para utilizar los niveles de almacenamiento, debe crear nuevas cuentas de Blob Storage y migrar los datos existentes a las cuentas recién creadas.
+Las cuentas de Almacenamiento de blobs son especiales para almacenar solo blobs y anexar blobs. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Blob Storage. Para utilizar los niveles de almacenamiento, debe crear nuevas cuentas de Blob Storage y migrar los datos existentes a las cuentas recién creadas.
 
 Puede utilizar los métodos siguientes para migrar los datos existentes a cuentas de Blob Storage desde un dispositivos de almacenamiento local, desde proveedores de almacenamiento en la nube de terceros o desde sus cuentas existentes de almacenamiento de uso general en Azure:
 
@@ -299,7 +299,7 @@ Puede crear una aplicación personalizada para migrar sus datos a una cuenta de 
 Para más información, consulte [Introducción a Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Blobs cifrados mediante el cifrado de cliente para almacenar metadatos relacionados con el cifrado almacenados con el blob. Es fundamental que cualquier mecanismo de copia se asegure de que los metadatos del blob, especialmente los relacionados con el cifrado, no desaparecen. Si copia los blobs sin estos metadatos, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> BLOB cifrado mediante el cifrado de cliente para almacenar metadatos relacionados con el cifrado almacenados con el blob. Es fundamental que cualquier mecanismo de copia se asegure de que los metadatos del blob, especialmente los relacionados con el cifrado, no desaparecen. Si copia los blobs sin estos metadatos, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

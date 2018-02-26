@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>Supervisión de Azure Container Service (AKS)
 
@@ -36,7 +36,7 @@ Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Cre
 
 ## <a name="configure-the-monitoring-solution"></a>Configurar la solución de supervisión
 
-En Azure Portal, seleccione **Nuevo** y busque `Container Monitoring Solution`. Una vez que se encuentre, seleccione **Crear**.
+En Azure Portal, haga clic en **Crear un recurso** y busque `Container Monitoring Solution`. Una vez que se encuentre, seleccione **Crear**.
 
 ![Agregar solución](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 

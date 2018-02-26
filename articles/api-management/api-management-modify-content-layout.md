@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
 
 * [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout] (que se explica en esta guía)
 * [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
-* [Modificar las plantillas usadas para las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
+* [Modificar las plantillas usadas en las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 
 ## <a name="page-structure"></a>Estructura de las páginas del portal para desarrolladores
 
@@ -35,43 +35,26 @@ El portal para desarrolladores se basa en el sistema de administración de conte
 
 Todos los widgets son editables. 
 * El contenido principal específico de cada página reside en el widget "Contenido". La edición de una página significa modificar el contenido de este widget.
-* Todos los elementos de diseño de página están contenidos con los widgets restantes. Los cambios realizados en estos widgets se aplican a todas las páginas. Se hará referencia a ellos como "widgets de diseño".
+* Todos los elementos de diseño de página están contenidos con los widgets restantes. Los cambios realizados en estos widgets se aplican a todas las páginas. Se hace referencia a ellos como "widgets de diseño".
 
-En las páginas del día a día, al editar una solo se modifica normalmente el widget Contenido, que tendrá contenido diferente para cada página.
+En las páginas del día a día, a menudo solo se modificaría el widget Contenido, que tendrá contenido diferente para cada página.
 
 ## <a name="modify-layout-widget"></a>Modificación del contenido de un widget de diseño
 
-El contenido del portal para desarrolladores se modifica a través del portal para editores, al que se obtiene acceso desde Azure Portal. Para llegar a él, haga clic en **Portal para editores** desde la barra de herramientas de servicio de la instancia de API Management.
+El portal para desarrolladores es accesible desde Azure Portal. 
 
-![Portal del publicador][api-management-management-console]
-
-Para editar el contenido de ese widget, haga clic en **Widgets** desde el menú **Portal para desarrolladores** de la izquierda. En este ejemplo, vamos a modificar el contenido del widget Encabezado. Seleccione el widget **Encabezado** de la lista.
-
-![Widgets header][api-management-widgets-header]
-
-El contenido del encabezado se puede editar desde el campo **Cuerpo** . Cambie el texto como quiera y luego haga clic en **Guardar** en la parte inferior de la página.
+1. Haga clic en **Portal para desarrolladores** en la barra de herramientas de la instancia de API Management.
+2. Para editar el contenido de los widgets, haga clic en el icono formado por dos pinceles en el menú del portal **Developer** a la izquierda. 
+3. Para modificar el contenido del encabezado, desplácese hasta la sección **Encabezado** en la lista de la izquierda.
+    
+    Los widgets son editables dentro de los campos.
+4. Una vez que esté preparado para publicar los cambios, haga clic en **publicar** en la parte inferior de la página.
 
 Ahora debe aparecer el nuevo encabezado en todas las páginas del portal para desarrolladores.
 
-> Para abrir el portal para desarrolladores desde el portal para editores, haga clic en **Portal para desarrolladores** en la barra superior.
-> 
-> 
-
-## <a name="edit-page-contents"></a>Edición de los contenidos de una página
-
-Para ver una lista de todas las páginas de contenido existentes, haga clic en **Contenido** en el menú **Portal para desarrolladores** del portal para editores.
-
-![Manage content][api-management-customization-manage-content]
-
-Haga clic en la página de **bienvenida** para editar lo que se muestra en la página principal del portal para desarrolladores. Haga los cambios que quiera, obtenga una vista previa de ellos si lo considera necesario y haga clic en **Publicar ahora** para que sean visibles para todos los usuarios.
-
-> La página principal usa un diseño especial que le permite mostrar un banner en la parte superior. Este banner no se puede editar en la sección **Contenido** . Para editarlo, haga clic en **Widgets** en el menú **Portal para desarrolladores**, seleccione **Home page** (Página principal) en la lista desplegable **Current Layer** (Capa actual) y, por último, abra el elemento **Banner** (Banner) en la sección **Featured section** (Destacados). Los contenidos de este widget se pueden editar del mismo modo que cualquier otra página.
-> 
-> 
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"> </a>Pasos siguientes
 * [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
-* [Modificar las plantillas usadas para las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
+* [Modificar las plantillas usadas en las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

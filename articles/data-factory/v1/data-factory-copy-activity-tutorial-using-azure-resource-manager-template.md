@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta.
-2. Haga clic en **Factorías de datos** en el menú de la izquierda (o bien) haga clic en **Más servicios** y después en **Factorías de datos** bajo la categoría **INTELIGENCIA Y ANÁLISIS**.
+2. Haga clic en **Factorías de datos** en el menú de la izquierda (o bien) haga clic en **Todos los servicios** y después en **Factorías de datos** bajo la categoría **INTELIGENCIA Y ANÁLISIS**.
    
     ![Menú Factorías de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. En la página **Factorías de datos**, busque y encuentre su factoría de datos (AzureBlobToAzureSQLDatabaseDF). 

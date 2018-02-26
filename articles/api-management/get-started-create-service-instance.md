@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creación de una nueva instancia del servicio Azure API Management
 
@@ -34,9 +34,9 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 ## <a name="create-a-new-service"></a>Creación de un nuevo servicio
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Nuevo** > **Enterprise Integration** > **API Management**.
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Crear un recurso** > **Enterprise Integration** > **API Management**.
 
-    Si lo desea, también puede elegir **nuevo**, escribir `API management` en el cuadro de búsqueda y presionar Intro. Haga clic en **Crear**.
+    Si lo desea, también puede elegir **nuevo**, escribir `API management` en el cuadro de búsqueda y presionar Intro. Haga clic en **Create**(Crear).
 
 2. En la ventana **servicio API Management**, escriba los valores.
 
@@ -63,14 +63,14 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 Cuando ya no los necesite, puede quitar el grupo de recursos y todos los recursos relacionados siguiendo los pasos a continuación:
 
 
-1. En Azure Portal, seleccione ![flecha](./media/get-started-create-service-instance/arrow.png).
+1. En Azure Portal, seleccione ![arrow](./media/get-started-create-service-instance/arrow.png).
 2. Seleccione **Grupos de recursos**.
 3. Encuentre el grupo de recursos.
 4. Haga clic en ". . ." y elimine el grupo.
 
 ![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Importación y publicación de la primera API](import-and-publish.md)

@@ -5,7 +5,7 @@
 
 1. Use las credenciales de su cuenta Microsoft para iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
-2. En Azure Portal, haga clic en **+** y, una vez en Marketplace, haga clic en **Ver todo**.
+2. En Azure Portal, haga clic en **Crear un recurso** y, una vez en Marketplace, haga clic en **Ver todo**.
 
     ![Creación de un administrador de dispositivos de StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

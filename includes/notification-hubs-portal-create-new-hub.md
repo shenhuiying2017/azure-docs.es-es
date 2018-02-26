@@ -2,7 +2,7 @@
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Nuevo** > **Web y móvil** > **Centro de notificaciones**.
+2. Seleccione **Crear un recurso** > **Web y móvil** > **Centro de notificaciones**.
    
       ![Azure Portal: creación de centros de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
