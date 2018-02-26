@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9 - Copia de seguridad de máquinas virtuales
       href: tutorial-backup-vms.md
-    - name: 10 - Supervisión y actualización de máquinas virtuales
+    - name: 10 - Control de máquinas virtuales
+      href: tutorial-govern-resources.md
+    - name: 11 - Supervisión y actualización de máquinas virtuales
       href: tutorial-monitoring.md
-    - name: 11 - Administración de la seguridad de máquinas virtuales
+    - name: 12 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
-    - name: 12 - Implementación de Jenkins
+    - name: 13 - Implementación de Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: '13: CI/CD con Team Services'
+    - name: '14: CI/CD con Team Services'
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a - Creación de pila LAMP
+    - name: 15a - Creación de pila LAMP
       href: tutorial-lamp-stack.md
-    - name: 14b - Creación de pila LEMP
+    - name: 15b - Creación de pila LEMP
       href: tutorial-lemp-stack.md
-    - name: 14b - Creación de pila MEAN
+    - name: 15c - Creación de pila MEAN
       href: tutorial-mean-stack.md
-    - name: 15 - Seguridad de servidores web con SSL
+    - name: 16 - Seguridad de servidores web con SSL
       href: tutorial-secure-web-server.md
 - name: Ejemplos
   items:

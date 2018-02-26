@@ -23,6 +23,7 @@
 ### [Conexión local: VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conexión local: Dedicada](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Introducción
 ## [Creación de su primera red virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Administración de capturas de paquete](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Determinación del próximo salto de enrutamiento](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Comprobación de los flujos de IP de una máquina virtual](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Información general sobre la supervisión de red](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Scripts de ejemplo
 ### [CLI de Azure](cli-samples.md)
