@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Inicio de la supervisión de la aplicación web Java
 
@@ -22,7 +22,7 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a un proyecto web dinámico Java existente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -42,20 +42,20 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 Application Insights recopila datos de telemetría desde cualquier aplicación conectada a Internet, independientemente de si se está ejecutando localmente o en la nube. Siga estos pasos para empezar a ver los datos.
 
-1. Seleccione **Nuevo** > **Supervisión y administración** > **Application Insights**.
+1. Seleccione **Crear un recurso** > **Supervisión y administración** > **Application Insights**.
 
    ![Incorporación del recurso Application Insights](./media/app-insights-java-quick-start/001-j.png)
 
-   Aparecerá un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
+   Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-    | Settings        | Valor           | Descripción  |
+    | Settings        | Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación web Java | Tipo de aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
-   | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Haga clic en **Crear**.
+2. Haga clic en **Create**(Crear).
 
 ## <a name="install-app-insights-plugin"></a>Instale el complemento de Application Insights
 
@@ -135,7 +135,7 @@ Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Búsqueda y diagnóstico de problemas de rendimiento](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

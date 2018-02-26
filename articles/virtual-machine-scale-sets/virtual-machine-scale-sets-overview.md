@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la compilación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
@@ -33,7 +33,7 @@ Para más información acerca de los conjuntos de escalado, vea estos vídeos:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Creación y administración de conjuntos de escalado
-Para crear un conjunto de escalado en [Azure Portal](https://portal.azure.com), seleccione **nuevo** y escriba **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU. Para administrar el conjunto de escalado, puede usar Azure Portal, [cmdlets de Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o la CLI de Azure 2.0.
+Puede crear un conjunto de escalado en [Azure Portal](https://portal.azure.com) si selecciona **Crear un recurso** y escribe **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU. Para administrar el conjunto de escalado, puede usar Azure Portal, [cmdlets de Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o la CLI de Azure 2.0.
 
 Los conjuntos de escalado se pueden implementar en [zonas de disponibilidad](virtual-machine-scale-sets-use-availability-zones.md).
 
@@ -44,7 +44,7 @@ Puede encontrar un conjunto de plantillas de ejemplo para los conjuntos de escal
 Para los ejemplos de plantilla de inicio rápido, hay un botón "Implementar en Azure" en el archivo Léame de cada plantilla vinculado a la característica de implementación del portal. Para implementar el conjunto de escalado, haga clic en el botón y rellene los parámetros obligatorios en el portal. 
 
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>Escalado automático
 Para mantener el rendimiento de la aplicación coherente, puede aumentar o reducir automáticamente el número de instancias de máquina virtual del conjunto de escalado. Esta capacidad de escalado automático reduce la sobrecarga de administración para supervisar y ajustar el escalado automático como cambios a demanda del cliente a lo largo del tiempo. El usuario define las reglas en función de las métricas de rendimiento, la respuesta de la aplicación o una programación fija y el conjunto de escalado se escala automáticamente según sea necesario.
 
 Como reglas básicas de escalado automático, puede usar las métricas de rendimiento basadas en el host, como el uso de CPU o las E/S del disco. Estas métricas basadas en el host están disponibles de forma automática, sin agentes o extensiones adicionales que instalar y configurar. Las reglas de escalado automático que usan métricas basadas en el host se crean con una de las herramientas siguientes:

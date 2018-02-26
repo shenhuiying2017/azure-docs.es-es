@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedimientos recomendados para Azure SQL Data Warehouse
 Este artículo es una colección de muchos procedimientos recomendados que le permitirá conseguir un óptimo rendimiento para su instancia de Azure SQL Data Warehouse.  Algunos de los conceptos son básicos y fáciles de explicar, otros son más avanzados y solo se pueden ver por encima en este artículo.  El objetivo de este artículo es proporcionarle algunos consejos básicos y mostrarle los aspectos importantes que debe considerar al crear almacenamiento de datos.  En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
@@ -29,14 +29,8 @@ Si acaba de empezar con Azure SQL Data Warehouse, no se preocupe por la amplitud
 Para obtener una guía de carga, consulte la [guía para cargar datos](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Menos costos gracias a las características de pausa y escalado
-Una característica clave de SQL Data Warehouse es la capacidad de pausar cuando no se usa, que detiene la facturación de los recursos de proceso.  Otra característica clave es la capacidad de escalar los recursos.  La pausa y la escala se pueden usar desde Azure Portal o mediante comandos de PowerShell.  Familiarícese con estas características, ya que pueden reducir considerablemente el costo del almacenamiento de datos cuando no se encuentra en uso.  Si quiere que el almacén esté siempre disponible, puede reducir la escala al tamaño menor, DW100, en lugar de usar la pausa.
+Para más información acerca de cómo reducir los costos mediante la pausa y el escalado, consulte [Administración de procesos](sql-data-warehouse-manage-compute-overview.md). 
 
-Consulte también [Pausa del proceso][Pause compute resources], [Reanudación del proceso][Resume compute resources], [Escalado de proceso].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Vaciado de las transacciones antes de aplicar la pausa o el escalado
-Al pausar o escalar SQL Data Warehouse, las consultas se cancelan en segundo plano al iniciar la solicitud de pausa o escalado.  Una simple consulta de selección se cancela rápidamente y no afecta casi al tiempo que se tarda en aplicar la pausa o la escala a la instancia.  Sin embargo, las consultas sobre transacciones, que modifican los datos o la estructura de estos, no se puede detener rápidamente.  **Por definición, las consultas sobre transacciones deben completarse íntegramente o deshacerse los cambios.**  Deshacer el trabajo realizado con una consulta sobre una transacción puede tardar tanto (o más) que el tiempo necesario para aplicar el cambio original de esta.  Por ejemplo, si se cancela una consulta que se eliminaba filas y ya lleva en ejecución una hora, el sistema puede tardar una hora para reinsertar las filas eliminadas.  Si se ejecuta la pausa o la escala con transacciones en curso, puede parecer que tardan mucho en aplicarse, ya que deben esperar a que se deshagan todos los cambios para continuar.
-
-Consulte también [Transacciones en SQL Data Warehouse][Understanding transactions], [Optimización de transacciones en SQL Data Warehouse][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>Mantenimiento de estadísticas
 A diferencia de SQL Server, que automáticamente detecta y crea o actualiza las estadísticas en columnas, SQL Data Warehouse requiere el mantenimiento manual de las estadísticas.  Aunque nuestra intención es cambiar esto, por ahora deberá realizar el mantenimiento de las estadísticas para garantizar que los planes de SQL Data Warehouse son óptimos.  Los planes que crea el optimizador son igual de buenos que las estadísticas disponibles.  **Crear estadísticas de muestra en cada columna es una forma sencilla de empezar a trabajar con las estadísticas.**  Es igualmente importante actualizar las estadísticas cuando se produzcan cambios significativos en los datos.  Un enfoque conservador puede ser actualizar las estadísticas diariamente o después de cada carga.  Existen inconvenientes entre el rendimiento y el costo de crear y actualizar las estadísticas. Si cree que tarda demasiado en realizar el mantenimiento de todas las estadísticas, puede intentar ser más selectivo acerca de las columnas con estadísticas o las que necesitan actualizarse con frecuencia.  Por ejemplo, puede actualizar las columnas de fecha, donde se añadan valores todos los días. **Sacará el máximo provecho con las estadísticas en columnas relacionadas con combinaciones, columnas que se usan en la cláusula WHERE y columnas de GROUP BY.**
@@ -138,7 +132,7 @@ Por último, use la página [de comentarios de Azure SQL Data Warehouse][Azure S
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Escalado de proceso]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

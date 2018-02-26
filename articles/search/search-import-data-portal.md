@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importación de datos en Azure Search con el Portal
 Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. 
@@ -49,7 +49,7 @@ El Asistente para importación de datos admite los siguientes orígenes de datos
 Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente. Debe crear esta estructura de datos antes de ejecutar al asistente.
 
 ## <a name="connect-to-your-data"></a>Conexión a los datos
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el panel de servicio. Puede hacer clic en **Más servicios** en la barra de acceso rápido para buscar los "servicios de búsqueda" existentes en la suscripción actual. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el panel de servicio. Puede hacer clic en **Todos los servicios** en la barra de acceso rápido para buscar los "servicios de búsqueda" existentes en la suscripción actual. 
 2. Haga clic en **Importar datos** en la barra de comandos para abrir la hoja Importar datos.  
 3. Haga clic en **Conectar a los datos** para especificar una definición de origen de datos usada por un indexador. Para los orígenes de datos que se encuentran en la suscripción, el Asistente normalmente puede detectar y leer la información de conexión, así como minimizar los requisitos de configuración general.
 

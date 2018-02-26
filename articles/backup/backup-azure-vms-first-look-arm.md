@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -50,9 +50,9 @@ Dependiendo del número de máquinas virtuales que quiera proteger, puede usar d
 Use los pasos siguientes para configurar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales de Azure Portal. Los pasos siguientes se aplican únicamente a máquinas virtuales de Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú del concentrador, haga clic en **More Services** (Más servicios) y, en el cuadro de diálogo Filtrar, escriba **Máquinas virtuales**. A medida que escribe, se filtra la lista de recursos. Cuando vea Máquinas virtuales, selecciónelo.
+2. En el menú central, haga clic en **Todos los servicios** y, en el cuadro de diálogo Filtrar, escriba **Máquinas virtuales**. A medida que escribe, se filtra la lista de recursos. Cuando vea Máquinas virtuales, selecciónelo.
 
-  ![En el menú del concentrador, haga clic en More Services (Más servicios) para abrir el cuadro de diálogo Texto y escriba Máquinas virtuales.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Captura de pantalla que muestra cómo ir a las máquinas virtuales desde Todos los servicios](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   Aparece la lista de máquinas virtuales (VM) de la suscripción.
 
@@ -131,7 +131,7 @@ Un almacén de Recovery Services es una entidad que almacena todas las copias de
 Para crear un almacén de Recovery Services:
 
 1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción de Azure.
-2. En el menú del concentrador, haga clic en **More services** (Más servicios) y, en el diálogo Filtro, escriba **Recovery Services**. A medida que escribe, se filtra la lista de recursos. Cuando vea almacenes de Recovery Services en la lista, haga clic en ellos.
+2. En el menú central, haga clic en **Todos los servicios** y, en el cuadro de diálogo Filtro, escriba **Recovery Services**. A medida que escribe, se filtra la lista de recursos. Cuando vea almacenes de Recovery Services en la lista, haga clic en ellos.
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Para editar la configuración de replicación de almacenamiento:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selección de un objetivo de copia de seguridad, establecimiento de la directiva y definición de los elementos para proteger
 Antes de registrar una máquina virtual en un almacén, ejecute el proceso de detección para asegurarse de que se identifican todas las nuevas máquinas virtuales que se hayan agregado a la suscripción. El proceso consulta a Azure para recibir la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, como el nombre del servicio en la nube y la región. En el Portal de Azure, el escenario se refiere a lo que va a colocar en el almacén de servicios de recuperación. Directiva es la programación de la frecuencia y de cuándo se eligen los puntos de recuperación. La directiva también incluye el intervalo de retención de los puntos de recuperación.
 
-1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. En el menú central, haga clic en **More services** (Más servicios) y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
+1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. En caso contrario, haga clic en **Todos los servicios**. Escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

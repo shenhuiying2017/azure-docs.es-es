@@ -7,18 +7,15 @@ ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3269b865c4ef3c11a674d7b755faab2bbf5970e3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
-El servicio Azure Migrate evalúa las cargas de trabajo locales para su migración a Azure. El servicio evalúa la idoneidad de migración y el ajuste de tamaño basado en el rendimiento, y proporciona estimaciones del costo que supone la ejecución de máquinas locales en Azure. Si está pensando en migrar mediante lift-and-shift o se encuentra en las primeras fases de la evaluación de la migración, este es el servicio que debe elegir. Tras la evaluación, puede usar servicios como Azure Site Recovery y Azure Database Migration para migrar las máquinas a Azure.
-
-> [!NOTE]
-> Azure Migrate está actualmente en versión preliminar y admite cargas de trabajo de producción.
+El servicio Azure Migrate evalúa las cargas de trabajo locales para su migración a Azure. El servicio evalúa la idoneidad de migración de las máquinas locales a Azure, el ajuste de tamaño basado en el rendimiento y proporciona estimaciones del costo que supone la ejecución de máquinas locales en Azure. Si está pensando en migrar mediante lift-and-shift o se encuentra en las primeras fases de la evaluación de la migración, este es el servicio que debe elegir. Tras la evaluación, puede usar servicios como [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar las máquinas a Azure.
 
 ## <a name="why-use-azure-migrate"></a>¿Por qué usar Azure Migrate?
 
@@ -27,18 +24,17 @@ Azure Migrate le ayuda a:
 - **Evaluar la preparación para Azure**: evalúe si las máquinas locales son apropiadas para ejecutarse en Azure. 
 - **Obtener recomendaciones de tamaño**: averigüe el tamaño recomendado de las máquinas virtuales de Azure en función del historial de rendimiento de las máquinas virtuales locales. 
 - **Calcular los costos mensuales**: calcule el costo estimado de la ejecución de máquinas locales en Azure.  
-- **Migrar con una confianza alta**: vea las dependencias de los equipos locales para crear los grupos de equipos que va a evaluar y migrar a la vez. Puede ver con precisión las dependencias de una máquina específica o de todas las máquinas de un grupo.
+- **Migrar con una confianza alta**: vea las dependencias de los equipos locales para crear los grupos de equipos que va a evaluar y migrar a la vez. 
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Actualmente, puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure.
+- Actualmente, solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versión 5.5, 6.0 o 6.5).
 
 > [!NOTE]
 > La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará próximamente. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V. 
 
 - Puede detectar hasta 1000 máquinas virtuales en una sola detección y hasta 1500 en un solo proyecto. Además, puede evaluar hasta 400 máquinas virtuales en una valoración única. Si necesita detectar o evaluar más, puede aumentar el número de detecciones o valoraciones. [Más información](how-to-scale-assessment.md).
-- La máquina virtual que desea evaluar la debe administrar vCenter Server, versión 5.5, 6.0 o 6.5.
-- Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. Sin embargo, esto no afecta a su capacidad para planear la migración de otra ubicación de Azure de destino. La ubicación del proyecto de migración solo se usa para almacenar los metadatos que se detectan desde el entorno local.
+- Los proyectos de Azure Migrate solo se pueden crear en la región Centro occidental de EE. UU. o Este de EE. UU. Sin embargo, esto no afecta a su capacidad para planear la migración de otra ubicación de Azure de destino. La ubicación del proyecto de migración solo se usa para almacenar los metadatos que se detectan desde el entorno local.
 - Azure Migrate solo admite discos administrados para la valoración de la migración.
 
 ## <a name="what-do-i-need-to-pay-for"></a>¿Por qué conceptos tengo qué pagar?
@@ -48,15 +44,16 @@ Azure Migrate le ayuda a:
 
 ## <a name="whats-in-an-assessment"></a>¿Qué es una evaluación?
 
-Una evaluación le ayuda a identificar si las máquinas virtuales locales son idóneas para Azure, le ofrece recomendaciones sobre el tamaño adecuado y calcula el costo de la ejecución de las máquinas virtuales en Azure. Las evaluaciones se basan en las propiedades que se resumen en la tabla siguiente. Puede modificar estas propiedades en el portal de Azure Migrate. 
+Una evaluación le ayuda a identificar si las máquinas virtuales locales son idóneas para Azure, le ofrece recomendaciones sobre el tamaño adecuado y calcula el costo de la ejecución de las máquinas virtuales en Azure. Las evaluaciones se pueden personalizar según sus necesidades cambiando las propiedades de la evaluación. A continuación se muestran las propiedades que se tienen en cuenta al crear una evaluación. 
 
 **Propiedad** | **Detalles**
 --- | ---
 **Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración. De forma predeterminada, la ubicación de destino es la región Oeste de EE. UU. 2. 
-**Redundancia de almacenamiento** | El tipo de almacenamiento que las máquinas virtuales de Azure usarán después de la migración. El valor predeterminado es LRS.
-**Panes de tarifa** | La evaluación tiene en cuenta si está inscrito en Software Assurance y puede usar la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). También tiene en cuenta las ofertas de Azure que debe aplicar y le permite especificar los descuentos específicos de la suscripción (%), que obtendrá además de la oferta. 
-**Plan de tarifa** | Puede especificar el [plan de tarifa (Básico o Estándar)](../virtual-machines/windows/sizes-general.md) de las máquinas virtuales de Azure. Esto le ayudará a migrar a la familia de máquinas virtuales de Azure adecuada, en función de si se encuentra en un entorno de producción. De forma predeterminada se usa el plan [Estándar](../virtual-machines/windows/sizes-general.md).
-**Historial de rendimiento** | De forma predeterminada, Azure Migrate usa un mes del historial para evaluar el rendimiento de las máquinas locales, con un valor de percentil del 95 %. Este valor se puede modificar.
+**Redundancia de almacenamiento** | El tipo de [redundancia de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que las máquinas virtuales de Azure usarán después de la migración. El almacenamiento con redundancia local (LRS) es el valor predeterminado. Tenga en cuenta que Azure Migrate solo admite las evaluaciones basadas en discos administrados y los discos administrados solo son compatibles con LRS, por lo tanto, la propiedad solo tiene actualmente la opción de LRS. 
+**Criterio de ajuste de tamaño** | El criterio que debe utilizar Azure Migrate para ajustar el tamaño de las máquinas virtuales para Azure. Puede ajustar el tamaño en función del *historial de rendimiento* de las máquinas virtuales locales o ajustar las máquinas virtuales *como locales* para Azure sin tener en cuenta el historial de rendimiento. El valor predeterminado es el ajuste de tamaño basado en el rendimiento.
+**Panes de tarifa** | Para calcular los costos, una evaluación tiene en cuenta si se dispone de Software Assurance y si se puede optar por [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). También tiene en cuenta las [Ofertas de Azure](https://azure.microsoft.com/support/legal/offer-details/) a las que se haya suscrito y le permite especificar los descuentos específicos de cualquier suscripción (%), que puede obtener además de la oferta. 
+**Plan de tarifa** | Puede especificar el [plan de tarifa (Básico o Estándar)](../virtual-machines/windows/sizes-general.md) de las máquinas virtuales de Azure de destino. Por ejemplo, si va a migrar un entorno de producción, le gustaría tener en cuenta el nivel estándar, que proporciona máquinas virtuales con una latencia baja pero con un costo más alto. Por otro lado, si tiene un entorno de desarrollo y pruebas, quizá desee tener en cuenta el nivel básico que tiene máquinas virtuales con una latencia mayor y un costo más bajo. De forma predeterminada se usa el plan [Estándar](../virtual-machines/windows/sizes-general.md).
+**Historial de rendimiento** | Se aplica solo si el criterio de ajuste de tamaño se basa en el rendimiento. De forma predeterminada, Azure Migrate usa el historial de rendimiento del último día para evaluar el rendimiento de las máquinas locales, con un valor de percentil del 95 %. Puede modificar estos valores en las propiedades de la evaluación. 
 **Factor de confort** | Azure Migrate tiene en cuenta un búfer (factor de confort) durante la evaluación. Dicho búfer se aplica además de los datos de uso de la máquina en las máquinas virtuales (CPU, memoria, disco y red). El factor de confort se tiene en cuenta en problemas como el uso estacional, un historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una máquina virtual de 10 núcleos con un uso del 20 % normalmente genera una máquina virtual de 2 núcleos. Sin embargo, con un factor de confort de 2.0 x, el resultado es una máquina virtual de 4 núcleos. El valor de confort predeterminado es 1.3 x.
 
 
@@ -82,7 +79,7 @@ La tabla resumen los puertos necesarios para las comunicaciones de Azure Migrate
 |Componente          |Para comunicarse con     |Puerto requerido  |Motivo   |
 |-------------------|------------------------|---------------|---------|
 |Recopilador          |Servicio Azure Migrate   |TCP 443        |El recolector se conecta al servicio a través del puerto 443 de SSL|
-|Recopilador          |vCenter Server          |Valor predeterminado 9443   | De manera predeterminada el recopilador se conecta a vCenter Server en el puerto 9443. Si el servidor escucha otro puerto, debe configurarse como puerto de salida en la máquina virtual del recopilador. |
+|Recopilador          |vCenter Server          |Valor predeterminado 9443   | De manera predeterminada, el recopilador se conecta a vCenter Server en el puerto 9443. Si el servidor escucha otro puerto, debe configurarse como puerto de salida en la máquina virtual del recopilador. |
 |Máquina virtual local     | Área de trabajo de Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |El agente MMA usa TCP 443 para conectarse a Log Analytics. Este puerto solo se necesita si se usa la característica de visualización de dependencias y se instala Microsoft Monitoring Agent (MMA). |
 
 

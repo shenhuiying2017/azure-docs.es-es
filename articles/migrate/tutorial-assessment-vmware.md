@@ -4,14 +4,14 @@ description: "Describe cómo detectar y evaluar VM de VMware locales para la mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 06/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbcfe95f5427681f8d55d647b102d35fc37f15ee
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>requisitos previos
 
-- **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador. 
+- **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server en la versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador. 
  
 > [!NOTE]
 > La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará próximamente. 
@@ -74,6 +74,14 @@ Compruebe que el archivo .OVA es seguro, antes de implementarlo.
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. El código hash generado debe coincidir con esta configuración.
     
+    Para la versión 1.0.8.59 de OVA
+
+    **Algoritmo** | **Valor del código hash**
+    --- | ---
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
+
     Para la versión 1.0.8.49 de OVA
     **Algoritmo** | **Valor del código hash**
     --- | ---
@@ -153,19 +161,27 @@ Después de detectar las VM, las agrupará y creará una evaluación.
 6. Una vez creada la evaluación, puede verla en **Introducción** > **Panel**.
 7. Haga clic en **Exportar la evaluación** para descargarla como un archivo de Excel.
 
-### <a name="sample-assessment"></a>Evaluación de ejemplo
+### <a name="assessment-details"></a>Detalles de la valoración
 
-Este es un ejemplo de informe de evaluación. Incluye información sobre si las VM son compatibles con Azure y los costos mensuales estimados. 
+La valoración incluye información sobre si las máquinas virtuales locales son compatibles con Azure, cuál sería el tamaño correcto de la máquina virtual para ejecutarla en Azure y cuáles serían los costos mensuales estimados de Azure. 
 
 ![Informe de evaluación](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### <a name="azure-readiness"></a>Preparación para Azure
 
-Esta vista muestra el estado de preparación para cada máquina.
+La vista de preparación para Azure en la valoración muestra el estado de preparación de cada máquina virtual. Dependiendo de sus propiedades, cada máquina virtual se puede marcar como:
+- Preparada para Azure
+- Condicionalmente preparada para Azure
+- No está preparada para Azure
+- Preparación desconocida 
 
-- Para las VM que están preparadas, Azure Migrate recomienda un tamaño de VM en Azure.
-- Para VM que no están preparadas, Azure Migrate explica por qué y proporciona los pasos de corrección.
-- Azure Migrate sugiere herramientas que puede usar para la migración. Si la máquina es adecuada para la migración de elevación y cambio, se recomienda el servicio Azure Site Recovery. Si es una máquina de base de datos, se recomienda Azure Database Migration Service.
+Para las VM que están preparadas, Azure Migrate recomienda un tamaño de VM en Azure. La recomendación de tamaño que realiza Azure Migrate depende del criterio de tamaño que se especifica en las propiedades de la valoración. Si el criterio de tamaño se corresponde con el ajuste de tamaño basado en el rendimiento, se realiza la recomendación de tamaño teniendo en cuenta el historial de rendimiento de la máquina virtual. Si el criterio de tamaño es "como local", se realiza la recomendación examinando el tamaño de la máquina virtual local (ajuste de tamaño habitual). En este caso, no se consideran los datos de uso. [Más información](concepts-assessment-calculation.md) acerca de cómo se realiza el ajuste de tamaño en Azure Migrate. 
+
+Para las máquinas virtuales que no están preparadas o están condicionalmente preparadas para Azure, Azure Migrate explica los problemas de preparación y proporciona los pasos para su corrección. 
+
+Las máquinas virtuales para las que Azure Migrate no puede identificar la preparación para Azure (debido a la falta de disponibilidad de datos) se consideran de preparación desconocida.
+
+Además del ajuste de tamaño y la preparación para Azure, Azure Migrate también sugiere herramientas que puede usar para migrar la máquina virtual. Si la máquina es adecuada para la migración mediante lift-and-shift, se recomienda el servicio [Azure Site Recovery]. Si es una máquina de base de datos, se recomienda Azure Database Migration Service.
 
   ![Preparación de la evaluación](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
@@ -180,10 +196,31 @@ Los costos mensuales estimados para el proceso y almacenamiento se agregan para 
 
 ![Costo de VM de evaluación](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Puede obtener un desglose para ver los detalles de una máquina específica.
+#### <a name="confidence-rating"></a>Clasificación de confianza
 
-![Costo de VM de evaluación](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
+Cada valoración de Azure Migrate está asociada con una clasificación de confianza que varía de 1 a 5 estrellas (1 estrella es el valor más bajo y 5 estrellas, el más alto). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. Le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate. 
 
+La clasificación de confianza es útil cuando está realizando el *ajuste de tamaño basado en el rendimiento* dado que puede que no estén disponibles todos los puntos de datos. Para el *ajuste de tamaño como local*, la clasificación de confianza siempre es de 5 estrellas, puesto que Azure Migrate tiene todos los datos que necesita para ajustar el tamaño de la máquina virtual. 
+
+Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria. Para cada disco asociado a la máquina virtual, se necesita la IOPS de lectura o escritura y el rendimiento para realizar el ajuste de tamaño basado en el rendimiento. De forma similar, para cada adaptador de red asociado a la máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración:
+
+   **Disponibilidad de puntos de datos** | **Clasificación de confianza**
+   --- | ---
+   0 % - 20 % | 1 estrella
+   21 % - 40 % | 2 estrellas
+   41 % - 60 % | 3 estrellas
+   61 % - 80 % | 4 estrellas
+   81 % - 100 % | 5 estrellas
+
+Debido a uno de los siguientes motivos, puede que las valoraciones no tengan todos los puntos de datos disponibles:
+- La configuración de estadísticas en vCenter Server no está establecida en el nivel 3 y la valoración tiene como criterio de tamaño el ajuste de tamaño basado en el rendimiento. Si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red se basa solamente en lo que se asignó en local. Para el almacenamiento, Azure Migrate recomienda discos estándar ya que no hay ninguna manera de identificar si el disco tiene una IOPS o un rendimiento altos y necesita discos premium.
+- La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un corto período, antes de iniciar la detección. Por ejemplo, si hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas), si está creando una valoración durante un día, tendrá todos los puntos de datos. Pero si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que el disco y los datos de rendimiento de la red durante el último mes no están disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección. 
+- Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si se han apagado todas las máquinas virtuales durante un tiempo, vCenter Server no tendrá los datos de rendimiento de ese período. 
+- Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
+
+> [!NOTE]
+> Si la clasificación de confianza de cualquier valoración es inferior a 3 estrellas, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que desee considerar para la valoración (un día, una semana o un mes) y, a continuación, realice la detección y la valoración. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
+ 
 ## <a name="next-steps"></a>pasos siguientes
 
 - [Aprenda](how-to-scale-assessment.md) a detectar y evaluar un entorno grande de VMware.

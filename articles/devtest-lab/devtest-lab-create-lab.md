@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
 En Azure Dev/Test Labs, un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de dichos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
@@ -32,9 +32,9 @@ Para crear un laboratorio necesitará:
 Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs. 
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. En el menú principal de la izquierda, seleccione **Más servicios** (en la parte inferior de la lista).
+1. En el menú principal de la izquierda, seleccione **Todos los servicios** (en la parte superior de la lista).
 
-    ![Opción del menú Más servicios](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![Opción del menú Todos los servicios](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. En la lista de servicios disponibles, **DevTest Labs**.
 1. En el área **DevTest Labs**, seleccione **Agregar**.

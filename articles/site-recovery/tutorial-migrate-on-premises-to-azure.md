@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -45,7 +45,7 @@ No se admiten dispositivos que se hayan exportado con controladores paravirtuali
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Haga clic en **Nuevo** > **Supervisión y administración** > **Backup y Site Recovery**.
+2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
 3. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 4. Cree un grupo de recursos denominado **ContosoRG**.
 5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -72,7 +72,7 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 
 - [Configure](tutorial-vmware-to-azure.md#set-up-the-source-environment) el entorno de origen para las máquinas virtuales de VMware.
 - [Configure](tutorial-physical-to-azure.md#set-up-the-source-environment) el entorno de origen para los servidores físicos.
-- [Configure](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) el entorno de origen para las máquinas virtuales de Hyper-V.
+- [Configure](hyper-v-azure-tutorial.md#set-up-the-source-environment) el entorno de origen para las máquinas virtuales de Hyper-V.
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 
@@ -86,14 +86,14 @@ Seleccione y compruebe los recursos de destino.
 
 - [Configure una directiva de replicación](tutorial-vmware-to-azure.md#create-a-replication-policy) para las máquinas virtuales de VMware.
 - [Configure una directiva de replicación](tutorial-physical-to-azure.md#create-a-replication-policy) para los servidores físicos.
-- [Configure una directiva de replicación](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) para las máquinas virtuales de Hyper-VM.
+- [Configure una directiva de replicación](hyper-v-azure-tutorial.md#set-up-a-replication-policy) para las máquinas virtuales de Hyper-VM.
 
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
 - [Habilite la replicación](tutorial-vmware-to-azure.md#enable-replication) para las máquinas virtuales de VMware.
 - [Habilite la replicación](tutorial-physical-to-azure.md#enable-replication) de los servidores físicos.
-- [Habilite la replicación](tutorial-hyper-v-to-azure.md#enable-replication) de las máquinas virtuales de Hyper-V.
+- [Habilite la replicación](hyper-v-azure-tutorial.md#enable-replication) de las máquinas virtuales de Hyper-V.
 
 
 ## <a name="run-a-test-migration"></a>Ejecutar una migración de prueba

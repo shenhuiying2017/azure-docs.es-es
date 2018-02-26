@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primer análisis: Copia de seguridad de archivos y carpetas en la implementación de Resource Manager
-En este artículo se explica cómo realizar una copia de seguridad de los archivos y las carpetas de Windows Server (o equipo Windows) en Azure mediante una implementación de Resource Manager. Es un tutorial diseñado para guiarle por los aspectos básicos. Si desea empezar a usar Copia de seguridad de Azure, está en el lugar correcto.
+En este artículo se explica cómo realizar una copia de seguridad de los archivos y las carpetas de Windows Server (o equipo Windows) en Azure mediante una implementación de Resource Manager. Es un tutorial diseñado para guiarle por los aspectos básicos. Si desea empezar a usar Azure Backup, está en el lugar correcto.
 
-Si desea más información acerca de Copia de seguridad de Azure, lea esta [introducción](backup-introduction-to-azure-backup.md).
+Si desea más información acerca de Azure Backup, lea esta [introducción](backup-introduction-to-azure-backup.md).
 
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crear un almacén de Servicios de recuperación en la región donde desea almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
+Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crear un almacén de Recovery Services en la región donde desea almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
 
-### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
-2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
+### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción.
+2. En el menú del concentrador, haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
 3. En el menú **Almacenes de servicios de recuperación**, haga clic en **Agregar**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
+    ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
     Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
@@ -53,7 +53,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crea
 6. En la sección **Grupo de recursos**:
 
     * Si desea crear un nuevo grupo de recursos, seleccione **Create new** (Crear nuevo).
-    O
+    o
     * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
 
   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
@@ -62,7 +62,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crea
 
 8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
 
-    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
+    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
 
     ![Clic en el botón Refresh (Actualizar)](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -132,7 +132,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![descargar las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Guardar**. Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
+    Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Save**(Guardar). Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
 
     ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
@@ -148,7 +148,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![ejecutar las credenciales del instalador del agente de Recovery Services](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Complete el asistente para la instalación del agente de Servicios de recuperación de Microsoft Azure. Para completar al asistente, tendrá que hacer lo siguiente:
+2. Complete el asistente para la instalación del agente de Microsoft Azure Recovery Services. Para completar al asistente, tendrá que hacer lo siguiente:
 
    * Elija una ubicación para la instalación y la carpeta de caché.
    * Proporcione la información del servidor proxy si usa un servidor proxy para conectarse a Internet.
@@ -170,7 +170,7 @@ Si la máquina o el proxy tienen limitado el acceso a Internet, asegúrese de qu
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.net
+    5. * .windows.net
 
 ## <a name="back-up-your-files-and-folders"></a>Realización de copias de seguridad de archivos y carpetas.
 La copia de seguridad inicial incluye dos tareas clave:
@@ -181,16 +181,16 @@ La copia de seguridad inicial incluye dos tareas clave:
 Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Recovery Services.
 
 ### <a name="to-schedule-the-backup-job"></a>Programación de la copia de seguridad
-1. Abra el agente de Servicios de recuperación de Microsoft Azure. Para encontrarlo, busque **Copia de seguridad de Microsoft Azure**en la máquina.
+1. Abra el agente de Microsoft Azure Recovery Services. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
-    ![Iniciar el agente de los Servicios de recuperación de Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
-2. En el agente de Servicios de recuperación, haga clic en **Programar copia de seguridad**.
+    ![Iniciar el agente de Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
+2. En el agente de Recovery Services, haga clic en **Programar Backup**.
 
     ![Programación de una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 4. En la página Seleccionar elementos de los que realizar copia de seguridad, haga clic en **Agregar elementos**.
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
-6. Haga clic en **Siguiente**.
+6. Haga clic en **Next**.
 7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copia de seguridad** y haga clic en **Siguiente**.
 
     Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
@@ -198,7 +198,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
+   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar Azure Backup para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
    >
 
 8. En la página **Seleccione la directiva de retención**, elija la **directiva de retención** para la copia de seguridad.
@@ -206,12 +206,12 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
     La directiva de retención especifica cuánto tiempo se almacenan los datos de la copia de seguridad. En vez de especificar una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) para más información.
 10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Creación de copias de seguridad de archivos y carpetas por primera vez
-1. En el agente de Servicios de recuperación, haga clic en **Back Up Now** (Iniciar copia de seguridad) para completar la propagación inicial a través de la red.
+1. En el agente de Recovery Services, haga clic en **Back Up Now** (Iniciar copia de seguridad) para completar la propagación inicial a través de la red.
 
     ![Copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
@@ -224,7 +224,7 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

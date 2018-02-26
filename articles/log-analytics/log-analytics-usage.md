@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 Log Analytics incluye información sobre la cantidad de datos recopilados, qué sistemas envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para ver la cantidad de datos enviados al servicio Log Analytics. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
@@ -44,13 +44,17 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
 ![panel de uso](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Para trabajar con datos de uso, siga estos pasos:
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![portal de Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo.
-4. Seleccione **Uso del análisis de registros** en la lista del panel izquierdo.
-5. En el panel **Uso de Log Analytics**, haga clic en **Tiempo: Últimas 24 horas** para cambiar el intervalo de tiempo.<br><br> ![Intervalo de tiempo](./media/log-analytics-usage/time.png)<br><br>
-6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-log-searches.md).<br><br> ![Hoja de uso de datos de ejemplo](./media/log-analytics-usage/blade.png)<br><br>
-7. En el panel Búsqueda de registros, revise los resultados devueltos por la búsqueda.<br><br> ![Búsqueda de registros de uso de ejemplo](./media/log-analytics-usage/usage-log-search.png)
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
+2. Haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
+    ![Menú central de Azure](./media/log-analytics-usage/hub.png)
+3. El panel **Log Analytics** muestra una lista de las áreas de trabajo. Seleccione un área de trabajo.
+4. En el panel del *área de trabajo*, haga clic en **Uso de Log Analytics**.
+5. En el panel **Uso de Log Analytics**, haga clic en **Tiempo: Últimas 24 horas** para cambiar el intervalo de tiempo.  
+    ![Intervalo de tiempo](./media/log-analytics-usage/time.png)
+6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-log-searches.md).  
+    ![Hoja de uso de datos de ejemplo](./media/log-analytics-usage/blade.png)
+7. En el panel Búsqueda de registros, revise los resultados devueltos por la búsqueda.  
+    ![Búsqueda de registros de uso de ejemplo](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creación de una alerta cuando la colección de datos es mayor de lo esperado
 En esta sección se describe cómo crear una alerta si:

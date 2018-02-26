@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
@@ -35,11 +35,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Creación de una aplicación web y un plan de App Service
-1. Haga clic en la opción **Nuevo** en el panel de navegación izquierdo.
-
+1. Haga clic en la opción **Crear un recurso** en el panel de navegación izquierdo.
 2. Busque y seleccione el elemento *Aplicación web* y haga clic en **Crear**.
-
-3. Seleccione un nombre de aplicación, como *MyTestScaleWebApp*. Cree un nuevo grupo de recursos *myResourceGroup* y colóquelo en el grupo de recursos de su elección.
+3. Seleccione un nombre de aplicación, como *MyTestScaleWebApp*. Cree un nuevo grupo de recursos myResourceGroup y colóquelo en el grupo de recursos de su elección.
 
 En el plazo de unos minutos, los recursos deberían aprovisionarse. Utilice la aplicación web y el plan de App Service correspondiente a lo largo de este tutorial.
 
@@ -67,11 +65,11 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
 
 ## <a name="create-recurrance-profile"></a>Creación del perfil de periodicidad
 
-1. Haga clic en el vínculo **Agregar una condición de escala** bajo el perfil predeterminado.
+1. Haga clic en el vínculo **Add a scale condition** (Agregar una condición de escalado) bajo el perfil predeterminado.
 
-2. Edite el **Nombre** de este perfil para que sea “Monday to Friday profile”.
+2. Edite el **nombre** de este perfil para que sea “Monday to Friday profile”.
 
-3. Asegúrese de que el **Modo de escala** esté establecido en “Escalado basado en una métrica”.
+3. Asegúrese de que en **Modo de escala** se haya seleccionado "Escalado basado en una métrica".
 
 4. Para **Límites de instancia**, establezca el **Mínimo** en 1, el **Máximo** en 2 y el valor **Predeterminado** en 1. Esta configuración garantiza que este perfil no escale automáticamente el plan de servicio para que tenga menos de 1 instancia ni más de 2 instancias. Si el perfil no tiene suficientes datos para tomar una decisión, utiliza el número predeterminado de instancias (en este caso, 1).
 
@@ -91,7 +89,7 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
 
 5. Establezca **Operador** en “Mayor que”, **Umbral** en 10 y **Duración** en 5 minutos.
 
-6. Seleccione la **Operación** como "aumentar recuento en", **Recuento de instancias** 1 y **Tiempo de finalización** en 5 minutos.
+6. Seleccione la **Operación** como "Aumentar el número en", **Recuento de instancias** en 1 y **Tiempo de finalización** en 5 minutos.
 
 7. Haga clic en el botón **Agregar**.
 
@@ -108,11 +106,11 @@ Se recomienda tener siempre una regla de reducción horizontal que acompañe la 
 
 3. Establezca el **Origen de métrica** en “Otro recurso”. Establezca **Tipo de recurso** en “App Services” y **Recurso** en la aplicación web creada anteriormente en este tutorial.
 
-4. Establezca **Agregación de tiempo** en “Total”, **Nombre de métrica** en “Solicitudes” y el **Estadística de intervalo de agregación** en “Promedio”.
+4. Establezca **Agregación de tiempo** en “Total”, **Nombre de métrica** en “Solicitudes” y la **Estadística de intervalo de agregación** en “Promedio”.
 
 5. Establezca **Operador** en “Menor que”, **Umbral** en 5 y **Duración** en 5 minutos.
 
-6. Establezca la **Operación** en"Reducir recuento en", el **Recuento de instancias** en 1 y el **Tiempo de finalización** en 5 minutos.
+6. Establezca la **Operación** en"Reducir el recuento en", el **Recuento de instancias** en 1 y el **Tiempo de finalización** en 5 minutos.
 
 7. Haga clic en el botón **Agregar**.
 
@@ -127,7 +125,7 @@ Para desencadenar la condición de escalado horizontal en la configuración de e
 
 1. Abra una ventana del explorador y navegue a la aplicación web que creó anteriormente en este tutorial. Para encontrar la dirección URL de la aplicación web en Azure Portal, vaya al recurso de la aplicación web y haga clic en el botón **Examinar** en la pestaña “Información general”.
 
-2. En rápida sucesión, vuelva a cargar la página más de 10 veces
+2. En rápida sucesión, vuelva a cargar la página más de 10 veces.
 
 3. En el panel de navegación izquierdo, seleccione la opción **Monitor**. Una vez que la página se cargue, seleccione la pestaña **Escalado automático**.
 

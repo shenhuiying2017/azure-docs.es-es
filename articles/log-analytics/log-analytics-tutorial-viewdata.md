@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics
 
@@ -41,7 +41,7 @@ Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.a
 ## <a name="open-the-log-search-portal"></a>Abrir el portal de búsqueda de registros 
 En primer lugar, abra el portal de búsqueda de registros.   
 
-1. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, a continuación, seleccione el icono **Búsqueda de registros**.<br> ![Botón Log Search](media/log-analytics-tutorial-viewdata/azure-portal-01.png) (Búsqueda de registros)
 
 Puede que el banner de la parte superior de la página del recurso de Log Analytics del portal le invite a actualizar.<br> ![Aviso de actualización de Log Analytics en Azure Portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -50,7 +50,7 @@ Log Analytics introdujo recientemente un nuevo lenguaje de consulta que facilita
 
 La actualización es simple.  Para iniciar el proceso, haga clic en el banner en el que se lee **Obtenga más información y actualice**.  Lea la información adicional sobre la actualización en la página de información de la actualización y, después, haga clic en **Actualizar ahora**.
 
-Este proceso tardará varios minutos en completarse y, durante este período, puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. Puede obtener más información sobre las [ventajas del nuevo lenguaje de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
+Este proceso tarda varios minutos en completarse y, durante este período, puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. Puede obtener más información sobre las [ventajas del nuevo lenguaje de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
 
 ## <a name="create-a-simple-search"></a>Creación de una búsqueda simple
 La forma más rápida de recuperar algunos datos con los que trabajar es con una consulta simple que devuelve todos los registros en una tabla.  Si tiene clientes de Windows o Linux conectados al área de trabajo, tendrá datos en las tablas Event (Windows) o Syslog (Linux).
@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Gráfico de líneas](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial ha aprendido a crear búsquedas de registros básicas para analizar datos de eventos y rendimiento.  Vaya al siguiente tutorial para saber cómo visualizar los datos mediante la creación de un panel.
 
 > [!div class="nextstepaction"]

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -30,7 +30,7 @@ Abra el explorador web y vaya al [portal](https://portal.azure.com/). Introduzca
 Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
 
 Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguientes:
-1. Seleccione el botón **Nuevo** (+) de la esquina superior izquierda del portal.
+1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
 2. Seleccione **Bases de datos** > **Azure Database for PostgreSQL**.
 
@@ -38,16 +38,16 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
 
 3. Rellene el formulario de datos del nuevo servidor con la siguiente información, como se muestra en la imagen anterior:
 
-    Configuración|Valor sugerido|Descripción
+    Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Nombre de servidor |*mypgserver-20170401*|Un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre de dominio *postgres.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.
     La suscripción|Su suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Grupos de recursos|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
     Inicio de sesión de administrador de servidor |*mylogin*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** ni **public.** No puede empezar por **pg_**.
     Password |Su elección | Una contraseña nueva para la cuenta de administrador del servidor. Debe contener entre ocho y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: letras en mayúsculas del alfabeto inglés, letras en minúscula del alfabeto inglés, números (de cero a nueve) y caracteres no alfanuméricos (!, $, #, %, etc.).
-    Ubicación|Región más cercana a los usuarios| Ubicación más cercana a los usuarios.
+    La ubicación|Región más cercana a los usuarios| Ubicación más cercana a los usuarios.
     Versión de PostgreSQL|La versión más reciente| La versión más reciente, a menos que tenga requisitos específicos.
-    Plan de tarifa  | **Básico**, **50 unidades de proceso**, **50 GB** | El nivel de servicio y el nivel de rendimiento de la base de datos nueva. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Básico**. Después, seleccione el extremo izquierdo del control deslizante de **unidades de proceso** para ajustar el valor en la menor cantidad disponible para esta guía de inicio rápido. Para guardar este plan de tarifa, seleccione **Aceptar**. Para obtener más información, consulte la siguiente captura de pantalla. 
+    Nivel de precios | **Básico**, **50 unidades de proceso**, **50 GB** | El nivel de servicio y el nivel de rendimiento de la base de datos nueva. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Básico**. Después, seleccione el extremo izquierdo del control deslizante de **unidades de proceso** para ajustar el valor en la menor cantidad disponible para esta guía de inicio rápido. Para guardar este plan de tarifa, seleccione **Aceptar**. Para obtener más información, consulte la siguiente captura de pantalla. 
     Anclar al panel | Comprobar | Permite realizar un seguimiento fácil del servidor en la página del panel frontal del portal.
 
     > [!IMPORTANT]
@@ -122,7 +122,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
     psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
     ```
 
-    Parámetro de psql |Valor sugerido|Descripción
+    Parámetro de psql |Valor sugerido|DESCRIPCIÓN
     ---|---|---
     --host | Nombre de servidor | El valor de nombre de servidor que usó al crear el servidor de Azure Database for MySQL. El servidor de ejemplo que se muestra es **mypgserver-20170401.postgres.database.azure.com.** Use el nombre de dominio completo (**\*.postgres.database.azure.com**) tal como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión. 
     --port | 5432 | El puerto se usará al conectarse al servidor de Azure Database for PostgreSQL. 
@@ -131,7 +131,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
 
     Después de ejecutar el comando psql con sus propios valores de parámetros, se le pedirá que escriba la contraseña del administrador del servidor. Es la misma contraseña que especificó al crear el servidor. 
 
-    Parámetro de psql |Valor sugerido|Descripción
+    Parámetro de psql |Valor sugerido|DESCRIPCIÓN
     ---|---|---
     contraseña | Contraseña del administrador | Los caracteres que escriba en la contraseña no se muestran en el símbolo del sistema de bash. Después de escribir todos los caracteres, seleccione la tecla **ENTRAR** para autenticarse y conectarse.
 
@@ -185,7 +185,7 @@ Para conectarse al servidor Azure PostgreSQL mediante la herramienta pgAdmin de 
 
    ![Pestaña "Conexión"](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    parámetro pgAdmin |Valor sugerido|Descripción
+    parámetro pgAdmin |Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Host Name/Address | Nombre de servidor | El valor de nombre de servidor que usó al crear el servidor de Azure Database for MySQL. El servidor de ejemplo es **mypgserver-20170401.postgres.database.azure.com.** Use el nombre de dominio completo (**\*.postgres.database.azure.com**) tal como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión. 
     Port | 5432 | El puerto se usará al conectarse al servidor de Azure Database for PostgreSQL. 
@@ -234,6 +234,6 @@ Para eliminar solo el servidor recién creado:
 
 3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos incluidas. Escriba el nombre del servidor en el cuadro de texto (en el ejemplo, **mypgserver-20170401**). Seleccione **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtención de un inquilino de Azure Active Directory
 En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) es un representante de una organización.  Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando registra un servicio en la nube de Microsoft, como Azure, Microsoft InTune u Office 365.  Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.  
@@ -44,7 +44,7 @@ Si se ha registrado anteriormente en una suscripción de Azure con una cuenta Mi
 Para hacerlo, siga estos pasos:  También es posible que quiera crear a un nuevo inquilino y crear un administrador en ese inquilino siguiendo un proceso similar.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta individual
-2. Navegue a la sección "Azure Active Directory" del portal (que se encuentra en la barra de navegación izquierda, en **Más servicios**)
+2. Vaya a la sección "Azure Active Directory" del portal (que se encuentra en la barra de navegación izquierda, en **Todos los servicios**).
 3. Debería iniciar sesión automáticamente en el "directorio predeterminado". Si no, puede cambiar de directorio haciendo clic en el nombre de cuenta en la esquina superior derecha.
 4. En la sección **Tareas rápidas**, elija **Agregar un usuario**.
 5. En el formulario para agregar usuario, proporcione la siguiente información:
@@ -58,7 +58,7 @@ Para hacerlo, siga estos pasos:  También es posible que quiera crear a un nuevo
 8. Para cambiar la contraseña temporal, inicie sesión en [https://login.microsoftonline.com](https://login.microsoftonline.com) con esta nueva cuenta de usuario y cambie la contraseña cuando se le solicite.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Uso de una suscripción de Azure organizativa
-Si se ha registrado anteriormente en una suscripción de Azure con la cuenta organizativa, ya dispone de un inquilino.  En [Azure Portal](https://portal.azure.com) debe buscar un inquilino cuando navegue a "Más servicios" y "Azure Active Directory".  Pueden usar a este inquilino como considere oportuno.
+Si se ha registrado anteriormente en una suscripción de Azure con la cuenta organizativa, ya dispone de un inquilino.  En [Azure Portal](https://portal.azure.com) debe buscar un inquilino cuando vaya a "Todos los servicios" y "Azure Active Directory".  Pueden usar a este inquilino como considere oportuno.
 
 ## <a name="start-from-scratch"></a>Comienzo desde cero
 Si todo lo anterior es un galimatías para usted, no se preocupe. Basta con que visite [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para crear un nuevo directorio de Azure AD. Cuando haya completado el proceso, tendrá su propio inquilino de Azure AD con el nombre de dominio que elija durante el registro.  En [Azure Portal](https://portal.azure.com) puede buscar el inquilino dirigiéndose a **Azure Active Directory** en panel de navegación de la izquierda.

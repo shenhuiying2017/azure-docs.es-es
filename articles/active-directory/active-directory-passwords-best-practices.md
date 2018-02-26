@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -61,7 +61,7 @@ Muchos clientes opinan que una campaña de correo electrónico, con instruccione
 Muchos clientes eligen hospedar una página web y crear una entrada DNS raíz, como https://passwords.contoso.com. Rellenan esta página con vínculos a la información siguiente:
 
 * [Portal de restablecimiento de contraseña de Azure AD: https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portal de registro para el restablecimiento de contraseña de Azure AD: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal de registro para el restablecimiento de contraseña de Azure AD: https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Portal para el cambio de contraseña de Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Otra información específica de la organización
 

@@ -13,20 +13,17 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/18/2018
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Inicio de Apache Kafka en HDInsight
 
-Obtenga información acerca de cómo crear y usar un clúster de [Apache Kafka](https://kafka.apache.org) en Azure HDInsight. Kafka es una plataforma de streaming distribuida de código abierto que está disponible con HDInsight. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción. Kafka se suele utilizar con Apache Spark y Apache Storm.
-
-> [!NOTE]
-> Actualmente hay dos versiones de Kafka disponibles con HDInsight; 0.9.0 (HDInsight 3.4) y 0.10.0 (HDInsight 3.5 y 3.6). En los pasos de este documento se supone que usa Kafka en HDInsight 3.6.
+Obtenga información acerca de cómo crear y usar un clúster de [Apache Kafka](https://kafka.apache.org) en Azure HDInsight. Kafka es una plataforma de streaming distribuida de código abierto que está disponible con HDInsight. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción. Kafka se utiliza a menudo junto con Apache Spark y Apache Storm para mensajería, seguimiento de actividades, agregación de flujos o transformación de datos.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -40,7 +37,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
 
 2. En **Básico**, escriba la siguiente información:
 
-    * **Nombre del clúster**: nombre del clúster de HDInsight.
+    * **Nombre del clúster**: nombre del clúster de HDInsight. Este nombre debe ser único.
     * **Suscripción**: seleccione la suscripción que vaya a usar.
     * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
     * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
@@ -77,7 +74,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     ![Establecer al tamaño de clúster de Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!IMPORTANT]
-    > Los **discos por entrada de nodo de trabajo** controlan la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
+    > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
 8. En __Configuración avanzada__, seleccione __Siguiente__ para continuar.
 
@@ -93,11 +90,9 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
 > [!IMPORTANT]
 > Al realizar los pasos siguientes, debe utilizar un cliente de SSH. Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Desde el cliente, use SSH para conectarse al clúster:
+Para conectarse al clúster mediante SSH, debe proporcionar el nombre de la cuenta de usuario SSH y el nombre del clúster. Sustituya `sshuser` y `clustername` por el nombre de la cuenta y del clúster en el siguiente ejemplo:
 
-```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
-
-Reemplace **SSHUSER** por el nombre de usuario SSH que proporcionó durante la creación del clúster. Reemplace **CLUSTERNAME** por el nombre del clúster.
+```ssh sshuser@clustername-ssh.azurehdinsight.net```
 
 Cuando se le solicite, escriba la contraseña usada para la cuenta SSH.
 
@@ -105,9 +100,9 @@ Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-
 
 ## <a id="getkafkainfo"></a>Obtención de la información del host de Zookeeper y del agente
 
-Cuando se trabaja con Kafka, debe conocer dos valores de host; los hosts de *Zookeeper* y los hosts de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
+Cuando se trabaja con Kafka, debe conocer los hosts de *Zookeeper* y los hosts de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
 
-Use los pasos siguientes para crear variables de entorno que contengan la información de host. Estas variables de entorno se usan en los pasos de este documento.
+Use los pasos siguientes para crear variables de entorno que contengan la información de host:
 
 1. Desde una conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se emplea para analizar documentos JSON y es útil para recuperar la información de host del agente:
    
@@ -115,36 +110,52 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     sudo apt -y install jq
     ```
 
-2. Para establecer las variables de entorno con la información recuperada de Ambari, use los siguientes comandos:
+2. Para establecer una variable de entorno en el nombre del clúster, use el comando siguiente:
 
     ```bash
-    CLUSTERNAME='your cluster name'
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+3. Para establecer una variable de entorno con la información de host de Zookeeper, use el comando siguiente:
+
+    ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
+    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (administrador).
+
+4. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
+
+    ```bash
+     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    ```
+
+    Este comando devuelve información similar al texto siguiente:
+
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+
+5. Para establecer una variable de entorno con la información de host del agente de Kafka, use el comando siguiente:
+
+    ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (administrador).
+
+6. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
+
+    ```bash   
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    > [!IMPORTANT]
-    > Establezca `CLUSTERNAME=` en el nombre del clúster de Kafka. Cuando se le solicite, escriba la contraseña de administrador del clúster.
-
-    A continuación se muestra un ejemplo del contenido de `$KAFKAZKHOSTS`:
-   
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
-   
-    A continuación se muestra un ejemplo del contenido de `$KAFKABROKERS`:
+    Este comando devuelve información similar al texto siguiente:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-
-    > [!NOTE]
-    > El comando `cut` se usa para recortar la lista de hosts a dos entradas. Al crear un productor o cliente de Kafka no es necesario proporcionar la lista completa de hosts.
    
-    > [!WARNING]
-    > No confíe en que la información que se devuelve en esta sesión sea siempre precisa. Si escala el clúster, se agregan o se quitan nuevos agentes. Si se produce un error y se reemplaza un nodo, el nombre de host del nodo puede cambiar.
-    >
-    > Debe recuperar la información de los hosts de Zookeeper y del agente antes de usarla para garantizar que tiene información válida.
+> [!WARNING]
+> No confíe en que la información que se devuelve en esta sesión sea siempre precisa. Cuando escala el clúster, se agregan o se quitan nuevos agentes. Si se produce un error y se reemplaza un nodo, el nombre de host del nodo puede cambiar.
+>
+> Debe recuperar la información de los hosts de Zookeeper y del agente antes de usarla para garantizar que tiene información válida.
 
 ## <a name="create-a-topic"></a>de un tema
 
@@ -154,13 +165,13 @@ Kafka almacena los flujos de datos en categorías denominadas *temas*. Desde una
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS` y luego crea un tema de Kafka llamado **test**. También puede comprobar que se creó el tema mediante el siguiente script para mostrar temas:
+Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Kafka llamado **test**. También puede comprobar que se creó el tema mediante el siguiente script para mostrar temas:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 ```
 
-La salida de este comando muestra los temas de Kafka, que contienen el tema **test**.
+La salida de este comando muestra los temas de Kafka en el clúster.
 
 ## <a name="produce-and-consume-records"></a>Generación y consumo de registros
 
@@ -174,9 +185,11 @@ Use los pasos siguientes para almacenar registros en el tema de prueba que creó
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
    
-    Tras este comando no volverá al símbolo del sistema. En su lugar, escriba algunos mensajes de texto y luego use **Ctrl + C** para detener el envío del tema. Cada línea se envía como un registro independiente.
+    Después de este comando, llega a una línea vacía.
 
-2. Use un script proporcionado con Kafka para leer registros del tema:
+2. Escriba un mensaje de texto en la línea vacía y presione ENTRAR. Escriba algunos mensajes de esta forma y, a continuación, use **Ctrl + C** para volver al símbolo del sistema normal. Cada línea se envía como un registro independiente al tema de Kafka.
+
+3. Use un script proporcionado con Kafka para leer registros del tema:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -185,9 +198,9 @@ Use los pasos siguientes para almacenar registros en el tema de prueba que creó
     Este comando recupera los registros del tema y los muestra. Con `--from-beginning` se indica al consumidor que comience desde el principio del flujo, de modo que se recuperan todos los registros.
 
     > [!NOTE]
-    > Si está utilizando una versión anterior de Kafka, debe reemplazar `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
+    > Si está utilizando una versión anterior de Kafka, reemplace `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
 
-3. Use __Ctrl + C__ para detener el consumidor.
+4. Use __Ctrl + C__ para detener el consumidor.
 
 También puede crear mediante programación los productores y consumidores. Para obtener un ejemplo del uso de esta API, consulte el documento [Producer y Consumer API de Kafka](apache-kafka-producer-consumer-api.md).
 
@@ -198,19 +211,19 @@ Cada región de Azure (ubicación) proporciona _dominios de error_. Un dominio d
 Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 > [!IMPORTANT]
-> Se recomienda utilizar una región de Azure que contenga tres dominios de error y un factor de replicación de 3.
+> Si es posible, use una región de Azure que contenga tres dominios de error y cree temas con un factor de replicación de 3.
 
-Si debe usar una región que contenga solo dos dominios de error, use un factor de replicación de 4 para distribuir las réplicas uniformemente entre los dominios de error de dos.
+Si utiliza una región que contiene solo dos dominios de error, use un factor de replicación de 4 para distribuir las réplicas uniformemente entre los dos dominios de error.
 
 ### <a name="kafka-and-fault-domains"></a>Kafka y los dominios de error
 
 Kafka no es compatible con dominios de error. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad. Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una sesión de SSH en el nodo principal del clúster de Kafka.
 
-Para garantizar la máxima disponibilidad de los datos de Kafka, es preciso reequilibrar las réplicas de las particiones del tema en las siguientes ocasiones:
+Para garantizar la máxima disponibilidad de los datos de Kafka, es preciso reequilibrar las réplicas de las particiones del tema cuando:
 
-* Cuando se crean un nuevo tema o una partición
+* Cree un nuevo tema o una partición
 
-* Cuando un clúster se escala verticalmente
+* Escale verticalmente un clúster
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 

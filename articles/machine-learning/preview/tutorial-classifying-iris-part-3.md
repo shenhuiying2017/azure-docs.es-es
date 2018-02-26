@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -285,7 +285,7 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Busque todas las cuentas de almacenamiento. Para ello, seleccione **Más servicios**.
+2. Busque todas las cuentas de almacenamiento. Para ello, seleccione **Todos los servicios**.
 
 3. En el cuadro de búsqueda, escriba **Cuentas de almacenamiento** y, a continuación, seleccione **Entrar**.
 
