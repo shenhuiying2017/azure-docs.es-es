@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Security Center
       href: security-center-intro.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Suscripciones de Azure
@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Directiva de seguridad mediante la directiva de Azure
           href: security-center-azure-policy.md
-    - name: Supervisión del estado de la seguridad
-      href: security-center-monitoring.md
-    - name: Identidad y acceso
-      href: security-center-identity-access.md
     - name: Implementación de recomendaciones de seguridad
       href: security-center-recommendations.md
-    - name: Seguridad de Compute
-      href: security-center-virtual-machine-recommendations.md
+    - name: Supervisión del estado de la seguridad
+      href: security-center-monitoring.md
       items:
-        - name: Aplicación del cifrado de discos
-          href: security-center-apply-disk-encryption.md
-        - name: Aplicar actualizaciones del sistema
-          href: security-center-apply-system-updates.md
-        - name: Habilitar el cifrado para la cuenta de almacenamiento
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Habilitar el Agente de máquina virtual
-          href: security-center-enable-vm-agent.md
-        - name: Instalación de Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Reiniciar tras actualizar el sistema
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Corrección de configuraciones de seguridad
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Actualizar versión del sistema operativo
-          href: security-center-update-os-version.md
-        - name: Evaluación de vulnerabilidades no instalada
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Seguridad de las redes
-      href: security-center-network-recommendations.md
-      items:
-        - name: Agregar un firewall de próxima generación
-          href: security-center-add-next-generation-firewall.md
-        - name: Habilitar los grupos de seguridad de red
-          href: security-center-enable-network-security-groups.md
-        - name: Restringir el acceso a través de puntos de conexión accesibles desde Internet
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Enrutar el tráfico solo a través de NGFW
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Seguridad de datos y almacenamiento
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Habilitar la auditoría y la detección de amenazas en las bases de datos SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Habilitar la auditoría y la detección de amenazas en los servidores SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Habilitación del cifrado de datos transparente
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Seguridad de las aplicaciones
-      href: security-center-application-recommendations.md
-      items:
-        - name: Agregar un firewall de aplicaciones web
-          href: security-center-add-web-application-firewall.md
-        - name: Finalización de la protección de la aplicación
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Defensas en la nube
+        - name: Seguridad de Compute
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Aplicación del cifrado de discos
+              href: security-center-apply-disk-encryption.md
+            - name: Aplicar actualizaciones del sistema
+              href: security-center-apply-system-updates.md
+            - name: Habilitar el cifrado para la cuenta de almacenamiento
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Habilitar el Agente de máquina virtual
+              href: security-center-enable-vm-agent.md
+            - name: Instalación de Endpoint Protection
+              href: security-center-install-endpoint-protection.md
+            - name: Reiniciar tras actualizar el sistema
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Corrección de configuraciones de seguridad
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Actualizar versión del sistema operativo
+              href: security-center-update-os-version.md
+            - name: Evaluación de vulnerabilidades no instalada
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Seguridad de las redes
+          href: security-center-network-recommendations.md
+          items:
+            - name: Agregar un firewall de próxima generación
+              href: security-center-add-next-generation-firewall.md
+            - name: Habilitar los grupos de seguridad de red
+              href: security-center-enable-network-security-groups.md
+            - name: Restringir el acceso a través de puntos de conexión accesibles desde Internet
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Enrutar el tráfico solo a través de NGFW
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Seguridad de datos y almacenamiento
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Habilitar la auditoría y la detección de amenazas en las bases de datos SQL
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Habilitar la auditoría y la detección de amenazas en los servidores SQL
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Habilitación del cifrado de datos transparente
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Seguridad de las aplicaciones
+          href: security-center-application-recommendations.md
+          items:
+            - name: Agregar un firewall de aplicaciones web
+              href: security-center-add-web-application-firewall.md
+            - name: Finalización de la protección de la aplicación
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Identidad y acceso
+          href: security-center-identity-access.md
+    - name: Aplicación de defensas en la nube
       items:
         - name: Acceso "Just-In-Time"
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Investigación
           href: security-center-investigation.md
-    - name: Automatización y orquestación
+    - name: Automatización de los flujos de trabajo de seguridad
       items:
         - name: Guiones de procedimientos de Logic Apps
           href: security-center-playbooks.md
@@ -180,7 +181,7 @@
       href: security-center-readiness-roadmap.md
     - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure'
       href: 'http://blogs.msdn.com/b/azuresecurity/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=security-center'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'

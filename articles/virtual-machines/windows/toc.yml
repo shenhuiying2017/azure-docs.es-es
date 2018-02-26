@@ -33,15 +33,17 @@
       href: tutorial-virtual-network.md
     - name: 9 - Copia de seguridad de máquinas virtuales
       href: tutorial-backup-vms.md
-    - name: 10 - Supervisión y actualización de máquinas virtuales
+    - name: 10 - Control de máquinas virtuales
+      href: tutorial-govern-resources.md
+    - name: 11 - Supervisión y actualización de máquinas virtuales
       href: tutorial-monitoring.md
-    - name: 11 - Administración de la seguridad de máquinas virtuales
+    - name: 12 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
-    - name: 12 - CI/CD de Team Services
+    - name: 13 - CI/CD de Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - Instalación de una pila SQL\IIS\.
+    - name: 14 - Instalación de una pila de SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14 - Protección de un servidor web con SSL
+    - name: 15 - Seguridad de servidores web con SSL
       href: tutorial-secure-web-server.md
 - name: Ejemplos
   items:

@@ -42,7 +42,7 @@
 #### [Uso de Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Actualizaciones automáticas del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Actualizaciones para conjuntos de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modificación de un conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Uso de DSC y conjuntos de escalado](virtual-machine-scale-sets-dsc.md)
 ### [Redes para conjuntos de escalado](virtual-machine-scale-sets-networking.md)
 ### [Conversión de una plantilla en discos administrados](virtual-machine-scale-sets-convert-template-to-md.md)

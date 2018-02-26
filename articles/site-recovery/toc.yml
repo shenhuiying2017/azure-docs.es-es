@@ -87,28 +87,28 @@
           href: site-recovery-migrate-to-azure.md
     - name: Permisos de acceso basados en rol
       href: site-recovery-role-based-linked-access-control.md
+    - name: Azure Traffic Manager con Azure Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
     - name: Preguntas más frecuentes
       href: site-recovery-faq.md
 - name: Guías de procedimientos
   items:
     - name: Redes
       items:
-        - name: Configuración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+        - name: Administración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
           href: azure-to-azure-about-networking.md
-        - name: Configuración de la asignación de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+        - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Azure
           href: azure-to-azure-network-mapping.md
-        - name: Configuración de la replicación de la asignación de red de máquinas virtuales de Hyper-V en VMM
-          href: hyper-v-vmm-network-mapping.md
-        - name: Conservación de la dirección IP de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+        - name: Configuración del direccionamiento IP después de una conmutación por error de una máquina virtual de Azure
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Preparación de la asignación de redes para la replicación de una máquina virtual de Hyper-V en Azure
-          href: site-recovery-network-mapping.md
-        - name: Configuración de direcciones IP para el acceso a Azure después de una conmutación por error
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Configuración de direcciones IP para el acceso a un sitio secundario después de una conmutación por error
-          href: hyper-v-vmm-networking.md
-        - name: Administración de interfaz de red para escenarios de entornos locales a Azure
+        - name: Administración de interfaces de red para la recuperación ante desastres de máquinas virtuales locales en Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+        - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Hyper-V
+          href: hyper-v-vmm-network-mapping.md
+        - name: Configuración del direccionamiento IP tras la conmutación por error a Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Configuración del direccionamiento IP tras la conmutación por error a un sitio secundario
+          href: hyper-v-vmm-networking.md
     - name: Recuperación ante desastres
       items:
         - name: Recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
@@ -199,7 +199,7 @@
           items:
             - name: Entorno de origen para la replicación de VMware a Azure
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: Implementación del servidor de configuración de VMware y de los servidores físicos
+            - name: Implementación del servidor de configuración de VMware y recuperación ante desastres
               href: how-to-deploy-configuration-server.md
             - name: Entorno de origen para la replicación de un dispositivo físico a Azure
               href: site-recovery-set-up-physical-to-azure.md
@@ -269,8 +269,10 @@
       items:
         - name: Administración de servidores de proceso de Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Administración del servidor de configuración
+        - name: Administración del servidor de configuración de VMware y recuperación ante desastres
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Administración del servidor de configuración para la recuperación ante desastres de máquinas físicas
+          href: physical-manage-configuration-server.md
         - name: Administración de servidores vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Administración de servicios multiinquilino con CSP

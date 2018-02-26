@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: Diseño para alta disponibilidad en el almacenamiento en la nube
       items:
-        - name: Haga que la aplicación tenga alta disponibilidad
+        - name: 1 - Hacer que la aplicación tenga alta disponibilidad
           href: storage-create-geo-redundant-storage.md
-        - name: Simulación de un error con el almacenamiento con RA-GRS
+        - name: 2 - Simulación de un error con el almacenamiento con RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Migración de datos locales a la nube con AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: Optimización del rendimiento y la escalabilidad de la aplicación de almacenamiento
       items:
-        - name: Creación de una máquina virtual y de una cuenta de almacenamiento
+        - name: 1 - Creación de una máquina virtual y de una cuenta de almacenamiento
           href: storage-blob-scalable-app-create-vm.md
-        - name: Carga de datos grandes en una cuenta de Azure Storage
+        - name: 2 - Carga de datos grandes en una cuenta de Azure Storage
           href: storage-blob-scalable-app-upload-files.md
-        - name: Carga de datos grandes en una cuenta de Azure Storage
+        - name: 3 - Descarga de datos grandes de una cuenta de Azure Storage
           href: storage-blob-scalable-app-download-files.md
-        - name: Comprobar las métricas de rendimiento y latencia
+        - name: 4 - Comprobación de las métricas de rendimiento y latencia
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Ejemplos
   items:

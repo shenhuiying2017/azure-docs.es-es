@@ -16,7 +16,7 @@
               href: azure-stack-update-1711.md
             - name: Actualización 1710
               href: azure-stack-update-1710.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Evaluación de Azure Stack
@@ -57,8 +57,12 @@
         - name: Requisitos de infraestructura de clave pública para la implementación de Azure Stack
           href: azure-stack-pki-certs.md
           items:
-            - name: Obtención de certificados de infraestructura de clave pública para la implementación de Azure Stack
+            - name: Obtención de certificados PKI de Azure Stack
               href: azure-stack-get-pki-certs.md
+            - name: Preparación de certificados PKI de Azure Stack
+              href: prepare-pki-certs.md
+            - name: Validación de certificados PKI de Azure Stack
+              href: validate-pki-certs.md
         - name: Integración de identidades
           href: azure-stack-integrate-identity.md
         - name: Registro de Azure Stack
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Identidad
           items:
+            - name: Introducción a la identidad
+              href: azure-stack-identity-overview.md
+            - name: Arquitectura de identidad
+              href: azure-stack-identity-architecture.md
             - name: Administración de RBAC
               href: azure-stack-manage-permissions.md
             - name: Adición de usuarios a Azure AD
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Mapa de ruta de Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Foro de MSDN de Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Comentarios sobre la documentación de Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Información de precios
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Aprendizaje y certificación
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

@@ -3,6 +3,7 @@
 ## [Tipos y proveedores de recursos](resource-manager-supported-services.md)
 ## [Implementación de Resource Manager y clásica](resource-manager-deployment-model.md)
 ## [Gobierno de suscripción](resource-manager-subscription-governance.md)
+## [Organización de recursos con grupos de administración](management-groups-overview.md)
 
 # Introducción
 ## [Creación e implementación de una plantilla](resource-manager-create-first-template.md)
@@ -26,7 +27,7 @@
 #### [Implementación de la plantilla](resource-group-template-deploy.md)
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-powershell-sas-token.md)
 #### [Exportación de la plantilla y reimplementación](resource-manager-export-template-powershell.md)
-### CLI de Azure
+### Azure CLI
 #### [Implementación de la plantilla](resource-group-template-deploy-cli.md)
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md)
 #### [Exportación de la plantilla y reimplementación](resource-manager-export-template-cli.md)
@@ -45,7 +46,8 @@
 ### [API DE REST](resource-manager-rest-api.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
-### [Organización de suscripciones con grupos de administración](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Creación de grupos de administración](management-groups-create.md)
+### [Administración de grupos de administración](management-groups-manage.md)
 ### [Ejemplos de gobierno](resource-manager-subscription-examples.md)
 ### [Aplicaciones administradas](../managed-applications/overview.md)
 
