@@ -279,7 +279,7 @@ A continuación, ejecute `New-CADevice "<yourTestDevice>"` en la ventana de Powe
 
 ## <a name="clean-up-certificates"></a>Limpieza de certificados
 
-En la barra de inicio o la aplicación **Configuración**, busque y seleccione **Administrar certificados de equipo**. Elimine todos los certificados emitidos por **Azure IoT CA TestOnly***. Estos deben encontrarse en las tres ubicaciones siguientes: 
+En la barra de inicio o la aplicación **Configuración**, busque y seleccione **Administrar certificados de equipo**. Elimine todos los certificados emitidos por **Azure IoT CA TestOnly**\*. Estos deben encontrarse en las tres ubicaciones siguientes: 
 
 * Certificados - Equipo local > Personal > Certificados
 * Certificados - Equipo local > Entidades de certificación raíz de confianza > Certificados
