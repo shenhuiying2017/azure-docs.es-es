@@ -54,8 +54,7 @@ Puede comprimir el contenido de estos directorios y enviárnoslo para que podamo
 ### <a name="experiment-execution-log"></a>Registro de ejecución de experimentos
 Si se produce un error en un script determinado durante el envío desde la aplicación de escritorio, pruebe a volver a realizar el envío a través de la CLI mediante el comando `az ml experiment submit`. De esta forma aparecerá el mensaje de error completo en formato JSON y, lo más importante, contiene un valor de **Id. de operación**. Envíenos el archivo JSON que incluye el **Id. de operación** para que podamos ayudarle con el diagnóstico. 
 
-Si un script concreto realiza correctamente el envío, pero se produce un error en la ejecución, debe imprimir el **
-Id. de ejecución** para identificar dicha ejecución concreta. Los archivos de registro relevantes se pueden empaquetar mediante el siguiente comando:
+Si un script concreto realiza correctamente el envío, pero se produce un error en la ejecución, debe imprimir el **Id. de ejecución** para identificar dicha ejecución concreta. Los archivos de registro relevantes se pueden empaquetar mediante el siguiente comando:
 
 ```azurecli
 # Create a ZIP file that contains all the diagnostics information

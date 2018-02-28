@@ -52,7 +52,7 @@ Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos
     
     ![Edición del mosaico de Markdown](media/app-insights-tutorial-dashboards/edit-markdown.png)
 
-6. Haga clic en **Personalización finalizada	** en la parte superior de la pantalla para salir del modo de personalización del icono y, a continuación, en **Publicar cambios** para guardar los cambios.
+6. Haga clic en **Personalización finalizada** en la parte superior de la pantalla para salir del modo de personalización del icono y, a continuación, en **Publicar cambios** para guardar los cambios.
 
     ![Panel con icono de Markdown](media/app-insights-tutorial-dashboards/dashboard-01.png)
 
