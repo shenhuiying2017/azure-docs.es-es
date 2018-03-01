@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Hadoop en HDInsight
 
@@ -33,7 +33,7 @@ El streaming de Hadoop es una utilidad que permite ejecutar trabajos de MapReduc
 
 ## <a name="net-on-hdinsight"></a>.NET en HDInsight
 
-Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.5 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](../hdinsight-component-versioning.md). Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](../hdinsight-hadoop-install-mono.md).
+Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.6 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](../hdinsight-component-versioning.md). Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](../hdinsight-hadoop-install-mono.md).
 
 Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -49,7 +49,7 @@ A continuación se expone el proceso básico que se emplea para realizar streami
 
 Para obtener más información sobre el streaming, consulte la página relativa al [streaming de Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Estar familiarizado con la escritura y la compilación del código C# orientado a .NET Framework 4.5. En los pasos descritos en este documento se utiliza Visual Studio 2017.
 
@@ -238,7 +238,7 @@ Este script le solicitará el nombre de la cuenta de inicio de sesión y la cont
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre el uso de MapReduce con HDInsight, consulte [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md).
 

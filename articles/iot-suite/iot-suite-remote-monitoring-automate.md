@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detección de problemas mediante reglas basadas en el umbral
 
@@ -27,18 +27,18 @@ Contoso dispone de una regla que genera una alerta crítica cuando la presión n
 En este tutorial, aprenderá a:
 
 >[!div class="checklist"]
-> * Ver las reglas de la solución
+> * Visualización de las reglas de la solución
 > * Crear una nueva regla
 > * Editar una regla existente
 > * Eliminar una regla
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
 Si aún no ha implementado la solución de supervisión remota, debe realizar el tutorial [Implementación de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="view-the-rules-in-your-solution"></a>Ver las reglas de la solución
+## <a name="view-the-rules-in-your-solution"></a>Visualización de las reglas de la solución
 
 La página **Rules and Actions** (Reglas y acciones) de la solución muestra una lista de todas las reglas actuales:
 
@@ -66,13 +66,13 @@ Utilice los valores siguientes para crear la regla:
 
 | Configuración          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| Nombre             | Advertencia del refrigerador                       |
+| NOMBRE             | Advertencia del refrigerador                       |
 | Origen           | Grupo de dispositivos **Refrigeradores**             |
 | Campo del desencadenador    | pressure                              |
 | Operador del desencadenador | Mayor que                          |
 | Valor del desencadenador    | 150                                   |
 | Nivel de gravedad   | Warning (Advertencia)                               |
-| Descripción      | La presión del refrigerador ha superado 150 PSI |
+| DESCRIPCIÓN      | La presión del refrigerador ha superado 150 PSI |
 
 Para guardar la nueva regla, elija **Aplicar**.
 
@@ -98,13 +98,13 @@ Para eliminar permanentemente una regla, seleccione la regla en la lista de regl
 
 Puede eliminar varias reglas al mismo tiempo si selecciona varias en la lista.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Este tutorial le ha mostrado cómo:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Ver las reglas de la solución
+> * Visualización de las reglas de la solución
 > * Crear una nueva regla
 > * Editar una regla existente
 > * Eliminar una regla

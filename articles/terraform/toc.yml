@@ -1,8 +1,10 @@
+- name: Terraform en la documentación de Azure
+  href: index.yml
 - name: Información general
   items:
     - name: Acerca de Terraform en Azure
       href: terraform-overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Instalación y configuración de Terraform
@@ -25,7 +27,7 @@
   items:
     - name: Integración de Cloud Shell
       href: terraform-cloud-shell.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Plantillas de configuración
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'

@@ -1,16 +1,18 @@
+# [Documentación de Multi-Factor Authentication](index.md)
+
 # Información general
 ## [¿Qué es Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [Cómo funciona](multi-factor-authentication-how-it-works.md)
+## [Funcionamiento](multi-factor-authentication-how-it-works.md)
 ## [¿Cómo se obtiene Azure MFA?](multi-factor-authentication-versions-plans.md)
 
-# Primeros pasos
+# Introducción
 ## [Elección del lugar de implementación](multi-factor-authentication-get-started.md)
 ## [MFA en la nube](multi-factor-authentication-get-started-cloud.md)
 ## [MFA local](multi-factor-authentication-get-started-server.md)
 ## [MFA para usuarios de Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Procedimientos de seguridad recomendados](multi-factor-authentication-security-best-practices.md)
 
-# Cómo
+# Procedimientos
 ## Implementación y uso
 ### [Configuración de opciones](multi-factor-authentication-whats-next.md)
 ### [Informes de MFA](multi-factor-authentication-manage-reports.md)

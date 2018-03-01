@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Administrar interfaces de red de máquinas virtuales de escenarios locales a Azure
 
-Una máquina virtual (VM) en Azure debe tener al menos una interfaz de red conectada. Puede tener tantas interfaces de red conectadas como admita el tamaño de la máquina virtual. 
+Una máquina virtual (VM) en Azure debe tener al menos una interfaz de red conectada. Puede tener tantas interfaces de red conectadas como admita el tamaño de la máquina virtual.
 
 De forma predeterminada, la primera interfaz de red de una máquina virtual de Azure se define como la interfaz de red principal. Todas las demás interfaces de red de la máquina virtual son interfaces de red secundarias. También de forma predeterminada, todo el tráfico saliente de la máquina virtual se envía a la dirección IP asignada a la configuración de IP principal de la interfaz de red principal.
 

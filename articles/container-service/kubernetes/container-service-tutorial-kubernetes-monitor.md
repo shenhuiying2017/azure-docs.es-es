@@ -6,14 +6,14 @@ author: dlepow
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 07/25/2017
+ms.date: 02/26/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 948e3aeea34a0355c3d958f29008c26499e19ba4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 965ce4b7e154684fc1d171c90f17498afc828a66
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Supervisión de un clúster de Kubernetes con Operations Management Suite
 
@@ -134,7 +134,7 @@ En Azure Portal, vaya a **Log Analytics** y seleccione el nombre de su área de 
 
 Consulte la [documentación de Azure Log Analytics](../../log-analytics/index.yml) para obtener una guía detallada para consultar y analizar los datos de supervisión.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, se ha supervisado el clúster de Kubernetes con OMS. Estas son las tareas que se han tratado:
 

@@ -1,3 +1,5 @@
+# [Documentación de ExpressRoute](index.md)
+
 # Información general
 ## [¿Qué es ExpressRoute?](expressroute-introduction.md)
 ## [Preguntas más frecuentes sobre ExpressRoute](expressroute-faqs.md)
@@ -30,11 +32,11 @@
 ### [CLI de Azure](howto-linkvnet-cli.md)
 ## [Configuración de una VPN de sitio a sitio mediante emparejamiento de Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configuración de una puerta de enlace de red virtual para ExpressRoute
-### [Portal de Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [portal de Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md)
 ## Configuración de filtros de ruta para el emparejamiento de Microsoft
-### [Portal de Azure](how-to-routefilter-portal.md)
+### [portal de Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [CLI de Azure](how-to-routefilter-cli.md)
 ## [Cambio de emparejamiento público a emparejamiento de Microsoft](how-to-move-peering.md)
@@ -73,8 +75,8 @@
 # Temas relacionados
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-## [Máquinas virtuales](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Equilibrador de carga](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Recursos
@@ -84,7 +86,7 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=expressroute)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
 ## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [ExpressRoute para proveedores de soluciones en la nube (CSP)](expressroute-for-cloud-solution-providers.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)

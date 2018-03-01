@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegación y paneles en el portal de Application Insights
 Una vez [configurado Application Insights en su proyecto](app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en [Azure Portal](https://portal.azure.com).
@@ -117,7 +117,6 @@ La hoja de información general es la puerta de enlace para más información ac
 
 ### <a name="essentials-tab"></a>Pestaña Essentials
 * [Clave de instrumentación](app-insights-create-new-resource.md#copy-the-instrumentation-key): identifica este recurso de la aplicación.
-* Precios: hacen que las características estén disponibles y establecen límites de volumen.
 
 ### <a name="app-navigation-bar"></a>Barra de navegación de la aplicación
 ![Barra de navegación izquierda](./media/app-insights-dashboards/app-left-nav-bar.png)
@@ -153,16 +152,14 @@ CONFIGURAR
 CONFIGURACIÓN
 
 * [**Bloqueos**](../azure-resource-manager/resource-group-lock-resources.md): bloquee recursos de Azure.
-* 
-            [
-            **Script de Automation**](app-insights-powershell.md): exporte una definición del recurso de Azure de forma que pueda usarla como plantilla para crear nuevos recursos.
+* [**Script de Automation**](app-insights-powershell.md): exporte una definición del recurso de Azure de forma que pueda usarla como plantilla para crear nuevos recursos.
 
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 |  |  |
 | --- | --- |

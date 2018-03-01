@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
@@ -332,7 +332,7 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
     >
     > Por ejemplo, Ambari solo está activo en un nodo principal a la vez. Si intenta acceder a Ambari en un nodo principal y se devuelve un error 404, es porque se ejecuta en el otro nodo principal.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 

@@ -1,4 +1,3 @@
-
 # [Documentación de Azure Security](index.md)
 # [Arquitectura y diseño](azure-security.md)
 ## [Detección de amenazas avanzada](azure-threat-detection.md)
@@ -15,7 +14,7 @@
 ### [procedimientos recomendados](azure-database-security-best-practices.md)
 ### [Lista de comprobación de seguridad](azure-database-security-checklist.md)
 ## Cifrado de discos
-### [Procedimientos recomendados](azure-security-data-encryption-best-practices.md)
+### [procedimientos recomendados](azure-security-data-encryption-best-practices.md)
 ### [Cifrado en reposo de datos](azure-security-encryption-atrest.md)
 ### [Cifrado de disco para máquinas virtuales de IaaS](azure-security-disk-encryption.md)
 #### [Preguntas y respuestas sobre cifrado de discos](azure-security-disk-encryption-faq.md)
@@ -47,7 +46,7 @@
 #### [Protección de su implementación de IoT](../iot-suite/iot-suite-security-deployment.md)
 
 ## [Seguridad de Azure Service Fabric](azure-service-fabric-security-overview.md)
-### [Procedimientos recomendados](azure-service-fabric-security-best-practices.md)
+### [procedimientos recomendados](azure-service-fabric-security-best-practices.md)
 ### [Lista de comprobación de seguridad](azure-service-fabric-security-checklist.md)
 
 # [Supervisión, auditoría y operaciones](security-management-and-monitoring-overview.md)
@@ -56,7 +55,7 @@
 ### [Seguridad de administración remota](azure-security-management.md)
 ### Integración de registro de Azure
 #### [Introducción](security-azure-log-integration-overview.md)
-#### [Introducción](security-azure-log-integration-get-started.md)
+#### [Primeros pasos](security-azure-log-integration-get-started.md)
 #### [Integración de registro de auditoría de Azure AD](security-azure-log-integration-ad.md)
 #### [Integración de alertas de Security Center](security-azure-log-integration-security-center.md)
 #### [Integración de registros de Key Vault](security-azure-log-integration-keyvault-eventhub.md)
@@ -110,9 +109,9 @@
 ### [Requisito 10: supervisión](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Requisito 11: pruebas](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Requisito 12: directiva](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Información general acerca de los principios](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+## [Datos de mantenimiento y de AI de HIPAA/HITRUST](./blueprints/azure-health.md)
 
 # [Notas del producto](security-white-papers.md)
 # [Información técnica](security-overviews.md)
@@ -139,5 +138,4 @@
 #### [Validación de entradas](azure-security-threat-modeling-tool-input-validation.md)
 #### [Información confidencial](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Administración de sesiones](azure-security-threat-modeling-tool-session-management.md)
-
 

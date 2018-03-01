@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -70,12 +70,12 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión del SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión del SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
 #### <a name="if-youre-using-gradle"></a>Si está usando Gradle...
@@ -90,19 +90,19 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'1.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'2.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para actualizar a un nuevo SDK*
   * Actualice las dependencias del proyecto.
 
 #### <a name="otherwise-"></a>De lo contrario...
 Agregue manualmente el SDK:
 
-1. Descargue el [SDK de Application Insights para Java](https://aka.ms/aijavasdk).
+1. Descargue el [SDK de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Extraiga los archivos binarios del archivo zip y agréguelos al proyecto.
 
 ### <a name="questions"></a>Preguntas...
@@ -112,7 +112,7 @@ Agregue manualmente el SDK:
   * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Este componente se puede omitir si no se desea que se recopilen automáticamente los datos de esta telemetría. Por ejemplo, si desea escribir la suya propia.
 * *Para actualizar el SDK cuando publicamos cambios*
 
-  * Descargue el [SDK más reciente de Application Insights para Java](https://aka.ms/qqkaq6) y sustituya los antiguos.
+  * Descargue el [SDK más reciente de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) y sustituya los antiguos.
   * Los cambios se describen en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Adición de un archivo .xml de Application Insights
@@ -286,7 +286,7 @@ Para recopilar datos de otras excepciones, tiene dos opciones:
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Supervisión de llamadas a métodos y dependencias externas
 [Instale el agente de Java](app-insights-java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de tiempo.
 
-## <a name="performance-counters"></a>Contadores de rendimiento
+## <a name="performance-counters"></a>contadores de rendimiento
 Abra **Configuración** y **Servidores** para ver un intervalo de contadores de rendimiento.
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -379,7 +379,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Supervisión de llamadas a dependencias](app-insights-java-agent.md)
 * [Supervisión de contadores de rendimiento de Unix](app-insights-java-collectd.md)
 * Incorporación de la [supervisión a las páginas web](app-insights-javascript.md) para controlar los tiempos de carga, las llamadas de AJAX y la excepciones del explorador.

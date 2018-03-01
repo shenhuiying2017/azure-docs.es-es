@@ -1,3 +1,5 @@
+# [Documentación de Redis Cache](index.md)
+
 # Información general
 ##[Por qué usar Redis Cache](https://azure.microsoft.com/services/cache/)
 ##[Exploración de las características del nivel Premium](cache-premium-tier-intro.md)
@@ -31,7 +33,7 @@
 ## Integración con ASP.NET
 ###[Proveedor de estado de sesión](cache-aspnet-session-state-provider.md)
 ###[Proveedor de caché de salida](cache-aspnet-output-cache-provider.md)
-## Administrar
+## administración
 ###[Configuración en Azure Portal](cache-configure.md)
 ###[Configuración de la replicación geográfica](cache-how-to-geo-replication.md)
 ###[Importar y exportar datos](cache-how-to-import-export-data.md)

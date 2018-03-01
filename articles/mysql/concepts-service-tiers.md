@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for MySQL: información sobre el contenido disponible en cada plan de tarifa
 Al crear un servidor de Azure Database for MySQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
@@ -41,7 +41,7 @@ En la tabla siguiente se proporcionan ejemplos de los planes de tarifa más adec
 
 Para decidirse por un plan de tarifa, empiece por determinar si la carga de trabajo necesita un valor garantizado de E/S por segundo. Si es así, seleccione el plan de tarifa Estándar.
 
-| **Características del plan de tarifa** | **Básico** | **Standard** |
+| **Características del plan de tarifa** | **Básico** | **Estándar** |
 | :------------------------ | :-------- | :----------- |
 | Unidades de proceso máximas | 100 | 800 | 
 | Almacenamiento total máximo | 1 TB | 1 TB | 
@@ -100,6 +100,6 @@ En segundo plano, al cambiar el nivel de rendimiento de un servidor, se crea una
 
 La duración de todo el proceso de escalado depende tanto del tamaño como del plan de tarifa del servidor antes y después del cambio. Por ejemplo, el cambio de unidades de proceso de un servidor dentro del plan de tarifa Estándar debería tardar unos pocos minutos en completarse. Las nuevas propiedades del servidor no se aplican hasta que se completan los cambios.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener más información sobre unidades de proceso, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 - Obtenga información sobre cómo realizar las tareas de [Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure](scripts/sample-scale-server.md).

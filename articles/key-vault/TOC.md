@@ -1,3 +1,5 @@
+# [Documentación de Key Vault](index.md)
+
 # Información general
 ## [¿Qué es Key Vault?](key-vault-whatis.md)
 ## [Introducción al servicio](https://azure.microsoft.com/services/key-vault/)
@@ -23,7 +25,7 @@
 #### [Claves de cuenta de almacenamiento](key-vault-ovw-storage-keys.md)
 #### [Limitaciones](key-vault-ovw-throttling.md)
 
-## Manage
+## administración
 ### [Registro de Azure Key Vault](key-vault-logging.md)
 ### [Acceso detrás de firewalls](key-vault-access-behind-firewall.md)
 ### [Disponibilidad y redundancia](key-vault-disaster-recovery-guidance.md)

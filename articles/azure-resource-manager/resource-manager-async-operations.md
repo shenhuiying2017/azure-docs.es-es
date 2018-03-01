@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Seguimiento de las operaciones asincrónicas de Azure
 Algunas operaciones de REST de Azure se ejecutan asincrónicamente porque la operación no se puede completar rápidamente. En este tema se describe cómo realizar un seguimiento del estado de las operaciones asincrónicas a través de los valores devueltos en la respuesta.  
@@ -81,7 +81,7 @@ Solo se devuelve `status` para todas las respuestas. El objeto de error se devue
 
 Las operaciones que crean, actualizan o eliminan (PUT, PATCH, DELETE) un recurso, normalmente devuelven un valor `provisioningState`. Cuando una operación ha finalizado, se devuelve uno de tres valores siguientes: 
 
-* Correcto
+* Succeeded
 * Con error
 * Canceled
 
@@ -191,8 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Si la solicitud aún se está ejecutando, recibe un código de estado 202. Si la solicitud se ha completado, recibe un código de estado 200 y el cuerpo de la respuesta contiene las propiedades de la cuenta de almacenamiento que se ha creado.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para obtener documentación sobre cada operación de REST, consulte la [documentación de la API de REST](/rest/api/).
-* Para obtener información acerca de cómo administrar los recursos a través de la API de REST de Resource Manager, consulte [API de REST de Resource Manager](resource-manager-rest-api.md).
 * Para obtener información acerca de la implementación de plantillas a través de la API de REST de Resource Manager, consulte [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md).

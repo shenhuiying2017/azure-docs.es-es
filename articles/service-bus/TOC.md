@@ -1,4 +1,5 @@
-# [Bus de servicio](/azure/service-bus-messaging)
+# [Documentación de Service Bus](index.md)
+# [Service Bus](/azure/service-bus-messaging)
 # [Relay](/azure/service-bus-relay)
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)

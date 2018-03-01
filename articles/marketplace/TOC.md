@@ -1,3 +1,5 @@
+# [Documentación sobre Azure Marketplace](index.md)
+
 # [Guía del anunciante de Azure Marketplace](marketplace-publishers-guide.md)
 # [Desarrollo de un negocio con Azure Marketplace](grow-your-business-azure-marketplace.md)
 # [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

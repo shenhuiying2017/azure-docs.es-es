@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 7defb860ab526824492ddeb1fddf8ce037ec39ae
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
@@ -180,7 +180,7 @@ Storm utiliza Apache Log4j para registrar información. De forma predeterminada,
 
 Para ver una topología de ejemplo que muestre cómo configurar el registro, consulte el ejemplo para Storm en HDInsight mostrado en el artículo [Desarrolle topologías basadas en Java para una aplicación básica de recuento de palabras con Apache Storm y Maven en HDInsight](apache-storm-develop-java-topology.md) .
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda más sobre las soluciones de análisis en tiempo real con Storm en HDInsight:
 

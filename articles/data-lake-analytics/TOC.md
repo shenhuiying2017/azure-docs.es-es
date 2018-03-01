@@ -1,10 +1,12 @@
+# [Documentación de Data Lake Analytics](index.md)
+
 # Información general
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Introducción
 ## [Portal de Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [código de Visual Studio](data-lake-analytics-data-lake-tools-for-vscode.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [CLI de Azure](data-lake-analytics-get-started-cli2.md)
 

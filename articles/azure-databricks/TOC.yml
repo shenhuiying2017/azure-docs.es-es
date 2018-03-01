@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure Databricks?
       href: what-is-azure-databricks.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de un área de trabajo de Databricks
@@ -21,7 +21,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'

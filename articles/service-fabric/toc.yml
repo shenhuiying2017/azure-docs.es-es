@@ -1,10 +1,11 @@
 - name: Documentación de Service Fabric
-  href: /azure/service-fabric
+  href: index.yml
 - name: Información general
   items:
     - name: ¿Qué es Service Fabric?
       href: service-fabric-overview.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Creación de una aplicación .NET
       href: service-fabric-quickstart-dotnet.md

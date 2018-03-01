@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Plantillas de Resource Manager
+      href: app-service-rm-template-samples.md
 - name: Conceptos
   items:
     - name: Funcionamiento de App Service
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Creación de entornos de ensayo
           href: web-sites-staged-publishing.md
+        - name: Guía sobre la plantilla de Resource Manager
+          href: web-sites-rm-template-guidance.md
     - name: Asignación de dominios personalizados
       items:
         - name: Comprar dominio

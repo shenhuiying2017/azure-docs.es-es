@@ -1,3 +1,5 @@
+# [Documentación de Mobile Apps](index.md)
+
 # Información general
 ## [¿Qué es Mobile Apps?](app-service-mobile-value-prop.md)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -175,7 +177,7 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
-## Muestras
+## Ejemplos
 ### [Ingeniero de campo](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Sincronización de datos estructurados](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
 ### Guía de inicio rápido completada

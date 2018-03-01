@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Explicación de las unidades de proceso en Azure Database for MySQL
 En este tema se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el número máximo de tales unidades en la carga de trabajo.
@@ -33,7 +33,7 @@ Si el servidor del entorno local o de la máquina virtual está usando actualmen
 Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir las unidades de proceso. Las métricas pertinentes que se deben supervisar son el porcentaje de unidades de proceso y el límite de unidades de proceso.
 
 >[!IMPORTANT]
-> Si detecta que las IOPS del almacenamiento no se usan a máxima capacidad, plantéese supervisar también la utilización de las unidades de proceso. Aumentar el número de unidades de proceso puede incrementar el rendimiento de E/S reduciendo los cuellos de botella de rendimiento que se producen debido a limitaciones en la CPU o la memoria.
+> Si detecta que las E/S de almacenamiento no se usan a máxima capacidad, considere supervisar también la utilización de las unidades de proceso. Aumentar el número de unidades de proceso puede incrementar el rendimiento de E/S reduciendo los cuellos de botella de rendimiento que se producen debido a limitaciones en la CPU o la memoria.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>¿Qué ocurre cuando se alcanza el número máximo de unidades de proceso?
 Los niveles de rendimiento se calibran y regulan para proporcionar recursos para ejecutar la carga de trabajo de la base de datos hasta los límites máximos del plan de tarifa y el nivel de rendimiento seleccionados. 
@@ -42,5 +42,5 @@ Si la carga de trabajo alcanza los límites máximos de unidades de proceso o de
 
 Si la carga de trabajo alcanza los límites máximos de número de conexiones, se producen errores explícitos. Para obtener más información sobre los límites de los recursos, consulte [Limitaciones en Azure Database for MySQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre los planes de tarifa, consulte [Planes de tarifa de Azure Database for MySQL](./concepts-service-tiers.md).

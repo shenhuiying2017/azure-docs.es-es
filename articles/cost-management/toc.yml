@@ -17,12 +17,12 @@
   items:
     - name: 1 - Revisión del uso y los costos
       href: tutorial-review-usage.md
-    - name: 2 - Control del acceso a los datos
-      href: tutorial-user-access.md
-    - name: 3 - Previsión de gastos
+    - name: 2 - Previsión de gastos
       href: tutorial-forecast-spending.md
-    - name: 4 - Administración de costos
+    - name: 3 - Administración de gastos
       href: tutorial-manage-costs.md
+    - name: 4 - Control del acceso a los datos
+      href: tutorial-user-access.md
 - name: Conceptos
   items:
     - name: Descripción de los informes de costos

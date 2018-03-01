@@ -4,7 +4,8 @@
   items:
     - name: Acerca de Azure Search
       href: search-what-is-azure-search.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Crear un servicio
       href: search-create-service-portal.md
@@ -44,7 +45,7 @@
       href: search-synonyms-tutorial-sdk.md
     - name: 4 - Tutorial del portal
       href: search-get-started-portal.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Ejemplos de código de Azure
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
@@ -210,7 +211,7 @@
       items:
         - name: Foro de MSDN sobre Azure Search
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: Stackoverflow
+        - name: Stack Overflow
           href: 'http://stackoverflow.com/questions/tagged/azure-search'
         - name: 'Blog: Modelado de datos relacionales'
           href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'

@@ -1,19 +1,19 @@
 ---
-title: "Creación de usuarios en el servidor de Azure Database for MySQL | Microsoft Docs"
+title: "Creación de usuarios en un servidor de Azure Database for MySQL"
 description: "En este artículo se describe cómo puede crear nuevas cuentas de usuario para interactuar con un servidor de Azure Database for MySQL."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creación de usuarios en un servidor de Azure Database for MySQL 
 En este artículo se describe cómo puede crear usuarios en un servidor de Azure Database for MySQL.
@@ -80,10 +80,10 @@ Una vez creado el servidor de Azure Database for MySQL, puede usar la primera cu
 5. Inicie sesión en el servidor mediante el nuevo nombre de usuario y contraseña, sin olvidarse de especificar la base de datos designada. En este ejemplo se muestra la línea de comandos de mysql. Con este comando, se le pedirá la contraseña del nombre de usuario. Reemplace su propio nombre de servidor, nombre de base de datos y nombre de usuario.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles que se conecten: [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o la [CLI de Azure](howto-manage-firewall-using-cli.md).
 
 Para más información respecto a la administración de cuentas de usuario, consulte la documentación del producto de MySQL relativa a la [administración de cuentas de usuario](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), la [sintaxis GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) y los [privilegios](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

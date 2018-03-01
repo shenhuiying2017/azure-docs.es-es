@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4a9235db7431b531864272d220006dbe8340924
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Inicio rápido: ejecute su primer trabajo de Batch con la CLI de Azure
 
@@ -30,7 +30,7 @@ Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio 
 
 Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
+En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -38,7 +38,7 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Creación de una cuenta de almacenamiento
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 Cualquier cuenta de almacenamiento de uso general de Azure se puede vincular con una cuenta de Batch. Aunque no es necesaria para esta guía de inicio rápido, la cuenta de almacenamiento es útil para implementar aplicaciones y almacenar los datos de entrada y salida de la mayoría de las cargas de trabajo reales. Cree una cuenta de almacenamiento en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
@@ -50,7 +50,7 @@ az storage account create \
     --sku Standard_LRS
 ```
 
-## <a name="create-a-batch-account"></a>Creación de una cuenta de Batch
+## <a name="create-a-batch-account"></a>Crear una cuenta de Batch
 
 Cree una cuenta de Batch con el comando [az batch account create](/cli/azure/batch/account#az_batch_account_create). Para crear los recursos de proceso (grupos de nodos de proceso) y trabajos de Batch se necesita una cuenta.
 
@@ -116,7 +116,7 @@ do
    az batch task create \
     --task-id mytask$i \
     --job-id myjob \
-    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
+    --command-line "/bin/bash -c 'printenv | grep AZ_BATCH; sleep 90s'"
 done
 ```
 

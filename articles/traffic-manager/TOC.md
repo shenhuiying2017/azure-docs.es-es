@@ -1,3 +1,5 @@
+# [Documentación de Traffic Manager](index.md)
+
 # Información general
 ## [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 ## [Métodos de enrutamiento](traffic-manager-routing-methods.md)
@@ -42,7 +44,7 @@
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Equilibrador de carga](/azure/load-balancer/)
 ## [DNS de Azure](/azure/dns/)
 
@@ -54,5 +56,5 @@
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=traffic-manager)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

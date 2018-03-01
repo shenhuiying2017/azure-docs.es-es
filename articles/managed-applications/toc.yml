@@ -1,10 +1,11 @@
-- name: Aplicaciones administradas de Azure
+- name: Documentación sobre las aplicaciones administradas de Azure
   href: index.yml
 - name: Información general
   items:
     - name: Acerca de las aplicaciones administradas
       href: overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Creación de aplicación administrada
       href: managed-apps-quickstart-cli.md
@@ -14,9 +15,9 @@
       href: publish-service-catalog-app.md
     - name: Creación de la aplicación de Marketplace
       href: publish-marketplace-app.md
-- name: Muestras
+- name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -32,7 +33,7 @@
       href: publish-portal.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/azurerm.resources
@@ -85,5 +86,5 @@
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

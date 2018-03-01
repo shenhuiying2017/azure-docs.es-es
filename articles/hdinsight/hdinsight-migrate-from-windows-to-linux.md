@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
 
@@ -237,7 +237,7 @@ Si tiene un flujo de trabajo que utiliza una aplicación de C#, valide estas apl
 | UI de Storm |La interfaz de usuario de Storm está disponible en https://NOMBREDELCLÚSTER.azurehdinsight.net/stormui |
 | Visual Studio para crear, implementar y administrar topologías de C# o híbridas |Visual Studio puede utilizarse para crear, implementar y administrar topologías de C# (SCP.NET) o híbridas en clústeres Storm en HDInsight basados en Linux. Solo se puede usar con los clústeres creados después del 28/10/2016. |
 
-## <a name="hbase"></a>HBase
+## <a name="hbase"></a>hbase
 
 En los clústeres basados en Linux, el elemento primario del ZNode para HBase es `/hbase-unsecure`. Debe establecer este valor en la configuración de las aplicaciones cliente de Java que usan la API nativa de Java de HBase.
 

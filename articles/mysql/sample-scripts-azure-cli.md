@@ -4,18 +4,18 @@ description: "En este artículo se enumeran los ejemplos de código de la CLI de
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: c43bbbfaf98f1c35631f017bf256b38014a4fd4e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 7124112ed9aba3627e8fe4ba240f261eb5807214
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Ejemplos de la CLI de Azure para Azure Database for MySQL (Base de datos de Azure para MySQL) 
 En la tabla siguiente se incluyen vínculos a scripts de la CLI de Azure de ejemplo para Azure Database for MySQL (Base de datos de Azure para MySQL).

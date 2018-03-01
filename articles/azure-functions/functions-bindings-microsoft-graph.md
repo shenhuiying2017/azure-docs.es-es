@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -49,10 +49,10 @@ Para obtener información acerca de cómo establecer una aplicación de función
 
 Para instalar una extensión desde Azure Portal, navegue a una plantilla o a un enlace que haga referencia a ella. Cree una nueva función y, en la pantalla de selección de plantillas, elija el escenario de "Microsoft Graph". Seleccione una de las plantillas de este escenario. Como alternativa, puede navegar a la pestaña "Integrar" de una función existente y seleccionar uno de los enlaces que se tratan en este artículo.
 
-En ambos casos, aparecerá una advertencia que especifica la extensión que se va a instalar. Haga clic en **Instalar** para obtener la extensión.
+En ambos casos, aparecerá una advertencia que especifica la extensión que se va a instalar. Haga clic en **Instalar** para obtener la extensión. Cada extensión solo puede instalarse una vez por cada aplicación de la función. 
 
 > [!Note] 
-> Cada extensión solo puede instalarse una vez por cada aplicación de la función. El proceso de instalación en el portal puede tardar hasta 10 minutos en un plan de consumo.
+> El proceso de instalación en el portal puede tardar hasta 10 minutos en un plan de consumo.
 
 Si utiliza Visual Studio, puede obtener las extensiones mediante la instalación de estos paquetes de NuGet:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
@@ -663,7 +663,7 @@ Este enlace requiere los siguientes permisos de Azure AD:
 El enlace expone los siguientes tipos de funciones. NET:
 - byte[]
 - Stream
-- cadena
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -808,7 +808,7 @@ Este enlace requiere los siguientes permisos de Azure AD:
 El enlace expone los siguientes tipos de funciones. NET:
 - byte[]
 - Stream
-- cadena
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -956,7 +956,7 @@ Este enlace requiere los siguientes permisos de Azure AD:
 El enlace expone los siguientes tipos de funciones. NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadena
+- string
 - Tipos de objeto personalizado (con el enlace de modelos estructurales)
 
 
@@ -1383,7 +1383,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 ### <a name="webhook-output---usage"></a>Salida de webhook: uso
 
 El enlace expone los siguientes tipos de funciones. NET:
-- cadena
+- string
 - Microsoft.Graph.Subscription
 
 

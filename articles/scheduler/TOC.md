@@ -1,7 +1,7 @@
-
+# [Documentación de Scheduler](index.md)
 
 # Información general
-## [¿Qué es Programador?](scheduler-intro.md)
+## [¿Qué es Scheduler?](scheduler-intro.md)
 
 # Introducción
 ## [Creación y administración de trabajos](scheduler-get-started-portal.md)
@@ -30,7 +30,7 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=scheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 

@@ -12,25 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>¿Qué es Event Hubs?
 
 Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Con la capacidad para ofrecer [funcionalidades de publicación y suscripción](/biztalk/core/publish-and-subscribe-architecture), con una latencia baja y a gran escala, Event Hubs sirve como "vía de entrada" para los macrodatos.
-
-## <a name="why-use-event-hubs"></a>¿Por qué usar Event Hubs?
-
-Las funcionalidades de control de eventos y telemetría de Event Hubs lo hacen especialmente útil para:
-
-* Instrumentación de aplicaciones
-* La experiencia del usuario o el procesamiento de flujos de trabajo
-* Escenarios de Internet de las cosas (IoT)
 
 Por ejemplo, Event Hubs permite el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en juegos de consola o la recopilación de telemetría de máquinas industriales, vehículos conectados u otros dispositivos.
 

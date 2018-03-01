@@ -1,3 +1,5 @@
+# [Documentación de Notification Hubs](index.md)
+
 # Información general
 ## [¿Qué es Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
 # Introducción
@@ -42,7 +44,7 @@
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Administrar
+## administración
 ### [Registros](notification-hubs-push-notification-registration-management.md)
 ### [Autenticación basada en tokens de APNs](notification-hubs-push-notification-http2-token-authentification.md)
 
@@ -71,5 +73,5 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/notification-hubs/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=notification-hubs)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
