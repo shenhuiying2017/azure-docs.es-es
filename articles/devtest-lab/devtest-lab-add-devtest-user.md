@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -46,7 +46,7 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 | Agregar, actualizar y eliminar las fórmulas |Sí |Sí |Sí |
 | Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |Sí |Sí |
 | **Tareas de la máquina virtual** | | | |
-| Crear máquinas virtuales |Sí |Sí |Sí |
+| Creación de máquinas virtuales |Sí |Sí |Sí |
 | Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
 | Actualizar directivas de máquinas virtuales |Sin  |Sí |Sí |
 | Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
@@ -64,7 +64,7 @@ Los propietarios y los usuarios se pueden agregar en el nivel de laboratorio a t
 Los siguientes pasos le guiarán a través del proceso de agregación de un propietario o usuario a un laboratorio de Azure DevTest Labs:
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
+2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.
 4. En la hoja del laboratorio, seleccione **Configuración**. 
 5. En la hoja **Configuración**, seleccione **Usuarios**.
@@ -118,7 +118,7 @@ Puede agregar propietarios adicionales a un laboratorio a través de la hoja del
 Para agregar un propietario a una suscripción de Azure, siga estos pasos:
 
 1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Seleccione **Más servicios** y, después, seleccione **Suscripciones** en la lista.
+2. Seleccione **Todos los servicios** y, en la lista, **Suscripciones**.
 3. Seleccione la suscripción deseada.
 4. Seleccione el icono **Acceder** . 
    

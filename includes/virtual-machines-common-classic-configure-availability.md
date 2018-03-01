@@ -21,9 +21,7 @@ Puede usar el Portal de Azure o los comandos de Azure PowerShell para ello.
 Para utilizar el Portal de Azure:
 
 1. Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú del concentrador, haga clic en **+ Nuevo** y, luego, en **Máquina virtual**.
-   
-    ![Texto alternativo de imagen](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Haga clic en **Crear un recurso** > **Proceso**.
 3. Seleccione la imagen de máquina virtual de Marketplace que desee usar. Puede crear una máquina virtual con Linux o con Windows.
 4. En la máquina virtual seleccionada, compruebe que el modelo de implementación está establecido en **Clásico** y, luego, haga clic en **Crear**
    
@@ -42,7 +40,7 @@ Para usar los comandos de Azure PowerShell para crear una máquina virtual de Az
 En el Portal de Azure, puede agregar máquinas virtuales clásicas existentes a un conjunto de disponibilidad existente o crear uno nuevo para ellas. (Recuerde que las máquinas virtuales del mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.) Estos pasos son prácticamente los mismos. Con Azure PowerShell, puede agregar la máquina virtual a un conjunto de disponibilidad existente.
 
 1. Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú del concentrador, haga clic en **Máquinas virtuales (clásico)**.
+2. En el menú de la izquierda, haga clic en **Máquinas virtuales (clásico)**.
    
     ![Texto alternativo de imagen](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. En la lista de máquinas virtuales, seleccione el nombre de la máquina virtual que quiera agregar al conjunto.
@@ -52,7 +50,7 @@ En el Portal de Azure, puede agregar máquinas virtuales clásicas existentes a 
 5. Seleccione el conjunto de disponibilidad al que desea agregar la máquina virtual. La máquina virtual debe pertenecer al mismo servicio en la nube que el conjunto de disponibilidad.
    
     ![Texto alternativo de imagen](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerShell con nivel de administrador y ejecute el siguiente comando. En el caso de los marcadores de posición (como &lt;VmCloudServiceName&gt;), reemplace todo el contenido que esté entre comillas, lo que incluye los caracteres < y >, por los nombres correctos.
 

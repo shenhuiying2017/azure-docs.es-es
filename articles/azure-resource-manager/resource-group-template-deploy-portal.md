@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
@@ -47,7 +47,7 @@ En este tema se muestra cómo utilizar [Azure Portal](https://portal.azure.com) 
 
 Una vez creado el grupo de recursos, puede implementar recursos en él desde Marketplace. Marketplace proporciona soluciones predefinidas para escenarios habituales.
 
-1. Para iniciar una implementación, haga clic en **Nuevo**.
+1. Para iniciar una implementación, haga clic en **Crear un recurso**.
 
    ![Nuevo recurso](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ Una vez creado el grupo de recursos, puede implementar recursos en él desde Mar
 
 Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para más información sobre cómo crear plantillas, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Para implementar una plantilla personalizada a través del portal, haga clic en **Nuevo** y busque **Implementación de plantillas** hasta que pueda seleccionarla de entre las opciones.
+1. Para implementar una plantilla personalizada a través del portal, haga clic en **Crear un recurso** y busque **Implementación de plantillas** hasta que pueda seleccionarla de entre las opciones.
 
    ![Buscar la implementación de plantilla](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -131,7 +131,7 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
 
    ![Implementar una plantilla guardada](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 * Para solucionar errores de implementación, vea [View deployment operations](resource-manager-deployment-operations.md) (Ver operaciones de implementación).
 * Para recuperar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).

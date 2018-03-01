@@ -12,11 +12,11 @@ Las redes virtuales son el método recomendado para conectar máquinas virtuales
 Para conectar máquinas virtuales en una red virtual:
 
 1. Crear la red virtual en [Azure Portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) y especifique "implementación clásica".
-2. Cree el conjunto de servicios en la nube para la implementación de forma que refleje el diseño de los conjuntos de disponibilidad y del equilibrio de carga. En Azure Portal, haga clic en **Nuevo > Compute > Servicio en la nube** en cada servicio en la nube.
+2. Cree el conjunto de servicios en la nube para la implementación de forma que refleje el diseño de los conjuntos de disponibilidad y del equilibrio de carga. En Azure Portal, haga clic en **Crear un recurso > Proceso > Servicio en la nube** en cada servicio en la nube.
 
   Cuando rellene los detalles de servicio en la nube, elija el mismo _grupo de recursos_ utilizado con la red virtual.
 
-3. Para crear una máquina virtual nueva, haga clic en **Nuevo > Proceso** y, después, seleccione la imagen de máquina virtual apropiada en **Aplicaciones destacadas**.
+3. Para crear una máquina virtual nueva, haga clic en **Crear un recurso > Proceso** y, después, seleccione la imagen de máquina virtual apropiada en **Aplicaciones destacadas**.
 
   En la hoja **Básico** de la máquina virtual, elija el mismo _grupo de recursos_ que se ha utilizado con la red virtual.
 

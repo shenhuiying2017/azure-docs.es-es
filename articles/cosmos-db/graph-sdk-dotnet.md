@@ -1,6 +1,6 @@
 ---
-title: SDK y recursos de .NET para la API Graph de Azure CosmosDB | Microsoft Docs
-description: "Infórmese acerca de la API Graph de Azure CosmosDB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
+title: SDK y recursos de .NET para Graph API de Azure CosmosDB | Microsoft Docs
+description: "Infórmese acerca de Graph API de Azure CosmosDB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
 services: cosmos-db
 documentationcenter: .net
 author: luisbosquez
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API Graph .NET de Azure Cosmos DB: descarga y notas de la versión
 
@@ -25,12 +25,14 @@ ms.lasthandoff: 12/11/2017
 |---|---|
 |**Descarga del SDK**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**Documentación de la API**|[Documentación de referencia de API de .NET](https://aka.ms/acdbgraphapiref)|
-|**Guía de inicio rápido**|[Azure Cosmos DB: Creación de una aplicación de gráficos con .NET y la API Graph](create-graph-dotnet.md)|
-|**Tutorial**|[Azure CosmosDB: creación de un contenedor con la API Graph](tutorial-develop-graph-dotnet.md)|
+|**Guía de inicio rápido**|[Azure Cosmos DB: Creación de una aplicación de grafos con .NET y Graph API](create-graph-dotnet.md)|
+|**Tutorial**|[Azure CosmosDB: creación de un contenedor con Graph API](tutorial-develop-graph-dotnet.md)|
 |**Plataforma admitida actualmente**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## <a name="release-notes"></a>Notas de la versión
+
+Se recomienda Gremlin.Net, el controlador de Gremlin de código abierto para .NET. En [Azure Cosmos DB: creación de una aplicación de grafos con .NET y Graph API](create-graph-dotnet.md) encontrará una introducción.
 
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
 
@@ -91,4 +93,4 @@ El servicio rechazará cualquier solicitud realizada a Azure Cosmos DB mediante 
 | [0.1.0-preview](#0.1.0-preview) |8 de mayo de 2017 |--- |
 
 ## <a name="see-also"></a>Otras referencias
-Para más información acerca de la API Graph de Azure Cosmos DB, consulte [Introducción a Azure Cosmos DB: API Graph](graph-introduction.md). 
+Para más información acerca de Graph API de Azure Cosmos DB, consulte [Introducción a Graph API de Azure Cosmos DB](graph-introduction.md). 

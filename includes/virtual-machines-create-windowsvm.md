@@ -1,6 +1,6 @@
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Desde la esquina superior izquierda, haga clic en **Nuevo > Proceso > Windows Server 2016 Datacenter**.
+2. Desde la esquina superior izquierda, haga clic en **Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter**.
 
     ![Vaya a las imágenes de máquinas virtuales de Azure en el portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

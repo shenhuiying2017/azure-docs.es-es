@@ -15,7 +15,7 @@ Los discos duros virtuales y las máquinas virtuales son dos recursos diferentes
 
 El primer paso para recuperar la máquina virtual es eliminar el propio recurso de máquina virtual. Al eliminar la máquina virtual, los discos duros virtuales se dejan en su cuenta de almacenamiento. Después de eliminar la máquina virtual, puede asociar el disco duro virtual a otra máquina virtual para localizar y solucionar los errores. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En el menú de la izquierda, haga clic en **Virtual Machines**.
 3. Seleccione la máquina virtual que tiene el problema, haga clic en **Discos** y, a continuación, identifique el nombre del disco duro virtual. 
 4. Seleccione el disco duro virtual del sistema operativo y compruebe la **Ubicación** para identificar la cuenta de almacenamiento que contiene este disco duro virtual. En el ejemplo siguiente, la cadena inmediatamente antes de ".blob.core.windows.net" es el nombre de la cuenta de almacenamiento.
@@ -48,7 +48,7 @@ Con el disco duro virtual existente montado, ahora puede realizar todos los paso
 ## <a name="unmount-and-detach-the-original-virtual-hard-disk"></a>Desmontaje y desasociación del disco duro virtual original
 Una vez resueltos los errores, desmonte y desasocie el disco duro virtual existente de la máquina virtual de solución de problemas. No se podrá usar el disco duro virtual con ninguna otra máquina virtual hasta que se libere la concesión que asocia el disco duro virtual a la máquina virtual de solución de problemas.  
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En el menú de la izquierda, haga clic en **Virtual Machines (clásico)**.
 3. Busque la máquina virtual de recuperación. Seleccione Discos, haga clic con el botón derecho en el disco y, a continuación, seleccione **Desasociar**.
 
@@ -57,6 +57,6 @@ Una vez resueltos los errores, desmonte y desasocie el disco duro virtual existe
 Para crear una máquina virtual a partir del disco duro virtual original, use [Azure Portal](https://portal.azure.com).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la parte superior izquierda del portal, seleccione **Nuevo** > **Proceso** > **Máquina virtual** > **De la galería**.
+2. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** > **De la galería**.
 3. En la sección **Elija una imagen**, seleccione **Mis discos** y seleccione el disco duro virtual original. Compruebe la información de ubicación. Esta es la región donde se debe implementar la máquina virtual. Seleccione el botón Siguiente.
 4. En la sección **Configuración de la máquina virtual**, escriba el nombre de la máquina virtual y seleccione un tamaño.

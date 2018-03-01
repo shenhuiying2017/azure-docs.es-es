@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Administración de Azure Data Lake Analytics con el portal de Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,15 +32,15 @@ Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Azure 
 
 ### <a name="create-an-account"></a>Crear una cuenta
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Nuevo** > **Inteligencia y análisis** > **Data Lake Analytics**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Crear un recurso** > **Inteligencia y análisis** > **Data Lake Analytics**.
 3. Seleccione los valores de los siguientes elementos: 
    1. **Nombre**: nombre de la cuenta de Azure Data Lake Analytics.
    2. **Suscripción**: suscripción de Azure usada para la cuenta.
    3. **Grupo de recursos**: grupo de recursos de Azure en el que se va a crear la cuenta. 
    4. **Ubicación**: centro de datos de Azure para la cuenta de Data Lake Analytics. 
    5. **Data Lake Store**: almacén predeterminado que se va a usar para la cuenta de Data Lake Analytics. Las cuentas de Azure Data Lake Store y de Data Lake Analytics deben estar en la misma ubicación.
-4. Haga clic en **Crear**. 
+4. Haga clic en **Create**(Crear). 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminar una cuenta de Data Lake Analytics
 
@@ -58,8 +58,8 @@ Para eliminar una cuenta de Data Lake Analytics, elimine la cuenta de Data Lake 
 
 Data Lake Analytics admite los siguientes orígenes de datos:
 
-* Data Lake Store
-* Almacenamiento de Azure
+* Almacén de Data Lake
+* Azure Storage
 
 Puede usar el explorador de datos para examinar los orígenes de datos y realizar operaciones básicas de administración de archivos. 
 
@@ -117,7 +117,7 @@ Emplee el rol de desarrollador de Data Lake Analytics para permitir que los desa
 2. Haga clic en **Control de acceso (IAM)** > **Agregar**.
 3. Seleccione un rol.
 4. Agregue un usuario.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
 
 >[!NOTE]
 >Si un usuario o un grupo de seguridad necesita enviar trabajos, también necesita permiso en la cuenta de almacenamiento. Para más información, vea [Secure data stored in Data Lake Store (Protección de datos almacenados en Data Lake Store)](../data-lake-store/data-lake-store-secure-data.md).
@@ -178,7 +178,7 @@ Para cambiar el número de unidades de análisis de la cuenta de Data Lake Analy
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Propiedades**.
 3. En **Número de AU máximo**, mueva el control deslizante para seleccionar un valor o escríbalo en el cuadro de texto. 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
 > Si necesita más unidades de análisis que el valor predeterminado (250), haga clic en **Ayuda y soporte técnico** en el portal para enviar una solicitud de soporte técnico. Es posible aumentar el número de unidades de análisis disponibles en la cuenta de Data Lake Analytics.
@@ -192,7 +192,7 @@ Para cambiar el número de trabajos que se pueden ejecutar simultáneamente:
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Propiedades**.
 3. En **Número máximo de trabajos en ejecución**, mueva el control deslizante para seleccionar un valor o escríbalo en el cuadro de texto. 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
 > Si necesita ejecutar más que el número predeterminado de trabajos (20), en el portal, haga clic en **Ayuda y soporte técnico** para enviar una solicitud de soporte técnico. Es posible aumentar el número de trabajos que se pueden ejecutar al mismo tiempo en la cuenta de Data Lake Analytics.
@@ -206,7 +206,7 @@ Para cambiar el periodo de conservación de metadatos de trabajo y recursos:
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Propiedades**.
 3. En **Días durante los que se conservarán las consultas de trabajo**, mueva el control deslizante para seleccionar un valor o escríbalo en el cuadro de texto.  
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 ### <a name="job-level-policies"></a>Directivas de nivel de trabajo
 Con las directivas de nivel de trabajo, puede controlar las unidades de análisis máximas y la prioridad máxima que los usuarios individuales (o los miembros de grupos de seguridad concretos) pueden establecer en los trabajos que envían. Esto permite controlar los costos en que incurren los usuarios. También permite controlar el efecto que los trabajos programados podrían tener en los trabajos de producción de alta prioridad que se ejecutan en la misma cuenta de Data Lake Analytics.
@@ -248,7 +248,7 @@ Hay una directiva predeterminada establecida en cada cuenta. La directiva predet
 * [Entrada de blog sobre directivas de nivel de cuenta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Entrada de blog sobre directivas de nivel de trabajo](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Información general de Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introducción al uso de Azure Portal por parte de Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)

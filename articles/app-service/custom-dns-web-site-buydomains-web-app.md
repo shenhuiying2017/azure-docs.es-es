@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar un nombre de dominio personalizado para Azure Web Apps
 
@@ -220,7 +220,7 @@ En Azure, los registros DNS para un dominio de App Service se administran median
 
 ### <a name="open-app-service-domain"></a>Abrir Dominio de App Service
 
-En Azure Portal, en el menú de la izquierda, seleccione **Más servicios** > **Dominios de App Service**.
+En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios** > **Dominios de App Service**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ Después de comprar el dominio de App Service, dispone de cinco días para cance
 
 ### <a name="open-app-service-domain"></a>Abrir Dominio de App Service
 
-En Azure Portal, en el menú de la izquierda, seleccione **Más servicios** > **Dominios de App Service**.
+En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios** > **Dominios de App Service**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

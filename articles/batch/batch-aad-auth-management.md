@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticación de soluciones de administración de Batch con Active Directory
 
@@ -29,7 +29,7 @@ La biblioteca Batch Management .NET expone tipos para trabajar con cuentas, clav
 
 En este artículo, se describe el uso de Azure AD para autenticar desde aplicaciones que utilizan la biblioteca Batch Management .NET. Se muestra cómo usar Azure AD para autenticar a un administrador o coadministrador de la suscripción mediante la autenticación integrada. Se utiliza el proyecto de ejemplo [AccountManagement][acct_mgmt_sample], disponible en GitHub, para guiarle en el uso de Azure AD con la biblioteca Batch Management .NET.
 
-Para más información sobre el uso de la biblioteca Batch Management .NET y el ejemplo de AccountManagement, consulte [Administración de cuentas y cuotas de Batch con la biblioteca cliente de administración de Batch para .NET](batch-management-dotnet.md).
+Para más información sobre el uso de la biblioteca Batch Management .NET y el ejemplo de AccountManagement, consulte [Administración de cuentas y cuotas de Batch con la biblioteca cliente Batch Management .NET](batch-management-dotnet.md).
 
 ## <a name="register-your-application-with-azure-ad"></a>Registro de la aplicación con Azure AD
 
@@ -49,7 +49,7 @@ A continuación, debe delegar el acceso a la aplicación a la API de Azure Resou
 
 Siga estos pasos en Azure Portal:
 
-1. En el panel de navegación izquierdo de Azure Portal, elija **Más servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
+1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
 2. Busque el nombre de la aplicación en la lista de registros de aplicación:
 
     ![Buscar el nombre de la aplicación](./media/batch-aad-auth-management/search-app-registration.png)
@@ -122,7 +122,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Después de proporcionar sus credenciales, la aplicación de ejemplo emitirá las solicitudes autenticadas para el servicio de administración de Batch. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la ejecución de la [aplicación de ejemplo AccountManagement][acct_mgmt_sample], consulte [Administración de cuentas y cuotas de Batch con la biblioteca cliente de administración de Batch para .NET](batch-management-dotnet.md).
 

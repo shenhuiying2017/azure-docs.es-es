@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar desde Azure Access Control Service
 
@@ -152,10 +152,9 @@ En líneas generales, *Azure Active Directory probablemente no sea la opción ad
 | **Personalizaciones** | | |
 | UI de selección de cuenta o detección de dominio de inicio personalizable | Código descargable que se puede incorporar en las aplicaciones | No compatible |
 | Carga de certificados de firma de tokens personalizados | Compatible | Compatible |
-| Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad.<br />- Obtención de token de acceso del proveedor de identidades como una notificación.<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada.<br />- Emisión de notificaciones de salida con valores constantes. |- No se puede pasar a través notificaciones desde proveedores de identidades federados.<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación.<br />- No se pueden emitir notificaciones de salida basadas en valores de notificaciones de entrada.<br />- Se pueden emitir notificaciones de salida con valores constantes.<br />- Se pueden emitir notificaciones de salida en función de las propiedades de los usuarios que se sincronizan con Azure AD. |
-| 
-            **Automation** | | |
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y API Graph de Azure AD. |
+| Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes. |- No se puede pasar a través notificaciones desde proveedores de identidades federados.<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación.<br />- No se pueden emitir notificaciones de salida basadas en valores de notificaciones de entrada.<br />- Se pueden emitir notificaciones de salida con valores constantes.<br />- Se pueden emitir notificaciones de salida en función de las propiedades de los usuarios que se sincronizan con Azure AD. |
+| **Automation** | | |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y Graph API de Azure AD. |
 
 Si decide que Azure AD es la forma adecuada para migrar sus aplicaciones y servicios, debe tener en cuenta dos maneras de integrar con ella su aplicación.
 
@@ -181,7 +180,7 @@ Una solución alternativa es seguir [este código de ejemplo](https://github.com
 
 Si elige esta solución, debe entender la [sustitución de claves de firma de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta solución usa la clave de firma global de Azure AD para emitir tokens. De forma predeterminada, WIF no actualiza automáticamente las claves de firma. Cuando Azure AD rota sus claves de firma globales, la implementación de WIF debe estar preparada para aceptar los cambios.
 
-Si puede realizar la integración con Azure AD a través de los protocolos de OpenID Connect u OAuth, se recomienda hacerlo. Tenemos una extensa documentación y guías sobre cómo integrar Azure AD en una aplicación web; están disponibles en nuestra [Guía del desarrollador de Azure AD](http://aka.ms/aaddev).
+Si puede realizar la integración con Azure AD a través de los protocolos de OpenID Connect u OAuth, se recomienda hacerlo. Tenemos una extensa documentación y guías sobre cómo integrar Azure AD en una aplicación web; están disponibles en nuestra [Guía del desarrollador de Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -217,9 +216,8 @@ En la siguiente tabla se comparan las características de Access Control pertine
 | UI de selección de cuenta o detección de dominio de inicio personalizable | Código descargable que se puede incorporar en las aplicaciones | Interfaz de usuario totalmente personalizable a través de CSS personalizadas |
 | Carga de certificados de firma de tokens personalizados | Compatible | Las claves de firma personalizadas, no los certificados, se admiten a través de directivas personalizadas |
 | Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes |- Puede pasar a través de notificaciones de proveedores de identidad; directivas personalizadas necesarias para algunas notificaciones<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación<br />- No se pueden emitir notificaciones de salida según los valores de las notificaciones de entrada a través de directivas personalizadas<br />- Se pueden emitir notificaciones de salida con valores constantes a través de directivas personalizadas |
-| 
-            **Automation** | | |
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control |- Creación de usuarios con permiso a través de API de Graph de Azure AD<br />- No se pueden crear mediante programación las directivas, las aplicaciones ni los inquilinos de B2C |
+| **Automation** | | |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control |- Creación de usuarios con permiso a través de Graph API de Azure AD<br />- No se pueden crear mediante programación las directivas, las aplicaciones ni los inquilinos de B2C |
 
 Si decide que Azure AD B2C es la forma adecuada para migrar sus aplicaciones y servicios, debe comenzar con los recursos siguientes:
 
@@ -286,7 +284,7 @@ Asimismo, también puede utilizar Azure AD para realizar la autenticación de un
 | Métodos de autenticación del cliente |- Contraseña simple<br />- SWT firmado<br />- Token SAML del proveedor de identidades federadas |- Contraseña simple<br />- SWT firmado |
 | Formatos de tokens |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Solo JWT |
 | Transformación de token |- Incorporación de notificaciones personalizadas<br />- Lógica de emisión de notificaciones if-then simple | Incorporación de notificaciones personalizadas | 
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y API Graph de Azure AD. |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y Graph API de Azure AD. |
 
 Para obtener información sobre escenarios de implementación entre servidores, consulte los siguientes recursos:
 

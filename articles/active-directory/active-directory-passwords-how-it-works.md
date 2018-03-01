@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -78,7 +78,7 @@ De forma predeterminada, solo los atributos de la nube del teléfono de la ofici
 
 Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado y requiera.
 
-Si los usuarios no quieren que su número de teléfono móvil sea visible en el directorio, pero quieren seguir usándolo para restablecer la contraseña, los administradores no deben rellenar este campo en el directorio. Los usuarios deberían rellenar el atributo **Teléfono de autenticación** mediante el [portal de registro del restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
+Si los usuarios no quieren que su número de teléfono móvil sea visible en el directorio, pero quieren seguir usándolo para restablecer la contraseña, los administradores no deben rellenar este campo en el directorio. Los usuarios deberían rellenar el atributo **Teléfono de autenticación** mediante el [portal de registro del restablecimiento de contraseña](https://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
@@ -180,7 +180,7 @@ Para habilitar esta opción, un usuario que tenga habilitado el restablecimiento
 * Aplicaciones federadas
 * Aplicaciones personalizadas mediante Azure AD
 
-Cuando se deshabilita la opción para requerir el registro, los usuarios todavía pueden registrar manualmente su información de contacto. Pueden visitar [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) o seleccionar el vínculo **Registrarme para restablecer la contraseña** en la pestaña **Perfil** en el Panel de acceso.
+Cuando se deshabilita la opción para requerir el registro, los usuarios todavía pueden registrar manualmente su información de contacto. Pueden visitar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) o seleccionar el vínculo **Registrarme para restablecer la contraseña** en la pestaña **Perfil** en el Panel de acceso.
 
 > [!NOTE]
 > Para descartar el portal de registro de restablecimiento de contraseña, los usuarios pueden seleccionar **Cancelar** o cerrar la ventana. Sin embargo, se les pide que se registren cada vez que inician sesión hasta que completan el registro.

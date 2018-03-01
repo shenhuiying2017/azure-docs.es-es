@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
@@ -50,17 +50,17 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
 ### <a name="create-a-service-bus-namespace"></a>Crear un espacio de nombres de Service Bus
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Enterprise Integration** > **Service Bus**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Integración empresarial** > **Service Bus**.
 1. Proporcione la siguiente información:
 
    **Nombre**: nombre de Service Bus.
 
    **Nivel de precios**: haga clic en **Básico** > **Seleccionar**. El nivel Básico es suficiente para este tutorial.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    **Ubicación**: use la misma ubicación que emplea IoT Hub.
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
    ![Crear un espacio de nombres de Service Bus en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
@@ -87,7 +87,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
    **Espacio de nombres de Service Bus**: seleccione el espacio de nombres que ha creado.
 
    **Cola de Service Bus**: seleccione la cola que ha creado.
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
    ![Agregar un punto de conexión a IoT Hub en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
 
@@ -103,7 +103,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
    **Punto de conexión**: seleccione el punto de conexión que ha creado.
 
    **Cadena de consulta**: escriba `temperatureAlert = "true"`.
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
    ![Agregar una regla de enrutamiento en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
@@ -111,15 +111,15 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Enterprise Integration** > **Aplicación lógica**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Integración empresarial** > **Aplicación lógica**.
 1. Escriba la siguiente información:
 
    **Nombre**: nombre de la aplicación lógica.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    **Ubicación**: use la misma ubicación que emplea IoT Hub.
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="configure-the-logic-app"></a>Configurar la aplicación lógica
 
@@ -157,7 +157,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
       Obtenga la información SMTP de [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) y [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
    1. Escriba la dirección de correo electrónico en **De** y **Para** y `High temperature detected` en **Asunto** y **Cuerpo**.
-   1. Haga clic en **Guardar**.
+   1. Haga clic en **Save**(Guardar).
 
 La aplicación lógica está funcionando al guardarse.
 
@@ -170,7 +170,7 @@ La aplicación lógica está funcionando al guardarse.
    > [!NOTE]
    > Es posible que el proveedor de servicios de correo electrónico necesite comprobar la identidad del remitente para asegurarse de que es usted quien envía el mensaje.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado correctamente una aplicación lógica que conecta IoT Hub y el buzón de correo para la supervisión de temperatura y las notificaciones.
 

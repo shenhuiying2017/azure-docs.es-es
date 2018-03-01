@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Personalización y API de colaboración B2B de Active Directory Azure
 
@@ -77,7 +77,7 @@ La API se puede ejecutar en los siguientes modos de autorización:
 En este modo, el usuario que usa la API debe tener los permisos necesarios para crear invitaciones de B2B.
 
 ### <a name="app-only-mode"></a>Modo de solo aplicación
-En el contexto de solo aplicación, la aplicación necesita los ámbitos User.ReadWrite.All o Directory.ReadWrite.All para que la invitación se realice correctamente.
+En el contexto de solo aplicación, la aplicación necesita el ámbito User.Invite.All para que la invitación se realice correctamente.
 
 Para obtener más información, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes.
 
@@ -98,7 +98,7 @@ Puede usar las siguientes opciones:
 
 También puede comprobar la referencia de la API de invitación en [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

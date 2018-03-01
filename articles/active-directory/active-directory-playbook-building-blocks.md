@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
 ## <a name="catalog-of-roles"></a>Catálogo de roles
 
-| Rol | Descripción | Responsabilidad de la prueba de concepto (POC) |
+| Rol | DESCRIPCIÓN | Responsabilidad de la prueba de concepto (POC) |
 | --- | --- | --- |
 | **Equipo de arquitectura de identidad/desarrollo** | Normalmente, este equipo es el que se diseña la solución, implementa prototipos, controla las aprobaciones y finalmente entrega al equipo de operaciones. | Proporciona los entornos y es el que va a evaluar los diferentes escenarios desde la perspectiva de la facilidad de uso. |
 | **Equipo de operaciones de identidad locales** | Administra los diferentes orígenes de identidad locales: bosques de Active Directory, directorios LDAP, sistemas de recursos humanos y proveedores de identidades de federación. | Proporciona acceso a los recursos necesarios locales necesarios para los escenarios de prueba de concepto.<br/>Debe estar tan poco implicado como sea posible.|
@@ -66,8 +66,7 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 | --- | --- |
 | Descargue la versión más reciente de Azure AD Connect. | [Descarga de Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
 | Instale Azure AD Connect con la ruta de acceso más sencilla: rápido. <br/>1. Filtre a la unidad organizativa de destino para minimizar el tiempo del ciclo de sincronización.<br/>2. Elija el conjunto de usuarios de destino en el grupo local.<br/>3. Implemente las características necesarias por los demás temas de la prueba de concepto. | [Azure AD Connect: Instalación personalizada: Filtrado por dominio y unidad organizativa](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Instalación personalizada: Filtrado de sincronización basado en grupos](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integración de las identidades locales con Azure Active Directory: Configuración de características de sincronización](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | 
-            [Azure AD Connect Sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Abra el [Portal de administración de Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), vaya a la hoja "Todos los usuarios", agregue la columna "Origen de autoridad" y vea los usuarios que aparecen, marcados correctamente como procedentes de "Windows Server AD". | [Portal de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Consideraciones
@@ -288,8 +287,7 @@ Tiempo aproximado para completarlo: 60 minutos
 | Cree perfiles de ejecución para el conector creado (importación completa, importación diferencial, sincronización completa, sincronización diferencial y exportación). | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creación de un perfil de ejecución del agente de administración)<br/> [Uso de conectores con el administrador de servicios de Azure AD Connect Sync](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Ejecute el perfil de importación completa y verifique que hay objetos en el espacio del conector. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Búsqueda de un objeto en el espacio del conector)<br/>[Uso de conectores con el administrador de servicios de Azure AD Connect Sync: Espacio del conector de búsqueda](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Cree reglas de sincronización para que los objetos del metaverso tengan los atributos necesarios para las cargas de trabajo. | [Azure AD Connect Sync: procedimientos recomendados para cambiar la configuración predeterminada: Cambios en las reglas de sincronización](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: conocimiento de expresiones de aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Inicie el ciclo de sincronización completa. | 
-            [Programador de sincronización de Azure AD Connect: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
+| Inicie el ciclo de sincronización completa. | [Programador de sincronización de Azure AD Connect: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | En caso de problemas, soluciónelos. | [Solución de problemas de un objeto que no se sincroniza con Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Compruebe que el usuario de LDAP puede iniciar sesión y acceda a la aplicación. | https://myapps.microsoft.com |
 
@@ -393,7 +391,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | Vaya al Portal de administración de Azure AD: restablecimiento de contraseñas. | [Portal de administración de Azure AD: Restablecimiento de contraseñas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Determine la directiva de restablecimiento de contraseñas. Para la prueba de concepto, puede utilizar la llamada de teléfono y las preguntas y respuestas. Se recomienda habilitar el registro para que sea necesario iniciar sesión para acceder al panel de acceso. |  |
 | Cierre sesión e iníciela como un trabajador de información. |  |
-| Proporcione los datos de autoservicio de restablecimiento de contraseñas configurados en el paso 2. | http://aka.ms/ssprsetup |
+| Proporcione los datos de autoservicio de restablecimiento de contraseñas configurados en el paso 2. | https://aka.ms/ssprsetup |
 | Cierre el explorador. |  |
 | Empiece el proceso de inicio de sesión como el trabajador de información que utilizó en el paso 4. |  |
 | Restablezca la contraseña. | [Actualización de su propia contraseña: restablecimiento de mi contraseña](active-directory-passwords-update-your-own-password.md) |
@@ -444,7 +442,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Aplicación de SaaS ya está configurado |  |
 | Los usuarios de prueba de concepto ya están asignados a la aplicación |  |
 | Las credenciales del usuario de prueba de concepto están disponibles |  |
-| El usuario de prueba de concepto está registrado para MFA Uso de un teléfono con una buena cobertura | http://aka.ms/ssprsetup |
+| El usuario de prueba de concepto está registrado para MFA Uso de un teléfono con una buena cobertura | https://aka.ms/ssprsetup |
 | Dispositivo en la red interna. Dirección IP configurada en el intervalo de direcciones internas | Localice la dirección IP: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo en la red externa (puede ser un teléfono que use la red móvil del operador) |  |
 
@@ -535,7 +533,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Paso | Recursos |
 | --- | --- |
 | Inicie sesión como administrador global en https://portal.azure.com y abra la hoja Protección de identidad. | https://aka.ms/aadipgetstarted |
-| Habilite una directiva de inicio de sesión de riesgo de la manera siguiente:<br/>- Asignado a: usuario de prueba de concepto<br/>- Condiciones: inicio de sesión de riesgo medio o superior (el inicio de sesión en desde una ubicación anónima se considera un nivel de riesgo medio)<br/>- Controles: requiere MFA | [Guía de Azure Active Directory Identity Protection: Riesgo de inicio de sesión](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Habilite una directiva de inicio de sesión de riesgo de la manera siguiente:<br/>- Asignado a: usuario de prueba de concepto<br/>- Condiciones: inicio de sesión de riesgo medio o superior (el inicio de sesión en desde una ubicación anónima se considera un nivel de riesgo medio)<br/>- Controles: requiere MFA | [Guía de Azure Active Directory Identity Protection: Riesgo de inicio de sesión](active-directory-identityprotection-playbook.md) |
 | Abra el explorador Tor | [Descarga del explorador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sesión en https://myapps.microsoft.com con la cuenta de usuario de prueba de concepto. |  |
 | Tenga en cuenta el desafío de MFA. | [Experiencias de inicio de sesión con Azure AD Identity Protection: Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

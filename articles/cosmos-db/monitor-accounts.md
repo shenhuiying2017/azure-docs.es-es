@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
 Puede supervisar las cuentas de Azure Cosmos DB en [Azure Portal](https://portal.azure.com/). Para cada cuenta de Azure Cosmos DB, está disponible un conjunto completo de métricas para supervisar el rendimiento, almacenamiento, disponibilidad, latencia y coherencia.
@@ -26,7 +26,7 @@ Puede supervisar las cuentas de Azure Cosmos DB en [Azure Portal](https://portal
 Las métricas pueden revisarse en la página Cuenta, en la nueva página Métricas o en Azure Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Visualización de las métricas de rendimiento en la página Métricas
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, desplácese a **Bases de datos**, seleccione **Azure Cosmos DB** y, luego, haga clic en el nombre de la cuenta de Cosmos DB de la que quiere ver métricas de rendimiento.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, desplácese a **Bases de datos**, y haga clic en **Azure Cosmos DB** y en el nombre de la cuenta de Cosmos DB de la que quiere ver las métricas de rendimiento.
 2. Cuando se cargue la nueva página, en el menú de recursos, en **Supervisión**, haga clic en **Métricas**.
 3. Cuando se abre la página Métricas, seleccione la colección para revisar desde la lista desplegable **Colecciones**.
 
@@ -42,7 +42,7 @@ Las métricas pueden revisarse en la página Cuenta, en la nueva página Métric
 5. En la lista de **Métricas disponibles**, seleccione las métricas que desee mostrar. Utilice la tecla CTRL para seleccionar varios elementos. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Visualización de métricas de rendimiento en la página Cuenta
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, desplácese a **Bases de datos**, seleccione **Azure Cosmos DB** y, luego, haga clic en el nombre de la cuenta de Cosmos DB de la que quiere ver métricas de rendimiento.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, desplácese a **Bases de datos**, y haga clic en **Azure Cosmos DB** y en el nombre de la cuenta de Cosmos DB de la que quiere ver las métricas de rendimiento.
 2. La lente **Supervisión** muestra los iconos siguientes de forma predeterminada:
    
    * El total de solicitudes del día actual.
@@ -53,7 +53,7 @@ Las métricas pueden revisarse en la página Cuenta, en la nueva página Métric
 4. La página **Métrica** muestra los detalles sobre el total de solicitudes. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configuración de alertas en el portal
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, haga clic en **Azure Cosmos DB** y, luego, haga clic en el nombre de la cuenta de Azure Cosmos DB para la que quiere configurar alertas de métricas de rendimiento.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, **Azure Cosmos DB** y en el nombre de la cuenta de Azure Cosmos DB para la que quiere configurar las alertas de las métricas de rendimiento.
 2. En el menú de recursos, haga clic en **Reglas de alerta** para abrir la página Reglas de alerta.  
    ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/monitor-accounts/madocdb10.5.png)
 3. En la página **Reglas de alerta**, haga clic en **Agregar alerta**.  
@@ -84,6 +84,6 @@ Las consultas para recuperar métricas individuales utilizan el siguiente format
 
 Para obtener más información, consulte [Retrieving Resource Metrics via the Azure Monitor API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)(Recuperación de métricas de recursos mediante la API de Azure Monitor). Tenga en cuenta que se ha cambiado el nombre "Azure Insights" a "Azure Monitor".  Esta entrada de blog hace referencia al nombre anterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para conocer más sobre el planeamiento de la capacidad de Azure Cosmos DB, consulte la [calculadora del planificador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 

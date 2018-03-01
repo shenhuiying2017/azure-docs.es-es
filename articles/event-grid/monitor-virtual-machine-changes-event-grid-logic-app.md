@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -51,7 +51,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
-2. En la esquina superior izquierda del menú principal de Azure, elija **Nuevo** > **Integración empresarial** > **Aplicación lógica**.
+2. En la esquina superior izquierda del menú principal de Azure, elija **Crear un recurso** > **Enterprise Integration** > **Logic App**.
 
    ![Creación de la aplicación lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 

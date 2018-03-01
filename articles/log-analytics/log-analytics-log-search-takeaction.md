@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: c59a32e1b2d460e04c4c6f5d1be2dd655abbef27
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar acciones con un runbook de Automation desde un resultado de búsqueda de registros de Log Analytics
 
@@ -32,11 +32,12 @@ Desde un resultado de búsqueda de registros de Log Analytics de Azure, ahora pu
 
 Para realizar acciones en un evento e iniciar un runbook desde los resultados de búsqueda de registros, primero debe crear una búsqueda de registros y, desde los resultados, puede invocar un runbook a petición.  Esto se puede conseguir con la característica de búsqueda de registros de [Azure Portal](../log-analytics/log-analytics-log-search-new.md).  En este ejemplo, llevamos a cabo una búsqueda de registros desde Azure Portal con una demostración básica de esta característica.
 
-1. En Azure Portal, en el menú central, haga clic en **Más servicios** y seleccione **Log Analytics**.  
-2. En la hoja de Log Analytics, seleccione su área de trabajo de Log Analytics y, en la hoja del área de trabajo, seleccione **Búsqueda de registros**.  
-3. En la hoja Búsqueda de registros, realice una búsqueda de registros.  
-4. Desde los resultados de la búsqueda de registros, haga clic en los puntos suspensivos situados a la izquierda de uno de los campos y, en la ventana emergente, seleccione **Take action on** (Realizar acción en).<br><br> ![Seleccionar Realizar acción a partir del resultado de búsqueda](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
-5. En la hoja Take action (Realizar acción), seleccione **Run a runbook** (Ejecutar un runbook). En la hoja **Run a runbook** (Ejecutar un runbook), seleccione un runbook para ejecutarlo.  Puede seleccionar cualquier runbook de la cuenta de Automation que esté vinculado al área de trabajo de Log Analytics.  Tenga en cuenta lo siguiente:
+1. En Azure Portal, en el menú central, haga clic en **Todos los servicios** y seleccione **Log Analytics**.  
+2. Seleccione el área de trabajo de Log Analytics.
+3. En el área de trabajo, seleccione **Búsqueda de registros**.  
+4. En la hoja Búsqueda de registros, realice una búsqueda de registros.  
+5. Desde los resultados de la búsqueda de registros, haga clic en los puntos suspensivos situados a la izquierda de uno de los campos y, en la ventana emergente, seleccione **Take action on** (Realizar acción en).<br><br> ![Seleccionar Realizar acción a partir del resultado de búsqueda](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
+6. Seleccione **Ejecutar un runbook** y seleccione un runbook para ejecutar.  Puede seleccionar cualquier runbook de la cuenta de Automation que esté vinculado al área de trabajo de Log Analytics.  Tenga en cuenta lo siguiente:
 
     * Los runbooks se organizan por etiquetas.
     * Puede seleccionar los valores de los parámetros de entrada del runbook directamente desde los campos del resultado de la búsqueda.  Aparecerá una lista desplegable en la que se muestran todos los campos disponibles en el resultado para que realice una selección.  

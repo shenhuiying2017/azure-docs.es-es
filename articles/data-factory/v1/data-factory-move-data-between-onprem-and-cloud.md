@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -54,8 +54,8 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 ## <a name="create-data-factory"></a>Creación de Data Factory
 En este paso, use Azure Portal para crear una instancia de Azure Data Factory denominada **ADFTutorialOnPremDF**.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **+ NUEVO**, en **Inteligencia y análisis** y en **Data Factory**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Crear un recurso**, en **Inteligencia y análisis** y en **Data Factory**.
 
    ![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. En la página **Nueva factoría de datos**, escriba el nombre **ADFTutorialOnPremDF**.

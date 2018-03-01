@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Tipos y proveedores de recursos
 
@@ -138,7 +138,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
 ```azurecli
@@ -263,9 +263,9 @@ Al registrar un proveedor de recursos se configura la suscripción para que func
 
 No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
 
-Para ver información de un proveedor de recursos concreto, seleccione **Más servicios**.
+Para ver información de un proveedor de recursos concreto, seleccione **Todos los servicios**.
 
-![selección de más servicios](./media/resource-manager-supported-services/more-services.png)
+![seleccione Todos los servicios](./media/resource-manager-supported-services/more-services.png)
 
 Busque **Resource Explorer** y selecciónelo entre las opciones disponibles.
 
@@ -287,7 +287,7 @@ La versión de API se corresponde a una versión de operaciones de API de REST q
 
 ![Vista de las versiones de API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 * Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

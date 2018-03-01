@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Información general sobre la supervisión de red de Azure
 
@@ -46,7 +46,7 @@ En la actualidad, Network Watcher dispone de las siguientes funcionalidades:
 * **[Solución de problemas de la puerta de enlace de Virtual Network y de las conexiones](network-watcher-troubleshoot-manage-rest.md)**: ofrece la capacidad para solucionar problemas con las puertas de enlace de Virtual Network y las conexiones.
 * **[Límites de suscripción de red](#network-subscription-limits)**: le permite ver el uso de los recursos de la red en comparación con los límites.
 * **[Configuración del registro de diagnósticos](#diagnostic-logs)**: proporciona un único panel para habilitar o deshabilitar los registros de diagnóstico de los recursos de red de un grupo de recursos.
-* **[Conectividad (versión preliminar)](network-watcher-connectivity-overview.md)**: comprueba si se puede establecer una conexión TCP directa desde una máquina virtual a un punto de conexión determinado.
+* **[Solución de problemas de conexión](network-watcher-connectivity-overview.md)**: comprueba si se puede establecer una conexión TCP directa desde una máquina virtual a un punto de conexión determinado enriquecido con contexto de Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Control de acceso basado en rol (RBAC) en Network Watcher
 
@@ -57,9 +57,9 @@ Network Watcher usa el [modelo de control de acceso de basado en rol (RBAC) de A
 |Microsoft.Storage/ |Lectura|
 |Microsoft.Authorization/| Lectura| 
 |Microsoft.Resources/subscriptions/resourceGroups/| Lectura|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Acción|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Acción|
-|Microsoft.Storage/storageAccounts/listKeys/ | Acción|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | .|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |.|
+|Microsoft.Storage/storageAccounts/listKeys/ | .|
 |Microsoft.Compute/virtualMachines/ |Lectura|
 |Microsoft.Compute/virtualMachines/ |Escritura|
 |Microsoft.Compute/virtualMachineScaleSets/ |Lectura|
@@ -104,7 +104,7 @@ Network Watcher proporciona una vista de los registros de diagnóstico. Esta vis
 
 ![logs][logs]
 
-### <a name="troubleshooting"></a>Solución de problemas
+### <a name="troubleshooting"></a>solución de problemas
 
 La hoja de solución de problemas, una experiencia del portal, se proporciona actualmente en los recursos de red para diagnosticar problemas comunes asociados a un recurso individual. Esta experiencia está disponible para los siguientes recursos de red: ExpressRoute, VPN Gateway, Application Gateway, registros de seguridad de red, rutas, DNS, Load Balancer y Traffic Manager. Para más información acerca de la solución de problemas en el nivel de recurso, visite [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/) (Diagnóstico y resolución de problemas con la solución de problemas de Azure).
 
@@ -114,7 +114,7 @@ La hoja de solución de problemas, una experiencia del portal, se proporciona ac
 
 El estado de un recurso de red se proporciona de forma periódica. Estos recursos incluyen VPN Gateway y el túnel de VPN. Se puede acceder al estado de los recursos desde Azure Portal. Para más información sobre el estado de los recursos, visite [Información general sobre Resource Health](../resource-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Después de conocer Network Watcher, puede aprender a:
 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Preguntas más frecuentes sobre Azure Cost Management
 
@@ -116,9 +116,9 @@ Para agregar cuentas de CSP adicionales a una entidad, seleccione **MSP Access**
 
 Puede tener varias cuentas de Azure con distintas divisas. Sin embargo, los informes de costos de Cloudyn no muestran más que un tipo de moneda por informe.
 
-Si tiene varias suscripciones que utilizan distintas monedas, la entidad primaria y sus monedas de entidad secundarias se muestran con el símbolo **$**. Nuestra sugerencia de procedimiento recomendado consiste en evitar utilizar distintas monedas en la misma jerarquía de entidad. En otras palabras, todas las suscripciones que se organizan en una estructura de entidad deben utilizar la misma moneda.
+Si tiene varias suscripciones que utilizan distintas monedas, la entidad primaria y sus monedas de entidad secundarias se muestran en USD **$**. Nuestra sugerencia de procedimiento recomendado consiste en evitar utilizar distintas monedas en la misma jerarquía de entidad. En otras palabras, todas las suscripciones que se organizan en una estructura de entidad deben utilizar la misma moneda.
 
-Cloudyn detecta automáticamente la moneda de la suscripción del Contrato Enterprise y la presenta correctamente en los informes.  No obstante, Cloudyn solo muestra el símbolo **$** para las cuentas de Azure directas de la web y CSP.
+Cloudyn detecta automáticamente la moneda de la suscripción del Contrato Enterprise y la presenta correctamente en los informes.  No obstante, Cloudyn solo muestra USD **$** para las cuentas de Azure directas de la web y CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>¿Qué son las escalas de tiempo de actualización de datos de Cloudyn?
 

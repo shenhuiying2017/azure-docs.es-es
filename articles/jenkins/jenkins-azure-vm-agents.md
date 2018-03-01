@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una suscripción de Azure
 * Un servidor maestro de Jenkins. Si no lo tiene, vea el [inicio rápido](install-jenkins-solution-template.md) para configurar uno en Azure.
@@ -91,7 +91,7 @@ En este tutorial, aprenderá lo siguiente:
             }
      ```
 
-    La entidad de servicio completada debe usar el campo `id` para **Subscription ID** (Id. de suscripción), el valor `appId` para **Client ID** (Id. de cliente), `password` para **Client Secret** (Secreto de cliente) y una dirección URL para **OAuth 2.0 Token Endpoint** (Punto de conexión de token de OAuth 2.0) de `https://login.windows.net/<tenant_value>`. Seleccione **Add** (Agregar) para agregar la entidad de servicio y después configure el complemento para utilizar la credencial recién creada.
+    La entidad de servicio completada debe usar el campo `id` para **Subscription ID** (Id. de suscripción), el valor `appId` para **Client ID** (Id. de cliente), `password` para **Client Secret** (Secreto de cliente) y `tenant` para **Tenant ID** (Identificador de inquilino). Seleccione **Add** (Agregar) para agregar la entidad de servicio y después configure el complemento para utilizar la credencial recién creada.
 
     ![Configuración de una entidad de servicio de Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -142,7 +142,7 @@ Seleccione **Verify Template** (Verificar plantilla) para verificar la configura
 
 ![Salida de consola](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [CI/CD en Azure App Service](java-deploy-webapp-tutorial.md)
