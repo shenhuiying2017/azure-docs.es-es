@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health proporciona información oportuna y personalizada cuando los problemas en los servicios de Azure afectan a los servicios.  También le ayuda a prepararse para el próximo mantenimiento planeado.
@@ -32,8 +32,13 @@ Service Health realiza un seguimiento de tres tipos de eventos de estado que pue
     ![Eventos de Service Health](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Introducción a Service Health
-Para iniciar el panel de Service Health, seleccione el icono de Service Health en el panel del portal. Si previamente ha quitado el icono o si está usando el panel personalizado, busque el servicio Service Health en "Más servicios" (parte inferior izquierda del panel).
+Para iniciar el panel de Service Health, seleccione el icono de Service Health en el panel del portal. 
+
 ![Introducción a Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Si anteriormente quitó el icono o si usa el panel personalizado, busque el servicio Service Health en **Todos los servicios** (parte superior izquierda del panel).
+
+![Introducción a Service Health](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Consulta de los problemas actuales que afectan a los servicios
 La vista **Problemas del servicio** muestra los problemas en curso en servicios de Azure que afectan a los recursos. Puede saber cuándo se inició el problema y qué servicios y regiones se ven afectados. También puede leer la actualización más reciente para entender lo que está haciendo Azure para resolver el problema. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 ### <a name="prerequisites"></a>requisitos previos
 Asegúrese de que se cumplen los siguientes requisitos previos:
 - ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versiones admitidas de ServiceNow: Yakarta, Estambul, Helsinki, Ginebra
+- Versiones admitidas de ServiceNow: Kingston, Yakarta, Estambul, Helsinki, Ginebra.
 
 **Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:**:
 - Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto de cliente, consulte la siguiente información según sea necesario:
 
+    - [Configuración de OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Configuración de OAuth para Yakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Estambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -227,7 +228,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 | **Secreto de cliente**   | Escriba el secreto de cliente generado para este identificador.   |
 | **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de ServiceNow que quiere sincronizar con Azure Log Analytics mediante ITSMC.  Los valores seleccionados se importan en Log Analytics.   **Opciones:** incidentes y solicitudes de cambio.|
 | **Sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo**: 120 días. |
-| **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, ITMS crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado. |
+| **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, ITMSC crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado. |
 
 ![Conexión de ServiceNow](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
 
@@ -321,7 +322,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Id. de cliente**   | Escriba el identificador de cliente para autenticar esta conexión, que genera en la instancia de Provance.  Para más información sobre el identificador de cliente, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de Provance que quiera sincronizar con Azure Log Analytics mediante ITSMC.  Estos elementos de trabajo se importan en Log Analytics.   **Opciones:** incidentes, solicitudes de cambio.|
 | **Sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo**: 120 días. |
-| **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, ITMS crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado.|
+| **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, ITMSC crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado.|
 
 ![Conexión a Provance](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
 

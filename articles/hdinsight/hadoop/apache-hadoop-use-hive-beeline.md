@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usar el cliente de Beeline con Apache Hive
 
@@ -44,7 +44,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
 ## <a id="prereq"></a>Requisitos previos
 
-* Un clúster de Hadoop basado en Linux en HDInsight.
+* Un clúster de Hadoop en HDInsight basado en Linux versión 3.4 o posterior.
 
   > [!IMPORTANT]
   > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -53,7 +53,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
     Para obtener más información sobre cómo usar SSH, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Uso de BeeLine
+## <a id="beeline"></a>Ejecución de una consulta de Hive
 
 1. Cuando Beeline se inicia, hay que proporcionar una cadena de conexión de HiveServer2 en el clúster de HDInsight:
 
@@ -116,10 +116,19 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Estas instrucciones realizan las acciones siguientes:
@@ -167,7 +176,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
 5. Para salir de Beeline, use `!exit`.
 
-## <a id="file"></a>Usar Beeline para ejecutar un archivo HiveQL
+### <a id="file"></a>Usar Beeline para ejecutar un archivo HiveQL
 
 Use los pasos siguientes para crear un archivo y, luego, ejecútelo mediante Beeline.
 
@@ -245,7 +254,7 @@ Para buscar el nombre de dominio completo de un nodo principal, use la informaci
 
 Spark proporciona su propia implementación de HiveServer2 que, en algunas ocasiones, se denomina servidor Thrift de Spark. Este servicio utiliza Spark SQL para resolver las consultas en lugar de Hive y proporciona un mejor rendimiento en función de la consulta.
 
-Para conectarse al servidor Thrift de Spark en el clúster de HDInsight, use el puerto `10002` en lugar del `10001`. Por ejemplo: `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+Para conectarse al servidor Thrift de Spark en el clúster de HDInsight, use el puerto `10002` en lugar del `10001`. Por ejemplo, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 
 > [!IMPORTANT]
 > No se puede acceder al servidor Thrift de Spark directamente a través de internet. Solo puede conectarse a él desde una sesión de SSH o desde dentro de la misma instancia de Azure Virtual Network del clúster de HDInsight.
@@ -263,8 +272,8 @@ Para más información sobre otras maneras de trabajar con Hadoop en HDInsight, 
 
 Si usa Tez con Hive, consulte los siguientes documentos:
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Tez UI on Windows-based HDInsight (Uso de la IU de Tez en HDInsight basado en Windows)](../hdinsight-debug-tez-ui.md)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](../hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

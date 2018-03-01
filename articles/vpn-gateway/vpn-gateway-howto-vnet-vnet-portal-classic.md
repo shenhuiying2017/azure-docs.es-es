@@ -1,10 +1,10 @@
 ---
 title: "Creación de una conexión entre redes virtuales: Clásico: Azure Portal | Microsoft Docs"
-description: "Cómo conectar redes virtuales de Azure simultáneamente mediante PowerShell y Azure Portal."
+description: "Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos de este artículo se corresponden al modelo de implementación clásica y a Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre las redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos de este artículo se corresponden al modelo de implementación clásica y a Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -67,7 +67,7 @@ Para más información acerca de las conexiones de red virtual a red virtual, co
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
-Antes de comenzar este ejercicio, descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Usamos el portal para la mayoría de los pasos, pero debe usar PowerShell para crear las conexiones entre las redes virtuales. No se pueden crear las conexiones mediante Azure Portal.
+Antes de comenzar este ejercicio, descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Usamos el portal para la mayoría de los pasos, pero debe usar PowerShell para crear las conexiones entre las redes virtuales. No se pueden crear las conexiones mediante Azure Portal.
 
 ## <a name="plan"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
@@ -79,8 +79,8 @@ En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="vnetvalues"></a>Paso 2: Creación de las redes virtuales
 
@@ -141,8 +141,8 @@ El sitio local para cada red virtual es la otra red virtual. Los valores de ejem
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Ubique TestVNet1 en Azure Portal. En la sección **Conexiones VPN** de la página, haga clic en **Puerta de enlace**.
 
@@ -164,7 +164,7 @@ Cada red virtual debe tener una puerta de enlace de red virtual. La puerta de en
 3. El nombre de la subred de puerta de enlace se rellena automáticamente con el nombre "GatewaySubnet" requerido. **Intervalo de direcciones** contiene las direcciones IP que se asignan a los servicios de VPN Gateway. Algunas configuraciones permiten una subred de puerta de enlace de /29, pero es mejor usar una de /28 o /27 para incorporar futuras configuraciones que pueden requerir más direcciones IP para los servicios de puerta de enlace. En la configuración de ejemplo, usamos 10.11.1.0/27. Ajuste el espacio de direcciones y, luego, haga clic en **Aceptar**.
 4. Configure el **tamaño de la puerta de enlace**. Esta configuración se refiere a la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Configure el **tipo de enrutamiento**. El tipo de enrutamiento de esta configuración debe ser **Dinámico**. No puede cambiar el tipo de enrutamiento más adelantes, a menos que anule la puerta de enlace y cree una nueva.
-6. Haga clic en **Aceptar**.
+6. Haga clic en **OK**.
 7. En la página **Nueva conexión VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace de red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
 ## <a name="vnet4settings"></a>Paso 5: Configuración de las opciones de TestVNet4
@@ -213,7 +213,7 @@ Cuando crea redes virtuales clásicas en Azure Portal, el nombre que ve no es el
 
 En los pasos siguientes, se conectará a la cuenta de Azure y descargará y verá el archivo de configuración de red para obtener los valores requeridos para las conexiones.
 
-1. Descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+1. Descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 2. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
 
@@ -287,5 +287,5 @@ En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre 
 * Todos los túneles de VPN para la red virtual, incluidas las VPN de punto a sitio (P2S), comparten el ancho de banda disponible para la VPN Gateway y el mismo Acuerdo de Nivel de Servicio de tiempo de actividad de VPN Gateway de Azure.
 * El tráfico VNet a VNet viaja a través de la red troncal de Azure.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Compruebe las conexiones. Consulte [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).

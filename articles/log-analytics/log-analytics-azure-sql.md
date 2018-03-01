@@ -3,7 +3,7 @@ title: "Solución Azure SQL Analytics de Log Analytics | Microsoft Docs"
 description: "La solución Azure SQL Analytics le ayuda a administrar las instancias de Azure SQL Database."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: magoedte
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
 
@@ -31,7 +31,7 @@ Actualmente, la versión preliminar de esta solución admite hasta 150 000 inst
 La solución Azure SQL Analytics, al igual que otras disponibles para Log Analytics, le ayuda a supervisar y recibir notificaciones sobre el estado de los recursos de Azure y, en este caso, de Azure SQL Database. Microsoft Azure SQL Database es un servicio de base de datos relacional escalable que proporciona funcionalidades conocidas de tipo SQL Server para aplicaciones que se ejecutan en la nube de Azure. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
 
 Para obtener información general práctica acerca del uso de la solución Azure SQL Analytics y escenarios de uso habituales, vea el vídeo incrustado:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -60,14 +60,14 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 Realice los pasos siguientes para agregar la solución Azure SQL Analytics al área de trabajo.
 
 1. Agregue la Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).
-2. En Azure Portal, haga clic en **Nuevo** (el símbolo +) y, a continuación, en la lista de recursos, seleccione **Supervisión y administración**.  
+2. En Azure Portal, haga clic en **Crear un recurso** > **Supervisión y administración**.  
     ![Supervisión + Administración](./media/log-analytics-azure-sql/monitoring-management.png)
 3. En la lista **Supervisión y administración**, haga clic en **Ver todo**.
-4. En la lista **Recomendado**, haga clic en **Más** y, a continuación, en la nueva lista, busque **Azure SQL Analytics (versión preliminar)** y selecciónelo.  
+4. En la lista **Recomendado**, haga clic en **Más** y, luego, en la nueva lista, busque **Azure SQL Analytics (versión preliminar)** y selecciónelo.  
     ![Solución Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. En la hoja **Azure SQL Analytics (versión preliminar)**, haga clic en **Crear**.  
+5. En el área **Azure SQL Analytics (versión preliminar)**, haga clic en **Crear**.  
     ![Creación](./media/log-analytics-azure-sql/portal-create.png)
-6. En la hoja **Crear nueva solución**, seleccione el área de trabajo a la que desea agregar la solución y, a continuación, haga clic en **Crear**.  
+6. En el área **Crear nueva solución**, seleccione el área de trabajo a la que desea agregar la solución y luego haga clic en **Crear**.  
     ![Agregar a área de trabajo](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,7 +97,7 @@ Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analyti
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visualización de los datos de Azure SQL Analytics
 
-Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Azure SQL Analytics. El panel incluye la información general de todas las bases de datos que se supervisan a través de distintas perspectivas. Para que estas distintas perspectivas funcionen, debe habilitar las métricas o los registros apropiados en los recursos de SQL para que se transmitan al área de trabajo de Azure Log Analytics. 
+Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Azure SQL Analytics. El panel incluye la información general de todas las bases de datos que se supervisan a través de distintas perspectivas. Para que estas distintas perspectivas funcionen, debe habilitar las métricas o los registros apropiados en los recursos de SQL para que se transmitan al área de trabajo de Azure Log Analytics.
 
 ![Información general de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -105,7 +105,7 @@ Si selecciona cualquiera de los iconos, se abre un informe detallado de la persp
 
 ![Tiempos de expiración de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Cada perspectiva proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha un informe específico de la perspectiva. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
+Cada perspectiva proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha una perspectiva específica del informe. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
 
 | Perspectiva | DESCRIPCIÓN |
 | --- | --- |
@@ -134,15 +134,15 @@ Tanto los grupos elásticos como las bases de datos tienen sus propios informes 
 
 ### <a name="query-reports"></a>Informes de consulta
 
-Con la perspectiva de duración de la cadena y esperas de la cadena, puede correlacionar el rendimiento de cualquier consulta a través del informe de consulta. En este informe se compara el rendimiento de la consulta en distintas bases de datos y facilita el proceso de identificar las bases de datos que se completan de manera correcta la consulta seleccionada en lugar de las lentas.
+Con las perspectivas de duración de consulta y esperas de consulta, puede correlacionar el rendimiento de cualquier consulta a través del informe de consulta. En este informe se compara el rendimiento de la consulta en distintas bases de datos y facilita el proceso de identificar las bases de datos que se completan de manera correcta la consulta seleccionada en lugar de las lentas.
 
 ![Consultas de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Análisis de datos y creación de alertas
 
-Las alertas se pueden crear fácilmente con los datos procedentes de los recursos de Azure SQL Database. Estas son un par de consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas:
+Las alertas se pueden crear fácilmente con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *DTU alta en Azure SQL Database*

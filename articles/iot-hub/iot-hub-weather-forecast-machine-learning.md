@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
 
@@ -80,7 +80,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 ### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
-1. En [Azure Portal](https://ms.portal.azure.com/), haga clic en **Nuev** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 1. Escriba la siguiente información para el trabajo.
 
    **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
@@ -93,7 +93,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adición de una entrada al trabajo de Stream Analytics
 
@@ -109,7 +109,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una entrada al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adición de una salida al trabajo de Stream Analytics
 
@@ -128,7 +128,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una salida al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Adición de una función al trabajo de Stream Analytics para llamar al servicio web implementado
 
@@ -147,7 +147,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    ![Adición de una función al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configuración de la consulta del trabajo de Stream Analytics
 
@@ -167,7 +167,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    Reemplace `[YourOutputAlias]` por el alias de salida del trabajo.
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 

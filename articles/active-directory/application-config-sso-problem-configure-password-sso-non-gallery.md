@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -37,15 +37,15 @@ La **captura automática de campos de inicio de sesión** funciona bien con la m
 
 La **captura manual de campos de inicio de sesión** puede utilizarse en el caso de que el **proveedor de la aplicación no etiquete** los campos de entrada que se utilizan para iniciar sesión. La captura manual de campos de inicio de sesión también puede utilizarse en el caso de que el **proveedor presente varios campos** que no puedan detectarse automáticamente. Azure AD puede almacenar datos de tantos campos como haya en la página de inicio de sesión, siempre que se indique dónde se encuentran esos campos en la página.
 
-Por lo general, **si la captura automática de campos de inicio de sesión no funciona, se recomienda siempre probar la opción manual.**
+Por lo general, **si la captura automática de campos de inicio de sesión no funciona, pruebe la opción manual.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Captura automática de campos de inicio de sesión para una aplicación
 
 Para configurar **Inicio de sesión único basado en contraseña** para una aplicación con la **captura automática de campos de inicio de sesión**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -61,21 +61,21 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
+9.  Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
 
 10. Haga clic en el botón **Save** (Guardar).
 
-11. Una vez hecho esto, se cargará automáticamente esa dirección URL con un cuadro de entrada de un nombre de usuario y una contraseña y se le permitirá usar Azure AD para transmitir de forma segura las contraseñas de esa aplicación mediante la extensión de explorador del panel de acceso.
+11. Una vez hecho esto, se extrae automáticamente de la dirección URL un cuadro de entrada de nombre de usuario y contraseña y se le permite usar Azure AD para transmitir de forma segura las contraseñas a esa aplicación mediante la extensión de explorador del panel de acceso.
 
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Captura manual de campos de inicio de sesión para una aplicación
 
-Para capturar manualmente los campos de inicio de sesión, primero debe tener instalada la extensión del explorador del panel de acceso y **no utilizar el modo InPrivate, incógnito o privado.** Para instalar la extensión del explorador, siga los pasos descritos en la sección [Cómo instalar la extensión de explorador del Panel de acceso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
+Para capturar manualmente los campos de inicio de sesión, primero debe tener instalada la extensión del explorador del panel de acceso y **no estar ejecutando el modo InPrivate, incógnito o privado.** Para instalar la extensión del explorador, siga los pasos descritos en la sección [Cómo instalar la extensión de explorador del Panel de acceso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
 Para configurar **Inicio de sesión único basado en contraseña** para una aplicación con la **captura manual de campos de inicio de sesión**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -91,11 +91,11 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
+9.  Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
 
 10. Haga clic en el botón **Save** (Guardar).
 
-11. Una vez hecho esto, se cargará automáticamente esa dirección URL con un cuadro de entrada de un nombre de usuario y una contraseña y se le permitirá usar Azure AD para transmitir de forma segura las contraseñas de esa aplicación mediante la extensión de explorador del panel de acceso. En el caso de que se produzca un error, puede **cambiar el modo de inicio de sesión para usar la captura manual de campos de inicio de sesión** siguiendo con el paso 12.
+11. Una vez hecho esto, se extrae automáticamente de la dirección URL un cuadro de entrada de nombre de usuario y contraseña y se le permite usar Azure AD para transmitir de forma segura las contraseñas a esa aplicación mediante la extensión de explorador del panel de acceso. En el caso de que se produzca un error, puede **cambiar el modo de inicio de sesión para usar la captura manual de campos de inicio de sesión** siguiendo con el paso 12.
 
 12. Haga clic en **Establecer configuración de inicio de sesión único con contraseña de &lt;nombre de la aplicación&gt;**.
 
@@ -103,13 +103,13 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 
 14. Haga clic en **Aceptar**.
 
-15. Haga clic en **Guardar**.
+15. Haga clic en **Save**(Guardar).
 
 16. Siga las instrucciones en pantalla para usar el panel de acceso.
 
 ## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Error "No pudimos encontrar ningún campo de inicio de sesión en esa URL"
 
-Este error aparece cuando no funciona la detección automática de campos de inicio de sesión. Para resolver este problema, pruebe la detección manual de campos de inicio de sesión mediante los pasos descritos en la sección [Captura manual de campos de inicio de sesión para una aplicación](#how-to-manually-capture-sign-in-fields-for-an-application).
+Este error aparece cuando no funciona la detección automática de campos de inicio de sesión. Para resolver el problema, pruebe la detección manual de campos de inicio de sesión mediante los pasos descritos en la sección [Captura manual de campos de inicio de sesión para una aplicación](#how-to-manually-capture-sign-in-fields-for-an-application).
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Error "No se puede guardar la configuración del inicio de sesión único"
 
@@ -135,13 +135,13 @@ Compruebe lo siguiente si se produce alguno de estos problemas:
 
 -   Asegúrese de que el explorador no se encuentre en los modos **InPrivate, incógnito o privado** mientras se realiza el proceso de captura. La extensión del panel de acceso no es compatible con estos modos.
 
--   Asegúrese de que los usuarios no intentan iniciar sesión en la aplicación desde el panel de acceso en **los modos incógnito, InPrivate o privado**. La extensión del panel de acceso no es compatible con estos modos.
+-   Asegúrese de que los usuarios no intentan iniciar sesión en la aplicación desde el panel de acceso en **los modos incógnito, InPrivate o privado**. La extensión del Panel de acceso no es compatible con estos modos.
 
 -   Intente realizar el proceso de captura manual de nuevo, asegurándose de que los marcadores rojos se encuentren sobre los campos correctos.
 
 -   Si el proceso de captura manual parece no responder o la página de inicio de sesión no hace nada (caso 3 anterior), intente realizar el proceso de captura manual de nuevo. Sin embargo, esta vez, tras completar el proceso, presione el botón **F12** para abrir la consola del desarrollador del explorador. Una vez allí, abra la **consola** y escriba **window.location=”&lt;escriba la dirección URL de inicio de sesión especificada al configurar la aplicación&gt;”** y, a continuación, presione **Entrar**. De este modo, se forzará una redirección de página que finalizará el proceso de captura y almacenará los campos que se han capturado.
 
-Si ninguno de estos métodos funciona, podemos ayudarle. Abra un caso de soporte técnico en el que explique todo lo que ha intentado, además de proporcionar la información recopilada en las secciones [Visualización de los detalles de una notificación del portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) y [Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (si corresponde).
+Si ninguno de estos métodos funciona, el soporte técnico puede ayudarle. Abra un caso de soporte técnico en el que explique todo lo que ha intentado, además de proporcionar la información recopilada en las secciones [Visualización de los detalles de una notificación del portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) y [Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (si corresponde).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
@@ -179,17 +179,17 @@ Puede ver los detalles de cualquier notificación del portal si sigue los pasos 
   >
   >
 
-3.  Esto hace que se abra la hoja **Detalles de la notificación**.
+3.  Se abre el panel **Detalles de la notificación**.
 
-4.  Utilice esta información para conocer más detalles acerca del problema.
+4.  Utilice la información para conocer más detalles acerca del problema.
 
-5.  Si aún necesita ayuda, también puede compartir esta información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
+5.  Si aún necesita ayuda, también puede compartir la información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
 
 6.  Haga clic en el **icono** de **copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico
 
-Es muy importante que comparta **todos los detalles que se muestran a continuación** con un ingeniero de soporte técnico si necesita ayuda, para que pueda ayudarle rápidamente. Puede hacer esto fácilmente **realizando una captura de pantalla** o haciendo clic en el **icono Copiar error**, que se encuentra a la derecha del cuadro de texto **Copiar error**.
+Es muy importante que comparta **todos los detalles que se muestran a continuación** con un ingeniero de soporte técnico si necesita ayuda, para que pueda ayudarle rápidamente. Puede hacerlo fácilmente **realizando una captura de pantalla** o haciendo clic en el **icono Copiar error**, que se encuentra a la derecha del cuadro de texto **Copiar error**.
 
 ## <a name="notification-details-explained"></a>Explicación de los detalles de la notificación
 
@@ -217,7 +217,7 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
     -   Por ejemplo: **2017-03-23T19:50:43.7583681Z**
 
--   **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
+-   **Identificador de transacción interno**: el identificador interno que se utiliza para buscar el error en nuestros sistemas
 
     -   Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -255,6 +255,6 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
     -   Por ejemplo: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
 Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
@@ -47,23 +47,23 @@ El modo en que se recomienda que se actualice la aplicación es el modo supervis
 El modo manual sin supervisión requiere intervención manual tras cada actualización en un dominio de actualización para iniciar la actualización en el siguiente dominio de actualización. No se realiza ninguna comprobación de mantenimiento de Service Fabric. El administrador realiza las comprobaciones de estado antes de iniciar la actualización en el siguiente dominio de actualización.
 
 ## <a name="upgrade-default-services"></a>Actualización de servicios predeterminados
-Los servicios predeterminados de la aplicación de Service Fabric pueden actualizarse durante el proceso de actualización de una aplicación. Estos se definen en el [manifiesto de aplicación](service-fabric-application-and-service-manifests.md). Las reglas estándar de la actualización de servicios predeterminados son las siguientes:
+Algunos parámetros del servicio predeterminados definidos en el [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) también se pueden actualizar como parte de una actualización de la aplicación. Solo se pueden cambiar como parte de una actualización los parámetros del servicio que admitan su modificación mediante [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps). El comportamiento del cambio de los servicios predeterminados durante la actualización de la aplicación es el siguiente:
 
-1. Se crean los servicios predeterminados del nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) que no se encuentran en el clúster.
+1. Se crean los servicios predeterminados del nuevo manifiesto de aplicación que no existen aún en el clúster.
+2. Se actualizan los servicios predeterminados que existen tanto en el anterior manifiesto de aplicación como en el nuevo. Los parámetros del servicio predeterminados del nuevo manifiesto de aplicación sobrescriben los parámetros del servicio existente. La actualización de aplicaciones se revertirá automáticamente tras un error de actualización de un servicio predeterminado.
+3. Se eliminan los servicios predeterminados que no existen en el nuevo manifiesto de aplicación si estos existen en el clúster. **Tenga en cuenta que eliminar un servicio predeterminado dará como resultado la eliminación del estado del servicio y no se puede deshacer.**
+
+Cuando se revierte una actualización de la aplicación, los parámetros del servicio predeterminados se revertir a sus valores antiguos antes de iniciar la actualización, pero los servicios eliminados no se pueden volver a crear con su estado anterior.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) debe establecerse en True para habilitar las reglas siguientes. Esta característica se admite desde la versión 5.5.
-
-2. Se actualizan los servicios predeterminados existentes del [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) anterior y los de la nueva versión. Las descripciones de servicios de la nueva versión sobrescribirán a las que ya se encuentran en el clúster. La actualización de aplicaciones se revertiría automáticamente tras el error de actualización de servicios.
-3. Se eliminan los servicios predeterminados del [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) anterior, pero no los de la nueva versión. **Tenga en cuenta que no se pueden revertir esta eliminación de servicios predeterminados.**
-
-En el caso de que se revierta una actualización de aplicaciones, los servicios predeterminados se revierten al estado anterior al inicio de la aplicación. No obstante, nunca se pueden crear servicios eliminados.
+> La opción de configuración [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) del clúster debe ser *true* para habilitar las anteriores reglas 2 y 3 (actualización y eliminación del servicio predeterminado). Esta característica se admite a partir de Service Fabric versión 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Diagrama de flujo de actualización de la aplicación
 El siguiente diagrama de flujo puede ayudarle a comprender el proceso de actualización de una aplicación de Service Fabric. En concreto, el flujo describe cómo los tiempos de espera, incluidos *HealthCheckStableDuration*, *HealthCheckRetryTimeout* y *UpgradeHealthCheckInterval*, ayudan a controlar cuándo se considera un éxito o un fracaso la actualización en un dominio de actualización.
 
 ![El proceso de actualización de una aplicación de Service Fabric][image]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 [actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.

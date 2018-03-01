@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usar Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
@@ -79,9 +79,9 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Construcción de una trama de datos de entrada
-Podemos usar `sqlContext` para realizar las transformaciones de datos estructurados. La primera tarea consiste en cargar los datos de ejemplo (**[Food_Inspections1.csv**]) en una *trama de datos* de Spark SQL.
+Se puede usar `sqlContext` para realizar las transformaciones de datos estructurados. La primera tarea consiste en cargar los datos de ejemplo (**[Food_Inspections1.csv**]) en una *trama de datos* de Spark SQL.
 
-1. Dado que los datos sin procesar están en formato CSV, tiene que usar el contexto de Spark para extraer cada línea del archivo en memoria como texto no estructurado; a continuación, utilice la biblioteca CSV de Python para analizar cada línea individualmente.
+1. Dado que los datos sin procesar están en formato CSV, es necesario usar el contexto de Spark para extraer cada línea del archivo en memoria como texto no estructurado; a continuación, las líneas se analizan una a una con la biblioteca CSV de Python.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Ahora tenemos el archivo CSV como un conjunto RDD.  Vamos a recuperar una fila del RDD para comprender el esquema de los datos.
+1. Ahora el archivo CSV está como RDD.  Recuperemos una fila del RDD para comprender el esquema de los datos.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. La salida anterior nos da una idea del esquema del archivo de entrada. Incluye el nombre de cada establecimiento, el tipo de establecimiento, la dirección, los datos de las inspecciones y la ubicación, entre otras cosas. Seleccionemos algunas columnas que nos van a ser útiles para nuestro análisis predictivo y agrupemos los resultados como una trama de datos, que luego usaremos para crear una tabla temporal.
+1. La salida anterior nos da una idea del esquema del archivo de entrada. Incluye el nombre de cada establecimiento, el tipo de establecimiento, la dirección, los datos de las inspecciones y la ubicación, entre otras cosas. Seleccionemos algunas columnas que nos van a ser útiles para el análisis predictivo y agrupemos los resultados como trama de datos, que luego usaremos para crear una tabla temporal.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -207,8 +207,8 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
    * Pss w/ conditions (superado con condiciones)
    * Out of Business (negocio cerrado)
 
-     Vamos a desarrollar un modelo que pueda predecir el resultado de una inspección de alimentos, teniendo en cuenta las infracciones (violations). Puesto que la regresión logística es un método de clasificación binaria, tiene sentido agrupar los datos en dos categorías: **Fail** y **Pass**. "Pass w/ Conditions" sigue siendo una categoría Pass (superado), por lo que cuando se entrena el modelo, consideraremos los dos resultados como equivalentes. Los datos que tienen los otros resultados ("Business Not Located" o "Out of Business") no son útiles, por lo que los eliminaremos de nuestro conjunto de aprendizaje. Esta eliminación no tiene importancia ya que estas dos categorías constituyen un porcentaje muy pequeño de los resultados.
-1. Vamos a seguir y convertir nuestra trama de datos existente (`df`) en una trama de datos nueva, donde cada inspección se representa como un par de etiquetas de infracción. En nuestro caso, una etiqueta de `0.0` representa un resultado de "no superado", una etiqueta de `1.0` representa un resultado de "pasado" y una etiqueta de `-1.0` representa resultados que no sean los dos anteriores. Filtraremos esos otros resultados al calcular la nueva trama de datos.
+     Vamos a desarrollar un modelo que pueda predecir el resultado de una inspección de alimentos, teniendo en cuenta las infracciones (violations). Puesto que la regresión logística es un método de clasificación binaria, tiene sentido agrupar los datos en dos categorías: **Fail** y **Pass**. "Pass w/ Conditions" sigue siendo una categoría Pass (Superado), por lo que al entrenar el modelo, los dos resultados se consideran equivalentes. Los datos que tienen los otros resultados ("Business Not Located" o "Out of Business") no son útiles, por lo que los eliminaremos del conjunto de aprendizaje. Esta eliminación no tiene importancia ya que estas dos categorías constituyen un porcentaje muy pequeño de los resultados.
+1. Vamos a seguir y convertir nuestra trama de datos existente (`df`) en una trama de datos nueva, donde cada inspección se representa como un par de etiquetas de infracción. En nuestro caso, una etiqueta de `0.0` representa un resultado de "no superado", una etiqueta de `1.0` representa un resultado de "pasado" y una etiqueta de `-1.0` representa resultados que no sean los dos anteriores. Esos otros resultados se filtran al calcular la nueva trama de datos.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Creación de un modelo de regresión logística a partir de la trama de datos de entrada
-Nuestra última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de característica de etiqueta*, donde el "vector de característica" es un vector de números que representa el punto de entrada. Por lo tanto, tenemos que convertir la columna "violations", que está semiestructurada y contiene numerosos comentarios de texto sin formato, en una matriz de números reales que una máquina pueda comprender.
+Nuestra última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de característica de etiqueta*, donde el "vector de característica" es un vector de números que representa el punto de entrada. Por lo tanto, debemos convertir la columna "violations", que está semiestructurada y contiene numerosos comentarios de texto sin formato, en una matriz de números reales que una máquina pueda comprender.
 
 Un enfoque estándar en el aprendizaje automático para procesar el lenguaje natural consiste en asignar a cada palabra diferente un "índice" y, a continuación, pasar un vector al algoritmo de aprendizaje automático, de forma que el valor de cada índice contenga la frecuencia relativa de esa palabra en la cadena de texto.
 
-MLlib proporciona una forma sencilla de efectuar esta operación. En primer lugar, vamos a tratar como tokens todas las cadenas de infracciones para obtener las palabras de cada cadena. Luego, use un `HashingTF` para convertir cada conjunto de tokens en un vector de característica que se pueda pasar al algoritmo de regresión logística para construir un modelo. Llevaremos a cabo todos estos pasos en secuencia mediante una "canalización".
+MLlib proporciona una forma sencilla de efectuar esta operación. En primer lugar, vamos a tratar como tokens todas las cadenas de infracciones para obtener las palabras de cada cadena. Luego, use un `HashingTF` para convertir cada conjunto de tokens en un vector de característica que se pueda pasar al algoritmo de regresión logística para construir un modelo. Llevaremos a cabo todos estos pasos en secuencia mediante una canalización.
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib proporciona una forma sencilla de efectuar esta operación. En primer luga
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Evaluación del modelo en un conjunto de datos de prueba independiente
-Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles serán los resultados de las nuevas inspecciones, basándose en las infracciones que se han observado. Hemos probado este modelo en el conjunto de datos **Food_Inspections1.csv**. Ahora, vamos a usar un segundo conjunto, **Food_Inspections2.csv**, para *evaluar* la solidez de este modelo con nuevos datos. Este segundo conjunto de datos (**Food_Inspections2.csv**) debe estar ya en el contenedor de almacenamiento predeterminado asociado al clúster.
+Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los resultados de las nuevas inspecciones, en función de las infracciones que se han observado. Este modelo se ha probado en el conjunto de datos **Food_Inspections1.csv**. Ahora, vamos a usar un segundo conjunto, **Food_Inspections2.csv**, para *evaluar* la solidez de este modelo con nuevos datos. Este segundo conjunto de datos (**Food_Inspections2.csv**) debe estar ya en el contenedor de almacenamiento predeterminado asociado al clúster.
 
 1. El siguiente fragmento de código crea una trama de datos, **predictionsDf**, que contiene la predicción generada por el modelo. El fragmento de código también crea una tabla temporal, llamada **Predictions**, basada en la trama de datos.
 
@@ -279,7 +279,7 @@ Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles se
         predictionsDf.take(1)
 
    Hay una predicción para la primera entrada en el conjunto de datos de prueba.
-1. El método `model.transform()` aplica la misma transformación a todos los datos nuevos que tengan el mismo esquema y llega a una predicción sobre cómo clasificar los datos. Podemos hacer algunas estadísticas muy sencillas para hacernos una idea del grado de precisión alcanzado por nuestras predicciones:
+1. El método `model.transform()` aplica la misma transformación a todos los datos nuevos que tengan el mismo esquema y llega a una predicción sobre cómo clasificar los datos. Haremos algunas estadísticas muy sencillas para tener una idea del grado de precisión de nuestras predicciones:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles se
     El uso de la regresión logística con Spark nos ofrece un modelo preciso de la relación entre las descripciones de las infracciones en inglés y el hecho de si un negocio determinado superará o no una inspección de alimentos.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Creación de una representación visual de la predicción
-Ahora podemos crear una visualización final que nos ayude a analizar los resultados de esta prueba.
+Ahora se puede crear una visualización final para analizar los resultados de esta prueba.
 
-1. Empezaremos por extraer los distintos resultados y predicciones de la tabla temporal **Predictions** creada anteriormente. Las siguientes consultas separan la salida en distintos grupos: *true_positive*, *false_positive*, *true_negative* y *false_negative*. En las consultas siguientes, hay que desactivar la visualización mediante el uso de `-q` y guardar también la salida (usando `-o`) como tramas de datos que pueden usarse con la instrucción mágica `%%local`.
+1. Primero se extraen los distintos resultados y predicciones de la tabla temporal **Predictions** que se creó anteriormente. Las siguientes consultas separan la salida en distintos grupos: *true_positive*, *false_positive*, *true_negative* y *false_negative*. En las consultas siguientes, se desactiva la visualización mediante `-q` y se guarda también la salida (con `-o`) como tramas de datos que se usen con la instrucción mágica `%%local`.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno par
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones

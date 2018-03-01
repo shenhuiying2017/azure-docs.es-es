@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
 
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones empresariales. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización. Este artículo se aplica especialmente a las aplicaciones agregadas desde la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
-Todas las aplicaciones empresariales configuradas para el inicio de sesión único se pueden ver y administrar en Azure Portal. Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. 
+Todas las aplicaciones empresariales configuradas para el inicio de sesión único se pueden ver y administrar en Azure Portal. Las aplicaciones pueden encontrarse en la sección **Todos los servicios** &gt; **Aplicaciones empresariales** del portal. 
 
 ![Hoja Aplicaciones empresariales][1]
 

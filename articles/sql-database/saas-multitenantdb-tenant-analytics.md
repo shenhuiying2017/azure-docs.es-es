@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análisis entre inquilinos mediante datos extraídos
 
@@ -68,7 +68,7 @@ Saber con qué coherencia cada inquilino usa el servicio brinda una oportunidad 
 
 ## <a name="setup"></a>Configuración
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -76,7 +76,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 - Los scripts de SaaS de Wingtip y el [código fuente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de la aplicación se descargan de GitHub. No olvide *desbloquear el archivo ZIP* antes de extraer su contenido. Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 - Power BI Desktop debe estar instalado. [Descargue Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - Se debe haber aprovisionado el loto de inquilinos adicionales; vea el [**tutorial de aprovisionamiento de inquilinos**](saas-multitenantdb-provision-and-catalog.md).
-- Se deben haber creado una cuenta de trabajo y una base de datos para la cuenta de trabajo. Consulte los pasos apropiados en el [**tutorial de administración de esquemas**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Se debe haber creado un agente de trabajo y una base de datos para el agente de trabajo. Consulte los pasos apropiados en el [**tutorial de administración de esquemas**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creación de datos para la demostración
 
@@ -184,7 +184,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
 6. En el panel **Navegador**, debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
 
-¡Enhorabuena! Ha cargado los datos correctamente en Power BI. Ahora puede empezar a explorar visualizaciones interesantes para ayudar a obtener información sobre los inquilinos. Después, se ofrece orientación sobre cómo los análisis pueden permitirle proporcionar recomendaciones basadas en datos al equipo empresarial de Wingtip Tickets. Las recomendaciones pueden ayudarle a optimizar el modelo de negocio y la experiencia del cliente.
+Felicidades. Ha cargado los datos correctamente en Power BI. Ahora puede empezar a explorar visualizaciones interesantes para ayudar a obtener información sobre los inquilinos. Después, se ofrece orientación sobre cómo los análisis pueden permitirle proporcionar recomendaciones basadas en datos al equipo empresarial de Wingtip Tickets. Las recomendaciones pueden ayudarle a optimizar el modelo de negocio y la experiencia del cliente.
 
 Primero debe analizar los datos de ventas de entradas para ver la variación del uso entre los distintos lugares. Seleccione las opciones siguientes en Power BI para trazar un gráfico de barras del número total de entradas vendidas en cada lugar. Debido a la variación aleatoria del generador de entradas, los resultados pueden ser diferentes.
  
@@ -228,9 +228,9 @@ Anteriormente, profundizó en sus análisis para detectar que las ventas de entr
 
 Ha observado las tendencias de los datos de inquilino de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets. Puede contemplar otras formas en que la aplicación puede informar de las decisiones empresariales a los proveedores de aplicaciones SaaS. De esta forma, los proveedores pueden satisfacer mejor las necesidades de sus inquilinos. Se espera que este tutorial le haya proporcionado todas las herramientas necesarias para realizar análisis de datos de inquilino para permitir que las empresas tomen decisiones basadas en datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > - Implementar una base de datos de análisis de inquilino con tablas de un esquema de estrella predefinidas
@@ -239,7 +239,7 @@ En este tutorial, ha aprendido cómo:
 > - Consultar una base de datos de análisis 
 > - Usar Power BI para la visualización de datos para observar tendencias en los datos de inquilino 
 
-¡Enhorabuena!
+Felicidades.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

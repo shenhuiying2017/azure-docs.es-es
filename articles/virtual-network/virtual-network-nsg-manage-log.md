@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Análisis del registro para grupos de seguridad de red (NSG)
 
@@ -44,9 +44,9 @@ Lea el artículo [Información general sobre el registro de actividad de Azure](
 
 Debe habilitar el registro de diagnóstico para *cada* NSG para el que desee recopilar datos. El artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) explica dónde se pueden enviar los registros de diagnóstico. Si actualmente no tiene ningún NSG, siga los pasos del artículo [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) (Creación de un grupo de seguridad de red) para crear uno. Puede habilitar el registro de diagnóstico de NSG por medio de cualquiera de los métodos siguientes:
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Si quiere usar el portal para habilitar el registro, inicie sesión en el [portal](https://portal.azure.com). Haga clic en **Más servicios** y, a continuación, escriba *grupos de seguridad de red*. Seleccione el NSG para el que desea habilitar el registro. Siga las instrucciones para los recursos que no son de proceso del artículo [Habilitación de los registros de diagnóstico en el portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Seleccione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, o las dos categorías de registros.
+Si quiere usar el portal para habilitar el registro, inicie sesión en el [portal](https://portal.azure.com). Haga clic en **Todos los servicios** y, a continuación, escriba *grupos de seguridad de red*. Seleccione el NSG para el que desea habilitar el registro. Siga las instrucciones para los recursos que no son de proceso del artículo [Habilitación de los registros de diagnóstico en el portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Seleccione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, o las dos categorías de registros.
 
 ### <a name="powershell"></a>PowerShell
 

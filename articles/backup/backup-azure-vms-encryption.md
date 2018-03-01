@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
@@ -48,7 +48,7 @@ Este artículo trata sobre los pasos para realizar la copia de seguridad y resta
 Utilice los pasos siguientes para establecer un objetivo de copia de seguridad, definir directivas, configurar elementos y desencadenar una copia de seguridad.
 
 ### <a name="configure-backup"></a>Configuración de la copia de seguridad
-1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto un almacén de Recovery Services, pero está en Azure Portal, en el **menú del concentrador**, haga clic en **Examinar**.
+1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto ningún almacén de Recovery Services, pero está en Azure Portal, seleccione **Todos los servicios**.
 
    a. En la lista de recursos, escriba **Recovery Services**.
 
@@ -98,7 +98,7 @@ Si tiene máquinas virtuales cuya copia de seguridad ya se ha realizado en el al
 
 ## <a name="provide-permissions-to-backup"></a>Otorgamiento de permisos a Backup
 Use los pasos siguientes para proporcionar a Backup los permisos de acceso oportunos al almacén de claves y realizar copias de seguridad de máquinas virtuales cifradas.
-1. Seleccione **Más servicios** y busque **Almacenes de claves**.
+1. Seleccione **Todos los servicios** y busque **Almacenes de claves**.
 
     ![Almacenes de claves](./media/backup-azure-vms-encryption/search-key-vault.png)
     

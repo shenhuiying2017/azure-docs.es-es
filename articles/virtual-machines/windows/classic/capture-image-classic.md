@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica.
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ Antes de capturar una imagen de una máquina virtual de Azure, se recomienda hac
 
    ![Ejecute Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep apaga la máquina virtual, lo que cambia su estado en Azure Portal a **Detenido**.
-6. En Azure Portal, haga clic en **Máquinas virtuales (clásico)** y seleccione las máquinas virtuales que desea capturar. El grupo **Imágenes de la VM (clásico)** aparece en **Proceso** en la vista de **Más servicios**.
+6. En Azure Portal, haga clic en **Máquinas virtuales (clásico)** y seleccione las máquinas virtuales que desea capturar. El grupo **Imágenes de la VM (clásico)** aparece en **Proceso** en la vista **Todos los servicios**.
 
 7. En la barra de comandos, haga clic en **Capturar**.
 
@@ -74,7 +74,7 @@ Antes de capturar una imagen de una máquina virtual de Azure, se recomienda hac
     ![Captura correcta de la imagen](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>pasos siguientes
-La imagen está lista para usarse para crear máquinas virtuales. En este caso, necesita crear una máquina virtual; para ello, seleccione el elemento de menú **Más servicios** en la parte inferior del menú de servicios y luego seleccione **Imágenes de la VM (clásico)** en el grupo **Proceso**. Para obtener instrucciones, consulte [Creación de una máquina virtual desde una imagen](createportal.md).
+La imagen está lista para usarse para crear máquinas virtuales. En este caso, debe crear una máquina virtual; para ello, seleccione el elemento de menú **Todos los servicios** en la parte inferior del menú de servicios y luego seleccione **Imágenes de la VM (clásico)** en el grupo **Proceso**. Para obtener instrucciones, consulte [Creación de una máquina virtual desde una imagen](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

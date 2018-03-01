@@ -1,7 +1,7 @@
 ---
-title: "Guía del anunciante de Azure Marketplace"
+title: "Guía del anunciante de Azure Marketplace y AppSource"
 description: "Guía paso a paso y listas de comprobación de publicación para nuevos anunciantes en Azure Marketplace"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Guía del anunciante de Azure Marketplace
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource
 
-Esta es la Guía del anunciante de Marketplace. Esta guía está diseñada para ayudar a los anunciantes candidatos y a los ya existentes a comprender cómo aprovechar los escaparates Azure Marketplace y AppSource para mostrar sus aplicaciones y servicios y así desarrollar su negocio en colaboración con Microsoft. Al final de esta guía, aprenderá más sobre cada uno de estos temas y sabrá dónde encontrar información más detallada:
+Esta es la Guía del anunciante de [Azure Marketplace](https://azuremarketplace.microsoft.com) y [AppSource](https://appsource.microsoft.com). Esta guía está diseñada para ayudar a los anunciantes nuevos y ya existentes a comprender cómo aprovechar los escaparates Azure Marketplace y AppSource, los pasos necesarios para publicar las aplicaciones y servicios y cómo desarrollar su negocio en colaboración con Microsoft. Al final de esta guía, aprenderá más sobre cada uno de estos temas y sabrá dónde encontrar información más detallada:
 
-- Cuáles son las ventajas de participar en Marketplace
+- ¿Cuáles son las ventajas de publicar en uno de los escaparates de Marketplace?
 - Qué son Azure Marketplace y AppSource
 - Cómo aprovechar estos escaparates
 - Qué escaparate es el más adecuado para sus ofertas y servicios 
@@ -36,15 +36,18 @@ Esta es la Guía del anunciante de Marketplace. Esta guía está diseñada para 
 - Cómo optimizar un listado y usar recursos de comercialización para aumentar el impacto
 - Dónde obtener ayuda y soporte técnico. Si tiene alguna pregunta sobre Azure Marketplace, AppSource o esta guía de publicación, póngase en contacto con el equipo de Marketplace en **cloudmarketplace@microsoft.com**. 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>Las ventajas de participar en Marketplace
+## <a name="benefits-of-participating-in-the-marketplace"></a>Ventajas de participar en Marketplace
 
-Marketplace es la plataforma de lanzamiento para actividades de comercialización conjuntas con Microsoft, y un engranaje para el desarrollo empresarial. Con la promoción de lanzamientos, la generación de demanda y las ventas y el marketing conjuntos, la carpeta de ofertas de Marketplace puede ser la pieza central del motor de negocios en la nube. No hay cuotas por participar en Marketplace. Nuestro objetivo consiste en conectar a los clientes de Microsoft con las mejores soluciones que ofrece nuestro ecosistema de asociados.
+Azure Marketplace y AppSource son las plataformas de lanzamiento para las actividades conjuntas de comercialización con Microsoft y un mecanismo de crecimiento del negocio. Con la promoción de lanzamientos, la generación de demanda y las ventas y el marketing conjuntos, las publicaciones de Marketplace pueden ser la pieza central del motor de negocios en la nube. No hay cuotas por participar en Marketplace. Nuestro objetivo consiste en conectar a los clientes de Microsoft con las mejores soluciones y servicios que ofrece nuestro ecosistema de asociados.
 
 Aproveche las funcionalidades de Marketplace para desarrollar su negocio:
 
 - **Generación de clientes potenciales y oportunidades de venta.** Entre en nuevos mercados con una cartera ampliada de soluciones en la plataforma en la nube de Microsoft. Ofertas de Marketplace de incremento de ventas y venta cruzada. 
-- **Mejora del valor para el negocio y aumento del tamaño del negocio con clientes nuevos y existentes**. Aumente el tamaño del negocio y solucione los puntos críticos de los clientes al mover las cargas de trabajo a la nube. Aumente la rentabilidad con la venta de soluciones completas. 
-- **Obtención de información práctica.** Su éxito es también el nuestro. Obtenga información a través de Cloud Partner Portal sobre lo que se está realizando, los clientes potenciales que ha generado y cómo maximizar las actividades de campaña.
+- **Mejora del valor para el negocio y aumento del tamaño del negocio con clientes nuevos y existentes**. Aumente el tamaño del negocio y solucione los puntos críticos de los clientes al mover las cargas de trabajo a la nube. Reduzca los ciclos de ventas y aumente la rentabilidad con la venta soluciones completas dirigidas a cargas de trabajo y escenarios de la industria específicos.
+- **Obtención de información práctica.** Su éxito es también el nuestro. Obtenga información sobre el rendimiento de sus publicaciones a través de Cloud Partner Portal. Conozca si funcionan, qué clientes potenciales se han generado y cómo maximizar las actividades de las campañas.
+
+>[!NOTE]
+>Las aplicaciones que amplían Office accederán a información detallada mediante el proceso de publicación de aplicaciones de Office.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>¿Qué son Azure Marketplace y AppSource?
 
@@ -56,12 +59,12 @@ Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Audiencia de destino     |Profesionales de TI, desarrolladores (los roles especialistas incluyen DBA, SecOps, DevOps, etc.).    | Responsables de toma de decisiones de línea de negocio (los roles especialistas incluyen Adquisición, Fabricación, Contabilidad, etc.)      |
-|Creado para ampliarse     |Azure         | Azure, Dynamics 365, Office 365, Power BI y Power Apps       |
-|Tipos de soluciones y servicios     |  Soluciones de infraestructura y servicios profesionales   | Aplicaciones de línea de negocio finalizadas y servicios profesionales        |
-|Opciones de publicación     |  Contacto, oferta de servicios de consultoría, evaluación, máquina virtual, plantillas de soluciones y aplicaciones administradas       |  Contacto, oferta de servicios de consultoría o evaluación       |
-|Experiencia en aplicación     | Azure Portal y CLI         | Office 365, Dynamics 365, Power BI, aplicaciones cliente de Office       |
+|Compilación con o ampliar     |Azure         | Azure, Dynamics 365, Office 365, Power BI y Power Apps       |
+|Tipos de soluciones y servicios     |  Soluciones de infraestructura y servicios profesionales   | Aplicaciones en la nube de línea de negocio finalizadas, complementos de Office 365 y servicios profesionales        |
+|Opciones de publicación     |  Contacto, oferta de servicios de consultoría, evaluación, máquina virtual, plantillas de soluciones y aplicaciones administradas       |  Evaluación gratuita, Obtener ahora, Versión de prueba, Contacto, Oferta de servicios de consultoría      |
+|La experiencia en aplicación proporciona a los usuarios acceso a las aplicaciones y servicios en el contexto de la aplicación  | Azure Portal y CLI         | Office 365, Dynamics 365, Power BI, aplicaciones cliente de Office       |
 
-## <a name="leveraging-these-storefronts"></a>Cómo aprovechar estos escaparates
+## <a name="leveraging-these-storefronts"></a>Aprovechamiento de estos escaparates
 
 Cada escaparate atiende necesidades únicas de cada cliente y permite dirigirse a ellos según el rol, de forma que puede ofrecer la solución o el servicio correctos en función de quién sea el cliente.
 
@@ -75,15 +78,16 @@ Invite a los profesionales de TI y desarrolladores de nube a descubrir, probar y
 |**Necesita un mecanismo de implementación escalable para servicios y aplicaciones de terceros**   | Permite la creación y la configuración de implementaciones escalables para servicios y aplicaciones de terceros        |
 |**Requiere que las nuevas aplicaciones y servicios se integren y funcionen con las soluciones existentes**  |   Integra con facilidad servicios y aplicaciones de terceros con las soluciones existentes en Azure      |
 
-Invita a los usuarios de empresa a descubrir y probar las aplicaciones y servicios de línea de negocio mediante **AppSource**: 
+Atraiga a los usuarios de empresa a **AppSource** para que busquen, prueben y obtengan servicios de implementación y aplicaciones SaaS de línea de negocio para que les ayuden a impulsar los resultados empresariales y acelerar la rentabilidad: 
 
 
 |Necesidad del cliente  |AppSource  |
 |---------|---------|
-|**Desea ampliar la funcionalidad de Dynamics 365, Office 365, Power BI y Power Apps**   |  Permite a los clientes usar aplicaciones y servicios de terceros para ampliar las funcionalidades de la plataforma en la nube de Microsoft       |
-|**Considera difícil detectar la aplicación o el servicio correctos**    |   Proporciona una tienda integral donde descubrir y probar aplicaciones, servicios, complementos y mucho más.      |
-|**Necesita una solución de línea de negocio específica del sector**   | Permite soluciones para cada sector, de forma que los clientes puedan encontrar lo que necesitan        |
-|**Requiere soluciones específicas del negocio**    | Permite soluciones para cada línea de negocio y problema empresarial, lo que incluye servicio al cliente, Recursos Humanos, operaciones y mucho más        |
+|**Buscar soluciones empresariales que funcionen con productos de Microsoft ya existentes** | Permite que los clientes usen aplicaciones y servicios de terceros para ampliar las tecnologías y las aplicaciones en la nube de Microsoft.       |
+|**Posibilidad de detectar fácilmente la solución o el servicio de implementación adecuados.**    |   Proporciona una tienda integral donde descubrir, probar y obtener aplicaciones, servicios, complementos y mucho más.      |
+|**Solución de línea de negocio específica del sector para abordar sus dificultades empresariales concretas**   | Proporciona soluciones completas del sector acabadas que ayudan a abordar requisitos específicos en muchos sectores     |
+|**Aplicaciones que ayuden a mejorar la productividad, la eficacia y la información empresarial**    | Proporciona aplicaciones de línea de negocio, que incluyen servicio al cliente, RR. HH., operaciones y mucho más        |
+| **Asociado de implementación con experiencia para ayudar a adaptar las aplicaciones a cada situación única** | Proporciona un catálogo de ofertas de servicios de consultoría para soluciones basadas en Dynamics 365, Power BI, PowerApps y aplicaciones de terceros que están disponibles en AppSource para ayudar a los usuarios empresariales a encontrar servicios de consultoría diseñados para proporcionar resultados predecibles. |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Diferencias entre escaparates
 
@@ -93,15 +97,17 @@ Tenga en cuenta las ventajas adicionales de cada escaparate:
 
 |Ventaja del escaparate  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Flexibilidad de facturación**    | En Virtual Machines, las opciones de facturación de pago por uso emplean acuerdos de empresa de Microsoft o modelos de venta directa web. Las opciones de precios también incluyen una suscripción de nivel gratuito donde una oferta es gratuita de forma permanente, así como una suscripción "Pruébelo ahora" que es una promoción gratuita por tiempo limitado, transcurrida la cual se convierte en una suscripción de pago. La activación "Traiga su propia licencia" es también una opción para respaldar a los anunciantes. Para ambas opciones de facturación, en escenarios donde se implementa Virtual Machines mediante Azure Apps (por ejemplo, plantilla de solución o aplicación administrada), todos los recursos de Azure aprovisionados se facturan directamente al cliente. | AppSource ofrece aprovisionamiento completo de una experiencia de evaluación, pero no ofrece actualmente una opción de publicación habilitada para comercio; esto le permite aprovechar la infraestructura actual de pedidos y facturación sin inversión ni cambios adicionales        |
-|**Facilitación de los contactos con otros asociados**     |Azure Marketplace no permite actualmente que el anunciante vincule un proveedor de servicios o los asociados de entrega con la oferta         |  Los fabricantes de software independientes, los integradores de sistemas y los proveedores de servicios administrados se pueden vincular en escenarios de implementación específicos y permitir la venta en colaboración a nuevos clientes      |
+|**Flexibilidad de facturación**    | En Virtual Machines, las opciones de facturación de pago por uso emplean acuerdos de empresa de Microsoft o modelos de venta directa web. Las opciones de precios también incluyen una suscripción de nivel gratuito donde una oferta es gratuita de forma permanente, así como una suscripción "Pruébelo ahora" que es una promoción gratuita por tiempo limitado, transcurrida la cual se convierte en una suscripción de pago. La activación "Traiga su propia licencia" es también una opción para respaldar a los anunciantes. Para ambas opciones de facturación, en escenarios donde se implementa Virtual Machines mediante Azure Apps (por ejemplo, plantilla de solución o aplicación administrada), todos los recursos de Azure aprovisionados se facturan directamente al cliente. | AppSource ofrece aprovisionamiento de una experiencia de evaluación, pero no ofrece actualmente una opción de publicación habilitada para comercio; esto le permite aprovechar la infraestructura actual de pedidos y facturación sin inversión ni cambios adicionales.        |
+|**Facilitación de los contactos con otros asociados**     |Azure Marketplace no permite actualmente que el anunciante vincule un proveedor de servicios o los asociados de entrega con la oferta, pero lanzará esta funcionalidad en 2018.         |  Los fabricantes de software independientes, los integradores de sistemas y los proveedores de servicios administrados se pueden vincular en escenarios de implementación específicos y permitir la venta en colaboración a nuevos clientes      |
 |**Automation**     |    Azure Marketplace no permite actualmente que el anunciante vincule un proveedor de servicios o los asociados de entrega con la oferta     | Permite aprovechar SaaS automatizado con aprovisionamiento de complementos y usar plantillas de solución para automatizar los escenarios de implementación y recopilación de datos basados en SaaS        |Los fabricantes de software independientes, los integradores de sistemas y los proveedores de servicios administrados se pueden vincular en escenarios de implementación específicos y permitir la venta en colaboración a nuevos clientes
 |**Varios tipos de nube**     |   Permite publicar soluciones locales y de la nube pública mediante Azure Stack, o publicar en Azure Government y en las nubes regionales, como China y Alemania      |    AppSource no ofrece actualmente compatibilidad con Azure Stack, Azure Government o nubes regionales     |
-|**Presentación en contexto a los clientes**     |  Permite que la solución esté disponible en la experiencia del portal de Azure para la búsqueda contextual (Virtual Machines y plantillas de solución)       |  Permite que la solución esté disponible en la experiencia de la aplicación para productos Microsoft       |
+|**Presentación en contexto a los clientes**     |  Permite que la solución esté disponible en la experiencia del portal de Azure para la búsqueda contextual (Virtual Machines y plantillas de solución)       |  Llega a más clientes gracias a la experiencia en aplicación de productos de Microsoft como Dynamics 365, Power BI y Office 365.    |
 
 ## <a name="select-a-publishing-option"></a>Selección de una opción de publicación
 
 Cada escaparate admite varias opciones de publicación y tipos de oferta: lista, evaluación y transacción. Seleccione el tipo de oferta que mejor represente la aplicación y los detalles del servicio. Todas las opciones de publicación otorgan a los asociados acceso al uso compartido de clientes potenciales. 
+
+Esta sección le guía a través de las opciones disponibles en ambos escaparates. 
 
 
 |**Opción de publicación**  | **Tipo de oferta** | **Escaparate**  |
@@ -114,6 +120,9 @@ Cada escaparate admite varias opciones de publicación y tipos de oferta: lista,
 
 Use la **opción de contacto** cuando no sea posible un nivel de participación de evaluación o transacción. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que se pueden educar en las ventas de base para hacer rodar el engranaje empresarial. Sin embargo, el inconveniente es que la implicación del cliente es limitada, en comparación con otros tipos de ofertas.
 
+>[!IMPORTANT]
+>El tipo de publicación Contacto no se recomienda y solo debe usarse en situaciones en las que no haya forma de establecer una experiencia de prueba. Customer Engagement es mejor con ofertas de evaluación y transacción. Si tiene algún tipo de experiencia de evaluación, nuestro proceso de incorporación le llevará a una de esas opciones, según el escenario.
+
 Cuando la oferta consista principalmente en servicios profesionales (p. ej., evaluaciones, implementaciones, talleres), use el tipo de oferta **Servicios de consultoría**. Se debe fijar el ámbito de la oferta, la duración y el precio para un solo cliente y se debe realizar in situ.
 
 ### <a name="trial"></a>EVALUACIÓN
@@ -122,7 +131,7 @@ Proporcionar una experiencia de evaluación aumenta el nivel de participación q
  
 Todas las opciones de evaluación se implementan en el entorno o la suscripción de Azure de prueba, en lugar de en el entorno o la suscripción de Azure del cliente. Las evaluaciones las deben realizar los clientes, sin compras adicionales y, si acaso, con configuraciones adicionales mínimas para completar un caso de uso sencillo. Las versiones de evaluación deben incluir al menos soporte técnico gratuito durante el período de evaluación. Se debe educar y supervisar a los usuarios de evaluación a lo largo de un camino de evaluación reflexiva para obtener los mejores resultados. Se anima a los anunciantes a que usen tanto los clientes potenciales de Marketplace como la propia inteligencia interna de la aplicación para supervisar y administrar a los usuarios de prueba.
 
-Hay 3 escenarios típicos de evaluación:
+Hay 4 escenarios típicos de evaluación:
 
 
 |**Opción de evaluación**  |**Ventajas principales**  |**Elija esta opción si...**  |
@@ -130,6 +139,7 @@ Hay 3 escenarios típicos de evaluación:
 |**prueba gratuita**    |     Permite que un cliente pruebe el producto antes de comprarlo con un método automático para convertir a la versión de pago y permite pruebas de conceptos para la participación del cliente y de forma conjunta con los equipos de ventas de Microsoft |     La solución es una máquina virtual o una plantilla de solución, o la solución es una oferta Y ofrece un producto SaaS multiinquilino; tiene una primera experiencia de ejecución para que un cliente se ponga en marcha rápidamente; tiene un solo inquilino pero se agregan clientes como "usuarios invitados"|
 **Versión de prueba**     |     Permite que un cliente pruebe el producto antes de comprarlo Y proporciona una experiencia guiada de la solución en una instalación preconfigurada |   La solución es una máquina virtual, una plantilla de solución o una aplicación SaaS con un solo inquilino; resulta complicado aprovisionarla; o no dispone de un método para convertir la versión de prueba en una oferta de pago. |
 |**Demostración interactiva**    |  Permite a los clientes ver su producto en acción sin la complejidad de la instalación.       |    La solución requiere una instalación compleja que sería difícil conseguir en el período de evaluación.     |
+
 
 #### <a name="free-trial"></a>Versión de prueba gratuita
 
@@ -159,7 +169,10 @@ En Azure Marketplace, use una **máquina virtual** cuando la solución se implem
 
 Use una **plantilla de solución de Azure** cuando una solución requiera automatización adicional de la implementación y la configuración más allá de la aplicación virtual. Las plantillas de solución pueden automatizar el aprovisionamiento de uno o varios recursos de máquina virtual y, además, pueden aprovisionar recursos de almacenamiento y red. También, las ventajas de la automatización pueden beneficiar a las máquinas virtuales únicas, así como a los entornos enteros de soluciones basadas en IaaS. Más información sobre cómo crear plantillas de solución [aquí](https://github.com/MicrosoftDocs/azure-docs).
 
-Use una aplicación administrada de Azure al implementar una máquina virtual o una solución entera basada en IaaS en la suscripción de un cliente cuando el anunciante o el cliente quieran que un tercero, como un SI o MSP, administre la solución. Más información sobre la [generación de aplicaciones administradas aquí](https://docs.microsoft.com/azure/managed-applications/overview). Para conocer las preguntas más frecuentes, consulte la sección de [Preguntas más frecuentes de Marketplace](https://azure.microsoft.com/marketplace/faq/).
+Use una **aplicación administrada de Azure** al implementar una máquina virtual o una solución entera basada en IaaS en la suscripción de un cliente cuando el anunciante o el cliente quieran que un tercero, como un SI o MSP, administre la solución. Más información sobre la [generación de aplicaciones administradas aquí](https://docs.microsoft.com/azure/managed-applications/overview). Para conocer las preguntas más frecuentes, consulte la sección de [Preguntas más frecuentes de Marketplace](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Las aplicaciones administradas se deben de poder implementar mediante Marketplace. Si la comunicación con el cliente es un problema, tenga en cuenta que podrá establecer contacto con los clientes interesados si tiene habilitado el uso compartido de clientes potenciales.
 
 ### <a name="azure-certified"></a>Azure Certified
 
@@ -295,7 +308,22 @@ Existen varias opciones para las aplicaciones de un único inquilino:
 - Desarrolle una versión de prueba por cliente.
 - Compile una aplicación de demostración de ejemplo multiinquilino con SSO.
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Lista de comprobación previa a la publicación de Cloud Partner Portal
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publicación de procesos por producto para Office, Dynamics y Power BI
+Para aplicaciones de AppSource que amplían Office, Dynamics y Power BI, puede aprender más sobre los requisitos específicos en la documentación específica del producto en esta sección. 
+
+
+|Producto |Información de publicación  |
+|---------|---------|
+|Office 365     |    Revise las [directrices y el proceso de publicación]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 for Finance and Operations  |   Al realizar la compilación para Enterprise Edition, revise el [proceso y las directrices de publicación](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 for Customer Engagement |Revise las [directrices y el proceso de publicación](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Revise las [directrices y el proceso de publicación]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Aprenda sobre [Cortana en AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Ofertas de consultoría de AppSource     |  Revise las [directrices y aprenda a enviar la oferta.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Lista de comprobación previa a la publicación de Cloud Partner Portal para Azure Marketplace
 
 Antes de iniciar el proceso de publicación, es útil comprender los componentes necesarios para crear una oferta. Los siguientes artefactos son necesarios para completar el flujo de trabajo de publicación para crear una oferta en Cloud Partner Portal. 
 
@@ -320,7 +348,7 @@ Antes de iniciar el proceso de publicación, es útil comprender los componentes
 
 |Necesitará este artefacto de publicación  |Para este tipo de oferta  |
 |---------|---------|
-|**(soporte técnico, ingeniería, departamento comercial)**    |    Todo     |
+| **(soporte técnico, ingeniería, departamento comercial)**    |    Todo     |
 
 ### <a name="technical-info"></a>Información técnica
 
@@ -388,7 +416,7 @@ En esta sección, se explican los pasos para convertirse en anunciante en Azure 
 
 A lo largo del proceso entero de publicación de Marketplace, usará una dirección de correo electrónico que identifica la cuenta de Marketplace. Esta dirección de correo electrónico debe registrarse como un identificador de Microsoft y se usará tanto para el [Centro para desarrolladores de Microsoft](https://developer.microsoft.com/) como para [Cloud Partner Portal](https://cloudpartner.azure.com/). Solo se debe tener una cuenta de identificador de Microsoft para las ofertas de Azure Marketplace y AppSource, y se recomienda encarecidamente no compartirla con otros servicios u ofertas.
 
-La dirección de correo electrónico seleccionada debe estar preferiblemente en el dominio corporativo y debe controlarla el equipo de TI. Revise los apéndices sobre directrices para crear un identificador de Microsoft para administrar una cuenta de Azure Marketplace y directrices para identificadores de Microsoft en dominios federados de AAD para obtener instrucciones antes de crear un identificador. 
+La dirección de correo electrónico seleccionada debe estar preferiblemente en el dominio corporativo y debe controlarla el equipo de TI. Revise las secciones sobre [directrices y procedimientos](#Guidelines-and-How-Tos), que incluyen las directrices para crear un identificador de Microsoft para administrar una cuenta de Azure Marketplace y directrices para identificadores de Microsoft en dominios federados de AAD para obtener instrucciones antes de crear un identificador. 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Envío del formulario de nominación de Marketplace
 Como parte del proceso de incorporación de Marketplace, deberá enviar un formulario de nominación, con información sobre su oferta de aplicación o servicio, información de su empresa y el nivel de soporte técnico que va a proporcionar.  
@@ -423,175 +451,6 @@ Use su cuenta de Marketplace (identificador de Microsoft) para acceder a su perf
 
 Para más información sobre cómo usar Cloud Partner Portal, consulte el menú [Learn](https://cloudpartner.azure.com/#Learn) (Información) dentro del portal y haga clic en la sección Documentation (Documentación). 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Cómo desarrollar su negocio con Marketplace
-
-Seguir los procedimientos recomendados de marketing le ayudará a prepararse para usar correctamente las iniciativas de comercialización y venta conjunta de Microsoft, y a maximizar los beneficios de su negocio a través de Marketplace. [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) es la entrada a todos los recursos de programación y marketing no relacionados con Marketplace. 
-
-La calidad de la publicación de las aplicaciones y el compromiso a la generación de demanda centrada en el cliente, junto con la participación de los asociados ayudan a impulsar el crecimiento de clientes para su negocio. La participación en estas actividades ayudará a Microsoft a ampliar el trabajo de comercialización y a presentar soluciones clave en los escaparates de Marketplace. 
-
-Esta sección le guía por los procedimientos recomendados de marketing de una oferta, de acuerdo con la siguiente lista de comprobación:
-
-- He optimizado mi lista para impulsar el tráfico y la participación.
-- He creado mensajes en mi sitio web y he aprovechado una página de inicio única para impulsar el tráfico a mi lista de Marketplace.
-- He publicado una versión de prueba u otra versión de evaluación para que los clientes puedan experimentar el funcionamiento de mi oferta en vivo en Azure.
-- He planeado y creado mis propias campañas de marketing y promociones para darme a conocer y promover la participación.
-- He habilitado la generación de clientes potenciales a petición de manera que cada vez que alguien quiere probar o implementar la aplicación, recibo su nombre y su información de contacto.
-- He aprendido sobre los recursos de los asociados que están disponibles para mí y me he conectado a ellos mediante [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Creación de una buena lista
-
-En ocasiones, la lista de Marketplace será su primera interacción con un posible cliente. Al igual que cualquier primera impresión, quiere que sea impactante y algo que su audiencia quiera investigar. Hay algunos aspectos básicos que debe considerar para que esta primera impresión en Marketplace sea sensacional.
-
-- **Ser encontrado:** escriba la descripción de su oferta con palabras y términos clave que vaya a buscar el comprador. 
-- **Ser visual:** las imágenes y los vídeos ayudan a mostrar a los usuarios las características clave y pueden contribuir a ilustrar su experiencia. Piense en lo que puede mostrar que ayude a entregar su propuesta de valor o a responder a preguntas importantes del comprador.
-- **Proporcionar una experiencia:** los clientes prefieren probar antes de comprar. Los clientes potenciales generados a partir de demostraciones, versiones de evaluación y versiones de prueba tienen a derivar en más compras de clientes. Cuanto más impactante sea la experiencia de prueba que pueda proporcionar, más fuerte será el cliente potencial que se genere. Hemos encontrado que los clientes potenciales de las versiones de prueba dan lugar (por término medio) al 40 % de ventas cerradas.
-- **Ayudar a que aprenda su audiencia:** si bien le animamos a mantener su espacio de información general claro y sencillo, también hay multitud de espacio para incluir recursos adicionales sobre su producto. Use este espacio para proporcionar un mensaje conciso acerca de lo que hace su producto y cómo encaja en las necesidades de sus clientes; no tema dirigirles a materiales adicionales para que sepan más. Mejor todavía si estos materiales o vínculos de aprendizaje pueden formar parte de la estrategia de marketing de contenido, de modo que pueda ayudar a los clientes potenciales de forma coherente.
-- **Aprovechar las valoraciones y opiniones:** deje que sus clientes vendan su producto por usted. Los comentarios de clientes pueden ser el más grande impulsor de las ventas y, con frecuencia, es donde van los compradores antes de informarse mejor sobre su producto. Tener varias opiniones sólidas también ayudará a hacer subir la oferta en los resultados de búsqueda y en áreas clave destacadas.
-
-### <a name="build-a-great-landing-page"></a>Creación de una gran página de aterrizaje
-Una página de aterrizaje en el sitio web de su empresa es un pasaporte desde las actividades de generación de demanda hasta la lista del catálogo de soluciones de Azure Marketplace. 
-
-Comience por identificar sus objetivos. Para las soluciones de Marketplace, decida quién es el cliente objetivo y qué acción quiere que realice. Acciones de ejemplo sería "Probar nuestra solución" u "Obtener una solución ahora". Su página de aterrizaje se puede aprovechar en muchas tácticas de marketing, desde eventos, webcasts y medios sociales, hasta notas de producto, sesiones de entrenamiento técnico y comunicados de prensa. Cuanto más coherente sea su mensaje y llamada a la acción, más fácil será encontrar su solución.
-
-Si tiene un plan de campaña listo, siga estos procedimientos recomendados y considere lo que debe evitar al construir la página para aumentar la efectividad de la página de aterrizaje: 
-
-
-|Procedimiento recomendado  |Aspectos que se deben evitar  |
-|---------|---------|
-|**Expresar qué problema del cliente resuelve su solución y cómo aprovechar Azure para conseguirlo**    |  No expresar las maneras en que la solución funcionará conjuntamente con Azure       |
-|**Crear una dirección URL corta y fácil de recordar**    |    Las direcciones URL largas no son fáciles de recordar y son difíciles de encontrar     |
-|**Agregar contenido visual interesante: se recomienda un vídeo de testimonios de clientes o una arquitectura de la solución**   |   El uso de demasiado texto puede hacer que su audiencia no le preste atención y deje de seguirle      |
-|**Crear una llamada a la acción clara para dirigir a los visitantes a la página del catálogo de Marketplace**    |   Tener demasiados vínculos o acciones posibles en la página       |
-|**Situar la llamada a la acción en una sección de encabezado o claramente delimitada**    |  Incrustar los vínculos en la lista de Marketplace en un párrafo de texto       |
-|**Investigar las mejores palabras clave y optimizar la página para la búsqueda**    | Suponer que el nombre del producto generará mayores clasificaciones de búsqueda        |
-|**Aprovechar las palabras clave de sus campañas publicitarias**    |  Usar muchas palabras clave diferentes en las propiedades web debilitará sus inversiones en publicidad       |
-|**Colocar los nombres y palabras clave significativos del producto en la "primera pantalla"**     | Hacer que los usuarios se desplacen para ver qué producto o solución se muestra        |
-|**Usar imágenes de marca (por ejemplo, Azure Certified *) para validar la solución, y de acuerdo con las directrices de personalización de marca de Microsoft**    |    Usar imágenes de marca de Microsoft no aprobadas     |
-
-* Más información sobre el [distintivo de Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). Los miembros de [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) pueden acceder a recursos adicionales de personalización de marca mediante [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral) y acceder a la herramienta [Logo Builder](https://logobuilder.partner.microsoft.com). Haga clic aquí para saber cómo unirse a [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Promoción de nuevas ofertas
-
-#### <a name="building-an-effective-marketing-campaign"></a>Crear una campaña de marketing efectiva
-Una campaña de marketing es una serie de actividades promocionales o tácticas de marketing dirigidas a conducir a la audiencia a una acción o un resultado deseados. Antes de diseñar la campaña, debe:
-
-#### <a name="know-your-audience"></a>Conocer a su audiencia
-
-En primer lugar, compruebe quién es el comprador y quién es la persona con influencia. Las tácticas y llamadas a la acción para cada grupo pueden ser diferentes. Hágase estas preguntas de evaluación:
-
-- ¿Cuánto control tiene el comprador sobre la decisión de compra? 
-- ¿Cuánta influencia tiene la persona con influencia? 
-- ¿Qué influencia tiene la persona con influencia? 
-- ¿Influye en el presupuesto o en la solución que se selecciona? 
-
-Conocer las respuestas a estas preguntas le ayudará a tomar decisiones sobre dónde invertir su dinero y cómo distribuirlo.
-
-#### <a name="define-where-your-audience-learns"></a>Definir dónde se entera la audiencia
-
-Para cuando los compradores visitan un catálogo de soluciones, ya han recorrido un 90 % de su viaje. Para llegar hasta aquí en el proceso de toma de decisiones, se han enterado de las soluciones y han evaluado las opciones con antelación. Así que querrá diseñar una campaña que esté donde los compradores y personas con influencia se enteren. Cada audiencia de cada sector, mercado vertical o categoría es diferente. ¿Su audiencia se entera en Internet, mediante el correo electrónico, en ferias comerciales a través de medios sociales o en conversaciones con asesores de confianza? En función de dónde y cómo se entere su audiencia, querrá diseñar actividades y distribuir el dinero de su estrategia de marketing en consecuencia. La combinación de estas tácticas se convierte en su estrategia de campaña.
-
-#### <a name="create-clear-campaign-goals"></a>Crear objetivos de campaña claros
-
-Deberá definir el éxito de su campaña de Marketplace y crear indicadores clave de rendimiento (KPI) claros. Puede ejecutar varias campañas con diferentes objetivos finales. Por supuesto, todos queremos aumentar las ventas. En última instancia, el objetivo es más ingresos o más compras de clientes. Sin embargo, las campañas de marketing se pueden vincular a objetivos en otras fases del ciclo de compra.
-
-Por ejemplo, si recientemente ha lanzado su producto en nuestro Marketplace, podría considerar que es mejor centrarse en educar a la audiencia que en generar clientes potenciales. El éxito puede definirse por el número de clientes potenciales generados a partir de la lista de Marketplace. En este caso, las tácticas de marketing (y la página de aterrizaje) se centrarían en atraer a los clientes a la lista de Marketplace.
-
-Si tiene configurada una versión de evaluación en Marketplace y sabe que el producto requiere algún nivel de participación y experiencia antes de la compra, el objetivo de su campaña podría ser el número de versiones de evaluación descargadas. En este caso, la llamada a la acción de las tácticas de campaña se centraría principalmente en promover una versión de evaluación en Marketplace. 
-
-Si el producto o categoría se conocen bien y tiene configuradas funcionalidades de compra en Marketplace, podría decidir omitir este paso de evaluación y dirigir a la audiencia directamente al vínculo "comprar ahora" de Marketplace.
-
-En un momento más maduro de la historia de la oferta, podría decidir centrar el trabajo de la campaña en incrementar las ventas de la base de clientes y, en este caso, dirigir la acción hacia el aumento de las compras en Marketplace. Sus tácticas se centrarían en animar a los clientes a "comprar ahora" en Marketplace. El KPI puede ser los ingresos generados a través de Marketplace.
-
-Sea cual sea el grado de madurez de la oferta y los objetivos de su organización, es fundamental permanecer centrado en este objetivo y trazar un conjunto de tácticas de marketing integradas en consonancia con él para maximizar la efectividad de la campaña.
-
-Como parte de ser un nuevo anunciante en Azure Marketplace, ofrecemos algunas ventajas GTM de Marketplace gratuitas. Piense de forma crítica en cómo aprovechar estas ventajas en su estrategia de campaña. Deje que nuestro equipo de marketing conozca cuáles son los objetivos de su campaña de Marketplace y la acción deseada de la audiencia. Podemos personalizar estos resultados para que funcionen en su plan.
-
-Para obtener ayuda adicional con la comercialización, como plantillas, contenido web, entrenamiento y herramientas para promover su negocio, visite [www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). Si lo que busca es contenido adicional sobre la creación de campañas y procedimientos recomendados de marketing, visite [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), un programa de Microsoft Partner Network.
-
-#### <a name="marketplace-gtm-benefits"></a>Ventajas GTM de Marketplace
-
-Nuevas listas de Marketplace serán válidas para recibir ventajas GTM de Marketplace gratuitas. Cuando aparezcan, nuestro equipo de especialistas de marketing se comunicará con usted para poner en marcha estas actividades. No tiene que hacer nada excepto colaborar con nosotros una vez que nos dirijamos a usted. 
-
-Las actividades que proporcionamos varían según el estado de la solución en nuestro Marketplace. Las ventajas aumentan significativamente para las ofertas que vienen con una experiencia de evaluación o funcionalidades de transacción en Marketplace.
-
-Para maximizar el impacto de estas actividades, se recomienda que tenga un plan de lanzamiento listo para ejecutar. Puede que quiera aprovechar su página de aterrizaje con muchas de estas tácticas. Tenga en cuenta que el catálogo de OCP (un catálogo de asociado comercial) es una de las ventajas de los miembros de Microsoft Partner Network. 
-
-![Ventajas GTM de Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Para obtener ayuda, como plantillas, contenido web, entrenamiento y herramientas para promocionar su negocio, visite [Microsoft Go To Market](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Habilitar el uso compartido de clientes potenciales
-
-Asegúrese de que la administración de clientes potenciales esté habilitada en su oferta de Marketplace para recibir la información de contacto de los clientes de Marketplace. Estos clientes potenciales proporcionan la base para la difusión de campañas de generación de demanda, los movimientos de ventas por el personal de ventas de campo y la información sobre el rendimiento de su oferta. 
-
-Los procedimientos recomendados para usar estos clientes potenciales son:
-
-- Cualificar los clientes potenciales y puntuarles como oportunidades de ventas
-- Consolidarlos para entrar en un proceso de ventas
-- Alinear estos esfuerzos con la estrategia general de la campaña de marketing
-
-Estos clientes potenciales demuestran un interés muy específico en su oferta de Marketplace y en su tecnología, así que se les debe tratar como una manera de encontrar posibles clientes enormemente comprometidos. Cuando se crea un cliente potencial en Marketplace, se crea otro similar en el CRM de vendedores de campo de Microsoft. 
-
-Sin embargo, los clientes potenciales de Marketplace son diferentes de los clientes potenciales cualificados por un vendedor de Microsoft, que son una característica del programa de venta conjunta. Consulte a continuación para ver cómo acceder al programa de venta conjunta. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Promover su negocio a través de Microsoft
-
-Hay muchas personas y equipos en Microsoft cuyo único objetivo es ayudar a nuestros asociados a reducir cualquier fricción que pueda existir en la venta con nosotros. Ahora que ha publicado en nuestro Marketplace, ha abierto el acceso a los programas y recursos que contiene. 
-
-Si aún no está suscrito a [Microsoft Partner Network (MPN)](https://partner.microsoft.com), este debe ser el primer paso. MPN ofrece orientación para navegar por Microsoft: desde nuevas oportunidades de negocio y contacto con equipos o asociados, hasta información sobre soluciones y entrenamiento para ayudar a desarrollar su conjunto de habilidades.
-Los siguientes pasos recomendados que puede seguir para abrir el acceso a incluso más ventajas y recursos para asociados son:
-
-1.  Aprovechar las [ventajas básicas](https://partner.microsoft.com/en-US/membership/core-benefits). Como parte de nuestra Microsoft Partner Network, recibirá un conjunto de ventajas básicas que pueden ayudarle a ahorrar tiempo y dinero y, al mismo tiempo, a reforzar sus capacidades, atender mejor a los clientes y crear contactos para alcanzar el máximo potencial de su negocio.
-
-2.  Obtener su [competencia de plataforma de nube](https://partner.microsoft.com/en-us/membership/cloud-platform-competency). Obtener una competencia le permite diferenciarse dentro de la extensa red de asociados de Microsoft, así como demostrar experiencia técnica y éxito con los clientes en el mercado. Obtener una competencia es también un requisito previo de muchos programas clave de asociados, como la venta conjunta.
-
-3.  Convertirse en [Co-Sell Ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business). Este programa le permite colaborar directamente con vendedores de Microsoft y otros asociados en oportunidades de cliente objetivo y planeamiento de cuentas. La solución se convierte en visible para nuestros vendedores en su catálogo de soluciones y nuestros vendedores son recompensados por colaborar y ganar con usted.
-
-#### <a name="merchandising"></a>Comercialización 
-Como parte del proceso de publicación, ha considerado qué tipo de oferta crear y ha tenido la oportunidad de elegir una categoría para ella en Azure Marketplace. Asegúrese de seleccionar una categoría exacta para la solución, de forma que aparezca correctamente para los posibles clientes. 
-
-En Azure Marketplace, se convierte en apto para aplicaciones destacadas cuando habilita la funcionalidad de evaluación o transacción. Revise las ventajas GTM de Marketplace para comprender cómo las aplicaciones destacadas encajan en el contexto de las ventajas de comercialización. 
-
-Las aplicaciones destacadas se eligen en función de qué aplicaciones proporcionan la mejor experiencia del cliente para un usuario, y aprovechan la colaboración en marketing de alta calidad de los asociados. Esto incluye la claridad de la lista, confiabilidad de la tecnología y crecimiento del uso de la plataforma por los clientes, así como el nivel de participación en la creación de material de marketing de alta calidad. 
-
-Para aumentar las posibilidades de que una aplicación pase a ser destacada, debe invertir en el éxito de la oferta de Marketplace y considerar los siguientes enfoques para garantizar una experiencia excelente del cliente de la oferta: 
-
-- Asegurarse de que los artefactos de marketing están cargados y se muestran correctamente
-- Unirse a [Microsoft Partner Network](https://partner.microsoft.com/membership) y participar en el ecosistema de asociados
-- Dirigir el tráfico de alta calidad a su oferta de Azure Marketplace mediante la creación de campañas de generación de demanda de alta calidad
-- Asegurarse de que todas las soluciones y aplicaciones de Azure están disponibles en Azure Marketplace
-- Aumentar el consumo de sus ofertas de Azure Marketplace impulsando la demanda, proporcionando servicio al cliente de alta calidad y entregando actualizaciones oportunas en el producto
-
-## <a name="analytics-and-reporting"></a>Análisis e informes
-
-En la sección de información de Cloud Partner Portal, verá información general de alto nivel del rendimiento de su oferta. Los informes que se incluyen en esta sección son:  
-- Instantánea de resumen de pedidos
-- Uso
-- Implementaciones
-- Tendencias de cliente en la página de inicio de información
-- Pedidos detallados, uso y datos de clientes
-- Los pedidos y el uso se muestran como un resumen mensual o como una vista de tendencia de seis meses
-- Uso/pedidos segmentados por varios criterios
-
-Los informes detallados muestran información del cliente, como el nombre de la empresa y la ubicación geográfica, incluso el código postal, para que pueda realizar comparaciones entre los clientes y compensar a los vendedores. En la lista siguiente se incluyen los atributos específicos que proporcionamos acerca de sus clientes:
-- Vendedor
-- Nombre
-- Apellido
-- Email
-- Nombre de la empresa
-- Fecha de transacción
-- Subscription Name
-- Identificador de suscripción de Azure (solo para clientes de pago por uso)
-- Nombre de la instancia de nube
-- Número de pedidos
-- Región del país del cliente
-- Ciudad del cliente
-- Referencia cultural de comunicación del cliente
-- Código postal del cliente
-
-El procedimiento recomendado para la información en estos informes es conciliarla con sus propios datos internos y usarla para ayudar a clasificar en orden de prioridad las acciones de las campañas de marketing. 
-
-La sección de análisis de la información de Cloud Partner Portal ofrece un completo panel basado en Power BI que le permite ver el tráfico en la página de detalles de la aplicación. Continuamente se están implementando nuevas características en este panel. También en Cloud Partner Portal hay documentación sobre campañas de Microsoft, un mecanismo mediante el cual puede preparar campañas y realizar su seguimiento en el portal.
 
 ## <a name="getting-support"></a>Obtención de soporte técnico
 

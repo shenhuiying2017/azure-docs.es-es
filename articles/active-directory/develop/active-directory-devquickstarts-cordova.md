@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Introducción a Azure AD Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,14 +33,14 @@ Un complemento Cordova ajusta los SDK nativos de Azure AD en iOS, Android, la Ti
 En este tutorial, usaremos el complemento de Apache Cordova para la biblioteca de autenticación de Active Directory (ADAL) con el fin de mejorar una aplicación sencilla al añadir las siguientes características:
 
 * Con solo unas líneas de código, autenticar a un usuario y obtener un token.
-* Utilizar ese token para invocar la API Graph, consultar ese directorio y mostrar los resultados.  
+* Utilizar ese token para invocar Graph API, consultar ese directorio y mostrar los resultados.  
 * Aprovechar la caché de tokens de la ADAL para reducir al máximo las peticiones de autenticación al usuario.
 
 Para realizar dichas mejoras, necesitará:
 
 1. Registrar una aplicación con Azure AD.
 2. Agregar código a la aplicación para solicitar tokens.
-3. Agregue código para usar el token para hacer consultas a la API Graph y mostrar los resultados.
+3. Agregue código para usar el token para hacer consultas a Graph API y mostrar los resultados.
 4. Crear el proyecto de implementación de Cordova con todas las plataformas a las que desee dirigirse, agregar el complemento de la ADAL de Cordova y probar la solución en emuladores.
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -88,7 +88,7 @@ Azure AD emite tokens solo a aplicaciones conocidas. Para poder usar Azure AD de
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD donde desea registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones y cree una **Aplicación de cliente nativo**. (Aunque las aplicaciones Cordova están basadas en HTML, aquí estamos creando una aplicación cliente nativa. La opción **Aplicación cliente nativo** debe estar seleccionada o la aplicación no funcionará).
   * **Nombre** describe la aplicación a los usuarios.
@@ -96,10 +96,10 @@ Azure AD emite tokens solo a aplicaciones conocidas. Para poder usar Azure AD de
 
 Cuando termine el registro, Azure AD asignará un identificador de aplicación único a la aplicación. Necesitará este valor en las secciones siguientes. Puede encontrarlo en la pestaña de la aplicación recién creada.
 
-Para poder ejecutar `DirSearchClient Sample`, conceda a la aplicación recién creada el permiso para consultar la API Graph de Azure AD:
+Para poder ejecutar `DirSearchClient Sample`, conceda a la aplicación recién creada el permiso para consultar Graph API de Azure AD:
 
 1. En la página **Configuración**, seleccione **Permisos necesarios** y **Agregar**.  
-2. Para la aplicación Azure Active Directory, seleccione **Microsoft Graph** como API y agregue el permiso **Access the directory as the signed-in user** (Acceder al directorio como usuario con sesión iniciada) en **Permisos delegados**.  Esto permitirá a su aplicación consultar la API Graph para los usuarios.
+2. Para la aplicación Azure Active Directory, seleccione **Microsoft Graph** como API y agregue el permiso **Access the directory as the signed-in user** (Acceder al directorio como usuario con sesión iniciada) en **Permisos delegados**.  Esto permitirá a su aplicación consultar Graph API para los usuarios.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Paso 2: Clonación del repositorio de aplicaciones de ejemplo
 En el shell o en la línea de comandos, escriba lo siguiente:
@@ -124,7 +124,7 @@ Hay varias maneras de crear aplicaciones de Cordova. En este tutorial, utilizare
   * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
   * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
-4. Agregue el complemento de lista blanca. Esto es necesario para invocar la API Graph.
+4. Agregue el complemento de lista blanca. Esto es necesario para invocar Graph API.
 
         cordova plugin add cordova-plugin-whitelist
 
@@ -207,7 +207,7 @@ La segunda parte del método realiza la solicitud de token correcta. El método 
                 });
             });
 ```
-Ahora que tenemos el token, podemos invocar finalmente la API Graph y realizar la consulta de búsqueda que queremos. Inserte el fragmento de código siguiente justo debajo de la definición `authenticate`:
+Ahora que tenemos el token, podemos invocar finalmente Graph API y realizar la consulta de búsqueda que queremos. Inserte el fragmento de código siguiente justo debajo de la definición `authenticate`:
 
 ```javascript
 // Makes an API call to receive the user list

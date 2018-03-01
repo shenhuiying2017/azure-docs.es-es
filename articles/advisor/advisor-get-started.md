@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -26,9 +26,9 @@ Obtenga información acerca de cómo acceder a Advisor mediante Azure Portal y o
 
 ## <a name="get-advisor-recommendations"></a>Obtención de recomendaciones de Advisor
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En el panel izquierdo, haga clic en **Advisor**.  Si no ve Advisor en el panel izquierdo, haga clic en **Más servicios**.  En el panel de menú de servicio, en **Supervisión y administración**, haga clic en **Advisor**.
+2. En el panel izquierdo, haga clic en **Advisor**.  Si no ve Asesor en el panel izquierdo, haga clic en **Todos los servicios**.  En el panel de menú de servicio, en **Supervisión y administración**, haga clic en **Advisor**.
  Se muestra el panel de Advisor.
 
    ![Acceso a Azure Advisor mediante Azure Portal](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -128,7 +128,7 @@ Advisor le permite descargar un resumen de sus recomendaciones.  Puede descargar
 
 La opción de descarga respeta los filtros aplicados en el panel de Advisor.  Si selecciona la opción de descarga mientras visualiza una recomendación o categoría de recomendación específicas, el resumen descargado solo incluye información para esa categoría o recomendación. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Advisor, consulte:
 * [Introducción a Azure Advisor](advisor-overview.md)

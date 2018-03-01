@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configuración de Python con Azure App Service Web Apps
 Este tutorial describen las opciones para crear y configurar una aplicación básica de interfaz de puerta de enlace de servidor web (WSGI) compatible con Python en [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ Azure Marketplace contiene plantillas para los marcos de Bottle, Django y Flask.
 ## <a name="web-app-creation-on-azure-portal"></a>Creación de una aplicación web en Azure Portal
 En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso a Azure Portal.
 
-Si no tiene ninguna aplicación web, puede crearla en [Azure Portal](https://portal.azure.com).  Haga clic en el botón NUEVO que aparece en la esquina superior izquierda y, luego, haga clic en**Web + móvil** > **Aplicación web**.
+Si no tiene ninguna aplicación web, puede crearla en [Azure Portal](https://portal.azure.com). En la esquina superior izquierda, haga clic en **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 ## <a name="git-publishing"></a>Publicación Git
 Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones que se describen en [Implementación de Git local en Azure App Service](app-service-deploy-local-git.md). En este tutorial se usa GIT para crear, administrar y publicar su aplicación web Python en Azure App Service.
@@ -349,8 +349,8 @@ Contenido de `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Solución de problemas - Entorno virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+## <a name="next-steps"></a>pasos siguientes
+Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.

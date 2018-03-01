@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: aplicación de extensiones
 
@@ -31,13 +31,13 @@ Al crearse un directorio de Azure AD B2C, se crea automáticamente una aplicaci�
 
 Para comprobar que b2c-extensions-app está presente:
 
-1. En el inquilino de Azure AD B2C, haga clic en **Más servicios** en el menú de navegación izquierdo.
+1. En el inquilino de Azure AD B2C, haga clic en **Todos los servicios** en el menú de navegación izquierdo.
 1. Busque y abra **Registros de aplicaciones**.
 1. Busque una aplicación que empiece por **b2c-extensions-app**.
 
 ## <a name="recover-the-extensions-app"></a>Recuperación de la aplicación de extensiones
 
-Si ha eliminado b2c-extensions-app accidentalmente, tiene 30 días para recuperarlo. Puede restaurar la aplicación mediante la API Graph:
+Si ha eliminado b2c-extensions-app accidentalmente, tiene 30 días para recuperarlo. Puede restaurar la aplicación mediante Graph API:
 
 1. Vaya a [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
 1. Inicie sesión en el sitio como administrador global para el directorio de Azure AD B2C para el que desea restaurar la aplicación eliminada. Este administrador global debe tener una dirección de correo electrónico similar a la siguiente: `username@{yourTenant}.onmicrosoft.com`.

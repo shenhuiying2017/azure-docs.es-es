@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
 Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
+
+>[!IMPORTANT]
+>El método preferido para la integración de registros de Azure es mediante el conector de Azure Monitor del proveedor SIEM y siguiendo estas [instrucciones](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). De todas formas, si su proveedor SIEM no proporciona un conector a Azure Monitor, es posible que pueda usar Azure Log Integration como solución temporal (si el SIEM es compatible con Azure Log Integration) hasta que esté disponible un conector de este tipo.
+
  
 Utilícelo para familiarizarse con el modo en que Azure Log Integration y Event Hubs funcionan conjuntamente siguiendo los pasos del ejemplo y entendiendo cómo cada paso se encamina hacia la solución. A continuación, puede aprovechar lo que ha aprendido aquí para crear sus propios pasos según los requisitos únicos de su empresa.
 
@@ -175,7 +179,7 @@ Ejecute el comando AzLog para cada centro de eventos:
 
 Aproximadamente un minuto después de la ejecución de los dos últimos comandos, deberían empezar a generarse los archivos JSON. Puede confirmarlo supervisando el directorio **C:\usuarios\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Preguntas más frecuentes sobre la integración de registro de Azure](security-azure-log-integration-faq.md)
 - [Introducción a la integración de registros de Azure](security-azure-log-integration-get-started.md)

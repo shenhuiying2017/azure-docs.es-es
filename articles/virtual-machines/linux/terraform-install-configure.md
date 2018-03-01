@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
@@ -80,12 +80,13 @@ az vm list-sizes --location westus
 
 ## <a name="configure-terraform-environment-variables"></a>Configuración de las variables de entorno de Terraform
 
-Configure Terraform para usar el id. de inquilino, el id. de suscripción, el id. de cliente y el secreto de cliente de la entidad de servicio al crear recursos de Azure. Establezca las siguientes variables de entorno, que los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure) usarán automáticamente.
+Configure Terraform para usar el id. de inquilino, el id. de suscripción, el id. de cliente y el secreto de cliente de la entidad de servicio al crear recursos de Azure. También puede establecer el entorno si trabaja con una nube de Azure distinta de la pública. Establezca las siguientes variables de entorno, que los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure) usarán automáticamente.
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 Puede usar este script de shell de ejemplo para establecer esas variables:
 
@@ -96,6 +97,9 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=public
 ```
 
 ## <a name="run-a-sample-script"></a>Ejecución de un script de ejemplo
@@ -141,7 +145,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha instalado Terraform y configurado las credenciales de Azure para poder iniciar la implementación de la infraestructura en su suscripción de Azure. A continuación, ha probado la instalación mediante la creación de un grupo de recursos de Azure vacío.
 

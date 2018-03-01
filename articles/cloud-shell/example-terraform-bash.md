@@ -1,6 +1,6 @@
 ---
-title: "Implementación con Terraform con Bash en Azure Cloud Shell | Microsoft Docs"
-description: "Implementación de recursos de Azure con Terraform en Bash"
+title: "Implementación con Terraform de Bash en Azure Cloud Shell | Microsoft Docs"
+description: "Implementación con Terraform de Bash en Azure Cloud Shell"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform y Bash en Cloud Shell
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementación con Terraform de Bash en Azure Cloud Shell
 Este artículo le guía en la creación de un grupo de recursos con el [proveedor de AzureRM de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Terraform de Hashicorp](https://www.terraform.io/) es una herramienta de código abierto que codifica las API en archivos de configuración declarativos que se pueden compartir entre los miembros del equipo para editarlos, revisarlos y controlar sus versiones. El proveedor de Microsoft AzureRM se usa para interactuar con los recursos admitidos por Azure Resource Manager mediante las API de AzureRM. 
@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Ha creado correctamente un recurso de Azure a través de Terraform. Consulte los pasos siguientes para seguir aprendiendo acerca de Cloud Shell.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información sobre el proveedor de Terraform de Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)

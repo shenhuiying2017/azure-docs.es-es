@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración de la aceleración automática de inicio de sesión de una aplicación mediante una directiva de detección del dominio de inicio | Microsoft Docs
 
@@ -83,15 +83,15 @@ Debe seguir tres pasos para configurar la aceleración automática al iniciar se
 
 1. Crear una directiva de HRD para la aceleración automática.
 
-2. Buscar el principio de servicio al que se debe asociar la directiva.
+2. Buscar la entidad de servicio al que asociar la directiva.
 
 3. Asociar la directiva a la entidad de servicio. Aunque las directivas se hayan creado en un inquilino, no tendrán ningún efecto hasta que no se adjunten a una entidad. 
 
 Se puede adjuntar una directiva de HRD a una entidad de servicio, pero solo una puede estar activa en una entidad determinada en cualquier momento.  
 
-Puede usar la API Graph de Microsoft Azure Active Directory directamente o los cmdlets de PowerShell de Azure Active Directory para configurar la aceleración automática mediante la directiva de HRD.
+Puede usar Microsoft Graph API de Azure Active Directory directamente o los cmdlets de PowerShell de Azure Active Directory para configurar la aceleración automática mediante la directiva de HRD.
 
-La API Graph que manipula la directiva se describe en el artículo [Operations on policy](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) (Operaciones en la directiva) de MSDN.
+Graph API que manipula la directiva se describe en el artículo [Operations on policy](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) (Operaciones en la directiva) de MSDN.
 
 Este es un ejemplo de la definición de la directiva de HRD:
     
@@ -135,7 +135,7 @@ Usaremos los cmdlets de PowerShell de Azure AD para desplazarse por algunos esce
 
 - Enumerar las aplicaciones para las que se configura una directiva.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar directivas en las entidades de servicio de aplicación en Azure AD.
 
 1.  Para comenzar, descargue la versión preliminar más reciente de los cmdlets de PowerShell de Azure AD. 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Para habilitar la aceleración automática una vez que tenga una directiva de HRD, puede asignarla a varios principios de servicios de aplicación.
+Para habilitar la aceleración automática una vez que tenga una directiva de HRD, puede asignarla a varias entidades de servicio de aplicación.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Paso 2: busque la entidad de servicio a la cual se asignará la directiva.  
 Para ello, necesita el valor de **ObjectID** de las entidades de servicio a las que quiere asignar la directiva. Hay varias maneras de buscar el valor de **ObjectID** de las entidades de servicio.    
 
-Puede usar el portal, o bien puede consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También puede ir a la [herramienta Probador de Graph](https://graphexplorer.cloudapp.net/) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. Dado que usa PowerShell, puede usar el cmdlet get-AzureADServicePrincipal para mostrar los principios de servicio y sus identificadores.
+Puede usar el portal, o bien puede consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También puede ir a la [herramienta Probador de Graph](https://graphexplorer.cloudapp.net/) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. Dado que usa PowerShell, puede usar el cmdlet get-AzureADServicePrincipal para enumerar las entidades de servicio y sus identificadores.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Paso 3: asigne la directiva a la entidad de servicio.  
 Una vez tenga el valor de **ObjectID** de la entidad de servicio de la aplicación para el que quiere configurar la aceleración automática, ejecute el siguiente comando. Este comando asocia la directiva HRD que creó en el paso 1 con la entidad de servicio que encuentra en el paso 2.
@@ -226,7 +226,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](develop/active-directory-authentication-scenarios.md).
 - Para obtener más información sobre el inicio de sesión único del usuario, consulte [Acceso a la aplicación e inicio de sesión único con Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 - Consulte la [Guía del desarrollador de Active Directory](develop/active-directory-developers-guide.md) para información general sobre todo el contenido de interés para los desarrolladores.

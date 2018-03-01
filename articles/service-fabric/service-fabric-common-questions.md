@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -36,7 +36,7 @@ Si está interesado en este escenario, le animamos a que se ponga en contacto co
 
 Hay varias cosas que deben tenerse en cuenta: 
 
-1. En estos momentos el recurso de clúster de Service Fabric en Azure es regional, como los conjuntos de escalado de máquinas virtuales en los que el clúster está basado. Esto significa que si se produce un error regional puede perder la capacidad para administrar el clúster mediante Azure Resource Manager o Azure Portal. Esto puede ocurrir incluso aunque el clúster permanezca en ejecución y se pueda interactuar con él directamente. Además, actualmente Azure no ofrecen la capacidad de tener una única red virtual que se pueda usar en varias regiones. Esto significa que un clúster de varias regiones de Azure necesita o bien [direcciones IP públicas por cada máquina virtual en los conjuntos de escalado](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o instancias de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas opciones de red tienen efectos diferentes en los costos, el rendimiento, y hasta cierto punto, en el diseño de la aplicación, por ello es necesario realizar un análisis y un planeamiento meticuloso antes de poner en marcha un entorno así.
+1. En estos momentos el recurso de clúster de Service Fabric en Azure es regional, como los conjuntos de escalado de máquinas virtuales en los que el clúster está basado. Esto significa que si se produce un error regional puede perder la capacidad para administrar el clúster mediante Azure Resource Manager o Azure Portal. Esto puede ocurrir incluso aunque el clúster permanezca en ejecución y se pueda interactuar con él directamente. Además, actualmente Azure no ofrecen la capacidad de tener una única red virtual que se pueda usar en varias regiones. Esto significa que un clúster de varias regiones de Azure necesita [direcciones IP públicas por cada máquina virtual en los conjuntos de escalado](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o instancias de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas opciones de red tienen efectos diferentes en los costos, el rendimiento, y hasta cierto punto, en el diseño de la aplicación, por ello es necesario realizar un análisis y un planeamiento meticuloso antes de poner en marcha un entorno así.
 2. El mantenimiento, administración y supervisión de estas máquinas puede llegar a complicarse, especialmente cuando se distribuye entre diferentes _tipos_ de entornos, como por ejemplo entre diferentes proveedores de nube o entre recursos locales y Azure. Debe tener cuidado para asegurarse de que tanto el clúster como las aplicaciones entienden las actualizaciones, supervisión, administración y diagnóstico antes de ejecutar cargas de trabajo de producción en un entorno de este tipo. Si ya tiene amplia experiencia en la resolución de estos problemas en Azure o dentro de sus propios centros de datos, es probable que esas mismas soluciones que utiliza se puedan aplicar al crear o ejecutar el clúster de Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>¿Los nodos de Service Fabric reciben automáticamente actualizaciones del sistema operativo?
@@ -49,13 +49,13 @@ El desafío con las actualizaciones del sistema operativo es que normalmente req
 
 En el futuro, está prevista la compatibilidad con una directiva de actualización del sistema operativo, completamente automatizada, que esté coordinada entre los dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>¿Puedo usar conjuntos de escalado grandes de máquinas virtuales en el clúster SF? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>¿Puedo usar conjuntos de escalado de máquinas virtuales en el clúster SF? 
 
 **Respuesta corta**: no. 
 
-**Respuesta larga**: aunque los conjuntos de escalado grandes de máquinas virtuales permiten escalar un conjunto de escalado de máquinas virtuales hasta en 1000 instancias de máquina virtual, lo hace mediante el uso de grupos de selección de ubicación (PG). Los dominios de error (FD) y los dominios de actualización (UD) solo son coherentes dentro de un grupo de selección de ubicación. Service Fabric usa los FD y los UD para tomar decisiones de selección de ubicación de las réplicas o instancias del servicio. Puesto que los FD y los UD solo son comparables dentro de un grupo de selección de ubicación SF no puede usarlo. Por ejemplo, si VM1 en PG1 tiene una topología de FD=0 y VM9 en PG2 tiene una topología de FD=4, esto no significa que VM1 y VM2 se encuentren en dos bastidores de hardware diferentes. Por tanto, SF no podrá usar los valores de FD en este caso para tomar decisiones de selección de ubicación.
+**Respuesta larga**: aunque los conjuntos de escalado grandes de máquinas virtuales permiten escalar un conjunto de escalado de máquinas virtuales hasta en 1000 instancias de máquina virtual, lo hace mediante el uso de grupos de selección de ubicación (PG). Los dominios de error (FD) y los dominios de actualización (UD) solo son coherentes dentro de un grupo de selección de ubicación. Service Fabric usa los FD y los UD para tomar decisiones de selección de ubicación de las réplicas o instancias del servicio. Puesto que los FD y los UD solo son comparables dentro de un grupo de selección de ubicación, SF no puede usarlo. Por ejemplo, si VM1 en PG1 tiene una topología de FD=0 y VM9 en PG2 tiene una topología de FD=4, esto no significa que VM1 y VM2 se encuentren en dos bastidores de hardware diferentes. Por tanto, SF no podrá usar los valores de FD en este caso para tomar decisiones de selección de ubicación.
 
-Actualmente, hay otros problemas con los conjuntos de escalado grandes de máquinas virtuales, como la falta de soporte del equilibrio de carga del nivel 4. Consulte para obtener [detalles sobre conjuntos de escalado grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Actualmente, hay otros problemas con los conjuntos de escalado grandes de máquinas virtuales, como la falta de compatibilidad con el equilibrio de carga del nivel 4. Consulte para obtener [detalles sobre conjuntos de escalado grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -86,13 +86,16 @@ Si quiere crear clústeres para probar su aplicación antes de implementarla, le
 
 Mientras trabajamos en una experiencia mejorada, por el momento, el usuario es el responsable de la actualización. Debe actualizar la imagen de SO en las máquinas virtuales del clúster, pero una por una. 
 
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>¿Se pueden cifrar los discos de datos asociados en un tipo de nodo de clúster (conjunto de escalado de máquinas virtuales)?
+Sí.  Para más información, consulte [Creación de un clúster con discos de datos asociados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) (Cifrado de discos [PowerShell]) y [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md) (Cifrado de discos [CLI]).
+
 ## <a name="container-support"></a>Compatibilidad con contenedores
 
 ### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>¿Por qué los contenedores que se implementan en SF no pueden resolver direcciones DNS?
 
 Este problema se ha informado en los clústeres de la versión 5.6.204.9494 
 
-**Mitigación**: siga [este documento](service-fabric-dnsservice.md) para habilitar el servicio Service Fabric DNS en el clúster.
+**Mitigación**: siga [este documento](service-fabric-dnsservice.md) para habilitar el servicio Service Fabric de DNS en el clúster.
 
 **Solución**: actualice a una versión de clúster admitida superior a la 5.6.204.9494, cuando esté disponible. Si el clúster está establecido en actualizaciones automáticas, se actualizará automáticamente a la versión en este problema está corregido.
 
@@ -101,7 +104,7 @@ Este problema se ha informado en los clústeres de la versión 5.6.204.9494
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>¿Cuál es la mejor forma de consultar datos entre las particiones de una instancia de Reliable Collection?
 
-Las colecciones confiables están generalmente [particionadas](service-fabric-concepts-partitioning.md) para habilitar el escalado horizontal, y así conseguir un mayor rendimiento y capacidad de proceso. Esto significa que el estado de un servicio determinado puede distribuirse en decenas o cientos de máquinas. Para realizar operaciones sobre ese conjunto de datos completo, tiene varias opciones:
+Las colecciones confiables están generalmente [particionadas](service-fabric-concepts-partitioning.md) para habilitar el escalado horizontal, y así conseguir un mayor rendimiento y capacidad de proceso. Esto significa que el estado de un servicio determinado puede distribuirse entre decenas o cientos de máquinas. Para realizar operaciones sobre ese conjunto de datos completo, tiene varias opciones:
 
 - Crear un servicio que realiza consultas en todas las particiones de otro servicio para extraer los datos necesarios.
 - Crear un servicio que puede recibir datos de todas las particiones de otro servicio.
@@ -119,17 +122,17 @@ Los actores están diseñados para ser unidades independientes de estado y cálc
 
 Reliable Services normalmente tienen particiones, por lo que la cantidad que se puede almacenar está limitada únicamente por el número de máquinas que tiene en el clúster y la cantidad de memoria disponible en esas máquinas.
 
-Por ejemplo, suponga que tiene una colección confiable de un servicio con 100 particiones y 3 réplicas, en donde se almacenan objetos que tienen un tamaño medio de 1 kB. Ahora suponga que tiene un clúster de 10 máquinas con 16 GB de memoria por máquina. Por simplificar y para mantener un enfoque conservador, vamos a asumir que el sistema operativo y los servicios del sistema, el tiempo de ejecución de Service Fabric y sus servicios consumen 6 GB, dejando 10 GB disponibles por máquina, o 100 GB para el clúster.
+Por ejemplo, suponga que tiene una colección confiable de un servicio con 100 particiones y 3 réplicas, en donde se almacenan objetos que tienen un tamaño medio de 1 kB. Ahora suponga que tiene un clúster de 10 máquinas con 16 GB de memoria por máquina. Por simplificar y para mantener un enfoque conservador, suponga que el sistema operativo y los servicios del sistema, el tiempo de ejecución de Service Fabric y sus servicios consumen 6 GB, y dejan 10 GB disponibles por máquina, o 100 GB para el clúster.
 
 Teniendo en cuenta que cada objeto tiene que almacenarse tres veces (una principal y dos réplicas), debería tener suficiente memoria para aproximadamente 35 millones de objetos en la colección cuando se trabaja con la máxima capacidad. Sin embargo, se recomienda que cuente con la pérdida simultánea de un dominio de error y un dominio de actualización, lo que representa aproximadamente 1/3 de la capacidad y que podría reducir el número hasta aproximadamente a 23 millones.
 
 Tenga en cuenta que en este cálculo también se da por supuesto:
 
-- Que la distribución de datos en las particiones es aproximadamente uniforme o que informa sobre las métricas de carga a Cluster Resource Manager. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En nuestro ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre ella para que Resource Manager pueda empaquetar juntas las réplicas más pequeñas y dejar que las réplicas mayores consuman más memoria en un nodo individual.
+- Que la distribución de datos en las particiones es aproximadamente uniforme o que informa sobre las métricas de carga a Cluster Resource Manager. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En el ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre ella para que Resource Manager pueda empaquetar juntas las réplicas más pequeñas y dejar que las réplicas mayores consuman más memoria en un nodo individual.
 
 - Que el servicio confiable en cuestión es el único que almacena estado en el clúster. Dado que puede implementar varios servicios en un clúster, tiene que prestar atención a los recursos que cada uno de ellos necesita para ejecutar y administrar su estado.
 
-- Que el propio clúster no experimente crecimiento o reducción. Si agrega más máquinas, Service Fabric reequilibra las réplicas para aprovechar la capacidad adicional hasta que el número de máquinas supere el número de particiones en el servicio, ya que una réplica individual no puede abarcar varias máquinas. Por el contrario, si reduce el tamaño del clúster mediante la eliminación de las máquinas, las réplicas se empaquetarán de forma más ajustada y tendrán menos capacidad total.
+- Que el propio clúster no experimente crecimiento o reducción. Si agrega más máquinas, Service Fabric reequilibra las réplicas para aprovechar la capacidad adicional hasta que el número de máquinas supere el número de particiones en el servicio, ya que una réplica individual no puede abarcar varias máquinas. Por el contrario, si reduce el tamaño del clúster mediante la eliminación de máquinas, las réplicas se empaquetan de forma más ajustada y tienen menos capacidad total.
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>¿Cuántos datos puedo almacenar en un actor?
 
@@ -143,10 +146,10 @@ Los contenedores ofrecen una manera sencilla de empaquetar servicios y sus depen
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>¿Tienen previsto abrir el código de Service Fabric?
 
-Se va a abrir el código de los entornos de servicios de confianza y actores confiables en GitHub, y se aceptarán las contribuciones de la comunidad a los proyectos. Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obtener más información a medida que esté disponible.
+Está previsto a abrir el código de los marcos de Reliable Services y Reliable Actors en GitHub, y se aceptarán las contribuciones de la comunidad a los proyectos. Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para más información cuando se anuncie.
 
-Actualmente no hay planes para abrir el código del tiempo de ejecución de Service Fabric.
+Actualmente no está previsto abrir el código del entorno de tiempo de ejecución de Service Fabric.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Obtenga información sobre conceptos fundamentales de Service Fabric y procedimientos recomendados](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

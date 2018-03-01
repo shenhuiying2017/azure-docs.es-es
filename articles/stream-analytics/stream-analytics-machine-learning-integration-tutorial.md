@@ -1,6 +1,6 @@
 ---
 title: "Integración de Azure Stream Analytics y Machine Learning | Microsoft Docs"
-description: "Cómo utilizar una función definida por el usuario y Aprendizaje automático en un trabajo de Análisis de transmisiones"
+description: "Cómo utilizar una función definida por el usuario y Machine Learning en un trabajo de Stream Analytics"
 keywords: 
 documentationcenter: 
 services: stream-analytics
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning. Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.
@@ -41,7 +41,7 @@ La imagen siguiente muestra esta configuración. Como se ha indicado, para un es
 
 ![Información general sobre la integración de Stream Analytics Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una suscripción de Azure activa.
@@ -57,7 +57,7 @@ En general, para realizar las tareas explicadas en este artículo, hará lo sigu
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Creación de un contenedor de almacenamiento y carga del archivo de entrada CSV
 Para este paso puede usar cualquier archivo CSV, por ejemplo alguno de los disponibles en GitHub.
 
-1. En Azure Portal, haga clic en **Nuevo** &gt; **Almacenamiento** &gt; **Cuenta de almacenamiento**.
+1. En Azure Portal, haga clic en **Crear un recurso** &gt; **Almacenamiento** &gt; **Cuenta de almacenamiento**.
 
    ![creación de una nueva cuenta de almacenamiento](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -95,7 +95,7 @@ Ahora que los datos de ejemplo están en un blob, puede habilitar el modelo de a
 
 2. Haga clic en **Abrir en Studio**.  
    
-   ![Aprendizaje automático de Análisis de transmisiones, abrir Aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Machine Learning de Análisis de transmisiones, abrir Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Inicie sesión para dirigirse al área de trabajo. Seleccione una ubicación.
 
@@ -117,18 +117,18 @@ Ahora que los datos de ejemplo están en un blob, puede habilitar el modelo de a
 
 7. En la columna **Aplicaciones**, haga clic en el vínculo de **libro de Excel 2010 o anterior** para descargar un libro de Excel. El libro contiene una clave de API y la dirección URL que se necesitan más adelante para configurar el trabajo de Stream Analytics.
 
-    ![Aprendizaje automático de Análisis de transmisiones, vista rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Machine Learning de Stream Analytics, vista rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 
-## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Creación de un trabajo de Análisis de transmisiones que usa el modelo de Aprendizaje automático
+## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Creación de un trabajo de Análisis de transmisiones que usa el modelo de Machine Learning
 
 Ahora puede crear un trabajo de Stream Analytics que lea los tweets de ejemplo del archivo CSV de almacenamiento de blobs. 
 
 ### <a name="create-the-job"></a>Creación del trabajo
 
-1. Vaya al [Portal de Azure](https://portal.azure.com).  
+1. Vaya a [Azure Portal](https://portal.azure.com).  
 
-2. Haga clic en **Nuevo** > **Internet de las cosas** > **Trabajo de Stream Analytics**. 
+2. Haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**. 
 
    ![ruta de acceso del portal de Azure para acceder a un nuevo trabajo de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -160,7 +160,7 @@ El trabajo obtiene su entrada del archivo CSV cargado anteriormente en el almace
 
     ![Configuración de la nueva entrada de trabajo](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Haga clic en **Crear**.
+4. Haga clic en **Create**(Crear).
 
 ### <a name="configure-the-job-output"></a>Configuración de la salida del trabajo
 El trabajo envía los resultados al mismo almacenamiento de blobs del que obtiene la entrada. 
@@ -179,7 +179,7 @@ El trabajo envía los resultados al mismo almacenamiento de blobs del que obtien
 
    ![Configuración de la nueva salida de trabajo](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Haga clic en **Crear**.   
+4. Haga clic en **Create**(Crear).   
 
 
 ### <a name="add-the-machine-learning-function"></a>Incorporación de la función de Machine Learning 
@@ -204,7 +204,7 @@ En esta sección del tutorial se define una función en el trabajo de Stream Ana
   
     ![Configuración para agregar una función de Machine Learning al trabajo de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creación de una consulta para transformar los datos
 
@@ -259,22 +259,22 @@ Ya se puede iniciar el trabajo de Stream Analytics.
 
 3. Abra el archivo CSV generado. Verá algo parecido al siguiente ejemplo:  
    
-   ![Aprendizaje automático de Análisis de transmisiones, vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Machine Learning de Análisis de transmisiones, vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 
 ### <a name="view-metrics"></a>Visualización de métricas
-También puede observar las métricas relacionadas con la función de Aprendizaje automático de Azure. Las siguientes métricas relacionadas con la función se muestran en el cuadro **Supervisión** de la hoja de trabajo:
+También puede observar las métricas relacionadas con la función de Azure Machine Learning. Las siguientes métricas relacionadas con la función se muestran en el cuadro **Supervisión** de la hoja de trabajo:
 
 * **Solicitudes de función** indica el número de solicitudes enviadas al servicio web Machine Learning.  
 * **Eventos de la función** indica el número de eventos de la solicitud. De forma predeterminada, cada solicitud de un servicio web Machine Learning contiene hasta 1000 eventos.  
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Integración de la API de REST y Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

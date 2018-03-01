@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplicación web de Ruby on Rails en una máquina virtual de Azure
 En este tutorial se muestra cómo hospedar un sitio web Ruby on Rails en Azure usando una máquina virtual de Linux.  
@@ -38,7 +38,7 @@ Para crear la máquina virtual, puede usar Azure Portal o la interfaz de línea 
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Haga clic en **Nuevo** y , a continuación, escriba "Ubuntu Server 14.04" en el cuadro de búsqueda. Haga clic en la entrada devuelta por la búsqueda. Como modelo de implementación, seleccione **Clásico** y haga clic en "Crear".
+2. Haga clic en **Crear un recurso** y, luego, escriba "Ubuntu Server 14.04" en el cuadro de búsqueda. Haga clic en la entrada devuelta por la búsqueda. Como modelo de implementación, seleccione **Clásico** y haga clic en "Crear".
 3. En la hoja de datos básicos, proporcione valores para los campos obligatorios: Nombre (para la máquina virtual), Nombre de usuario, Tipo de autenticación y las credenciales correspondientes, Suscripción de Azure, Grupo de recursos y Ubicación.
 
    ![Creación de una imagen Ubuntu](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

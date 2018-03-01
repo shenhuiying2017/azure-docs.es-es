@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
@@ -83,12 +83,12 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
     ![Activar el registro de diagnóstico para Azure Cosmos DB en Azure Portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. En **Configuración de diagnóstico**, haga lo siguiente: 
+2. En **Configuración de diagnóstico**, especifique las opciones siguientes: 
 
     * **Nombre**. Escriba un nombre para los registros que quiere crear.
 
-    * **Archivar en una cuenta de almacenamiento**. Para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). Siga las instrucciones para crear una cuenta de uso general de Resource Manager. Luego, vuelva a esta página en el portal para seleccionar la cuenta de almacenamiento. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
-    * **Transmitir a un centro de eventos**. Para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para crear un espacio de nombres de Event Hubs, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
+    * **Archivar en una cuenta de almacenamiento**. Para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). Siga las instrucciones para crear un administrador de recursos, una cuenta de propósito general y, a continuación, seleccione la cuenta de almacenamiento volviendo a esta página en el portal. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
+    * **Transmitir a un centro de eventos**. Para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para más información, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
     * **Enviar a Log Analytics**. Para usar esta opción, use un área de trabajo existente o cree una nueva área de trabajo de Log Analytics siguiendo los pasos necesarios para [crear una nueva área de trabajo](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) en el portal. Para más información acerca de cómo ver los registros de Log Analytics, vea [Visualización de los registros de Log Analytics](#view-in-loganalytics).
 
     * **Motor**. Seleccione esta opción para registrar xEvents. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
@@ -171,7 +171,7 @@ En **Tipo**, haga clic en **AzureDiagnostics** y, a continuación, haga clic en 
 
 Haga clic en **EventClass\_s** o en uno de los nombres de evento y Log Analytics continúa generando una consulta. Asegúrese de guardar las consultas para reutilizarlas más adelante.
 
-Asegúrese de consultar Operations Management Suite, que proporciona un sitio Web con consulta mejorada, funcionalidades de alerta en los datos de Log Analytics y paneles.
+Asegúrese de consultar Operations Management Suite, que proporciona un sitio web con consulta mejorada, paneles y funcionalidades de alerta en los datos de Log Analytics.
 
 ### <a name="queries"></a>Consultas
 
@@ -200,7 +200,7 @@ Para más información sobre cómo utilizar el nuevo lenguaje de consulta de Bú
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial: Activación del registro con PowerShell
 En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzureRmDiagnosticSetting para activar el registro y se envía la salida a la nueva cuenta de almacenamiento.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Para realizar este tutorial, necesitará los recursos siguientes:
 
 * Un servidor de Azure Analysis Services. Para obtener instrucciones sobre cómo crear un recurso de servidor, consulte [Creación de un servidor en Azure Portal](analysis-services-create-server.md) o [Creación de un servidor de Azure Analysis Services mediante PowerShell](analysis-services-create-powershell.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -27,7 +27,7 @@ Tome una instantánea de un disco duro virtual de un disco de datos o del sistem
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Uso de Azure Portal para crear una instantánea 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la parte superior izquierda, haga clic en **Nuevo** y busque **instantánea**.
+2. En la parte superior izquierda, haga clic en **Crear un recurso** y busque **instantánea**.
 3. En la hoja Instantánea, haga clic en **Crear**.
 4. Escriba un **nombre** para la instantánea.
 5. Seleccione un valor de [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre para crear uno. 

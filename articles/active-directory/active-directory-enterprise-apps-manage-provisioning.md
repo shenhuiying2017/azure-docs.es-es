@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar el aprovisionamiento automático de cuentas de usuario y el desaprovisionamiento para las aplicaciones que lo admiten, especialmente aquellas que se han agregado en la categoría "destacada" de la Galería de aplicaciones de [Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
-Todas las aplicaciones que se han configurado para el inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), se pueden ver y administrar en el [portal de Azure](https://portal.azure.com). Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización.
+Todas las aplicaciones que se han configurado para el inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), se pueden ver y administrar en el [portal de Azure](https://portal.azure.com). Las aplicaciones pueden encontrarse en la sección **Todos los servicios** &gt; **Aplicaciones empresariales** del portal. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización.
 
-![Hoja Aplicaciones empresariales][0]
+![Panel Aplicaciones empresariales][0]
 
-Si se selecciona el vínculo **Todas las aplicaciones** de la izquierda, se muestra una lista de todas las aplicaciones que se han configurado, incluidas las aplicaciones que se han agregado desde la galería. Si selecciona una aplicación, se carga la hoja de recursos para esa aplicación, donde se pueden ver los informes de dicha aplicación y se pueden administrar diversas opciones de configuración.
+Si se selecciona el vínculo **Todas las aplicaciones** de la izquierda, se muestra una lista de todas las aplicaciones que se han configurado, incluidas las aplicaciones que se han agregado desde la galería. Si selecciona una aplicación, se carga el panel de recursos para esa aplicación, donde se pueden ver los informes de dicha aplicación y se pueden administrar diversas opciones de configuración.
 
 La configuración de aprovisionamiento de cuentas de usuario puede administrarse mediante la selección de **Aprovisionamiento** a la izquierda.
 
-![Hoja Recursos de aplicación][1]
+![Panel Recurso de aplicación][1]
 
 ## <a name="provisioning-modes"></a>Modos de aprovisionamiento
-La hoja **Aprovisionamiento** comienza con un menú **Modo**, que muestra los modos de aprovisionamiento que se admiten para una aplicación empresarial y les permite la configuración. Las opciones disponibles incluyen:
+El panel **Aprovisionamiento** comienza con un menú **Modo**, que muestra los modos de aprovisionamiento que se admiten para una aplicación empresarial y permite configurarlos. Las opciones disponibles incluyen:
 
 * **Automático** : esta opción aparece si Azure AD admite el aprovisionamiento automático basado en API o el desaprovisionamiento de cuentas de usuario para esta aplicación. Si se selecciona este modo, se muestra una interfaz que guía a los administradores a través de la configuración de Azure AD para conectarse a la API de administración de usuario de la aplicación, mediante la creación de asignaciones de cuentas y flujos de trabajo que definen cómo deben fluir los datos de la cuenta de usuario entre Azure AD y la aplicación, y administrar el servicio de aprovisionamiento de Azure AD.
 * **Manual** : esta opción se muestra si Azure AD no admite el aprovisionamiento automático de cuentas de usuario para esta aplicación. Esta opción significa que los registros de cuenta de usuario almacenados en la aplicación deben administrarse mediante un proceso externo, según las funcionalidades de aprovisionamiento y administración de usuarios proporcionadas por la aplicación (que puede incluir el aprovisionamiento Just-In-Time de SAML).
@@ -54,7 +54,7 @@ Aquí es donde los administradores pueden ver y modificar el flujo de atributos 
 
 Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. Si se selecciona una de estas asignaciones en la tabla, se muestra el editor de asignaciones a la derecha, donde se pueden ver y personalizar.
 
-![Hoja Recursos de aplicación][2]
+![Panel Recurso de aplicación][2]
 
 Las personalizaciones compatibles incluyen:
 
@@ -62,7 +62,7 @@ Las personalizaciones compatibles incluyen:
 * Editar los atributos que fluyen desde el objeto de usuario de Azure AD al objeto de usuario de la aplicación. Para más información sobre la asignación de atributos, consulte la sección [Información sobre los tipos de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
 * Filtre las acciones de aprovisionamiento que realiza Azure AD en la aplicación de destino. En lugar de que Azure AD sincronice totalmente los objetos, puede limitar las acciones realizadas. Por ejemplo, si solo se selecciona **Actualizar**, Azure AD únicamente actualiza las cuentas de usuario existentes en una aplicación y no crea otras nuevas. Si solo se selecciona **Crear**, Azure únicamente crea nuevas cuentas de usuario, pero no actualiza los existentes. Esta característica permite a los administradores crear asignaciones diferentes para la creación de cuentas y la actualización de los flujos de trabajo.
 
-### <a name="settings"></a>Configuración
+### <a name="settings"></a>Settings
 Esta sección permite a los administradores iniciar y detener el servicio de aprovisionamiento de Azure AD para la aplicación seleccionada, así como borrar opcionalmente la caché de aprovisionamiento y reiniciar el servicio.
 
 Si el aprovisionamiento se habilita por primera vez para una aplicación, active el servicio mediante el cambio de **Estado de aprovisionamiento** a **Activado**. Esto hace que el servicio de aprovisionamiento de Azure AD realice una sincronización inicial, que lee los usuarios asignados en la sección **Usuarios y grupos**, consulta la aplicación de destino para ellos y, después, realiza las acciones de aprovisionamiento definidas en la sección **Asignaciones** de Azure AD. Durante este proceso, el servicio de aprovisionamiento almacena datos en caché sobre las cuentas de usuario que está administrando, para que las cuentas no administradas dentro de las aplicaciones de destino que nunca estaban en el ámbito de asignación no se vean afectadas por las operaciones de desaprovisionamiento. Después de la sincronización inicial, el servicio de aprovisionamiento sincroniza automáticamente los objetos de grupo y usuario en un intervalo de diez minutos.
@@ -81,6 +81,6 @@ Se proporcionan vínculos al **informe de actividad de aprovisionamiento**, que 
 Esperamos que le guste su experiencia de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos entusiasma crear cosas nuevas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que haremos.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

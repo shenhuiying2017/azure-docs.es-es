@@ -13,67 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
-En este tema se proporciona información acerca de las cosas que debe saber y lo que se debe evitar hacer al configurar directivas de acceso condicional. Antes de leer este tema, debe familiarizarse con los conceptos y la terminología que se describe en [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En este artículo se proporciona información acerca de lo siguiente:
 
-## <a name="what-you-should-know"></a>Qué debería saber
+- Qué debería saber 
+- Qué debe evitar hacer al configurar directivas de acceso condicional 
 
-### <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para realizar un trabajo de directiva?
-
-Cuando crea una nueva directiva, no hay usuarios, grupos, aplicaciones o controles de acceso seleccionados.
-
-![Aplicaciones en la nube](./media/active-directory-conditional-access-best-practices/02.png)
+En este artículo se asume que está familiarizado con los conceptos y la terminología que se describen en [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 
-Para realizar un trabajo de directiva, debe configurar lo siguiente:
+
+## <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para realizar un trabajo de directiva?
+
+Cuando crea una directiva nueva, no hay usuarios, grupos, aplicaciones ni controles de acceso seleccionados.
+
+![Aplicaciones de nube](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+Para realizar un trabajo de directiva, debe configurar:
 
 
 |Qué           | Cómo                                  | Porqué|
 |:--            | :--                                  | :-- |
-|**Aplicaciones en la nube** |Tiene que seleccionar una o más aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que realice un mejor ajuste sobre cómo los usuarios autorizados pueden acceder a sus aplicaciones.|
+|**Aplicaciones en la nube** |Tiene que seleccionar una o más aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
 | **Usuarios y grupos** | Tiene que seleccionar al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
-| **Controles de acceso** | Tiene que seleccionar al menos un control de acceso. | El procesador de directivas tiene que saber qué hacer si se satisfacen las condiciones.|
+| **Controles de acceso** | Tiene que seleccionar al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer.|
 
 
-Además de estos requisitos básicos, en muchos casos, también debe configurar una condición. Cuando una directiva también funcione sin una condición configurada, las condiciones son el factor de conducción para el acceso de mejor ajuste a sus aplicaciones.
 
 
-![Aplicaciones en la nube](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Qué debería saber
 
 ### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?
 
 A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.  
 
-Si debe configurar una condición de ubicación que se aplica a todas las conexiones realizadas desde fuera de la red de la organización, puede:
+Si debe configurar una condición de ubicación que se aplique a todas las conexiones realizadas desde fuera de la red de la organización, puede:
 
 - Incluir **todas las ubicaciones**.
-- Excluir **todas las direcciones IP de confianza**.
+- Excluir **todas las IP de confianza**.
+
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>¿Qué se debe hacer si está bloqueado en el portal de administración de Azure AD?
+
+Si está bloqueado en el portal de Azure AD debido a una configuración incorrecta de una directiva de acceso condicional:
+
+- Compruebe si hay otros administradores de su organización que no estén bloqueados todavía. Un administrador con acceso a Azure Portal puede deshabilitar la directiva que está afectando al inicio de sesión. 
+
+- Si ninguno de los administradores de la organización puede actualizar la directiva, debe enviar una solicitud de soporte técnico. El soporte técnico de Microsoft puede revisar y actualizar las directivas de acceso condicional que impidan el acceso.
+
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>¿Qué ocurre si tiene directivas configuradas en el Portal de Azure clásico y en Azure Portal?  
+
 Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
 
 ### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>¿Qué sucede si tiene directivas en el portal de Intune Silverlight y en Azure Portal?
+
 Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>¿Qué ocurre si tiene varias directivas configuradas para el mismo usuario?  
+
 En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y garantiza que se cumplan todos los requisitos antes de conceder acceso al usuario.
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>¿Funciona el acceso condicional con Exchange ActiveSync?
 
 Sí, se puede usar Exchange ActiveSync en una directiva de acceso condicional.
+
+
+
+
 
 
 ## <a name="what-you-should-avoid-doing"></a>¿Qué no debería hacer?
@@ -97,10 +116,27 @@ En su entorno, debería evitar las siguientes configuraciones:
 - **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>¿Cómo debe implementar una directiva nueva?
+
+Como primer paso, debe evaluar la directiva con la [herramienta What if](active-directory-conditional-access-whatif.md).
+
+Cuando esté listo para implementar una directiva nueva en su entorno, debería hacerlo en fases:
+
+1. Aplique una directiva a un pequeño conjunto de usuarios y compruebe que se comporta según lo esperado. 
+
+2.  Cuando expanda una directiva para incluir más usuarios, continúe con la exclusión de todos los administradores de la directiva. Esto garantiza que los administradores aún tengan acceso y puedan actualizar una directiva si es necesario un cambio.
+
+3. Aplique una directiva a todos los usuarios solo si es realmente necesario. 
+
+Como procedimiento recomendado, cree una cuenta de usuario que esté:
+
+- Dedicada a la administración de directivas 
+- Excluida de todas las directivas
+
 
 ## <a name="policy-migration"></a>Migración de directivas
 
-Debería considerar la posibilidad de migrar las directivas que no haya creado en Azure portal porque:
+Considere la posibilidad de migrar las directivas que no haya creado en Azure Portal porque:
 
 - Ahora puede resolver situaciones que antes no podía controlar.
 
@@ -108,12 +144,12 @@ Debería considerar la posibilidad de migrar las directivas que no haya creado e
 
 - Puede administrar todas las directivas de acceso condicional en una ubicación central.
 
-- Se retirará el Portal de Azure clásico.   
+- Se ha retirado la versión clásica de Azure Portal.   
 
 
 Para obtener más información, consulte [Migración de directivas clásicas en Azure Portal](active-directory-conditional-access-migration.md).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).

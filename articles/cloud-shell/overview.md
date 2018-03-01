@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
@@ -83,7 +83,7 @@ Se ofrece una opción avanzada que permite asociar los recursos existentes a Clo
 En el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para ver otras opciones.
 
 > [!Note]
-> Las listas desplegables se filtran por la región de Cloud Shell previamente asignada y las cuentas de almacenamiento LRS y GRS.
+> Las listas desplegables se filtran por la región de Cloud Shell previamente asignada y las cuentas de almacenamiento LRS, GRS y ZRS.
 
 [Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos de archivos de Azure compartidos y la carga o descarga de archivos](persisting-shell-storage.md).
 

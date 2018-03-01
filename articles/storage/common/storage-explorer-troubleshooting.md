@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
-El Explorador de Microsoft Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. La aplicación puede conectarse a las cuentas de Storage hospedadas en Azure, nubes independientes y Azure Stack.
+El Explorador de Microsoft Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. La aplicación puede conectarse a las cuentas de Storage hospedadas en Azure, nubes nacionales y Azure Stack.
 
 Esta guía resume las soluciones para problemas comunes en el Explorador de Storage.
 
@@ -59,7 +59,7 @@ Cuando el Explorador de Storage se encuentra uno de estos problemas, no puede sa
 
 6. Abra el Explorador de Storage, haga clic en **Editar** > **Certificados SSL** > **Importar certificados** y, luego, utilice el selector de archivos para encontrar, seleccionar y abrir los archivos .cer que ha creado.
 
-Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriores, póngase en contacto con nosotros mediante la herramienta de comentarios para obtener más ayuda.
+Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriores, póngase en contacto con nosotros mediante la herramienta de comentarios para más ayuda.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>No se pueden recuperar las suscripciones
 
@@ -116,7 +116,7 @@ Si no puede quitar una cuenta, o si el vínculo para volver a autenticar no hace
     - ~/.config/StorageExplorer para Linux
 
 > [!NOTE]
->  Tendrá que volver a escribir todas sus credenciales si elimina estos archivos.
+>  Después de eliminar los archivos anteriores, debe iniciar sesión en sus cuentas.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
@@ -176,12 +176,20 @@ Si se conecta a un servicio mediante una dirección URL de SAS y se produce este
 Si asoció accidentalmente una dirección URL de SAS no válida y no se puede desasociar, siga estos pasos:
 1.  Cuando se ejecute el Explorador de Storage, presione F12 para abrir la ventana de herramientas de desarrollador.
 2.  Haga clic en la pestaña Aplicación y, a continuación, haga clic en Almacenamiento Local > file:// en el árbol de la izquierda.
-3.  Busque la clave asociada al tipo de servicio del URI de SAS problemática. Por ejemplo, si el URI incorrecto de SAS es para un contenedor de blobs, busque la clave denominada "StorageExplorer_AddStorageServiceSAS_v1_blob".
+3.  Busque la clave asociada al tipo de servicio del URI de SAS problemática. Por ejemplo, si el identificador URI de SAS incorrecto es para un contenedor de blobs, busque la clave llamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  El valor de la clave debe ser una matriz JSON. Busque el objeto asociado con el URI incorrecto y quítelo.
 5.  Presione Ctrl + R para volver a cargar el Explorador de Storage.
 
+## <a name="linux-dependencies"></a>Dependencias de Linux
 
-## <a name="next-steps"></a>Pasos siguientes
+En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
+* libgconf-2-4
+* libsecret
+* GCC actualizado
+
+Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
+
+## <a name="next-steps"></a>pasos siguientes
 
 Si ninguna de las soluciones funciona, envíe su problema mediante la herramienta de comentarios con su dirección de correo electrónico y todos los detalles sobre el problema como sea posible, para que podemos ponernos en contacto con usted para corregir el problema.
 

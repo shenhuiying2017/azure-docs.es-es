@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
@@ -61,7 +61,7 @@ Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitua
 ### <a name="create-a-namespace-and-event-hub"></a>Creación de un espacio de nombres y un centro de eventos
 En este procedimiento, cree primero un espacio de nombres del centro de eventos y agregue luego un centro de eventos a dicho espacio de nombres. Los espacios de nombres del centro de eventos se usan para agrupar lógicamente instancias de bus de eventos relacionados. 
 
-1. Inicie sesión en Azure Portal y haga clic en **Nuevo** > **Internet de las cosas** > **Centro de eventos**. 
+1. Inicie sesión en Azure Portal y haga clic en **Crear un recurso** > **Internet de las cosas** > **Centro de eventos**. 
 
 2. En el panel **Crear espacio de nombres**, especifique un nombre de espacio de nombres, como `<yourname>-eh-ns-demo`. Puede utilizar cualquier nombre para el espacio de nombres, pero debe ser válido para una dirección URL y ser único en Azure. 
     
@@ -165,7 +165,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
 ### <a name="create-the-job"></a>Creación del trabajo 
 
-1. En Azure Portal, haga clic en **Nuevo** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
+1. En Azure Portal, haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 
 2. Asigne al trabajo el nombre `sa_frauddetection_job_demo` y especifique una suscripción, un grupo de recursos y una ubicación.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1 
 
@@ -27,12 +27,12 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ### <a name="overview"></a>Información general
-App Service Environment (ASE) es una opción del servicio Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas multiinquilino. La característica de ASE esencialmente implementa el Servicio de aplicaciones de Azure en la red virtual de un cliente. Para comprender mejor las funciones que ofrecen los entornos de App Service, lea el artículo donde[que explica en qué consiste un entorno de App Service][WhatisASE].
+App Service Environment (ASE) es una opción del servicio Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas multiinquilino. La característica de ASE esencialmente implementa Azure App Service en la red virtual de un cliente. Para comprender mejor las funciones que ofrecen los entornos de App Service, lea el artículo donde[que explica en qué consiste un entorno de App Service][WhatisASE].
 
 ### <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 Es importante ser consciente de las cosas que no se pueden cambiar. Los aspectos que no se pueden cambiar sobre ASE una vez creado son:
 
-* Ubicación
+* La ubicación
 * La suscripción
 * Grupo de recursos
 * Red virtual usada
@@ -42,13 +42,13 @@ Es importante ser consciente de las cosas que no se pueden cambiar. Los aspectos
 Al seleccionar una red virtual y especificar una subred, asegúrese de que es lo suficientemente grande como para alojar el crecimiento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1
-Para crear una instancia de App Service Environment v1, tiene que buscar ***App Service Environment v1*** en Azure Marketplace o a través de Nuevo -> Web y móvil -> App Service Environment. Para crear una instancia de ASEv1:
+Para crear una instancia de App Service Environment v1, puede buscar ***App Service Environment v1*** en Azure Marketplace o a través de **Crear un recurso** -> **Web y móvil** -> **App Service Environment**. Para crear una instancia de ASEv1:
 
-1. Proporcione el nombre de su ASE. El nombre especificado para el ASE se usará en las aplicaciones creadas en él. Si el nombre del ASE es appsvcenvdemo, el nombre del subdominio será .*appsvcenvdemo.p.azurewebsites.net*. Por tanto, si creó una aplicación llamada *mytestapp*, se podría obtener acceso a ella en *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre del ASE. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre. Si usa un ILB, su nombre ASE no se usa en su subdominio pero, en su lugar, se indica explícitamente durante la creación del ASE.
+1. Proporcione el nombre de su ASE. El nombre que especifique para la instancia de ASE se usará en las aplicaciones creadas en esta. Si el nombre de la instancia de ASE es appsvcenvdemo, el nombre del subdominio será: *appsvcenvdemo.p.azurewebsites.net*. Por tanto, si creó una aplicación llamada *mytestapp*, se podría obtener acceso a ella en *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre del ASE. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre. Si usa un ILB, el nombre de la instancia de ASE no se usa en su subdominio, sino que se indica explícitamente durante la creación de dicha instancia.
    
     ![][1]
-2. Seleccione su suscripción. La suscripción utilizada para su ASE también es aquella con la que se crearán todas las aplicaciones en ese ASE. No se puede colocar su ASE en una red virtual que se encuentra en otra suscripción
-3. Seleccione o especifique un nuevo grupo de recursos. El grupo de recursos que se usa para su ASE debe ser el mismo que se utiliza para la red virtual. Si selecciona una red virtual existente, la selección del grupo de recursos para su ASE se actualizará para reflejar la red virtual.
+2. Seleccione su suscripción. La suscripción que se utilice para su instancia de ASE también se aplicará a todas las aplicaciones que se creen en dicha instancia. No puede colocar su instancia de ASE en una red virtual que se encuentre en otra suscripción.
+3. Seleccione o especifique un nuevo grupo de recursos. El grupo de recursos que se usa para su ASE debe ser el mismo que se utiliza para la red virtual. Si selecciona una red virtual existente, la selección del grupo de recursos para su instancia de ASE se actualizará para reflejar la red virtual.
    
     ![][2]
 4. Realice las selecciones de red virtual y ubicación. Puede crear una red virtual nueva o seleccionar una red virtual existente. Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. La red virtual nueva tendrá el intervalo de dirección 192.168.250.0/23 y una subred denominada **predeterminada** que se define como 192.168.250.0/24. Puede seleccionar también simplemente una red virtual de Resource Manager o clásica creadas previamente. La selección del tipo de VIP determina si es posible obtener acceso directo a su ASE desde Internet (externo) o si usa un equilibrador de carga interno (ILB). Para obtener más información sobre ellos, consulte [Uso de un equilibrador de carga interno con un entorno de App Service][ILBASE]. Si selecciona un tipo de VIP externo, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de IPSSL. Si selecciona Interno, debe especificar el subdominio que utilizará el ASE. Se pueden implementar los ASE en redes virtuales que usen *o bien* intervalos de direcciones públicas *o bien* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la red virtual por adelantado. Cuando seleccione una red virtual creada previamente, debe crear una nueva subred durante la creación de ASE. **No se puede usar una subred creada previamente en el portal. Puede crear un ASE con una subred creada previamente si crea su ASE con una plantilla de Resource Manager.** Para crear un ASE a partir de una plantilla, use la información de estos artículos: [Creación de un entorno de App Service a partir de una plantilla][ILBAseTemplate] y [Creación de un entorno de App Service de ILB a partir una plantilla][ASEfromTemplate].

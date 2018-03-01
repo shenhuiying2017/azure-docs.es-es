@@ -4,7 +4,7 @@ description: "En este tutorial se muestra cómo crear un grupo de disponibilidad
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configuración automática de grupos de disponibilidad AlwaysOn en Azure Virtual Machines: Resource Manager
 
@@ -63,8 +63,8 @@ En este tutorial, podrá usar Azure Portal para:
 Azure ofrece una galería de imágenes para toda la solución. Para ubicar la plantilla:
 
 1. Inicie sesión en Azure Portal con su cuenta.
-2. En Azure Portal, haga clic en **+Nuevo** para abrir la hoja **Nuevo**.
-3. En la hoja **Nuevo**, busque **AlwaysOn**.
+2. En Azure Portal, haga clic en **Crear un recurso** para que se abra el panel **Nuevo**.
+3. En el panel **Nuevo**, busque **AlwaysOn**.
    ![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. En los resultados de la búsqueda, busque **Clúster AlwaysOn de SQL Server**.
    ![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -83,7 +83,7 @@ En la captura de pantalla siguiente hay una hoja **Aspectos básicos** completad
 
 ![Aspectos básicos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
-Haga clic en **Aceptar**.
+Haga clic en **OK**.
 
 ### <a name="domain-and-network-settings"></a>Configuración de red y dominio
 Esta plantilla de la galería de Azure crea un dominio y controladores de dominio. También crea una red y dos subredes. La plantilla no puede crear servidores en un dominio o una red virtual existente. En el siguiente paso se configura el dominio y la red.
@@ -91,7 +91,7 @@ Esta plantilla de la galería de Azure crea un dominio y controladores de domini
 En la hoja **Configuración de dominio y red**, revise los valores preestablecidos para la configuración del dominio y de la red:
 
 * **Nombre de dominio raíz del bosque** es el nombre de dominio para el dominio de Active Directory que hospeda al clúster. Use **contoso.com** en el tutorial.
-* **Nombre de red virtual** es el nombre de la red virtual de Azure. Use **autohaVNET** en el tutorial.
+* **Nombre de red virtual** es el nombre de la instancia de Azure Virtual Network. Use **autohaVNET** en el tutorial.
 * **Domain Controller subnet name** (Nombre de subred del controlador de dominio) es el nombre de la parte de la red virtual que hospeda el controlador de dominio. Utilice **subnet-1**. Esta subred usa el prefijo de dirección **10.0.0.0/24**.
 * **Nombre de subred de SQL Server** es el nombre de la parte de la red virtual que hospeda los servidores que ejecutan SQL Server y el testigo del recurso compartido de archivos. Utilice **subnet-2**. Esta subred usa el prefijo de dirección **10.0.1.0/26**.
 
@@ -116,7 +116,7 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 ![Configuración de grupos de disponibilidad](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-Haga clic en **Aceptar**.
+Haga clic en **OK**.
 
 ### <a name="virtual-machine-size-storage-settings"></a>Configuración de tamaño y almacenamiento de máquina virtual
 En **Configuración de tamaño y almacenamiento de máquina virtual**, elija un tamaño de máquina virtual con SQL Server y revise el resto de las opciones.
@@ -185,7 +185,7 @@ En **Configuración de SQL Server** , revise y modifique el prefijo del nombre d
 Revise la configuración y, luego, haga clic en **Aceptar**.
 
 ### <a name="summary"></a>Resumen
-Azure valida la configuración en la página de resumen. También puede descargar la plantilla. Revise el resumen. Haga clic en **Aceptar**.
+Azure valida la configuración en la página de resumen. También puede descargar la plantilla. Revise el resumen. Haga clic en **OK**.
 
 ### <a name="buy"></a>Comprar
 Esta hoja final contiene las **condiciones de uso** y la **directiva de privacidad**. Revise esta información. Cuando esté listo para que Azure empiece a crear las máquinas virtuales y el resto de los recursos requeridos para el grupo de disponibilidad, haga clic en **Crear**.

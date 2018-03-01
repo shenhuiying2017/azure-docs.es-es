@@ -1,6 +1,6 @@
 ---
-title: "Replicación de una aplicación web basada en IIS de niveles múltiples con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se explica cómo se replican las máquinas virtuales de una granja de servidores web de IIS con Azure Site Recovery."
+title: "Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery | Microsoft Docs"
+description: "Aprenda cómo replicar las máquinas virtuales de una granja de servidores web de IIS con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,100 +14,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 00d5c1fa8c0c16daef5d928147e169553672e1f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicación de una aplicación web basada en IIS de niveles múltiples con Azure Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery
 
-## <a name="overview"></a>Información general
+El software de las aplicaciones es el motor que mantiene la productividad del negocio. En una organización, puede haber diversas aplicaciones web con diferentes propósitos. Algunas aplicaciones, como las que se usan para el procesamiento de nóminas, aplicaciones financieras y sitios web orientado al cliente, pueden resultar fundamentales para una organización. Para evitar la pérdida de productividad, es importante que la organización tenga estas aplicaciones continuamente en funcionamiento. Más importante aún, tener estas aplicaciones disponibles sistemáticamente puede ayudar a impedir que se perjudique la marca o la imagen de la organización.
 
+Las aplicaciones web que resultan esenciales suelen configurarse como aplicaciones de capas múltiples: web, base de datos y aplicación. Además de abarcar diferentes capas, las aplicaciones también pueden usar diferentes servidores en cada nivel para equilibrar la carga del tráfico. Por otra parte, las asignaciones entre las diferentes capas y en el servidor web podrían basarse en direcciones IP estáticas. Si se produce una conmutación por error, algunas de estas asignaciones deben actualizarse, especialmente, si hay varios sitios web configurados en el servidor web. Si las aplicaciones web usan SSL, debe actualizar los enlaces de certificado.
 
-El software de las aplicaciones es el motor que mantiene la productividad del negocio. En una organización, puede haber diversas aplicaciones web con diferentes propósitos. Algunas de ellas, como las aplicaciones financieras, los programas de procesamiento de nóminas y los sitios web destinados a los clientes, pueden resultar extremadamente cruciales para la organización. Por este motivo, es muy importante que estén operativas y en ejecución en todo momento para que la productividad no se vea afectada y, lo que es más importante, para que no se dañe la imagen de marca de la organización.
+Con los métodos de recuperación tradicionales que no se basan en la replicación, es necesario realizar la copia de seguridad de varios archivos de configuración, valores del Registro, enlaces, componentes personalizados (COM o .NET), contenido y certificados. Los archivos se recuperan mediante un conjunto de pasos manuales. Los métodos tradicionales de copia de seguridad y recuperación manual de los archivos son complicados, propensos a errores y no se pueden escalar. Por ejemplo, es fácil olvidarse de realizar una copia de seguridad de los certificados. Después de la conmutación por error, no le queda más remedio que comprar nuevos certificados para el servidor.
 
-Las aplicaciones web que resultan esenciales suelen configurarse como aplicaciones de niveles múltiples: Web, base de datos y aplicación. Además de abarcar diferentes niveles, las aplicaciones también pueden utilizar diferentes servidores en cada nivel para equilibrar la carga del tráfico. Por otra parte, las asignaciones entre los diferentes niveles y el servidor web deben basarse en direcciones IP estáticas. Si se produce una conmutación por error, algunas de estas asignaciones deben actualizarse, especialmente, si hay varios sitios web configurados en el servidor web. Si las aplicaciones web utilizan SSL, deben actualizarse los enlaces de certificados.
+Una buena solución de recuperación ante desastres admite el modelado de planes para arquitecturas de aplicación complejas. También debe poder agregar pasos personalizados al plan de recuperación para controlar las asignaciones de aplicación entre capas. Si se produce un desastre, las asignaciones de aplicación proporcionan una solución infalible con un solo clic que conducen a un RTO inferior.
 
-En los métodos de recuperación tradicionales que no utilizan la replicación, es necesario realizar copias de seguridad de diferentes archivos de configuración, opciones de configuración del Registro, enlaces, componentes personalizados (COM o .NET), contenidos y certificados, así como recuperar los archivos a través de procedimientos manuales. Estas técnicas resultan engorrosas, suelen generar errores y no son escalables. Por ejemplo, es fácil que olvide realizar copias de seguridad de los certificados y que no le quede otra opción que comprar nuevos certificados para el servidor después de que se produzca una conmutación por error.
-
-Una buena solución de recuperación ante desastres debe permitir el modelado de planes de recuperación alrededor de arquitecturas de aplicación complejas. También debe tener la capacidad de agregar pasos personalizados para controlar las asignaciones de aplicaciones entre los distintos niveles. Si se produce un desastre, esto proporciona una solución segura con un solo clic, lo que da lugar a un RTO inferior.
-
-
-En este artículo se explica cómo proteger una aplicación web basada en IIS mediante [Azure Site Recovery](site-recovery-overview.md). También se describen los procedimientos recomendados para replicar en Azure una aplicación web basada en IIS de tres niveles, cómo llevar a cabo un simulacro de recuperación ante desastres y cómo conmutar por error la aplicación en Azure.
-
+En este artículo se describe cómo proteger una aplicación web basada en Internet Information Services (IIS) mediante [Azure Site Recovery](site-recovery-overview.md). También se describen los procedimientos recomendados para replicar en Azure una aplicación web basada en IIS de tres capas, cómo llevar a cabo un simulacro de recuperación ante desastres y cómo conmutar por error la aplicación a Azure.
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Antes de empezar, no olvide informarse sobre los requisitos siguientes:
+Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
-1. [Replicación de una máquina virtual en Azure](site-recovery-vmware-to-azure.md)
-1. [Diseño de una red de recuperación](site-recovery-network-design.md)
-1. [Realización de una conmutación por error de prueba en Azure](./site-recovery-test-failover-to-azure.md)
-1. [Ejecución de una conmutación por error en Azure](site-recovery-failover.md)
-1. [Replicación de un controlador de dominio](site-recovery-active-directory.md)
-1. [Replicación de SQL Server](site-recovery-sql.md)
+* [Replicar una máquina virtual en Azure](site-recovery-vmware-to-azure.md)
+* [Diseñar una red de recuperación](site-recovery-network-design.md)
+* [Realizar una conmutación por error de prueba a Azure](site-recovery-test-failover-to-azure.md)
+* [Realizar una conmutación por error a Azure](site-recovery-failover.md)
+* [Replicar un controlador de dominio](site-recovery-active-directory.md)
+* [Replicación de SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Modelos de implementación
-Por lo general, las aplicaciones web basadas en IIS se ajustan a uno de los siguientes modelos de implementación:
+Por lo general, las aplicaciones web basadas en IIS se ajustan a uno de los siguientes patrones de implementación:
 
-**Modelo de implementación 1** Granja de servidores web de IIS con Enrutamiento de solicitud de aplicaciones (ARR), servidor de IIS y Microsoft SQL Server.
+**Patrón de implementación 1**
 
-![Modelo de implementación](./media/site-recovery-iis/deployment-pattern1.png)
+Una granja de servidores web basados en IIS con Enrutamiento de solicitud de aplicaciones (ARR), un servidor IIS y SQL Server.
 
-**Modelo de implementación 2** Granja de servidores web basada IIS con Enrutamiento de solicitud de aplicaciones (ARR), IIS Server, servidor de aplicaciones y Microsoft SQL Server.
+![Diagrama de una granja de servidores web basados en IIS que consta de tres capas](./media/site-recovery-iis/deployment-pattern1.png)
 
+**Patrón de implementación 2**
 
-![Modelo de implementación](./media/site-recovery-iis/deployment-pattern2.png)
+Una granja de servidores web basados en IIS con ARR, un servidor IIS, un servidor de aplicaciones y SQL Server.
+
+![Diagrama de una granja de servidores web basados en IIS que tiene cuatro capas](./media/site-recovery-iis/deployment-pattern2.png)
 
 ## <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 
-Para elaborar este artículo, se utilizan máquinas virtuales de VMware con el servidor de IIS versión 7.5 en Windows Server 2012 R2 Enterprise. Como la replicación de recuperación del sitio no depende de la aplicación, se pretende que las recomendaciones que se brindan aquí sirvan tanto para los escenarios que se describen a continuación como para las diferentes versiones de IIS.
+En los ejemplos de este artículo, usamos máquinas virtuales de VMware con IIS 7.5 en Windows Server 2012 R2 Enterprise. Dado que la replicación de Site Recovery no es específica de la aplicación, se espera que las recomendaciones de este artículo se apliquen en los escenarios indicados en la siguiente tabla y para distintas versiones de IIS.
 
 ### <a name="source-and-target"></a>Origen y destino
 
-**Escenario** | **En un sitio secundario** | **En Azure**
+Escenario | En un sitio secundario | En Azure
 --- | --- | ---
-**Hyper-V** | Sí | Sí
-**VMware** | Sí | Sí
-**Servidor físico** | Sin  | Sí
-**Las tablas de Azure**|N/D|Sí
+Hyper-V | Sí | Sí
+VMware | Sí | Sí
+Servidor físico | Sin  | Sí
+Azure|N/D|Sí
 
 ## <a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
 
-Siga [estas directrices](site-recovery-vmware-to-azure.md) para comenzar a replicar en Azure todas las máquinas virtuales de la granja de servidores web de IIS.
+Para iniciar la replicación de todas las máquinas virtuales de la granja de servidores web IIS en Azure, siga las instrucciones de [Conmutación por error de prueba a Azure en Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Si utiliza una dirección IP estática, especifique la dirección IP que desea utilizar con la máquina virtual en la opción [**IP de destino**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) de la configuración de Proceso y red.
+Si usa una dirección IP estática, puede especificar la dirección IP que quiere que se utilice con la máquina virtual. Para establecer la dirección IP, vaya a la **configuración de proceso y red** > [**IP DE DESTINO**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
 
-![IP de destino](./media/site-recovery-active-directory/dns-target-ip.png)
+![Captura de pantalla que muestra cómo establecer la dirección IP de destino en el panel de red y proceso de Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
+
+## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
+Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varias capas durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varias capas, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).
+
+### <a name="add-virtual-machines-to-failover-groups"></a>Adición de máquinas virtuales a grupos de conmutación por error
+Por lo general, una aplicación web de IIS de varias capas consta de los siguientes componentes:
+* Una capa de base de datos que tiene máquinas virtuales de SQL.
+* La capa web, que consta de un servidor IIS y una capa de aplicación. 
+
+Agregue máquinas virtuales a diferentes grupos según la capa:
+
+1. Cree un plan de recuperación. Agregue las máquinas virtuales de la capa de base de datos en el grupo 1. De esta forma, se garantiza que las máquinas virtuales de la capa de base de datos se apagan las últimas y se activan primero.
+1. Agregue las máquinas virtuales de la capa de aplicación en el grupo 2. De esta forma, se garantiza que las máquinas virtuales de la capa de aplicación se activan una vez que lo han hecho las de la capa de base de datos.
+1. Agregue las máquinas virtuales de la capa web en el grupo 3. De esta forma, se garantiza que las máquinas virtuales de la capa web se activan una vez que lo han hecho las de la capa de aplicación.
+1. Agregue las máquinas virtuales de equilibrio de carga en el grupo 4. De esta forma, se garantiza que las máquinas virtuales de equilibrio de carga se activan una vez que lo han hecho las de la capa web.
+
+Para más información, consulte cómo [personalizar el plan de recuperación](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 
-## <a name="creating-a-recovery-plan"></a>Creación de un plan de recuperación
-
-Los planes de recuperación permiten secuenciar la conmutación por error de los diferentes niveles de una aplicación de niveles múltiples y, por tanto, mantener la coherencia de la aplicación. A continuación, se indican los pasos para crear un plan de recuperación para una aplicación web de múltiples niveles.  [Aprenda más sobre la creación de un plan de recuperación](./site-recovery-create-recovery-plans.md).
-
-### <a name="adding-virtual-machines-to-failover-groups"></a>Incorporación de máquinas virtuales a grupos de conmutación por error
-Por lo general, una aplicación web de IIS de niveles múltiples se compone de un nivel de base de datos con máquinas virtuales SQL; del nivel web, compuesto por un servidor de IIS, y del nivel de la aplicación. Tal y como se describe en los pasos siguientes, debe agregar todas estas máquinas virtuales en un grupo diferente según el nivel al que pertenecen. [Aprenda más sobre cómo personalizar los planes de recuperación](site-recovery-runbook-automation.md#customize-the-recovery-plan).
-
-1. Cree un plan de recuperación. Agregue las máquinas virtuales del nivel de base de datos en Group 1 (Grupo 1) para asegurarse de que es lo último que se desconecta y lo primero que se activa.
-
-1. Agregue las máquinas virtuales del nivel de aplicación en Group 2 (Grupo 2) para que se activen después del nivel de base de datos.
-
-1. Agregue las máquinas virtuales del nivel web en Group 3 (Grupo 3) para que se activen después del nivel de aplicación.
-
-1. Agregue las máquinas virtuales de equilibrio de carga en Group 4 (Grupo 4) para que se activen después del nivel web.
-
-
-### <a name="adding-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
-Es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error (real o de prueba) para conseguir que la granja de servidores web de IIS funcione correctamente. Puede automatizar las operaciones posteriores a la conmutación por error, como la actualización de entradas DNS, la modificación de los enlaces del sitio o la modificación de la cadena de conexión, incorporando los scripts correspondientes en el plan de recuperación, tal y como se detalla a continuación. [Aprenda más sobre la incorporación de scripts al plan de recuperación](./site-recovery-how-to-add-vmmscript.md).
+### <a name="add-a-script-to-the-recovery-plan"></a>Adición de un script al plan de recuperación
+Es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, puede actualizar la entrada DNS, cambiar un enlace de sitio o cambiar una cadena de conexión mediante la adición de los scripts correspondientes al plan de recuperación. En [Adición de scripts de VMM a los planes de recuperación](site-recovery-how-to-add-vmmscript.md) se describe cómo configurar tareas automatizadas mediante un script.
 
 #### <a name="dns-update"></a>Actualización de DNS
-Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si desea incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue este [script para actualizar direcciones IP en DNS](https://aka.ms/asr-dns-update) como una acción posterior a los grupos del plan de recuperación.  
+Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si quiere incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue un [script para actualizar direcciones IP en DNS](https://aka.ms/asr-dns-update) como una acción posterior a la conmutación por error en los grupos de planes de recuperación.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Cadena de conexión del archivo web.config de una aplicación
-La cadena de conexión especifica la base de datos con la que se comunica el sitio web.
+La cadena de conexión especifica la base de datos con la que se comunica el sitio web. Si la cadena de conexión contiene el nombre de la máquina virtual de la base de datos, no es necesario realizar ningún paso adicional después de realizar la conmutación por error. La aplicación puede comunicarse automáticamente con la base de datos. Asimismo, si la dirección IP de la máquina virtual de la base de datos no cambia, no será necesario actualizar la cadena de conexión. 
 
-Si la cadena de conexión contiene el nombre de la máquina virtual de la base de datos, no es necesario realizar ningún paso adicional después de realizar la conmutación por error. La aplicación puede comunicarse automáticamente con la base de datos. Asimismo, si la dirección IP de la máquina virtual de la base de datos no se modifica, no será necesario actualizar la cadena de conexión. Si la cadena de conexión hace referencia a la máquina virtual de la base de datos a través de una dirección IP, es necesario actualizarla después de realizar la conmutación por error. Por ejemplo, la siguiente cadena de conexión apunta a la base de datos con la dirección IP 127.0.1.2.
+Si la cadena de conexión hace referencia a la máquina virtual de la base de datos mediante una dirección IP, es necesario actualizarla después de realizar la conmutación por error. Por ejemplo, la siguiente cadena de conexión apunta a la base de datos con la dirección 127.0.1.2:
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -116,53 +115,54 @@ Si la cadena de conexión contiene el nombre de la máquina virtual de la base d
         </connectionStrings>
         </configuration>
 
-Puede actualizar la cadena de conexión en el nivel web agregando un [script para actualizar la conexión de IIS](https://aka.ms/asr-update-webtier-script-classic) después de Group 3 (Grupo 3) en el plan de recuperación.
+Para actualizar la cadena de conexión en la capa web, agregue un [script de actualización de la conexión de IIS](https://aka.ms/asr-update-webtier-script-classic) después del grupo 3 en el plan de recuperación.
 
 #### <a name="site-bindings-for-the-application"></a>Enlaces del sitio en la aplicación
-Todos los sitios contienen información sobre los enlaces, como el tipo de enlace, la dirección IP en la que el servidor de IIS escucha las solicitudes del sitio, el número de puerto y los nombres de host del sitio. Durante la conmutación por error, puede ser necesario actualizar estos enlaces si se ha modificado la dirección IP que tienen asociada.
+Todos los sitios se componen de información de enlace. La información de enlace incluye el tipo de enlace, la dirección IP en la que el servidor IIS escucha las solicitudes del sitio, el número de puerto y los nombres de host del sitio. Durante la conmutación por error, puede ser necesario actualizar estos enlaces si hay un cambio en la dirección IP que tienen asociada.
 
 > [!NOTE]
 >
-> Si marcó la opción "Todas sin asignar" para el enlace del sitio como en el ejemplo siguiente, no tiene que actualizar este enlace después de la conmutación por error. Asimismo, si después de la conmutación por error no se modificó la dirección IP asociada al sitio, no será necesario actualizar el enlace del sitio (el que la dirección IP se mantenga depende de la arquitectura de red y de las subredes asignadas a los sitios principales y de recuperación; por tanto, su viabilidad dependerá de cómo sea su organización).
+> Si establece el enlace del sitio en **Todas sin asignar**, no es necesario actualizar este enlace después de la conmutación por error. Además, si la dirección IP asociada con un sitio no cambia después de la conmutación por error, no es necesario actualizar el enlace del sitio. (La retención de la dirección IP depende de la arquitectura de red y de las subredes asignadas a los sitios principal y de recuperación. Puede que actualizarlos no sea factible en su organización).
 
-![Enlace SSL](./media/site-recovery-iis/sslbinding.png)
+![Captura de pantalla que muestra cómo establecer el enlace SSL](./media/site-recovery-iis/sslbinding.png)
 
-Si la dirección IP está asociada a un sitio, tendrá que actualizar todos los enlaces del sitio con la nueva dirección IP. Puede agregar un [script para actualizar el nivel web de IIS](https://aka.ms/asr-web-tier-update-runbook-classic) detrás de Group 3 (Grupo 3) en el plan de recuperación para cambiar los enlaces del sitio.
+Si la dirección IP está asociada con un sitio, actualice todos los enlaces de sitio con la nueva dirección IP. Para cambiar los enlaces de sitio, agregue un [script de actualización de capa web de IIS](https://aka.ms/asr-web-tier-update-runbook-classic) después del grupo 3 en el plan de recuperación.
 
+#### <a name="update-the-load-balancer-ip-address"></a>Actualización de la dirección IP del equilibrador de carga
+Si tiene una máquina virtual de ARR, para actualizar la dirección IP, agregue un [script de conmutación por error de ARR para IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) después al grupo 4.
 
-#### <a name="update-load-balancer-ip-address"></a>Actualización de la dirección IP del equilibrador de carga
-Si tiene una máquina virtual de Enrutamiento de solicitud de aplicaciones, agregue un [script de conmutación por error de ARR para IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) detrás de Group 4 (Grupo 4) para actualizar la dirección IP.
+#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Enlace de certificado SSL para una conexión HTTPS
+Un sitio web puede tener un certificado SSL asociado que ayuda a garantizar una comunicación segura entre el servidor web y el explorador del servidor. Si el sitio web tiene una conexión HTTPS y también tiene un enlace de sitio HTTPS asociado a la dirección IP del servidor IIS con un enlace de certificado SSL, debe agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual de IIS después de la conmutación por error.
 
-#### <a name="the-ssl-cert-binding-for-an-https-connection"></a>Enlace de certificado SSL de una conexión https
-Websites puede tener un certificado SSL asociado que les ayude a garantizar una comunicación segura entre el servidor web y el explorador del usuario. Si el sitio web tiene una conexión https y un enlace de sitio https asociado a la dirección IP del servidor de IIS con un enlace de certificado SSL, tras la conmutación por error, es necesario agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual de IIS.
+El certificado SSL se puede emitir para componentes:
 
-El certificado SSL puede emitirse con arreglo a:
+* El nombre de dominio completo del sitio web.
+* El nombre del servidor.
+* Un certificado comodín para el nombre de dominio.  
+* Una dirección IP. Si se emite el certificado SSL para la dirección IP del servidor IIS, se debe emitir otro certificado SSL para la dirección IP del servidor IIS en el sitio de Azure. Será necesario crear un enlace SSL adicional para este certificado. Por este motivo, se recomienda no usar un certificado SSL emitido para la dirección IP. Esta opción se usa mucho menos y dejará de utilizarse pronto con arreglo a los nuevos cambios del foro de entidad de certificación/explorador.
 
-a) El nombre de dominio completo del sitio web<br>
-b) El nombre del servidor<br>
-c) Un certificado comodín para el nombre de dominio<br>
-d) Una dirección IP: si el certificado SSL se emite con arreglo a la dirección IP del servidor de IIS, deberá emitirse otro certificado SSL con arreglo a la dirección IP del servidor de IIS del sitio de Azure y será necesario crear otro enlace SSL para este certificado. Por tanto, se recomienda no utilizar certificados SSL emitidos con arreglo a la dirección IP. Esta opción apenas se usa y pronto quedará en desuso a tenor de los nuevos cambios de CA/Browser Forum.
+#### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Actualización de la dependencia entre la capa web y la capa de aplicación
+Si tiene una dependencia específica de la aplicación basada en la dirección IP de las máquinas virtuales, debe actualizarla tras la conmutación por error.
 
-#### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Actualización de la dependencia entre el nivel web y el nivel de aplicación
-Si tiene una dependencia concreta de la aplicación basada en la dirección IP de las máquinas virtuales, tendrá que actualizarla tras la conmutación por error.
+## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 
-## <a name="doing-a-test-failover"></a>Realización de una conmutación por error de prueba
-Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a cabo una conmutación por error de prueba.
+1. En Azure Portal, seleccione el almacén de Recovery Services.
+2. Seleccione el plan de recuperación que creó para la granja de servidores web de IIS.
+3. Seleccione **Conmutación por error de prueba**.
+4. Para iniciar el proceso de conmutación por error de prueba, seleccione el punto de recuperación y la red virtual de Azure.
+5. Cuando el entorno secundario esté activo, podrá realizar validaciones.
+6. Cuando las validaciones hayan finalizado y quiera limpiar el entorno de conmutación por error de prueba, seleccione **Validations complete** (Validaciones finalizadas).
 
-1.  Vaya a Azure Portal y seleccione el almacén de Recovery Services.
-1.  Haga clic en el plan de recuperación creado para la granja de servidores web de IIS.
-1.  Haga clic en 'Probar conmutación por error'.
-1.  Seleccione un punto de recuperación y una red virtual de Azure para iniciar el proceso de conmutación por error de prueba.
-1.  Cuando el entorno secundario esté activo, podrá realizar las validaciones.
-1.  Una vez que se hayan completado las validaciones, puede seleccionar "Validations complete" (Validaciones completas) para que el entono de la conmutación por error de prueba quede limpio.
+Para más información, consulte [Conmutación por error de prueba a Azure en Site Recovery](site-recovery-test-failover-to-azure.md).
 
-## <a name="doing-a-failover"></a>Realización de una conmutación por error
-Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.
+## <a name="run-a-failover"></a>Ejecución de la conmutación por error
 
-1.  Vaya a Azure Portal y seleccione el almacén de Recovery Services.
-1.  Haga clic en el plan de recuperación creado para la granja de servidores web de IIS.
-1.  Haga clic en 'Conmutación por error'.
-1.  Seleccione el punto de recuperación en el que se va a iniciar el proceso de conmutación por error.
+1. En Azure Portal, seleccione el almacén de Recovery Services.
+1. Seleccione el plan de recuperación que creó para la granja de servidores web de IIS.
+1. Seleccione **Failover** (Conmutación por error).
+1. Para iniciar el proceso de conmutación por error, seleccione el punto de recuperación.
+
+Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>pasos siguientes
-Puede obtener más información sobre la [replicación de otras aplicaciones](site-recovery-workload.md) a través de Site Recovery.
+* Aprenda más sobre la [replicación de otras aplicaciones](site-recovery-workload.md) mediante Site Recovery.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics
 
@@ -70,6 +70,9 @@ Los eventos que llegan desordenados, pero dentro del período de tolerancia de d
 * **Descartados**: los eventos descartados.
 
 Cuando Stream Analytics reordena los eventos recibidos dentro del período de tolerancia de desorden, el resultado de la consulta es "delayed by out of order tolerance window" (retraso debido al período de tolerancia de desorden).
+
+### <a name="early-events"></a>Eventos tempranos
+En el procesamiento por tiempo de aplicación, los eventos cuyo tiempo de aplicación van con un adelanto de más de 5 minutos con respecto a su tiempo de llegada o se descartan o se ajustan según la opción de configuración seleccionada.
 
 ### <a name="example"></a>Ejemplo
 

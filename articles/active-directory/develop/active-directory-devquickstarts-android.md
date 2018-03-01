@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Introducción a Azure AD Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,8 +52,8 @@ Aquí suponemos que va a registrar la API de REST TODO mencionada anteriormente.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD donde desea registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+3. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
+4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Escriba un nombre descriptivo para la aplicación (por ejemplo, **TodoListService**), seleccione **Aplicación web y/o API web** y haga clic en **Siguiente**.
 6. Para la URL de inicio de sesión, escriba la dirección URL base para el ejemplo. De manera predeterminada, será `https://localhost:8080`.
 7. Haga clic en **Aceptar** para completar el registro.
@@ -70,7 +70,7 @@ Aquí suponemos que va a registrar la aplicación de ejemplo mencionada anterior
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD donde desea registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Escriba un nombre descriptivo para la aplicación (por ejemplo **TodoListClient-Android**), seleccione **Aplicación de cliente nativo** y haga clic en **Siguiente**.
 6. Para el URI de redirección, escriba `http://TodoListClient`. Haga clic en **Finalizar**

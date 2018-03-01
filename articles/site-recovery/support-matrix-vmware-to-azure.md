@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -22,8 +22,8 @@ En este artículo se resumen los ajustes y los componentes compatibles para la r
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-**Escenario** | **Detalles** 
---- | --- 
+**Escenario** | **Detalles**
+--- | ---
 **Máquinas virtuales de VMware** | Puede realizar el proceso de recuperación ante desastres en Azure para máquinas virtuales de VMware locales. Puede implementar este escenario en Azure Portal o mediante PowerShell.
 **Servidores físicos** | Puede realizar el proceso de recuperación ante desastres en Azure para servidores físicos de Windows o Linux locales. Puede implementar este escenario en Azure Portal.
 
@@ -49,7 +49,7 @@ Sistema operativo de la máquina (Linux) | Red Hat Enterprise Linux : 5.2 a 5.11
 >
 > - En las distribuciones de Linux, solo se admiten kernels de stock que forman parte del lanzamiento o la actualización de la versión secundaria de la distribución.
 >
-> - No se admiten actualizaciones en versiones principales de una distribución de Linux en un servidor físico o una máquina virtual VMware con protección de Azure Site Recovery. Al actualizar el sistema operativo en versiones principales (por ejemplo, de CentOS 6.* a CentOS 7.*), deshabilite la replicación de la máquina, actualice el sistema operativo en la máquina y, a continuación, vuelva a habilitar la replicación.
+> - No se admiten actualizaciones en versiones principales de una distribución de Linux en un servidor físico o una máquina virtual VMware con protección de Azure Site Recovery. Al actualizar el sistema operativo en versiones principales (por ejemplo, de CentOS 6.* a CentOS 7.\*), deshabilite la replicación de la máquina, actualice el sistema operativo en la máquina y, a continuación, vuelva a habilitar la replicación.
 >
 
 ### <a name="ubuntu-kernel-versions"></a>Versiones de kernel de Ubuntu
@@ -83,90 +83,91 @@ XFSv5 | Las características de XFSv5 en sistemas de archivos XFS, como la suma 
 
 ## <a name="network"></a>Red
 
-**Componente** | **Compatible** 
---- | --- 
+**Componente** | **Compatible**
+--- | ---
 Formación de equipos de adaptador de red de la red de host | Se admite en máquinas virtuales de VMware <br/><br/>No se admite en la replicación de máquinas físicas
-VLAN de la red de host | Sí 
-IPv4 de la red de host | Sí 
-IPv6 de la red de host | Sin  
-Formación de equipos de adaptador de red de la red de invitado o de servidor | Sin  
-IPv4 de la red de invitado o de servidor | Sí 
-IPv6 de la red de invitado o de servidor | Sin  
-IP estática de la red de invitado o de servidor (Windows) | Sí 
+VLAN de la red de host | Sí
+IPv4 de la red de host | Sí
+IPv6 de la red de host | Sin 
+Formación de equipos de adaptador de red de la red de invitado o de servidor | Sin 
+IPv4 de la red de invitado o de servidor | Sí
+IPv6 de la red de invitado o de servidor | Sin 
+IP estática de la red de invitado o de servidor (Windows) | Sí
 IP estática de la red de invitado o de servidor (Linux) | Sí <br/><br/>Las máquinas virtuales se configuran para usar DHCP en la conmutación por recuperación  
-Varios adaptadores de red de la red de invitado o de servidor | Sí 
+Varios adaptadores de red de la red de invitado o de servidor | Sí
 
 
 ## <a name="azure-vm-network-after-failover"></a>Red de máquinas virtuales de Azure (después de la conmutación por error)
 
-**Componente** | **Compatible** 
---- | --- 
-ExpressRoute | Sí 
-ILB | Sí 
-ELB | Sí 
-Traffic Manager | Sí 
-Varias NIC | Sí 
-Dirección IP reservada | Sí 
-IPv4 | Sí 
-Conservar la dirección IP de origen | Sí 
-Puntos de conexión del servicio de redes virtuales<br/><br/> (Redes virtuales y firewalls de Azure Storage) | Sin  
+**Componente** | **Compatible**
+--- | ---
+ExpressRoute | Sí
+ILB | Sí
+ELB | Sí
+Traffic Manager | Sí
+Varias NIC | Sí
+Dirección IP reservada | Sí
+IPv4 | Sí
+Conservar la dirección IP de origen | Sí
+Puntos de conexión del servicio de redes virtuales<br/><br/> (Redes virtuales y firewalls de Azure Storage) | Sin 
 
 
 ## <a name="storage"></a>Storage
 
 
-**Componente** | **Compatible** 
---- | --- 
-NFS de host | Sí para VMware<br/><br/> No para servidores físicos 
+**Componente** | **Compatible**
+--- | ---
+NFS de host | Sí para VMware<br/><br/> No para servidores físicos
 SAN de host (ISCSI) | Sí
 Varias rutas de host (MPIO) | Sí: probado con DSM de Microsoft, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
-VMDK de invitado/servidor | Sí 
-EFI/UEFI de invitado/servidor| Parcial (migración a Azure solo para Windows Server 2012 y versiones posteriores) </br></br> ** Consulte la nota al final de la tabla.
-Disco de clúster compartido de invitado/servidor | Sin  
-Disco cifrado de invitado/servidor | Sin  
-NFS de invitado/servidor | Sin  
+VMDK de invitado/servidor | Sí
+EFI/UEFI de invitado/servidor| Parcial (migración a Azure solo para Windows Server 2012 y, posteriormente, máquinas virtuales de VMware). </br></br> ** Consulte la nota al final de la tabla.
+Disco de clúster compartido de invitado/servidor | Sin 
+Disco cifrado de invitado/servidor | Sin 
+NFS de invitado/servidor | Sin 
 SMB 3.0 de invitado/servidor | Sin 
-RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos 
-Disco de invitado/servidor > 1 TB | Sí<br/><br/>Hasta 4095 GB 
+RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
+Disco de invitado/servidor > 1 TB | Sí<br/><br/>Hasta 4095 GB
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | Sí
-Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | Sí 
+Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | Sí
 Volumen de invitado/servidor con disco en bandas > 4 TB <br><br/>Administración de volúmenes lógicos (LVM) | Sí
-Invitado/servidor: espacios de almacenamiento | Sin  
-Invitado/servidor: adición/eliminación de disco en caliente | Sin  
-Invitado/servidor: disco de exclusión | Sí 
+Invitado/servidor: espacios de almacenamiento | Sin 
+Invitado/servidor: adición/eliminación de disco en caliente | Sin 
+Invitado/servidor: disco de exclusión | Sí
 Varias rutas (MPIO) de invitado/servidor | N/D
 
 > [!NOTE]
-> Es posible migrar a Azure las máquinas virtuales de VMware con arranque ** UEFI ** o los servidores físicos que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación.
+> Es posible migrar a Azure las máquinas virtuales de VMware con arranque ** UEFI ** que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación.
 > - Se admite solo la migración a Azure. No se admite la conmutación por recuperación a sitios de VMware locales.
 > - El servidor no debe tener más de 4 particiones en el disco del sistema operativo.
 > - Requiere el servicio de movilidad de Azure Site Recovery (versión 9.13 o posterior).
+> - No se admite para los servidores físicos.
 
 
 ## <a name="azure-storage"></a>Almacenamiento de Azure
 
-**Componente** | **Compatible** 
---- | --- 
-LRS | Sí 
-GRS | Sí 
-RA-GRS | Sí 
-Almacenamiento de acceso esporádico | Sin  
-Almacenamiento de acceso frecuente| Sin  
-Blobs en bloques | Sin  
-Cifrado en reposo (SSE)| Sí 
-Premium Storage | Sí 
-Servicio Import/Export | Sin  
-Puntos de conexión del servicio de redes virtuales<br/><br/> Redes virtuales y firewalls de Azure Storage configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar los datos de replicación) | Sin  
-Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Sin  
+**Componente** | **Compatible**
+--- | ---
+LRS | Sí
+GRS | Sí
+RA-GRS | Sí
+Almacenamiento de acceso esporádico | Sin 
+Almacenamiento de acceso frecuente| Sin 
+Blobs en bloques | Sin 
+Cifrado en reposo (SSE)| Sí
+Premium Storage | Sí
+Servicio Import/Export | Sin 
+Puntos de conexión del servicio de redes virtuales<br/><br/> Redes virtuales y firewalls de Azure Storage configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar los datos de replicación) | Sin 
+Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Sin 
 
 
 ## <a name="azure-compute"></a>Azure Compute
 
-**Características** | **Compatible** 
---- | --- 
-Conjuntos de disponibilidad | Sí 
+**Características** | **Compatible**
+--- | ---
+Conjuntos de disponibilidad | Sí
 CONCENTRADOR | Sí   
-Discos administrados | Sí 
+Discos administrados | Sí
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 
@@ -180,7 +181,7 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 **Número de discos del sistema operativo** | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Número de discos de datos** | 64 o menos si está va a replicar **VM de VMware a Azure**; 16 o menos si va a replicar **VM de Hyper-V a Azure** | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Tamaño de VHD del disco de datos** | Hasta 4095 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Adaptadores de red** | Se admiten varios adaptadores | 
+**Adaptadores de red** | Se admiten varios adaptadores |
 **VHD compartido** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Disco FC** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Formato de disco duro** | VHD  <br/><br/> VHDX | Aunque VHDX no se admite en Azure en este momento, Site Recovery convierte automáticamente VHDX en VHD cuando se conmuta por error en Azure. Cuando se realiza la conmutación por recuperación en local, las máquinas virtuales siguen usando el formato VHDX.
@@ -190,10 +191,10 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 
 ## <a name="vault-tasks"></a>Tareas de almacén
 
-**Acción** | **Compatible** 
---- | --- 
-Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | Sin  
-Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | Sin  
+**Acción** | **Compatible**
+--- | ---
+Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | Sin 
+Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | Sin 
 
 
 ## <a name="mobility-service"></a>Mobility Service

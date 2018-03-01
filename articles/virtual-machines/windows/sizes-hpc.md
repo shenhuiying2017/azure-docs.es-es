@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamaños de máquina virtual de informática de alto rendimiento
 
@@ -36,13 +36,7 @@ Esta interfaz permite que las instancias compatibles con RDMA se comuniquen trav
 
 Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA para acceder a la red RDMA de Azure: 
 
-* **Sistema operativos**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Actualmente, Windows Server 2016 no admite conectividad RDMA en Azure.
-  >
+* **Sistema operativo**: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Conjunto de disponibilidad o servicio en la nube**: implemente las máquinas virtuales compatibles con RDMA en el mismo conjunto de disponibilidad (si utiliza el modelo de implementación de Azure Resource Manager) o en el mismo servicio en la nube (si utiliza el modelo de implementación clásica). Si utiliza Azure Batch, las máquinas virtuales compatibles con RDMA deben ser del mismo grupo.
 
@@ -52,7 +46,7 @@ Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA p
 
 * **Espacio de direcciones de red RDMA** : la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Para ejecutar aplicaciones MPI en instancias implementadas en una red virtual Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
-* **Extensión de máquina virtual HpcVmDrivers**: en las máquinas virtuales compatibles con RDMA, tiene que agregar la extensión HpcVmDrivers para instalar los controladores de dispositivos de red de Windows necesarios para la conectividad RDMA. (en algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente). Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/overview). 
+* **Extensión de máquina virtual HpcVmDrivers**: en las máquinas virtuales compatibles con RDMA, agregue la extensión HpcVmDrivers para instalar los controladores de dispositivos de red de Windows necesarios para la conectividad RDMA. (en algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente). Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/overview). 
 
   
   El comando siguiente instala la versión más reciente de la extensión HpcVMDrivers 1.1 en una máquina virtual compatible con RDMA existente denominada *myVM* implementados en el grupo de recursos denominado *myResourceGroup* en la región *Oeste de EE. UU.*:
@@ -78,7 +72,7 @@ Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA p
 - [Almacenamiento optimizado](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimizada](sizes-gpu.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para ver listas de comprobación para usar instancias de proceso intensivo con HPC Pack en Windows Server, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

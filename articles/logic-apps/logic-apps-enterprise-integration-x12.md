@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes X12 para la integración empresarial con aplicaciones lógicas
 
@@ -39,12 +39,12 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
 
 ## <a name="create-an-x12-agreement"></a>Creación de un contrato X12
 
-1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Más servicios**. 
+1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Todos los servicios**. 
 
     > [!TIP]
-    > Si no ve **Más servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
 
-    ![En el menú izquierdo, seleccione "Más servicios"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+    ![En el menú izquierdo, seleccione "Todos los servicios"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
 2.  En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.  
 

@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Preguntas más frecuentes sobre Azure Log Integration
-En este artículo se responden algunas preguntas frecuentes sobre Azure Log Integration. 
+
+En este artículo se responden algunas preguntas frecuentes sobre Azure Log Integration.
+
+>[!IMPORTANT]
+>El método preferido para la integración de registros de Azure es mediante el conector de Azure Monitor del proveedor SIEM y siguiendo estas [instrucciones](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). De todas formas, si su proveedor SIEM no proporciona un conector a Azure Monitor, es posible que pueda usar Azure Log Integration como solución temporal (si el SIEM es compatible con Azure Log Integration) hasta que esté disponible un conector de este tipo.
 
 Azure Log Integration es un servicio del sistema operativo Windows que puede usar para integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración le proporciona un panel unificado de todos los recursos, locales o en la nube. Puede agregar, correlacionar, analizar y alertar sobre eventos de seguridad asociados con las aplicaciones.
 
@@ -34,11 +38,11 @@ Sí. No hay ningún cargo por el software Integración de registro de Azure.
 Está actualmente disponible en la versión comercial de Azure y en Azure Government. No se encuentra disponible ni en China ni en Alemania.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio Azure Log Integration extrae los registros de máquinas virtuales de Azure?
-Ejecute el comando **azlog source list**.
+Ejecute el comando **AzLog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>¿Cómo puedo saber de qué suscripción son los registros de integración de Azure?
 
-En el caso de los registros de auditoría que se colocan en los directorios **AzureResourcemanagerJson**, el identificador de la suscripción está en el nombre del archivo de registro. Esto también se aplica en el caso de los registros de la carpeta **AzureSecurityCenterJson**. Por ejemplo:
+En el caso de los registros de auditoría que se colocan en los directorios **AzureResourcemanagerJson**, el identificador de la suscripción está en el nombre del archivo de registro. Esto también se aplica en el caso de los registros de la carpeta **AzureSecurityCenterJson**. Por ejemplo: 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -47,7 +51,7 @@ Los registros de auditoría de Azure Active Directory incluyen el identificador 
 Los registros de diagnóstico que se leen desde una instancia de Event Hub no incluyen el identificador de suscripción como parte del nombre. En su lugar, incluyen el nombre descriptivo especificado como parte de la creación del origen de la instancia de Event Hub. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>¿Cómo se puede actualizar la configuración de proxy?
-Si la configuración de proxy no permite el acceso a Azure Storage directamente, abra el archivo **AZLOG.EXE.CONFIG** en **c:\Program Files\Microsoft Azure Log Integration**. Actualice el archivo para que incluya la sección **defaultProxy** con la dirección del proxy de su organización. Después realizar la actualización, detenga e inicie el servicio mediante los comandos **net stop azlog** y **net start azlog**.
+Si la configuración de proxy no permite el acceso a Azure Storage directamente, abra el archivo **AZLOG.EXE.CONFIG** en **c:\Program Files\Microsoft Azure Log Integration**. Actualice el archivo para que incluya la sección **defaultProxy** con la dirección del proxy de su organización. Después realizar la actualización, detenga e inicie el servicio mediante los comandos **net stop AzLog** y **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ El archivo XML de eventos presenta los siguientes metadatos, incluido el identif
 ![XML de eventos][1]
 
 ## <a name="error-messages"></a>mensajes de error
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Cuando ejecuto el comando **azlog createazureid**, ¿por qué obtengo el siguiente error?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Al ejecutar el comando ```AzLog createazureid```, ¿por qué obtengo el siguiente error?
 Error:
 
   *Failed to create AAD Application (Error al crear la aplicación de AAD): Inquilino 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'No tiene privilegios suficientes para completar la operación'.*

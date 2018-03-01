@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Key Vault 
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede habilitar MSI en una máquina virtual existente.
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
@@ -77,7 +77,7 @@ Con MSI, el código puede obtener tokens de acceso para autenticarse en los recu
 
 En primer lugar, es necesario crear un almacén de claves y conceder a la identidad de la máquina virtual acceso al almacén de claves.   
 
-1. En la parte superior de la barra de navegación izquierda, seleccione **+ Nuevo**, luego, **Seguridad e identidad** y, finalmente, **Key Vault**.  
+1. En la parte superior de la barra de navegación izquierda, seleccione **Crear un recurso** > **Seguridad e identidad** > **Key Vault**.  
 2. Proporcione un **nombre** para el nuevo almacén de claves. 
 3. Busque el almacén de claves en la misma suscripción y el mismo grupo de recursos que la máquina virtual que creó anteriormente. 
 4. Seleccione **Directivas de acceso** y haga clic en **Agregar nueva**. 

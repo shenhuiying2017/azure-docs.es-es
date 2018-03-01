@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: a21fdfbc4396f2b7aff50fae4ca796d8ea6a733b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Desde un explorador, navegue al [Portal de Azure](http://portal.azure.com) e ini
 > 
 > 
 
-1. Puede crear un circuito ExpressRoute seleccionando la opción de creación de un recurso. Haga clic en **Nuevo** > **Redes** > **ExpressRoute**, tal y como se muestra en la imagen siguiente:
+1. Puede crear un circuito ExpressRoute seleccionando la opción de creación de un recurso. Haga clic en **Crear un recurso** > **Redes** > **ExpressRoute**, tal y como se muestra en la siguiente imagen:
 
   ![Creación de un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Tras hacer clic en **ExpressRoute**, verá la página **Create ExpressRoute circuit** (Crear circuito ExpressRoute). Después de rellenar los valores de esta página, asegúrese de especificar el nivel de SKU adecuado [Standard (Estándar) o Premium (Premium)] y el modelo de facturación de medición de datos [Unlimited (Ilimitado) o Metered (Limitado)].
@@ -130,7 +130,7 @@ Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 > [!IMPORTANT]
 > Si el puerto existente no tiene la capacidad adecuada, tendrá que volver a crear el circuito ExpressRoute. El circuito no se puede actualizar si no hay más capacidad disponible en la ubicación.
 >
-> No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
+> Aunque puede actualizar el ancho de banda sin problemas, no puede reducir el ancho de banda de un circuito de ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
 > 
 > La operación de deshabilitación del complemento premium puede producir un error si usa recursos que son más grandes de lo que está permitido para el circuito estándar.
 > 
@@ -150,7 +150,7 @@ Puede eliminar el circuito ExpressRoute seleccionando el icono **Eliminar** . Te
 * Si el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute es **Aprovisionando** o **Aprovisionado**, debe colaborar con su proveedor de servicios para que desaprovisionen el circuito. Se le siguen reservando recursos y facturándole por ello hasta que el proveedor de servicios complete el desaprovisionamiento del circuito y nos lo notifique.
 * Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en **No aprovisionado**), puede eliminar el circuito. Esto detiene la facturación del circuito.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de crear el circuito, lleve a cabo los pasos siguientes:
 
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Protección de datos personales con las características de seguridad de red: Azure Application Gateway y los grupos de seguridad de red
 
@@ -59,23 +59,14 @@ Puede crear una puerta de enlace de aplicaciones con WAF o agregar WAF a una ya 
 
 Para crear una nueva puerta de enlace de aplicaciones con WAF habilitado, haga lo siguiente:
 
-1. Inicie sesión en Azure Portal y, en el panel **Favoritos** de este, haga clic en **Nuevo**
-
-2. En la hoja **Nuevo**, haga clic en **Redes**.
-
-3. Haga clic en **Application Gateway**.
-
-4. Vaya a Azure Portal, **haga clic en Nuevo \> Redes \> Application Gateway**.
-
-   ![creación de puertas de enlace de aplicaciones](media/protect-netsec/app-gateway-01.png)
-
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Seleccione **Crear un recurso** > **Redes** > **Application Gateway**.
 5. En la hoja **Conceptos básicos** que aparece, escriba los valores de los campos siguientes: Nombre, Nivel (Estándar o WAF), Tamaño de SKU (pequeño, mediano o grande), Número de instancias (2 para lograr alta disponibilidad), Suscripción, Grupo de recursos y Ubicación.
-
 6. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Este paso abre la hoja Elegir una red virtual.
 
 7. Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
 
-8. Escriba los siguientes valores: Nombre, Espacio de direcciones, Nombre de subred, Intervalo de direcciones de subred. Haga clic en **Aceptar**.
+8. Escriba los siguientes valores: Nombre, Espacio de direcciones, Nombre de subred, Intervalo de direcciones de subred. Haga clic en **OK**.
 
 9. En la hoja **Configuración** de **Configuración de IP de front-end**, seleccione el tipo de dirección IP.
 
@@ -126,7 +117,7 @@ Para más instrucciones sobre cómo planear e implementar grupos de seguridad de
 
 Para crear reglas de entrada en un grupo de seguridad de red existente, haga lo siguiente:
 
-1. Haga clic en **Examinar** y, a continuación, en **Grupos de seguridad de red**.
+1. Haga clic en **Todos los servicios** y, a continuación, **Grupos de seguridad de red**.
 
 2. En la lista de grupos de seguridad de red, haga clic en **NSG-FrontEnd** y, a continuación, en **Reglas de seguridad de entrada**.
 
@@ -140,7 +131,7 @@ Después de unos segundos, verá la nueva regla en el grupo de seguridad de red.
 
 Para más instrucciones sobre cómo crear grupos de seguridad de red en subredes, crear reglas y asociar un grupo de seguridad de red con una subred de front-end y back-end, consulte [Creación de grupos de seguridad de red con Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Azure Network Security](https://azure.microsoft.com/blog/azure-network-security/)
 

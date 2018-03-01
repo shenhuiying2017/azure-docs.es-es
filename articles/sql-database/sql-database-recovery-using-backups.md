@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -34,7 +34,7 @@ SQL Database proporciona estas opciones para la recuperación de bases de datos 
 
 Una base de datos restaurada incurre en un costo de almacenamiento adicional en las siguientes condiciones: 
 - Restauración de P11 – P15 a S4-S12 o P1–P6 si el tamaño máximo de la base de datos es mayor de 500 GB.
-- Restauración de P1–P6 o PRS1–PRS6 a S4-S12 si el tamaño máximo de la base de datos es mayor de 250 GB.
+- Restauración de P1-P6 a S4-S12 si el tamaño máximo de la base de datos es mayor de 250 GB.
 
 El costo adicional es debido a que el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluido para el nivel de rendimiento, y se aplicarán cargos adicionales a cualquier almacenamiento adicional aprovisionado por encima del importe incluido.  Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).  Si la cantidad de espacio real utilizado es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. Para más información sobre los tamaños de almacenamiento de las bases de datos y cómo cambiar el tamaño máximo de la base de datos, consulte [Límites de recursos de base de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

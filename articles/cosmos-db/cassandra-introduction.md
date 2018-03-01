@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introducción a la API Apache Cassandra para Azure Cosmos DB
 
@@ -64,7 +64,7 @@ La API Cassandra le permite interactuar con los datos almacenados en Azure Cosmo
 
 Si ya tiene una suscripción de Azure, puede registrarse para formar parte del programa Cassandra API (versión preliminar) en [Azure Portal](https://aka.ms/cosmosdb-cassandra-signup).  Si es nuevo en Azure, regístrese para conseguir una [evaluación gratuita](https://azure.microsoft.com/free) con la que disfrutará de 12 meses de acceso gratuito a Azure Cosmos DB. Complete los pasos siguientes para solicitar acceso al programa Cassandra API (versión preliminar).
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Nuevo** > **Bases de datos** > **Azure Cosmos DB**. 
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**. 
 
 2. En la página Cuenta nueva, seleccione **Cassandra** en el cuadro de API. 
 
@@ -88,7 +88,7 @@ Una vez se haya unido al programa de versión preliminar, siga los pasos de inic
 * [Guía de inicio rápido: compilación de una aplicación web Cassandra con .NET y Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Guía de inicio rápido: compilación de una aplicación web Cassandra con Python y Azure Cosmos DB](create-cassandra-python.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información sobre cómo la API Cassandra de Azure Cosmos DB se integra en la documentación de Azure Cosmos DB global, pero hay algunos indicadores para empezar:
 

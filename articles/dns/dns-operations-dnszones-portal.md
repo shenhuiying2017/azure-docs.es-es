@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Administración de zonas DNS en Azure Portal
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo administrar sus zonas DNS mediante Azure Port
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
 1. Inicie sesión en el Portal de Azure.
-2. En el menú Concentrador, haga clic en **Nuevo > Redes >** y, luego, en **Zona DNS** para abrir la hoja Crear zona DNS.
+2. En el menú Concentrador, haga clic en **Crear un recurso > Redes >** y, luego, en **Zona DNS** para abrir la hoja Crear zona DNS.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -43,7 +43,7 @@ En este artículo se muestra cómo administrar sus zonas DNS mediante Azure Port
    |**Name**|contoso.com|El nombre de la zona DNS|
    |**Suscripción**|[Su suscripción]|Seleccione la suscripción en la que se creará la zona DNS.|
    |**Grupos de recursos**|**Crear nuevo:** contosoDNSRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Ubicación**|Oeste de EE. UU.||
+   |**Ubicación**|Oeste de EE. UU||
 
 > [!NOTE]
 > El grupo de recursos se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
@@ -58,6 +58,6 @@ En Azure Portal, vaya a **Más servicios** > **Redes** > **Zonas DNS**. Cada zon
 
 Navegue a una zona DNS en el portal. En la hoja **Zona DNS**, haga clic en **Eliminar zona**. Se le pide que confirme si desea eliminar la zona DNS. Al eliminar una zona DNS, también se eliminan todos los registros contenidos en la zona.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a trabajar con la zona y registros DNS en [Introducción a DNS de Azure con Azure Portal](dns-getstarted-portal.md).

@@ -4,7 +4,7 @@ description: "Se explica la característica Automated Backup para SQL Server 201
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)
 
@@ -31,7 +31,7 @@ Automated Backup v2 configura automáticamente [Automated Backup para Microsoft 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -61,32 +61,32 @@ Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 > [!NOTE]
 > Automated Backup se basa en la **Extensión Agente de IaaS de SQL Server**. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="settings"></a>Configuración
+## <a name="settings"></a>Settings
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup v2. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
 
 ### <a name="basic-settings"></a>Configuración básica
 
-| Configuración | Intervalo (valor predeterminado) | Descripción |
+| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Automated Backup** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita Automated Backup para una VM de Azure que ejecuta SQL Server 2016 Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener copias de seguridad. |
 | **Storage Account** | Cuenta de Azure Storage | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
-| **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor de **copia de seguridad automatizada** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
-| **Password** |Texto de contraseña | Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
+| **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada. Usa el mismo contenedor **automaticbackup** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
+| **Password** |Texto de contraseña | Una contraseña para claves de cifrado. Esta contraseña solo es necesaria si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
 ### <a name="advanced-settings"></a>Configuración avanzada
 
-| Configuración | Intervalo (valor predeterminado) | Descripción |
+| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Copias de seguridad de bases de datos del sistema** | Habilitar/deshabilitar (deshabilitado) | Cuando se habilita, esta característica realiza también una copia de seguridad de las bases de datos del sistema: maestra, MSDB y modelo. Para las bases de datos MSDB y modelo, verifique que están en modo de recuperación completa si desea que se realicen copias de seguridad de registros. Nunca se realizan copias de seguridad de registros para las bases de datos maestras. Tampoco se realizan copias de seguridad para TempDB. |
-| **Programación de copia de seguridad** | Manual/Automatizado (Automatizado) | De forma predeterminada, la programación de copias de seguridad se determina automáticamente en función del crecimiento de registros. La programación manual de copias de seguridad permite al usuario especificar el período de tiempo para las copias de seguridad. En este caso, las copias de seguridad siempre se realizarán con la frecuencia especificada y durante el período de tiempo especificado de un día determinado. |
+| **Programación de copia de seguridad** | Manual/Automatizado (Automatizado) | De forma predeterminada, la programación de copias de seguridad se determina automáticamente en función del crecimiento de los registros. La programación manual de copias de seguridad permite al usuario especificar el período de tiempo para las copias de seguridad. En este caso, las copias de seguridad siempre se realizan con la frecuencia especificada y durante el período de tiempo especificado de un día determinado. |
 | **Frecuencia de copia de seguridad completa** | Diariamente/semanalmente | Frecuencia de las copias de seguridad completas. En ambos casos, las copias de seguridad completas se inician durante el siguiente período de tiempo programado. Cuando se selecciona semanalmente, las copias de seguridad pueden extenderse varios días hasta que se realizan correctamente las copias de seguridad de todas las bases de datos. |
 | **Hora de inicio de copia de seguridad completa** | 00:00 – 23:00 (01:00) | Hora de inicio de un día determinado durante el cual se pueden realizar copias de seguridad completas. |
 | **Período de tiempo de copia de seguridad completa** | 1-23 horas (1 hora) | Duración del período de tiempo de un día determinado durante el cual se pueden realizar copias de seguridad completas. |
 | **Frecuencia de copia de seguridad de registros** | 5-60 minutos (60 minutos) | Frecuencia de las copias de seguridad de registros. |
 
 ## <a name="understanding-full-backup-frequency"></a>Información de la frecuencia de copia de seguridad completa
-Es importante conocer la diferencia entre las copias de seguridad completas diarias y semanales. Para ello, se le guiará a través de dos escenarios de ejemplo.
+Es importante conocer la diferencia entre las copias de seguridad completas diarias y semanales. Considere los dos escenarios de ejemplo siguientes.
 
 ### <a name="scenario-1-weekly-backups"></a>Escenario 1: Copias de seguridad semanales
 Tiene una VM con SQL Server que contiene un número de bases de datos muy grandes.
@@ -98,7 +98,7 @@ El lunes, se habilita Automated Backup v2 con las siguientes opciones:
 - Hora de inicio de copia de seguridad completa: **01:00**
 - Período de tiempo de copia de seguridad completa: **1 hora**
 
-Esto significa que la siguiente ventana de copia de seguridad disponible es el martes a la 1:00 durante una hora. En ese momento, la copia de seguridad empieza a realizar copias de seguridad de las bases de datos una a una. En este escenario, las bases de datos son lo suficientemente grandes como para que primero se realicen las copias de seguridad completas de las bases de datos pares. No obstante, después de una hora no se realiza la copia de seguridad de todas las bases de datos.
+Esto significa que la siguiente ventana de copia de seguridad disponible es el martes a la 1:00 durante una hora. En ese momento, Automated Backup empieza a realizar copias de seguridad de las bases de datos una a una. En este escenario, las bases de datos son lo suficientemente grandes como para que primero se realicen las copias de seguridad completas de las bases de datos pares. No obstante, después de una hora no se realiza la copia de seguridad de todas las bases de datos.
 
 Cuando esto ocurre, Automated Backup comienza la copia de seguridad de las demás bases de datos al día siguiente, es decir, el miércoles a la 1:00 durante una hora. Si no se realiza la copia de seguridad de todas las bases de datos a esa hora, vuelve a intentarlo al día siguiente a la misma hora. Se aplica este mismo comportamiento hasta que se realiza correctamente la copia de seguridad de todas las bases de datos.
 
@@ -116,7 +116,7 @@ El lunes, se habilita Automated Backup v2 con las siguientes opciones:
 - Hora de inicio de copia de seguridad completa: 22:00
 - Período de tiempo de copia de seguridad completa: 6 horas
 
-Esto significa que la siguiente ventana de copia de seguridad disponible es el lunes a la 22:00 durante seis horas. En ese momento, la copia de seguridad empieza a realizar copias de seguridad de las bases de datos una a una.
+Esto significa que la siguiente ventana de copia de seguridad disponible es el lunes a la 22:00 durante seis horas. En ese momento, Automated Backup empieza a realizar copias de seguridad de las bases de datos una a una.
 
 Posteriormente, se vuelve a realizar la copia de seguridad completa de todas las bases de datos el martes a las 22:00 horas durante seis horas.
 
@@ -152,7 +152,7 @@ En la hoja **Configuración de SQL Server**, haga clic en el botón **Editar** d
 
 Cuando termine, haga clic en el botón **Aceptar** situado en la parte inferior de la hoja **Configuración de SQL Server** para guardar los cambios.
 
-Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que Azure Portal no muestre que se ha configurado Automated Backup. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de Azure mostrará la nueva configuración.
+Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que Azure Portal no muestre que se ha configurado Automated Backup. Espere unos minutos hasta que el agente se instale y configure. Después, Azure Portal mostrará la configuración nueva.
 
 ## <a name="configuration-with-powershell"></a>Configuración con PowerShell
 
@@ -321,7 +321,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Automated Backup v2 configura Managed Backup en Azure Virtual Machines. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
 Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en Azure Virtual Machines en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).

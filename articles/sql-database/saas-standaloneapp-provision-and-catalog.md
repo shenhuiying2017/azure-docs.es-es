@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
 
@@ -30,7 +30,7 @@ Este artículo se divide en dos partes principales:
 * En este tutorial se destaca el código de muestra de PowerShell que lleva a cabo el aprovisionamiento y la catalogación.
     * Asimismo, el tutorial usa la aplicación SaaS de ejemplo Wingtip Tickets, adaptada al patrón de aplicación por inquilino independiente.
 
-## <a name="application-per-tenant-pattern"></a>Patrón de aplicación por inquilino
+## <a name="standalone-application-per-tenant-pattern"></a>Patrón de aplicación independiente por inquilino
 El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una base de datos SQL.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](https://docs.microsoft.com/en-us/azure/managed-applications/overview) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino. 
 
    ![patrón de aplicación por inquilino](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Cada inquilino requiere un nuevo grupo de recursos de Azure, que debe crearse an
 
 En este tutorial, aprenderá a:
 * Aprovisionar un catálogo
-* Registrar las bases de datos de inquilino implementadas anteriormente en el catálogo
+* Registrar las bases de datos de inquilino de ejemplo que implementó anteriormente en el catálogo
 * Aprovisionar a un inquilino adicional y registrarlo en el catálogo
 
 Puede usar una plantilla de Azure Resource Manager para implementar y configurar la aplicación, crear la base de datos del inquilino y, a continuación, importar un archivo bacpac para inicializarla. Es posible que la solicitud de importación se ponga en cola durante varios minutos antes de iniciarse.
@@ -148,3 +148,5 @@ En este tutorial ha obtenido información:
 > * Implementación de la aplicación independiente SaaS Wingtip Tickets.
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
+
+Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

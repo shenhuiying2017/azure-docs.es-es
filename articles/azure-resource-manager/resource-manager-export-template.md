@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportación de plantillas de Azure Resource Manager desde recursos existentes
 En este artículo, aprenderá a exportar una plantilla de Resource Manager desde los recursos existentes en la suscripción. Puede usar la plantilla generada para conocer mejor de la sintaxis de la plantilla.
@@ -33,7 +33,7 @@ En este tema se muestran ambos métodos a través del portal.
 ## <a name="deploy-resources"></a>Implementación de recursos
 Para empezar, vamos a implementar en Azure recursos que se pueden utilizar para exportarlos como una plantilla. Si en la suscripción ya tiene un grupo de recursos que desee exportar a una plantilla, puede omitir esta sección. En el resto de este artículo se da por supuesto que se ha implementado la aplicación web y la solución de base de datos SQL que se muestran en esta sección. Si utiliza otra solución, puede que el conjunto del proceso sea un poco diferente, pero los pasos para exportar una plantilla son los mismos. 
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Nuevo**.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
    
       ![seleccionar Nuevo](./media/resource-manager-export-template/new.png)
 2. Busque **Aplicación web + SQL** y selecciónelo.
@@ -84,7 +84,7 @@ Si ha cambiado los recursos o ha agregado recursos en varias implementaciones ma
 > 
 > 
 
-1. Para ver la plantilla de un grupo de recursos, seleccione **Script de automatización**.
+1. Para ver la plantilla de un grupo de recursos, seleccione **Script de Automation**.
    
       ![exportar grupo de recursos](./media/resource-manager-export-template/select-automation.png)
    
@@ -169,7 +169,7 @@ No todos los tipos de recursos admiten la función de exportación de plantilla.
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ha aprendido a exportar una plantilla desde recursos creados en el portal.
 
 * Puede implementar una plantilla mediante [PowerShell](resource-group-template-deploy.md), [CLI de Azure](resource-group-template-deploy-cli.md), o [API de REST](resource-group-template-deploy-rest.md).
