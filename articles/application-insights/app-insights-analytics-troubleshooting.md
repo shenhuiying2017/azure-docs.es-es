@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="limits"></a>límites
 * En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
-* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Edge e Internet Explorer.
+* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Microsoft Edge e Internet Explorer.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensiones de explorador incompatibles conocidas
 * Ghostery
@@ -54,7 +54,7 @@ Se ha producido un error relacionado con la autenticación (durante la autentica
 2. ¿Ha utilizado un favorito, un marcador o un vínculo guardado para abrir el portal de Analytics? ¿Ha iniciado sesión con credenciales diferentes a las que utilizó cuando guardó el vínculo?
 3. Pruebe a usar una ventana de exploración privada o de incógnito (después de cerrar todas estas ventanas). Tendrá que proporcionar sus credenciales. 
 4. Abra otra ventana de explorador (ordinaria) y vaya a [Azure](https://portal.azure.com). Cierre la sesión. A continuación, abra el vínculo e inicie sesión con las credenciales correctas.
-5. Los usuarios de Edge y de Internet Explorer también pueden recibir este error cuando no se admite la configuración de zona Sitios de confianza.
+5. Los usuarios de Microsoft Edge y de Internet Explorer también pueden recibir este error cuando no se admite la configuración de zona Sitios de confianza.
    
     Compruebe que tanto el [portal de Analytics](https://analytics.applicationinsights.io) como el [portal de Azure Active Directory](https://portal.azure.com) se encuentren en la misma zona de seguridad:
    

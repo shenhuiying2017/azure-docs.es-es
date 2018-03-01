@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="resource-manager-rest-apis"></a>API de REST de Resource Manager
 > [!div class="op_single_selector"]
@@ -202,7 +202,7 @@ Si se completa correctamente, obtendrá una respuesta similar a la siguiente:
 }
 ```
 
-Ha creado correctamente un grupo de recursos en Azure. ¡Enhorabuena!
+Ha creado correctamente un grupo de recursos en Azure. Felicidades.
 
 ### <a name="deploy-resources-to-a-resource-group-using-a-resource-manager-template"></a>Implementación de recursos en un grupo de recursos mediante una plantilla de Resource Manager
 Con Resource Manager, puede implementar los recursos mediante plantillas. Una plantilla define varios recursos y sus dependencias. En esta sección se supone que está familiarizado con las plantillas de Resource Manager y solo le mostramos cómo realizar la llamada de API para iniciar la implementación. Para obtener más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Creación de plantillas de Azure Resource Manager).
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 La larga respuesta JSON a esta solicitud se ha omitido para mejorar la legibilidad de esta documentación. La respuesta contiene información sobre la implementación de la plantilla que acaba de crear.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
