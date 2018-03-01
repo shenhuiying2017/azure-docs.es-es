@@ -1,3 +1,5 @@
+# [Documentación de Virtual Machines Scale Sets](index.md)
+
 # Información general
 ## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
 

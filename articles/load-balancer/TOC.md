@@ -1,3 +1,5 @@
+# [Documentación de Load Balancer](index.md)
+
 # Información general
 ## [¿Qué es el equilibrador de carga?](load-balancer-overview.md)
 ## [¿Qué es Load Balancer Estándar?](load-balancer-standard-overview.md)
@@ -30,7 +32,7 @@
 ### [Creación de un equilibrador de carga estándar público con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Creación de un equilibrador de carga estándar público con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
 
-# Cómo
+# Procedimientos
 ## [Configuración del tiempo de espera de inactividad TCP del equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 ## [Configuración del modo de distribución en el equilibrador de carga](load-balancer-distribution-mode.md)
 ## [Configuración del equilibrador de carga interno para SQL AlwaysOn](load-balancer-configure-sqlao.md)
@@ -71,7 +73,7 @@
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquina virtual](/azure/virtual-machines/)
-## [Administrador de tráfico](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 
 # Recursos

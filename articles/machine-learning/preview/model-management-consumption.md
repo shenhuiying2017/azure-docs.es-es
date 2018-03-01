@@ -4,17 +4,17 @@ description: "Este documento describe los pasos y conceptos implicados en el uso
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Uso de servicios web
 Al implementar un modelo como un servicio web en tiempo real, puede enviarle datos y obtener predicciones de diversas plataformas y aplicaciones. El servicio web en tiempo real expone una API de REST para obtener predicciones. Puede enviar datos al servicio web en formato de una o varias filas para obtener una o varias predicciones al mismo tiempo.
@@ -35,7 +35,7 @@ Puede enumerar las imágenes de Docker y los servicios implementados actualmente
 Tras implementar correctamente el servicio web, utilice el siguiente comando para obtener la dirección URL del servicio y otros detalles para llamar al punto de conexión de servicio. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Este comando imprime la dirección URL del servicio, los encabezados de solicitud necesarios, la dirección URL de Swagger y datos de ejemplo para llamar al servicio si al realizar la implementación se proporcionó el esquema de la API del servicio.
@@ -43,7 +43,7 @@ Este comando imprime la dirección URL del servicio, los encabezados de solicitu
 Puede probar el servicio directamente desde la CLI sin crear una solicitud HTTP, escribiendo el comando de la CLI de ejemplo con los datos de entrada:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Obtención de la clave de API del servicio

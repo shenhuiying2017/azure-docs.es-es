@@ -3,7 +3,7 @@ title: "Configuración de direccionamiento IP para conectar tras la conmutación
 description: "Se describe cómo configurar el direccionamiento IP para conectarse a máquinas virtuales de Azure tras la conmutación por error desde el entorno local con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
-ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/27/2018
+ms.author: manayar
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configuración del direccionamiento IP para conectarse tras la conmutación por error a Azure
 
@@ -33,10 +33,10 @@ En este artículo, aprenderá sobre:
 
 ## <a name="connecting-to-replica-vms"></a>Conexión a máquinas virtuales de réplica
 
-Al planear su estrategia de conmutación por error y replicación, una de las preguntas claves es cómo conectarse a la máquina virtual de Azure después de la conmutación por error. Hay un par de opciones para diseñar la estrategia de red para la réplica de máquinas virtuales de Azure:
+Al planear su estrategia de conmutación por error y replicación, una de las preguntas claves es cómo conectarse a la máquina virtual de Azure después de la conmutación por error. Hay un par de opciones al diseñar la estrategia de red para máquinas virtuales de réplica de Azure:
 
 - **Use different IP address** (Usar una dirección IP distinta): puede seleccionar el uso de otro intervalo de direcciones IP para la red de máquinas virtuales de Azure replicada. En este escenario, la máquina virtual obtiene una nueva dirección IP después de la conmutación por error y se requiere una actualización de DNS.
-- **Retain same IP address** (Conservar la misma dirección IP): tal vez prefiera usar el mismo intervalo de direcciones IP que usa en el sitio local principal para la red de Azure después de la conmutación por error. La conservación de las mismas direcciones IP simplifica la recuperación al reducir los problemas relacionados con la red después de la conmutación por error. Pero, cuando replique en Azure, tendrá que actualizar las rutas con la nueva ubicación de las direcciones IP después de la conmutación por error. 
+- **Retain same IP address** (Conservar la misma dirección IP): tal vez prefiera usar el mismo intervalo de direcciones IP que usa en el sitio local principal para la red de Azure después de la conmutación por error. La conservación de las mismas direcciones IP simplifica la recuperación al reducir los problemas relacionados con la red después de la conmutación por error. Pero, cuando replique en Azure, tendrá que actualizar las rutas con la nueva ubicación de las direcciones IP después de la conmutación por error.
 
 ## <a name="retaining-ip-addresses"></a>Conservación de direcciones IP
 
@@ -86,11 +86,7 @@ Además de la conexión de red virtual a red virtual, después de la conmutació
 
 ## <a name="assigning-new-ip-addresses"></a>Asignación de direcciones IP nuevas
 
-En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) se explica cómo configurar la infraestructura de red de Azure cuando no hay que conservar las direcciones IP después de la conmutación por error. Comienza con una descripción de la aplicación, se examina cómo configurar redes en local y en Azure y se concluye con información sobre la ejecución de las conmutaciones por error. 
+En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) se explica cómo configurar la infraestructura de red de Azure cuando no hay que conservar las direcciones IP después de la conmutación por error. Comienza con una descripción de la aplicación, se examina cómo configurar redes en local y en Azure y se concluye con información sobre la ejecución de las conmutaciones por error.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Ejecución de una conmutación por error](site-recovery-failover.md)
-
-
-
-

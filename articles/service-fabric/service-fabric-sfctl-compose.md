@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Cree, elimine y administre implementaciones de Docker Compose.
@@ -160,10 +160,9 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 | --- | --- |
 |   --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                    | Muestra este mensaje de ayuda y sale.|
- |   --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.
-                                   Valor predeterminado: json.|
- |   --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
- |   --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
+|   --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table y tsv. Valor predeterminado: json.|
+|   --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+|   --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

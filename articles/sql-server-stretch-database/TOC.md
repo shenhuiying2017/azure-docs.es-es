@@ -1,8 +1,10 @@
+# [Documentación de SQL Server Stretch Database](index.md)
+
 # Información general
 ## [¿Qué es Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Limitaciones y problemas de bloqueo](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
-# Primeros pasos
+# Introducción
 ## [Identificación de bases de datos y tablas](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
 ## [Ejecutar el asistente](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
@@ -11,7 +13,7 @@
 ### [Habilitación de una base de datos](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Habilitación de una tabla](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
 ### [Selección de filas para migrar](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
-## Administrar
+## administración
 ### [Supervisión de la migración de datos](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Pausa y reanudación de la migración](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [Administración y solución de problemas](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)

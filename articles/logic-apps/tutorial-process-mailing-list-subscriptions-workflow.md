@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Administración de solicitudes de lista de distribución de correo con una aplicación lógica
 
@@ -51,11 +51,11 @@ Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/f
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
-Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con las credenciales de su cuenta de Azure.
+Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
 
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
 
-1. En el menú principal de Azure, elija **Nuevo** > **Enterprise Integration** > **Logic App**.
+1. En el menú principal de Azure Portal, elija **Crear un recurso** > **Enterprise Integration** > **Logic App**.
 
    ![Creación de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

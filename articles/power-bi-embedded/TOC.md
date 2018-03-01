@@ -1,3 +1,5 @@
+# [Documentación de Power BI Embedded](index.md)
+
 # Información general
 ## [Acerca de Power BI Embedded](what-is-power-bi-embedded.md)
 
@@ -18,7 +20,7 @@
 ### [Herramienta de migración](migrate-tool.md)
 ### [Fragmentos de código de migración](migrate-code-snippets.md)
 
-# Muestras
+# Ejemplos
 ## [Ejemplos de código](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Tutorial de ejemplo](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 ## [Ejemplo de inserción de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)

@@ -4,7 +4,7 @@
   items:
     - name: Base de datos MySQL en Azure
       href: overview.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de la base de datos: Azure Portal'
@@ -47,7 +47,7 @@
           href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
         - name: Java con MySQL
           href: ../app-service/app-service-web-tutorial-java-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
@@ -66,9 +66,7 @@
     - name: Recursos
       items:
         - name: Planes de tarifa
-          href: concepts-service-tiers.md
-        - name: Unidades de proceso
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: límites
           href: concepts-limits.md
     - name: Seguridad y acceso a datos
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Configuración de SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuidad del negocio
+      items:
+        - name: Información general
+          href: concepts-business-continuity.md
+        - name: Copia de seguridad y restauración
+          href: concepts-backup.md
     - name: Supervisión
       href: concepts-monitoring.md
     - name: Desarrollo
@@ -95,13 +99,13 @@
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
         - name: Azure Portal
           href: howto-restore-server-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-restore-server-cli.md
     - name: Migración de una base de datos
       items:
@@ -131,12 +135,18 @@
       items:
         - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
     - name: Supervisión
       items:
         - name: Creación de alertas basadas en métricas
           href: howto-alert-on-metric.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas del rendimiento de las consultas
+          href: howto-troubleshoot-query-performance.md
+        - name: Uso de vistas en el esquema sys
+          href: howto-troubleshoot-sys-schema.md
 - name: Referencia
   items:
     - name: Azure CLI
@@ -153,7 +163,7 @@
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Vídeos
       href: videos.md

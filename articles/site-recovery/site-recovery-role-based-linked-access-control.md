@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Uso del control de acceso basado en roles para administrar las implementaciones de Azure Site Recovery
 
@@ -75,10 +75,10 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 
 Considere el uso de los [roles integrados](../active-directory/role-based-access-built-in-roles.md) "Colaborador de la máquina virtual" y "Colaborador de la máquina virtual clásica" respectivamente para la implementación según el modelo de Resource Manager o el clásico.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [CLI de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [API DE REST](../active-directory/role-based-access-control-manage-access-rest.md)
+  * [API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Solución de problemas del control de acceso basado en roles](../active-directory/role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.

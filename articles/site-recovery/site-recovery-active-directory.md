@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Uso de Azure Site Recovery para proteger Active Directory y DNS
 
@@ -80,7 +80,7 @@ La mayoría de las aplicaciones requieren la presencia de un controlador de domi
     ![Red de prueba de Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred con el mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético. 
+    > Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred con el mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético.
     >
     > Si la dirección IP de destino forma parte de la subred seleccionada, Site Recovery trata de crear la máquina de virtual de la conmutación por error de prueba con la dirección IP de destino. Si la dirección IP de destino no forma parte de la subred seleccionada, la máquina virtual de la conmutación por error de prueba se creará con la siguiente dirección IP disponible en la subred seleccionada.
     >
@@ -110,7 +110,7 @@ A partir de Windows Server 2012, [se han integrado medidas de seguridad adicion
 
 Cuando **VM-GenerationID** se restablece, el valor **InvocationID** de la base de datos de AD DS también se restablece. Además, se descarta el grupo RID, y SYSVOL se marca como no autoritativo. Para obtener más información, consulte [Introducción a la virtualización de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) y [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualización segura de DFSR).
 
-La conmutación por error a Azure podría provocar el restablecimiento de **VM-GenerationID**. Restablecer **VM-GenerationID** activa medidas de seguridad adicionales cuando la máquina virtual del controlador de dominio se inicia en Azure. Esto puede dar lugar a un *retraso importante* para el inicio de sesión en la máquina virtual del controlador de dominio. 
+La conmutación por error a Azure podría provocar el restablecimiento de **VM-GenerationID**. Restablecer **VM-GenerationID** activa medidas de seguridad adicionales cuando la máquina virtual del controlador de dominio se inicia en Azure. Esto puede dar lugar a un *retraso importante* para el inicio de sesión en la máquina virtual del controlador de dominio.
 
 Puesto que este controlador de dominio se utiliza solo en una conmutación por error de prueba, las medidas de seguridad de virtualización no son necesarias. Para asegurarse de que no cambie el valor de **VM-GenerationID** de la máquina virtual del controlador de dominio, puede cambiar el valor de DWORD siguiente a **4** en el controlador de dominio local:
 
@@ -165,20 +165,20 @@ Si se han activado medidas de seguridad de virtualización después de una conmu
 Si se cumplen las condiciones anteriores, es probable que el controlador de dominio funcione correctamente. En caso contrario, siga los pasos a continuación:
 
 1. Realice una restauración autoritativa del controlador de dominio. Recuerde la siguiente información:
-    * Aunque no se recomienda la [replicación FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si utiliza la replicación de FRS, siga los pasos para una restauración autoritativa. El proceso se describe en [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762) (Uso de la clave del Registro BurFlags para reinicializar el servicio de replicación de archivos). 
-    
+    * Aunque no se recomienda la [replicación FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si utiliza la replicación de FRS, siga los pasos para una restauración autoritativa. El proceso se describe en [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762) (Uso de la clave del Registro BurFlags para reinicializar el servicio de replicación de archivos).
+
         Para obtener más información acerca de BurFlags, consulte la entrada de blog [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) (D2 y D4: ¿para qué sirven?).
-    * Si utiliza la replicación DFSR, complete los pasos para una restauración autoritativa. El proceso se describe en [Cómo forzar una sincronización autoritaria y no autoritaria de SYSVOL DFSR replicado (por ejemplo, "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Si utiliza la replicación DFSR, complete los pasos para una restauración autoritativa. El proceso se describe en [Cómo forzar una sincronización autoritaria y no autoritaria de SYSVOL DFSR replicado (por ejemplo, "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+
         También puede utilizar las funciones de PowerShell. Para obtener más información, consulte [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) (Funciones de PowerShell para restauración autoritativa y no autoritativa de DFSR-SYSVOL).
 
-2. Para omitir el requisito de sincronización inicial, establezca la siguiente clave del Registro en **0** en el controlador de dominio local. Si la DWORD no existe, puede crearla en el nodo **Parameters**. 
+2. Para omitir el requisito de sincronización inicial, establezca la siguiente clave del Registro en **0** en el controlador de dominio local. Si la DWORD no existe, puede crearla en el nodo **Parameters**.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Para obtener más información, consulte [Solucionar problemas del DNS ID 4013: El servidor DNS no pudo cargar zonas DNS integradas en AD](https://support.microsoft.com/kb/2001093).
 
-3. Deshabilite el requisito de que haya un servidor de catálogo global disponible para validar el inicio de sesión de usuario. Para ello, en el controlador de dominio local, establezca la siguiente clave del Registro en **1**. Si la DWORD no existe, puede crearla en el nodo **Lsa**. 
+3. Deshabilite el requisito de que haya un servidor de catálogo global disponible para validar el inicio de sesión de usuario. Para ello, en el controlador de dominio local, establezca la siguiente clave del Registro en **1**. Si la DWORD no existe, puede crearla en el nodo **Lsa**.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

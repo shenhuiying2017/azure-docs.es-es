@@ -1,3 +1,5 @@
+# [Documentación de B2C de Azure AD](index.md)
+
 # [Información general](active-directory-b2c-overview.md)
 
 # Introducción
@@ -63,7 +65,7 @@
 # Marco de experiencia de identidad
 ## [Directivas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guías
-### [Introducción](active-directory-b2c-get-started-custom.md)
+### [Primeros pasos](active-directory-b2c-get-started-custom.md)
 ### Configuración de proveedores de OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Cuenta Microsoft](active-directory-b2c-custom-setup-msa-idp.md)

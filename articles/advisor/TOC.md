@@ -1,3 +1,5 @@
+# [Documentación de Azure Advisor](index.md)
+
 # Información general
 ## [¿Qué es Azure Advisor?](advisor-overview.md)
 
@@ -7,11 +9,11 @@
 ## [Recomendaciones alta disponibilidad](advisor-high-availability-recommendations.md)
 ## [Recomendaciones de seguridad](advisor-security-recommendations.md)
 
-# Primeros pasos
+# Introducción
 ## [Introducción a Advisor](advisor-get-started.md)
 
 # Referencia
-## [API DE REST](https://docs.microsoft.com/rest/api/advisor)
+## [API de REST](https://docs.microsoft.com/rest/api/advisor)
 ## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 # Temas relacionados

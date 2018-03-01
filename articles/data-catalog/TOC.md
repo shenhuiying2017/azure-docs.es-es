@@ -1,13 +1,15 @@
+# [Documentación de Data Catalog](index.md)
+
 # Información general
 ## [¿Qué es Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Escenarios comunes](data-catalog-common-scenarios.md)
 ## [Orígenes de datos admitidos](data-catalog-dsr.md)
 
 # Introducción
-## [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
+## [Introducción a Azure Data Catalog](data-catalog-get-started.md)
 ## [Adopción de Azure Data Catalog](data-catalog-adopting-data-catalog.md)
 ## [Requisitos previos](data-catalog-prerequisites.md)
-## [Preguntas más frecuentes](data-catalog-frequently-asked-questions.md)
+## [P+F](data-catalog-frequently-asked-questions.md)
 
 # Procedimientos
 ## [Registrar orígenes de datos](data-catalog-how-to-register.md)
@@ -37,5 +39,5 @@
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Notas de la versión](data-catalog-whats-new.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminología](data-catalog-terminology.md)

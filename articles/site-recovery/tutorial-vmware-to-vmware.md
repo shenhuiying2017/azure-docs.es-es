@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
 InMage Scout en [Azure Site Recovery](site-recovery-overview.md) proporciona características de replicación en tiempo real entre los sitios locales de VMware. InMage Scout se incluye en las suscripciones al servicio Azure Site Recovery. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -42,7 +42,7 @@ Para completar este tutorial:
 Seleccione qué quiere replicar y en dónde hacerlo.
 
 1. Haga clic en **Site Recovery** > **Preparar infraestructura** > **Objetivo de protección**.
-2. Seleccione **Para sitio de recuperación** > **Sí, con VMware vSphere Hypervisor**. y, a continuación, haga clic en **Aceptar**.
+2. Seleccione **Para sitio de recuperación** > **Sí, con VMware vSphere Hypervisor**. A continuación, haga clic en **Aceptar**.
 3. En **Configuración de Scout**, descargue el software de disponibilidad general de InMage Scout 8.0.1 y la clave de registro. Los archivos de instalación de todos los componentes están incluidos en el archivo ZIP que se descargó.
 
 ## <a name="download-and-install-component-updates"></a>Descarga e instalación de actualizaciones de componentes

@@ -1,3 +1,5 @@
+# [Documentación de DNS](index.md)
+
 # Información general
 
 ## [¿Qué es Azure DNS?](dns-overview.md)
@@ -9,7 +11,7 @@
 # Introducción
 
 ## Creación de una zona y un registro DNS
-### [Portal de Azure](dns-getstarted-portal.md)
+### [portal de Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [CLI de Azure](dns-getstarted-cli.md)
 
@@ -21,12 +23,12 @@
 # Procedimientos
 
 ## Administración de zonas DNS
-### [Portal de Azure](dns-operations-dnszones-portal.md)
+### [portal de Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [CLI de Azure](dns-operations-dnszones-cli.md)
 
 ## Administración de registros DNS
-### [Portal de Azure](dns-operations-recordsets-portal.md)
+### [portal de Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [CLI de Azure](dns-operations-recordsets-cli.md)
 

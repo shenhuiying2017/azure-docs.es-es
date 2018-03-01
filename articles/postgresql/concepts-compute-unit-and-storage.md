@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicación de las unidades de proceso en Azure Database for PostgreSQL
 En este tema se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el nivel máximo de tales unidades en la carga de trabajo.
@@ -42,5 +42,5 @@ Si la carga de trabajo alcanza los límites máximos de unidades de proceso o de
 
 Si la carga de trabajo alcanza los límites máximos de número de conexiones, se producen errores explícitos. Para obtener más información sobre los límites de los recursos, consulte [Limitaciones en Azure Database for PostgreSQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre los planes de tarifa, consulte [Planes de tarifa de Azure Database for PostgreSQL](./concepts-service-tiers.md).

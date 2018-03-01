@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Automation?
       href: automation-intro.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de una cuenta de Automation
@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Administración de las actualizaciones de su máquina virtual
       href: automation-tutorial-update-management.md
-    - name: Incorporación de actualizaciones y seguimiento de cambios
+    - name: Incorporación de actualizaciones y seguimiento de cambios mediante un runbook
       href: automation-onboard-solutions.md
     - name: Identificación del software en una máquina virtual
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Procedimientos
   items:
+    - name: Incorporación
+      items:
+        - name: Incorporación a partir de una máquina virtual de Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Incorporación desde cuenta de Automation
+          href: automation-onboard-solutions-from-automation-account.md
     - name: Administración de actualizaciones
       items:
-        - name: Información general
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Introducción a Update Management
+          href: automation-update-management.md
         - name: Administración de actualizaciones de varias máquinas virtuales
           href: manage-update-multi.md
-        - name: Integración de SCCM con OMS Update Management
+        - name: Integración de SCCM con Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Seguimiento de cambios
       items:
-        - name: Información general
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Seguimiento de cambios en las máquinas virtuales
-          href: automation-vm-change-tracking.md
+        - name: Introducción a Change Tracking
+          href: automation-change-tracking.md
     - name: Inventario
       items:
         - name: Administración de una máquina virtual con la recopilación de inventario
@@ -225,7 +229,7 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=automation'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

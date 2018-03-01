@@ -6,7 +6,7 @@
       href: introduction.md
     - name: Comparación de las versiones 1 y 2
       href: compare-versions.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de factoría de datos: Interfaz de usuario (UI)'
@@ -92,7 +92,7 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
-- name: Muestras
+- name: Ejemplos
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
@@ -205,6 +205,8 @@
               href: connector-mongodb.md
             - name: MySQL
               href: connector-mysql.md
+            - name: Netezza
+              href: connector-netezza.md
             - name: OData
               href: connector-odata.md
             - name: ODBC
@@ -231,6 +233,8 @@
               href: connector-sap-business-warehouse.md
             - name: SAP Cloud for Customer
               href: connector-sap-cloud-for-customer.md
+            - name: SAP ECC
+              href: connector-sap-ecc.md
             - name: SAP HANA
               href: connector-sap-hana.md
             - name: ServiceNow
@@ -249,6 +253,8 @@
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
+            - name: Vertica
+              href: connector-vertica.md
             - name: Tabla web
               href: connector-web-table.md
             - name: Xero
@@ -378,7 +384,7 @@
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Foro de MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Solicitud de una característica
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
