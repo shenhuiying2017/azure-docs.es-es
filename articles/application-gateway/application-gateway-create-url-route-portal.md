@@ -11,15 +11,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
-Puede usar Azure Portal para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante el uso de máquinas virtuales. A continuación, creará reglas de enrutamiento que garantizan que el tráfico web llega a los servidores adecuados de los grupos.
+Puede usar Azure Portal para configurar [reglas de enrutamiento basadas en rutas de dirección URL](application-gateway-url-route-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante el uso de máquinas virtuales. A continuación, creará reglas de enrutamiento que garanticen que el tráfico web llega a los servidores adecuados de los grupos.
 
 En este artículo, aprenderá a:
 
@@ -69,7 +69,7 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 ### <a name="add-a-subnet"></a>Incorporación de una subred
 
 1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
-2. Haga clic en **Subredes** y, a continuación, haga clic en **Subred**.
+2. Haga clic en **Subredes** y en **Subred**.
 
     ![Creación de una subred](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
@@ -120,7 +120,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
 
 1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAppGateway**.
-2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGateayBackendPool**.
+2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGatewayBackendPool**.
 3. Haga clic en **Agregar destino** para agregar *myVM1* a appGatewayBackendPool.
 
     ![Incorporación de servidores back-end](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

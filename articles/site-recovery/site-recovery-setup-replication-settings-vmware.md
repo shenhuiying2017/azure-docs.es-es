@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: sutalasi
-ms.openlocfilehash: a5d0eb5b8cd5ba49a602d7000291270af31fb222
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0a567f31bf1991d4c2a95468d2abc31c51a878f3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Administración de una directiva de replicación de VMware en Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/22/2017
 
 7. En **Frecuencia de instantánea coherente con la aplicación**especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
 
-8. Haga clic en **Aceptar**. La directiva debe demorar entre 30 y 60 segundos en crearse.
+8. Haga clic en **OK**. La directiva debe demorar entre 30 y 60 segundos en crearse.
 
 ![Generación de directiva de replicación](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/22/2017
 ![Asociación de servidor de configuración](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Seleccione el servidor de configuración en la lista de servidores.
-4. Haga clic en **Aceptar**. El servidor de configuración debería demorar entre uno y dos minutos en asociarse.
+4. Haga clic en **OK**. El servidor de configuración debería demorar entre uno y dos minutos en asociarse.
 
 ![Asociación del servidor de configuración](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/22/2017
 ![Edición de la configuración de directiva de replicación](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Cambie la configuración para ajustarla a sus necesidades.
-4. Haga clic en **Guardar**. La directiva debería demorar entre dos y cinco minutos en guardarse, en función del número de máquinas virtuales que la usen.
+4. Haga clic en **Save**(Guardar). La directiva debería demorar entre dos y cinco minutos en guardarse, en función del número de máquinas virtuales que la usen.
 
 ![Guardado de directiva de replicación](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/22/2017
 1. Elija la directiva de replicación a la que desea asociar el servidor de configuración.
 2. Haga clic en **Desasociar**.
 3. Seleccione el servidor de configuración en la lista de servidores.
-4. Haga clic en **Aceptar**. El servidor de configuración debería demorar entre uno y dos minutos en desasociarse.
+4. Haga clic en **OK**. El servidor de configuración debería demorar entre uno y dos minutos en desasociarse.
 
     > [!NOTE]
     > Un servidor de configuración no se puede desasociar si hay al menos un elemento replicado que use la directiva. Asegúrese de que no hay elementos replicados que usen la directiva antes de desasociar el servidor de configuración.

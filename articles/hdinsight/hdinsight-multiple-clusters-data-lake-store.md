@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Store
 
@@ -96,7 +96,7 @@ Como se indica en el JIRA YARN vinculado anteriormente, al localizar recursos p�
 #### <a name="workaround"></a>Solución alternativa
 Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/**, **/clusters** y **/clusters/finance**), como se muestra en la tabla anterior.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 
 * [Creación de un clúster de HDInsight con Almacén de Data Lake como almacenamiento](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 

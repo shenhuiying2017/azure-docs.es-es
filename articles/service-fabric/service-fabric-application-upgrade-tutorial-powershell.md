@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -135,7 +135,7 @@ En unos minutos, el estado obtenido con el comando de PowerShell anterior debe i
 
 Como ejercicio, puede intentar actualizar de la versión 2 a la versión 3 o de la versión 2 a la versión 1. El cambio de la versión 2 a la versión 1 también se considera una actualización. Juegue con los tiempos de espera y las directivas de mantenimiento para familiarizarse. Cuando se va a implementar en un clúster de Azure, los parámetros se deben establecer de forma adecuada. Es una buena idea establecer los tiempos de espera de manera conservadora.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).

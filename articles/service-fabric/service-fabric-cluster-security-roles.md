@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Control de acceso basado en roles para clientes de Service Fabric
 Azure Service Fabric admite dos tipos distintos de control de acceso para los clientes que están conectados a un clúster de Service Fabric: administrador y usuario. El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster.  
@@ -101,7 +101,7 @@ El control de acceso de administrador también tiene acceso a estas operaciones.
 ## <a name="changing-default-settings-for-client-roles"></a>Cambio de la configuración predeterminada para los roles de cliente
 En el archivo de manifiesto de clúster, puede proporcionar capacidades de administración al cliente si es necesario. Puede cambiar los valores predeterminados con la opción **Fabric Settings** durante la [creación del clúster](service-fabric-cluster-creation-via-portal.md) y especificar la configuración especificada anteriormente en los campos **nombre**, **administrador**, **usuario** y **valor**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)
 
 [Creación de clústeres de Service Fabric](service-fabric-cluster-creation-via-portal.md)

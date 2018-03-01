@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
@@ -30,7 +30,7 @@ En el ejemplo siguiente se muestran las propiedades que todos los publicadores d
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,27 +72,29 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Propiedades de evento
 
 Todos los eventos contienen los mismos datos de nivel superior siguientes:
 
 | Propiedad | type | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | cadena | Ruta al asunto del evento definida por el anunciante. |
-| eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | cadena | Identificador único para el evento |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Identificador único para el evento |
 | data | objeto | Los datos del evento específicos del proveedor de recursos. |
-| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 Para aprender acerca de las propiedades del objeto de datos, vea el origen del evento:
 
 * [Suscripciones de Azure (operaciones de administración)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Grupos de recursos (operaciones de administración)](event-schema-resource-groups.md)
 
 Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos. Al publicar eventos de temas personalizados, debe considerar modelar el asunto de los eventos como ayuda para el enrutamiento y el filtrado.

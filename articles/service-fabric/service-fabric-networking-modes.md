@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fafa7dc9ae84e49cdadcb047984792b353429df7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -231,7 +231,7 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
    </Resources>
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Entender el modelo de aplicación de Service Fabric](service-fabric-application-model.md)
 * [Aprenda más sobre los recursos del manifiesto de servicio de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Implementación de un contenedor de Windows en Service fabric en Windows Server 2016](service-fabric-get-started-containers.md)

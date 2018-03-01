@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 
@@ -113,7 +113,6 @@ En la siguiente tabla se muestra un NSG de ejemplo que puede configurar para blo
 ## <a name="troubleshooting"></a>solución de problemas
 Si tiene problemas para conectarse al dominio administrado mediante LDAP seguro, siga los pasos siguientes para la solución de problemas:
 * Asegúrese de que la cadena del emisor del certificado LDAP seguro es de confianza en el cliente. Puede optar por agregar la entidad de certificación raíz en el almacén de certificados raíz de confianza en el cliente para establecer la confianza.
-* Compruebe que el certificado LDAP seguro no está emitido por una entidad de certificación intermedia que no es de confianza de forma predeterminada en un equipo de Windows nuevo.
 * Compruebe que el cliente LDAP (por ejemplo, ldp.exe) se conecta al punto de conexión de LDAP seguro con un nombre DNS, no con la dirección IP.
 * Compruebe que el nombre DNS al que se conecta el cliente LDAP se resuelve como la dirección IP pública para LDAP seguro en el dominio administrado.
 * Compruebe que el certificado LDAP seguro para el dominio administrado tiene el nombre DNS en el atributo Sujeto o Nombres alternativos del sujeto.
