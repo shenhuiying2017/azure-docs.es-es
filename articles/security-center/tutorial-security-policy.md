@@ -9,17 +9,17 @@ editor:
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 102e160b706ad8fb8ee12ae4cac8cda51b06a991
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: Definición y evaluación de las directivas de seguridad
 Security Center ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa mediante el uso de directivas de seguridad para definir la configuración deseada de las cargas de trabajo. Después de definir las directivas de las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o al nivel de confidencialidad de los datos, Security Center puede proporcionar recomendaciones de seguridad para sus recursos de proceso, redes, SQL y almacenamiento, y de la aplicación. En este tutorial, aprenderá a:
@@ -30,7 +30,7 @@ Security Center ayuda a garantizar el cumplimiento de los requisitos de segurida
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita los primeros 60 días. En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="configure-security-policy"></a>Configuración de la directiva de seguridad
@@ -74,7 +74,7 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVA**, seleccione **Plan de tarifa**.
+3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
 4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
 5. Seleccione **Guardar**.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de HBase en HDInsight en Azure Virtual Network
 Aprenda a crear clústeres de HBase de HDInsight de Azure en una [Azure Virtual Network][1].
@@ -31,7 +31,7 @@ Con la integración de red virtual, los clústeres de HBase se pueden implementa
 * Rendimiento mejorado gracias a que el tráfico ya no tiene que examinar varias puertas de enlace y equilibradores de carga.
 * La posibilidad de procesar información confidencial de una manera segura sin exponer un extremo público.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -41,7 +41,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 En esta sección, crea un clúster de HBase basado en Linux con la cuenta de Azure Storage dependiente en una red virtual de Azure mediante el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Para conocer otros métodos de creación de clústeres y la descripción de la configuración, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información acerca de cómo utilizar la plantilla para crear clústeres de Hadoop en HDInsight, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight mediante plantillas de Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo:
+> Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo: 
 >
 > * **Ubicación**: este de EE. UU. 2
 > * **Versión del clúster**: 3.6
@@ -102,7 +102,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Contiene el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
+     En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Contiene el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo: 
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -231,7 +231,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 Para comprobar que la máquina virtual puede comunicarse con el clúster de HBase, use el comando `ping headnode0.<dns suffix>` desde la máquina virtual. Por ejemplo, haga ping a headnode0.mycluster.b1.cloudapp.net
 
-Para usar esta información en una aplicación Java, puede seguir los pasos que se indican en [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para crear una aplicación. Para que la aplicación se conecte a un servidor HBase remoto, modifique el archivo **hbase-site.xml** de este ejemplo para que use el FQDN de ZooKeeper. Por ejemplo:
+Para usar esta información en una aplicación Java, puede seguir los pasos que se indican en [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para crear una aplicación. Para que la aplicación se conecte a un servidor HBase remoto, modifique el archivo **hbase-site.xml** de este ejemplo para que use el FQDN de ZooKeeper. Por ejemplo: 
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -243,7 +243,7 @@ Para usar esta información en una aplicación Java, puede seguir los pasos que 
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más información, consulte:
 
 * [Introducción a HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)

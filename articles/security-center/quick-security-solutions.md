@@ -9,17 +9,17 @@ editor:
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 2ea4dc75c6285379d7a7eb3e85d28c89ae520dc8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 95cc85f0c742d465ab1ed68d6c29b61a6919dd5b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Guía de inicio rápido: Conexión de soluciones de seguridad a Security Center
 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido le muestra cómo:
 - Conectar una solución de seguridad a Security Center mediante registros CEF
 - Validar la conexión con la solución de seguridad
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 Para completar esta guía de inicio rápido, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita los primeros 60 días. En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
@@ -76,7 +76,7 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVA**, seleccione **Plan de tarifa**.
+3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
 4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
 5. Seleccione **Guardar**.
 

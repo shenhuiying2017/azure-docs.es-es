@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Hive en Azure HDInsight
 
@@ -113,7 +113,7 @@ Cuando se cree la tabla con particiones, puede crear las particiones estáticas 
 Para obtener más información, consulte [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tablas con particiones).
 
 ## <a name="use-the-orcfile-format"></a>Usar el formato ORCFile
-Hive admite diferentes formatos de archivo. Por ejemplo:
+Hive admite diferentes formatos de archivo. Por ejemplo: 
 
 * **Texto**: este es el formato de archivo predeterminado y funciona con la mayoría de escenarios
 * **Avro**: funciona bien para escenarios de interoperabilidad
@@ -137,7 +137,7 @@ Para habilitar el formato ORC, debe crear primero una tabla con la cláusula *Al
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento temporal. Por ejemplo:
+A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento temporal. Por ejemplo: 
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -177,7 +177,7 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 * **Optimización de combinación:** optimización de la planeación de la ejecución de consultas de Hive para mejorar la eficacia de las combinaciones y reducir la necesidad de sugerencias de usuario. Para obtener más información, vea [Optimización de combinación](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumento de reductores**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
 * [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
