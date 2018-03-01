@@ -39,7 +39,7 @@ En este artículo se enumeran las ubicaciones de puntos de presencia (POP) actua
 | Europa del Sur | Milán, Italia<br />Madrid, España | Italia<br />España |
 | África | Johannesburgo (Sudáfrica) | |
 | Oriente Medio | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar |
-| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Bombay, India<br />Nueva Delhi, India<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />India<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
+| Asia | Hong Kong<br />Bengaluru, India<br />Chennai, India<br />Delhi, India<br />Bombay, India<br />Nueva Delhi, India<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />India<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
 | Australia y Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Australia<br />Nueva Zelanda |
 
 ## <a name="see-also"></a>Otras referencias

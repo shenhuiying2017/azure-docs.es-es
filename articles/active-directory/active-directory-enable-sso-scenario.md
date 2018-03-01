@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 Además del flujo de trabajo o contenido real, para las empresas las aplicaciones deben cumplir dos requisitos básicos:
@@ -78,7 +78,7 @@ Al usar Azure AD para administrar las aplicaciones y habilitar el SSO:
 * La autenticación se realiza en la cuenta local del usuario (por ejemplo, AD) o en la cuenta de Azure AD.
 * La autorización se ejecuta en la directiva de asignación y protección de Azure AD, lo que garantiza una experiencia coherente para el usuario final y permite agregar asignaciones, ubicaciones y condiciones MFA en cualquier aplicación, independientemente de sus capacidades internas.
 
-Es importante comprender que la forma en que la autorización se aplica en la aplicación de destino varía en función de cómo se integra la aplicación con Azure AD.
+Es importante comprender que la forma en que la autorización se aplica en la aplicación de destino varía en función de cómo se integra la aplicación en Azure AD.
 
 * **Aplicaciones integradas previamente por el proveedor de servicios**, como Office 365 y Azure. Se trata de aplicaciones integradas directamente en Azure AD y que dependen de él para sus funcionalidades completas de administración de identidades y acceso. El acceso a estas aplicaciones se habilita a través de la información de directorio y la emisión de tokens.
 * **Aplicaciones integradas previamente por Microsoft y aplicaciones personalizadas**. Son aplicaciones de nube independientes que dependen de un directorio de aplicaciones interno y pueden funcionar con independencia de Azure AD. El acceso a estas aplicaciones se habilita mediante la emisión de una credencial específica de la aplicación asignada a una cuenta de aplicación. Dependiendo de las funcionalidades de la aplicación, la credencial puede ser un token de federación o un nombre de usuario y una contraseña para una cuenta que se aprovisionó anteriormente en la aplicación.
@@ -90,13 +90,13 @@ Por ejemplo, si un usuario se une a su organización, deberá crear una cuenta p
 En las empresas modernas, los departamentos de TI no son a menudo conscientes de todas las aplicaciones en la nube que se usan. Junto con Cloud App Discovery, Azure AD proporciona una solución para detectar estas aplicaciones.
 
 ## <a name="account-management"></a>Administración de cuentas
-Tradicionalmente, la administración de cuentas de las distintas aplicaciones es un proceso manual que realiza TI o el personal de soporte de la organización. Azure AD automatiza completamente la administración de cuentas en todas las aplicaciones integradas del proveedor de servicios y en esas aplicaciones previamente integradas por Microsoft que admiten el aprovisionamiento automático de usuarios o SAML JIT.
+Tradicionalmente, la administración de cuentas de las distintas aplicaciones es un proceso manual que realiza el personal de TI o de soporte técnico de la organización. Azure AD automatiza completamente la administración de cuentas en todas las aplicaciones integradas del proveedor de servicios y en esas aplicaciones previamente integradas por Microsoft que admiten el aprovisionamiento automático de usuarios o Just-In-Time de SAML.
 
 ## <a name="automated-user-provisioning"></a>Aprovisionamiento automático de usuarios
 Algunas aplicaciones proporcionan interfaces de automatización para la creación y eliminación (o desactivación) de cuentas. Si un proveedor ofrece esta interfaz, Azure Active Directory hace uso de ella. De esta manera, se reducen los costos operativos porque las tareas administrativas se producen automáticamente y se mejora la seguridad del entorno dado que disminuye la probabilidad de acceso no autorizado.
 
 ## <a name="access-management"></a>administración de acceso
-Con Azure AD puede administrar el acceso a las aplicaciones mediante asignaciones basadas en reglas o individuales. También puede delegar la administración del acceso en las personas adecuadas de la organización, lo que garantiza una mejor supervisión y reduce la carga sobre el departamento de soporte técnico.
+Con Azure AD, puede administrar el acceso a las aplicaciones mediante asignaciones individuales o basadas en reglas. También puede delegar la administración del acceso en las personas adecuadas de la organización, lo que garantiza una mejor supervisión y reduce la carga sobre el departamento de soporte técnico.
 
 ## <a name="on-premises-applications"></a>Aplicaciones locales
 El proxy de la aplicación integrado permite publicar las aplicaciones locales en los usuarios, lo que da lugar a una experiencia de usuario coherente con las aplicaciones modernas de nube, junto con las ventajas de las funcionalidades de supervisión, creación de informes y seguridad de Azure AD.

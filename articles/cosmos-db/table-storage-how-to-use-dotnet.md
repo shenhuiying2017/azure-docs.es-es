@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introducción al Almacenamiento de tablas de Azure mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -85,7 +85,7 @@ La biblioteca de tablas de Azure CosmosDB se puede usar en cualquier tipo de apl
 ### <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 Para completar este tutorial, es preciso que haga referencia a tres paquetes en el proyecto:
 
-* [Biblioteca común de Azure Storage para .NET (versión preliminar)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Biblioteca común de Azure Storage para .NET (versión preliminar 8.6.0)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
 * [Biblioteca de tablas de Microsoft Azure CosmosDB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de Azure Table Storage o la cuenta de Table API de Azure Cosmos DB.
 * [Biblioteca de Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
 

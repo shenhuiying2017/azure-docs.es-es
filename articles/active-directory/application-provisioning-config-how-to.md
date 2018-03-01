@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Configuración del aprovisionamiento de usuarios en una aplicación de la galería de Azure AD
 
@@ -31,7 +31,7 @@ El aprovisionamiento *manual* quiere decir que las cuentas de usuario se deben c
 
 Si Manual es el único modo que se muestra para una aplicación determinada, significa que aún no se ha creado ningún conector de aprovisionamiento de Azure AD automático para la aplicación. O bien, significa que la aplicación no es compatible con la API de administración de usuarios obligatoria sobre la que se crea un conector de aprovisionamiento automatizado.
 
-Si desea solicitar soporte técnico para el aprovisionamiento automático con una aplicación determinada, puede rellenar una solicitud en <http://aka.ms/aadapprequest>.
+Si desea solicitar soporte técnico para el aprovisionamiento automático con una aplicación determinada, puede rellenar una solicitud en [Azure Active Directory Application Requests](https://aka.ms/aadapprequest) (Solicitudes de aplicación de Azure Active Directory).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuración de una aplicación para el aprovisionamiento automático
 
@@ -50,6 +50,6 @@ Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cóm
 
 Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esto incluye la configuración de la "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Para más información acerca de este proceso importante.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment #
 
@@ -59,7 +59,7 @@ El plan de App Service es un contenedor de aplicaciones. Cuando se crea una apli
 
 Para compilar una instancia de ASE al crear un plan de App Service:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Nuevo** > **Web y móvil** > **Aplicación web**.
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
     ![Creación de la aplicación web][1]
 
@@ -97,7 +97,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la instancia de ASE esté vacía, seguirá generando un cargo mensual para la infraestructura. Siga estos pasos para crear una instancia de ASE con un ILB o crear una instancia de ASE en su propio grupo de recursos. Después de crear la instancia de ASE, puede crear aplicaciones en ella con el método habitual. Seleccione la nueva instancia de ASE como ubicación.
 
-1. Busque **App Service Environment** en Azure Marketplace o seleccione **Nuevo** > **Web y móvil** > **App Service Environment**. 
+1. Busque **App Service Environment** en Azure Marketplace o seleccione **Crear un recurso** > **Web y móvil** > **App Service Environment**. 
 
 2. Escriba el nombre de la instancia de ASE. Este nombre se utiliza para las aplicaciones que se crean en la instancia de ASE. Si el nombre es *mynewdemoase*, el nombre del subdominio es *.mynewdemoase.p.azurewebsites.net*. Si crea una aplicación con nombre *mytestapp*, esta es direccionable a mytestapp.mynewdemoase.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total del nombre. Si usa un ILB, el nombre la instancia de ASE no se usa en su subdominio pero, en su lugar, se indica explícitamente durante la creación de la instancia de ASE.
 

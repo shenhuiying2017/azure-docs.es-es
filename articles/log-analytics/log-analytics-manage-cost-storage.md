@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Administración del costo de retención de datos con el área de trabajo de Log Analytics
 Al suscribirse a Log Analytics, según el plan que seleccione, hay un límite de cuánto tiempo se almacenan los datos generados por los orígenes conectados en el área de trabajo.  Este artículo resalta las consideraciones que pueden influir en los costos de retención de estos datos para distintos períodos y cómo configurar ese límite.   
@@ -44,11 +44,11 @@ Cuando use el plan *gratuito*, si observa que supera de forma uniforme las canti
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos 
 
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com). 
-2. Haga clic en **Más servicios** en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+2. Haga clic en **Ver todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 3. En el panel de suscripciones de Log Analytics, seleccione el área de trabajo que modificar en la lista.
 4. En la página de área de trabajo, haga clic en **Retención** desde el panel izquierdo.
 5. En el panel de retención del área de trabajo, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Guardar**.  Si el nivel es *gratuito*, no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.<br><br> ![Cambio de la configuración de retención de datos del área de trabajo](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
-## <a name="next-steps"></a>Pasos siguientes  
+## <a name="next-steps"></a>pasos siguientes  
 
 Para determinar la cantidad de datos recopilada, qué orígenes se envían y los diferentes tipos de datos enviados para ayudar a administrar el consumo y el costo, vea [Análisis del uso de datos en Log Analytics](log-analytics-usage.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -58,16 +58,16 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 * Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure al crear e implementar el servicio en la nube.
 
 ## <a name="create-and-deploy"></a>Creación e implementación
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **Nuevo > Compute**, luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Haga clic en **Crear un recurso > Proceso**, luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**.
+3. En la nuevo panel **Servicio en la nube**, escriba un valor para **Nombre DNS**.
 4. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
 5. Seleccione una **ubicación**.
-6. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
+6. Haga clic en **Paquete**. Se abre el panel **Cargar un paquete**. Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 7. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
-8. Haga clic en **Aceptar** para cerrar la hoja **Cargar un paquete**.
+8. Haga clic en **Aceptar** para cerrar el panel **Cargar un paquete**.
 9. Si no tiene ningún certificado para agregar, haga clic en **Crear**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 ## <a name="upload-a-certificate"></a>Carga de un certificado
 Si el paquete de implementación se [configuró para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), puede cargar el certificado ahora.
 
-1. Seleccione **Certificados** y, en la hoja **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y proporcione la **contraseña** del certificado,
-2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en la hoja **Agregar certificados**.
-3. Haga clic en **Crear** en la hoja **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo** , puede continuar con los pasos siguientes.
+1. Seleccione **Certificados** y, en el panel **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y especifique la **contraseña** del certificado,
+2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en el panel **Agregar certificados**.
+3. Haga clic en **Crear** en el panel **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo** , puede continuar con los pasos siguientes.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -91,7 +91,7 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).

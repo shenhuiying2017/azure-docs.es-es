@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
-En esta tarea, se definirá la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
+En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
 
 * [Determinación de las necesidades empresariales](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Determinación de los requisitos de sincronización de directorios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Determinación de los requisitos de autenticación multifactor](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definición de una estrategia de necesidades empresariales
-La primera tarea consiste en determinar las necesidades empresariales de las organizaciones.  Dicha tarea puede ser muy amplia y se puede producir un arrastramiento del alcance si no se tiene cuidado.  Al principio debe ser simple, pero recuerde siempre planear un diseño que acomode y facilite la realización de cambios en el futuro.  Independientemente de que sea un diseño sencillo o extremadamente complejo, Azure Active Directory es la plataforma de Microsoft Identity que admite Office 365, Microsoft Online Services y aplicaciones habilitadas para la nube.
+La primera tarea consiste en determinar las necesidades empresariales de las organizaciones.  Dicha tarea puede ser muy amplia y se puede producir un arrastramiento del alcance si no se tiene cuidado.  Al principio debe ser simple, pero recuerde siempre planear un diseño que permita y facilite la realización de cambios en el futuro.  Independientemente de que sea un diseño sencillo o extremadamente complejo, Azure Active Directory es la plataforma de Microsoft Identity que admite Office 365, Microsoft Online Services y aplicaciones habilitadas para la nube.
 
 ## <a name="define-an-integration-strategy"></a>Definición de una estrategia de integración
 Microsoft tiene tres escenarios de integración principales que son las identidades de nube, las identidades sincronizadas y las identidades federadas.  Debe planear la adopción de una de estas estrategias de integración.  La estrategia que elija puede variar y las decisiones que tome a la hora de elegir una de ellas pueden incluir: el tipo de experiencia de usuario que se desea proporcionar, si se tiene alguna de las infraestructuras existentes ya establecida y cuál es el más rentable.  
@@ -47,26 +47,26 @@ Los escenarios definidos en la ilustración anterior son:
 > 
 > 
 
-La tabla siguiente le ayudará a determinar las ventajas y desventajas de cada una de las estrategias siguientes:
+La tabla siguiente le ayuda a determinar las ventajas y desventajas de cada una de las estrategias siguientes:
 
 | Estrategia | Ventajas | Desventajas |
 | --- | --- | --- |
-| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar en local. No se necesita hardware adicional.<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube  <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
-| **Sincronizada** |La contraseña local se autenticará localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
-| **Federada** |Los usuarios pueden tener el inicio de sesión único (SSO). <br>Si un usuario es cesado o abandona, la cuenta puede deshabilitarse inmediatamente y revocarse el acceso.<br> Admite escenarios avanzados que no se pueden lograr con la sincronizada. |Más pasos para instalar y configurar <br> Mayor mantenimiento <br> Puede requerir hardware adicional para la infraestructura de STS. <br> Puede requerir hardware adicional para instalar el servidor de federación. Es necesario software adicional si se utiliza AD FS. <br> Necesita una configuración amplia de SSO. <br> Punto crítico de error si el servidor de federación está inactivo, los usuarios no podrán autenticarse. |
+| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar en local. No se necesita hardware adicional.<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
+| **Sincronizada** |La contraseña local se autentica localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
+| **Federada** |Los usuarios pueden tener el inicio de sesión único (SSO). <br>Si un usuario es cesado o abandona, la cuenta puede deshabilitarse inmediatamente y revocarse el acceso.<br> Admite escenarios avanzados que no se pueden lograr con la sincronizada. |Más pasos para instalar y configurar. <br> Mayor mantenimiento <br> Puede requerir hardware adicional para la infraestructura de STS. <br> Puede exigir hardware adicional para instalar el servidor de federación. Es necesario software adicional si se usa AD FS. <br> Necesita una configuración amplia de SSO. <br> Punto crítico de error si el servidor de federación está inactivo, los usuarios no podrán autenticarse. |
 
 ### <a name="client-experience"></a>Experiencia del cliente
-La estrategia que se use determinará la experiencia de inicio de sesión del usuario.  Las siguientes tablas proporcionan información sobre la experiencia de inicio de sesión que deben esperar los usuarios.  Tenga en cuenta que no todos los proveedores de identidades federadas admiten SSO en todos los escenarios.
+La estrategia que se use determinará la experiencia de inicio de sesión del usuario.  Las siguientes tablas proporcionan información sobre la experiencia de inicio de sesión que deben esperar los usuarios.  No todos los proveedores de identidades federadas admiten SSO en todos los escenarios.
 
 **Aplicaciones de red privada y conectadas a un dominio**:
 
 |  | Identidad sincronizada | Identidad federada |
 | --- | --- | --- |
-| Exploradores web |Autenticación basada en formularios |inicio de sesión único, a veces es preciso especificar la identificación de la organización |
+| Exploradores web |Autenticación basada en formularios |Inicio de sesión único, a veces es preciso especificar la identificación de la organización |
 | Outlook |Se piden credenciales |Se piden credenciales |
-| Skype Empresarial (Lync) |Se piden credenciales |inicio de sesión único para Lync, credenciales solicitadas para Exchange |
-| SkyDrive Pro |Se piden credenciales |inicio de sesión único |
-| Suscripción a Office Pro Plus |Se piden credenciales |inicio de sesión único |
+| Skype Empresarial (Lync) |Se piden credenciales |Inicio de sesión único para Lync, credenciales solicitadas para Exchange |
+| SkyDrive Pro |Se piden credenciales |Inicio de sesión único |
+| Suscripción a Office Pro Plus |Se piden credenciales |Inicio de sesión único |
 
 **Orígenes externos o que no son de confianza**:
 
@@ -74,23 +74,23 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 | --- | --- | --- |
 | Exploradores web |Autenticación basada en formularios |Autenticación basada en formularios |
 | Outlook, Skype Empresarial (Lync), Skydrive Pro, suscripción de Office |Se piden credenciales |Se piden credenciales |
-| Exchange ActiveSync |Se piden credenciales |inicio de sesión único para Lync, credenciales solicitadas para Exchange |
+| Exchange ActiveSync |Se piden credenciales |Inicio de sesión único para Lync, credenciales solicitadas para Exchange |
 | Aplicaciones móviles |Se piden credenciales |Se piden credenciales |
 
 Si a partir de la tarea 1 ha determinado que tiene un IdP de terceros o va a usar uno para proporcionar la federación con Azure AD, tiene que tener en cuenta las siguientes funcionalidades admitidas:
 
 * Cualquier proveedor de SAML 2.0 que sea compatible con el perfil SP-Lite puede admitir la autenticación a Azure AD y aplicaciones asociadas
-* Admite la autenticación pasiva, que facilita la autenticación a OWA, SPO, etcétera.
+* Admite la autenticación pasiva, que facilita la autenticación a OWA, SPO, etc.
 * Se admiten clientes de Exchange Online a través del perfil de cliente mejorado (ESP) de SAML 2.0
 
 También debe conocer las capacidades que no estarán disponibles:
 
-* Sin la compatibilidad con WS-Trust o Federación, los restantes clientes activos se interrumpirán
+* Sin la compatibilidad con WS-Trust o Federación, los restantes clientes activos se interrumpen
   * Esto significa que no hay ningún cliente de Lync, cliente de OneDrive, suscripción de Office u Office Mobile antes de 2016 de Office
-* La transición de Office a autenticación pasiva les permitirá admitir los IdP de SAML 2.0, pero seguirá siendo compatible cliente a cliente
+* La transición de Office a autenticación pasiva les permite admitir los IdP de SAML 2.0, pero seguirá siendo compatible cliente a cliente
 
 > [!NOTE]
-> Para ver la lista más actualizada, consulte el artículo http://aka.ms/ssoproviders.
+> Para ver la lista más actualizada, consulte el artículo https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -108,7 +108,7 @@ A lo largo de los años existieron varias herramientas de sincronización y se u
 ### <a name="supported-topologies"></a>Topologías admitidas
 Al definir una estrategia de sincronización, es preciso determinar la topología que se usa. En función de la información que se determinó en el paso 2 se puede especificar qué topología es la adecuada. El bosque único, la única topología de Azure AD, es la más común y consta de un único bosque de Active Directory y una única instancia de Azure AD.  Dicha topología se va a usar en la mayoría de los escenarios y es la que se espera que haya cuando se usa la instalación rápida de Azure AD Connect, como se muestra en la ilustración siguiente.
 
-![](./media/hybrid-id-design-considerations/single-forest.png) Escenario de bosque único Es muy común que las organizaciones grandes, e incluso las pequeñas, tengan varios bosques, como se muestra en la Ilustración 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Escenario de bosque único Es común que las organizaciones grandes e, incluso, las pequeñas tengan varios bosques, como se muestra en la Ilustración 5.
 
 > [!NOTE]
 > Para obtener más información acerca de las diferentes topologías locales y de Azure AD con sincronización con Azure AD Connect, consulte el artículo [Topologías de Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -141,7 +141,7 @@ Si no se dan los factores anteriores y tiene más de una cuenta activa o más de
 
 **Escenario de Azure AD con bosques múltiples**
 
-Se recomienda tener un solo directorio por organización en Azure AD, pero se admite que se mantenga una relación 1:1 entre un servidor de sincronización de Azure AD Connect y un directorio de Azure AD.  En cada instancia de Azure AD, será precisa una instalación de Azure AD Connect.  Además, a causa de su diseño, Azure AD está aislado, por lo que los usuarios de una instancia de Azure AD no podrán ver los usuarios de otra.
+Se recomienda tener un solo directorio por organización en Azure AD, pero se admite que se mantenga una relación 1:1 entre un servidor de sincronización de Azure AD Connect y un directorio de Azure AD.  En cada instancia de Azure AD, se precisa una instalación de Azure AD Connect.  Además, a causa de su diseño, Azure AD está aislado, por lo que los usuarios de una instancia de Azure AD no podrán ver los usuarios de otra.
 
 No solo es posible, sino que también se admite la conexión de una instancia local de Active Directory a varios directorios de Azure AD, como se muestra en la ilustración siguiente:
 
@@ -159,7 +159,7 @@ Para realizar esta operación, es preciso que se den los siguientes factores:
   * Reescritura de grupos con la configuración predeterminada
   * Reescritura de dispositivos
 
-Tenga en cuenta que los siguientes elementos no se admiten y no deben elegirse como implementación:
+Los siguientes elementos no se admiten y no deben elegirse como implementación:
 
 * No se admite tener varios servidores de sincronización de Azure AD Connect conectados al mismo directorio de Azure AD, aunque estén configurados para sincronizar conjuntos de objetos mutuamente excluyentes.
 * No se admite la sincronización del mismo usuario con varios directorios de Azure AD. 
@@ -173,7 +173,7 @@ Tenga en cuenta que los siguientes elementos no se admiten y no deben elegirse c
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication 
-En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su compañía:
+En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su empresa:
 
 Opciones de diseño multifactor:
 

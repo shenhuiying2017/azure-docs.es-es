@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Configuración del rendimiento para contenedores de Azure Cosmos DB
 
@@ -49,7 +49,7 @@ En la tabla siguiente se enumeran los rendimientos disponibles para los contened
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Para establecer el rendimiento mediante Azure Portal
 
 1. Abra [Azure Portal](https://portal.azure.com) en una nueva ventana.
-2. En la barra la izquierda, haga clic en **Azure Cosmos DB** o en **Más servicios**, en la parte inferior, desplácese a **Bases de datos** y, luego, haga clic en **Azure Cosmos DB**.
+2. En la barra de la izquierda, haga clic en **Azure Cosmos DB** o en **Todos los servicios** en la parte inferior, a continuación, desplácese a **Bases de datos** y, luego, haga clic en **Azure Cosmos DB**.
 3. Seleccione la cuenta de Cosmos DB.
 4. En la nueva ventana, haga clic en **Explorador de datos** en el menú de navegación.
 5. En la nueva ventana, expanda la base de datos y el contenedor y, a continuación, haga clic en **Escala y configuración**.

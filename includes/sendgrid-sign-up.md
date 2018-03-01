@@ -2,7 +2,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para registrarse y obtener una cuenta SendGrid
 1. Inicie sesión en [Azure Portal][Azure portal].
-2. En el menú de la izquierda, haga clic en **Nuevo**.
+2. En el menú izquierdo, haga clic en **Crear un recurso**.
 
     ![command-bar-new][command-bar-new]
 3. Haga clic en **Complementos** y, luego, en **Servicio de correo electrónico SendGrid**.
@@ -45,7 +45,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 
     ![api-keys][api-keys]
 
-3. Haga clic en el menú desplegable **Crear clave de API** y seleccione **Clave de API general**.
+3. Haga clic en **Crear clave de API**.
 
     ![general-api-key][general-api-key]
 4. Como mínimo, debe proporcionar el **nombre de esta clave** y otorgar acceso completo a **Envío de correo** y seleccione **Guardar**.

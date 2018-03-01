@@ -15,15 +15,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ccccdf58fbb84605bc5dff29d870b373134f1f97
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de leer este artículo, sabrá cómo crear una máquina virtual que ejecute una aplicación Java de proceso intensivo que otra aplicación Java puede supervisar.
@@ -52,26 +52,26 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 
 ## <a name="to-create-a-virtual-machine"></a>Para crear una máquina virtual
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **De la galería**.
+2. Haga clic en **Crear un recurso**, **Proceso**, **Máquina virtual** y, a continuación, en **De la galería**.
 3. En el cuadro de diálogo **Virtual machine image select** (Selección de imagen de máquina virtual), seleccione **JDK 7 Windows Server 2012**.
    Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
-4. Haga clic en **Siguiente**.
+4. Haga clic en **Next**.
 5. En el cuadro de diálogo **Configuración de la máquina virtual** :
    1. Especifique un nombre para la máquina virtual.
    2. Especifique el tamaño que se va a utilizar para la máquina virtual.
    3. Escriba un nombre para el administrador en el campo **Nombre de usuario** . Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
    4. Escriba una contraseña en el campo **New password** (Contraseña nueva) y confírmela en el campo **Confirm** (Confirmar). Esta es la contraseña de la cuenta de administrador.
-   5. Haga clic en **Siguiente**.
+   5. Haga clic en **Next**.
 6. En el cuadro de diálogo siguiente **Configuración de la máquina virtual** :
    1. En **Servicio en la nube**, use el valor predeterminado **Crear un nuevo servicio en la nube**.
    2. El valor de **Nombre DNS de servicio** en la nube debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
    3. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
    4. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
    5. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
-   6. Haga clic en **Siguiente**.
+   6. Haga clic en **Next**.
 7. En el cuadro de diálogo final **Configuración de la máquina virtual** :
    1. Acepte las entradas de extremo predeterminadas.
-   2. Haga clic en **Completo**.
+   2. Haga clic en **Completar**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para iniciar sesión de manera remota en la máquina virtual
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).

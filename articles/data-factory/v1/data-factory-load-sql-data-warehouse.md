@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -114,11 +114,11 @@ Con los pasos previos completados, ahora estamos preparados configurar la activi
 
 ## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Haga clic en **+ NUEVO** en la esquina superior izquierda, después en **Inteligencia y análisis** y en **Data Factory**.
-3. En la hoja **Nueva factoría de datos** :
+2. Haga clic en **Crear un recurso** en la esquina superior izquierda, después en **Inteligencia y análisis** y en **Data Factory**.
+3. En el panel **Nueva factoría de datos**:
 
    1. Escriba **LoadIntoSQLDWDataFactory** para el **nombre**.
-       El nombre de la factoría de datos de Azure debe ser único global. Si recibe el error: **El nombre de factoría de datos "LoadIntoSQLDWDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, sunombreLoadIntoSQLDWDataFactory) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
+       El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de factoría de datos "LoadIntoSQLDWDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, sunombreLoadIntoSQLDWDataFactory) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
    2. Selección la **suscripción**de Azure.
    3. Para el grupo de recursos, realice uno de los siguientes pasos:
       1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Almacenamiento de mensajes de IoT Hub que contienen datos del sensor en Azure Blob Storage
 
@@ -45,7 +45,7 @@ Aprenderá a crear una cuenta de almacenamiento de Azure y una aplicación de fu
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Storage** > **Cuenta de Storage** > **Crear**.
+1. En el menú [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento** > **Crear**.
 
 2. Escriba la información necesaria para la cuenta de almacenamiento:
 
@@ -53,11 +53,11 @@ Aprenderá a crear una cuenta de almacenamiento de Azure y una aplicación de fu
 
    * **Nombre**: el nombre de la cuenta de almacenamiento. El nombre debe ser único globalmente.
 
-   * **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
+   * **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    * **Anclar al panel**: seleccione esta opción para facilitar el acceso a IoT Hub desde el panel.
 
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Preparación de una instancia de IoT Hub para enrutar mensajes al almacenamiento
 
@@ -98,7 +98,7 @@ Haga clic en **Agregar** desde el panel de Rutas y escriba un nombre para la rut
 
    Verá que los mensajes enviados desde el dispositivo a IoT Hub se han registrado en el contenedor de blobs.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha creado correctamente la cuenta de Azure Storage y ha enrutado los mensajes desde IoT Hub a un contenedor de blobs en esa cuenta de almacenamiento.
 

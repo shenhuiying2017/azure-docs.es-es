@@ -3,7 +3,7 @@ title: "Solucionar problemas de las configuraciones de delegación limitada de K
 description: "Solucionar problemas de las configuraciones de delegación limitada de Kerberos para el proxy de aplicación"
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación limitada de Kerberos para el proxy de aplicación
 
@@ -33,11 +34,11 @@ En este artículo se da por supuesto lo siguiente:
 
 -   La aplicación de destino publicada se basa en IIS y la implementación de Kerberos de Microsoft.
 
--   Los hosts de servidor y aplicación residen en un único dominio de Active Directory. Encontrará información detallada acerca de los escenarios de bosque y entre dominios en las [notas del producto para KCD](http://aka.ms/KCDPaper).
+-   Los hosts de servidor y aplicación residen en un único dominio de Active Directory. Encontrará información detallada acerca de los escenarios de bosque y entre dominios en las [notas del producto para KCD](https://aka.ms/KCDPaper).
 
 -   Se publica la aplicación en cuestión en un inquilino de Azure con la autenticación previa habilitada y se espera que los usuarios se autentiquen en Azure mediante la autenticación basada en formularios. No se tratan los escenarios de autenticación de cliente compleja en este artículo, pero se agregarán en el futuro.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 El proxy de aplicación de Azure se puede implementar en muchos tipos de entornos o infraestructuras y, seguramente, las arquitecturas varían de una organización a otra. Una de las causas más habituales de los problemas relacionados con KCD no son los entornos en sí, sino simples errores de configuración o descuidos en general.
 
@@ -51,7 +52,7 @@ En particular, la sección sobre la configuración de KCD en 2012R2, ya que empl
 
 -   Siempre que sea posible, debe evitar colocar dispositivos IPS/IDS activos entre los hosts de conector y los controladores de dominio, ya que en ocasiones son demasiado intrusivos e interfieren con el tráfico RPC central.
 
-Se recomienda probar la delegación en los escenarios más sencillos. Cuantas más variables introduzca, con más tendrá que trabajar. Por ejemplo, si limita las pruebas a un solo conector, puede ahorrar valioso tiempo, y puede agregar más conectores una vez resueltos los problemas.
+Debería probar la delegación en los escenarios más sencillos. Cuantas más variables introduzca, con más tendrá que trabajar. Por ejemplo, si limita las pruebas a un solo conector, puede ahorrar valioso tiempo, y puede agregar más conectores una vez resueltos los problemas.
 
 Algunos factores del entorno también podrían provocar un problema. Durante las pruebas, minimice la arquitectura lo máximo posible para evitar estos factores del entorno. Por ejemplo, las ACL de firewall interno mal configuradas son habituales, así que, si es posible, permita que todo el tráfico procedente de un conector vaya directamente a los controladores de dominio y la aplicación back-end. 
 
@@ -79,7 +80,7 @@ Si ha llegado hasta aquí, el principal problema definitivamente existe. Empiece
 
 **Autenticación previa del cliente**: el usuario externo se autentica en Azure mediante un explorador.
 
-Es fundamental poder realizar la autenticación previa en Azure para que el SSO de KCD funcione. Esto es lo primero que se debe probar y solucionar, si hay algún problema. La fase de autenticación previa no guarda relación con KCD ni con la aplicación publicada. Debería ser bastante fácil corregir cualquier discrepancia con una comprobación de que la cuenta en cuestión exista en Azure y de que no esté deshabilitada ni bloqueada. La respuesta de error en el explorador suele ser lo bastante descriptiva como para entender la causa. También puede leer la documentación sobre solución de problemas como referencia si no está seguro.
+Es fundamental poder realizar la autenticación previa en Azure para que el SSO de KCD funcione. Debe probar y abordar este asunto si hay algún problema. La fase de autenticación previa no guarda relación con KCD ni con la aplicación publicada. Debería ser bastante fácil corregir cualquier discrepancia con una comprobación de que la cuenta en cuestión exista en Azure y de que no esté deshabilitada ni bloqueada. La respuesta de error en el explorador suele ser lo bastante descriptiva como para entender la causa. También puede leer la documentación sobre solución de problemas como referencia si no está seguro.
 
 **Servicio de delegación**: el conector del proxy de Azure obtiene un vale de servicio de Kerberos de un KDC (Centro de distribución de claves Kerberos), en nombre de los usuarios.
 
@@ -105,11 +106,11 @@ Las entradas correspondientes en el registro de eventos se verían como los even
 
 El siguiente paso que se recomienda para más información de bajo nivel sobre los problemas es un seguimiento de red que capture los intercambios entre el host de conector y un KDC de dominio. Para obtener más información, consulte [la información que se proporciona acerca de la solución de problemas](https://aka.ms/proxytshootpaper).
 
-Si la generación de vales no presenta problemas, debería ver un evento en los registros que indique que se produjo un error en la autenticación porque la aplicación devolvió un error 401. Esto suele indicar que la aplicación de destino rechaza el vale; por tanto, continúe con la siguiente fase.
+Si la generación de vales no presenta problemas, debería ver un evento en los registros que indique que se produjo un error en la autenticación porque la aplicación devolvió un error 401. Esto suele indicar que la aplicación de destino rechaza el vale; por tanto, continúe con la siguiente fase:
 
 **Aplicación de destino**: el consumidor del vale de Kerberos proporcionado por el conector.
 
-En esta fase se espera que el conector haya enviado un vale de servicio de Kerberos al back-end, como encabezado de la primera solicitud de aplicación.
+En esta fase, se espera que el conector haya enviado un vale de servicio de Kerberos al back-end, como encabezado de la primera solicitud de aplicación.
 
 -   Utilizando la dirección URL interna de la aplicación definida en el portal, valide que la aplicación sea accesible directamente desde el explorador en el host de conector. Entonces, puede iniciar sesión correctamente. Encontrará detalles sobre cómo hacerlo en la página de solución de problemas del conector.
 
@@ -152,6 +153,16 @@ Si Kerberos no está disponible, compruebe la configuración de autenticación d
 -   Vaya a IIS y seleccione la opción **Editor de configuración** para la aplicación; vaya a **system.webServer/security/authentication/windowsAuthentication** para asegurarse de que el valor **UseAppPoolCredentials** esté establecido en **Verdadero**.
 
    ![Opción de credencial de grupos de aplicaciones en la configuración de IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Después de cambiar este valor a **True**, todos los vales de Kerberos en la memoria caché deben quitarse del servidor back-end. Para ello, puede ejecutar el siguiente comando:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Para obtener más información, consulte [Purge the Kerberos client ticket cache for all sessions](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf) (Purgar la memoria caché de vales de clientes de Kerberos para todas las sesiones).
+
+
 
 Aunque resulta útil para mejorar el rendimiento de las operaciones de Kerberos, dejar el modo kernel habilitado también hace que el vale para el servicio solicitado se descifre mediante la cuenta de equipo. Esto también se denomina sistema local, y tenerlo establecido en Verdadero interrumpe KCD cuando la aplicación está hospedada en varios servidores en una granja.
 

@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solución de problemas de un objeto que no se sincroniza con Azure AD
 
 Si un objeto no se ha sincronizado como esperaba con Azure AD, puede ser debido a varias razones. Si ha recibido un mensaje de correo electrónico de error de Azure AD o si ve el error en Azure AD Connect Health, lea el artículo sobre cómo [solucionar errores de exportación](active-directory-aadconnect-troubleshoot-sync-errors.md). Sin embargo, si va a solucionar un problema en el que el objeto no está en Azure AD, este es el tema que tiene que leer. Describe cómo buscar errores en el componente local de sincronización de Azure AD Connect.
+
+>[!IMPORTANT]
+>Para la implementación de Azure Active Directory (AAD) Connect con la versión <verison> o superior, use la [tarea de solución de problemas](active-directory-aadconnect-troubleshoot-objectsync.md) del asistente para solucionar problemas de sincronización de objetos. 
 
 Para encontrar los errores, tendrá que examinar varios sitios en el orden siguiente:
 
@@ -78,7 +81,7 @@ Si no encuentra el objeto que está buscando, podría haberse filtrado con un [f
 
 Otra búsqueda útil consiste en seleccionar Azure AD Connector. En **Ámbito**, elija la opción de **importación pendiente**y active la casilla **Agregar**. Esta búsqueda proporciona todos los objetos sincronizados con Azure AD que no se pueden asociar con un objeto local.  
 ![Búsqueda de objetos huérfanos del espacio de conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Esos objetos lo han creado otro motor de sincronización o un motor de sincronización con una configuración de filtrado diferente. Esta vista es una lista de objetos **huérfanos** no administrados. Revise esta lista y considere la posibilidad de quitar estos objetos ejecutando los cmdlets de [PowerShell de Azure AD](http://aka.ms/aadposh).
+Esos objetos lo han creado otro motor de sincronización o un motor de sincronización con una configuración de filtrado diferente. Esta vista es una lista de objetos **huérfanos** no administrados. Revise esta lista y considere la posibilidad de quitar estos objetos ejecutando los cmdlets de [PowerShell de Azure AD](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importación del servidor de configuración
 Al abrir un objeto cs, aparecen varias pestañas en la parte superior. La pestaña **Importación** muestra los datos que se almacenan provisionalmente después de una importación.  

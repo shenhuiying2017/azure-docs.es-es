@@ -23,28 +23,28 @@ Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de escribir ningún código para el dispositivo, debe aprovisionar la solución preconfigurada de supervisión remota y aprovisionar un nuevo dispositivo personalizado en esa solución.
+Antes de escribir ningún código para el dispositivo, implemente la solución preconfigurada de supervisión remota y agregue un nuevo dispositivo físico a la solución.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprovisionar su solución preconfigurada de supervisión remota
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Implementación de la solución preconfigurada de supervisión remota
 
 El dispositivo **Chiller** que se crea en este tutorial envía datos a una instancia de la solución preconfigurada de [supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Si todavía no ha aprovisionado la solución preconfigurada de supervisión remota en su cuenta de Azure, consulte [Implementación de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Cuando finalice el proceso de aprovisionamiento para la solución de supervisión remota, haga clic en **Iniciar** para abrir el panel de la solución en el explorador.
+Cuando finalice el proceso de implementación para la solución de supervisión remota, haga clic en **Iniciar** para abrir el panel de la solución en el explorador.
 
 ![El panel de soluciones](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Aprovisionar el dispositivo en la solución de supervisión remota
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adición del dispositivo a la solución de supervisión remota
 
 > [!NOTE]
-> Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Necesitará la cadena de conexión del dispositivo, que puede recuperar de Azure Portal, cuando se crea la aplicación cliente.
+> Si ya ha agregado un dispositivo a la solución, puede omitir este paso. Sin embargo, el paso siguiente requiere la cadena de conexión del dispositivo. Puede recuperar la cadena de conexión de un dispositivo desde [Azure Portal](https://portal.azure.com) o con la herramienta CLI [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
 
-Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en Azure IoT Hub con credenciales válidas. Tendrá la oportunidad de guardar la cadena de conexión del dispositivo que contiene las credenciales cuando agregue el dispositivo a la solución. Más adelante en este tutorial incluirá esta cadena en su aplicación cliente.
+Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en Azure IoT Hub con credenciales válidas. Tendrá la oportunidad de guardar la cadena de conexión del dispositivo que contiene estas credenciales cuando agregue el dispositivo a la solución. Más adelante en este tutorial incluirá esta cadena en su aplicación cliente.
 
 Para agregar un dispositivo a su solución de supervisión remota, realice los pasos siguientes en la página **Dispositivos** de la solución:
 
 1. Elija **+ Nuevo dispositivo** y, luego, **Físico** en **Tipo de dispositivo**:
 
-    ![Aprovisione un dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Adición de un dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Escriba **Refrigerador físico** como identificador de dispositivo. Elija las opciones **Clave simétrica** y **Generar claves automáticamente**:
 
@@ -54,9 +54,7 @@ Para agregar un dispositivo a su solución de supervisión remota, realice los p
 
     ![Recuperación de las credenciales](media/iot-suite-selector-connecting/credentials.png)
 
-Para buscar las credenciales que el dispositivo debe usar para conectarse a la solución preconfigurada, desplácese hasta Azure Portal en el explorador. Inicie sesión en su suscripción.
-
-Ahora ha aprovisionado un dispositivo físico en la solución preconfigurada de supervisión remota. En las siguientes secciones, se implementa la aplicación cliente que utiliza las credenciales del dispositivo para conectarse a la solución.
+Ya ha agregado un dispositivo físico a la solución preconfigurada de supervisión remota y anotado la cadena de conexión del dispositivo. En las siguientes secciones, implementará la aplicación cliente que utiliza la cadena de conexión del dispositivo para conectarse a la solución.
 
 La aplicación cliente implementa el modelo de dispositivo **Chiller** integrado. Un modelo de dispositivo de la solución preconfigurada especifica lo siguiente acerca de un dispositivo:
 

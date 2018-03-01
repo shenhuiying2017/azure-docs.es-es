@@ -1,7 +1,7 @@
 ---
 title: "Preguntas más frecuentes sobreAzure IoT Suite | Microsoft Docs"
 description: "Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
 
-Consulte también la sección [Preguntas más frecuentes](iot-suite-faq-cf.md) específica de la factoría conectada.
+Consulte también [Preguntas más frecuentes específicas sobre fábricas conectadas](iot-suite-faq-cf.md) y [Preguntas más frecuentes específicas sobre supervisión remota](iot-suite-faq-rm-v2.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>¿Dónde se puede encontrar el código fuente de la solución preconfigurada?
 
@@ -33,17 +33,6 @@ El código fuente se almacena en los siguientes repositorios de GitHub:
 * [Solución preconfigurada de supervisión remota (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solución preconfigurada de mantenimiento predictivo](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solución preconfigurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
-
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>¿Cuánto cuesta aprovisionar la nueva solución de supervisión remota?
-
-La nueva solución preconfigurada ofrece dos opciones de implementación:
-
-* Una opción *básica* diseñada para desarrolladores que buscan el menor costo de desarrollo o para clientes que desean crear una demostración o una prueba de concepto.
-* Una opción *estándar* diseñada para empresas que desean implementar una infraestructura para entornos de producción.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>¿Cómo me aseguro de mantener mis costos mientras desarrollo la solución?
-
-Además de proporcionar dos implementaciones diferenciadas, la nueva solución de supervisión remota tiene una configuración para habilitar o deshabilitar todos los dispositivos simulados a petición. Deshabilitar la simulación reduce la ingestión de datos en la solución y, por lo tanto, el costo total de los datos.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>¿La nueva arquitectura de microservicios está disponible para las tres soluciones preconfiguradas?
 
@@ -57,18 +46,14 @@ En los dos últimos años, la arquitectura de nube ha evolucionado en gran medid
 
 Sí, la nueva supervisión remota está disponible en las mismas regiones geográficas.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>¿Cuál es la diferencia entre los niveles básico y estándar de las opciones de implementación estándar? ¿Cómo decido entre las dos opciones de implementación?
-
-Cada opción de implementación responde a necesidades distintas. La implementación básica está diseñada para empezar a trabajar y desarrollar pequeños proyectos piloto y pruebas de concepto. Proporciona una arquitectura simplificada con los recursos mínimos necesarios y un costo menor. La implementación estándar está diseñada para crear y personalizar una solución para entornos de producción y dispone de los elementos necesarios para materializarla. En cuanto a la confiabilidad y el escalado, los microservicios de aplicación se crean como contenedores de Docker y se implementan con un orquestador (Kubernetes, de forma predeterminada). El orquestador es responsable de la implementación, el escalado y la administración de la aplicación. Debe elegir una opción en función de sus necesidades actuales. Puede usar una u otra, o bien una combinación de ambas, según la fase del proyecto.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>¿Puedo seguir aprovechando mi inversión en Azure IoT Suite?
-
-Sí. Cualquier solución que exista en la actualidad continúa funcionando en su suscripción de Azure y el código fuente sigue estando disponible en GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>¿Cuál es la diferencia entre eliminar un grupo de recursos en el Portal de Azure y hacer clic en Eliminar en una solución preconfigurada en azureiotsuite.com?
 
 * Si elimina la solución preconfigurada en [azureiotsuite.com](https://www.azureiotsuite.com/), elimina todos los recursos aprovisionados cuando se creó la solución preconfigurada. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
 * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada a la solución preconfigurada.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>¿Puedo seguir aprovechando mi inversión en Azure IoT Suite?
+
+Sí. Cualquier solución que exista en la actualidad continúa funcionando en su suscripción de Azure y el código fuente sigue estando disponible en GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de IoT Hub se pueden aprovisionar en una suscripción?
 
@@ -77,10 +62,6 @@ De forma predeterminada, puede aprovisionar [diez centros de IoT Hub por suscrip
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de Azure Cosmos DB se pueden aprovisionar en una suscripción?
 
 Cincuenta. Puede crear un [vale de soporte de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar este límite, pero de forma predeterminada solo se pueden aprovisionar 50 instancias de Cosmos DB por suscripción.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>¿Cómo configuro un mapa dinámico en el panel?
-
-Para obtener más información, vea [Upgrade map key to see devices on a dynamic map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) (Actualización de la clave de mapa para ver dispositivos en un mapa dinámico).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>¿Cuántas API de Mapas de Bing gratis se pueden aprovisionar en una suscripción?
 
@@ -105,6 +86,7 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
+* [Exploración de las funcionalidades de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-explore.md)
 * [Información general de la solución preconfigurada de mantenimiento predictivo](iot-suite-predictive-overview.md)
 * [Introducción a la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-overview.md)
 * [Seguridad de Internet de las cosas desde el principio](securing-iot-ground-up.md)

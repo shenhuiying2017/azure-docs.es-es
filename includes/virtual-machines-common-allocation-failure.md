@@ -8,7 +8,7 @@ Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en l
 * Cambie el tamaño de la máquina virtual por uno diferente.<br>
     Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 * Elimine todas las máquinas virtuales del servicio en la nube y vuelva a crearlas.<br>
-    Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. Luego, haga clic en **Nuevo** > **Compute** > [imagen de máquina virtual].
+    Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. A continuación, haga clic en **Crear un recurso** > **Proceso** > [imagen de la máquina virtual].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Solución de problemas de errores de asignación comunes en el modelo de implementación del Administrador de recursos de Azure
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
