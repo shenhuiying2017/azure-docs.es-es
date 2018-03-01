@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery
 
@@ -70,15 +70,15 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Formación de equipos NIC | Sí | Sí
 VLAN | Sí | Sí
 IPv4 | Sí | Sí
-IPv6 | No | No
+IPv6 | Sin  | Sin 
 
 ### <a name="guest-vms"></a>VM invitadas
 
 **Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con VMM)**
 --- | --- | ---
-Formación de equipos NIC | No | No
+Formación de equipos NIC | Sin  | Sin 
 IPv4 | Sí | Sí
-IPv6 | No | No
+IPv6 | Sin  | Sin 
 Dirección IP estática (Windows) | Sí | Sí
 Dirección IP estática (Linux) | Sí | Sí
 Varias NIC | Sí | Sí
@@ -102,16 +102,16 @@ Varias rutas (MPIO) | Sí | Sí
 VMDK | Sí | N/D
 VHD/VHDX | N/D | Sí (hasta 16 discos)
 VM de 2 generación | N/D | Sí
-Disco en clúster compartido | Sí  | No
-Disco cifrado | No | No
+Disco en clúster compartido | Sí  | Sin 
+Disco cifrado | Sin  | Sin 
 UEFI| Sí | N/D
-NFS | No | No
-SMB 3.0 | No | No
+NFS | Sin  | Sin 
+SMB 3.0 | Sin  | Sin 
 RDM | Sí | N/D
 Disco > 1 TB | Sí | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí | Sí
-Espacios de almacenamiento | No | Sí
-Agregar/quitar disco en caliente | Sí | No
+Espacios de almacenamiento | Sin  | Sí
+Agregar/quitar disco en caliente | Sí | Sin 
 Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | N/D | Sí
 
@@ -119,8 +119,8 @@ Varias rutas (MPIO) | N/D | Sí
 
 **Acción** | **Servidores físicos o de VMware** | **Hyper-V (con VMM)**
 --- | --- | ---
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No | No
-Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No | No
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  | Sin 
+Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  | Sin 
 
 ## <a name="provider-and-agent"></a>Proveedor y agente
 
@@ -130,7 +130,7 @@ Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos 
 **Servicio de movilidad** | Coordina la replicación entre servidores VMware locales o servidores físicos y el sitio secundario<br/><br/> Se instala en cada VM de VMware o servidor físico que desea replicar  | N/D (disponible en el portal) | N/D
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
 - [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](tutorial-vmware-to-vmware.md)

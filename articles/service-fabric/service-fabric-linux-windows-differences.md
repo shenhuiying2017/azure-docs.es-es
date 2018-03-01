@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fff5a5310fc45534cec864b235501b75e3836241
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferencias entre Service Fabric en Linux y en Windows
 
@@ -91,7 +91,7 @@ Las herramientas de desarrollo también son diferentes en Windows y Linux. Visua
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

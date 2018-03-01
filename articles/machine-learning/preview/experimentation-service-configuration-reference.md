@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Archivos de configuración del servicio Experimentación de Azure Machine Learning
 
@@ -76,7 +76,7 @@ Azure ML Workbench usa el mismo entorno de conda sin recompilación, siempre y c
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
 Este archivo especifica el nombre de la aplicación de Spark cuando envía un script de PySpark y paquetes de Spark que deben instalarse. También puede especificar cualquier repositorio público de Maven, así como paquetes de Spark que pueden encontrarse en esos repositorios de Maven.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 ```yaml
 configuration:
@@ -166,8 +166,8 @@ _“az ml experiment submit foo.runconfig”_ ejecuta automáticamente el comand
 **Environment Variables**: esta sección permite a los usuarios establecer variables de entorno como parte de las ejecuciones. El usuario puede especificar variables de entorno mediante pares de nombre-valor en el formato siguiente:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Puede accederse a estas variables de entorno en el código del usuario. Por ejemplo, este código de phyton imprime la variable de entorno denominada “EXAMPLE_ENV_VAR”.
@@ -210,5 +210,5 @@ En función de la sustitución anterior, el siguiente código de ejemplo ahora l
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Más información acerca de la [configuración del servicio Experimentación](experimentation-service-configuration.md).

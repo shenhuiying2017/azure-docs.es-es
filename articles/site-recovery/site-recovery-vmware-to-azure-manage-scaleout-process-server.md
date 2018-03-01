@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c2f8c6a10ca5098956de2402925bd9422212f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-a-scale-out-process-server"></a>Administración de un servidor de procesos de escalado horizontal
 
 El servidor de procesos de escalado horizontal actúa como coordinador de la transferencia de datos entre los servicios de Site Recovery y la infraestructura local. En este artículo se describe cómo instalar, configurar y administrar un servidor de procesos de escalado horizontal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 A continuación se indica la configuración mínima recomendada de hardware, software y red para instalar un servidor de procesos de escalado horizontal.
 
 > [!NOTE]

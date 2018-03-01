@@ -3,8 +3,8 @@ title: Instalar Visual Studio y conectarse a Azure Stack | Microsoft Docs
 description: Aprenda los pasos necesarios para instalar Visual Studio y conectarse a Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 5487125095f05b2fbfa9489c5b4733f61c0212d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: e73aba26a2409c710d962b9df45f6601b0e05340
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Instalar Visual Studio y conectarse a Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Use Visual Studio para crear e implementar [plantillas](user/azure-stack-arm-templates.md) de Azure Resource Manager en Azure Stack. Puede seguir los pasos descritos en este artículo para instalar Visual Studio desde [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o desde un cliente externo basado en Windows si se conecta a través de [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Estos pasos crean una nueva instalación de Visual Studio 2015 Community Edition. Obtenga más información sobre la [coexistencia](https://msdn.microsoft.com/library/ms246609.aspx) de otras versiones de Visual Studio.
+Use Visual Studio para crear e implementar [plantillas](user/azure-stack-arm-templates.md) de Azure Resource Manager en Azure Stack. Puede seguir los pasos descritos en este artículo para instalar Visual Studio desde [el Kit de desarrollo de Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o desde un cliente externo basado en Windows si se conecta a través de [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Estos pasos crean una nueva instalación de Visual Studio 2015 Community Edition. Obtenga más información sobre la [coexistencia](https://msdn.microsoft.com/library/ms246609.aspx) de otras versiones de Visual Studio.
 
 ## <a name="install-visual-studio"></a>Instalación de Visual Studio
 1. Descargue y ejecute el [Instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx).             

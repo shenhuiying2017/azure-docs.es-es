@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 0c1b192dc8481448252b6bc2e3801d6a6f3daa0d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -39,9 +39,9 @@ Azure Storage es una solución de almacenamiento sólida y de uso general, que s
 > | Tipo de cuenta de almacenamiento | Capa de almacenamiento | Compatible con HDInsight |
 > | ------- | ------- | ------- |
 > | Cuenta de almacenamiento de uso general | Estándar | __Sí__ |
-> | &nbsp; | Premium | No |
-> | Cuenta de Blob Storage | Acceso frecuente | No |
-> | &nbsp; | Acceso esporádico | No |
+> | &nbsp; | Premium | Sin  |
+> | Cuenta de Blob Storage | Acceso frecuente | Sin  |
+> | &nbsp; | Acceso esporádico | Sin  |
 
 No se recomienda usar el contenedor de blobs predeterminado para almacenar datos empresariales. Conviene eliminar el contenedor de blobs predeterminado después de cada uso para reducir los costos de almacenamiento. Tenga en cuenta que el contenedor predeterminado contiene los registros del sistema y de la aplicación. Asegúrese de recuperar los registros antes de eliminar el contenedor.
 
@@ -299,7 +299,7 @@ Al crear un clúster de HDInsight, se especifica la cuenta de Azure Storage a la
 > [!WARNING]
 > No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, aprendió a usar Azure Storage compatible con HDFS con HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalables y a largo plazo y usar HDInsight para desbloquear la información que hay dentro de los datos estructurados y no estructurados almacenados.
 
 Para más información, consulte:

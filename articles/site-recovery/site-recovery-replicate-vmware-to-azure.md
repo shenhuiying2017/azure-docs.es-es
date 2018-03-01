@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replicación de aplicaciones que se ejecutan en máquinas virtuales de VMware en Azure
 
 
 
 En este artículo se describe cómo configurar la replicación de máquinas virtuales que se ejecutan en VMware en Azure.
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este artículo se supone que ha:
 
@@ -51,7 +51,7 @@ Al replicar máquinas virtuales de VMware:
 2. En la página **Origen** > **Origen**, seleccione el servidor de configuración.
 3. En **Tipo de máquina**, seleccione **Máquinas virtuales** o **Máquinas físicas**.
 4. En **vCenter/vSphere Hypervisor**, seleccione el servidor vCenter que administra el host de vSphere, o bien seleccione el host. Esta configuración es relevante si va a replicar máquinas físicas.
-5. Seleccione el servidor de procesos, que será el nombre del servidor de configuración si no ha creado ningún servidor de proceso adicional. y, a continuación, haga clic en **Aceptar**.
+5. Seleccione el servidor de procesos, que será el nombre del servidor de configuración si no ha creado ningún servidor de proceso adicional. A continuación, haga clic en **Aceptar**.
 
     ![Habilitación del origen de replicación](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
@@ -64,10 +64,10 @@ Al replicar máquinas virtuales de VMware:
     >   * Puede seleccionar una cuenta de almacenamiento Estándar o Premium. Si selecciona una cuenta Premium, debe especificar una cuenta de almacenamiento Estándar adicional para los registros de replicación en curso. Las cuentas deben estar en la misma región que el almacén de Recovery Services.
     >   * Si desea utilizar una cuenta de almacenamiento diferente de las que tiene, puede [crear una](../storage/common/storage-create-storage-account.md). Para crear una cuenta de almacenamiento mediante Resource Manager, haga clic en **Crear nueva**. Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará en Azure Portal.
 
-8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Servicios de recuperación. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe [crear una](#set-up-an-azure-network). Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Si desea crear una red mediante el modelo clásico, lo hará [en Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Seleccione una subred si es posible y después haga clic en **Aceptar**.
+8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe [crear una](#set-up-an-azure-network). Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Si desea crear una red mediante el modelo clásico, lo hará [en Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Seleccione una subred si es posible y después haga clic en **Aceptar**.
 
     ![Habilitar replicación - Configuración de destino](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. y, a continuación, haga clic en **Aceptar**.
+9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**.
 
     ![Habilitar replicación - Seleccionar máquinas virtuales](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que ha usado el servidor de procesos para instalar automáticamente el servicio de movilidad en la máquina.  
@@ -97,7 +97,7 @@ Después, compruebe las propiedades de la máquina de origen. Recuerde que el no
 
 1. Haga clic en **Configuración** > **Elementos replicados** > y después seleccione la máquina. En la página **Información esencial** se detalla la configuración y el estado de las máquinas.
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
-3. En **Proceso y red** > **Propiedades de proceso**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
+3. En **Compute y Network** > **Propiedades de Compute**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
 
     ![Propiedades de proceso y red](./media/site-recovery-vmware-to-azure/vmproperties.png)
 
@@ -135,7 +135,7 @@ Más información sobre [Ventaja para uso híbrido de Azure](https://aka.ms/azur
 * El disco del sistema operativo debe ser un disco básico y no uno dinámico.
 * Para las máquinas virtuales de generación 2 o habilitadas para UEFI, la familia del sistema operativo debe ser Windows y el disco de arranque debe ser menor de 300 GB.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Una vez finalizada la protección y que la máquina ha alcanzado un estado protegido, puede intentar una [conmutación por error](site-recovery-failover.md) para comprobar si su aplicación aparece en Azure o no.
 

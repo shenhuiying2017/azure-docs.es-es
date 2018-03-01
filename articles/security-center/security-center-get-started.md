@@ -9,23 +9,24 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guía de inicio rápido: incorporación de su suscripción de Azure al nivel Estándar de Security Center
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. El nivel Estándar de Security Center se puede probar de forma gratuita los primeros 60 días.
 
 En este artículo, actualizará al nivel Estándar para una mayor seguridad e instalará Microsoft Monitoring Agent en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol de propietario de la suscripción, colaborador de la suscripción o administrador de seguridad.
@@ -33,7 +34,7 @@ Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol 
 ## <a name="enable-your-azure-subscription"></a>Habilitación de la suscripción a Azure
 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
-2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center - Información general**.
+2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
 
  ![Introducción a Security Center][2]
 
@@ -90,7 +91,7 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVA**, seleccione **Plan de tarifa**.
+3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
 4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
 5. Seleccione **Guardar**.
 

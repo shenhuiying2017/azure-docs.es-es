@@ -1,10 +1,10 @@
 ---
-title: Arquitectura de Microsoft Azure Stack Development Kit | Microsoft Docs
-description: Vea la arquitectura de Microsoft Azure Stack Development Kit.
+title: Arquitectura del Kit de desarrollo de Microsoft Azure Stack | Microsoft Docs
+description: Vea la arquitectura del Kit de desarrollo de Microsoft Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
 ms.service: azure-stack
@@ -12,29 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: b754ff5b5a82ac284eb59ff9b9d30a581f3d3af5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitectura de Microsoft Azure Stack Development Kit
+# <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitectura del Kit de desarrollo de Microsoft Azure Stack
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Kit de desarrollo de Azure Stack*
 
-Azure Stack Development Kit es una implementación de un único nodo de Azure Stack. Todos los componentes se instalan en máquinas virtuales que se ejecutan en un solo equipo host. 
+El Kit de desarrollo de Azure Stack es una implementación de un único nodo de Azure Stack. Todos los componentes se instalan en máquinas virtuales que se ejecutan en un solo equipo host. 
 
 ## <a name="logical-architecture-diagram"></a>Diagrama de arquitectura lógica
-El siguiente diagrama muestra la arquitectura lógica de Azure Stack Development Kit y sus componentes.
+El siguiente diagrama muestra la arquitectura lógica del Kit de desarrollo de Azure Stack y sus componentes.
 
 ![](media/azure-stack-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Roles de máquina virtual
-Azure Stack Development Kit ofrece servicios a través de las siguientes máquinas virtuales en el host:
+El Kit de desarrollo de Azure Stack ofrece servicios a través de las siguientes máquinas virtuales en el host:
 
-| Nombre | Descripción |
+| NOMBRE | DESCRIPCIÓN |
 | ----- | ----- |
 | **AzS-ACS01** | Servicios de almacenamiento de Azure Stack.|
 | **AzS-ADFS01** | Servicios de federación de Active Directory (AD FS).  |
@@ -51,7 +52,7 @@ Azure Stack Development Kit ofrece servicios a través de las siguientes máquin
 | **AzS-XRP01** | Controlador de administración de infraestructura para Microsoft Azure Stack, incluidos los proveedores de recursos de Compute, Networks y Storage.|
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Implementación de Azure Stack](azure-stack-deploy.md)
 
 [Primeros escenarios para probar](azure-stack-first-scenarios.md)

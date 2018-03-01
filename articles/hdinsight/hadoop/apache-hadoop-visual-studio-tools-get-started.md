@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1e9d5ca475424c99b30c62252f4b0abc9bd09078
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 0f3e8f00b1cee1141277f4dee21fabf993e69ba0
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio
 
@@ -253,7 +253,7 @@ Data Lake Tools para Visual Studio admite la creación y el envío de scripts de
 * Si los resultados comienzan con valores NULL, no se muestran. Este problema se ha corregido, así que si no consigue solucionarlo, póngase en contacto con el soporte técnico.
 * La codificación del script de HQL creado con Visual Studio depende de la configuración regional del usuario. Si el usuario carga el script en el clúster como binario, es posible que no se ejecute correctamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Visual Studio mediante el paquete de herramientas de Data Lake (HDInsight) y a ejecutar una consulta de Hive. Para más información, consulte:
 
 * [Uso de Hive para Hadoop en HDInsight](hdinsight-use-hive.md)

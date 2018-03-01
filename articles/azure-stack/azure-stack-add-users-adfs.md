@@ -3,27 +3,28 @@ title: "Incorporación de usuarios a los AD FS de Azure Stack | Microsoft Docs"
 description: Aprenda a agregar usuarios a las implementaciones de Azure Stack
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 5774750edc5b7380275d4f20aee3be47f2f62b4d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="add-users-in-the-azure-stack-development-kit"></a>Incorporación de usuarios a Azure Stack Development Kit
+# <a name="add-users-in-the-azure-stack-development-kit"></a>Incorporación de usuarios al Kit de desarrollo de Azure Stack
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Kit de desarrollo de Azure Stack*
 
-Para agregar usuarios adicionales a la implementación del kit de desarrollo, debe agregarlos al directorio de Azure Stack Development Kit con Microsoft Management Console desde un equipo host de Azure Stack.
+Para agregar usuarios adicionales a la implementación del Kit de desarrollo, debe agregarlos al directorio del Kit de desarrollo de Azure Stack con Microsoft Management Console desde un equipo host de Azure Stack.
 1.  En el equipo de Azure Stack, abra Microsoft Management Console.
 2.  Haga clic en **File > Add or remove snap-in** (Archivo > Agregar o quitar complemento).
 3.  Seleccione **Active Directory Users and Computers** > **AzureStack.local** > **Users** (Usuarios y equipos de Active Directory > AzureStack.local > Usuarios).

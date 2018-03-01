@@ -1,10 +1,10 @@
 ---
 title: "Incorporación de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory | Microsoft Docs"
-description: "Después de implementar Microsoft Azure Stack Development Kit, tendrá que crear una cuenta de usuario de al menos un inquilino para poder explorar el portal del inquilino."
+description: "Después de implementar el Kit de desarrollo de Microsoft Azure Stack, tendrá que crear una cuenta de usuario de al menos un inquilino para poder explorar el portal del inquilino."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 590426563936c66b1353f769be138759bb53f58c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-*Se aplica a: Azure Stack Development Kit*
-
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adición de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory
-Después de [implementar Azure Stack Development Kit](azure-stack-run-powershell-script.md), necesitará una cuenta de usuario inquilino para explorar el portal del inquilino y probar las ofertas y los planes. Puede crear una cuenta de inquilino con [Azure Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) o con [PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+Después de [implementar el Kit de desarrollo de Azure Stack](azure-stack-run-powershell-script.md), necesitará una cuenta de usuario inquilino para explorar el portal del inquilino y probar las ofertas y los planes. Puede crear una cuenta de inquilino con [Azure Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) o con [PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Creación de una cuenta de inquilino de Azure Stack con el Portal de Azure+
 Debe tener una suscripción de Azure para usar el Portal de Azure.
@@ -49,7 +48,7 @@ Debe tener una suscripción de Azure para usar el Portal de Azure.
 Si no tiene una suscripción de Azure, no puede usar Azure Portal para agregar una cuenta de usuario de inquilino. En este caso, puede usar el módulo Azure Active Directory para Windows PowerShell.
 
 > [!NOTE]
-> Si usa una cuenta Microsoft (Live ID) para implementar Azure Stack Development Kit, no se puede usar PowerShell de AAD para crear la cuenta de inquilino. 
+> Si usa una cuenta Microsoft (Live ID) para implementar el Kit de desarrollo de Azure Stack, no se puede usar PowerShell de AAD para crear la cuenta de inquilino. 
 > 
 > 
 

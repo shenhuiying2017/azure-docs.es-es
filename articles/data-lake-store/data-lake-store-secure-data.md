@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e246abaf8d1d7939765e1c878f6dfaf6375294f6
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protección de los datos almacenados en el Almacén de Azure Data Lake
 Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.
@@ -30,10 +30,10 @@ Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque 
 
 En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Azure para realizar las tareas anteriores. Para más información sobre cómo el almacén de Data Lake implementa la seguridad en el nivel de cuenta y datos, consulte [Security in Azure Data Lake Store](data-lake-store-security-overview.md)(Seguridad en el Almacén de Azure Data Lake). Para una información detallada acerca de cómo se implementan las ACL en Azure Data Lake Store, consulte [Información general de Access Control en Data Lake Store](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Creación de grupos de seguridad en Azure Active Directory
@@ -78,7 +78,7 @@ Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data
     ![Agregar un grupo de seguridad](./media/data-lake-store-secure-data/adl.add.user.2.png "Agregar un grupo de seguridad")
    
     Si desea agregar un grupo o usuario que no aparece, para invitarles, use el icono **Invitar** y especifique la dirección de correo electrónico para el usuario o grupo.
-6. Haga clic en **Aceptar**. Debería ver el grupo de seguridad que se agregó como se muestra a continuación.
+6. Haga clic en **OK**. Debería ver el grupo de seguridad que se agregó como se muestra a continuación.
    
     ![Grupo de seguridad agregado](./media/data-lake-store-secure-data/adl.add.user.3.png "Grupo de seguridad agregado")
 
@@ -104,7 +104,7 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 4. Haga clic en el icono **Agregar** para abrir la hoja **Agregar acceso personalizado**. En esta hoja, haga clic en **Seleccionar usuario o grupo** y, después, en la hoja **Seleccionar usuario o grupo**, busque el grupo de seguridad que creó antes en Azure Active Directory. Si tiene muchos grupos en los que buscar, use el cuadro de texto en la parte superior para filtrar según el nombre del grupo. Haga clic en el grupo que desee agregar y después en **Seleccionar**.
    
     ![Incorporación de un grupo](./media/data-lake-store-secure-data/adl.acl.3.png "Incorporación de un grupo")
-5. Haga clic en **Seleccionar permisos**, seleccione los permisos y si desea asignarlos como una ACL predeterminada, ACL de acceso o ambos. Haga clic en **Aceptar**.
+5. Haga clic en **Seleccionar permisos**, seleccione los permisos y si desea asignarlos como una ACL predeterminada, ACL de acceso o ambos. Haga clic en **OK**.
    
     ![Asignación de permisos a un grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Asignación de permisos a un grupo")
    
@@ -150,7 +150,7 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos de Azure Dat
    
     ![Asignación de permisos a un grupo](./media/data-lake-store-secure-data/adl.remove.acl.png "Asignación de permisos a un grupo")
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 * [Copiar datos de los blobs de Azure Storage en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

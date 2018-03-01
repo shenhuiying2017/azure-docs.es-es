@@ -4,18 +4,18 @@ description: "Referencia de la interfaz de línea de comandos de Administración
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referencia de la interfaz de línea de comandos de Administración de modelos
 
@@ -329,7 +329,7 @@ Argumentos globales
     --query    : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose  : Increase logging verbosity. Use --debug for full debug logs.
 
-Comando
+Get-Help
 
     az ml service run realtime
 

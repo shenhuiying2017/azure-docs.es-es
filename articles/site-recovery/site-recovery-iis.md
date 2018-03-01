@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery
 
@@ -38,8 +38,8 @@ Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
 * [Replicar una máquina virtual en Azure](site-recovery-vmware-to-azure.md)
 * [Diseñar una red de recuperación](site-recovery-network-design.md)
-* [Realizar una conmutación por error de prueba a Azure](site-recovery-test-failover-to-azure.md)
-* [Realizar una conmutación por error a Azure](site-recovery-failover.md)
+* [Realizar una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
+* [Realizar una conmutación por error en Azure](site-recovery-failover.md)
 * [Replicar un controlador de dominio](site-recovery-active-directory.md)
 * [Replicación de SQL Server](site-recovery-sql.md)
 
@@ -80,7 +80,7 @@ Si usa una dirección IP estática, puede especificar la dirección IP que quier
 ![Captura de pantalla que muestra cómo establecer la dirección IP de destino en el panel de red y proceso de Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
-Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varias capas durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varias capas, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).
+Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varios niveles durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varias capas, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).
 
 ### <a name="add-virtual-machines-to-failover-groups"></a>Adición de máquinas virtuales a grupos de conmutación por error
 Por lo general, una aplicación web de IIS de varias capas consta de los siguientes componentes:

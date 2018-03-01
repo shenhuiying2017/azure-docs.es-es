@@ -2,23 +2,23 @@
 title: "Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric"
 description: "Aprenda a implementar y quitar aplicaciones de un clúster de Azure Service Fabric mediante la CLI de Azure Service Fabric."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric
 
 Aprenda cómo crear y eliminar aplicaciones que se ejecutan en un clúster de Azure Service Fabric.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Instale la CLI de Service Fabric. A continuación, seleccione su clúster de Service Fabric. Para más información, consulte [Introducción a la CLI de Service Fabric](service-fabric-cli.md).
 
@@ -164,7 +164,7 @@ Cuando una actualización de la aplicación está en curso, el estado se puede r
 
 Finalmente, si una actualización está en curso y es necesario cancelarla, puede usar `sfctl application upgrade-rollback` para revertirla.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Conceptos básicos de la CLI de Service Fabric](service-fabric-cli.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)
