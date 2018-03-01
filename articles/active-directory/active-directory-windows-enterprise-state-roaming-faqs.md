@@ -29,7 +29,7 @@ Este tema responde a algunas preguntas que los administradores de TI podrían te
 
 * *Tema*, que incluye características como la configuración de tema y la barra de tareas del escritorio.
 * *Configuración de Internet Explorer*, como pestañas abiertas recientemente y favoritos.
-* *Configuración del explorador Edge*, como favoritos y lista de lectura.
+* *Configuración del explorador Microsoft Edge*, como favoritos y lista de lectura.
 * *Contraseñas*, entre las que se incluyen las contraseñas de Internet, perfiles de Wi-Fi, y otras.
 * *Preferencias de idioma*, que incluye la configuración de la distribución del teclado, el idioma del sistema, la fecha y hora, y mucho más.
 * *Características de facilidad de acceso*, como el tema de contraste alto, narrador o lupa

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1094a5ea3c000707aa7736d22d4df0558da32b5e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de .NET
 > [!div class="op_single_selector"]
@@ -107,21 +107,24 @@ El fragmento de código siguiente crea los objetos de cliente del sistema de arc
 Agregue el siguiente fragmento de código a su aplicación. Este fragmento de código agrega un archivo, así como los directorios principales que no existen.
 
     // Create a file - automatically creates any parent directories that don't exist
-    
-    string fileName = "/Test/testFilename1.txt";
-    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
+    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
-        streamWriter.WriteLine("This is test data to write");
-        streamWriter.WriteLine("This is line 2");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
+
+        textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## <a name="append-to-a-file"></a>Anexión a un archivo
 El fragmento de código siguiente anexa datos a un archivo existente en la cuenta de Data Lake Store.
 
     // Append to existing file
-    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
+    using (var stream = client.GetAppendStream(fileName))
     {
-        streamWriter.WriteLine("This is the added line");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## <a name="read-a-file"></a>Lectura de un archivo
@@ -170,7 +173,7 @@ El fragmento de código siguiente elimina recursivamente un directorio y todos s
     // Delete a directory and all it's subdirectories and files
     client.DeleteRecursive("/Test");
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 Aquí se muestran un par de ejemplos sobre cómo usar el SDK de Filesystem de Data Lake Store.
 * [Ejemplo básico en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Ejemplo avanzado en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)

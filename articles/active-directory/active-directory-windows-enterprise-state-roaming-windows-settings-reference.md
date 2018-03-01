@@ -49,7 +49,7 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
-Es posible habilitar o deshabilitar la sincronización de un grupo de configuración del explorador Edge a través de la opción de menú Configuración del explorador Edge.
+Es posible habilitar o deshabilitar la sincronización de un grupo de configuración del explorador Microsoft Edge a través de la opción de menú Configuración del explorador Microsoft Edge.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
@@ -86,8 +86,8 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.) |sync |X |Tema |
 | **Personalización del escritorio**: diseño de pantalla de inicio |X |backup | |
 | **Dispositivos**: impresoras compartidas a las que se conecta |X |X |Otros |
-| **Explorador de Edge**: lista de lectura |sync |sync |interno |
-| **Explorador Edge**: favoritos |sync |sync |interno |
+| **Explorador de Microsoft Edge**: lista de lectura |sync |sync |interno |
+| **Explorador Microsoft Edge**: favoritos |sync |sync |interno |
 | **Explorador Edge**: sitios principales <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |

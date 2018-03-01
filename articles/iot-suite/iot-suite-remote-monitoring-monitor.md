@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Supervisión avanzada mediante la solución de supervisión remota
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Vista de las alarmas de los dispositivos
 > * Ver los KPI del sistema
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
@@ -99,7 +99,7 @@ La página **Panel** muestra los KPI del sistema:
 
 Puede usar el filtro **KPI del sistema** para ajustar el intervalo de tiempo de la agregación de KPI. De manera predeterminada, el panel muestra los KPI agregados durante la última hora.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Este tutorial muestra cómo usar la página **Panel** para filtrar y supervisar los camiones simulados aprovisionados en la solución de supervisión remota:
 
