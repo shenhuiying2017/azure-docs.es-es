@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge (versión preliminar)
 
@@ -28,7 +28,7 @@ El *manifiesto de implementación* es un documento JSON que describe lo siguient
 
 En los tutoriales de Azure IoT Edge, creará un manifiesto de implementación a través de un asistente del portal de Azure IoT Edge. También puede aplicar un manifiesto de implementación mediante programación con REST o el SDK del servicio IoT Hub. Consulte el artículo de [implementación y supervisión ][lnk-deploy] para obtener más información sobre implementaciones de IoT Edge.
 
-A nivel general, el manifiesto de implementación configura las propiedades deseadas de los módulos de IoT Edge implementadas en un dispositivo IoT Edge. Dos de estos módulos siempre están presentes: el agente y el centro de Edge.
+A nivel general, el manifiesto de implementación configura las propiedades deseadas de un módulo gemelo en los módulos de IoT Edge implementados en un dispositivo de IoT Edge. Dos de estos módulos siempre están presentes: el agente y el centro de Edge.
 
 El manifiesto sigue esta estructura:
 
@@ -113,6 +113,8 @@ Cuando se especifican las propiedades deseadas en el manifiesto de implementaci�
 
 Si no se especifican las propiedades deseadas del módulo gemelo en el manifiesto de implementación, IoT Hub no modificará el módulo y se podrán establecer las propiedades deseadas mediante programación.
 
+Los módulos gemelos se modifican con los mismos mecanismos que los dispositivos gemelos. Consulte la [guía para desarrolladores de dispositivos gemelos](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) para más información.   
+
 ### <a name="deployment-manifest-example"></a>Ejemplo de manifiesto de implementación
 
 Esto es un ejemplo de documento JSON de manifiesto de implementación.
@@ -193,7 +195,7 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 
 ### <a name="edge-agent-twin-desired-properties"></a>Propiedades deseadas del módulo gemelo del agente de Edge
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
 | runtime.type | Debe ser "docker". | Sí |
@@ -240,16 +242,16 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 | configurationHealth.{deploymentId}.health | `healthy` si el estado en tiempo de ejecución de todos los módulos establecidos mediante la implementación {deploymentId} es `running` o `stopped`; `unhealthy` otra condición. |
 | runtime.platform.OS | Notifica el sistema operativo que se ejecuta en el dispositivo. |
 | runtime.platform.architecture | Notifica la arquitectura de la CPU del dispositivo. |
-| systemModules.edgeAgent.runtimeStatus | El estado notificado del agente de Edge: {"running" \| "unhealthy"}. |
+| systemModules.edgeAgent.runtimeStatus | El estado notificado del agente de Edge: {"running" \| "unhealthy"} |
 | systemModules.edgeAgent.statusDescription | Descripción de texto del estado notificado del agente de Edge. |
-| systemModules.edgeHub.runtimeStatus | Estado actual del centro de Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" }. |
+| systemModules.edgeHub.runtimeStatus | Estado actual del centro de Microsoft Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | systemModules.edgeHub.statusDescription | Descripción de texto del estado actual del centro de Edge si es el estado es unhealthy. |
 | systemModules.edgeHub.exitCode | Si se produce un evento de salida, será el código de salida que notifica el contenedor del centro de Edge. |
 | systemModules.edgeHub.startTimeUtc | Hora a la que se inició por última vez el centro de Edge. |
 | systemModules.edgeHub.lastExitTimeUtc | Hora a la que se salió por última vez del centro de Edge. |
 | systemModules.edgeHub.lastRestartTimeUtc | Hora a la que se reinició por última vez el centro de Edge. |
 | systemModules.edgeHub.restartCount | Número de veces que se ha reiniciado este módulo como parte de la directiva de reinicio. |
-| modules.{moduleId}.runtimeStatus | Estado actual del módulo: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" }. |
+| modules.{moduleId}.runtimeStatus | Estado actual del módulo: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | modules.{moduleId}.statusDescription | Descripción de texto del estado actual del módulo si el estado es unhealthy. |
 | modules.{moduleId}.exitCode | Si se produce un evento de salida, será el código de salida que notifica el contenedor del módulo. |
 | modules.{moduleId}.startTimeUtc | Hora a la que se inició por última vez el módulo. |
@@ -277,7 +279,7 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 | lastDesiredVersion | Esta propiedad hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de Edge. |
 | lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error). |
 | lastDesiredStatus.description | Descripción de texto del estado. |
-| clients.{identidad de dispositivo o módulo}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles: "connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de Edge solo aparecen cuando se conectan. |
+| clients.{identidad de dispositivo o módulo}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de Edge solo aparecen cuando se conectan. |
 | clients.{identidad de dispositivo o módulo}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |
 | clients.{identidad de dispositivo o módulo}.lastDisconnectTime | Última vez que se desconectó el dispositivo o módulo. |
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
@@ -46,8 +46,7 @@ Puede instalar las Soluciones de administración de Azure Marketplace, haciendo 
 
 ## <a name="add-a-management-solution"></a>Incorporación de una solución de administración
 1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
-2. En la hoja **Nuevo**, en **Marketplace**, seleccione **Supervisión y administración**.
-3. En la hoja **Supervisión y administración**, haga clic en **Ver todo**.  
+2. Seleccione **Crear un recurso** > **Supervisión y administración** > **Ver todos**.  
     ![Hoja Supervisión y administración](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. A la derecha de **Soluciones de administración de**, haga clic en **Más**.
 5. En la hoja **Soluciones de administración**, seleccione la solución de administración que desea agregar a un área de trabajo.  

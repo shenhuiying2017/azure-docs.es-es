@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory
 
@@ -31,42 +31,42 @@ En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Depart
 > [!NOTE]
 > Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Para poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad Ubicación de uso en el usuario.
 
-> En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, se recomienda establecer la ubicación de uso siempre como parte del flujo de creación de usuarios en Azure AD (por ejemplo, mediante la configuración de AAD Connect), que garantizará que el resultado de la asignación de licencias siempre es correcto y que los usuarios no reciben los servicios en ubicaciones que no están permitidas.
+> En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, se recomienda establecer la ubicación de uso siempre como parte del flujo de creación de usuarios en Azure AD (por ejemplo, mediante la configuración de AAD Connect), lo que garantiza que el resultado de la asignación de licencias siempre es correcto y que los usuarios no reciben los servicios en ubicaciones que no están permitidas.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Paso 1: Asignación de las licencias necesarias
 
 1. Inicie sesión en [**Azure Portal**](https://portal.azure.com) con una cuenta de administrador. Para administrar las licencias, la cuenta necesita el rol de administrador global o de administrador de cuentas de usuario.
 
-2. Seleccione **Más servicios** en el panel de navegación izquierdo y seleccione **Azure Active Directory**. Puede agregar esta hoja a Favoritos o anclarla al panel del portal.
+2. Seleccione **Todos los servicios** en el panel de navegación izquierdo y, a continuación, seleccione **Azure Active Directory**. Puede agregar este panel a Favoritos o anclarlo al panel del portal.
 
-3. En la hoja **Azure Active Directory**, seleccione **Licencias**. Se abre una hoja donde puede ver y administrar todos los productos con licencia que hay en el inquilino.
+3. En el panel **Azure Active Directory**, seleccione **Licencias** para abrir un panel donde puede ver y administrar todos los productos con licencia del inquilino.
 
-4. En **Todos los productos**, seleccione los nombres de producto de Office 365 Enterprise E3 y Enterprise Mobility + Security para seleccionarlos. Para iniciar la asignación, seleccione **Asignar** en la parte superior de la hoja.
+4. En **Todos los productos**, seleccione los nombres de producto de Office 365 Enterprise E3 y Enterprise Mobility + Security para seleccionarlos. Para iniciar la asignación, seleccione **Asignar** en la parte superior del panel.
 
    ![Todos los productos, asignar licencias](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. En la hoja **Asignar licencias**, haga clic en **Usuarios y grupos** para abrir la hoja **Usuarios y grupos**. Busque el nombre del grupo *HR Department* (Departamento de recursos humanos), seleccione el grupo y, a continuación, asegúrese de confirmar; para ello, haga clic **Seleccionar** en la parte inferior de la hoja.
+5. En el panel **Asignar licencias**, haga clic en **Usuarios y grupos** para abrir el panel **Usuarios y grupos**. Busque el nombre del grupo *HR Department* (Departamento de recursos humanos), selecciónelo y, a continuación, asegúrese de confirmar; para ello, haga clic en **Seleccionar** en la parte inferior del panel.
 
    ![Selección de un grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. En la hoja **Asignar licencias**, haga clic en **Opciones de asignación (opcionales)** que muestra todos los planes de servicio incluidos en los dos productos que hemos seleccionado anteriormente. Busque **Yammer Enterprise** y establézcalo en **Desactivar** para deshabilitar el servicio de la licencia de producto. Para confirmar, haga clic en **Aceptar** en la parte inferior de **Opciones de asignación**.
+6. En el panel **Asignar licencias**, haga clic en **Opciones de asignación (opcionales)**, donde se muestran todos los planes de servicio incluidos en los dos productos que hemos seleccionado anteriormente. Busque **Yammer Enterprise** y establézcalo en **Desactivar** para deshabilitar el servicio de la licencia de producto. Para confirmar, haga clic en **Aceptar** en la parte inferior de **Opciones de asignación**.
 
    ![Opciones de asignación](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Para completar la asignación, en la hoja **Asignar licencia**, haga clic en **Asignar** en la parte inferior de la hoja.
+7. Para completar la asignación, en el panel **Asignar licencia**, haga clic en **Asignar** en la parte inferior del panel.
 
 8. Se muestra una notificación en la esquina superior derecha con el estado y el resultado del proceso. Si no se pudo completar la asignación al grupo (por ejemplo, porque ya existían licencias en el grupo), haga clic en la notificación para ver los detalles del error.
 
-Ahora, hemos especificado una plantilla de licencia en el grupo del departamento de recursos humanos. Se inició un proceso en segundo plano en Azure AD para procesar todos los miembros existentes de ese grupo. Esta operación inicial podría tardar algún tiempo, según el tamaño actual del grupo. En el paso siguiente, vamos a describir cómo comprobar si el proceso se ha completado y si es necesario hacer algo más para resolver los problemas.
+Ahora, hemos especificado una plantilla de licencia en el grupo del departamento de recursos humanos. Se inició un proceso en segundo plano en Azure AD para procesar todos los miembros existentes de ese grupo. Esta operación inicial podría tardar algún tiempo, según el tamaño actual del grupo. En el paso siguiente se describe cómo comprobar si el proceso se ha completado y si es necesario hacer algo más para resolver los problemas.
 
 > [!NOTE]
-> La misma asignación se puede iniciar desde una ubicación alternativa: **Usuarios y grupos** en Azure AD. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los grupos**. Después, busque el grupo, selecciónelo y vaya a la pestaña **Licencias**. El botón **Asignar** en la parte superior de la hoja abre la hoja de asignación de licencias.
+> La misma asignación se puede iniciar desde una ubicación alternativa: **Usuarios y grupos** en Azure AD. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los grupos**. Después, busque el grupo, selecciónelo y vaya a la pestaña **Licencias**. El botón **Asignar** situado en la parte superior del panel abre el panel de asignación de licencias.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que se ha completado la asignación inicial
 
 1. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los grupos**. Luego, busque el grupo **HR Department** al que se asignaron las licencias.
 
-2. En la hoja del grupo **HR Department**, seleccione **Licencias**. Esto le permite confirmar rápidamente si las licencias se han asignado completamente a los usuarios y si hay errores que requieran atención. Está disponible la siguiente información:
+2. En el panel del grupo **HR Department**, seleccione **Licencias**. Esto le permite confirmar rápidamente si las licencias se han asignado completamente a los usuarios y si hay errores que requieran atención. Está disponible la siguiente información:
 
    - Lista de licencias de producto que están asignadas actualmente al grupo. Seleccione una entrada para mostrar los servicios específicos que se han habilitado y para realizar cambios.
 
@@ -87,12 +87,12 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Paso 3: Comprobación y resolución de problemas de licencias
 
 1. Vaya a **Azure Active Directory**  > **Usuarios y grupos** > **Todos los grupos** y busque el grupo **HR Department** al que se van a asignar las licencias.
-2. En la hoja del grupo **HR Department**, seleccione **Licencias**. La notificación en la parte superior de la hoja muestra que hay 10 usuarios a los que no se pudieron asignar licencias. Al hacer clic en ella, se abre una lista con todos los usuarios en estado de error de licencia para este grupo.
+2. En el panel del grupo **HR Department**, seleccione **Licencias**. La notificación situada en la parte superior del panel muestra que hay 10 usuarios a los que no se pudieron asignar licencias. Al hacer clic en ella, se abre una lista con todos los usuarios en estado de error de licencia para este grupo.
 3. La columna **Asignaciones erróneas** indica que no se pudo asignar ninguna de las licencias de producto a los usuarios. La columna **Motivo principal del error** contiene la causa del error. En este caso, es **Planes de servicio en conflicto**.
 
    ![Asignaciones erróneas](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Seleccione un usuario para abrir la hoja **Licencias**. Esta hoja muestra todas las licencias que están asignadas actualmente al usuario. En este ejemplo, el usuario tiene la licencia de Office 365 Enterprise E1 que heredó del grupo **Kiosk users**. Esto entra en conflicto con la licencia E3 que el sistema intentó aplicar desde el grupo **HR Department**. Como resultado, ninguna de las licencias de dicho grupo se ha asignado al usuario.
+4. Seleccione un usuario para abrir el panel **Licencias**. Este panel muestra todas las licencias que están asignadas actualmente al usuario. En este ejemplo, el usuario tiene la licencia de Office 365 Enterprise E1 que heredó del grupo **Kiosk users**. Esto entra en conflicto con la licencia E3 que el sistema intentó aplicar desde el grupo **HR Department**. Como resultado, ninguna de las licencias de dicho grupo se ha asignado al usuario.
 
    ![Ver las licencias de un usuario](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
@@ -100,7 +100,7 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 
    ![Licencia asignada correctamente](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el conjunto de características de administración de licencias mediante grupos, consulte los artículos siguientes:
 

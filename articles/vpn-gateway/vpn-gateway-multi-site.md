@@ -1,6 +1,6 @@
 ---
 title: "Conectar una red virtual a varios sitios con VPN Gateway y PowerShell: clásico | Microsoft Docs"
-description: "Este artículo le guiará por la conexión de varios sitios locales a una red virtual con una VPN Gateway para el modelo de implementación clásica."
+description: "Conecte varios sitios locales a una red virtual clásica con una instancia de VPN Gateway."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [portal de Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clásico)](vpn-gateway-multi-site.md)
 >
 >
@@ -162,7 +162,7 @@ Importe un archivo de configuración de red. Cuando importe este archivo con los
 ## <a name="6-download-keys"></a>6. Descargar las claves
 Una vez que se han agregado los nuevos túneles, use el cmdlet de PowerShell 'Get-AzureVNetGatewayKey' para obtener las claves IPsec/IKE compartidas previamente para cada túnel.
 
-Por ejemplo:
+Por ejemplo: 
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
@@ -206,6 +206,6 @@ Valor devuelto del ejemplo:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre las VPN Gateway, consulte [Acerca de las VPN Gateway](vpn-gateway-about-vpngateways.md).

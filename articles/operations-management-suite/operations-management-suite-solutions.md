@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Trabajo con soluciones de administración de Azure (versión preliminar)
 > [!NOTE]
@@ -36,7 +36,7 @@ Hay varios métodos para buscar e instalar soluciones de administración, tal y 
 Las soluciones de administración que proporciona Microsoft y los asociados de confianza pueden instalarse desde Azure Marketplace en Azure Portal.
 
 1. Inicie sesión en el Portal de Azure.
-2. En el panel izquierdo, seleccione **Más servicios**.
+2. Seleccione **Todos los servicios** en el panel izquierdo.
 3. Desplácese hacia abajo hasta **Soluciones** o escriba *soluciones* en el cuadro de diálogo **Filtrar**.
 4. Haga clic en el botón **+ Agregar**.
 5. Busque las soluciones que le interesen mediante la característica de exploración, haciendo clic en el botón **Filtrar** o escribiendo en el cuadro de diálogo **Buscar todo**.
@@ -92,7 +92,7 @@ Puede comprobar el vínculo entre un área de trabajo de Log Analytics y una cue
 Utilice el siguiente procedimiento para ver las soluciones de administración en las áreas de trabajo vinculadas a la suscripción de Azure.
 
 1. Inicie sesión en el Portal de Azure.
-2. En el panel izquierdo, seleccione **Más servicios**.
+2. Seleccione **Todos los servicios** en el panel izquierdo.
 3. Desplácese hacia abajo hasta **Soluciones** o escriba *soluciones* en el cuadro de diálogo **Filtrar**.
 4. Se mostrarán las soluciones instaladas en todas las áreas de trabajo.
 

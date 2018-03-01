@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 La auditoría de base de datos SQL de Azure realiza el seguimiento de eventos de base de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría también:
@@ -39,8 +39,11 @@ Puede usar la auditoría de base de datos SQL para:
 
 Puede configurar la auditoría para diferentes tipos de categorías de eventos, como se explica en la sección [Configuración de la auditoría para su base de datos](#subheading-2).
 
-Los registros de auditoría se escriben en Azure Blob Storage en la suscripción de Azure.
-
+> [!IMPORTANT]
+> Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
+>
+> * **Premium Storage** actualmente **no es compatible** con Append Blobs.
+> * **El almacenamiento en VNet** actualmente **no se admite**.
 
 ## <a id="subheading-8"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 
@@ -80,7 +83,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
    >Con el fin de obtener el máximo rendimiento de las plantillas de informes de auditorías, use la misma cuenta de almacenamiento para todas las bases de datos auditadas.
 
     <a id="storage-screenshot"></a>![Panel de navegación][4]
-6. Si quiere personalizar los eventos auditados, puede hacerlo a través de PowerShell o de la API de REST. 
+6. Si quiere personalizar los eventos auditados, puede hacerlo a través de PowerShell o de la API de REST.
 7. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
 8. Haga clic en **Save**(Guardar).
 

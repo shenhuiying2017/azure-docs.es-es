@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -59,11 +59,11 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 #### <a name="plan-the-names"></a>Planeamiento de los nombres
 
-En los pasos de esta sección hay dos lugares donde debe especificar nombres para usted (como *usuario*) y para el nuevo *grupo de recursos*. Para una persona llamada *Ann Finley*, sugerimos los nombres siguientes:
-- *Usuario:* &nbsp; **af1** &nbsp; *(sus iniciales, más un dígito).*
-- *Grupo de recursos:* &nbsp; **wingtip-af1** &nbsp; *(se recomienda todo en minúsculas; anexe un guión y, después, el nombre de usuario).*
+En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
+- *Usuario:* **af1**  *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
+- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta es la aplicación de base de datos por inquilino. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
-Elija los nombres ahora y escríbalos.
+Elija los nombres ahora y escríbalos. 
 
 #### <a name="steps"></a>Pasos
 
@@ -72,7 +72,7 @@ Elija los nombres ahora y escríbalos.
 
     [![Botón Implementar en Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Especifique los valores necesarios de los parámetros para la implementación.
+1. Especifique los valores necesarios de los parámetros para la implementación.
 
     > [!IMPORTANT]
     > Para esta demostración, no utilice grupos de recursos, servidores o grupos preexistentes. En su lugar, elija **Crear nuevo grupo de recursos**. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
@@ -82,12 +82,12 @@ Elija los nombres ahora y escríbalos.
         - Seleccione una **ubicación** en la lista desplegable.
     - Como **usuario** se recomienda elegir un **usuario** breve.
 
-3. **Implemente la aplicación**.
+1. **Implemente la aplicación**.
 
     - Haga clic para aceptar los términos y condiciones.
     - Haga clic en **Comprar**.
 
-4. Supervise el estado de implementación con un clic en **Notificaciones**, que es el icono de la campaña que aparece a la derecha del cuadro de búsqueda. La implementación de la aplicación Wingtip tarda aproximadamente cinco minutos.
+1. Supervise el estado de implementación con un clic en **Notificaciones**, que es el icono de la campaña que aparece a la derecha del cuadro de búsqueda. La implementación de la aplicación Wingtip tarda aproximadamente cinco minutos.
 
    ![implementación correcta](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Cada ubicación obtiene una aplicación web personalizada para mostrar los event
 Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
 
 1. Abra **Events Hub** en el explorador web:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(reemplace &lt;USER&gt; por el valor del usuario de su implementación).*
+    - http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net &nbsp; *(reemplace &lt;usuario&gt; por el valor del usuario de la implementación).*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Una página web central de **Event Hubs** proporciona una lista de vínculos a l
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación Wingtip usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La página de eventos de cada inquilino incluye el nombre del inquilino en la dirección URL. La dirección URL también incluye el valor del usuario en cuestión. Cada dirección URL sigue el formato que se muestra mediante los siguientes pasos:
 
-- http://events.wingtip.&lt;USUARIO&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. La aplicación de eventos analiza el nombre del inquilino de la dirección URL. Este nombre del inquilino es *fabrikamjazzclub* en la dirección URL del ejemplo anterior.
 2. A continuación, la aplicación analiza el nombre del inquilino para crear una clave de acceso a un catálogo mediante [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
@@ -213,7 +213,7 @@ Veamos ahora algunos de los recursos que se implementaron:
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Haga clic en el servidor **catalog-mt&lt;USER&gt;**. El servidor del catálogo contiene dos bases de datos denominadas *tenantcatalog* y *basetenantdb*. La base de datos *basetenantdb* es una base de datos de plantilla vacía. Se copia para crear una base de datos de inquilino nueva, ya sea para que la usen muchos inquilinos o solo uno.
+2. Haga clic en el servidor **catalog-mt&lt;usuario&gt;**. El servidor del catálogo contiene dos bases de datos denominadas *tenantcatalog* y *basetenantdb*. La base de datos *basetenantdb* es una base de datos de plantilla vacía. Se copia para crear una base de datos de inquilino nueva, ya sea para que la usen muchos inquilinos o solo uno.
 
    ![Servidor de catálogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -228,13 +228,13 @@ Veamos ahora algunos de los recursos que se implementaron:
 
 Si el generador de carga lleva varios minutos en ejecución, debería haber suficiente telemetría para examinar las funcionalidades de supervisión de bases de datos integradas en Azure Portal.
 
-1. Navegue al servidor **tenants1-mt&lt;USUARIO&gt;** y haga clic en **tenants1** para ver el uso de recursos para la base de datos que tiene cuatro inquilinos en ella. Cada inquilino está sujeto a una carga pesada esporádica desde el generador de carga:
+1. Navegue al servidor **tenants1-mt&lt;usuario&gt;** y haga clic en **tenants1** para ver el uso de recursos para la base de datos que tiene cuatro inquilinos en ella. Cada inquilino está sujeto a una carga pesada esporádica desde el generador de carga:
 
    ![supervisión de tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    El gráfico de uso de DTU ilustra bien cómo una base de datos multiinquilino puede admitir una carga de trabajo impredecible a través de varios inquilinos. En este caso, el generador de carga aplica una carga esporádica de aproximadamente 30 DTU a cada inquilino. Esta carga equivale al 60 % del uso de una base de datos de 50 DTU. Valores máximos que superan el 60 % son el resultado de la carga que se aplica a más de un inquilino al mismo tiempo.
 
-2. Vaya al servidor **tenants1 mt&lt;USER&gt;**  y haga clic en la base de datos **salixsalsa**. Puede ver el uso de los recursos en esta base de datos que contiene un solo inquilino.
+2. Vaya al servidor **tenants1-mt&lt;usuario&gt;**  y haga clic en la base de datos **salixsalsa**. Puede ver el uso de los recursos en esta base de datos que contiene un solo inquilino.
 
    ![base de datos salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 

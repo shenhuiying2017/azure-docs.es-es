@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
 ## <a name="overview"></a>Información general
@@ -28,6 +28,16 @@ El Explorador de Azure Storage (versión preliminar) es una aplicación independ
 
 ## <a name="prerequisites"></a>requisitos previos
 * [Descargue e instale el Explorador de Storage (versión preliminar)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
+> * libgconf-2-4
+> * libsecret
+> * Up-to-date GCC
+>
+> Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conexión a una cuenta de almacenamiento o servicio
 El Explorador de Storage (versión preliminar) proporciona varias maneras de conectar con las cuentas de almacenamiento. Por ejemplo, puede:
@@ -121,7 +131,7 @@ Para compartir una cuenta de almacenamiento externa, su propietario debe obtener
 ### <a name="attach-to-an-external-storage-account"></a>Asociación de una cuenta de almacenamiento externo
 Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección "Obtención de las credenciales de la cuenta de almacenamiento" se explica cómo obtener estos valores desde el portal de Azure. Sin embargo, en el portal, la clave de cuenta se denomina **key1**. Por tanto, cuando el Explorador de Storage (versión preliminar) solicite una clave de cuenta, escriba el valor **key1**.
 
-1. En Explorador de Storage (versión preliminar), abra el **cuadro de diálogo de conexión**.
+1. En el Explorador de Storage (versión preliminar), abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
 
@@ -239,6 +249,20 @@ Además de administrar cuentas de Azure Cosmos DB a través de una suscripción 
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Conexión a Azure Data Lake Store mediante el URI
+Si desea acceder a recursos que no existen en su suscripción, a cuyos URI le conceden acceso otros usuarios, se puede conectar a Data Lake Store con el URI una vez iniciada la sesión. Consulte los pasos siguientes.
+1. Abra el Explorador de Storage (versión preliminar).
+2. En el panel izquierdo, expanda **Local and Attached** (Local y asociada).
+3. Haga clic con el botón derecho en **Data Lake Store** y, en el menú contextual, seleccione **Connect to Data Lake Store...** (Conectar a Data Lake Store...).
+
+    ![Menú contextual Connect to Data Lake Store... (Conectar a Data Lake Store...)](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Escriba el URI. La herramienta le lleva a la ubicación de la dirección URL que acaba de escribir.
+
+    ![Cuadro de diálogo Connect to Data Lake Store... (Conectar a Data Lake Store...)](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![Resultado de Connect to Data Lake Store... (Conectar a Data Lake Store...)](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Búsqueda de cuentas de almacenamiento
 Si necesita encontrar un recurso de almacenamiento y no sabe dónde está, puede usar el cuadro de búsqueda en la parte superior del panel izquierdo para buscar el recurso.
 
@@ -254,6 +278,7 @@ A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestra
 ## <a name="next-steps"></a>pasos siguientes
 * [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](vs-azure-tools-storage-explorer-blobs.md)
 * [Administración de Azure Cosmos DB en el Explorador de Azure Storage (versión preliminar)](./cosmos-db/storage-explorer.md)
+* [Administración de recursos de Azure Data Lake Store con el Explorador de Storage (versión preliminar)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

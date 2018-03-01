@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
@@ -50,9 +50,9 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Creación, configuración y ejecución de un trabajo de Stream Analytics
 
-### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
+### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
-1. En Azure Portal, haga clic en Nuevo > Internet de las cosas > Trabajo de Stream Analytics.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 1. Escriba la siguiente información para el trabajo.
 
    **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
@@ -65,7 +65,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adición de una entrada al trabajo de Stream Analytics
 
@@ -78,7 +78,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
    **Origen**: seleccione **IoT Hub**.
 
    **Grupo de consumidores**: seleccione el grupo de consumidores que acaba de crear.
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
    ![Adición de una entrada a un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
@@ -98,7 +98,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
    **Nombre del conjunto de datos**: escriba un nombre para el conjunto de datos.
 
    **Nombre de la tabla**: escriba un nombre para la tabla.
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 
    ![Adición de una salida a un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -107,11 +107,11 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 1. En **Topología de trabajo**, haga clic en **Consulta**.
 1. Reemplace `[YourInputAlias]` por el alias de entrada del trabajo.
 1. Reemplace `[YourOutputAlias]` por el alias de salida del trabajo.
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
    ![Adición de una consulta a un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
+### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 
 En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Iniciar**. Una vez que el trabajo se inicia correctamente, su estado cambia de **Detenido** a **En ejecución**.
 
@@ -153,7 +153,7 @@ Se le ofrecerá el vínculo del informe, que puede compartir con cualquiera para
 
 Microsoft también ofrece las [aplicaciones móviles de Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) para ver e interactuar con los informes y paneles de Power BI desde su dispositivo móvil.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha utilizado correctamente Power BI para visualizar datos de sensor en tiempo real desde su centro de Azure IoT.
 Hay otra manera de visualizar datos desde Azure IoT Hub. Consulte [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md) (Uso de Azure Web Apps para visualizar datos del sensor en tiempo real desde Azure IoT Hub).

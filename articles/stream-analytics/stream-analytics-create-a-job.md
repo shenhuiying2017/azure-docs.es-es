@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics
 El recurso de nivel superior en Azure Stream Analytics es un trabajo de Stream Analytics.  Consta de uno o varios orígenes de datos de entrada, una consulta que expresa la transformación de datos y uno o más destinos de salida en los que se escriben los resultados. Juntos, permiten al usuario realizar procesamiento de análisis de datos para escenarios de streaming de datos.
 
 Para empezar a usar Stream Analytics, cree un trabajo de Stream Analytics.  Tenga en cuenta que esta acción no tiene ninguna implicación de facturación hasta que se inicie el trabajo.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Seleccione **Nuevo** > **Data + Analytics** (Datos y análisis)  > **Stream Analytics job** (Trabajo de Stream Analytics).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Seleccione **Crear un recurso** > **Datos y análisis** > **Trabajo de Stream Analytics**.
 3. Seleccione **Crear**.
    
 3. Especifique la configuración que desee para el trabajo de Stream Analytics.
@@ -44,10 +44,10 @@ La creación del trabajo del Stream Analytics puede tardar unos minutos. Para co
    
    ![Trabajo de procesamiento de análisis de datos en Azure Portal: estado del trabajo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)

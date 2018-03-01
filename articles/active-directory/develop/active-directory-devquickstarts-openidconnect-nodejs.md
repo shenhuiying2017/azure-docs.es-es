@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introducción a la aplicación web de Node.js de Azure AD
 Aquí usamos Passport para:
@@ -48,14 +48,14 @@ La aplicación completa se ofrece también al final de este tutorial.
 
 2. En el menú que aparece en la parte superior de la página, seleccione su cuenta. En la lista **Directorio** lista, elija el inquilino de Active Directory donde desea registrar la aplicación.
 
-3. Seleccione **Más servicios** en el menú de la izquierda de la pantalla y luego seleccione **Azure Active Directory**.
+3. Seleccione **Todos los servicios** en el menú de la izquierda de la pantalla y, luego, seleccione **Azure Active Directory**.
 
 4. Seleccione **Registros de aplicaciones** y luego seleccione **Agregar**.
 
 5. Siga las indicaciones para crear una **Aplicación web** y/o **API web**.
   * El **nombre** de la aplicación describe la aplicación a los usuarios.
 
-  * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación.  Es el valor predeterminado del esquema `http://localhost:3000/auth/openid/return``.
+  * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación.  El valor predeterminado del esquema es `http://localhost:3000/auth/openid/return`.
 
 6. Después de registrarse, Azure AD asigna a la aplicación un identificador de aplicación único. Necesita este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
 7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de id. de aplicación** es un identificador único de su aplicación. La convención es usar el formato `https://<tenant-domain>/<app-name>`, por ejemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.

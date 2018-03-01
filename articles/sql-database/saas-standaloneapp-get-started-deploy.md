@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 
@@ -100,9 +100,7 @@ En un entorno de producción, lo habitual sería crear un registro DNS CNAME que
 Veamos algunos de los recursos que se implementaron:
 
 1. En [Azure Portal](http://portal.azure.com), navegue a la lista de los grupos de recursos.
-2. Consulte el grupo de recursos **wingtip-sa-catalog-&lt;usuario&gt;**.
-    - En este grupo de recursos, se ha implementado el servidor **catalog-sa-&lt;usuario&gt;**. El servidor contiene la base de datos **tenantcatalog**.
-    - También debería ver los tres grupos de recursos de inquilino.
+2. Debería ver los tres grupos de recursos de inquilino.
 3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;usuario&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;usuario&gt;** contiene la base de datos **fabrikamjazzclub**.
 
 Cada base de datos de inquilino es una base de datos *independiente* de 50 DTU.
@@ -131,6 +129,6 @@ En este tutorial ha obtenido información:
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
-A continuación, pruebe el tutorial de [aprovisionamiento y catalogación](saas-standaloneapp-provision-and-catalog.md).
+A continuación, pruebe el tutorial de [aprovisionamiento y catálogo](saas-standaloneapp-provision-and-catalog.md) en el que explorará el uso de un catálogo de inquilinos que permite una variedad de escenarios entre inquilinos, como la administración de esquemas y el análisis de inquilinos.
  
 

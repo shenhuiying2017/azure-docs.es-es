@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema al iniciar sesión en el sitio web del Panel de acceso
 
-El Panel de acceso es un portal basado en web que permite que un usuario con una cuenta profesional o educativa en Azure Active Directory (Azure AD) vea e inicie aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Un usuario que posee ediciones de Azure AD también puede usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso. El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure.
+El panel de acceso es un portal web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Un usuario que posee ediciones de Azure AD también puede usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso. El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure.
 
 Los usuarios pueden iniciar sesión en el Panel de acceso si tienen una cuenta profesional o educativa en Azure AD.
 
@@ -32,7 +32,7 @@ Los usuarios pueden iniciar sesión en el Panel de acceso si tienen una cuenta p
 
 -   Los usuarios se pueden autenticar mediante Windows Server Active Directory.
 
-Si un usuario tiene una suscripción de Azure u Office 365 y ha estado usando el portal de Azure o una aplicación de Office 365, dicho usuario podrá usar el Panel de acceso sin problemas sin necesidad de volver a iniciar sesión de nuevo. A los usuarios que no se han autenticado se les solicitará que inicien sesión utilizando el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización configuró la federación, bastará con escribir el nombre de usuario.
+Si un usuario tiene una suscripción de Azure u Office 365 y ha estado usando el portal de Azure o una aplicación de Office 365, dicho usuario podrá usar el Panel de acceso sin problemas sin necesidad de volver a iniciar sesión de nuevo. A los usuarios que no se han autenticado se les solicita que inicien sesión utilizando el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización configuró la federación, bastará con escribir el nombre de usuario.
 
 ## <a name="general-issues-to-check-first"></a>Problemas generales para comprobar primero 
 
@@ -40,7 +40,7 @@ Si un usuario tiene una suscripción de Azure u Office 365 y ha estado usando el
 
 -   Asegurarse de que el explorador del usuario ha agregado la dirección URL a sus **sitios de confianza**
 
--   Asegurarse de que la cuenta del usuario está **habilitada** para los inicios de sesión
+-   Que la cuenta del usuario está **habilitada** para los inicios de sesión.
 
 -   Que la cuenta del usuario **no está bloqueada**.
 
@@ -71,7 +71,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 
 ## <a name="problems-with-the-users-account"></a>Problemas con la cuenta del usuario
 
-El acceso al Panel de acceso se puede bloquear debido a un problema con la cuenta del usuario. A continuación se muestran algunas maneras de solucionar problemas con los usuarios y la configuración de sus cuentas:
+El acceso al Panel de acceso se puede bloquear debido a un problema con la cuenta del usuario. A continuación, se muestran algunas maneras de solucionar problemas con los usuarios y la configuración de sus cuentas:
 
 -   [Comprobar si existe una cuenta de usuario en Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -85,7 +85,7 @@ El acceso al Panel de acceso se puede bloquear debido a un problema con la cuent
 
 -   [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
--   [Comprobar la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
+-   [Comprobación de la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
 
 -   [Comprobar las licencias asignadas de un usuario](#check-a-users-assigned-licenses)
 
@@ -95,9 +95,9 @@ El acceso al Panel de acceso se puede bloquear debido a un problema con la cuent
 
 Para comprobar si una cuenta de usuario existe, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -113,9 +113,9 @@ Para comprobar si una cuenta de usuario existe, siga estos pasos:
 
 Para comprobar el estado de la cuenta de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -133,9 +133,9 @@ Para comprobar el estado de la cuenta de un usuario, siga estos pasos:
 
 Para restablecer la contraseña de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -145,13 +145,13 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
-7.  Haga clic en el botón **Restablecer contraseña** situado en la parte superior de la hoja de usuario.
+7.  Haga clic en el botón **Restablecer contraseña** situado en la parte superior del panel de usuario.
 
-8.  Haga clic en el botón **Restablecer contraseña** en la hoja **Restablecer contraseña** que aparece.
+8.  Haga clic en el botón **Restablecer contraseña** en el panel **Restablecer contraseña** que aparece.
 
 9.  Copie la **contraseña temporal** o **escriba una contraseña nueva** para el usuario.
 
-10. Comunique esta nueva contraseña al usuario, quien deberá cambiarla durante el siguiente inicio de sesión en Azure Active Directory.
+10. Comunique esta nueva contraseña al usuario, que deberá cambiarla durante el siguiente inicio de sesión en Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Habilitar el autoservicio de restablecimiento de contraseña
 
@@ -165,9 +165,9 @@ Para habilitar el autoservicio de restablecimiento de contraseña, siga estos pa
 
 Para comprobar el estado de la autenticación multifactor de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -175,7 +175,7 @@ Para comprobar el estado de la autenticación multifactor de un usuario, siga es
 
 5.  Haga clic en **Todos los usuarios**.
 
-6.  Haga clic en el botón **Multi-Factor Authentication** en la parte superior de la hoja.
+6.  Haga clic en el botón **Multi-Factor Authentication** en la parte superior del panel.
 
 7.  Después de que se ha cargado el **Portal de administración de Multi-factor Authentication**, asegúrese de que se encuentra en la pestaña **Usuarios**.
 
@@ -184,17 +184,17 @@ Para comprobar el estado de la autenticación multifactor de un usuario, siga es
 9.  Seleccione el usuario de la lista de usuarios y **habilite**, **deshabilite** o **exija** autenticación multifactor, según desee.
 
    >[!NOTE]
-   >Si un usuario se encuentra en un estado **Exigido**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
+   >Si un usuario se encuentra en un estado **Exigido**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para requerir que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>Comprobar la información de contacto de autenticación de un usuario
 
-Para comprobar la información de contacto de autenticación de un usuario para Multi-factor Authentication, acceso condicional y protección de identidad, siga estos pasos:
+Para comprobar la información de contacto de autenticación de un usuario para Multi-Factor Authentication, acceso condicional, protección de identidad y restablecimiento de contraseña, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -210,13 +210,13 @@ Para comprobar la información de contacto de autenticación de un usuario para 
 
 9.  **Revise** los datos registrados para el usuario y actualícelos si es necesario.
 
-### <a name="check-a-users-group-memberships"></a>Comprobar la pertenencia a grupos de un usuario
+### <a name="check-a-users-group-memberships"></a>Comprobación de la pertenencia a grupos de un usuario
 
 Para comprobar la pertenencia a grupos de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -232,9 +232,9 @@ Para comprobar la pertenencia a grupos de un usuario, siga estos pasos:
 
 Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -250,9 +250,9 @@ Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
 Para asignar una licencia a un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -288,5 +288,5 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 -   Seguimientos de Fiddler
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

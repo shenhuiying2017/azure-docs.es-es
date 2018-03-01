@@ -4,13 +4,13 @@ description: "En este artículo se proporciona una introducción a los cálculos
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -35,7 +35,7 @@ Para usar la visualización de dependencias, debe descargar e instalar agentes e
 
 ## <a name="do-i-need-to-pay-for-it"></a>¿Tengo qué pagar por ello?
 
-Sí. El área de trabajo de Log Analytics se crea de forma predeterminada, pero no se utiliza a menos que utilice la visualización de dependencias en Azure Migrate. Si usa la visualización de dependencias, o el área de trabajo fuera de Azure Migrate, se le cobrará dicho uso.  [Aprenda más](https://azure.microsoft.com/pricing/details/insight-analytics/) sobre el precio de la solución Service Map. 
+[Aquí](https://azure.microsoft.com/pricing/details/azure-migrate/) puede encontrar más información sobre los precios de Azure Migrate. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>¿Cómo administro el área de trabajo?
 
@@ -43,6 +43,6 @@ Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se el
 
 No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de migración. Si lo hace, las dependencias no funcionarán como se esperaba.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Agrupación de máquinas con dependencias de máquina](how-to-create-group-machine-dependencies.md)

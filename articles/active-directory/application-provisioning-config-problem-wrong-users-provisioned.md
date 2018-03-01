@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c9e268aad5d3a7dcde9102216e9b3e8abfcca2cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD
 
@@ -31,7 +31,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -45,9 +45,9 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir la hoja **Agregar asignación**.
+8.  Para abrir el panel **Agregar asignación**, haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos**.
 
-9.  Haga clic en el selector **Usuarios y grupos** de la hoja **Agregar asignación**.
+9.  Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
 
 10. Escriba el **nombre completo** o la **dirección de correo electrónico** del usuario al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
 
@@ -57,7 +57,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 13. Cuando haya terminado de seleccionar usuarios, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** de la hoja **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
+14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
@@ -65,11 +65,11 @@ Si el aprovisionamiento está configurado y ya se está ejecutando para una apli
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Asignación de un grupo directamente a una aplicación como administrador
 
-Para asignar uno o varios grupos a una aplicación directamente, siga los pasos siguientes:
+Para asignar uno o varios grupos a una aplicación directamente, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -83,9 +83,9 @@ Para asignar uno o varios grupos a una aplicación directamente, siga los pasos 
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir la hoja **Agregar asignación**.
+8.  Para abrir el panel **Agregar asignación**, haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos**.
 
-9.  Haga clic en el selector **Usuarios y grupos** de la hoja **Agregar asignación**.
+9.  Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
 
 10. Escriba el **nombre completo** del grupo al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
 
@@ -95,7 +95,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga los pasos 
 
 13. Cuando haya terminado de seleccionar grupos, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** de la hoja **Agregar asignación** para seleccionar un rol que se asignará a los grupos que ha seleccionado.
+14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los grupos que ha seleccionado.
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los grupos seleccionados.
 
@@ -108,5 +108,5 @@ Si el aprovisionamiento está configurado y ya se está ejecutando para una apli
 
 Si están habilitados los grupos de aprovisionamiento, asegúrese de revisar las asignaciones de atributos para asegurarse de que se utiliza un campo apropiado para el "identificador coincidente". Esto puede ser el nombre para mostrar o el alias de correo electrónico, ya que el grupo y sus miembros no se han aprovisionado si la propiedad coincidente está vacía o no se rellenado para un grupo en Azure AD.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)

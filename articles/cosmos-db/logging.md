@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
-Una vez que haya comenzado a usar una o más bases de datos de Azure Cosmos DB, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. El registro de diagnóstico en Azure Cosmos DB le permite llevar a cabo esta supervisión. Al habilitar el registro de diagnóstico, puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) o exportarlos a un área de trabajo de [Log Analytics](https://azure.microsoft.com/services/log-analytics/), que forma parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Una vez que haya comenzado a usar una o más bases de datos de Azure Cosmos DB, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. En este artículo se proporciona una visión general de todos los registros disponibles en la plataforma Azure. Después se explica cómo habilitar el registro de diagnóstico con fines de supervisión para enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos en secuencias a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), solución que forma parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Registros disponibles en Azure
+
+Antes de empezar a supervisar la cuenta de Azure Cosmos DB, aclaremos algunos aspectos del registro y la supervisión. Hay diferentes tipos de registros en la plataforma Azure. Hay [registros de actividades de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, supervisión de latidos, registros de operaciones, etc. Hay un sinfín de registros. Puede ver una lista completa de los registros en [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) en Azure Portal. 
+
+La siguiente imagen muestra los diferentes tipos de registros de Azure disponibles.
+
+![Diferentes tipos de registros de Azure](./media/logging/azurelogging.png)
+
+Para nuestro análisis centrémonos en los registros de actividad de Azure y en los de diagnósticos y métricas de Azure. ¿Cuál es la diferencia entre estos tres registros? 
+
+### <a name="azure-activity-log"></a>Azure Activity Log
+
+El registro de actividad de Azure es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. El registro de actividad notifica los eventos de plano de control de las suscripciones en la categoría administrativa. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. 
+
+El registro de actividad es distinto de los registros de diagnóstico. El Registro de actividad proporciona datos sobre las operaciones en un recurso desde el exterior (el "plano de control"). En el contexto de Azure Cosmos DB, estas son algunas de las operaciones del plano de control incluidas: creación de colecciones, enumeración de claves, eliminación de claves, enumeración de bases de datos, etc. Los registros de diagnóstico son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el "plano de datos"). Algunos de los ejemplos del registro de diagnóstico del plano de datos serán las operaciones delete, insert, readfeed, etc.
+
+Los registros de actividad (operaciones del plano de control) pueden ser mejores por naturaleza, pueden incluir la lista completa de direcciones de correo electrónico del autor de la llamada, la dirección IP de este, el nombre del recurso, el nombre de la operación, el identificador del inquilino, etc. El registro de actividad contiene varias [categorías](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de datos. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  Sin embargo, los registros de diagnóstico pueden ser restrictivos por naturaleza ya que los datos de información de identificación personal a menudo se eliminan de ellos. Por lo tanto, puede tener la dirección IP del autor de la llamada, pero se quitará el último octeto.
+
+### <a name="azure-metrics"></a>Métricas de Azure
+
+Las [métricas de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (también denominadas contadores de rendimiento) tienen el tipo de telemetría de Azure más importante emitido por la mayoría de los recursos de Azure. Las métricas le permiten ver información sobre el rendimiento, almacenamiento, coherencia, disponibilidad y latencia de los recursos de Azure Cosmos DB. Para más información, consulte [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Registros de diagnóstico de Azure
+
+Los registros de diagnóstico de Azure son registros que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso. Los registros de diagnóstico de nivel de recursos también difieren de los registros de diagnóstico de nivel de sistema operativo invitado. Estos son los recopilados por un agente que se ejecuta dentro de una máquina virtual u otro tipo de recurso admitido. Los registros de diagnóstico de nivel de recursos no requieren ningún agente y capturan datos específicos de recurso de la plataforma Azure, mientras que los registros de diagnóstico de nivel de sistema operativo invitado capturan los datos desde el sistema operativo y las aplicaciones que se ejecutan en una máquina virtual.
 
 ![Registro de diagnóstico a Storage, Event Hubs u Operations Management Suite a través de Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Use este tutorial para empezar a trabajar con los registros de Azure Cosmos DB a través de Azure Portal, CLI o PowerShell.
-
-## <a name="what-is-logged"></a>¿Qué se registra?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>¿Qué es lo que registran los registros de diagnóstico de Azure?
 
 * Se registran todas las solicitudes de back-end autenticadas (TCP/REST) entre todas las API, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas. En la actualidad, el soporte para las solicitudes iniciadas por el usuario de Graph, Cassandra y Table API no está disponible.
 * Operaciones en la base de datos misma, que incluye operaciones CRUD en todos los documentos, contenedores y bases de datos.
 * Operaciones en claves de cuenta, que incluye la creación, modificación o eliminación de estas claves.
 * Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.
 
-## <a name="prerequisites"></a>requisitos previos
-Para realizar este tutorial, necesitará los recursos siguientes:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Activar el registro en Azure Portal
+
+Para habilitar el registro de diagnóstico, debe tener los siguientes recursos:
 
 * Una cuenta existente de Azure Cosmos DB, una base de datos y un contenedor. Para obtener instrucciones sobre cómo crear estos recursos, consulte [Creación de una cuenta de base de datos mediante Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [Ejemplos de la CLI](cli-samples.md) o [Ejemplos de PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Activar el registro en Azure Portal
+Para habilitar el registro de diagnóstico en Azure Portal, haga lo siguiente:
 
 1. En [Azure Portal](https://portal.azure.com), en la cuenta de Azure Cosmos DB, haga clic en **Registros de diagnóstico** en el panel de navegación izquierdo y luego en **Activar diagnósticos**.
 
@@ -98,7 +123,7 @@ Puede combinar estos parámetros para habilitar varias opciones de salida.
 
 ## <a name="turn-on-logging-using-powershell"></a>Activar el registro con PowerShell
 
-Para activar el registro con PowerShell, necesita Azure PowerShell, con la versión 1.0.1 como mínimo.
+Para activar el registro de diagnóstico con PowerShell, necesita Azure PowerShell, con la versión 1.0.1 como mínimo.
 
 Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
@@ -315,7 +340,7 @@ Para obtener información acerca de los datos de cada blob JSON, consulte [Inter
 
 ## <a name="managing-your-logs"></a>Administración de los registros
 
-Los registros se ponen a disposición de la cuenta a las dos horas a partir del momento en que se realiza la operación de Azure Cosmos DB. Es decisión suya administrar los registros en la cuenta de almacenamiento:
+Los registros de diagnóstico se ponen a disposición de la cuenta a las dos horas a partir del momento en que se realiza la operación de Azure Cosmos DB. Es decisión suya administrar los registros en la cuenta de almacenamiento:
 
 * Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
@@ -325,7 +350,7 @@ Los registros se ponen a disposición de la cuenta a las dos horas a partir del 
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visualización de los registros de Log Analytics
 
-Si ha seleccionado la opción **Enviar a Log Analytics** al activar el registro, los datos de diagnóstico de la colección se reenvían a Log Analytics en dos horas. Esto significa que, si observa Log Analytics inmediatamente después de activar el registro, no verá ningún dato. Espere dos horas y vuelva a intentarlo. 
+Si ha seleccionado la opción **Enviar a Log Analytics** al activar el registro de diagnóstico, los datos correspondientes de la colección se reenviarán a Log Analytics en dos horas. Esto significa que, si observa Log Analytics inmediatamente después de activar el registro, no verá ningún dato. Espere dos horas y vuelva a intentarlo. 
 
 Antes de ver los registros, debe comprobar si se ha actualizado el área de trabajo de Log Analytics para utilizar su nuevo lenguaje de consulta. Para comprobarlo, abra [Azure Portal](https://portal.azure.com), haga clic en **Log Analytics** en la esquina izquierda y, a continuación, seleccione el nombre del área de trabajo como se muestra en la siguiente imagen. La página **Área de trabajo de OMS** aparece tal como se muestra en la siguiente imagen.
 

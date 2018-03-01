@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Supervisión y administración de almacenes y servidores de los Servicios de recuperación de Azure para máquinas Windows
 
@@ -32,13 +32,11 @@ Este artículo incluye información general sobre las tareas de administración 
 El panel de almacén de Recovery Services muestra los detalles o los atributos de un almacén de Recovery Services.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) mediante la suscripción de Azure.
-2. En el menú central, haga clic en **Más servicios**.
-
-    ![Apertura de la lista de almacenes de Recovery Services paso 1.](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Haga clic en **Todos los servicios**. 
 
 3. Quiere abrir un almacén de Recovery Services. En el cuadro de diálogo, comience a escribir **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services** para mostrar la lista de almacenes de Recovery Services de la suscripción.
 
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Apertura de la lista de almacenes de Recovery Services paso 1.](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Se abre la lista de almacenes de Recovery Services.
 
@@ -74,9 +72,9 @@ En la parte superior del panel:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Alertas de copias de seguridad mediante el agente de Azure Backup:
 | Nivel de alerta | Alertas enviadas |
 | --- | --- |
-| Crítico |Error de copia de seguridad, error de recuperación |
-| Warning (Advertencia) |Copia de seguridad completada con advertencias (cuando menos de 100 archivos no se copian debido a problemas de daños y más de un millón de archivos se copian correctamente) |
-| Informativo |None |
+| Crítico | Error de copia de seguridad, error de recuperación y eliminación aplazada, es decir, cuando alguien detiene la protección con eliminar datos |
+| Warning (Advertencia) | Copia de seguridad completada con advertencias (cuando menos de 100 archivos no se copian debido a problemas de daños y más de un millón de archivos se copian correctamente) |
+| Informativo | Actualmente, no hay alertas informativas disponibles para el agente de Azure Backup |
 
 ## <a name="manage-backup-alerts"></a>Administración de alertas de copia de seguridad
 Haga clic en el icono de **Alertas de copias de seguridad** para abrir el menú **Alertas de copias de seguridad** y administrar las alertas.
@@ -244,7 +242,7 @@ Para habilitar la limitación, siga estos pasos:
     Una vez que se ha habilitado la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante la **jornada laboral** y las **horas de descanso**.
 
     Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden subir hasta 1023 megabytes por segundo (Mbps). También puede designar el inicio y el final de la **jornada laboral**, así como qué días de la semana se consideran laborables. El tiempo no comprendido en la jornada laboral designada se considera horas de descanso.
-3. Haga clic en **Aceptar**.
+3. Haga clic en **OK**.
 
 ## <a name="manage-exclusion-settings"></a>Administración de la configuración de exclusión
 1. Abra el **agente de Microsoft Azure Backup** (puede encontrarlo si busca en su equipo *Microsoft Azure Backup*).
@@ -307,10 +305,10 @@ R3. A continuación figuran los casos en los que no se enviará la notificación
 2. Suponiendo que el proceso no se está ejecutando, abra el **Panel de Control** y examine la lista de servicios. Inicie o reinicie el **agente de administración de Microsoft Azure Recovery Services**.
 
     Para más información, examine los registros en:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Por ejemplo:<br/>
+   Por ejemplo: `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
 * Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)

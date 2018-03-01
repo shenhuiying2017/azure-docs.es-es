@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ La creación de un clúster de producción para satisfacer sus necesidades de la
 ![Busque la plantilla del clúster de Service Fabric en el Portal de Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Inicie sesión en [Azure Portal][azure-portal].
-2. Haga clic en **+ Nuevo** para agregar una nueva plantilla de recursos. Busque la plantilla Clúster de Service Fabric en **Marketplace** debajo de **Todo**.
+2. Haga clic en **Crear un recurso** para agregar una nueva plantilla de recursos. Busque la plantilla Clúster de Service Fabric en **Marketplace** debajo de **Todo**.
 3. Seleccione **Clúster de Service Fabric** en la lista.
 4. Vaya a la hoja **Clúster de Service Fabric** y haga clic en **Crear**.
 5. La hoja **Crear clúster de Service Fabric** consta de los cuatro pasos siguientes:
@@ -134,6 +134,7 @@ Para facilitar la configuración de un clúster de prueba seguro, hemos proporci
 #####<a name="basic-option"></a>Opción Básico
 Siga las instrucciones que se muestran en la pantalla para agregar o volver a usar un almacén de claves existente y agregar un certificado. La adición del certificado es un proceso sincrónico, por lo que tendrá que esperar a que se cree el certificado.
 
+
 Resista la tentación de salir de la pantalla hasta que se complete el proceso anterior.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Ahora que el certificado se agregó a su almacén de claves, aparecerá la panta
 
 ![CreateKeyVault2]
 
-Haga clic en las directivas de acceso avanzadas y habilite el acceso a las máquinas virtuales para la implementación. Se recomienda habilitar también la implementación de plantilla.
+Haga clic en las directivas de acceso avanzadas y habilite el acceso a las máquinas virtuales para la implementación. Se recomienda habilitar también la implementación de plantilla. Cuando haya realizado las selecciones, no olvide hacer clic en el botón **Guardar** y salir del panel **Directivas de acceso**.
 
 ![CreateKeyVault3]
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Creación de una red virtual mediante una plantilla de Azure Resource Manager
 
@@ -39,24 +39,24 @@ En este artículo se describe cómo crear una red virtual con el modelo de imple
 - [PowerShell (clásico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (clásico)](virtual-networks-create-vnet-classic-cli.md)
 
-Aprenderá a descargar y modificar una plantilla de ARM existente desde GitHub, así como a implementar la plantilla de GitHub, PowerShell y la CLI de Azure.
+Aprenda a descargar y modificar una plantilla existente de Azure Resource Manager desde GitHub, y a implementarla desde GitHub, PowerShell y la CLI de Azure.
 
-Si simplemente va a implementar la plantilla de ARM directamente desde GitHub, sin realizar ningún cambio, vaya a [implementar una plantilla desde github](#deploy-the-arm-template-by-using-click-to-deploy).
+Si simplemente va a implementar la plantilla de Azure Resource Manager directamente desde GitHub sin realizar ningún cambio, vaya a la sección sobre la [implementación de una plantilla desde GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="download-and-understand-the-azure-resource-manager-template"></a>Descarga e información sobre la plantilla del Administrador de recursos de Azure
+## <a name="download-and-understand-the-azure-resource-manager-template"></a>Descarga e información sobre la plantilla de Azure Resource Manager
 Puede descargar la plantilla existente para crear una red virtual y dos subredes desde GitHub, realizar los cambios que desee y volver a utilizarla. Para hacerlo, complete los pasos siguientes:
 
 1. Navegue a [la página de la plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 2. Haga clic en **azuredeploy.json** y luego en **RAW**.
 3. Guarde el archivo en un una carpeta local en su equipo.
 4. Si está familiarizado con las plantillas, salte al paso 7.
-5. Abra el archivo que acaba de guardar y vea el contenido de la línea 5 en **parameters** . Los parámetros de plantilla ARM proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
+5. Abra el archivo que guardó y examine el contenido en **Parámetros** en la línea 5. Los parámetros de la plantilla de Azure Resource Manager proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
    
-   | Parámetro | Descripción |
+   | . | DESCRIPCIÓN |
    | --- | --- |
-   | **ubicación** |Región de Azure donde se creará la red virtual |
+   | **ubicación** |Región de Azure donde se crea la red virtual. |
    | **vnetName** |Nombre de la red virtual nueva |
    | **addressPrefix** |Espacio de direcciones de la red virtual, en formato CIDR |
    | **subnet1Name** |Nombre de la primera red virtual |
@@ -65,14 +65,14 @@ Puede descargar la plantilla existente para crear una red virtual y dos subredes
    | **subnet2Prefix** |Bloque CIDR de la segunda subred |
    
    > [!IMPORTANT]
-   > Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
+   > Las plantillas de Azure Resource Manager que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
    > 
    > 
 6. Compruebe el contenido en **resources** y observe lo siguiente:
    
    * **type**. Tipo de recurso que creó la plantilla. En este caso, **Microsoft.Network/virtualNetworks**, que representan una red virtual.
    * **nombre**. Nombre del recurso. Observe el uso de **[parameters('vnetName')]**, lo que significa que será el usuario quien proporcione el nombre como entrada o como archivo de parámetros durante la implementación.
-   * **propiedades**. Lista de propiedades para el recurso. Esta plantilla usa las propiedades de espacio de direcciones y subred durante la creación de la red virtual.
+   * **properties**. Lista de propiedades para el recurso. Esta plantilla usa las propiedades de espacio de direcciones y subred durante la creación de la red virtual.
 7. Vuelva a [la página de la plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Haga clic en **azuredeploy-paremeters.json** y luego en **RAW**.
 9. Guarde el archivo en un una carpeta local en su equipo.
@@ -104,7 +104,7 @@ Puede descargar la plantilla existente para crear una red virtual y dos subredes
         }
     ```
 
-11. Guarde el archivo .
+11. Guarde el archivo.
 
 
 ## <a name="deploy-the-template-using-powershell"></a>Implementación de la plantilla mediante PowerShell
@@ -118,7 +118,7 @@ Complete los siguientes pasos para implementar la plantilla que descargó con Po
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    El comando crea un grupo de recursos denominado *TestRG* en la región *Centro de EE. UU.* de Azure. Para más información acerca de los grupos de recursos, visite [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+    El comando crea un grupo de recursos denominado *TestRG* en la región *Centro de EE. UU.* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
 
     Resultado esperado:
 
@@ -231,11 +231,11 @@ Puede reutilizar plantillas de Azure Resource Manager predefinidas que se han ca
    
     ![Enviar icono de implementación al portal de vista previa](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Una vez finalizada la implementación, en Azure Portal, haga clic en **Más servicios**, escriba *redes virtuales* en el cuadro de filtro que aparece y haga clic en Redes virtuales para ver la hoja Redes virtuales. En la hoja, haga clic en *TestVNet*. En la hoja *TestVNet*, haga clic en **Subredes** para ver las subredes creadas, como se muestra en la siguiente imagen:
+10. Una vez finalizada la implementación, en Azure Portal, haga clic en **Todos los servicios**, escriba *redes virtuales* en el cuadro de filtro que aparece y haga clic en Redes virtuales para ver la hoja Redes virtuales. En la hoja, haga clic en *TestVNet*. En la hoja *TestVNet*, haga clic en **Subredes** para ver las subredes creadas, como se muestra en la siguiente imagen:
     
      ![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a conectar:
 

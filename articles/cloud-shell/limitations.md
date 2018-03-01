@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
 
@@ -33,7 +33,6 @@ La máquina que proporciona la sesión de Cloud Shell es temporal y se recicla d
 * Con el almacenamiento montado, solo se conservan las modificaciones dentro del directorio `clouddrive`. En Bash, también se conserva el directorio `$Home`.
 * Solo se pueden montar recursos compartidos de archivos de Azure desde la [región asignada](persisting-shell-storage.md#mount-a-new-clouddrive).
   * En Bash, ejecute `env` para buscar la región establecida como `ACC_LOCATION`.
-* Azure Files solo admite cuentas de almacenamiento con redundancia local o de almacenamiento con redundancia geográfica.
 
 ### <a name="browser-support"></a>Compatibilidad con exploradores
 
@@ -55,18 +54,11 @@ Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las s
 
 ### <a name="user-permissions"></a>Permisos de usuario
 
-Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva cualquier instalación fuera del directorio `$Home`.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Permisos limitados de SMB de clouddrive
-Algunos comandos del directorio `clouddrive`, como `git clone`, no tienen los permisos adecuados para leer o escribir determinados archivos. Si se produce este problema, vuelva a intentarlo desde el directorio `$Home` que no tiene limitaciones de SMB.
+Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva ninguna instalación fuera de los directorios `$Home` ni `clouddrive`.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
-Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cloud Shell.
-
-### <a name="bashhistory"></a>.bash_history
-
-El historial de comandos de Bash puede ser incoherente debido a una interrupción de la sesión de Cloud Shell o a sesiones simultáneas.
+Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados con Bash en Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitaciones de PowerShell
 

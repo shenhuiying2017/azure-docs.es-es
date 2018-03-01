@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar datos del sensor en tiempo real desde Azure IoT Hub mediante la característica Web Apps de Azure App Service
 
@@ -34,7 +34,7 @@ En este tutorial, obtendrá más información sobre cómo visualizar los datos d
 ## <a name="what-you-do"></a>Qué debe hacer
 
 - Crear una aplicación web en Azure Portal.
-- Preparar el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
+- Prepare el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
 - Configurar la aplicación web para leer datos del sensor desde su IoT Hub.
 - Cargar una aplicación web para que se hospede en la aplicación web.
 - Abrir la aplicación web para ver datos de temperatura y humedad en tiempo real desde su IoT Hub.
@@ -49,7 +49,7 @@ En este tutorial, obtendrá más información sobre cómo visualizar los datos d
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-1. En [Azure Portal](https://ms.portal.azure.com/), haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 2. Escriba un nombre de trabajo único, compruebe la suscripción, especifique un grupo de recursos y una ubicación, seleccione **Anclar al panel** y luego haga clic en **Crear**.
 
    Se recomienda seleccionar la misma ubicación donde se encuentra el grupo de recursos. Esto ayuda a acelerar el procesamiento y a reduce el coste de la transferencia de datos.
@@ -115,7 +115,7 @@ Verá los datos de temperatura y humedad en tiempo real desde su IoT Hub.
 > [!NOTE]
 > Asegúrese de que la aplicación de ejemplo se ejecuta en el dispositivo. Si no es así, obtendrá un gráfico en blanco; puede consultar los tutoriales de [configuración del dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ha usado correctamente una aplicación web para visualizar datos del sensor en tiempo real desde su IoT Hub.
 
 Para obtener una forma alternativa de visualizar los datos desde Azure IoT Hub, vea [Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI](iot-hub-live-data-visualization-in-power-bi.md).

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Introducción a iOS de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 Azure Active Directory (Azure AD) proporciona la biblioteca de autenticación de Active Directory (ADAL) para los clientes de iOS que necesitan tener acceso a recursos protegidos. ADAL simplifica el proceso que la aplicación usa para obtener tokens de acceso. Para demostrar lo fácil que es, en este artículo compilaremos una aplicación Objective-C de lista de tareas pendientes que permita realizar lo siguiente:
 
-* Obtiene tokens de acceso para llamar a la API Graph de Azure AD mediante el [protocolo de autenticación OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Obtiene tokens de acceso para llamar a Graph API de Azure AD mediante el [protocolo de autenticación OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Buscar un directorio para los usuarios con un alias determinado
 
 Para compilar la aplicación de trabajo completa, debe realizar estas acciones:
@@ -59,17 +59,17 @@ El formato de iOS para un URI de redireccionamiento es:
 Ejemplo de este código de inicio rápido: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***.
 
 ## <a name="2-register-the-directorysearcher-application"></a>2. Registro de la aplicación DirectorySearcher
-Para configurar la aplicación para que obtenga tokens, primero debe registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API de Azure AD Graph:
+Para configurar la aplicación para que obtenga tokens, primero debe registrarla en su inquilino de Azure AD y concederle permiso de acceso a Graph API de Azure AD:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. En la lista **Directorio** lista, elija el inquilino de Active Directory donde desea registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel de navegación izquierdo y seleccione **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel de navegación izquierdo y seleccione **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones para crear una nueva **aplicación cliente nativa**.
   * El **nombre** de la aplicación describe la aplicación a los usuarios finales.
   * El **URI de redireccionamiento** es una combinación de esquema y cadena que Azure AD usa para devolver respuestas de tokens.  Escriba un valor que sea específico de la aplicación y que se base en la información del anterior URI de redireccionamiento.
 6. Después de haber completado el registro, Azure AD le asigna a la aplicación un identificador de aplicación único.  Necesitará este valor en las secciones siguientes, así que cópielo de la pestaña de la aplicación.
-7. En la página **Configuración**, seleccione **Permisos necesarios** y **Agregar**. Seleccione **Microsoft Graph** como API y agregue el permiso **Leer datos de directorio** en **Permisos delegados**.  Esto configura la aplicación de modo que consulte la API Graph de Azure AD para los usuarios.
+7. En la página **Configuración**, seleccione **Permisos necesarios** y **Agregar**. Seleccione **Microsoft Graph** como API y agregue el permiso **Leer datos de directorio** en **Permisos delegados**.  Esto configura la aplicación de modo que consulte Graph API de Azure AD para los usuarios.
 
 ## <a name="3-install-and-configure-adal"></a>3. Instalación y configuración de ADAL
 Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad.  Para que ADAL se comunique con Azure AD, hay que proporcionarle información sobre el registro de la aplicación.
@@ -146,7 +146,7 @@ El principio básico inherente a ADAL es que cada vez que la aplicación necesit
 
     ```
 
-2. Ahora tenemos que utilizar este token para buscar usuarios en el gráfico. Busque el comentario `// TODO: implement SearchUsersList`. Este método realiza una solicitud GET a la API Graph de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado.  Para realizar una consulta a la API Graph de Azure AD, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud. Aquí es donde entra en juego AAL.
+2. Ahora tenemos que utilizar este token para buscar usuarios en el gráfico. Busque el comentario `// TODO: implement SearchUsersList`. Este método realiza una solicitud GET a Graph API de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado.  Para realizar una consulta a Graph API de Azure AD, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud. Aquí es donde entra en juego AAL.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString

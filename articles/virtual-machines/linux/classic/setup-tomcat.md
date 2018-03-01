@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configuración de Tomcat7 en una máquina virtual con Linux con Azure
 Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa el servlet de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Además, proporciona un entorno de servidor web HTTP Java puro en el que se va a ejecutar el código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.  
@@ -64,7 +64,7 @@ Siga estos pasos para generar la clave de autenticación SSH.
 6. Haga clic en **Guardar clave privada** y guárdela en un archivo denominado privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Paso 2: Creación de la imagen en el portal de Azure
-1. En el [portal](https://portal.azure.com/), haga clic en **Nuevo** en la barra de tareas para crear una imagen. Después elija una imagen de Linux que se adapte a sus necesidades. En el ejemplo siguiente se utiliza la imagen de Ubuntu 14.04.
+1. En el [portal](https://portal.azure.com/), haga clic en **Crear un recurso** en la barra de tareas para crear una imagen. Luego, elija una imagen de Linux que se adapte a sus necesidades. En el ejemplo siguiente se utiliza la imagen de Ubuntu 14.04.
 ![Captura de pantalla del portal que muestra el botón Nuevo][3]
 
 2. En **Nombre de host** , especifique el nombre de la dirección URL que tanto usted como los clientes de Internet van a usar para tener acceso a esta máquina virtual. Defina la última parte del nombre DNS, por ejemplo, tomcatdemo. Azure generará entonces la dirección URL como tomcatdemo.cloudapp.net.  
@@ -221,7 +221,7 @@ Puede editar el archivo de configuración de usuario de Tomcat para configurar l
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Aquí tiene un ejemplo:  
+Este es un ejemplo:  
 ![Captura de pantalla que muestra el resultado del comando vi de sudo][17]  
 
 > [!NOTE]
@@ -246,7 +246,7 @@ Después de conectarse, debería ver algo parecido a lo siguiente:
 
      Compruebe la configuración del punto de conexión del puerto público y del puerto privado. Asegúrese de que el puerto privado es el mismo que el puerto de escucha de Tomcat. Consulte la sección de este artículo "Fase 1: Crear una imagen" para obtener instrucciones acerca de cómo configurar puntos de conexión para la máquina virtual.  
 
-     Para determinar el puerto de escucha de tomcat, abra /etc/httpd/conf/httpd.conf (versión de Red Hat) o /etc/tomcat7/server.xml (versión Debian). De manera predeterminada, el puerto de escucha de Tomcat es el 8080. Aquí tiene un ejemplo:  
+     Para determinar el puerto de escucha de tomcat, abra /etc/httpd/conf/httpd.conf (versión de Red Hat) o /etc/tomcat7/server.xml (versión Debian). De manera predeterminada, el puerto de escucha de Tomcat es el 8080. Este es un ejemplo:  
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
@@ -303,7 +303,7 @@ Esto se ha probado en CentOS 6.3.
 
   Utilice la opción -R para aplicar los permisos a todos los archivos en un directorio.  
 
-  Este comando también funciona para directorios. La opción -R cambia los permisos de todos los archivos y directorios dentro del directorio. Aquí tiene un ejemplo:  
+  Este comando también funciona para directorios. La opción -R cambia los permisos de todos los archivos y directorios dentro del directorio. Este es un ejemplo:  
 
      sudo chown -R username:group directory  
 

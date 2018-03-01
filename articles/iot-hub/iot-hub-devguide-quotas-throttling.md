@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -31,6 +31,8 @@ El valor de SKU también determina los valores de limitación que aplica Azure I
 
 ## <a name="operation-throttles"></a>Limitaciones de operación
 Las limitaciones de operación son las limitaciones de velocidad que se aplican en los intervalos de minutos y están diseñadas para evitar abusos. IoT Hub intenta evitar los errores de devolución siempre que sea posible, pero inicia la excepción de devolución si se infringe la limitación durante demasiado tiempo.
+
+En cualquier momento, puede aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en una instancia de IoT Hub.
 
 En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen referencia a un centro individual.
 
@@ -50,15 +52,11 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
 <sup>1</sup>La limitación de tamaño del medidor es de 8 KB.
 
-> [!IMPORTANT]
-> La limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con una instancia de IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
+La limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con una instancia de IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Por lo tanto, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad.
 
 Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitación de IoT Hub) para ver una explicación detallada del comportamiento de limitación de IoT Hub.
-
-> [!NOTE]
-> En cualquier momento, puede aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en una instancia de IoT Hub.
 
 > [!IMPORTANT]
 > Las operaciones de registro de identidad están diseñadas para usarse en tiempo de ejecución en escenarios de administración y aprovisionamiento de dispositivos. La lectura o actualización de un gran número de identidades de dispositivo se realiza mediante [trabajos de importación y exportación][lnk-importexport].

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
@@ -208,14 +208,14 @@ El código de ejemplo puede utilizar el inicio de sesión interactivo, el nombre
 
 Este tipo de autenticación requiere que se cree una aplicación de Azure con los permisos de API necesarios asignados. 
 
-1.  En Azure Portal, seleccione **Nuevo** > **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
+1.  En Azure Portal, seleccione **Crear un recurso** > **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
 
     ![Nuevo registro de aplicaciones](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
 
 2.  En **Crear**, escriba un nombre y seleccione **Nativa** en el tipo de aplicación. En **URI de redirección**, escriba **urn:ietf:wg:oauth:2.0:oob** y después haga clic en **Crear**.
 
-    ![Configuración](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
+    ![Settings](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
 3.  Seleccione la aplicación y después copie y guarde el **identificador de la aplicación**.
 

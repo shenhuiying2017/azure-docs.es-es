@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Introducción a las aplicaciones web de Java de Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Para configurar la aplicación para autenticar a los usuarios, primero regístre
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en el nombre de su cuenta. En la lista **Directorio** lista, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
 5. Siga las indicaciones para crear una **Aplicación web o API web**.
   * **Nombre**: describe la aplicación a los usuarios.
@@ -335,7 +335,7 @@ En este paso, nuestro objetivo es crear archivos de Java que:
 * Impriman datos sobre el usuario.
 
     > [!NOTE]
-    > Para obtener datos acerca del usuario, use la API Graph de Azure AD. API Graph es un servicio web seguro que se puede usar para capturar datos acerca de la organización, incluidos usuarios individuales. Este enfoque es mejor que rellenar previamente los datos confidenciales en tokens, porque así se asegura de lo siguiente:
+    > Para obtener datos acerca del usuario, use Graph API de Azure AD. Graph API es un servicio web seguro que se puede usar para capturar datos acerca de la organización, incluidos usuarios individuales. Este enfoque es mejor que rellenar previamente los datos confidenciales en tokens, porque así se asegura de lo siguiente:
     > * Los usuarios que soliciten los datos están autorizados.
     > * Cualquier persona que pudiera recuperar el token (desde un teléfono descodificado o la memoria caché de un explorador web en un equipo de escritorio, por ejemplo) no podrá obtener detalles importantes sobre el usuario ni la organización.
 
@@ -723,8 +723,8 @@ Para escribir algunos archivos de Java para este trabajo:
 
     ```
 
-## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Paso 6: Creación de archivos de Java para el modelo de API Graph (para el MVC BasicFilter)
-Como se indicó anteriormente, use la API Graph para obtener datos sobre el usuario que inició sesión. Para que este proceso resulte sencillo, debemos crear un archivo para representar un objeto de directorio y un archivo para representar el usuario y poder usar el modelo orientado a objetos de Java.
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Paso 6: Creación de archivos de Java para el modelo de Graph API (para el MVC BasicFilter)
+Como se indicó anteriormente, use Graph API para obtener datos sobre el usuario que inició sesión. Para que este proceso resulte sencillo, debemos crear un archivo para representar un objeto de directorio y un archivo para representar el usuario y poder usar el modelo orientado a objetos de Java.
 
 1. Cree un archivo llamado DirectoryObject.java, que se usa para almacenar los datos básicos sobre cualquier objeto de directorio. Puede usar este archivo más tarde para otras consultas de Graph que pueda realizar. Para crear el archivo, pegue el código siguiente:
 
@@ -1695,7 +1695,7 @@ Este servlet expone todos los métodos que ADAL4J espera que la aplicación ejec
 * **getAccessTokenFromClientCredentials()**: obtiene el token de acceso a partir del secreto.
 * **getAccessTokenFromRefreshToken()**: obtiene el token de acceso a partir de un token de actualización.
 * **getAccessToken()**: obtiene el token de acceso desde un flujo de OpenID Connect (que usamos).
-* **createSessionPrincipal()**: crea una entidad de seguridad de sesión que se usará para el acceso de la API Graph.
+* **createSessionPrincipal()**: crea una entidad de seguridad de sesión que se usará para el acceso de Graph API.
 * **getRedirectUrl()**: obtiene la dirección redirectURL para compararla con el valor especificado en el portal.
 
 ## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>Paso 9: Compilación y ejecución del ejemplo en Tomcat

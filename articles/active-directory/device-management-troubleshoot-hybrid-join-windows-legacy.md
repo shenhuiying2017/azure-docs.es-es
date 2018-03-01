@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -82,6 +82,18 @@ Si la unión a Azure AD híbrido no se realiza correctamente, el cuadro de diál
 - No está registrado como un usuario de dominio
 
     ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Existen motivos diferentes por los que esto puede ocurrir:
+    
+    1. Si el usuario con la sesión iniciada no es un usuario del dominio (por ejemplo, un usuario local). La combinación híbrida de Azure AD en dispositivos de nivel inferior solo se admite para los usuarios del dominio.
+    
+    2. Si, por cualquier motivo, Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Algunos posibles motivos pueden ser los problemas de conectividad de red saliente a las direcciones URL de Azure AD (compruebe los requisitos previos) o si la autenticación multifactor está habilitada o configurada para el usuario, pero WIAORMUTLIAUTHN no está configurado en el servidor de federación (compruebe los pasos de la configuración). Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que Autoworkplace.exe obtenga de forma silenciosa un 
+    
+    3. Si la organización usa el inicio de sesión único de conexión directa de Azure AD, las siguientes direcciones URL no aparecen en la configuración de la intranet de Internet Explorer del dispositivo:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    y la opción "Permitir actualizaciones en la barra de estado a través de script" debe estar habilitada para la zona de la intranet.
 
 - Se ha alcanzado una cuota
 
@@ -107,6 +119,6 @@ También puede encontrar la información de estado en el registro de eventos en 
 
   - Un usuario ha alcanzado el límite de dispositivos. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si tiene preguntas, consulte las [preguntas más frecuentes sobre la administración de dispositivos](device-management-faq.md).  

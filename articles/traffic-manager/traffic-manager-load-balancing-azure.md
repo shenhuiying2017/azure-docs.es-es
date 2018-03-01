@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -63,8 +63,8 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Paso 1: Creación de un perfil de Traffic Manager
 
-1. Vaya a Azure Portal, haga clic en **Nuevo** y busque en Marketplace "Perfil de Traffic Manager".
-2. En la hoja **Create Traffic Manager profile** (Crear perfil de Traffic Manager), escriba la siguiente información básica:
+1. En Azure Portal, haga clic en **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
+2. Escriba la información básica siguiente:
 
   * **Nombre**: proporciona un nombre de prefijo DNS para el perfil de Traffic Manager.
   * **Método de enrutamiento**: seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
@@ -78,7 +78,7 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 
 ### <a name="step-2-create-the-application-gateways"></a>Paso 2: Creación de las puertas de enlace de aplicaciones
 
-1. En Azure Portal, vaya al panel izquierdo y haga clic en **Nuevo** > **Redes** > **Application Gateway**.
+1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Application Gateway**.
 2. Rellene la información básica de la puerta de enlace de aplicaciones:
 
   * **Nombre**: nombre de la puerta de enlace de aplicaciones.
@@ -100,15 +100,15 @@ Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configur
 
 1. En el grupo de recursos, vaya a la instancia de la puerta de enlace de aplicaciones que creó en la sección anterior.
 2. En **Configuración**, seleccione **Backend pools** (Grupos de back-end) y seleccione **Agregar** para agregar las máquinas virtuales que desee asociar a los grupos de back-end del nivel web.
-3. En la hoja **Add backend pool** (Agregar grupo de back-end), escriba el nombre del grupo de back-end y todas las direcciones IP de las máquinas que residen en él. En este escenario, se conectan dos grupos de servidores de back-end de máquinas virtuales.
+3. Escriba el nombre del grupo de back-end y todas las direcciones IP de las máquinas que residen en él. En este escenario, se conectan dos grupos de servidores de back-end de máquinas virtuales.
 
-  ![Hoja "Add backend pool" (Agregar grupo de back-end) de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  !["Add backend pool" (Agregar grupo de back-end) de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. En **Configuración** de la puerta de enlace de aplicaciones, seleccione **Reglas** y haga clic en el botón **Path based** (Basada en ruta de acceso) para agregar una nueva regla.
 
   ![Botón "Basada en ruta de acceso" de las reglas de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. En la hoja **Add path-based rule** (Agregar regla basada en ruta de acceso), proporcione la siguiente información para configurar la regla:
+5. Para configurar la regla, proporcione la información siguiente.
 
    Configuración básica:
 
@@ -138,13 +138,13 @@ En este escenario, Traffic Manager está conectado a las puertas de enlace de ap
 
   ![Botón "Agregar" de puntos de conexión de Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. En la hoja **Add endpoint** (Agregar punto de conexión), cree un punto de conexión escribiendo la siguiente información:
+3. Para crear un punto de conexión, escriba la información siguiente:
 
   * **Tipo**: seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
   * **Nombre**: escriba el nombre del punto de conexión.
   * **Tipo de recurso de destino**: seleccione **Dirección IP pública** y, en **Target resource** (Recurso de destino), seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
 
-   ![Hoja "Add endpoint" (Agregar punto de conexión)](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   !["Add endpoint" (Agregar punto de conexión) en Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Ahora puede probar la configuración accediendo a ella con el DNS de su perfil de Traffic Manager (en este ejemplo, TrafficManagerScenario.trafficmanager.net). Puede reenviar solicitudes, activar o desactivar máquinas virtuales y servidores web creados en distintas regiones y cambiar la configuración de perfil de Traffic Manager para probar la configuración.
 
@@ -156,8 +156,8 @@ Si el clúster de base de datos de alta disponibilidad usa SQL Server AlwaysOn, 
 
 Para más información cómo configurar un equilibrador de carga interno, consulte [Creación de un equilibrador de carga interno en Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. En Azure Portal, vaya al panel izquierdo y haga clic en **Nuevo** > **Redes** > **Equilibrador de carga**.
-2. En la hoja **Create load balancer** (Crear equilibrador de carga), escriba un nombre para el equilibrador de carga.
+1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Equilibrador de carga**.
+2. Elija un nombre para el equilibrador de carga.
 3. Establezca **Tipo** en **Interno** y elija la red virtual y la subred adecuadas para que resida el equilibrador de carga.
 4. En **IP address assignment** (Asignación de direcciones IP), seleccione **Dinámica** o **Estática**.
 5. En **Grupo de recursos**, elija el grupo de recursos para el equilibrador de carga.
@@ -169,18 +169,18 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 1. En el grupo de recursos, busque el equilibrador de carga que se creó en los pasos anteriores.
 2. En **Configuración**, haga clic en **Backend pools** (Grupos de back-end) y en **Agregar** para agregar un grupo de back-end.
 
-  ![Hoja "Add backend pool" (Agregar grupo de back-end) del equilibrador de carga](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  !["Add backend pool" (Agregar grupo de back-end) en Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. En la hoja **Add backend pool** (Agregar grupo de back-end), escriba el nombre del grupo de back-end.
+3. Escriba el nombre del grupo de back-end.
 4. Agregue máquinas individuales o un conjunto de disponibilidad al grupo de back-end.
 
 #### <a name="configure-a-probe"></a>Configuración de un sondeo
 
 1. En el equilibrador de carga, en **Configuración**, seleccione **Probes** (Sondeos) y luego haga clic en **Agregar** para agregar un sondeo.
 
- ![Hoja "Add probe" (Agregar sondeo) de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ !["Add probe" (Agregar sondeo) de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. En la hoja **Add probe** (Agregar sondeo), escriba el nombre del sondeo.
+2. Escriba el nombre del sondeo.
 3. Seleccione un valor en **Protocolo** para el sondeo. Para una base de datos, probablemente le convenga más un sondeo TCP que uno HTTP. Para más información sobre los sondeos de Load Balancer, consulte [Sondeos de Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md).
 4. A continuación, escriba un valor en **Puerto** para la base de datos que se va a usar al acceder al sondeo.
 5. En **Intervalo**, especifique la frecuencia de sondeo de la aplicación.
@@ -190,7 +190,7 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 #### <a name="configure-the-load-balancing-rules"></a>Configuración de las reglas de equilibrio de carga
 
 1. En **Configuración** para el equilibrador de carga, seleccione **Load balancing rules** (Reglas de equilibrio de carga) y luego haga clic en **Agregar** para crear una regla.
-2. En la hoja **Add load balancing rule** (Agregar regla de equilibrio de carga), escriba un valor en **Nombre** para la regla de equilibrio de carga.
+2. Escriba el **nombre** de la regla de equilibrio de carga.
 3. Elija un valor en **Frontend IP Address** (Dirección IP de front-end) para el equilibrador de carga, así como para **Protocolo** y **Puerto**.
 4. En **Backend port** (Puerto back-end), especifique el puerto que se usará en el grupo de back-end.
 5. Seleccione los valores de **Backend pool** (Grupo de back-end) y en **Sondeo** creados en los pasos anteriores para aplicarles la regla.
@@ -201,11 +201,11 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Paso 5: Conexión de máquinas virtuales de nivel web al equilibrador de carga
 
-Ahora se configuran la dirección IP y el puerto de front-end del equilibrador de carga en las aplicaciones que se ejecutan en las máquinas virtuales de nivel web para cualquier conexión de base de datos. Esta configuración es específica de la aplicación que se ejecuta en estas máquinas virtuales. Para configurar la dirección IP de destino y el puerto, consulte la documentación de la aplicación. Para buscar la dirección IP del front-end, en Azure Portal, vaya al grupo de IP de font-end en la hoja **Load balancer settings** (Configuración del equilibrador de carga).
+Ahora se configuran la dirección IP y el puerto de front-end del equilibrador de carga en las aplicaciones que se ejecutan en las máquinas virtuales de nivel web para cualquier conexión de base de datos. Esta configuración es específica de la aplicación que se ejecuta en estas máquinas virtuales. Para configurar la dirección IP de destino y el puerto, consulte la documentación de la aplicación. Para buscar la dirección IP del front-end, en Azure Portal, vaya al grupo de IP de font-end en la **configuración del equilibrador de carga**.
 
 ![Panel de navegación "Frontend IP pool" (Grupo de IP de font-end) de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 * [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)

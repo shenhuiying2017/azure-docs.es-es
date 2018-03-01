@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
-En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps. También le permite enviar notificaciones de alerta o llamar a direcciones URL web basadas en valores de datos de telemetría configurados.
+En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
 
 > [!NOTE]
 > Azure Monitor es el nuevo nombre de lo que se conocía como "Azure Insights" hasta el 25 de septiembre de 2016. Sin embargo, los espacios de nombres y, por tanto, los siguientes comandos, aún contienen el término "insights".
@@ -147,8 +147,8 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 
 | Parámetro | value |
 | --- | --- |
-| Nombre |simpletestdiskwrite |
-| Ubicación (Location) de esta regla de alerta |Este de EE. UU. |
+| NOMBRE |simpletestdiskwrite |
+| Ubicación (Location) de esta regla de alerta |Este de EE. UU |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Hay disponible una lista completa de opciones para `Get-AzureRmMetricDefinition` en [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Creación y administración de alertas del registro de actividades
+Puede usar el cmdlet `Set-AzureRmActivityLogAlert` para establecer una alerta de registro de actividad. Una alerta de registro de actividad requiere que primero defina las condiciones como un diccionario de condiciones, y luego cree una alerta que utilice esas condiciones.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Las propiedades de webhook adicionales son opcionales. Puede volver el contenido de una alerta de registro de actividad con `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Creación y administración de la configuración de escalado automático
 Los recursos (aplicaciones web, las máquinas virtuales, los servicios en la nube o los conjuntos de escalado de máquinas virtuales) solo pueden tener una configuración de escalado automático.
@@ -299,7 +315,7 @@ Para capturar los perfiles de registro existentes, use el cmdlet `Get-AzureRmLog
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
-### <a name="remove-a-log-profile"></a>Eliminación de perfil de registro
+### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
 ```PowerShell
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
@@ -343,7 +359,7 @@ Habilitación de la configuración de diagnóstico sin retención
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true
 ```
 
-Habilitación de la configuración de diagnóstico con retención
+Habilitación la configuración de diagnóstico con retención
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true -RetentionEnabled $true -RetentionInDays 90

@@ -1,22 +1,26 @@
 ---
-title: "Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack"
-description: "Obtenga información acerca de cómo un administrador de la nube puede agregar el escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack."
+title: "Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack | Microsoft Docs"
+description: "Obtenga información acerca de cómo un operador de la nube puede agregar el escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack."
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure Stack. Puede utilizarlos para implementar y administrar un conjunto de máquinas virtuales idénticas. Si todas las máquinas virtuales tienen la misma configuración, los conjuntos de escalado no requieren un aprovisionamiento previo de las máquinas virtuales. Esto facilita la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedores, de macroproceso y macrodatos.
 
@@ -28,7 +32,7 @@ Los conjuntos de escalado de máquinas virtuales en Azure Stack son similares a 
 
 En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten escalado automático. Puede agregar más instancias a un conjunto de escalado a través del portal de Azure Stack, las plantillas de Resource Manager o PowerShell.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **PowerShell y herramientas**
 
    Instalación y configuración de PowerShell para Azure Stack y las herramientas de Azure Stack. Consulte [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md) (Ponerse en marcha con PowerShell en Azure Stack).
@@ -47,7 +51,7 @@ En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten esca
 
 Edite el siguiente script de PowerShell para su entorno y, después, ejecútelo para agregar un conjunto de escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack. 
 
-``$User`` es la cuenta que usa para conectar el portal de administración. Por ejemplo: serviceadmin@contoso.onmicrosoft.com.
+``$User`` es la cuenta que usa para conectar el portal de administración. Por ejemplo, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -80,6 +84,6 @@ Para eliminar un elemento de la galería del conjunto de escalado de máquinas v
 > Es posible que el elemento de la galería no se quite de forma inmediata. Es posible que deba actualizar el portal varias veces para que se quite de Marketplace.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Preguntas frecuentes acerca de Azure Stack](azure-stack-faq.md)
 

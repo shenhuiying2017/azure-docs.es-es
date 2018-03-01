@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -28,7 +28,7 @@ Azure SQL Database puede emitir métricas y registros de diagnóstico para facil
 * **Azure Event Hubs**: se utiliza para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
 * **Azure Log Analytics**: se utiliza para la solución de supervisión lista para usar con funcionalidades de generación de informes, alertas y mitigación.
 
-    ![Arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -36,7 +36,7 @@ Las métricas y los registros de diagnóstico no están habilitados de forma pre
 
 - Azure Portal
 - PowerShell
-- CLI de Azure
+- Azure CLI
 - API de REST de Azure Monitor 
 - Plantilla del Administrador de recursos de Azure
 
@@ -125,7 +125,7 @@ Proporcione el identificador de recurso del área de trabajo &lt;$WSID&gt; como 
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para habilitar las métricas y los registros de diagnóstico con la CLI de Azure, use los siguientes comandos:
 
@@ -157,7 +157,7 @@ Para habilitar las métricas y los registros de diagnóstico con la CLI de Azure
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
-### <a name="rest-api"></a>API de REST
+### <a name="rest-api"></a>API DE REST
 
 Lea sobre cómo [cambiar la configuración de diagnóstico con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
@@ -180,7 +180,7 @@ La supervisión de la línea de SQL Database es sencilla con Log Analytics. Se n
 
 ### <a name="create-a-log-analytics-resource"></a>Creación de un recurso de Log Analytics
 
-1. En el menú de la izquierda, seleccione **Nuevo**.
+1. Seleccione **Crear un recurso** en el menú de la izquierda.
 
 2. Seleccione **Supervisión y administración**.
 
@@ -271,12 +271,12 @@ Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../sto
 
 ### <a name="query-store-runtime-statistics"></a>Estadísticas de tiempo de ejecución del Almacén de consultas
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
@@ -322,12 +322,12 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 
 ### <a name="query-store-wait-statistics"></a>Estadísticas de espera del Almacén de consultas
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent|
@@ -360,12 +360,12 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 
 ### <a name="errors-dataset"></a>Conjunto de datos de errores
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Errors|
 |nombreOperación|Nombre de la operación. Siempre: ErrorEvent|
@@ -389,12 +389,12 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de datos de estadísticas de espera de base de datos
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent|
@@ -418,12 +418,12 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 
 ### <a name="time-outs-dataset"></a>Conjunto de datos de los tiempos de espera
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Timeouts|
 |nombreOperación|Nombre de la operación. Siempre: TimeoutEvent|
@@ -441,12 +441,12 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 
 ### <a name="blockings-dataset"></a>Conjunto de datos de bloqueos
 
-|Propiedad|Descripción|
+|Propiedad|DESCRIPCIÓN|
 |---|---|
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|Tipo|Siempre: AzureDiagnostics|
+|type|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Blocks|
 |nombreOperación|Nombre de la operación. Siempre: BlockEvent|
@@ -466,7 +466,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 ### <a name="intelligent-insights-dataset"></a>Conjunto de datos de Intelligent Insights
 Obtenga más información sobre el [formato de registro de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, lea lo siguiente:
 

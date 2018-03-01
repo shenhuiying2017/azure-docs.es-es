@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solución de problemas de rutas mediante Azure Portal
 > [!div class="op_single_selector"]
-> * 
-            [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -56,7 +55,7 @@ Aunque este ejemplo utiliza solo rutas de sistema, los pasos siguientes pueden u
 Para ver las rutas agregadas que se aplican a una máquina virtual, complete los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com. La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Haga clic en **Más servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
+2. Haga clic en **Todos los servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
 3. En la lista seleccione una máquina virtual para solucionar problemas, después de hacerlo se abrirá una hoja de máquina virtual con opciones.
 4. Haga clic en **Diagnosticar y solucionar problemas** y, a continuación, seleccione un problema común. En este ejemplo está seleccionado **No puedo conectar con mi VM Windows** .
 
@@ -98,7 +97,7 @@ Para informarse sobre más escenarios de solución de problemas para la evaluaci
 Si el flujo de tráfico de red se ve afectado para una interfaz de red (NIC) determinada, puede ver una lista completa de rutas eficaces directamente en una NIC. Para ver las rutas agregadas que se aplican a una NIC, complete los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-2. Haga clic en **Más servicios** y, a continuación, haga clic en **Interfaces de red**.
+2. Haga clic en **Todos los servicios** y, luego, en **Interfaces de red**.
 3. En la lista busque el nombre de una NIC o selecciónelo en la lista que aparece. En este ejemplo está seleccionada **VM1 NIC1** .
 4. Seleccione **Rutas eficaces** en la hoja **Interfaz de red**, como se muestra en la siguiente imagen:
 
@@ -118,7 +117,7 @@ En este ejemplo, se ha especificado una UDR (*UDRoute*) en una tabla de rutas (*
 Para ver las rutas agregadas que se aplican a una tabla de rutas, complete los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-2. Haga clic en **Más servicios** y, a continuación, haga clic en **Tablas de rutas**.
+2. Haga clic en **Todos los servicios** y, luego, en **Tablas de rutas**.
 3. Busque en la lista la tabla de rutas para la que desea ver las rutas agregadas y selecciónela. En este ejemplo, **UDRouteTable** está seleccionada. Aparece una hoja de la tabla de rutas seleccionada, tal como se muestra en la siguiente imagen:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

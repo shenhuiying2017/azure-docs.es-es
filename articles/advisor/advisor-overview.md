@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -32,7 +32,7 @@ Con Advisor, puede:
 * Mejorar el rendimiento, la seguridad y la alta disponibilidad de los recursos, al mismo tiempo que identifica oportunidades para reducir el gasto general de Azure, y
 * Obtener recomendaciones con acciones propuestas en línea.
 
-Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Advisor** en el menú de navegación o búsquelo en el menú **Más servicios**.
+Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Asesor** en el menú de navegación o búsquelo en el menú **Todos los servicios**.
 
 El panel de Advisor muestra recomendaciones personalizadas para todas las suscripciones.  Puede aplicar filtros para mostrar las recomendaciones para determinadas suscripciones y tipos de recursos.  Las recomendaciones se dividen en cuatro categorías: 
 
@@ -57,7 +57,7 @@ Si no desea realizar de inmediato una acción basada en una recomendación, pued
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="how-do-i-access-advisor"></a>¿Cómo se accede a Advisor?
-Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Advisor** en el menú de navegación o búsquelo en el menú **Más servicios**.
+Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Asesor** en el menú de navegación o búsquelo en el menú **Todos los servicios**.
 
 También puede ver las recomendaciones de Advisor a través de la interfaz de recursos de la máquina virtual. Seleccione una máquina virtual y después desplácese a las recomendaciones de Advisor en el menú. 
 
@@ -73,7 +73,7 @@ Advisor proporciona recomendaciones para máquinas virtuales, conjuntos de dispo
 
 Para posponer o descartar una recomendación, haga clic en el **Snooze** (Posponer). Puede especificar un tiempo de posposición o seleccionar **Never** (Nunca) para descartar la recomendación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 

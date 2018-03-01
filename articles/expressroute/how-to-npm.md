@@ -1,9 +1,9 @@
 ---
-title: "Configuración de Network Performance Monitor para circuitos Azure ExpressRoute (versión preliminar) | Microsoft Docs"
-description: "Configure Network Performance Monitor para los circuitos Azure ExpressRoute. (versión preliminar)"
+title: "Configuración de Network Performance Monitor para circuitos Azure ExpressRoute | Microsoft Docs"
+description: "Configure la supervisión de red basada en la nube de circuitos Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configuración de Network Performance Monitor para ExpressRoute (versión preliminar)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
 Network Performance Monitor es una solución que supervisa la conectividad entre las implementaciones de nube de Azure y las ubicaciones de local (sucursales, etcétera) de supervisión de red en la nube. Network Performance Monitor forma parte de Microsoft Operations Management Suite (OMS) Network Performance Monitor ahora ofrece una extensión para ExpressRoute que le permite supervisar el rendimiento de la red a través de circuitos ExpressRoute configurados para usar el emparejamiento privado. Cuando configura Network Performance Monitor para ExpressRoute, puede detectar problemas de red para identificar y eliminar.
 
@@ -62,9 +62,15 @@ Se instalan agentes de supervisión en varios servidores, tanto en el entorno lo
 
 Si ya usa Network Performance Monitor para supervisar otros servicios u objetos y ya dispone de un área de trabajo en una de las regiones admitidas, puede omitir el paso 1 y 2 y empezar la configuración en el paso 3.
 
-## <a name="configure"></a>Paso 1: Creación de un área de trabajo (en la suscripción que tiene las redes virtuales vinculadas a los circuitos de ExpressRoute)
+## <a name="configure"></a>Paso 1: Creación de un área de trabajo
+
+Cree un área de trabajo en la suscripción que tiene las redes virtuales vinculadas a los circuitos ExpressRoute.
 
 1. En [Azure Portal](https://portal.azure.com), seleccione la suscripción que tiene las redes virtuales emparejadas al circuito de ExpressRoute. A continuación, busque en la lista de servicios de **Marketplace** "Network Performance Monitor". Cuando se devuelva el resultado, haga clic para abrir la página **Network Performance Monitor**.
+
+>[!NOTE]
+>Puede crear una nueva área de trabajo o usar una existente.  Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de OMS - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
@@ -79,29 +85,25 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
   >[!NOTE]
   >El circuito ExpressRoute podría estar en cualquier parte del mundo y no tiene que estar en la misma región que el área de trabajo.
   >
-
-
+  
   ![área de trabajo](.\media\how-to-npm\4.png)<br><br>
 4. Haga clic en **Aceptar** para guardar e implementar la plantilla de configuración. Una vez validada la plantilla, haga clic en **Crear** para implementar el área de trabajo.
 5. Una vez implementado el área de trabajo, vaya al recurso **NetworkMonitoring(name)** que ha creado. Valide la configuración y haga clic en **La solución necesita una configuración adicional**.
 
   ![configuración adicional](.\media\how-to-npm\5.png)
-6. En la página **Bienvenido a Network Performance Monitor**, seleccione **Use TCP para transacciones sintéticas**  y después haga clic en **Enviar**. Las transacciones de TCP se usan solo para realizar e interrumpir la conexión. No se envía ningún dato en estas conexiones TCP.
-
-  ![TCP para transacciones sintéticas](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Paso 2: Instalación y configuración de agentes
 
 ### <a name="download"></a>2.1: Descarga del archivo de instalación del agente
 
-1. En la página **Configuración de Network Performance Monitor - Configuración TCP** para el recurso, en la sección **Instalar los agentes de OMS**, haga clic en el agente que se corresponde con el procesador del servidor y descargue el archivo de instalación.
+1. Vaya a la pestaña **Configuración común** de la página **Configuración de Monitor de rendimiento de red** del recurso. Haga clic en el agente que se corresponda con el procesador de su servidor en la sección **Instalar los agentes de OMS** y descargue el archivo de instalación.
 
   >[!NOTE]
   >El agente debe instalarse en Windows Server (2008 SP1 o posterior). No se admite la supervisión de circuitos ExpressRoute mediante el sistema operativo de escritorio Windows y el sistema operativo Linux. 
   >
   >
 2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
-3. En la sección **Configurar agentes**, descargue el script de PowerShell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
+3. En la sección **Configuración de los agentes de OMS para la supervisión mediante el protocolo TCP**, descargue el script de Powershell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
 
   ![Script de PowerShell](.\media\how-to-npm\7.png)
 

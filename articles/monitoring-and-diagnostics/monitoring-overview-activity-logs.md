@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 **Azure Activity Log** es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Esta incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Estado del servicio. El Registro de actividad se conocía anteriormente como "Registros de auditoría" o "Registros operativos", ya que la categoría Administrativo notifica eventos del plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
@@ -73,9 +73,9 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consulta de Activity Log en Azure Portal
 En Azure Portal puede ver el registro de actividad en varios lugares:
-* La **hoja de Activity Log**, a la que se puede acceder buscando Activity Log en "More Services" (Más servicios) en el panel de navegación izquierdo.
-* La **hoja Monitor**, que aparece de forma predeterminada en el panel de navegación izquierdo. Activity Log es una de las secciones de esta hoja Azure Monitor.
-* La **hoja de recursos** de cualquier recurso, por ejemplo, la hoja de configuración de una máquina virtual. Activity Log es una de las secciones en la mayoría de estas hojas de recursos y al hacer clic en ella automáticamente filtra los eventos relacionados con ese recurso concreto.
+* El **Registro de actividad** al que tiene acceso buscando Registro de actividad en **Todos los servicios** en el panel de navegación izquierdo.
+* **Monitor** aparece de forma predeterminada en el panel de navegación izquierdo. El Registro de actividad es una de las secciones de Azure Monitor.
+* El **recurso** de cualquier recurso, por ejemplo, la hoja de configuración de una máquina virtual. Activity Log es una de las secciones en la mayoría de estas hojas de recursos y al hacer clic en ella automáticamente filtra los eventos relacionados con ese recurso concreto.
 
 En Azure Portal, puede filtrar Activity Log por estos campos:
 * Intervalo de tiempo: la hora de inicio y finalización para los eventos.
@@ -113,7 +113,7 @@ Estas opciones se pueden configurar a través de la opción de exportación en l
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configuración de perfiles de registro mediante Azure Portal
 Puede transmitir el registro de actividad a un centro de eventos o almacenarlo en una cuenta de almacenamiento mediante la opción "Exportar" en Azure Portal.
 
-1. Vaya a la hoja de **registro de actividad** mediante el menú en el lado izquierdo del portal.
+1. Vaya a la hoja **Registro de actividad** mediante el menú en el lado izquierdo del portal.
 
     ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Haga clic en el botón **Exportar** en la parte superior de la hoja.

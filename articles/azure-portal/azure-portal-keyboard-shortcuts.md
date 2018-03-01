@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
 Este artículo muestra los métodos abreviados de teclado que funcionan en Azure Portal. Los servicios individuales pueden tener sus propios métodos abreviados de teclado.
@@ -28,7 +28,7 @@ Este artículo muestra los métodos abreviados de teclado que funcionan en Azure
 |Para hacer esto |Presione |
 | --- | --- |
 |Crear un nuevo recurso|G + N|
-|Abrir el panel "Más servicios"|G + B|
+|Abrir el panel "Todos los servicios"|G + B|
 |Búsqueda de recursos|G + /| 
 |Buscar elementos del menú de recursos|CTRL + / |
 |Subir el elemento del panel izquierdo seleccionado |ALT + MAYÚS + Flecha arriba|

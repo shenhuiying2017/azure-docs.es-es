@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e7b431655d84c6371c62bbab83244ac88391442
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 En este tutorial, se crea una nueva máquina virtual Windows.  También puede habilitar MSI en una máquina virtual existente.
 
-1.  Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1.  Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2.  Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
 3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
 4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.

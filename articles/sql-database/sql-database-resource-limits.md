@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Límites de recursos de SQL Database
 
@@ -53,7 +53,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 * Si va a actualizar a un nivel de servicio o rendimiento más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
 * Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del nivel de rendimiento. 
-* Al pasar de la versión **Premium** o **Premium RS** al nivel **Estándar**, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de la base de datos es compatible con el nivel de rendimiento de destino y (2) el tamaño máximo supera la cantidad de almacenamiento incluido del nivel de rendimiento de destino. Por ejemplo, si una base de datos P1 con un tamaño máximo de 500 GB se reduce a S3, se aplica un costo de almacenamiento adicional porque S3 admite un tamaño máximo de 500 GB y su cantidad de almacenamiento incluido es solo de 250 GB. Por lo tanto, la cantidad de almacenamiento adicional es 500 GB – 250 GB = 250 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. 
+* Al pasar del nivel **Premium** al nivel **Estándar**, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de la base de datos es compatible con el nivel de rendimiento de destino y (2) el tamaño máximo supera la cantidad de almacenamiento incluido del nivel de rendimiento de destino. Por ejemplo, si una base de datos P1 con un tamaño máximo de 500 GB se reduce a S3, se aplica un costo de almacenamiento adicional porque S3 admite un tamaño máximo de 500 GB y su cantidad de almacenamiento incluido es solo de 250 GB. Por lo tanto, la cantidad de almacenamiento adicional es 500 GB – 250 GB = 250 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. 
 * Al actualizar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la principal (regla general). Al actualizar a una diferente, antes hay que actualizar la base de datos secundaria.
 * Al cambiar a una versión anterior de una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, cambie a una versión anterior sus bases de datos principales al nivel de rendimiento deseado antes de cambiar a una versión anterior la secundaria (regla general). Al cambiar a una versión anterior a una edición diferente, antes hay que cambiar la principal a una versión anterior.
 * Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si va a cambiar al nivel **Básico**, hay un período de retención de copia de seguridad más bajo; consulte [Copias de seguridad de Azure SQL Database](sql-database-automated-backups.md).
@@ -111,6 +111,19 @@ Puede aumentar o disminuir los recursos disponibles para un grupo elástico en f
 - En general, la duración del cambio de las eDTU mínimas por base de datos o de las eDTU máximas por base de datos suele ser de cinco minutos o menos.
 - Cuando se reducen las eDTU del grupo, el grupo usado debe ser menor que el tamaño máximo permitido del nivel de servicio de destino y de las eDTU de grupo.
 - Cuando se cambia la escala de las eDTU de grupo, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de almacenamiento del grupo de es compatible con el grupo de destino, y (2) el tamaño máximo de almacenamiento supera la cantidad de almacenamiento incluido del grupo de destino. Por ejemplo, si un grupo Estándar de 100 eDTU con un tamaño máximo de 100 GB se reduce a un grupo Estándar de 50 eDTU, se aplica un costo de almacenamiento adicional porque el grupo de destino admite un tamaño máximo de 100 GB y su cantidad de almacenamiento incluido es solo de 50 GB. Por lo tanto, la cantidad de almacenamiento adicional es 100 GB – 50 GB = 50 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>¿Cuál es el número máximo de servidores y bases de datos?
+
+| Máxima | Valor |
+| :--- | :--- |
+| Bases de datos por servidor | 5000 |
+| Número de servidores por suscripción por región | 21 |
+|||
+
+> [!IMPORTANT]
+> A medida que el número de bases de datos se aproxima al límite por servidor, puede ocurrir lo siguiente:
+> <br> •    Aumento de la latencia de las consultas en ejecución en la base de datos maestra.  Incluye vistas de las estadísticas del uso de los recursos como sys.resource_stats.
+> <br> •    Aumento de la latencia en las operaciones de administración y presentación de las perspectivas del portal que implican enumerar las bases de datos del servidor.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>¿Qué ocurre cuando se alcanzan los límites de recursos de bases de datos y grupos elásticos?
 

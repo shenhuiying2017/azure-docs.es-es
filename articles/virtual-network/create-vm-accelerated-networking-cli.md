@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
@@ -48,8 +48,8 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 * **Ubuntu 16.04**: 4.11.0-1013 o versión superior de kernel
 * **SLES SP3**: 4.4.92-6.18 o versión superior de kernel
-* **RHEL**: 7.4.2017120423 o versión superior de kernel
-* **CentOS**: 7.4.20171206 o versión superior de kernel
+* **RHEL 7.4**: 7.4.2017120423 o versión superior del kernel
+* **CentOS 7.4**: 7.4.20171206 o versión superior del kernel
 
 ## <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
 Accelerated Networking se admite con tamaños de instancia optimizados para procesos de cuatro o más vCPU y con los fines más generales. En instancias como DSv3/D o E/ESv3 que admiten hyperthreading, Accelerated Networking se admite en instancias de máquinas virtuales con ocho o más vCPU.  Las series admitidas son: D/DSv2, D/DSv3, ESv3/E, F/Fs/Fsv2 y Ms/Mms. 

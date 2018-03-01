@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Utilización de una aplicación de línea de comandos de Java para tener acceso a una API con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,9 +44,9 @@ Para empezar, [descargue el esquema de la aplicación](https://github.com/Azure-
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Registro de una aplicación con Azure AD
 Para habilitar su aplicación a fin de autenticar a los usuarios, primero deberá registrar una nueva aplicación en su inquilino.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y elija **Agregar**.
 5. Siga las indicaciones y cree una nueva **Aplicación web y/o API web**.
   * El **nombre** de la aplicación describirá su aplicación a los usuarios finales
@@ -182,7 +182,7 @@ Aquí configuraremos el ADAL4J para usar el protocolo de autenticación OpenID C
 
 
 ## <a name="3-create-the-java-publicclient-file"></a>3. Creación del archivo PublicClient de Java
-Como se indicó anteriormente, usaremos API Graph para obtener datos sobre el usuario que inició sesión. Para que nos resulte sencillo, debemos crear un archivo para representar un **objeto de directorio** y un archivo individual para representar al **usuario** para que se pueda usar el modelo orientado a objetos de Java.
+Como se indicó anteriormente, usaremos Graph API para obtener datos sobre el usuario que inició sesión. Para que nos resulte sencillo, debemos crear un archivo para representar un **objeto de directorio** y un archivo individual para representar al **usuario** para que se pueda usar el modelo orientado a objetos de Java.
 
 * Cree un archivo llamado `DirectoryObject.java` que usaremos para almacenar los datos básicos sobre cualquier DirectoryObject (puede usarlo más adelante en todas las consultas de Graph que se pueden hacer). Puede cortar y pegar lo siguiente:
 
@@ -263,7 +263,7 @@ Ahora debería tener un archivo `adal4jsample.war` en su directorio `/targets`. 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-¡Enhorabuena! Ahora tiene una aplicación de Java operativa que tiene la capacidad de autenticar usuarios, realizar llamadas seguras a las API web que usan OAuth 2.0 y obtener información básica sobre el usuario.  Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios.
+Felicidades. Ahora tiene una aplicación de Java operativa que tiene la capacidad de autenticar usuarios, realizar llamadas seguras a las API web que usan OAuth 2.0 y obtener información básica sobre el usuario.  Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios.
 
 Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
