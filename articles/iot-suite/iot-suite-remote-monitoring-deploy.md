@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Implementación de la solución preconfigurada de supervisión remota
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Implementar la solución preconfigurada
 > * Iniciar sesión en la solución preconfigurada
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, deberá tener una suscripción activa de Azure.
 
@@ -80,9 +80,9 @@ Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en la 
 
 1. El panel de la solución de supervisión remota se muestra en el explorador.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Configurar la solución preconfigurada

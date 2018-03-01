@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Implemente un servicio de división y combinación
 La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -34,13 +34,13 @@ La herramienta de división y combinación permite mover los datos entre bases d
 
 Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** , donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio de división y combinación en el subdirectorio **content\splitmerge\service** y los scripts de PowerShell de división y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Requisitos previos
-1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya al [Portal de Azure](https://portal.azure.com). Cree una nueva **Base de datos SQL**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
+## <a name="prerequisites"></a>requisitos previos
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya a [Azure Portal](https://portal.azure.com). Cree una nueva **SQL Database**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el portal, en **Configuración de firewall**, asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté establecida en **Activado**. Haga clic en el icono de "guardar".
    
    ![Servicios permitidos][1]
-3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya a Azure Portal. En la barra de la izquierda, haga clic en **Nuevo**, en **Datos + almacenamiento** y en **Almacenamiento**.
-4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación.  Vaya a Azure Portal. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**. 
+3. Cree una cuenta de Azure Storage que se usará para la salida de diagnóstico. Vaya a Azure Portal. En la barra de la izquierda, haga clic en **Crear un recurso**, **Datos y almacenamiento** y luego en **Almacenamiento**.
+4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación.  Vaya a Azure Portal. En la barra de la izquierda, haga clic en **Crear un recurso**, **Proceso**, **Servicio en la nube** y en **Crear**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configuración del servicio de división y combinación
 ### <a name="split-merge-service-configuration"></a>Configuración del servicio División y combinación
@@ -94,7 +94,7 @@ Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; 
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carga del archivo PFX al servicio en la nube
 1. Vaya a [Azure Portal](https://portal.azure.com).
-2. Seleccione **Servicios en la nube**.
+2. Seleccione **Cloud Services**.
 3. Seleccione el servicio en la nube que creó anteriormente para el servicio División y combinación.
 4. Haga clic en **Certificados** en el menú superior.
 5. Haga clic en **Cargar** en la barra inferior.
@@ -124,7 +124,7 @@ Tenga en cuenta que para las implementaciones de producción se deben usar certi
 
 ## <a name="deploy-your-service"></a>Implementación del servicio
 1. Vaya al [Portal de Azure](https://manage.windowsazure.com).
-2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
+2. Haga clic en la pestaña **Cloud Services** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
 3. Haga clic en **Panel**.
 4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
    
@@ -149,7 +149,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
    ```
 
 * Asegúrese de que el nombre del servidor no comience por **https://**.
-* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
+* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "SQL Database" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## <a name="test-the-service-deployment"></a>Prueba de la implementación del servicio
 ### <a name="connect-with-a-web-browser"></a>Conexión con un explorador web
@@ -317,7 +317,7 @@ Es posible ver un ejemplo de esto en el script SetupSampleSplitMergeEnvironment.
 
 El servicio División y combinación no crea la base de datos de destino (o esquema para cualquier tabla de la base de datos) por usted. Deben crearse previamente antes de enviar una solicitud al servicio.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguiente mensaje:
 
    ```

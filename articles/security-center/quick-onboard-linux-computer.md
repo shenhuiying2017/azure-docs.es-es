@@ -9,23 +9,24 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 365afd2199b1b8b2e70d882f6a729384edbdffbc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Linux.
 
 En esta guía de inicio rápido se explica cómo instalar el agente de Linux en un equipo Linux.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita los primeros sesenta días.
@@ -80,7 +81,7 @@ Para eliminar el agente:
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta guía de inicio rápido, se va a aprovisionar el agente en un equipo Linux. Para más información sobre el uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]

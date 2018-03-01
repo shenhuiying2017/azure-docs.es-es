@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Activación y desactivación de roles en Privileged Identity Management de Azure AD
 Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administra el acceso con privilegios a los recursos de Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.  
@@ -31,9 +31,9 @@ Este artículo va dirigido a los administradores que necesitan activar su rol en
 ## <a name="add-the-privileged-identity-management-application"></a>Incorporación de la aplicación Privileged Identity Management
 Use la aplicación Privileged Identity Management de Azure AD en el [Portal de Azure](https://portal.azure.com/) para solicitar una activación del rol aunque vaya a trabajar en otro portal o mediante PowerShell. Si no tiene la aplicación en el Portal de Azure, siga estos pasos para comenzar:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure y elija el directorio donde va a trabajar.
-3. Seleccione **Más servicios** y use el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
+3. Seleccione **Todos los servicios** y use el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
 4. Active **Anclar al panel** y haga clic en **Crear**. Se abre la aplicación Privileged Identity Management.
 
 ## <a name="activate-a-role"></a>Activación de un rol
@@ -67,7 +67,7 @@ En caso de que no necesite activar un rol que requiera aprobación, puede cancel
 
    ![Captura de pantalla de la solicitud de cancelación pendiente][4]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si le interesa aprender más sobre Privileged Identity Management de Azure AD, puede encontrar más información en los siguientes vínculos.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

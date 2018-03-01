@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: protección de los datos confidenciales en Base de datos SQL y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
+# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: protección de los datos confidenciales en SQL Database y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
 
 En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de base de datos mediante el [asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) en [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). También muestra cómo almacenar las claves de cifrado en el almacén de certificados de Windows.
 
-Always Encrypted es una nueva tecnología de cifrado de datos de Base de datos SQL de Azure y SQL Server que ayuda a proteger los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor, y cuando los datos están en uso, lo que garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos. Después de cifrar los datos, solo las aplicaciones cliente o los servidores de aplicaciones que tienen acceso a las claves pueden acceder a los datos de texto no cifrado. Para más información, consulte [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted es una nueva tecnología de cifrado de datos de Azure SQL Database y SQL Server que ayuda a proteger los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor, y cuando los datos están en uso, lo que garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos. Después de cifrar los datos, solo las aplicaciones cliente o los servidores de aplicaciones que tienen acceso a las claves pueden acceder a los datos de texto no cifrado. Para más información, consulte [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Después de configurar la base de datos para usar Always Encrypted, creará una aplicación cliente en C# con Visual Studio para trabajar con los datos cifrados.
 
@@ -38,7 +38,7 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted para un
 * Crear una tabla de base de datos y cifrar columnas.
 * Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para este tutorial, necesitará:
 
 * Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -46,9 +46,9 @@ Para este tutorial, necesitará:
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o posterior (en el equipo cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **SQL Database**.
+## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Haga clic en **Crear un recurso** > **Datos y almacenamiento** > **SQL Database**.
 3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Si desea obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL Database](sql-database-get-started-portal.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted/create-database.png)
@@ -107,12 +107,12 @@ En la página **Introducción**, haga clic en **Siguiente** para abrir la págin
 
 Cifre la información **SSN** y **BirthDate** de cada paciente. La columna **SSN** usará cifrado determinista, que admite búsquedas de igualdad, combinaciones y agrupaciones. La columna **BirthDate** usará cifrado aleatorio, que no admite operaciones.
 
-Establezca el **Tipo de cifrado** de la columna **SSN** en **Determinista** y la columna **BirthDate** en **Aleatoria**. Haga clic en **Siguiente**.
+Establezca el **Tipo de cifrado** de la columna **SSN** en **Determinista** y la columna **BirthDate** en **Aleatoria**. Haga clic en **Next**.
 
 ![Cifrar columnas](./media/sql-database-always-encrypted/column-selection.png)
 
 ### <a name="master-key-configuration"></a>Configuración de la clave maestra
-En la página **Configuración de la clave maestra** se configura la clave maestra de columna (CMK) y se selecciona el proveedor del almacén de claves donde se almacenará la CMK. Actualmente, puede almacenar una CMK en el almacén de certificados de Windows, en Almacén de claves de Azure o en un módulo de seguridad de hardware (HSM). En este tutorial se muestra cómo almacenar las claves en el almacén de certificados de Windows.
+En la página **Configuración de la clave maestra** se configura la clave maestra de columna (CMK) y se selecciona el proveedor del almacén de claves donde se almacenará la CMK. Actualmente, puede almacenar una CMK en el almacén de certificados de Windows, en Azure Key Vault o en un módulo de seguridad de hardware (HSM). En este tutorial se muestra cómo almacenar las claves en el almacén de certificados de Windows.
 
 Compruebe que el **almacén de certificados de Windows** esté seleccionado y haga clic en **Siguiente**.
 
@@ -503,7 +503,7 @@ Par usar SSMS para obtener acceso a los datos de texto no cifrado, puede agregar
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de crear una base de datos que usa Always Encrypted, es posible que quiera hacer lo siguiente:
 
 * Ejecutar este ejemplo desde un equipo diferente. No tendrá acceso a las claves de cifrado, por lo que no tendrá acceso a los datos de texto no cifrado y no se ejecutará correctamente.

@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configuración de un entorno de espacio aislado de HDInsight unido a un dominio
 
-Aprenda a configurar un clúster de Azure HDInsight con Active Directory independiente y [Apache Ranger](http://hortonworks.com/apache/ranger/) para aprovechar la autenticación sólida y las directivas de control de acceso basado en rol (RBAC) enriquecidas. Para más información, consulte [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar))
+Aprenda a configurar un clúster de Azure HDInsight con Active Directory independiente y [Apache Ranger](http://hortonworks.com/apache/ranger/) para aprovechar la autenticación sólida y las directivas de control de acceso basado en rol (RBAC) enriquecidas. Para más información, consulte [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar)) 
+
+> [!IMPORTANT]
+> De forma predeterminada, esta configuración solo puede utilizarse con cuentas de Azure Storage. Para utilizarla con Azure Data Lake Store, sincronice Active Directory con una nueva instancia de Azure Active Directory.
 
 Sin un clúster de HDInsight unido a un dominio, cada clúster solo puede tener una cuenta de usuarios HTTP de Hadoop y una cuenta de usuario SSH.  La autenticación de varios usuario puede lograrse mediante:
 
@@ -40,6 +43,7 @@ El uso de un Active Directory independiente que se ejecute en Azure IaaS se trat
     - Creación de un clúster de HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie no está habilitado en HDInsight unido a un dominio.
 
 ## <a name="prerequisite"></a>Requisito previo

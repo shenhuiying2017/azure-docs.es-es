@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -39,7 +42,7 @@ Para completar este tutorial:
 Cree el almacén en cualquier región, excepto en la de origen.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Haga clic en **Nuevo** > **Supervisión y administración** > **Backup y Site Recovery**.
+2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione la apropiada.
 4. Cree un grupo de recursos o seleccione uno existente. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para acceder rápidamente al almacén desde el panel, haga clic en **Anclar al panel** y, después, en **Crear**.

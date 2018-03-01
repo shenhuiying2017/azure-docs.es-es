@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: dc3ebf3ba232241677dc7aace4f835cee0cf54a7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Data Lake Store
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede habilitar MSI en una máquina virtual existente.
 
-1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 

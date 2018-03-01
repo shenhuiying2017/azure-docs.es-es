@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Uso de Azure Site Recovery para proteger Active Directory y DNS
-Las aplicaciones empresariales, como SharePoint, Dynamics AX y SAP, dependen de la infraestructura de DNS y AD para funcionar correctamente. Cuando se crea una solución de recuperación ante desastres para aplicaciones, a fin de asegurar la correcta funcionalidad de la aplicación, a menudo necesitará recuperar Active Directory y DNS antes que otros componentes de la aplicación.
 
-Puede usar Azure Site Recovery para crear un plan de recuperación ante desastres automatizada completa para Active Directory. Cuando se produce una interrupción, puede iniciar una conmutación por error en segundos desde cualquier lugar. Puede hacer que Active Directory vuelva a funcionar en unos minutos. Si ha implementado Active Directory para varias aplicaciones en el sitio primario, por ejemplo, para SharePoint y SAP, puede querer conmutar por error el sitio completo. En primer lugar, puede conmutar por error Active Directory mediante Site Recovery. A continuación, conmutar por error las otras aplicaciones mediante planes de recuperación específicos para cada aplicación.
+Las aplicaciones empresariales, como SharePoint, Dynamics AX y SAP, dependen de la infraestructura de DNS y AD para funcionar correctamente. Cuando se configura la recuperación ante desastres para aplicaciones, a fin de asegurar la correcta funcionalidad de la aplicación, a menudo necesitará recuperar Active Directory y DNS antes que otros componentes de la aplicación.
 
-En este artículo se explica cómo puede crear una solución de recuperación ante desastres para Active Directory, cómo realizar conmutaciones por error con un plan de recuperación de un solo clic, las configuraciones admitidas y los requisitos previos. Debe estar familiarizado con Active Directory y Azure Site Recovery antes de empezar.
+Puede usar [Site Recovery](site-recovery-overview.md) para crear un plan de recuperación ante desastres para Active Directory. Cuando se produce una interrupción, puede iniciar una conmutación por error. Puede hacer que Active Directory vuelva a funcionar en unos minutos. Si ha implementado Active Directory para varias aplicaciones en el sitio primario, por ejemplo, para SharePoint y SAP, puede querer conmutar por error el sitio completo. En primer lugar, puede conmutar por error Active Directory mediante Site Recovery. A continuación, conmutar por error las otras aplicaciones mediante planes de recuperación específicos para cada aplicación.
+
+En este artículo se explica cómo crear una solución de recuperación ante desastres para Active Directory. Incluye los requisitos previos e instrucciones de conmutación por error. Debe estar familiarizado con Active Directory y Site Recovery antes de empezar.
 
 ## <a name="prerequisites"></a>requisitos previos
-* Un almacén de Azure Recovery Services en una suscripción a Microsoft Azure.
-* Si replica en Azure, [prepare](tutorial-prepare-azure.md) los recursos de Azure. Entre los recursos se incluyen una suscripción a Azure, una instancia de Azure Virtual Network y una cuenta de almacenamiento de Azure.
-* Revise los requisitos de compatibilidad de todos los componentes.
+
+* Si va a replicar en Azure, [prepare los recursos de Azure](tutorial-prepare-azure.md), entre los que se incluyen una suscripción, una red virtual de Azure, una cuenta de almacenamiento y un almacén de Recovery Services.
+* Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
 
 ## <a name="replicate-the-domain-controller"></a>Replicación del controlador de dominio
 
 Debe configurar la [replicación de Site Recovery](#enable-protection-using-site-recovery) como mínimo en una máquina virtual que hospede el controlador de dominio o DNS. Si tiene [varios controladores de dominio](#environment-with-multiple-domain-controllers) en su entorno, también debe configurar un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino. El controlador de dominio adicional puede estar en Azure o en un centro de datos local secundario.
 
-### <a name="single-domain-controller-environments"></a>Entornos de controlador de dominio único
+### <a name="single-domain-controller"></a>Controlador de dominio único
 Si tiene solo algunas aplicaciones y un controlador de dominio, puede querer conmutar por error el sitio completo. En este caso, se recomienda usar Site Recovery para replicar el controlador de dominio en el sitio de destino (ya sea en Azure o en un centro de datos local secundario). Se puede usar la misma máquina virtual del controlador de dominio o DNS replicada para la [conmutación por error de prueba](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Entorno con varios controladores de dominio
+### <a name="multiple-domain-controllers"></a>Varios controladores de dominio
 Si tiene muchas aplicaciones y hay más de un controlador de dominio en el entorno, o si planea conmutar por error pocas aplicaciones a la vez, además de replicar la máquina virtual del controlador de dominio con Site Recovery, es recomendable que configure un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino (en Azure o un centro de datos secundario local). Para la [conmutación por error de prueba](#test-failover-considerations), puede usar el controlador de dominio que replicó Site Recovery. Para la conmutación por error, puede usar el controlador de dominio adicional en el sitio de destino.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Habilitación de la protección con Site Recovery
+## <a name="enable-protection-with-site-recovery"></a>Habilitación de la protección con Site Recovery
 
 Puede usar Site Recovery para proteger la máquina virtual que hospeda el controlador de dominio o DNS.
 
-### <a name="protect-the-virtual-machine"></a>Protección de la máquina virtual
+### <a name="protect-the-vm"></a>Protección de la máquina virtual
 El controlador de dominio que se haya replicado con Site Recovery se utiliza para la [conmutación por error de prueba](#test-failover-considerations). Asegúrese de que cumple los requisitos siguientes:
 
 1. El controlador de dominio es un servidor de catálogo global.
 2. El controlador de dominio debe ser el propietario del rol FSMO para los roles que se necesitan durante una conmutación por error de prueba. De lo contrario, estos roles deberán [asumirse](http://aka.ms/ad_seize_fsmo) después de la conmutación por error.
 
-### <a name="configure-virtual-machine-network-settings"></a>Configuración de los valores de red de la máquina virtual
+### <a name="configure-vm-network-settings"></a>Configuración de las opciones de red de la máquina virtual
 Para la máquina virtual que hospeda al controlador de dominio o DNS, en Site Recovery, configure los valores de red en la configuración **Proceso y red** de la máquina virtual replicada. Esto asegura que la máquina virtual se conecte a la red adecuada después de la conmutación por error.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Protección de Active Directory con la replicación de Active Directory
+## <a name="protect-active-directory"></a>Protección de Active Directory
+
 ### <a name="site-to-site-protection"></a>Protección de sitio a sitio
 Cree un controlador de dominio en el sitio secundario. Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre del dominio del sitio principal. Puede usar el complemento **Servicios y sitios de Active Directory** para configurar los valores en el objeto de vínculo del sitio al que se agregan los sitios. Al configurar los valores en un vínculo de sitio, puede controlar cuándo se produce la replicación entre dos o más sitios y con qué frecuencia se produce. Para obtener más información, consulte [Programación de la replicación entre sitios](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ La mayoría de las aplicaciones requieren la presencia de un controlador de domi
 
 ### <a name="test-failover-to-a-secondary-site"></a>Conmutación por error de prueba en un sitio secundario
 
-1. Si realiza la replicación en otro sitio local y usa DHCP, siga las instrucciones para la [configuración de DNS y DHCP para la conmutación por error de prueba](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Si realiza la replicación en otro sitio local y usa DHCP, realice la [configuración de DNS y DHCP para la conmutación por error de prueba](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Realice la conmutación por error de prueba de la máquina virtual del controlador de dominio que se ejecuta en la red aislada. Use el último punto de recuperación *coherente con la aplicación* disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba.
 3. Ejecute una conmutación por error de prueba para el plan de recuperación que contiene las máquinas virtuales donde se ejecuta la aplicación.
 4. Una vez finalizada la prueba, realice una *limpieza de conmutación por error de prueba* en la máquina virtual del controlador de dominio. En este paso se elimina el controlador de dominio que se creó para la conmutación por error de prueba.

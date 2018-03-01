@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes EDIFACT para la integración empresarial con las aplicaciones lógicas
 
@@ -42,12 +42,12 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT 
 
-1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Más servicios**.
+1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Todos los servicios**.
 
     > [!TIP]
-    > Si no ve **Más servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
 
-    ![En el menú izquierdo, seleccione "Más servicios"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![En el menú izquierdo, seleccione "Todos los servicios"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.
 
@@ -70,9 +70,9 @@ Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-acco
 
     ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Propiedad | Descripción |
+    | Propiedad | DESCRIPCIÓN |
     | --- | --- |
-    | Nombre |Nombre del contrato |
+    | NOMBRE |Nombre del contrato |
     | Tipo de contrato | Debe ser EDIFACT |
     | Host Partner (Partner anfitrión) |Un contrato tiene asociado un partner anfitrión e invitado. El asociado del host representa la organización que configura el contrato. |
     | Host Identity (Identidad anfitriona) |Un identificador del asociado del host. |
@@ -98,21 +98,21 @@ Ahora el contrato está preparado para controlar los mensajes entrantes que cump
 
 ### <a name="identifiers"></a>Identifiers (Identificadores)
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNB6.1 (contraseña de referencia del destinatario) |Escriba un valor alfanumérico de entre 1 y 14 caracteres. |
 | UNB6.2 (calificador de referencia del destinatario) |Escriba un valor alfanumérico con un carácter como mínimo y dos como máximo. |
 
 ### <a name="acknowledgments"></a>Agradecimientos
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Receipt of Message (CONTRL) (Recepción del mensaje [CONTRL]) |Active esta casilla para devolver una confirmación técnica (CONTRL) al remitente del intercambio. Estas confirmaciones se envían al remitente del intercambio según la configuración de envío del acuerdo. |
 | Acknowledgement (CONTRL) (Confirmación [CONTRL]) |Active esta casilla para devolver una confirmación funcional (CONTRL) al remitente del intercambio. La confirmación se envía al remitente del intercambio basándose en la configuración de envío del acuerdo. |
 
 ### <a name="schemas"></a>Esquemas
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNH2.1 (TYPE) (UNH2.1 [TIPO]) |Seleccione un tipo de conjunto de transacciones. |
 | UNH2.2 (VERSION) (UNH2.2 [VERSIÓN]) |Escriba el número de versión de mensaje. (Como mínimo un carácter; tres caracteres como máximo). |
@@ -120,10 +120,10 @@ Ahora el contrato está preparado para controlar los mensajes entrantes que cump
 | UNH2.5 (ASSOCIATED ASSIGNED CODE) (UNH2.5 [CÓDIGO ASIGNADO ASOCIADO]) |Escriba el código asignado. (Seis caracteres como máximo. Debe ser alfanumérico). |
 | UNG2.1 (APP SENDER ID) (UNG2.1 [ID. DE REMITENTE DE APLICACIÓN]) |Escriba un valor alfanumérico con un carácter como mínimo y 35 como máximo. |
 | UNG2.2 (APP SENDER CODE QUALIFIER) (UNG2.2 [CALIFICADOR DE CÓDIGO DE REMITENTE DE APLICACIÓN]) |Escriba un valor alfanumérico con un máximo de cuatro caracteres. |
-| SCHEMA (ESQUEMA) |Seleccione el esquema cargado anteriormente que desee utilizar desde la cuenta de integración asociada. |
+| Esquema |Seleccione el esquema cargado anteriormente que desee utilizar desde la cuenta de integración asociada. |
 
 ### <a name="control-numbers"></a>Control Numbers (Números de control)
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Disallow Interchange Control Number duplicates (No permitir duplicados del número de control de intercambio) |Seleccione esta propiedad para bloquear los intercambios duplicados. Si la selecciona, la acción de descodificación de EDIFACT comprueba que el número de control de intercambio (UNB5) del intercambio recibido no coincide con el número de control de intercambio. Si se detecta una coincidencia, el intercambio no se procesa. |
 | Check for duplicate UNB5 every (days) (Comprobar UNB5 duplicados cada [días]) |Si elige no permitir números de control de intercambio duplicados, puede especificar el número de días en que se realizará la comprobación; para ello, indique el valor pertinente para esta configuración. |
@@ -135,7 +135,7 @@ Ahora el contrato está preparado para controlar los mensajes entrantes que cump
 
 Cuando haya completado cada fila de validación, se agrega otra automáticamente. Si no se especifica ninguna regla, la validación utiliza la fila "Predeterminado".
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Message Type (Tipo de mensaje) |Seleccione el tipo de mensaje EDI. |
 | EDI Validation (Validación de EDI) |Realiza una validación de EDI en los tipos de datos según lo definido en las propiedades de EDI del esquema, las restricciones de longitud, los elementos de datos vacíos y los separadores finales. |
@@ -146,7 +146,7 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 ### <a name="internal-settings"></a>Internal Settings (Configuración interna)
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Create empty XML tags if trailing separators are allowed (Crear etiquetas XML vacías si se permiten separadores finales) |Seleccione esta casilla para que el remitente del intercambio incluya etiquetas XML vacías para los separadores finales. |
 | Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error|Analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente aplicando el sobre adecuado al conjunto de transacciones. Suspende solo los conjuntos de transacciones que no superen la validación. |
@@ -171,7 +171,7 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 
 ### <a name="identifiers"></a>Identifiers (Identificadores)
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNB1.2 (Syntax version) (UNB1.2 [versión de sintaxis]) |Seleccione un valor entre **1** y **4**. |
 | UNB2.3 (Sender Reverse Routing Address) (UNB2.3 [dirección de enrutamiento inverso del remitente]) |Escriba un valor alfanumérico con un carácter como mínimo y 14 como máximo. |
@@ -181,14 +181,14 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 | UNB7 (Application Reference ID) (UNB7 [Identificador de referencia de solicitud]) |Escriba un valor alfanumérico con un carácter como mínimo y 14 como máximo. |
 
 ### <a name="acknowledgment"></a>Acknowledgement (Confirmación)
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Receipt of Message (CONTRL) (Recepción del mensaje [CONTRL]) |Active esta casilla si el asociado del host espera recibir una confirmación técnica (CONTRL). Esta configuración especifica que el asociado hospedado que envía el mensaje solicita una confirmación del asociado invitado. |
 | Acknowledgement (CONTRL) (Confirmación [CONTRL]) |Active esta casilla si el asociado hospedado espera recibir una confirmación funcional (CONTRL). Esta configuración especifica que el asociado hospedado que envía el mensaje solicita una confirmación del asociado invitado. |
 | Generate SG1/SG4 loop for accepted transaction sets (Generar bucle SG1/SG4 en los conjuntos de transacciones aceptadas) |Si elige solicitar una confirmación funcional, active esta casilla para forzar la generación de bucles SG1/SG4 en confirmaciones CONTRL funcionales para conjuntos de transacciones aceptados. |
 
 ### <a name="schemas"></a>Esquemas
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNH2.1 (TYPE) (UNH2.1 [TIPO]) |Seleccione un tipo de conjunto de transacciones. |
 | UNH2.2 (VERSION) (UNH2.2 [VERSIÓN]) |Escriba el número de versión de mensaje. |
@@ -196,7 +196,7 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 | SCHEMA (ESQUEMA) |Seleccione el esquema que se utilizará. Los esquemas se encuentran en la cuenta de integración. Para obtener acceso a los esquemas, antes debe vincular su cuenta de integración con su aplicación lógica. |
 
 ### <a name="envelopes"></a>Envelopes (Sobres)
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNB8 (Processing Priority Code) (UNB8 [Código de prioridad de procesamiento]) |Escriba un valor alfabético con un solo carácter. |
 | UNB10 (Communication Agreement) (UNB10 [Acuerdo de comunicaciones]) |Escriba un valor alfanumérico con un carácter como mínimo y 40 como máximo. |
@@ -208,10 +208,10 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 
 Además del juego de caracteres, puede especificar un conjunto de delimitadores diferente para cada tipo de mensaje. Si no se especifica un juego de caracteres en un esquema de mensaje concreto, se usará el juego de caracteres predeterminado.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNB1.1 (System Identifier) (UNB1.1 [Identificador del sistema]) |Seleccione el conjunto de caracteres EDIFACT que se aplicará al intercambio de salida. |
-| SCHEMA (ESQUEMA) |Seleccione un esquema en la lista desplegable. Después de completar cada fila, se agrega automáticamente una nueva. Para el esquema seleccionado, elija el conjunto de separadores que desee usar, en función de las siguientes descripciones. |
+| Esquema |Seleccione un esquema en la lista desplegable. Después de completar cada fila, se agrega automáticamente una nueva. Para el esquema seleccionado, elija el conjunto de separadores que desee usar, en función de las siguientes descripciones. |
 | Tipo de entrada |Seleccione un tipo de entrada en la lista desplegable. |
 | Separador de componentes |Para separar elementos de datos compuestos, escriba un solo carácter. |
 | Separador de elementos de datos |Para separar elementos de datos simples dentro de elementos de datos compuestos, escriba un solo carácter. |
@@ -219,7 +219,7 @@ Además del juego de caracteres, puede especificar un conjunto de delimitadores 
 | Sufijo |Seleccione el carácter que se usa con el identificador de segmento. Si designa un sufijo, el elemento de datos del terminador de segmento podrá estar vacío. Si se deja vacío el terminador de segmento, deberá designar un sufijo. |
 
 ### <a name="control-numbers"></a>Control Numbers (Números de control)
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | UNB5 (Interchange Control Number) (UNB5 [Número de control de intercambio]) |Escriba un prefijo, un intervalo de valores para el número de control de intercambio y un sufijo. Estos valores se utilizan para generar un intercambio saliente. El prefijo y el sufijo son opcionales; el número de control, obligatorio. El número de control se incrementa para cada nuevo mensaje; el prefijo y el sufijo siguen siendo los mismos. |
 | UNG5 (Group Control Number) (UNG5 [Número de control de grupo]) |Escriba un prefijo, un intervalo de valores para el número de control de intercambio y un sufijo. Estos valores se utilizan para generar el número de control de grupo. El prefijo y el sufijo son opcionales; el número de control, obligatorio. El número de control se incrementa para cada nuevo mensaje hasta que se alcanza el valor máximo; el prefijo y el sufijo siguen siendo los mismos. |
@@ -229,7 +229,7 @@ Además del juego de caracteres, puede especificar un conjunto de delimitadores 
 
 Cuando haya completado cada fila de validación, se agrega otra automáticamente. Si no se especifica ninguna regla, la validación utiliza la fila "Predeterminado".
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Message Type (Tipo de mensaje) |Seleccione el tipo de mensaje EDI. |
 | EDI Validation (Validación de EDI) |Realiza una validación de EDI en los tipos de datos según lo definido en las propiedades de EDI del esquema, las restricciones de longitud, los elementos de datos vacíos y los separadores finales. |

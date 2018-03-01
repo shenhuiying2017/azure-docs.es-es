@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detección, identificación y clasificación de datos personales en Microsoft Azure
 
@@ -59,22 +59,22 @@ Esto es especialmente útil si quiere buscar o cambiar los datos personales de u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+2. Seleccione **Todos los servicios**, escriba **Usuarios y grupos** en el cuadro de texto y, después, presione **Entrar**.
 
    ![cómo busco el perfil de usuario y la información del trabajo](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
 
-  ![Apertura de Usuarios y grupos](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Apertura de Usuarios y grupos](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. En la hoja **Usuarios y grupos - Usuarios**, seleccione un usuario de la lista y después, en la hoja del usuario seleccionado, seleccione **Perfil** para ver la información de perfil de usuario que puede contener datos personales.
 
-  ![seleccionar usuario](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![seleccionar usuario](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Si necesita agregar o cambiar información de perfil de usuario, puede hacerlo y, después, en la barra de comandos, seleccione **Guardar**.
 6. En la hoja del usuario seleccionado, seleccione **Información laboral** para ver la información laboral del usuario que puede contener datos personales.
 
- ![ver la información laboral](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![ver la información laboral](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Si necesita agregar o cambiar información laboral del usuario, puede hacerlo y, después, en la barra de comandos, seleccione **Guardar**.
 

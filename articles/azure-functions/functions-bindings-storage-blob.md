@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -227,13 +227,22 @@ En C# y script de C#, acceda a los datos del blob mediante un parámetro de mét
 
 Como se indica, algunos de estos tipos necesitan una dirección de enlace `inout` en *function.json*. El editor estándar de Azure Portal no admite esta dirección, por lo que debe usar el editor avanzado.
 
-Si se esperan blobs de texto, puede realizar el enlace al tipo `string`. Solo se recomienda hacerlo si los blobs son pequeños, ya que todos sus contenidos se cargan en memoria. Por lo general, es preferible usar un tipo `Stream` o `CloudBlockBlob`.
+Si se esperan blobs de texto, puede realizar el enlace al tipo `string`. Solo se recomienda hacerlo si los blobs son pequeños, ya que todos sus contenidos se cargan en memoria. Por lo general, es preferible usar un tipo `Stream` o `CloudBlockBlob`. Para obtener más información, consulte [Uso de simultaneidad y memoria](#trigger---concurrency-and-memory-usage) más adelante en este artículo.
 
 En JavaScript, acceda a los datos de blob de entrada mediante `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Desencadenador: patrones de nombre de blob
 
-Puede especificar un patrón de nombre de blob en la propiedad `path` en *function.json* o en el constructor de atributos `BlobTrigger`. El patrón de nombre puede ser una [expresión de filtro o enlace](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Puede especificar un patrón de nombre de blob en la propiedad `path` en *function.json* o en el constructor de atributos `BlobTrigger`. El patrón de nombre puede ser una [expresión de filtro o enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). En las siguientes secciones se proporcionan ejemplos.
+
+### <a name="get-file-name-and-extension"></a>Obtener el nombre y la extensión de archivo
+
+En el ejemplo siguiente se muestra cómo enlazar a nombre de archivo del blob y la extensión por separado:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Si el blob se denomina *original-Blob1.txt*, el valor de las variables `blobname` y `blobextension` del código de la función son *original-Blob1* y *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrar por nombre de blob
 
@@ -262,15 +271,6 @@ Para buscar llaves en nombres de archivo, escape las llaves mediante dos llaves.
 ```
 
 Si el blob se denomina *{20140101}-soundfile.mp3*, el valor de variable `name` en el código de la función es *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Obtener el nombre y la extensión de archivo
-
-En el ejemplo siguiente se muestra cómo enlazar a nombre de archivo del blob y la extensión por separado:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Si el blob se denomina *original-Blob1.txt*, el valor de las variables `blobname` y `blobextension` del código de la función son *original-Blob1* y *txt*.
 
 ## <a name="trigger---metadata"></a>Desencadenador: metadatos
 
@@ -309,6 +309,14 @@ Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a
 * ContainerName
 * BlobName
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Desencadenador: uso de simultaneidad y memoria
+
+El desencadenador de blob utiliza una cola internamente, por lo que el número máximo de invocaciones de funciones simultáneas lo controla la [configuración de colas en host.json](functions-host-json.md#queues). La configuración predeterminada limita la simultaneidad a 24 invocaciones. Este límite se aplica por separado a cada función que usa un desencadenador de blob.
+
+[El plan de consumo](functions-scale.md#how-the-consumption-plan-works) limita una aplicación de función de una máquina virtual (VM) a 1,5 GB de memoria. Tanto las instancias de función que se ejecutan de forma simultánea como el entorno de ejecución de Functions utilizan la memoria. Si una función desencadenada por un blob carga el blob entero a la memoria, la memoria máxima utilizada por esa función solo para blobs tiene un tamaño máximo de blob de 24 *. Por ejemplo, una aplicación de función con tres funciones desencadenadas por un blob y la configuración predeterminada tendrían una simultaneidad máxima por máquina virtual de 3*24 = 72 invocaciones de función.
+
+Las funciones de JavaScript cargan el blob entero a la memoria, mientras que las funciones de C# lo hacen si establece un enlace a `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Desencadenador: sondeo en contenedores grandes
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 656e0e16167a73ef3c3eab21d6896f5fc280e375
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creación de un grupo y adición de miembros en Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-groups-create-azure-portal.md)
+> * [portal de Azure](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -32,7 +32,7 @@ En este artículo se explica cómo crear y rellenar un nuevo grupo en Azure Acti
 
 ## <a name="how-do-i-create-a-group"></a>¿Cómo se crea un grupo?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios** y grupos en el cuadro de texto y, después, presione **Entrar**.
+2. Seleccione **Todos los servicios**, escriba **Usuarios y grupos** en el cuadro de texto y, después, presione **Entrar**.
 
    ![Apertura de Administración de usuarios](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
@@ -51,7 +51,7 @@ En este artículo se explica cómo crear y rellenar un nuevo grupo en Azure Acti
    ![Creación de la confirmación de grupo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)

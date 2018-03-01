@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ Configuración de notificaciones de correo electrónico para alertas
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Tipos de alerta disponibles para la copia de seguridad de máquinas virtuales de IaaS de Azure
    | Nivel de alerta | Alertas enviadas |
    | --- | --- |
-   | Crítico |Error de copia de seguridad, error de recuperación |
-   | Advertencia |None |
-   | Informativo |None |
+   | Crítico | Error de copia de seguridad, error de recuperación |
+   | Warning (Advertencia) | Para trabajos de copia de seguridad realizados correctamente con advertencias (por ejemplo, se produjo un error en algunos escritores al crear una instantánea) |
+   | Informativo | Actualmente, no hay alertas informativas disponibles para la copia de seguridad de máquinas virtuales de Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>¿Existen situaciones en las que no se envía ningún correo electrónico incluso si las notificaciones se configuran?
 En efecto, hay situaciones en las que no se envía ninguna alerta aunque las notificaciones se hayan configurado correctamente. Para evitar ruido de alertas, no se envían notificaciones por correo electrónico en las situaciones siguientes:

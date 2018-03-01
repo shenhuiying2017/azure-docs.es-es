@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure Portal
 > [!div class="op_single_selector"]
-> * 
-            [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -48,7 +47,7 @@ Complete los pasos siguientes para solucionar problemas de los NSG para una máq
 Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, desde la propia máquina virtual. También puede agregar, modificar y eliminar reglas de NIC y de subred de NSG en la hoja reglas vigentes, si dispone de permisos para realizar estas operaciones.
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com con una cuenta de Azure. La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Haga clic en **Más servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
+2. Haga clic en **Todos los servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
 3. En la lista seleccione una máquina virtual para solucionar problemas, después de hacerlo se abrirá una hoja de máquina virtual con opciones.
 4. Haga clic en **Diagnosticar y solucionar problemas** y, a continuación, seleccione un problema común. En este ejemplo está seleccionado **No puedo conectar con mi VM Windows** . 
    
@@ -97,7 +96,7 @@ Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, des
 Si el flujo de tráfico de la máquina virtual se ve afectado por una NIC específica, puede ver una lista completa de las reglas vigentes para la NIC desde el contexto de interfaces de red mediante los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-2. Haga clic en **Más servicios** y, luego, en **Interfaces de red** en la lista que aparece.
+2. Haga clic en **Todos los servicios** y, luego, en **Interfaces de red** en la lista que aparece.
 3. Seleccione una interfaz de red. En la siguiente imagen, se selecciona una NIC llamada *VM1-NIC1* .
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -114,7 +113,7 @@ Si el flujo de tráfico de la máquina virtual se ve afectado por una NIC espec�
 Al modificar las reglas de NSG, puede revisar el impacto de las reglas que se agregan en una máquina virtual específica. Puede ver una lista completa de las reglas de seguridad vigentes para todas las NIC a las que se aplica un NSG determinado, sin tener que cambiar el contexto de la hoja de NSG determinada. Para solucionar problemas de las reglas vigentes dentro de un NSG, realice los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-2. Haga clic en **Más servicios** y, luego, haga clic en **Grupos de seguridad de red** en la lista que aparece.
+2. Haga clic en **Todos los servicios** y, luego, haga clic en **Grupos de seguridad de red** en la lista que aparece.
 3. Seleccione un NSG. En la siguiente imagen, se ha seleccionado un NSG llamado VM1-nsg.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

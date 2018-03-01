@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
-La máquina virtual de ciencia de datos (DSVM) es una imagen de VM personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado. Está disponible en Windows Server y en Linux. La edición de Windows de la DSVM se ofrece en Server 2016 y Server 2012. La edición de Linux de la DSVM se ofrece en Ubuntu 16.04 LTS y en las distribuciones de Linux basadas en OpenLogic 7.2 CentOS. 
+La máquina virtual de ciencia de datos (DSVM) es una imagen de VM personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado. Está disponible en Windows Server y en Linux. La edición de Windows de la DSVM se ofrece en Server 2016 y Server 2012. Se ofrecen las ediciones de Linux de la DSVM en Ubuntu 16.04 LTS y CentOS 7.4.
 
 Este tema describe qué puede hacer con la VM de ciencia de datos, describe algunos de los escenarios clave para el uso de la VM, detalla las funciones clave disponibles en las versiones de Windows y Linux y proporciona instrucciones sobre cómo comenzar a utilizarlas.
 
@@ -49,7 +49,7 @@ La exploración y el modelado de datos a gran escala o las competencias/hackatho
 La máquina virtual de ciencia de datos puede usarse para evaluar o aprender herramientas como Microsoft ML Server, SQL Server, herramientas de Visual Studio, Jupyter, aprendizaje profundo/kits de herramientas de ML y nuevas herramientas conocidas de la comunidad con el mínimo esfuerzo de instalación. Puesto que la VM de ciencia de datos se puede configurar rápidamente, se puede aplicar en otros escenarios de uso a corto plazo como la replicación de los experimentos publicados, la ejecución de demostraciones, el seguimiento de tutoriales en las sesiones en línea o los tutoriales de conferencia.
 
 ### <a name="deep-learning"></a>Aprendizaje profundo
-La VM de ciencia de datos puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar la funcionalidad de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y la versión de GPU de los algoritmos de aprendizaje profundo. En Linux, el aprendizaje profundo en GPU solo está habilitado en la [máquina virtual de ciencia de datos para edición de Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Puede implementar la edición de Ubuntu o Windows Server 2016 de la máquina virtual de ciencia de datos (DSVM) en una máquina virtual de Azure no basada en GPU, en cuyo caso todas las plataformas de aprendizaje profundo se reservarán al modo CPU. Anteriormente, para Windows Server 2012 publicamos un [kit de herramientas de aprendizaje profundo](http://aka.ms/dsvm/deeplearning), pero ahora recomendamos usar Windows Server 2016 para las cargas de trabajo de aprendizaje profundo basadas en Windows. La edición de Linux basada en CentOS de la máquina visual de aprendizaje profundo contiene solo las compilaciones CPU de algunas de las herramientas de aprendizaje profundo (Microsoft Cognitive Toolkit, TensorFlow, MXNet), pero no tiene preinstalados los controladores de GPU ni las plataformas. 
+La VM de ciencia de datos puede usarse para el modelo de aprendizaje mediante algoritmos de aprendizaje profundo en hardware basado en GPU (unidades de procesamiento de gráficos). Al utilizar la funcionalidad de escalado de máquinas virtuales que ofrece la nube de Azure, la DSVM lo ayudará a usar hardware basado en GPU en la nube según las necesidades. Se puede cambiar a una máquina virtual basada en GPU cuando hay que entrenar modelos grandes o cuando se necesitan cálculos de alta velocidad conservando al mismo tiempo el mismo disco del SO.  La edición de Windows Server 2016 de la DSVM viene preinstalada con controladores de GPU, marcos y las versiones de GPU de las plataformas de aprendizaje profundo. En Linux, el aprendizaje profundo en GPU está habilitado en las DSVM de CentOS y Ubuntu. Puede implementar la edición de Ubuntu, CentOS o Windows Server 2016 de la máquina virtual de ciencia de datos (DSVM) en una máquina virtual de Azure no basada en GPU, en cuyo caso todas las plataformas de aprendizaje profundo se reservarán al modo CPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>¿Qué se incluye en la VM de ciencia de datos?
 La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de datos y aprendizaje profundo conocidas ya instaladas y configuradas. También incluye herramientas que facilitan trabajar con diversos productos y análisis de datos de Azure. Puede explorar y compilar modelos predictivos en conjuntos de datos a gran escala mediante Microsoft ML Server (R, Python) o con SQL Server 2017. También se incluye un host de otras herramientas de la comunidad de código abierto y desde Microsoft, así como código de ejemplo y bloc de notas. En la tabla siguiente se detalla y compara los componentes principales incluidos en las ediciones de Windows y Linux de la máquina virtual de ciencia de datos.
@@ -92,12 +92,13 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [CLI de Azure](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [Adlcopy (Almacén de Azure Data Lake)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Controlador de Blob FUSE](https://github.com/Azure/azure-storage-fuse) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (Azure Data Lake Store)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Herramienta DocDB Data Migration](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): traslado de datos entre local y la nube | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilidades de línea de comandos Unix/Linux | Y | Y |
 | [Apache Drill](http://drill.apache.org) para la exploración de datos | Y | Y |
-| **Herramientas de aprendizaje automático** |||
+| **Herramientas de Machine Learning** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Integración con [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Xgboost](https://github.com/dmlc/xgboost) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | Y | Y |
@@ -105,7 +106,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Rattle](http://rattle.togaware.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (solo Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [H2O](https://www.h2o.ai/h2o/) | N | Y (solo Ubuntu) |
-| **Herramientas de aprendizaje profundo basado en GPU** |Edición de Windows Server 2016  |Edición de Ubuntu |
+| **Herramientas de aprendizaje profundo basado en GPU** |Edición de Windows Server 2016  | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (anteriormente conocido como CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [MXNet](http://mxnet.io/) | Y | Y|
@@ -113,7 +114,10 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Torch](http://torch.ch/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Theano](https://github.com/Theano/Theano) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Keras](https://keras.io/)| N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [CUDA, CUDNN, Nvidia Driver](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
 | **Plataforma de macrodatos (solo Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) Standalone local | N | Y |
@@ -137,7 +141,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 
   o
 
-  * [DSVM basada en OpenLogic CentOS](http://aka.ms/dsvm/centos)
+  * [DSVM basada en CentOS](http://aka.ms/dsvm/centos)
 
   
 * Haga clic en el botón **Obtenerla ahora**.
@@ -145,7 +149,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 * En el símbolo del sistema de shell, especifique dsvm-more-info.
 * Para un escritorio gráfico, descargue el cliente X2Go para la plataforma cliente [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) y siga las instrucciones en el documento de VM de ciencia de datos de Linux [Aprovisionamiento de máquina virtual de ciencia de datos de Linux](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 ### <a name="for-the-windows-data-science-vm"></a>Para la VM de ciencia de datos de Windows
 * Para obtener más información sobre cómo ejecutar las herramientas específicas disponibles en la versión de Windows, vea [Aprovisionamiento de la máquina virtual de ciencia de datos de Microsoft](provision-vm.md) y
 * Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en la VM de Windows, vea [Diez cosas que puede hacer en la máquina virtual de ciencia de datos](vm-do-ten-things.md).

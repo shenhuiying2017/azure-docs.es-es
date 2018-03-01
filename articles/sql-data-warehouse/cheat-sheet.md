@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Hoja de referencia rápida de Azure SQL Data Warehouse
 En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure SQL Data Warehouse. Antes de empezar, consulte los detalles de cada paso en [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patrones y antipatrones de la carga de trabajo de Azure SQL Data Warehouse), que explica qué es y qué no es SQL Data Warehouse.
@@ -121,7 +121,7 @@ Por último, si usa el nivel optimizado de proceso, cada clase de recurso obtien
 Aprenda más sobre cómo trabajar con [clases de recursos y simultaneidad].
 
 ## <a name="lower-your-cost"></a>Reducción de los costos
-Una característica clave de SQL Data Warehouse es la posibilidad de pausa cuando no se usa, ya que detiene la facturación de los recursos de proceso. Otra característica clave es la capacidad de escalar los recursos. La pausa y el escalado se pueden usar desde Azure Portal o mediante comandos de PowerShell.
+Una de las características principales de SQL Data Warehouse es la posibilidad de [administrar los recursos de proceso](sql-data-warehouse-manage-compute-overview.md). Puede pausar el almacén de datos cuando no esté en uso, lo que detiene la facturación de los recursos de proceso. Puede escalar los recursos para satisfacer la demanda de rendimiento. Para realizar una pausa, use [Azure Portal](pause-and-resume-compute-portal.md) o [PowerShell](pause-and-resume-compute-powershell.md). Para realizar el escalado, use [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) o una [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Realice el escalado automático ahora, en el momento que quiera con Azure Functions:
 

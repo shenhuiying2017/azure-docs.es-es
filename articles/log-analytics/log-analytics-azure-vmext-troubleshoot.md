@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 4e43c7a7cea903a2e94e60a519f6ead1e6f932e3
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solución de problemas de la extensión de máquina virtual de Log Analytics
 En este artículo se proporciona ayuda y posibles soluciones para resolver los errores que puedan surgir con la extensión de máquinas virtuales de Log Analytics para aquellas máquinas virtuales que se ejecutan en Microsoft Azure para Windows y Linux.
@@ -26,7 +26,7 @@ En este artículo se proporciona ayuda y posibles soluciones para resolver los e
 Para comprobar el estado de la extensión, realice los pasos siguientes en Azure Portal.
 
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
-2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Máquinas virtuales**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Máquinas virtuales**.
+2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Máquinas virtuales**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Máquinas virtuales**.
 3. En la lista de máquinas virtuales, busque y seleccione la que le interesa.
 3. En la máquina virtual, haga clic en **Extensiones**.
 4. En la lista, compruebe si la extensión de Log Analytics está habilitada.  Para Linux, el agente aparece como **OMSAgentforLinux** y para Windows, el agente aparece como **MicrosoftMonitoringAgent**.

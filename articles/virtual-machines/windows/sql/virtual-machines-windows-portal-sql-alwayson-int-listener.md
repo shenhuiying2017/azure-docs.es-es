@@ -4,7 +4,7 @@ description: Instrucciones paso a paso para crear un agente de escucha en un gru
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
 En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
 Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server implementado en instancias de Azure Virtual Machines que se estén ejecutando con Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para crear automáticamente el grupo de disponibilidad en Resource Manager. Esta plantilla crea automáticamente un equilibrador de carga interno. 
 
-Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 En este artículo, es necesario que los grupos de disponibilidad ya estén configurados.  
 
 Temas relacionados:
 
-* [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 A lo largo de este artículo, va a crear y configurar un equilibrador de carga en Azure Portal. Una vez hecho esto, configurará el clúster para que utilice la dirección IP del equilibrador de carga para el agente de escucha del grupo de disponibilidad.
@@ -74,7 +74,7 @@ En primer lugar, cree el equilibrador de carga.
    | **Grupos de recursos** |Seleccione el grupo de recursos en el que se encuentran las instancias de SQL Server. |
    | **Ubicación** |Seleccione la ubicación de Azure en la que se encuentran las instancias de SQL Server. |
 
-6. Haga clic en **Crear**. 
+6. Haga clic en **Create**(Crear). 
 
 Azure crea el equilibrador de carga. El equilibrador de carga pertenece a una red, una subred, una ubicación y un grupo de recursos específicos. Cuando Azure haya completado la tarea, compruebe la configuración del equilibrador de carga en Azure. 
 
@@ -116,7 +116,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
    | **Intervalo** |*5* |
    | **Umbral incorrecto** |*2* |
 
-4.  Haga clic en **Aceptar**. 
+4.  Haga clic en **OK**. 
 
 > [!NOTE]
 > Asegúrese de que el puerto especificado esté abierto en el firewall de las dos instancias de SQL Server. En estas dos instancias, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para obtener más información. 
@@ -149,7 +149,7 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
    > Tal vez necesite desplazarse hacia abajo en la hoja para ver todas las opciones.
    > 
 
-4. Haga clic en **Aceptar**. 
+4. Haga clic en **OK**. 
 5. Azure configura la regla de equilibrio de carga. Ahora, el equilibrador de carga está configurado para enrutar el tráfico a la instancia de SQL Server que hospeda el agente de escucha del grupo de disponibilidad. 
 
 En este punto, el grupo de recursos dispone de un equilibrador de carga que se conecta con las dos máquinas de SQL Server. El equilibrador de carga también contiene una dirección IP del agente de escucha del grupo de disponibilidad de SQL Server AlwaysOn, por lo que cualquier máquina puede responder a las solicitudes de los grupos de disponibilidad.
@@ -266,10 +266,38 @@ Después de haber agregado una dirección IP para el agente de escucha, configur
 
 5. [Hacer que el recurso de punto de acceso cliente dependa de la dirección IP](#listname).
  
-6. [Establezca los parámetros de clúster en PowerShell](#setparam).
+6. [Establecer los parámetros de clúster en PowerShell](#setparam).
 
 Después de configurar el grupo de disponibilidad para usar la nueva dirección IP, configure la conexión al agente de escucha. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Incorporación de la regla de equilibrio de carga para un grupo de disponibilidad distribuido
+
+Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribuido, el equilibrador de carga necesita una regla adicional. Esta regla almacena el puerto usado por el escucha del grupo de disponibilidad distribuido.
+
+>[!IMPORTANT]
+>Este paso solo se aplica si el grupo de disponibilidad forma parte de un [grupo de disponibilidad distribuido](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. En cada servidor que forma parte del grupo de disponibilidad distribuido, cree una regla de entrada en el puerto TCP del escucha del grupo de disponibilidad distribuido. En muchos ejemplos, la documentación usa el puerto 5022. 
+
+1. En Azure Portal, haga clic en el equilibrador de carga, en **Reglas de equilibrio de carga** y, luego, en **+Agregar**. 
+
+1. Cree la regla de equilibrio de carga con la configuración siguiente:
+
+   |Configuración |Valor
+   |:-----|:----
+   |**Name** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
+   |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.
+   |**Protocolo** |TCP
+   |**Puerto** |5022: el puerto para el [escucha de punto de conexión del grupo de disponibilidad distribuido](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Puede ser cualquier puerto disponible.  
+   |**Puerto back-end** | 5022: use el mismo valor que en **Puerto**.
+   |**Grupo de back-end** |El grupo que contiene las máquinas virtuales con las instancias de SQL Server. 
+   |**Sondeo de estado** |Elija el sondeo que creó.
+   |**Persistencia de la sesión** |None
+   |**Tiempo de espera de inactividad (minutos)** |Valor predeterminado (4)
+   |**IP flotante (Direct Server Return)** | habilitado
+
+Repita estos pasos para el equilibrador de carga de los otros grupos de disponibilidad que forman parte de los grupos de disponibilidad distribuidos.
+
+## <a name="next-steps"></a>pasos siguientes
 
 - [Configuración de un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines en regiones distintas](virtual-machines-windows-portal-sql-availability-group-dr.md)

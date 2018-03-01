@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Guía de usuario sobre preparación de datos 
 La experiencia de preparación de datos de Azure Machine Learning proporciona amplias funcionalidades. En este artículo se documenta la experiencia con todo detalle.
@@ -89,7 +89,7 @@ Para bifurcar:
 4. En **Condiciones**, seleccione **Create Dataflow Containing the Filtered Out Rows** (Crear un flujo de datos que contenga las filas filtradas) para bifurcar el conjunto de resultados fuera de presentación en un nuevo flujo de datos.
 
 
-Esta práctica suele usarse para separar un conjunto de datos que requiere una preparación adicional. Después de tratar el conjunto de datos bifurcado, es común combinar los datos con el conjunto de resultados del flujo de datos original. Para llevar a cabo una combinación (la operación inversa a la bifurcación), realice una de las acciones siguientes:
+Esta práctica suele usarse para separar un conjunto de datos que requiere una preparación adicional. Después de preparar el conjunto de datos bifurcado, es común combinar los datos con el conjunto de resultados del flujo de datos original. Para llevar a cabo una combinación (la operación inversa a la bifurcación), realice una de las acciones siguientes:
 
 - **Anexe filas**. Combine dos o más flujos de datos verticalmente (con respecto a las filas). 
 - **Anexe columnas**. Combine dos o más flujos de datos horizontalmente (con respecto a las columnas).

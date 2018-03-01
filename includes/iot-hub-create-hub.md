@@ -1,7 +1,7 @@
 1. Inicie sesión en [Azure Portal][lnk-portal].
-1. Haga clic en **Nuevo** > **Internet de las cosas** > **IoT Hub**.
+1. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
    
-    ![Barra de accesos del Portal de Azure][1]
+    ![Captura de pantalla de la navegación en Azure Portal hacia IoT Hub][1]
 
 1. En el panel **Centro de IoT**, escriba la información necesaria para su centro de IoT:
 
@@ -19,10 +19,10 @@
 
     ![Ventana Centro de IoT][2]
 
-1. Haga clic en **Crear**. El centro de IoT puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
+1. Haga clic en **Create**(Crear). El centro de IoT puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/

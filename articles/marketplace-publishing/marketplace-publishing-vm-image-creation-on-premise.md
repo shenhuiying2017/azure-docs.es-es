@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desarrollo de una imagen de máquina virtual de forma local para Azure Marketplace
 Se recomienda encarecidamente que desarrolle discos duros virtuales de Azure (VHD) directamente en la nube mediante el uso del Protocolo de escritorio remoto. Sin embargo, si es necesario, es posible descargar un disco duro virtual y desarrollarlo mediante infraestructura local.  
@@ -92,12 +92,12 @@ Para crear una cuenta de almacenamiento, puede utilizar el [Portal de Microsoft 
 
 **Creación de una cuenta de almacenamiento en el Portal de Microsoft Azure**
 
-1. Haga clic en **Nuevo**.
-2. Seleccione **Almacenamiento**.
+1. Haga clic en **Crear un recurso**.
+2. Seleccione **Storage**.
 3. Indique un nombre para la cuenta de almacenamiento y luego seleccione una ubicación.
    
    ![dibujo](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
-4. Haga clic en **Crear**.
+4. Haga clic en **Create**(Crear).
 5. La hoja de la cuenta de almacenamiento creada debe estar abierta. Si no es así, seleccione **Examinar** > **Cuentas de almacenamiento**. En la hoja Cuenta de almacenamiento, seleccione la cuenta de almacenamiento creada.
 6. Seleccione **Contenedores**.
    
@@ -135,7 +135,7 @@ Cree un contenedor de la manera siguiente.
         azure storage container create containername --account-name mystorageaccount --accountkey <accountKey>
 
 ## <a name="upload-a-vhd"></a>Carga de un disco duro virtual
-Una vez creados la cuenta de almacenamiento y el contenedor, puede cargar sus discos duros virtuales preparados. Es posible usar PowerShell, la herramienta de línea de comandos de Linux u otras herramientas de administración de almacenamiento de Azure.
+Una vez creados la cuenta de almacenamiento y el contenedor, puede cargar sus discos duros virtuales preparados. Es posible usar PowerShell, la herramienta de línea de comandos de Linux u otras herramientas de administración de Azure Storage.
 
 ### <a name="upload-a-vhd-via-powershell"></a>Cargar un disco duro virtual a través de PowerShell
 Use el cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
@@ -145,7 +145,7 @@ Use el cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Carga de un disco duro virtual con la herramienta de línea de comandos para Mac y Linux
 Con la [Herramienta de línea de comandos de Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilice lo siguiente: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Consulte también
-* [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
+## <a name="see-also"></a>Otras referencias
+* [Creación de una imagen de máquina virtual para Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

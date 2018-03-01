@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Suscripción a Office 365 con la cuenta de Azure
 Si es suscriptor de Azure, puede usar su cuenta de Azure para suscribirse a Office 365. Si forma parte de una organización que tiene una suscripción de Azure, puede crear una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory (Azure AD). Regístrese en Office 365 con una cuenta que tenga permisos de administrador global o de administrador de facturación en el inquilino de Azure Active Directory. Para más información, consulte [Comprobación de permisos de cuenta en Azure AD](#RoleInAzureAD) y [Asignación de roles de administrador en Azure Active Directory (Azure AD)](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
@@ -52,8 +52,8 @@ Ahora ya está listo. Si ha creado la suscripción a Office 365 para su organiza
 Una vez completado el registro, la suscripción de Office 365 se agrega a la misma instancia de Azure Active Directory a la que pertenece su suscripción de Azure. Para más información, consulte [Más información acerca de las suscripciones de Azure y Office 365](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) y [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a id="RoleInAzureAD"></a>Comprobación de los permisos de mi cuenta en Azure AD
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **Más servicios** y, a continuación, busque **Active Directory**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Haga clic en **Todos los servicios** y, a continuación, busque **Active Directory**.
 
     ![Captura de pantalla de Active Directory en Azure Portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Haga clic en **Usuarios y grupos** > **Todos los usuarios**.

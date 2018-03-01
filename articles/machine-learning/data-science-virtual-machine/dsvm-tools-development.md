@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Herramientas de desarrollo en Data Science Virtual Machine
 
@@ -41,17 +41,26 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 | ¿Qué es?   | IDE de uso general      |
 | Versiones de DSVM compatibles      | Windows, Linux     |
 | Usos típicos      | Editor de código e integración de Git   |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) en Windows o acceso directo de escritorio o terminal (`code`) en Linux    |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) en Windows o acceso directo de escritorio o terminal (`code`) en Linux    |
 | Herramientas relacionadas en DSVM      |     Visual Studio 2017, RStudio y Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
-| ¿Qué es?   | IDE de cliente para el lenguaje R    |
+| ¿Qué es?   | IDE de cliente para R    |
 | Versiones de DSVM compatibles      | Windows, Linux      |
 | Usos típicos      |  Desarrollo de R     |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\Program Files\RStudio\bin\rstudio.exe`) en Windows y acceso directo de escritorio (`/usr/bin/rstudio`) en Linux      |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files\RStudio\bin\rstudio.exe`) en Windows y acceso directo de escritorio (`/usr/bin/rstudio`) en Linux      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y Juno      |
+
+## <a name="rstudio--server"></a>RStudio Server 
+|    |           |
+| ------------- | ------------- |
+| ¿Qué es?   | IDE basada en web para R    |
+| Versiones de DSVM compatibles      | Linux      |
+| Usos típicos      |  Desarrollo de R     |
+| ¿Cómo se usa o ejecuta?      | Habilite el servicio con _systemctl enable rstudio-server_ y, a continuación, inicie el servicio con _systemctl start rstudio-server_. Después, puede iniciar sesión en RStudio Server en http://IP-de-su-VM:8787.       |
+| Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
@@ -59,7 +68,7 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 | ¿Qué es?   | IDE de cliente para el lenguaje Julia   |
 | Versiones de DSVM compatibles      | Windows, Linux      |
 | Usos típicos      |  Desarrollo de Julia     |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\JuliaPro-0.5.1.1\Juno.bat`) en Windows y acceso directo de escritorio (`/opt/JuliaPro-VERSION/Juno`) en Linux      |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\JuliaPro-0.5.1.1\Juno.bat`) en Windows y acceso directo de escritorio (`/opt/JuliaPro-VERSION/Juno`) en Linux      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
@@ -68,7 +77,7 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 | ¿Qué es?   | IDE de cliente para el lenguaje Python    |
 | Versiones de DSVM compatibles      | Linux      |
 | Usos típicos      |  Desarrollo de R     |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`/usr/bin/pycharm`) en Linux      |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`/usr/bin/pycharm`) en Linux      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y RStudio      |
 
 
@@ -79,6 +88,6 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 | ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
 | Versiones de DSVM compatibles      | Windows  |
 | Usos típicos      |  Visualización de datos y creación de paneles   |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y Juno      |
 

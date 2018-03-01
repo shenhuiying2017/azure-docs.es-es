@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight 
 
@@ -33,7 +33,7 @@ Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar co
 
 En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -80,7 +80,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
    
     La siguiente tabla muestra las diferentes instrucciones mágicas disponibles a través de los kernels.
 
-   | Instrucción mágica | Ejemplo | Description |
+   | Instrucción mágica | Ejemplo | DESCRIPCIÓN |
    | --- | --- | --- |
    | help |`%%help` |Genera una tabla de todas las instrucciones mágicas disponibles con el ejemplo y la descripción |
    | info |`%%info` |Produce información de sesión del punto de conexión actual de Livy. |
@@ -88,7 +88,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Ejecuta una consulta de Hive en el sqlContext. Si se pasa el parámetro `-o` , el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/) . |
    | local |`%%local`<br>`a=1` |Todo el código de las líneas siguientes se ejecuta localmente. El código debe ser código Python2 válido, independientemente del kernel que se utilice. Por tanto, aunque haya seleccionado los kernels **PySpark3** o **Spark** al crear el cuaderno, si usa el comando mágico `%%local` en una celda, esta solo debe tener código Python2 válido... |
    | logs |`%%logs` |Genera los registros de la sesión actual de Livy. |
-   | delete |`%%delete -f -s <session number>` |Elimina una sesión específica del punto de conexión actual de Livy. Tenga en cuenta que no se puede eliminar la sesión iniciada en el propio kernel. |
+   | delete |`%%delete -f -s <session number>` |Elimina una sesión específica del punto de conexión actual de Livy. No se puede eliminar la sesión iniciada en el propio kernel. |
    | cleanup |`%%cleanup -f` |Elimina todas las sesiones del punto de conexión actual de Livy, incluida la sesión de este cuaderno. La marca force -f es obligatoria. |
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parámetros compatibles con la instrucción mágica %%sql
 El comando mágico `%%sql` es compatible con distintos parámetros que se pueden usar para controlar el tipo de resultado que se obtiene al ejecutar consultas. En la tabla siguiente se muestra el resultado.
 
-| Parámetro | Ejemplo | Description |
+| . | Ejemplo | DESCRIPCIÓN |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/) . El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
 | -q |`-q` |Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL, como una instrucción `CREATE TABLE`), use `-q` sin especificar un argumento `-o`. |
@@ -153,19 +153,18 @@ Los cuadernos de Jupyter Notebook que se ejecutan en clústeres Spark de HDInsig
 ## <a name="feedback"></a>Comentarios
 El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto resulta muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
 
-## <a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Consulte también
 * [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](apache-spark-eventhub-streaming.md)
-* [Análisis del registro del sitio web con Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](apache-spark-intellij-tool-plugin.md)

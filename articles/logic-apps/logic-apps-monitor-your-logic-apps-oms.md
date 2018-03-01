@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Supervise y obtenga información sobre las ejecuciones de aplicación lógica con Operations Management Suite (OMS) y Log Analytics.
 
@@ -35,7 +35,7 @@ Antes de empezar, necesita un área de trabajo de OMS. Aprenda [cómo crear un �
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Activación del registro de diagnóstico al crear aplicaciones lógicas
 
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica. Elija **Nueva** > **Enterprise Integration** > **Aplicación lógica** > **Crear**.
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica. Elija **Crear un recurso** > **Integración empresarial** > **Logic App**.
 
    ![Creación de una aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
@@ -152,7 +152,7 @@ Si ya activó Log Analytics cuando creó su aplicación lógica, omita este paso
 
      ![Azure Log Analytics: vista de consultas](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Supervisión de mensajes B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

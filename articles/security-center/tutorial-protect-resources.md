@@ -9,16 +9,17 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: f0a32f90e68101f805a52427fab2d5bb29b94939
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -31,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita los primeros 60 días. En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="manage-vm-access"></a>Administración de acceso a VM
@@ -43,7 +44,7 @@ No es necesario que los puertos de administración estén abiertos en todo momen
 
 1. En el menú principal de Security Center, seleccione **Acceso a VM Just-In-Time** en **PROTECCIÓN EN LA NUBE AVANZADA**.
 
-  ![Acceso a VM Just-In-Time][1]
+  ![Acceso Just-In-Time a la máquina virtual][1]
 
   La hoja **Acceso a VM Just-In-Time** proporciona información sobre el estado de las máquinas virtuales:
 

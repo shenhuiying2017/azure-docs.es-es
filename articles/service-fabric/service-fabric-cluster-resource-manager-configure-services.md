@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuración de Cluster Resource Manager para los servicios de Service Fabric
 Cluster Resource Manager de Service Fabric permite un control muy exhaustivo de las reglas que rigen cada servicio con nombre. Cada servicio con nombre puede especificar reglas sobre cómo debe asignarse en el clúster. Cada servicio con nombre también puede definir el conjunto de métricas que incluirá en los informes, y su importancia para ese servicio. La configuración de los servicios se divide en tres tareas distintas:
@@ -40,7 +40,7 @@ Existen otros tipos de reglas de colocación que son útiles en escenarios menos
 
 Otras reglas de ubicación se configuran mediante correlaciones o directivas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 - Afinidad es un modo en que puede configurar los servicios. No es muy común, pero si lo necesita puede encontrar información [aquí](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
 - Existen muchas reglas de colocación diferentes que se pueden configurar en el servicio para administrar escenarios adicionales. Puede encontrar información sobre esas directivas de colocación diferentes [aquí](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)

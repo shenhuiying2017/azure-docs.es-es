@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: b84badda80015600027d7f138bdb4048f6eeaa43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado
 
@@ -41,9 +41,9 @@ El atributo Issuer que se envía de la aplicación a Azure AD en la solicitud SA
 
 Asegúrese de que el atributo Issuer de la solicitud SAML coincide con el valor del identificador configurado en Azure AD:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -73,9 +73,9 @@ El valor de AssertionConsumerServiceURL en la solicitud SAML no coincide con el 
 
 Asegúrese de que el valor de AssertionConsumerServiceURL en la solicitud SAML coincide con el valor de la dirección URL de respuesta configurada en Azure AD.
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ El usuario no tiene acceso a la aplicación en Azure AD.
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -122,9 +122,9 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir la hoja **Agregar asignación**.
+8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir el panel **Agregar asignación**.
 
-9.  Haga clic en el selector **Usuarios y grupos** de la hoja **Agregar asignación**.
+9.  Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
 
 10. Escriba el **nombre completo** o la **dirección de correo electrónico** del usuario al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
 
@@ -134,7 +134,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 13. Cuando haya terminado de seleccionar usuarios, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** de la hoja **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
+14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
@@ -176,9 +176,9 @@ El objeto de aplicación está dañado.
 
 Para solucionar el problema, agregue el valor de identificador único en la configuración de Azure AD. Para agregar un valor del identificador, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -203,9 +203,9 @@ Para solucionar el problema, agregue el valor de identificador único en la conf
 
 Si la opción 1 anterior no ha funcionado, pruebe a quitar la aplicación del directorio. Después, agregue y vuelva a configurar la aplicación, y siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -215,9 +215,9 @@ Si la opción 1 anterior no ha funcionado, pruebe a quitar la aplicación del di
 
   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6.  Seleccionar la aplicación que desea configurar para el inicio de sesión único
 
-7.  Haga clic en **Eliminar** en la parte superior izquierda de la hoja **Información general** de la aplicación.
+7.  Haga clic en **Eliminar** en la parte superior izquierda del panel **Información general** de la aplicación.
 
 8.  Actualice Azure AD y agregue la aplicación en la galería de Azure AD. Después, configure la aplicación.
 
@@ -235,9 +235,9 @@ El objeto de aplicación está dañado y Azure AD no reconoce el certificado con
 
 Para eliminar y crear un nuevo certificado, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -255,7 +255,7 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
 9.  Seleccione la fecha de expiración. A continuación, haga clic en **Guardar**.
 
-10. Active **Activar el certificado nuevo** para reemplazar el certificado activo. Después, haga clic en **Guardar** en la parte superior de la hoja y en Aceptar para activar el certificado de sustitución.
+10. Active **Activar el certificado nuevo** para reemplazar el certificado activo. Después, haga clic en **Guardar** en la parte superior del panel y en Aceptar para activar el certificado de sustitución.
 
 11. En la sección **Certificado de firma de SAML**, haga clic en **Quitar** para quitar el certificado **no usado**.
 
@@ -263,5 +263,5 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

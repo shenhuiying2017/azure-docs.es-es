@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de la versión preliminar de la directiva personalizada de Azure Active Directory B2C
 El conjunto de características de la directiva personalizada está disponible para su evaluación en versión preliminar pública para todos los clientes de Azure Active Directory B2C (Azure AD B2C). Este conjunto de características está destinado a desarrolladores de identidades avanzados que crean las soluciones de identidad más complejas.  
@@ -60,7 +60,7 @@ Para aprovechar de forma completa la versión preliminar pública, se recomienda
 ## <a name="features-by-stage-and-known-issues"></a>Características por fase y problemas conocidos
 Las directiva personalizadas y las funcionalidades de Identity Experience Framework están en desarrollo constante y rápido.  Esta tabla es un índice de disponibilidad de características y componentes.
 
-Publique preguntas en Stack Overflow en [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Publique preguntas en Stack Overflow en [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Proveedores de identidades, Tokens, Protocolos
@@ -143,5 +143,5 @@ Interfaces con aplicaciones y componentes externos
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).

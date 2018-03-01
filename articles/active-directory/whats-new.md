@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -219,7 +219,7 @@ Para obtener más información, consulte [Fewer login prompts: The new “Keep m
 
 **Tipo:** nueva característica  
 **Categoría del servicio:** términos de uso  
-**Funcionalidad del producto:** gobierno
+**Funcionalidad del producto:** gobierno y cumplimiento
  
 Se ha agregado una opción para los administradores con el fin de exigir a usuarios finales que expandan los términos de uso antes de aceptarlos.
 
@@ -666,7 +666,7 @@ Para obtener más información, consulte [Referencia para los informes de la aut
 
 **Tipo:** nueva característica  
 **Categoría del servicio:** términos de uso  
-**Funcionalidad del producto:** gobierno  
+**Funcionalidad del producto:** gobierno y cumplimiento  
 
 
 
@@ -709,7 +709,7 @@ Para obtener más información, consulte [PIM para recursos de Azure (versión p
 
 **Tipo:** nueva característica  
 **Categoría del servicio:** revisiones de acceso  
-**Funcionalidad del producto:** gobierno  
+**Funcionalidad del producto:** gobierno y cumplimiento  
 
 
 

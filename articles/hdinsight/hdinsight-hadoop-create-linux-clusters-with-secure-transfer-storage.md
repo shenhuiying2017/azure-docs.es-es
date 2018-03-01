@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
 La característica [Se requiere transferencia segura](../storage/common/storage-require-secure-transfer.md) mejora la seguridad de su cuenta de Azure Storage al aplicar todas las solicitudes a su cuenta mediante una conexión segura. Esta característica y el esquema wasbs solo son compatibles con la versión de clúster de HDInsight 3.6 o posterior. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Suscripción de Azure**: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free/](https://azure.microsoft.com/free).
@@ -45,7 +45,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plant
 
 2. Siga las instrucciones para crear el clúster con las especificaciones siguientes: 
 
-    - Especifique la versión 3.6 de HDInsight.  La versión predeterminada es 3.5. Se requiere la versión 3.6 o posterior.
+    - Especifique la versión 3.6 de HDInsight.  Se requiere la versión 3.6 o posterior.
     - Especifique una cuenta de almacenamiento habilitada para transferencia.
     - Escriba el nombre corto para la cuenta de almacenamiento.
     - La cuenta de almacenamiento y el contenedor de blobs deben crearse con antelación. 
@@ -66,7 +66,7 @@ Existen varias opciones para agregar cuentas de almacenamiento adicionales habil
 - Crear un clúster mediante [Azure Portal](https://portal.azure.com) y especificar la cuenta de almacenamiento vinculada.
 - Use la acción de script para agregar cuentas de almacenamiento adicionales habilitadas para transferencia segura a un clúster de HDInsight existente.  Para más información, consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a crear un clúster de HDInsight y a habilitar la transferencia segura para las cuentas de almacenamiento.
 
 Para más información sobre el análisis de datos con HDInsight, consulte los siguientes artículos:

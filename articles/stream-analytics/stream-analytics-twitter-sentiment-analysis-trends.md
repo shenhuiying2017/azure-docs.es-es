@@ -1,6 +1,6 @@
 ---
 title: "Análisis de opinión en tiempo real de Twitter con Azure Stream Analytics | Microsoft Docs"
-description: "Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
+description: "Aprenda a usar Stream Analytics para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
 keywords: "análisis de tendencias de twitter en tiempo real, análisis de opiniones, análisis de medios sociales, ejemplo de análisis de tendencias"
 services: stream-analytics
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -35,7 +35,7 @@ Una empresa que tiene un sitio web multimedia de noticias está interesada en ob
 
 Para identificar los temas que son tendencias en tiempo real en Twitter, la empresa necesita el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. En otras palabras, la necesidad es un motor que analice los análisis de opinión basados en esta fuente de redes sociales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial, va a utilizar una aplicación cliente que se conecta a Twitter y busca tweets que tienen ciertos hashtags (que se pueden establecer). Para ejecutar la aplicación y analizar los tweets mediante Azure Stream Analytics, debe tener lo siguiente:
 
 * Una suscripción de Azure
@@ -51,7 +51,7 @@ La aplicación de ejemplo genera eventos y los inserta en un centro de eventos d
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Creación de un espacio de nombres del centro de eventos y un centro de eventos
 En este procedimiento, cree primero un espacio de nombres del centro de eventos y agregue luego un centro de eventos a dicho espacio de nombres. Los espacios de nombres del centro de eventos se usan para agrupar lógicamente instancias de bus de eventos relacionados. 
 
-1. Inicie sesión en Azure Portal y haga clic en **Nuevo** > **Internet de las cosas** > **Centro de eventos**. 
+1. Inicie sesión en Azure Portal y haga clic en **Crear un recurso** > **Internet de las cosas** > **Centro de eventos**. 
 
 2. En la hoja **Crear espacio de nombres**, especifique un nombre de espacio de nombres, como `<yourname>-socialtwitter-eh-ns`. Puede utilizar cualquier nombre para el espacio de nombres, pero debe ser válido para una dirección URL y ser único en Azure. 
     
@@ -69,7 +69,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
     ![Hoja para la creación de un centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. Haga clic en **Crear**.
+7. Haga clic en **Create**(Crear).
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Concesión de acceso al centro de eventos
@@ -87,7 +87,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
 
     ![Hoja para la creación de una directiva de acceso al centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  Haga clic en **Crear**.
+4.  Haga clic en **Create**(Crear).
 
 5.  Una vez implementada la directiva, haga clic en ella en la lista de directivas de acceso compartido.
 
@@ -196,11 +196,11 @@ El siguiente procedimiento documenta ambos enfoques.
     >Si ve errores y no ve una secuencia de tweets en la parte inferior de la ventana, vuelva a comprobar las claves y secretos. Compruebe también la cadena de conexión (asegúrese de que no incluye la clave `EntityPath` y el valor).
 
 
-## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
+## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
 Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede configurar un trabajo de Stream Analytics para analizar estos eventos en tiempo real.
 
-1. En Azure Portal, haga clic en **Nuevo** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
+1. En Azure Portal, haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 
 2. Asigne al trabajo el nombre `socialtwitter-sa-job` y especifique una suscripción, un grupo de recursos y una ubicación.
 
@@ -208,7 +208,7 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
     ![Creación de un trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
     El trabajo se crea y el portal muestra los detalles del trabajo.
 
@@ -229,7 +229,7 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
     ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
 
 ## <a name="specify-the-job-query"></a>Especificación de la consulta del trabajo
@@ -274,7 +274,7 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
 
 5. Haga clic en **Probar**. La consulta se ejecuta en los datos que se han muestreado.
     
-6. Haga clic en **Guardar**. Con esto guarda la consulta como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
+6. Haga clic en **Save**(Guardar). Con esto guarda la consulta como parte del trabajo de Stream Analytics. (No guarda los datos de muestra).
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>Experimentación con distintos campos de la secuencia 
@@ -305,7 +305,7 @@ En este tutorial, va a escribir los eventos Tweet agregados de nuestra consulta 
     * **Alias de salida**: use el nombre `TwitterStream-Output`. 
     * **Receptor**: seleccione **Blob Storage**.
     * **Opciones de importación**: seleccione **Usar almacenamiento de blobs de la suscripción actual**.
-    * **Cuenta de Storage**. Seleccione **Crear una nueva cuenta de almacenamiento**.
+    * **Cuenta de almacenamiento**. Seleccione **Crear una nueva cuenta de almacenamiento**.
     * **Cuenta de Storage** (segundo cuadro). Escriba `YOURNAMEsa`, donde `YOURNAME` sea su nombre u otra cadena única. El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
     * **Contenedor**. Escriba `socialtwitter`.
     El nombre de la cuenta de almacenamiento y el nombre del contenedor se usan conjuntamente para especificar un URI para la instancia de Blob Storage, similar al siguiente: 
@@ -314,7 +314,7 @@ En este tutorial, va a escribir los eventos Tweet agregados de nuestra consulta 
     
     ![Hoja "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. Haga clic en **Crear**. 
+4. Haga clic en **Create**(Crear). 
 
     Azure crea la cuenta de almacenamiento y genera una clave automáticamente. 
 
@@ -329,7 +329,7 @@ Se especifican una entrada de trabajo, la consulta y la salida. Está listo para
 
 2. En la hoja del trabajo, haga clic en **Iniciar**.
 
-    ![Inicio del trabajo de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
+    ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
 3. En la hoja **Iniciar trabajo**, en **Hora de inicio de salida del trabajo**, seleccione **Ahora** y después haga clic en **Iniciar**. 
 
@@ -367,7 +367,7 @@ Para los fines de este tutorial, busque temas que se mencionen más de 20 veces 
     HAVING COUNT(*) > 20
     ```
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 5. Asegúrese de que la aplicación TwitterWpfClient se está ejecutando. 
 
@@ -375,11 +375,11 @@ Para los fines de este tutorial, busque temas que se mencionen más de 20 veces 
 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

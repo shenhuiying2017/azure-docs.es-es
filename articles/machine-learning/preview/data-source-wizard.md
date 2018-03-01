@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>Asistente para origen de datos #
 
-El Asistente para origen de datos es una manera rápida y sencilla para poner un conjunto de datos en el área de trabajo de Azure Machine Learning sin necesidad de código. Es también el lugar donde puede seleccionar un ejemplo de estrategia para el conjunto de datos. 
+El Asistente para origen de datos es una manera rápida y sencilla para poner un conjunto de datos en el área de trabajo de Azure Machine Learning sin necesidad de código. Es también el lugar donde puede seleccionar un ejemplo de estrategia para el conjunto de datos y los tipos de datos para cada columna. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Paso 1: Iniciar el Asistente para origen de datos ## 
 
@@ -27,7 +27,7 @@ Para pasar datos a un proyecto utilizando el Asistente para origen de datos. Sel
 ![agregar origen de datos](media/data-source-wizard/add-data-source.png)
 
 ## <a name="step-2-select-where-data-is-stored"></a>Paso 2: Seleccionar la ubicación en la que se almacenan los datos ##
-En primer lugar, especifique cómo están actualmente en los datos. Pueden estar almacenados en un archivo plano o un directorio, un archivo Parquet, un archivo de Excel o una base de datos. Para más información, consulte los [orígenes de datos admitidos](data-prep-appendix2-supported-data-sources.md).
+En primer lugar, especifique cómo están actualmente en los datos. Pueden estar almacenados en un archivo plano o un directorio, un archivo Parquet, un archivo de Excel o una base de datos. Para obtener más información, consulte [Supported Data Sources](data-prep-appendix2-supported-data-sources.md) (Orígenes de datos admitidos).
 
 ![paso 1](media/data-source-wizard/step1.png)
 
@@ -51,6 +51,8 @@ El Asistente para origen de datos puede detectar automáticamente el tipo de arc
 
 El Asistente para origen de datos detecta automáticamente los tipos de datos de las columnas del conjunto de datos. Si el asistente se deja alguno, o si desea aplicar un tipo de datos, puede cambiar manualmente el tipo de datos. La columna **SAMPLE OUTPUT DATA** (DATOS DE SALIDA DE EJEMPLO) muestra ejemplos del aspecto que tendrán los datos.
 
+Para las columnas en las que infiere la preparación de datos para contener las fechas, puede que deba seleccionar el orden de mes y día en el formato de fecha. Por ejemplo, 1/2/2013 podría representar el 2 de enero (para ello, seleccione *Day-Month* [Día-Mes]) o 1 de febrero (seleccione *Month-Day* [Mes-Día]).
+
 ![paso 6](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>Paso 6: Elegir la estrategia de muestreo de datos ##
@@ -64,14 +66,14 @@ Puede especificar una o varias estrategias de muestreo para el conjunto de datos
 
 Puede especificar tantas estrategias de muestreo como desee, pero solo hay una que se pueden establecer como activa al preparar los datos. Puede establecer cualquier estrategia como activa seleccionando la estrategia y haciendo clic en Establecer como activa en la barra de herramientas.
 
-Dependiendo de la procedencia de los datos, algunas estrategias de ejemplo pueden no ser compatibles. Para más información acerca del muestreo, consulte la sección de muestreo en [este documento](data-prep-user-guide.md) 
+Dependiendo de la procedencia de los datos, algunas estrategias de ejemplo pueden no ser compatibles. Para obtener más información acerca del muestreo, consulte la sección de muestreo en [este documento](data-prep-user-guide.md) 
 
 ![paso 6](media/data-source-wizard/step5.png)
 
 ## <a name="step-7-path-column-handling"></a>Paso 7: Control de la columna de ruta de acceso ##
 
-Si la ruta de acceso de archivo incluye datos importantes, puede elegir incluirla como la primera columna del conjunto de datos. Esto es útil si va a incluir varios archivos. En caso contrario, puede optar por no incluirla.
+Si la ruta de acceso de archivo incluye datos importantes, puede elegir incluirla como la primera columna del conjunto de datos. Esta opción es útil si va a incluir varios archivos. En caso contrario, puede optar por no incluirla.
 
 ![paso 7](media/data-source-wizard/step6.png)
 
-Después de hacer clic en Finalizar, se agregará un nuevo origen de datos al proyecto. Puede encontrarlo en el grupo de orígenes de datos en la vista de datos, o como un archivo .dsource en la **Vista de archivos**.
+Después de hacer clic en Finalizar, se agregará un nuevo origen de datos al proyecto. Puede encontrarlo en el grupo de orígenes de datos en Vista de datos, o como un archivo .dsource en **Vista de archivos**.

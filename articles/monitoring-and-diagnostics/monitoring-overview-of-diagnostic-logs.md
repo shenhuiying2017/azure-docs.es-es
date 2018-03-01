@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -48,7 +48,7 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs qu
 ## <a name="resource-diagnostic-settings"></a>Configuración de diagnóstico de recursos
 Los registros de diagnóstico de recursos para recursos que no son de proceso se configuran mediante la configuración de diagnóstico de recursos. **Configuración de diagnóstico de recursos** para un control de recursos:
 
-* Dónde se envían los registros de diagnóstico y las métricas (cuenta de almacenamiento, Event Hubs o Log Analytics de OMS).
+* Dónde se envían los registros de diagnóstico y las métricas (cuenta de Storage, Event Hubs o Log Analytics de OMS).
 * Qué categorías de registro se envían y si se envían también datos de métrica.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
     - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
@@ -91,7 +91,7 @@ Puede habilitar la recopilación de registros de diagnóstico de recursos en Azu
    
    ![Agregar configuración de diagnóstico: configuración actual](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 Transcurridos unos instantes, la nueva configuración aparece en la lista de opciones para este recurso y los registros de diagnóstico se envían a los destinos especificados en cuanto se generan nuevos datos de eventos.
 
@@ -163,7 +163,7 @@ Asegúrese de que todos los recursos estén instalados con la configuración de 
 
 ![Hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Puede que tenga que hacer clic en "More services" (Más servicios) para encontrar la sección Supervisión.
+Puede que tenga que hacer clic en "Todos los servicios" para encontrar la sección Supervisión.
 
 Aquí puede ver y filtrar todos los recursos que admiten la configuración de diagnósticos y comprobar si está habilitada para los diagnósticos. También puede explorar en profundidad para comprobar si hay varias opciones de configuración establecidas en un recurso y a qué cuenta de almacenamiento, espacio de nombres de Event Hubs o área de trabajo de Log Analytics se transmiten los datos.
 
@@ -174,7 +174,7 @@ Al agregar una opción de configuración de diagnóstico, se abre la vista Confi
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Servicios admitidos, categorías y esquemas para los registros de diagnóstico de recursos
 [Consulte este artículo](monitoring-diagnostic-logs-schema.md) para obtener una lista completa de los servicios admitidos y las categorías de registro y los esquemas utilizados por esos servicios.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Transmisión de registros de diagnóstico a **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Cambio de la configuración de diagnóstico de recursos con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)

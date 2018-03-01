@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
-Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -45,7 +45,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 2. [Recopilación de datos](#collect)
 3. [Mitigación del problema](#mitigate)
 
-[Azure App Service Web Apps](/services/app-service/web/) ofrece diversas opciones en cada paso.
+[App Service Web Apps](/services/app-service/web/) ofrece diversas opciones en cada paso.
 
 <a name="observe" />
 
@@ -62,13 +62,13 @@ Algunas de las métricas que podría querer supervisar para su aplicación web s
 * Tiempo medio de respuesta
 * Tiempo de CPU
 * Espacio de trabajo de memoria
-* Solicitudes
+* Requests
 
 ![supervisar el rendimiento de aplicaciones web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Para más información, consulte:
 
-* [Supervisión de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
+* [Supervisión de Web Apps en Azure App Service](web-sites-monitor.md)
 * [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>estado de extremo web
@@ -83,18 +83,14 @@ Para configurarlo, consulte [Supervisión de Aplicaciones en Azure App Service](
 Consulte también [Mantenimiento de Sitios web de Azure activos y supervisión de puntos de conexión: con Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) para ver un vídeo sobre la supervisión de los puntos de conexión.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Supervisión del rendimiento de la aplicación mediante el uso de extensiones
-También puede supervisar el rendimiento de la aplicación mediante las *extensiones de sitio*.
+También puede supervisar el rendimiento de la aplicación mediante una *extensión de sitio*.
 
 Cada aplicación web de App Service proporciona un punto de conexión de administración extensible que le permite usar un eficaz conjunto de herramientas implementadas como extensiones del sitio. Entre las extensiones se incluyen: 
 
 - Editores de código fuente como [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Las herramientas de administración de los recursos conectados como, por ejemplo, una base de datos de MySQL conectada a una aplicación web.
 
-[Azure Application Insights](/services/application-insights/) y [New Relic](/marketplace/partners/newrelic/newrelic/) son dos de las extensiones de sitio de supervisión del rendimiento que se encuentran disponibles. Para usar New Relic, instale a un agente en tiempo de ejecución. Para usar Application Insights de Azure, vuelva a compilar el código con un SDK; también puede instalar una extensión que proporciona acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
-
-Para usar Application Insights, consulte [Supervisión del rendimiento en las aplicaciones web](../application-insights/app-insights-web-monitor-performance.md).
-
-Para usar New Relic, consulte [Administración del rendimiento de las aplicaciones de New Relic en Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) es una extensión de sitio de supervisión de rendimiento que está también disponible. Para usar Application Insights, recompile el código con un SDK. También puede instalar una extensión que proporcione acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle. Para más información, consulte [Supervisar el rendimiento de aplicaciones web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -119,7 +115,7 @@ Application Insights Profiler proporciona estadísticas sobre el tiempo de respu
  Para más información, consulte [Generación de perfiles de aplicaciones web activas de Azure con Application Insights](../application-insights/app-insights-profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Uso de la generación remota de perfiles
-En Azure App Service, se pueden generar perfiles de forma remota de aplicaciones web, aplicaciones de API y WebJobs. Elija esta opción si tiene acceso al recurso de la aplicación web y sabe cómo reproducir el problema o si conoce el intervalo de tiempo exacto en que ocurre el problema de rendimiento.
+En instancias de Azure App Service, Web Apps, API Apps y WebJobs se pueden generar perfiles de forma remota. Elija esta opción si tiene acceso al recurso de la aplicación web y sabe cómo reproducir el problema o si conoce el intervalo de tiempo exacto en que ocurre el problema de rendimiento.
 
 La generación de perfiles remota puede resultar útil si el uso de CPU del proceso es elevado y el proceso se ejecuta más lento de lo esperado o la latencia de las solicitudes HTTP es superior a la normal. En estos casos, puede generar un perfil para su proceso de forma remota y obtener las pilas de llamada de muestreo de CPU para analizar la actividad del proceso y las rutas de acceso activas del código.
 

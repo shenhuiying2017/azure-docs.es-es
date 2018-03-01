@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory
 
@@ -38,7 +38,7 @@ Puede seguir estos pasos, en función de su situación, para ocultar las aplicac
 Siga estos pasos para ocultar una aplicación del panel de acceso de un usuario y de los iniciadores de aplicaciones de Office 365.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2.  Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.
+2.  Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
 3.  En la pantalla **Azure Active Directory - *nombreDelDirectorio*** (es decir, la pantalla de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
 ![Aplicaciones empresariales](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  En la pantalla **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. Verá una lista de las aplicaciones que puede administrar.
@@ -54,7 +54,7 @@ Siga estos pasos para ocultar una aplicación del panel de acceso de un usuario 
 Siga estos pasos para ocultar todas las aplicaciones de Office 365 del panel de acceso. Estas aplicaciones seguirán estando visibles en el Portal de Office 365.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2.  Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.
+2.  Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
 3.  En la pantalla **Azure Active Directory - *nombreDelDirectorio*** (es decir, la pantalla de Azure AD del directorio que está administrando), seleccione **Configuración de usuario**.
 4.  En la pantalla **Configuración de usuario**, en **Aplicaciones empresariales**, seleccione **Sí** en **Los usuarios solo pueden ver las aplicaciones de Office 365 en el Portal de Office 365**.
 

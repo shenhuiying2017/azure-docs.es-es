@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recopilar datos del modelo mediante la recopilación de datos
 
@@ -88,7 +88,7 @@ Para usar la recolección de datos del modelo, realice los siguientes cambios en
 Para ver los datos recopilados en el almacenamiento de blobs:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Más servicios**.
+2. Seleccione **Todos los servicios**.
 3. En el cuadro de búsqueda, escriba **Cuentas de almacenamiento** y seleccione la tecla Entrar.
 4. En la hoja de búsqueda **Cuentas de almacenamiento**, seleccione el recurso **Cuenta de almacenamiento**. Para determinar cuál es su cuenta de almacenamiento, lleve a cabo los pasos siguientes:
 

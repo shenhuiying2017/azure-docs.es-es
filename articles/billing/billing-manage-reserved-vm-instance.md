@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Administración de instancias reservadas de máquina virtual
 
@@ -28,7 +28,7 @@ Tras adquirir una instancia reservada de máquina virtual de Azure, puede que qu
 
 Para cambiar el ámbito de una reserva: 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione **Más servicios** > **Reservas**.
+2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione la reserva.
 4. Seleccione **Configuración** > **Configuración**.
 5. Cambie el ámbito. Si cambia el ámbito para que pase de ser compartido a único, solo podrá seleccionar suscripciones de las que sea el propietario. Únicamente se pueden seleccionar las suscripciones que pertenezcan al mismo contexto de facturación que la reserva. El contexto de facturación viene determinado por la suscripción que se seleccionó al adquirir la reserva. El ámbito solo se aplica a las suscripciones de las ofertas Pago por uso MS-AZR-0003P y Enterprise MS-AZR-0017P. Las suscripciones de desarrollo y pruebas de contratos Enterprise no son aptas para obtener el descuento de reserva.
@@ -69,7 +69,7 @@ Puede administrar el acceso a las reservas de forma independiente de las suscrip
  
 Para delegar la administración de acceso en una reserva: 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
-2.  Seleccione **Más servicios** > **Reserva** para mostrar las reservas a las que tiene acceso.
+2.  Seleccione **Todos los servicios** > **Reservations** para enumerar las reservas a las que tiene acceso.
 3.  Seleccione la reserva cuyo acceso quiere delegar a otros usuarios.
 4.  En el menú, seleccione **Control de acceso (IAM)**.
 5.  Seleccione **Agregar** > **Rol** > **Propietario** (u otro rol si quiere conceder acceso limitado). 

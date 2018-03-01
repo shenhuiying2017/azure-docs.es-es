@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -32,7 +32,7 @@ Para ver y aplicar recomendaciones de rendimiento, necesita los permisos correct
 Use los pasos siguientes para buscar recomendaciones de rendimiento en Azure Portal:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Vaya a **Más servicios** > **Bases de datos SQL** y seleccione la base de datos.
+2. Vaya a **Todos los servicios** > **Bases de datos SQL** y seleccione la base de datos.
 3. Vaya a **Recomendaciones de rendimiento** para ver las recomendaciones disponibles para la base de datos seleccionada.
 
 Las recomendaciones de rendimiento se muestran en una tabla similar a la de la siguiente ilustración:

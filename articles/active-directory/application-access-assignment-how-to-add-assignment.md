@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4198b5fd971291e78a45af764eaaa1b9dc155893
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d670b2400fc1ac50afdcc8b809a1d482c3219686
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Asignación de usuarios y grupos a una aplicación
 
-Antes de que los usuarios puedan hacer cualquiera de las siguientes acciones para una aplicación específica, debe primero **asignarles a la aplicación** para concederles acceso:
+Para que los usuarios puedan hacer cualquiera de las siguientes acciones para una aplicación específica, antes debe **asignarlos a la aplicación** para concederles acceso:
 
 -   Acceso a una aplicación mediante la **navegación directa a la dirección URL de la aplicación** (también conocido como inicio de sesión iniciado por el proveedor de servicios).
 
@@ -45,9 +45,9 @@ Hay 3 formas de asignar aplicaciones con Azure Active Directory:
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -61,9 +61,9 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir la hoja **Agregar asignación**.
+8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir el panel **Agregar asignación**.
 
-9.  Haga clic en el selector **Usuarios y grupos** de la hoja **Agregar asignación**.
+9.  Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
 
 10. Escriba el **nombre completo** o la **dirección de correo electrónico** del usuario al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
 
@@ -73,7 +73,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 13. Cuando haya terminado de seleccionar usuarios, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** de la hoja **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
+14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
@@ -81,11 +81,11 @@ Tras un breve período de tiempo, los usuarios seleccionados podrán iniciar est
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Asignación de un grupo directamente a una aplicación como administrador
 
-Para asignar uno o varios grupos a una aplicación directamente, siga los pasos siguientes:
+Para asignar uno o varios grupos a una aplicación directamente, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -99,9 +99,9 @@ Para asignar uno o varios grupos a una aplicación directamente, siga los pasos 
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir la hoja **Agregar asignación**.
+8.  Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir el panel **Agregar asignación**.
 
-9.  Haga clic en el selector **Usuarios y grupos** de la hoja **Agregar asignación**.
+9.  Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
 
 10. Escriba el **nombre completo** del grupo al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
 
@@ -111,7 +111,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga los pasos 
 
 13. Cuando haya terminado de seleccionar grupos, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** de la hoja **Agregar asignación** para seleccionar un rol que se asignará a los grupos que ha seleccionado.
+14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los grupos que ha seleccionado.
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los grupos seleccionados.
 
@@ -123,9 +123,9 @@ El acceso de autoservicio a las aplicaciones es una excelente manera de permitir
 
 Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -133,7 +133,7 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-   * Si no ve que la aplicación que desea aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación en la que desea habilitar el acceso de autoservicio de la lista.
 
@@ -156,11 +156,11 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 13. **Opcional:****para las aplicaciones que exponen roles**, si desea asignar usuarios aprobados de autoservicio a un rol, haga clic en el selector situado junto a la etiqueta **¿A qué rol deben asignarse los usuarios de esta aplicación?** para seleccionar el rol al que se deben asignar estos usuarios.
 
-14. Haga clic en el botón **Guardar** de la parte superior de la hoja para terminar.
+14. Haga clic en el botón **Guardar** de la parte superior del panel para terminar.
 
 Cuando se haya completado la configuración de la aplicación de autoservicio, los usuarios pueden navegar a sus [paneles de acceso a las aplicaciones](https://myapps.microsoft.com/) y hacer clic en el botón **+ Agregar** para buscar las aplicaciones para las que se ha habilitado el acceso de autoservicio. Los aprobadores de la empresa pueden también ver una notificación en sus [paneles de acceso a las aplicaciones](https://myapps.microsoft.com/). Puede habilitar un correo electrónico que les informa cuando un usuario ha solicitado el acceso a una aplicación que requiere su aprobación. 
 
 Estas aprobaciones admiten flujos de trabajo de aprobación única, lo que significa que si especifica varios aprobadores, cualquier aprobador individual puede aprobar el acceso a la aplicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

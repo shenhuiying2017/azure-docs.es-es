@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Introducción a escritorio de .NET (WPF) de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
+3. Haga clic en **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y elija **Agregar**.
 5. Siga las indicaciones y cree una nueva **Aplicación de cliente nativa**.
   * El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.

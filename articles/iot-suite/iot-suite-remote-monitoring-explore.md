@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Exploración de las funcionalidades de la solución preconfigurada de supervisión remota
 
@@ -31,6 +31,7 @@ En este tutorial, aprenderá a:
 > * Responder a una alarma
 > * Actualizar el firmware de los dispositivos
 > * Organización de los activos
+> * Detener e iniciar los dispositivos simulados
 
 En el vídeo siguiente se muestra un tutorial sobre la solución de supervisión remota:
 
@@ -230,6 +231,16 @@ Puede usar los valores de etiqueta para crear filtros.
 
 El operador de Contoso ahora puede consultar los dispositivos en función del equipo operativo sin necesidad de hacer ningún cambio en los dispositivos.
 
+## <a name="stop-simulated-devices"></a>Detención de los dispositivos simulados
+
+Puede usar el menú de configuración para detener los dispositivos simulados. Esto ayuda a reducir los costos de pruebas y exploración de la solución. Para detener o iniciar los dispositivos simulados:
+
+1. Elija el icono de **configuración**.
+
+1. A continuación, active o desactive **En ejecución**:
+
+    ![Menú Configuración](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial aprendió a:
@@ -239,6 +250,7 @@ En este tutorial aprendió a:
 > * Responder a una alarma
 > * Actualizar el firmware de los dispositivos
 > * Organización de los activos
+> * Detener e iniciar los dispositivos simulados
 
 Ahora que exploró la solución de supervisión remota, los próximos pasos que se sugieren son obtener información sobre las características avanzadas de la solución de supervisión remota:
 

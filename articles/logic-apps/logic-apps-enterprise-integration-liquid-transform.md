@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Realice transformaciones JSON avanzadas con una plantilla Liquid
 
@@ -110,7 +110,46 @@ En este artículo, aprenderá a usar una asignación o plantilla Liquid, que pue
 
 Publique la entrada JSON en la aplicación lógica desde [Postman](https://www.getpostman.com/postman) u otra herramienta similar. La salida JSON transformada de la aplicación lógica tiene este aspecto:
   
-![Salida de ejemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Salida de ejemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Más ejemplos de acciones Liquid
+Liquid no está limitado únicamente a transformaciones JSON. Estos son otras acciones de transformación disponibles que utilizan Liquid.
+
+* Transformación de JSON en texto
+  
+  Esta es la plantilla Liquid utilizada en este ejemplo:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Estos son ejemplos de entrada y salida:
+  
+   ![Ejemplo de salida JSON a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Transformación XML a JSON
+  
+  Esta es la plantilla Liquid utilizada en este ejemplo:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Estos son ejemplos de entrada y salida:
+
+   ![Ejemplo de salida XML a JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Transformación XML a texto
+  
+  Esta es la plantilla Liquid utilizada en este ejemplo:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Estos son ejemplos de entrada y salida:
+
+   ![Ejemplo de salida XML a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>pasos siguientes
 

@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/08/2017
+ms.date: 02/16/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integración de los registros de auditoría de Azure Active Directory
 
 Los eventos de auditoría de Azure Active Directory (Azure AD) le ayudan a identificar las acciones con privilegios que se produjeron en Azure Active Directory. Puede ver los tipos de eventos de los que puede realizar un seguimiento mediante la revisión de [Eventos del informe de auditoría de Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+
 
 > [!NOTE]
 > Debe revisar el artículo [Introducción](security-azure-log-integration-get-started.md) y completar los pasos allí antes de intentar seguir los pasos descritos en este artículo.
@@ -65,12 +66,10 @@ Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](ht
 
 También puede abrir una [solicitud de soporte técnico](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Azure Log Integration** como el servicio para el que está solicitando el soporte técnico.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre Azure Log Integration, consulte:
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) (Microsoft Azure Log Integration para registros de Azure): Esta página del Centro de descarga proporciona información, los requisitos del sistema y las instrucciones de instalación de Azure Log Integration.
 * [Introduction to Azure log integration](security-azure-log-integration-overview.md) (Introducción a Azure Log Integration): este documento es una introducción de Azure Log Integration, sus principales funcionalidades y cómo funciona.
-* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): esta entrada de blog le muestra cómo configurar Azure Log Integration para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
 * [Preguntas más frecuentes sobre Azure Log Integration](security-azure-log-integration-faq.md). Este artículo de preguntas más frecuentes responde a preguntas sobre Azure Log Integration.
-* [Integración de las alertas de Security Center con Azure Log Integration (versión preliminar)](../security-center/security-center-integrating-alerts-with-log-integration.md). Este artículo le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Azure Diagnostics y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
 * [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuevas características de Azure Diagnostics y registros de auditoría de Azure): esta entrada de blog es una introducción a los registros de auditoría de Azure y a otras características que le ayudarán a obtener información sobre las operaciones de los recursos de Azure.

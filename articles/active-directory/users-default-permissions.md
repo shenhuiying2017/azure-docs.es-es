@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permisos de usuario predeterminados en Azure Active Directory
 
@@ -37,7 +37,7 @@ De forma predeterminada, los permisos predeterminados de los invitados son restr
 ------------ | --------- | ----------
 Usuarios y contactos | Leer todas las propiedades públicas de usuarios y contactos<br>Invitar a los invitados<br>Cambiar la contraseña propia<br>Administrar el número de teléfono móvil propio<br>Administrar la fotografía propia<br>Invalidar tokens de actualización propios | Leer las propiedades propias<br>Leer el nombre para mostrar, el correo electrónico, el nombre de inicio de sesión, la fotografía, el nombre principal de usuario y las propiedades de tipo de usuario de otros usuarios y contactos<br>Cambiar la contraseña propia
 Grupos   | Crear grupos de seguridad<br>Crear grupos de Office 365<br>Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar las propiedades, la propiedad y la pertenencia de los grupos que se poseen<br>Agregar invitados a los grupos que se poseen<br>Administrar la configuración de pertenencia dinámica<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen | Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar los grupos que se poseen<br>Agregar invitados a los grupos que se poseen (si se permite)<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen           
-Aplicaciones | Registrar aplicaciones nuevas<br>Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Crear o eliminar contraseña de la aplicación para el usuario<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen | Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen
+APLICACIONES | Registrar aplicaciones nuevas<br>Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Crear o eliminar contraseña de la aplicación para el usuario<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen | Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen
 Dispositivos | Leer todas las propiedades de los dispositivos<br>Administrar todas las propiedades de los dispositivos que se poseen<br> | Sin permisos<br>Eliminar los dispositivos que se poseen<br>
 Directorio | Leer toda la información de la compañía<br>Leer todos los dominios<br>Leer todos los contratos de los asociados | Leer el nombre para mostrar y los dominios comprobados
 Roles y ámbitos | Leer todos los roles y las pertenencias administrativas<br>Leer todas las propiedades y la pertenencia de las unidades administrativas | Sin permisos              
@@ -59,7 +59,7 @@ Capacidad para registrar (crear) aplicaciones | Si se selecciona No en esta opci
 Los administradores y los usuarios con el rol Invitador de usuarios son los únicos que pueden invitar a otros usuarios | Si se selecciona No en esta opción, se impide que todos los usuarios inviten a otros usuarios. Consulte Configuración de los permisos predeterminados de los usuarios miembros. Para más información, consulte [Aplicaciones, permisos y consentimiento en Azure Active Directory](active-directory-apps-permissions-consent.md).
 Los miembros pueden invitar a otros usuarios | Si se selecciona No, se impide que los usuarios inviten a otros usuarios. Los administradores globales, los administradores de cuentas de usuario y los invitadores de usuarios podrán invitar a otros usuarios. Para más información, consulte [Aplicaciones, permisos y consentimiento en Azure Active Directory](active-directory-apps-permissions-consent.md).
 Restringir el acceso al portal de administración de Azure AD | Si se selecciona No en esta opción, se impide que los usuarios accedan al portal de Azure Active Directory.
-Capacidad para leer otros usuarios | Para más información, consulte [Aplicaciones, permisos y consentimiento en Azure Active Directory](active-directory-apps-permissions-consent.md).
+Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta configuración en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esto no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecerla en $false.
 
 ## <a name="object-ownership"></a>Propiedad del objeto
 
@@ -74,7 +74,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 Cuando un usuario crea un grupo, se agrega automáticamente como propietario de dicho grupo. Como propietario, puede administrar las propiedades del grupo, como el nombre, así como administrar la pertenencia. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales y los administradores de cuentas de usuario, los propietarios solo pueden administrar los grupos que poseen. Para asignar un propietario de grupo, consulte [Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)

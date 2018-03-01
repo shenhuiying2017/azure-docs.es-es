@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -127,7 +127,7 @@ Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocol
 
 **Conectarse mediante RDP usando el [Portal de Microsoft Azure][link-azure-portal]**
 
-1. Seleccione **Examinar** > **Máquinas virtuales**.
+1. Seleccione **Todos los servicios** > **Máquinas virtuales**.
 2. Se abre la hoja Máquinas virtuales. Compruebe que la máquina virtual con la que desea conectarse está ejecutándose y selecciónela en la lista de máquinas virtuales implementadas.
 3. Se abre una hoja en la que se describe la máquina virtual seleccionada. En la parte superior, haga clic en **Conectar**.
 4. Se le pide que proporcione el nombre de usuario y la contraseña que especificó durante el aprovisionamiento.
@@ -136,7 +136,7 @@ Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocol
 
 Para descargar un archivo de escritorio remoto en una máquina local, use el [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para usar este cmdlet, tiene que conocer el nombre del servicio y el de la máquina virtual. Si creó la máquina virtual desde el [Portal de Microsoft Azure][link-azure-portal], puede ver esta información en las propiedades de la máquina virtual:
 
-1. En Microsoft Azure Portal, seleccione **Examinar** > **Máquinas virtuales**.
+1. En Microsoft Azure Portal, seleccione **Todos los servicios** > **Máquinas virtuales**.
 2. Se abre la hoja Máquinas virtuales. Seleccione la máquina virtual que ha implementado.
 3. Se abre una hoja en la que se describe la máquina virtual seleccionada.
 4. Haga clic en **Propiedades**.
@@ -214,7 +214,6 @@ Para implementar una máquina virtual a partir de una imagen de máquina virtual
 
 1. Vaya a **Nuevo** > **Proceso** > **Máquina virtual** > **De la galería**.
 
-    ![dibujo][img-manage-vm-new]
 2. Vaya a **Mis imágenes**y seleccione la imagen de máquina virtual con la que quiere implementar una máquina virtual:
 
    1. Preste mucha atención a la imagen que selecciona, porque la vista **Mis imágenes** enumera tanto imágenes del sistema operativo como imágenes de máquina virtual.
@@ -304,7 +303,7 @@ Estos son las 3 herramientas recomendadas:
 
 1.  Explorador de Azure Storage
 2.  Explorador de Microsoft Azure Storage
-3.  CLI de Azure
+3.  Azure CLI
 
 **Explorador de Azure Storage (recomendado para los usuarios de Windows)**
 

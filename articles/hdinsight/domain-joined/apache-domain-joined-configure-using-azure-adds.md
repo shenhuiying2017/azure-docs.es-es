@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 
@@ -36,9 +36,11 @@ En este artículo, aprenderá a configurar un clúster de HDInsight unido a un d
 Es necesario crear una instancia de Azure AD DS para poder crear un clúster de HDInsight. Para crear una instancia de Azure AD DS, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Solo los administradores de inquilinos tienen privilegios para crear servicios de dominio. Si usa Azure Data Lake Storage (ADLS) como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de ADLS es el mismo que el del dominio del clúster de HDInsight. 
+> Solo los administradores de inquilinos tienen privilegios para crear servicios de dominio. Si usa Azure Data Lake Storage (ADLS) como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de ADLS es el mismo que el del dominio del clúster de HDInsight. Para que esta configuración funcione con Azure Data Lake Store, se debe deshabilitar la autenticación multifactor para los usuarios que tengan acceso al clúster.
 
 Después de aprovisionar el servicio de dominio, debe crear una cuenta de servicio en el grupo **Administradores de controladores de dominio de AAD** para crear el clúster de HDInsight. La cuenta de servicio debe ser un administrador global en Azure AD.
+
+Debe habilitar LDAP seguro para un dominio administrado con Azure AD Domain Services. Para habilitar LDAP seguro, consulte [Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Creación de un clúster de HDInsight unido a un dominio
 

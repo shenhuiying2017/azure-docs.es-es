@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes AS2 para la integración empresarial con las aplicaciones lógicas
 
@@ -40,12 +40,12 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  En el menú izquierdo, seleccione **Más servicios**. En el cuadro de búsqueda, escriba **integración** como filtro. En la lista de resultados, seleccione **Cuentas de integración**.
+2.  En el menú izquierdo, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba **integración** como filtro. En la lista de resultados, seleccione **Cuentas de integración**.
 
     > [!TIP]
-    > Si no ve **Más servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
 
-    ![Más servicios, filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![En Todos lo servicios, filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. En la hoja **Cuentas de integración** que se abre, seleccione la cuenta donde se vaya a crear el contrato.
 Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-accounts.md "Información completa sobre las cuentas de integración").  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carga de un certificado de administración de servicios de Azure
 Los certificados de administración le permiten autenticar con el modelo de implementación clásica que proporciona Azure. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. 
@@ -38,7 +38,7 @@ También puede usar [Azure Active Directory](https://azure.microsoft.com/en-us/s
 Una vez que tenga creado un certificado de administración, (archivo .cer con solo la clave pública) puede cargarlo en el portal. Cuando el certificado esté disponible en el portal, cualquiera que tenga un certificado que coincida (clave privada) puede conectarse a través de Management API y obtener acceso a los recursos de la suscripción asociada.
 
 1. Inicie sesión en [Azure Portal](http://portal.azure.com).
-2. Haga clic en **Más servicios** en la lista de servicios de Azure en la parte inferior y, a continuación, seleccione **Suscripciones** en el grupo de servicios _General_.
+2. Haga clic en **Todos los servicios** en la lista de servicios de Azure en la parte inferior y, a continuación, seleccione **Suscripciones** en el grupo de servicios _General_.
 
     ![Menú Suscripción](./media/azure-api-management-certs/subscriptions_menu.png)
 
