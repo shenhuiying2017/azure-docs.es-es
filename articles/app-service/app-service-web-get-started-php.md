@@ -1,4 +1,4 @@
----
+﻿---
 title: "Creación de una aplicación web de PHP en Azure | Microsoft Docs"
 description: "Implementación de su primera aplicación Hola mundo de PHP en Azure App Service Web Apps en cuestión de minutos."
 services: app-service\web

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Guía de planeamiento y operaciones de Security Center | Microsoft Docs"
 description: Este documento lo ayuda a planear antes de adoptar Azure Security Center y proporciona consideraciones sobre las operaciones diarias.
 services: security-center
