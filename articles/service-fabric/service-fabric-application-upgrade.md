@@ -12,10 +12,6 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.date: 2/23/2018
-=======
-<<<<<<< HEAD
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
@@ -23,20 +19,6 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
-=======
-ms.date: 2/13/2018
->>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
-ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-<<<<<<< HEAD
-ms.lasthandoff: 02/24/2018
-=======
-ms.lasthandoff: 02/21/2018
->>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
->>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
 Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
