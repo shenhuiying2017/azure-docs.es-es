@@ -14,11 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
+<<<<<<< HEAD
 ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
 ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/28/2018
+=======
+ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/21/2018
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -283,3 +299,16 @@ En la configuración de la operación del marcador de posición, puede establece
 ## <a name="summary"></a>Resumen
 El servicio de administración de API de Azure proporciona directivas flexibles que se pueden aplicar de forma selectiva al tráfico HTTP y permite la composición de servicios de back-end. Si desea mejorar la puerta de enlace de la API con funciones de alerta, comprobación, capacidades de validación o crear nuevos recursos compuestos basados en varios servicios de back-end, la directiva `send-request` y otras relacionadas ofrecen todo un mundo de posibilidades.
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+## <a name="watch-a-video-overview-of-these-policies"></a>Ver un vídeo de información general de estas directivas
+Para obtener más información sobre las directivas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) y [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) que se describen en este artículo, vea el siguiente vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
+
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b

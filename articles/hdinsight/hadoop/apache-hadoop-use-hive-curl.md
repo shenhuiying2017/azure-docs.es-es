@@ -16,11 +16,27 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
+<<<<<<< HEAD
 ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/28/2018
+=======
+ms.openlocfilehash: c830abdf8220f222a06b771b8c9fc905146420b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/21/2018
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Hive con Hadoop en HDInsight con REST
 
@@ -77,8 +93,17 @@ Este documento también usa Windows PowerShell y [Jq](http://stedolan.github.io/
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
+<<<<<<< HEAD
        -Credential $creds `
        -UseBasicParsing
+=======
+<<<<<<< HEAD
+       -Credential $creds `
+       -UseBasicParsing
+=======
+       -Credential $creds
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
     $resp.Content
     ```
 
@@ -101,8 +126,17 @@ Este documento también usa Windows PowerShell y [Jq](http://stedolan.github.io/
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
+<<<<<<< HEAD
        -Credential $creds `
        -UseBasicParsing
+=======
+<<<<<<< HEAD
+       -Credential $creds `
+       -UseBasicParsing
+=======
+       -Credential $creds
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
     $resp.Content
     ```
 
@@ -124,8 +158,17 @@ Este documento también usa Windows PowerShell y [Jq](http://stedolan.github.io/
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
+<<<<<<< HEAD
        -Method POST `
        -UseBasicParsing
+=======
+<<<<<<< HEAD
+       -Method POST `
+       -UseBasicParsing
+=======
+       -Method POST
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -165,8 +208,17 @@ Este documento también usa Windows PowerShell y [Jq](http://stedolan.github.io/
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
+<<<<<<< HEAD
        -Body $reqParams `
        -UseBasicParsing
+=======
+<<<<<<< HEAD
+       -Body $reqParams `
+       -UseBasicParsing
+=======
+       -Body $reqParams
+>>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
+>>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")
