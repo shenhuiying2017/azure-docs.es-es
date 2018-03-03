@@ -1,7 +1,7 @@
 # Información general
 ## [Acerca de Database Migration Service](dms-overview.md)
 
-# Inicios rápidos
+# Guías de inicio rápido
 ## [Creación del servicio: portal](quickstart-create-data-migration-service-portal.md)
 
 # Tutoriales
@@ -18,4 +18,5 @@
 ## [Precios](https://aka.ms/dms-pricing)
 ## [Introducción sobre requisitos previos](pre-reqs.md)
 ## [P+F](faq.md)
+## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=database-migration)
 

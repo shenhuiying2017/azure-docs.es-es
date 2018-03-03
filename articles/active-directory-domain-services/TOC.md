@@ -22,6 +22,7 @@
 ## [Comprobar el mantenimiento de un dominio administrado](active-directory-ds-check-health.md)
 ## [Usar Azure AD Domain Services en suscripciones de Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Comprobación del estado del dominio](active-directory-ds-check-health.md)
 ## Unirse a un dominio administrado
 ### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar DNS en un dominio administrado](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Configurar LDAP seguro para un dominio administrado
 #### [Tarea 1: Obtención de un certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarea 2: Exportación del certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
