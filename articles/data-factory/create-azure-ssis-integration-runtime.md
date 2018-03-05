@@ -12,30 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-<<<<<<< HEAD
 ms.author: douglasl
 ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
-=======
-<<<<<<< HEAD
-ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-=======
-ms.author: spelluru
-ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
->>>>>>> 2b7eaf6c4cfe5413d9b581a669c96a2527a1b2ba
->>>>>>> eefc9d4b1876cab186dde3b22a97f8b1abe07f8b
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 En este artículo se describen los pasos necesarios para aprovisionar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure.

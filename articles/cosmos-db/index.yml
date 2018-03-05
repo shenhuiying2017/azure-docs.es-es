@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: c5a09b76eee27300a7814bba69c5b73f5b2e5aad
-  ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+  ms.openlocfilehash: 556b60d6489f51e23d09290906b3e0d24b72cbdc
+  ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/22/2018
+  ms.lasthandoff: 03/02/2018
 abstract:
   description: "Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido globalmente. Use estos inicios rápidos, tutoriales y ejemplos para desarrollar bases de datos de documentos, de clave-valor, basadas en columnas y de grafos mediante API conocidas y modelos de programación. Después, aprenda a replicar los datos entre varias regiones de Azure y a escalar el rendimiento independientemente del almacenamiento, al tiempo que se beneficia de unos Acuerdos de Nivel de Servicio completos."
   aside:
@@ -112,7 +112,7 @@ sections:
     className: cardsD
     items:
     - title: API de SQL
-      html: <p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Fuente de cambios de .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">Proveedor de recursos de REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Fuente de cambios de .NET</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">Async Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/documentdb/">REST</a></p><p><a href="/rest/api/documentdbresourceprovider/">Proveedor de recursos de REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: MongoDB API
       html: "<p><a href=\"https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/\">Protocolo de conexión</a></p><p><a href=\"https://mongodb.github.io/node-mongodb-native/ \">Node.js</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/csharp/\">C#</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/java/\">Java</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/python/\">Python</a></p><p><a href=\"https://docs.mongodb.com/ruby-driver/master/\">Ruby</a></p>"
     - title: Table API

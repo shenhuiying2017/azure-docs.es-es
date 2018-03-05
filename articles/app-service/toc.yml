@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python con PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Creación de API de RESTful
+    - name: 1 - Hospedaje de API de RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Asignación de dominios personalizados
       href: app-service-web-tutorial-custom-domain.md
@@ -230,7 +230,7 @@
     - name: Libros de cocina
       items:
         - name: Arquitecturas de referencia
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Scripts de implementación
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: solución de problemas

@@ -194,25 +194,15 @@
   items:
     - name: Preguntas más frecuentes
       href: frequently-asked-questions.md
-    - name: Solución de problemas conocidos
+    - name: Solución de problemas
       href: known-issues-and-troubleshooting-guide.md
-    - name: Documentación sobre el proceso de ciencia de los datos en equipos
-      href: ../team-data-science-process/overview.md
-    - name: Documentación sobre máquinas virtuales de ciencia de datos
-      href: ../data-science-virtual-machine/overview.md
+    - name: Soporte técnico y entrenamiento
+      href: support-for-aml-services.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Foro de comentarios
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Opciones de soporte técnico
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Proceso de ciencia de los datos en equipos
+      href: ../team-data-science-process/overview.md

@@ -14,6 +14,7 @@
 # Procedimientos
 ## Planeamiento y diseño
 ### [Consideraciones de diseño](virtual-machine-scale-sets-design-overview.md)
+### [Descripción de los identificadores de instancias](virtual-machine-scale-sets-instance-ids.md)
 
 ## Creación de una plantilla
 ### [Más información acerca de las plantillas de conjunto de escalado](virtual-machine-scale-sets-mvss-start.md)
