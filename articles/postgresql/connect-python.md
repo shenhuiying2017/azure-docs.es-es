@@ -1,24 +1,24 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL desde Python | Microsoft Docs"
+title: "Conexión a Azure Database for PostgreSQL desde Python"
 description: "En este tutorial rápido se proporciona un ejemplo de código de Python que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Python para conectarse y consultar datos
-En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL. Para más detalles del SDK, consulte la documentación de [referencia de las bibliotecas de Azure PostgreSQL para el SDK de Python](/python/api/overview/azure/postgresql) y el [ejemplo psycopg](http://initd.org/psycopg/docs/usage.html).
+En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
@@ -50,11 +50,10 @@ Instale el paquete [psycopg2](http://initd.org/psycopg/docs/install.html), que l
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque **mypgserver-20170401** (el servidor que creó).
-3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**.
- ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-python/1-connection-string.png)
-5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Haga clic en el nombre del servidor.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
+ ![Nombre de servidor de Azure Database for PostgreSQL](./media/connect-python/1-connection-string.png)
 
 ## <a name="how-to-run-python-code"></a>Ejecución de código Python
 Este artículo contiene cuatro ejemplos de código en total, cada uno de los cuales realiza una función específica. Las siguientes instrucciones indican cómo crear un archivo de texto, insertar un bloque de código y luego guardar el archivo para que se pueda ejecutar más adelante. No olvide crear cuatro archivos diferentes, uno para cada bloque de código.
@@ -75,8 +74,8 @@ Use el código siguiente para conectarse y cargar los datos mediante la función
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -119,8 +118,8 @@ Use el código siguiente para leer los datos insertados mediante la función [cu
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -153,8 +152,8 @@ Use el código siguiente para actualizar la fila de inventario que insertó ante
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -183,8 +182,8 @@ Use el código siguiente para eliminar un elemento de inventario que insertó an
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

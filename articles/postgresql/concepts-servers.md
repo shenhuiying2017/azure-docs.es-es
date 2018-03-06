@@ -1,19 +1,19 @@
 ---
-title: Conceptos de servidor en Azure Database for PostgreSQL | Microsoft Docs
-description: En este tema se incluyen consideraciones e instrucciones para configurar y administrar servidores de Azure Database for PostgreSQL.
+title: Conceptos sobre servidores de Azure Database for PostgreSQL
+description: "En este artículo se incluyen consideraciones e instrucciones para configurar y administrar servidores de Azure Database for PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/02/2017
-ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 02/28/2018
+ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Servidores de Azure Database for PostgreSQL
 En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for PostgreSQL.
@@ -33,7 +33,7 @@ Un servidor de Azure Database for PostgreSQL:
 - Está disponible en varias versiones. Para más información, consulte las [versiones de base de datos admitidas de PostgreSQL](concepts-supported-versions.md).
 - Es ampliable por los usuarios. Para más información, consulte la información sobre [extensiones de PostgreSQL](concepts-extensions.md).
 
-Dentro del servidor de Azure Database for PostgreSQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que use todos los recursos, o bien crear varias para que los compartan. El precio está estructurado por servidor y se basa en la configuración del plan de tarifa, las unidades de proceso y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
+Dentro del servidor de Azure Database for PostgreSQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que use todos los recursos, o bien crear varias para que los compartan. El precio está estructurado por servidor y se basa en la configuración del plan de tarifa, los núcleos virtuales y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>¿Cómo conectarse a un servidor de Azure Database for PostgreSQL y autenticarse en él?
 Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos:
@@ -56,6 +56,6 @@ Como servicio administrado para Postgres, los parámetros configurables en Azure
 
 ## <a name="next-steps"></a>pasos siguientes
 - Para obtener una visión general del servicio, consulte [Introducción a Azure Database for PostgreSQL](overview.md).
-- Para obtener información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](concepts-service-tiers.md).
+- Para obtener información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](concepts-pricing-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea la información sobre [bibliotecas de conexión de Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - Vea y edite los parámetros del servidor a través de [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).

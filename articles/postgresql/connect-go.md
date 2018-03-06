@@ -1,26 +1,26 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL mediante el lenguaje Go | Microsoft Docs"
+title: "Conexión a Azure Database for PostgreSQL mediante el lenguaje Go"
 description: "En este tutorial rápido se proporciona un ejemplo del lenguaje de programación Go que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 305a9ad066ad504b7564945d8ccce1be19a4135a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso del lenguaje Go para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante código escrito en el lenguaje [Go](https://golang.org/) (golang). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Go, pero que nunca ha trabajado con Azure Database para PostgreSQL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
@@ -81,11 +81,10 @@ Instale [Go](https://golang.org/doc/install) y el [controlador Pure Go Postgres 
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **mypgserver-20170401**.
-3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
- ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-go/1-connection-string.png)
-5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** y vea el nombre de inicio de sesión del Administrador del servidor. Si es necesario, restablezca la contraseña.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Haga clic en el nombre del servidor.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
+ ![Nombre de servidor de Azure Database for PostgreSQL](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Compilación y ejecución del código de Go 
 1. Para escribir código Golang, puede usar un editor de texto sin formato, como el Bloc de notas en Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) en Ubuntu, o TextEdit en macOS. Si prefiere un entorno de desarrollo integrado (IDE) más rico, pruebe [Gogland](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/).
@@ -115,9 +114,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -181,9 +180,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -247,9 +246,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -300,9 +299,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -334,6 +333,6 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

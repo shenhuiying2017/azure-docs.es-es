@@ -1,25 +1,25 @@
 ---
-title: "Configuración y acceso a los registros del servidor para PostgreSQL en Azure Portal | Microsoft Docs"
+title: "Configuración y acceso a los registros del servidor para PostgreSQL en Azure Portal"
 description: "En este artículo se describe cómo configurar los registros de servidor de Azure Database for PostgreSQL, y obtener acceso a ellos, mediante Azure Portal."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
 Puede configurar, enumerar y descargar los [registros del servidor Azure Database for PostgreSQL](concepts-server-logs.md) de Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 
@@ -34,21 +34,15 @@ Configure el acceso a los registros de consulta y los registros de errores.
 
    ![Seleccione Registros de servidor y después "Haga clic aquí para habilitar..."](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. Seleccione el encabezado **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
+4. Seleccione el título **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
 
-5. Seleccione el ampliador **Mostrar más** para ver una lista expandida de los parámetros disponibles. 
-
-   Para más información sobre las definiciones de parámetros, consulte la documentación de PostgreSQL sobre [informes y registro de errores](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Breve lista de parámetros de registro. Haga clic en Mostrar más para una lista más exhaustiva.](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Cambie los parámetros que necesita ajustar. Todos los cambios que realice en esta sesión se resaltan en color púrpura.
+5. Cambie los parámetros que necesita ajustar. Todos los cambios que realice en esta sesión se resaltan en color púrpura.
 
    Cuando haya cambiado los parámetros, haga clic en **Guardar**. O bien puede **descartar** los cambios. 
 
    ![Lista exhaustiva de parámetros con los cambios que se van a guardar o descartar](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Para volver a la lista de registros, haga clic en el **botón Cerrar** (icono de X) en la página **Parámetros de servidor**.
+6. Para volver a la lista de registros, haga clic en el **botón Cerrar** (icono de X) en la página **Parámetros de servidor**.
 
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
 Una vez que comience el registro, puede ver una lista de registros disponibles y descargar archivos de registro individuales en el panel Registros de servidor. 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
 
@@ -28,7 +28,7 @@ Obtenga información sobre cómo crear una función que se desencadena mediante 
 
 ![Función desencadenada mediante un webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Una cuenta de GitHub con un proyecto como mínimo.
 + Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -77,11 +77,11 @@ A continuación, va a crear un webhook en el repositorio de GitHub.
 
     ![Establecer la dirección URL y el secreto del webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Configuración | Valor sugerido | Descripción |
+| Configuración | Valor sugerido | DESCRIPCIÓN |
 |---|---|---|
 | **Dirección URL de carga** | Valor copiado | Use el valor devuelto por **</> Obtener la dirección URL de la función**. |
-| **Secreto**   | Valor copiado | Use el valor devuelto por **</> Obtener el secreto de GitHub**. |
 | **Tipo de contenido** | application/json | La función espera una carga JSON. |
+| **Secreto**   | Valor copiado | Use el valor devuelto por **</> Obtener el secreto de GitHub**. |
 | Desencadenadores de eventos | Dejarme seleccionar eventos individuales | Solo interesa desencadenar en función de eventos de comentarios de problema.  |
 | | Comentario de problema |  |
 
@@ -105,9 +105,9 @@ Ahora, el webhook está configurado para desencadenar la función cuando se agre
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Ha creado una función que se ejecuta cuando se recibe una solicitud de un webhook de GitHub.
+Ha creado una función que se desencadena cuando se recibe una solicitud de un webhook de GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

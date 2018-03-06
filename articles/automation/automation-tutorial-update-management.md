@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -65,12 +65,9 @@ Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran
 El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y un trabajo de runbook híbrido de Automation.
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
 
-Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la opción de habilitar la solución.
+Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
-![Banner de configuración de la incorporación de Update Management](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-Para habilitar la solución, haga clic en el banner.
-Si se detecta que falta alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automation](./automation-offering-get-started.md)

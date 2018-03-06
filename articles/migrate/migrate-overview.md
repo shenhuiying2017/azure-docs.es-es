@@ -4,14 +4,14 @@ description: "Proporciona información general acerca del servicio Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -48,11 +48,11 @@ Una evaluación le ayuda a identificar si las máquinas virtuales locales son id
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración. De forma predeterminada, la ubicación de destino es la región Oeste de EE. UU. 2. 
+**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/>Azure Migrate admite actualmente 30 regiones, incluidas Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Centro de Alemania, Noreste de Alemania, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro-sur de EE. UU., Sudeste Asiático, India del Sur, Sur de Reino Unido, Oeste de Reino Unido, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2. De forma predeterminada, la ubicación de destino es la región Oeste de EE. UU. 2. 
 **Redundancia de almacenamiento** | El tipo de [redundancia de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que las máquinas virtuales de Azure usarán después de la migración. El almacenamiento con redundancia local (LRS) es el valor predeterminado. Tenga en cuenta que Azure Migrate solo admite las evaluaciones basadas en discos administrados y los discos administrados solo son compatibles con LRS, por lo tanto, la propiedad solo tiene actualmente la opción de LRS. 
 **Criterio de ajuste de tamaño** | El criterio que debe utilizar Azure Migrate para ajustar el tamaño de las máquinas virtuales para Azure. Puede ajustar el tamaño en función del *historial de rendimiento* de las máquinas virtuales locales o ajustar las máquinas virtuales *como locales* para Azure sin tener en cuenta el historial de rendimiento. El valor predeterminado es el ajuste de tamaño basado en el rendimiento.
 **Panes de tarifa** | Para calcular los costos, una evaluación tiene en cuenta si se dispone de Software Assurance y si se puede optar por [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). También tiene en cuenta las [Ofertas de Azure](https://azure.microsoft.com/support/legal/offer-details/) a las que se haya suscrito y le permite especificar los descuentos específicos de cualquier suscripción (%), que puede obtener además de la oferta. 
-**Plan de tarifa** | Puede especificar el [plan de tarifa (Básico o Estándar)](../virtual-machines/windows/sizes-general.md) de las máquinas virtuales de Azure de destino. Por ejemplo, si va a migrar un entorno de producción, le gustaría tener en cuenta el nivel estándar, que proporciona máquinas virtuales con una latencia baja pero con un costo más alto. Por otro lado, si tiene un entorno de desarrollo y pruebas, quizá desee tener en cuenta el nivel básico que tiene máquinas virtuales con una latencia mayor y un costo más bajo. De forma predeterminada se usa el plan [Estándar](../virtual-machines/windows/sizes-general.md).
+**Plan de tarifa** | Puede especificar el [plan de tarifa (Básico o Estándar)](../virtual-machines/windows/sizes-general.md) de las máquinas virtuales de Azure de destino. Por ejemplo, si va a migrar un entorno de producción, debería tener en cuenta el plan Estándar, que proporciona máquinas virtuales con una latencia baja aunque con un costo más alto. Por otro lado, si tiene un entorno de desarrollo y pruebas, quizá debería considerar el plan Básico que tiene máquinas virtuales con una latencia mayor y un costo más bajo. De forma predeterminada se usa el plan [Estándar](../virtual-machines/windows/sizes-general.md).
 **Historial de rendimiento** | Se aplica solo si el criterio de ajuste de tamaño se basa en el rendimiento. De forma predeterminada, Azure Migrate usa el historial de rendimiento del último día para evaluar el rendimiento de las máquinas locales, con un valor de percentil del 95 %. Puede modificar estos valores en las propiedades de la evaluación. 
 **Factor de confort** | Azure Migrate tiene en cuenta un búfer (factor de confort) durante la evaluación. Dicho búfer se aplica además de los datos de uso de la máquina en las máquinas virtuales (CPU, memoria, disco y red). El factor de confort se tiene en cuenta en problemas como el uso estacional, un historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una máquina virtual de 10 núcleos con un uso del 20 % normalmente genera una máquina virtual de 2 núcleos. Sin embargo, con un factor de confort de 2.0 x, el resultado es una máquina virtual de 4 núcleos. El valor de confort predeterminado es 1.3 x.
 

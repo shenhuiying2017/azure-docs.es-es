@@ -1,6 +1,6 @@
 ---
 title: "Crear imágenes de contenedor para Azure Service Fabric | Microsoft Docs"
-description: "Aprenda a crear imágenes de contenedor para una aplicación de Service Fabric con contenedor múltiples."
+description: "En este tutorial, aprenderá a crear imágenes de contenedor para una aplicación de Service Fabric con varios contenedores."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-container-images-for-service-fabric"></a>Crear imágenes de contenedor para Service Fabric
+# <a name="tutorial-create-container-images-for-service-fabric"></a>Tutorial: Creación de imágenes de contenedor para Service Fabric
 
 Este tutorial es la primera parte de una serie de tutoriales en los que se muestra cómo usar los contenedores en un clúster de Service Fabric en Linux. En este tutorial, se prepara una aplicación con varios contenedores para usarla con Service Fabric. En los tutoriales posteriores, estas imágenes se usan como parte de una aplicación de Service Fabric. En este tutorial, aprenderá a: 
 

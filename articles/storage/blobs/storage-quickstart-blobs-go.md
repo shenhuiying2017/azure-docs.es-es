@@ -1,22 +1,22 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante Go | Microsoft Docs"
-description: "Guía rápida para transferir objetos hacia y desde Azure Blob Storage mediante el lenguaje Go"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Go | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Go a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
 author: seguler
-manager: jahogg
+manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 4ba9721dc12bc50b20ad85019b1df51a56b52ebc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-go"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Go
+
 En esta guía de inicio rápido, aprenderá a usar el lenguaje de programación Go para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>requisitos previos

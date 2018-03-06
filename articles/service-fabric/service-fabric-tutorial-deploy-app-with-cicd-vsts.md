@@ -1,6 +1,6 @@
 ---
 title: "Implementar una aplicación de Azure Service Fabric con integración continua (Team Services) | Microsoft Docs"
-description: "Aprenda a configurar la integración continua y la implementación para una aplicación de Service Fabric mediante Visual Studio Team Services.  Implemente una aplicación en un clúster de Service Fabric en Azure."
+description: "En este tutorial, aprenderá a configurar la integración continua y la implementación para una aplicación de Service Fabric mediante Visual Studio Team Services.  Implemente una aplicación en un clúster de Service Fabric en Azure."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Implementar una aplicación con CI/CD en un clúster de Service Fabric
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación con CI/CD en un clúster de Service Fabric
 Este tutorial es la tercera parte de una serie y describe cómo configurar la integración continua y la implementación de una aplicación de Azure Service Fabric mediante Visual Studio Team Services.  Se necesita una aplicación existente de Service Fabric; se usa como ejemplo la aplicación creada en [Compilación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 En la tercera parte de la serie, se aprende a:

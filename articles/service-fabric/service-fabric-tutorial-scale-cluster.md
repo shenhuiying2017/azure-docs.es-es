@@ -1,6 +1,6 @@
 ---
 title: "Escalabilidad de un clúster de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga información sobre cómo escalar rápidamente un clúster de Service Fabric."
+description: "En este tutorial, aprenderá a escalar rápidamente un clúster de Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Escalabilidad de un clúster de Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Tutorial: Escalabilidad de un clúster de Service Fabric
 
 Este tutorial es la segunda parte de una serie y en él se describe cómo reducir y escalar horizontalmente un clúster existente. Cuando haya terminado, habrá aprendido cómo escalar el clúster y cómo limpiar los recursos restantes.
 

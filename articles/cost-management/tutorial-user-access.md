@@ -1,22 +1,22 @@
 ---
-title: "Asignar acceso en Administración de costos de Azure | Microsoft Docs"
-description: "Asigne acceso a los datos de administración de costos con cuentas de usuario que definen los niveles de acceso para las entidades."
+title: "Tutorial: Asignación de acceso en Azure Cost Management | Microsoft Docs"
+description: "En este tutorial, aprenderá a asignar acceso a los datos de administración de costos con cuentas de usuario que definen los niveles de acceso para las entidades."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Asignar acceso a datos de Administración de costos
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Asignación de acceso a los datos de administración de costos
 
 La administración de entidades o usuarios proporciona los datos de administración de costos. Las cuentas de usuario de Cloudyn determinan el acceso a las *entidades* y las funciones administrativas. Existen dos tipos de acceso: administrador y usuario. A menos que lo modifique el usuario, el acceso de administrador permite un uso no restringido de todas las funciones del portal de Cloudyn, incluida la administración de usuarios y listas de destinatarios, y el acceso a la entidad raíz para todos los datos de la entidad. Con el acceso de usuario se pretende que los usuarios finales puedan ver y crear informes mediante el acceso que tienen a los datos de entidad.
 
@@ -29,7 +29,12 @@ Al registrar su cuenta o contrato de Azure, se creó una cuenta con permisos de 
 > * Crear un usuario con acceso de usuario
 > * Crear entidades
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+## <a name="prerequisites"></a>requisitos previos
+
+- Debe tener una cuenta de Azure.
+- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
 
 ## <a name="create-a-user-with-admin-access"></a>Crear un usuario con acceso de administrador
 
@@ -83,7 +88,7 @@ En este tutorial aprendió lo siguiente:
 > * Crear un usuario con acceso de usuario
 > * Crear entidades
 
-Avance al siguiente tutorial para aprender a pronosticar gastos mediante datos históricos.
+Si aún no ha habilitado el acceso de la API de Azure Resource Manager en sus cuentas, consulte el artículo siguiente.
 
 > [!div class="nextstepaction"]
-> [Previsión de gastos futuros](tutorial-forecast-spending.md)
+> [Activación de suscripciones y cuentas de Azure](activate-subs-accounts.md)

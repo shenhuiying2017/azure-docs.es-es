@@ -1,6 +1,6 @@
 ---
 title: "Supervisión y diagnóstico de contenedores de Windows en Azure Service Fabric | Microsoft Docs"
-description: "Configure la supervisión y diagnóstico de contenedores de Windows orquestados en Azure Service Fabric."
+description: "En este tutorial, podrá configurar la supervisión y diagnóstico de contenedores de Windows orquestados en Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Supervisión de contenedores de Windows en Service Fabric mediante OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante OMS
 
 Esta es la tercera parte de un tutorial y le guía a través de la configuración de OMS para supervisar sus contenedores de Windows orquestados en Service Fabric.
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Usar un área de trabajo de OMS para ver y consultar registros de sus contenedores y nodos
 > * Configurar el agente de OMS para elegir métricas de nodo y contenedor
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar este tutorial, debe:
 - Tener un clúster en Azure o [crear uno con este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Implementar una aplicación en contenedores en él](service-fabric-host-app-in-a-container.md)
@@ -230,9 +230,9 @@ De nuevo en Azure Portal, **actualice** su solución de Supervisión de contened
 ![Contadores de rendimiento 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Configurar OMS para su clúster de Service Fabric

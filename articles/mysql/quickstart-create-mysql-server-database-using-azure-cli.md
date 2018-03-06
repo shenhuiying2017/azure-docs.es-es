@@ -1,21 +1,21 @@
 ---
-title: "Inicio rápido: Creación de una Base de datos de Azure para el servidor MySQL: CLI de Azure | Microsoft Docs"
+title: "Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure"
 description: "En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: aca5d33adda703f3cd50e940ee43bb0624e179a1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
 En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure en unos cinco minutos. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
@@ -40,13 +40,18 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegrou
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>Adición de la extensión
+Agregue la extensión de administración de Azure Database for MySQL actualizada con el comando siguiente:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL
 Cree un servidor de Azure Database for MySQL con el comando **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-En el ejemplo siguiente se crea una Base de datos de Azure para el servidor MySQL situado en `westus` en el grupo de recursos `myresourcegroup` con el nombre `myserver4demo`. El servidor tiene un inicio de sesión de administrador con el nombre `myadmin` y la contraseña `Password01!`. El servidor se crea con un nivel de rendimiento **Básico** y **50** unidades de proceso compartidas entre todas las bases de datos en el servidor. Puede escalar o reducir verticalmente el proceso y el almacenamiento según las necesidades de la aplicación.
-
+En el ejemplo siguiente se crea un servidor llamado `mydemoserver` en la región Oeste de EE. UU., en el grupo de recursos `myresourcegroup` y con el inicio de sesión de administrador de servidor `myadmin`. Se trata de un servidor **Gen 4** de **Uso general** con 2 **Núcleos virtuales**. El nombre de un servidor se asigna al nombre DNS y, por tanto, debe ser único a nivel global en Azure. Sustituya `<server_admin_password>` por su propio valor.
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
 ## <a name="configure-firewall-rule"></a>Configurar de la regla de firewall
@@ -55,15 +60,22 @@ Cree una regla de firewall de nivel de servidor de Azure Database for MySQL con 
 En el ejemplo siguiente se crea una regla de firewall para un intervalo de direcciones predefinidas que, en este ejemplo, es todo el intervalo de direcciones IP posible.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
+No se considera seguro permitir todas las direcciones IP. Este ejemplo ilustra solamente un caso sencillo. En un escenario del mundo real, debe conocer los intervalos de direcciones IP exactos que se agregarán para sus aplicaciones y usuarios. 
+
+> [!NOTE]
+> Las conexiones a Azure Database for MySQL se comunican a través del puerto 3306. Si intenta conectarse desde una red corporativa, es posible que no se permita el tráfico saliente a través del puerto 3306. En ese caso no podrá conectarse al servidor, salvo que el departamento de TI abra el puerto 3306.
+> 
+
+
 ## <a name="configure-ssl-settings"></a>Configuración de SSL
 De manera predeterminada, se exigen conexiones SSL entre su servidor y las aplicaciones cliente. Así se garantiza de forma predeterminada la seguridad de los datos "en movimiento" al cifrar el flujo de datos que circula por Internet. Para hacer que esta guía de inicio rápido sea más fácil, se han deshabilitado las conexiones SSL para su servidor. Esto no se recomienda en servidores de producción. Para más información, consulte [Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL](./howto-configure-ssl.md).
 
 En el ejemplo siguiente se deshabilita la aplicación de SSL en su servidor MySQL.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
@@ -71,31 +83,36 @@ En el ejemplo siguiente se deshabilita la aplicación de SSL en su servidor MySQ
 Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host.
 
 ```azurecli-interactive
-az mysql server show --resource-group myresourcegroup --name myserver4demo
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
   "location": "westus",
-  "name": "myserver4demo",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "MYSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforMySQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "5.7"
 }
 ```
 
@@ -106,7 +123,7 @@ Escriba los comandos siguientes:
 
 1. Conéctese al servidor con la herramienta de la línea de comandos **mysql**:
 ```azurecli-interactive
- mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 2. Ver el estado del servidor:
@@ -116,7 +133,7 @@ Escriba los comandos siguientes:
 Si todo se ha realizado correctamente, la herramienta de la línea de comandos debe mostrar el siguiente texto:
 
 ```dos
-C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -141,7 +158,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
+Connection:             mydemoserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,9 +186,9 @@ mysql>
 |---|---|---|
 |   Nombre de la conexión | Mi conexión | Especifique una etiqueta para esta conexión (puede ser cualquier cosa) |
 | Método de conexión | elija Estándar (TCP/IP) | Use el protocolo TCP/IP para conectarse a Azure Database for MySQL> |
-| Nombre de host. | myserver4demo.mysql.database.azure.com | Nombre del servidor que anotó anteriormente. |
+| Nombre de host. | mydemoserver.mysql.database.azure.com | Nombre del servidor que anotó anteriormente. |
 | Port | 3306 | Se usa el puerto predeterminado para MySQL. |
-| Nombre de usuario | myadmin@myserver4demo | El inicio de sesión de administrador del servidor que anotó anteriormente. |
+| Nombre de usuario | myadmin@mydemoserver | El inicio de sesión de administrador del servidor que anotó anteriormente. |
 | Password | **** | Use la contraseña de la cuenta de administrador que configuró anteriormente. |
 
 Haga clic en **Probar conexión** para probar si todos los parámetros están configurados correctamente.
@@ -184,7 +201,12 @@ Si no necesita estos recursos para otra guía de inicio rápido o tutorial, pued
 az group delete --name myresourcegroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+Si solo desea eliminar el servidor recién creado, puede ejecutar el comando [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Diseño de una base de datos MySQL con la CLI de Azure](./tutorial-design-database-using-cli.md)

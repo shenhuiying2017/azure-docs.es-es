@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web para ASP.NET"
-description: "Tutorial sobre cómo usar Azure Active Directory B2C para registrar e iniciar sesión con usuarios en una aplicación web para ASP.NET."
+description: "Tutorial sobre cómo usar Azure Active Directory B2C para proporcionar inicio de sesión de usuario en una aplicación web de ASP.NET."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticación de usuarios con Azure Active Directory B2C en una aplicación web para ASP.NET
 
@@ -45,7 +45,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
 
 2. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**.
 
-    Para registrar la aplicación web de ejemplo en el inquilino, utilice la siguiente configuración.
+    Para registrar la aplicación web de ejemplo en el inquilino, utilice la siguiente configuración:
 
     ![Incorporación de una nueva aplicación](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,9 +147,9 @@ La aplicación web para ASP.NET de ejemplo es una aplicación de lista de tareas
 
 Hay dos proyectos en la solución de ejemplo:
 
-**Aplicación de ejemplo de aplicación web (TaskWebApp)**: aplicación web para crear y editar una lista de tareas. La aplicación web utiliza la directiva de **registro o de inicio de sesión** para registrar a los usuarios o iniciar sesión con ellos mediante una dirección de correo electrónico.
+**Aplicación de ejemplo de aplicación web (TaskWebApp)**: aplicación web para crear y editar una lista de tareas. La aplicación web utiliza la directiva de **registro o de inicio de sesión** que los usuarios se registren o inicien sesión.
 
-**Aplicación de ejemplo de API web (TaskService)**: API web que admite la funcionalidad de creación, lectura, actualización y eliminación de la lista de tareas. Azure AD B2C protege a la API web y la aplicación web la llama.
+**Aplicación de ejemplo de API web (TaskService)**: API web que admite la funcionalidad de creación, lectura, actualización y eliminación de la lista de tareas. Azure AD B2C protege la API web y la aplicación web la llama.
 
 Debe cambiar la aplicación para que use el registro de aplicación en el inquilino. También debe configurar las directivas que ha creado. La aplicación web ejemplo define los valores de configuración como configuración de la aplicación en el archivo Web.config. Para cambiar la configuración de la aplicación:
 
@@ -178,7 +178,7 @@ En el Explorador de soluciones, haga clic con el botón derecho en el proyecto *
 
 Presione **F5** para iniciar la aplicación web. Inicia el explorador predeterminado en la dirección del sitio web local `https://localhost:44316/`. 
 
-La aplicación de ejemplo es compatible con el registro, el inicio de sesión, la edición de un perfil y el restablecimiento de contraseña. A continuación se muestra cómo se registra un usuario para usar la aplicación con una dirección de correo electrónico. Puede probar los demás escenarios por su cuenta.
+La aplicación de ejemplo es compatible con el registro, el inicio de sesión, la edición de un perfil y el restablecimiento de contraseña. Este tutorial ilustra cómo un usuario se registra en la aplicación mediante una dirección de correo electrónico. Puede explorar los demás escenarios por su cuenta.
 
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
@@ -205,4 +205,4 @@ Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales 
 En este tutorial, ha aprendido a crear a un inquilino de Azure AD B2C, crear directivas y actualizar la aplicación web de ejemplo para usar el inquilino de Azure AD B2C. Prosiga en el siguiente tutorial para aprender a registrar, configurar y llamar a ASP.NET Web API protegido por el inquilino de Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Uso de Azure Active Directory B2C para proteger ASP.NET Web API](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: Uso de Azure Active Directory B2C para proteger una API web de ASP.NET](active-directory-b2c-tutorials-web-api.md)

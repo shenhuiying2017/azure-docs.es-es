@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2018
 ms.author: pareshmu
-ms.openlocfilehash: 828532dcb583dc46ecb5c9fc63e47a263ddc2a20
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fd549ff0e6753c854ce9d43cab8e3a672f6502f3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -100,7 +100,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[KPN](http://www.kpn.com/cloudconnect)** | Compatible | Compatible | Ámsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Las Vegas, Londres, Newport, Nueva York, San Antonio, Sao Paulo, Seattle, Silicon Valley, Singapur, Tokio, Washington DC |
 | **LG CNS** |Compatible |Compatible |Busan, Seúl |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Dublín, Hong Kong, Las Vegas, Londres, Los Ángeles, Melbourne, Miami, Nueva York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapur, Singapur2, Sidney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Denver, Dublín, Hong Kong, Las Vegas, Londres, Los Ángeles, Melbourne, Miami, Nueva York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapur, Singapur2, Sidney, Toronto, Washington DC |
 | **MTN** |Compatible |Compatible |Londres |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Compatible |Compatible |Miami, Sao Paulo |
 | **[Datos de última generación](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Compatible |Compatible |Newport (Gales) |

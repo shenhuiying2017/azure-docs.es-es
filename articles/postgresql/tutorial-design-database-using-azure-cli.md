@@ -1,23 +1,23 @@
 ---
-title: "Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure | Microsoft Docs"
-description: "En este tutorial se muestra cómo diseñar la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure."
+title: "Tutorial: diseño del primero servidor de Azure Database for PostgreSQL con la CLI de Azure"
+description: "En este tutorial se muestra cómo crear, configurar y consultar el primer servidor de Azure Database for PostgreSQL con la CLI de Azure."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.openlocfilehash: 97299ae904115d08c5d03be38be263203552b84b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure 
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: diseño del primer servidor de Azure Database for PostgreSQL con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for PostgreSQL
@@ -45,12 +45,18 @@ Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-ov
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>Adición de la extensión
+Agregue la extensión de administración actualizada de Azure Database for PostgreSQL con el comando siguiente:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 Cree un [servidor de Azure Database for PostgreSQL](overview.md) con el comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Un servidor contiene un conjunto de bases de datos administradas como un grupo. 
 
-En el ejemplo siguiente se crea un servidor denominado `mypgserver-20170401` en el grupo de recursos `myresourcegroup` con el inicio de sesión de administrador de servidor `mylogin`. El nombre de un servidor se asigna al nombre DNS y, por tanto, debe ser único a nivel global en Azure. Sustituya `<server_admin_password>` por su propio valor.
+En el ejemplo siguiente se crea un servidor denominado `mydemoserver` en el grupo de recursos `myresourcegroup` con el inicio de sesión de administrador de servidor `myadmin`. El nombre de un servidor se asigna al nombre DNS y, por tanto, debe ser único a nivel global en Azure. Sustituya `<server_admin_password>` por su propio valor. Se trata de un servidor Gen 4 de uso general con dos núcleos virtuales.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -68,7 +74,7 @@ Puede establecer una regla de firewall que abarque un intervalo de IP para poder
 Para restringir el acceso a su servidor de Azure PostgreSQL solamente a su red, puede establecer la regla de firewall para que solo cubra el intervalo de direcciones IP de su red corporativa.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -79,31 +85,37 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 El resultado está en formato JSON. Tome nota de los valores de **administratorLogin** y **fullyQualifiedDomainName**.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
   "version": "9.6"
+
 }
 ```
 
@@ -115,10 +127,10 @@ Si el equipo cliente tiene PostgreSQL instalado, puede usar una instancia local 
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada denominada **postgres** en el servidor PostgreSQL **mypgserver-20170401.postgres.database.azure.com** con las credenciales de acceso. Escriba el valor de `<server_admin_password>` que eligió cuando se le solicitó una contraseña.
+  Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **postgres** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba el valor de `<server_admin_password>` que eligió cuando se le solicitó una contraseña.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
 ```
 
 2.  Una vez conectado al servidor, cree una base de datos vacía en el símbolo del sistema:
@@ -174,27 +186,27 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restauración de una base de datos a un momento anterior en el tiempo
-Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure Database for PostgreSQL permite volver a cualquier momento dado (hasta 7 días en el nivel Básico y 35 días en el nivel Estándar) y restaurar este momento dado en un servidor nuevo. Puede usar este servidor nuevo para recuperar los datos eliminados. 
+Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure Database for PostgreSQL permite volver a cualquier momento dado para el cual haya copias de seguridad del servidor (en función del período de retención de copia de seguridad que se configuró) y restaurar este momento dado en un nuevo servidor. Puede usar este servidor nuevo para recuperar los datos eliminados. 
 
 El comando siguiente restaura el servidor de ejemplo a un punto antes de que se agregara la tabla:
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 El comando `az postgres server restore` necesita los parámetros siguientes:
-| Configuración | Valor sugerido | Descripción  |
+| Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
-| --resource-group |  myResourceGroup |  Grupo de recursos en el que existe el servidor de origen.  |
-| --name | mypgserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
+| resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
+| Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Seleccione un momento dado en el que quiere restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria local, como `2017-04-13T05:59:00-08:00`, o usar el formato de hora Zulú UTC `2017-04-13T13:59:00Z`. |
-| --source-server | mypgserver-20170401 | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
+| source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
 Al restaurar un servidor a un momento dado, se crea un servidor que se copia como servidor original a un momento dado que especifique. Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
 
 El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que ha creado. Compruebe que los datos se han restaurado del modo esperado.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, aprendió a usar la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para hacer lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for PostgreSQL

@@ -1,19 +1,19 @@
 ---
-title: Conceptos de alta disponibilidad en Azure Database for PostgreSQL | Microsoft Docs
-description: "En este tema se proporciona información de alta disponibilidad al usar Azure Database for PostgreSQL."
+title: Conceptos de alta disponibilidad en Azure Database for PostgreSQL
+description: "En este artículo se proporciona información de alta disponibilidad al usar Azure Database for PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/28/2018
+ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL
 El servicio Azure Database for PostgreSQL garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.
@@ -33,5 +33,5 @@ De forma similar al modelo de alta disponibilidad, cuando Azure Database for Pos
 
 Durante la operación de escalado, se produce una interrupción en las conexiones de la base de datos. Las aplicaciones cliente se desconectan y las transacciones abiertas no confirmadas se cancelan. Una vez que la aplicación cliente reintenta la conexión o crea una conexión nueva, la puerta de enlace dirige la conexión a la instancia cuyo tamaño se modificó. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener una visión general del servicio, consulte la [introducción a Azure Database for PostgreSQL](overview.md).

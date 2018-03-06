@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migración de máquinas virtuales de Azure a otra región
 
@@ -123,7 +124,8 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 2. En **Conmutación por error**, seleccione **Más reciente**. La configuración de la clave de cifrado no es importante para este escenario.
 3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. A continuación, Site Recovery intentará apagar la máquina virtual de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 4. Compruebe que la máquina virtual de Azure aparece en Azure según lo previsto.
-5. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Esto finaliza el proceso de migración y detiene la replicación de la máquina virtual.
+5. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Confirmar**. Esto finaliza el proceso de migración.
+6. Una vez finalizada la confirmación, haga clic en **Deshabilitar replicación**.  Se detiene la replicación para la máquina virtual.
 
 
 

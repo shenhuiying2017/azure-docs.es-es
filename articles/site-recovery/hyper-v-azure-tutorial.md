@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -36,7 +36,7 @@ Antes de empezar, es útil [revisar la arquitectura](concepts-hyper-v-to-azure-a
 ## <a name="select-a-replication-goal"></a>Selección de un objetivo de replicación
 
 
-1. En **Todos los servicios** > **Almacenes de Recovery Services**, haga clic en el nombre del almacén preparado en el tutorial anterior, **ContosoVMVault**.
+1. En **Todos los servicios** > **Almacenes de Recovery Services**, seleccione el nombre del almacén que se preparó en el tutorial anterior, **ContosoVMVault**.
 2. En **Introducción**, haga clic en **Site Recovery**. Luego, haga clic en **Preparar infraestructura**.
 3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
 4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
@@ -46,13 +46,13 @@ Antes de empezar, es útil [revisar la arquitectura](concepts-hyper-v-to-azure-a
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
 
-Para configurar el entorno de origen, agregue los hosts de Hyper-V a un sitio de Hyper-V, descargue e instale el proveedor de Azure Site Recovery y el agente de Azure Recovery Services y registre el sitio de Hyper-V en el almacén. 
+Para configurar el entorno de origen, agregue los hosts de Hyper-V a un sitio Hyper-V, descargue e instale el proveedor de Azure Site Recovery y el agente de Azure Recovery Services, y registre el sitio Hyper-V en el almacén. 
 
 1. En **Preparar infraestructura**, haga clic en **Origen**.
 2. Haga clic en **+ Sitio Hyper-V** y especifique el nombre del sitio creado en el tutorial anterior, **ContosoHyperVSite**.
 3. Haga clic en **+ Hyper-V Server**.
 4. Descargue el archivo de instalación del proveedor.
-5. Descargue la clave de registro del almacén. Se le solicitará cuando ejecute el programa de instalación del proveedor. La clave será válida durante cinco días a partir del momento en que se genera.
+5. Descargue la clave de registro del almacén. Es necesaria para ejecutar el programa de instalación del proveedor. La clave será válida durante cinco días a partir del momento en que se genera.
 
     ![Descarga del proveedor](./media/hyper-v-azure-tutorial/download.png)
     
@@ -68,7 +68,7 @@ Ejecute el archivo de instalación del proveedor (AzureSiteRecoveryProvider.exe)
 5. En **Configuración de proxy**, seleccione **Conectar directamente con Azure Site Recovery sin un servidor proxy**.
 6. En **Registro**, una vez que el servidor se haya registrado en el almacén, haga clic en **Finalizar**.
 
-Los metadatos del servidor de Hyper-V se recuperan mediante Azure Site Recovery y el servidor se muestra en **Site Recovery Infrastructure** > **Hyper-V Hosts** (Infraestructura de Site Recovery > Hosts de Hyper-V). Esta operación puede tardar hasta treinta minutos.
+Los metadatos del servidor de Hyper-V se recuperan mediante Azure Site Recovery y el servidor se muestra en **Site Recovery Infrastructure** > **Hyper-V Hosts** (Infraestructura de Site Recovery > Hosts de Hyper-V). Este proceso puede tardar hasta 30 minutos.
 
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
@@ -84,6 +84,9 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 
 ## <a name="set-up-a-replication-policy"></a>Configurar una directiva de replicación
 
+> [!NOTE]
+> En el caso de las directivas de replicación de Hyper-V en Azure, la opción de frecuencia de copia de 15 minutos se cambiará por opciones de configuración de 5 minutos y de 30 segundos. Las directivas de replicación con una frecuencia de copia de 15 minutos se actualizarán automáticamente para utilizar la opción de 5 minutos. Las opciones de frecuencia de copia de 5 minutos y de 30 segundos proporcionan un mejor rendimiento en la replicación y mejores objetivos de punto de recuperación en comparación con una frecuencia de copia de 15 minutos, con un efecto mínimo en el volumen de transferencias de datos y de uso de ancho de banda.
+
 1. Haga clic en **Preparar infraestructura** > **Configuración de la replicación** > **+Crear y asociar**.
 2. En **Crear y asociar directiva**, especifique un nombre de directiva, **ContosoReplicationPolicy**.
 3. Deje los valores predeterminados y haga clic en **Aceptar**.
@@ -91,7 +94,7 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
     - **Retención de punto de recuperación** indica que los períodos de retención para cada punto de recuperación serán de dos horas.
     - **Frecuencia de instantánea coherente con la aplicación** indica que cada hora se crearán puntos de recuperación que contengan instantáneas coherentes con la aplicación.
     - **Hora de inicio de la replicación inicial** indica que la replicación inicial comenzará de inmediato.
-4. Una vez que se cree la directiva, haga clic en **Aceptar**. Cuando se crea una directiva, se asocia automáticamente con el sitio de Hyper-V especificado (**ContosoHyperVSite**).
+4. Una vez que se cree la directiva, haga clic en **Aceptar**. Cuando se crea una directiva, se asocia automáticamente con el sitio Hyper-V especificado (**ContosoHyperVSite**).
 
     ![Directiva de replicación](./media/hyper-v-azure-tutorial/replication-policy.png)
 

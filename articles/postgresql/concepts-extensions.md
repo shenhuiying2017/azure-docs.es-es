@@ -1,19 +1,19 @@
 ---
-title: Uso de extensiones de PostgreSQL en Azure Database for PostgreSQL | Microsoft Docs
+title: Uso de extensiones de PostgreSQL en Azure Database for PostgreSQL
 description: Describe la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones en Azure Database for PostgreSQL.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información acerca de las extensiones de PostgreSQL, consulte la información sobre el [empaquetado de objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -96,5 +96,5 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 | address\_standardizer, address\_standardizer\_data\_us | Se utilizan para analizar una dirección en los elementos que la componen. Se utilizan para admitir el paso de normalización de la dirección de geocodificación. |
 | [pgrouting](http://pgrouting.org/) | Extiende la base de datos geoespacial de PostGIS/PostgreSQL para proporcionar la funcionalidad de enrutamiento geoespacial. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si no ve una extensión que le gustaría utilizar, háganoslo saber. Vote por las solicitudes existentes o cree nuevos comentarios y solicitudes en nuestro [foro de comentarios de clientes](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

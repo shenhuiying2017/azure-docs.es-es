@@ -9,6 +9,12 @@
   items:
     - name: Creación de un área de trabajo de Databricks
       href: quickstart-create-databricks-workspace-portal.md
+- name: Guías de procedimientos
+  items:
+    - name: 'Conexión con Excel, R y Python'
+      href: connect-databricks-excel-python-r.md
+    - name: Uso de la CLI de Databricks desde Azure Cloud Shell
+      href: databricks-cli-from-azure-cloud-shell.md
 - name: Recursos
   items:
     - name: Preguntas frecuentes

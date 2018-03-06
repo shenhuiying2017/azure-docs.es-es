@@ -1,35 +1,29 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante la CLI de Azure | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante la CLI de Azure"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante la CLI de Azure | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede usar la CLI de Azure para crear una cuenta de almacenamiento y un contenedor. Después, puede usar la CLI de Azure para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferencia de objetos a y desde Azure Blob Storage mediante la CLI de Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Este tutorial de inicio rápido detalla el uso de la CLI de Azure para cargar y descargar datos a y desde el Azure Blob Storage.
+La CLI de Azure es la forma de usar la línea de comandos de Azure para administrar los recursos de Azure. Puede utilizarlo en el explorador con Azure Cloud Shell. También puede instalarla en macOS, Linux o Windows, y ejecutarla desde la línea de comandos. En esta guía de inicio rápido aprenderá a usar la CLI de Azure para cargar y descargar datos en Azure Blob Storage y desde este.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para determinar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 

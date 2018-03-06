@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solución de problemas de copia de seguridad de archivos de Azure
 
@@ -26,8 +26,14 @@ Azure Files Backup se encuentra en versión preliminar. No se admiten los siguie
 - Protección de recursos compartidos de archivos en cuentas de Storage que tienen habilitadas redes virtuales.
 - Realización de una copia de seguridad de archivos de Azure con PowerShell o la CLI.
 
+### <a name="limitations"></a>Limitaciones
+- El número máximo de copias de seguridad programadas por día es 1.
+- El número máximo de copias de seguridad a petición por día es 4.
+- Use los bloqueos de recurso de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
+- No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas podría provocar la pérdida de puntos de recuperación o errores de restauración
+
 ## <a name="configuring-backup"></a>Configuración de la copia de seguridad
-La tabla siguiente es para configurar la copia de seguridad.
+La tabla siguiente es para configurar la copia de seguridad:
 
 | Configuración de la copia de seguridad | Sugerencias de solución alternativa o resolución |
 | ------------------ | ----------------------------- |

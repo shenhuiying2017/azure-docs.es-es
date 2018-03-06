@@ -1,19 +1,19 @@
 ---
-title: "Configuración de alertas de métricas para Azure Database for MySQL en Azure Portal | Microsoft Docs"
+title: "Configuración de alertas de métricas para Azure Database for MySQL en Azure Portal"
 description: "En este artículo se describe cómo configurar las alertas de métricas de Azure Database for MySQL, y obtener acceso a ellas, mediante Azure Portal."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Uso de Azure Portal para configurar alertas de métricas para Azure Database for MySQL 
 
@@ -27,7 +27,7 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 * Llamar a un webhook
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
-* [Portal de Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [portal de Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Interfaz de la línea de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -45,10 +45,10 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
    ![Formulario de adición de alerta de métrica](./media/howto-alert-on-metric/2-add-rule-form.png)
 
-   | Configuración | Descripción  |
+   | Configuración | DESCRIPCIÓN  |
    |---------|---------|
-   | Nombre | Especifique un nombre para la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
-   | Descripción | Proporcione una descripción breve de la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
+   | NOMBRE | Especifique un nombre para la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
+   | DESCRIPCIÓN | Proporcione una descripción breve de la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
    | Alerta activada | Elija **Métricas** para este tipo de alerta. |
    | La suscripción | Este campo se rellena previamente con la suscripción que hospeda Azure Database for MySQL. |
    | Grupos de recursos | Este campo se rellena previamente con el grupo de recursos de Azure Database for MySQL. |
@@ -80,6 +80,6 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 * **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

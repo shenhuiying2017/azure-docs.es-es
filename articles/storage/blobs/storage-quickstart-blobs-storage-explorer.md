@@ -1,21 +1,21 @@
 ---
-title: "Guía de inicio rápido de Azure: Transferencia de objetos con Azure Blob Storage mediante el Explorador de Azure Storage | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante el Explorador de Azure Storage"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante el Explorador de Azure Storage | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede usar el Explorador de Azure Storage para crear una cuenta de almacenamiento y un contenedor. Después, puede usar este explorador para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Transferencia de objetos a y desde Azure Blob Storage mediante el Explorador de Azure Storage
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante el Explorador de Azure Storage
 
 El [Explorador de Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una interfaz de usuario multiplataforma que se usa para administrar el contenido de las cuentas de almacenamiento. En esta guía se detalla el uso del Explorador de Microsoft Azure Storage para transferir archivos entre el disco local y Azure Blob Storage.
 

@@ -1,21 +1,21 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante Java | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante Java"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Java | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+services: storage
 author: roygara
 manager: jeconnoc
-services: storage
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/01/2017
+ms.date: 02/22/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Java
+# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Java
 
 En este tutorial de inicio rápido, aprenderá a usar Java para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
 

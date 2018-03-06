@@ -1,19 +1,19 @@
 ---
-title: "Importación y exportación en Azure Database for MySQL | Microsoft Docs"
+title: "Importación y exportación en Azure Database for MySQL"
 description: "Este artículo explica las formas habituales de importar y exportar bases de datos en Azure Database for MySQL, mediante herramientas como MySQL Workbench."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 En este artículo se explican dos métodos habituales para importar y exportar datos a un servidor de Azure Database for MySQL mediante el uso de MySQL Workbench. 
@@ -85,7 +85,7 @@ En el ejemplo siguiente se exporta la tabla a un archivo CSV:
 En el ejemplo siguiente se importa la tabla desde un archivo CSV:
 1. Haga clic con el botón derecho en la tabla de la base de datos que se va a importar. 
 2. Busque y seleccione el archivo CSV que desea importar y luego haga clic en **Siguiente**. 
-3. Seleccione la tabla de destino (nueva o existente) y seleccione o anule la selección de la casilla **Truncate table before import** (Truncar tabla antes de la importación). Haga clic en **Siguiente**.
+3. Seleccione la tabla de destino (nueva o existente) y seleccione o anule la selección de la casilla **Truncate table before import** (Truncar tabla antes de la importación). Haga clic en **Next**.
 4. Seleccione la codificación y las columnas que desea importar y haga clic en **Siguiente**. 
 5. En la página **Importar datos**, haga clic en **Siguiente**. El asistente procederá a importar los datos.
 
@@ -112,5 +112,5 @@ Puede usar la pestaña **Importación de datos** para importar o restaurar los d
 1. Elija la carpeta de proyecto o archivo SQL independiente, elija el esquema en el que se importarán los datos o elija **Nuevo** para definir un nuevo esquema. 
 2. Haga clic en **Iniciar importación** para comenzar el proceso de importación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para conocer otro método de migración, consulte [Migración de la Base de datos MySQL mediante el volcado y la restauración en Azure Database for MySQL](concepts-migrate-dump-restore.md). 

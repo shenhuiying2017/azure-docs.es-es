@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -30,12 +30,11 @@ ms.lasthandoff: 12/18/2017
 
 Puede crear aplicaciones de Azure Service Fabric para que se ejecuten en clústeres de Linux con Mac OS X. En este documento se describe cómo configurar su Mac para desarrollo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada del contenedor de Docker. Antes de comenzar, necesita:
 
 * Al menos 4 GB de RAM.
 * Versión más reciente de [Docker](https://www.docker.com/).
-* Acceso a la [imagen del contenedor de Docker todo en uno](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) de Service Fabric.
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Creación de un contenedor local e instalación de Service Fabric
 Para configurar un contenedor local de Docker y hacer que un clúster de Service Fabric se ejecute en él, realice los pasos siguientes:
 
-1. Extraiga la imagen del contenedor onebox de Service Fabric desde el repositorio central de Docker:
+1. Extraiga la imagen del contenedor onebox de Service Fabric desde el repositorio central de Docker. De forma predeterminada, se extraerá la imagen con la versión más reciente de Service Fabric. Para revisiones concretas, visite la página [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Actualice la configuración del demonio de Docker en el host con las opciones siguientes y reinicie dicho demonio: 
@@ -71,14 +70,14 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
 3. Inicie una instancia del contenedor onebox de Service Fabric y use la imagen que extrajo en el primer paso:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Al especificar un nombre para la instancia del contenedor, puede tratarlo de forma más legible. 
     >
     >Si la aplicación está escuchando en determinados puertos, estos deben especificarse mediante etiquetas `-p` adicionales. Por ejemplo, si la aplicación está escuchando en el puerto 8080, agregue la siguiente etiqueta `-p`:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Inicie sesión en el contenedor de Docker en el modo interactivo SSH:
@@ -157,10 +156,10 @@ Instale el [SDK de .NET Core 2.0 para Mac](https://www.microsoft.com/net/core#ma
 
 Azure Service Fabric proporciona un complemento de Eclipse Neon para el entorno de desarrollo de Java. El complemento simplifica el proceso de creación, compilación e implementación de servicios de Java. Para instalar la versión más reciente del complemento de Service Fabric para Eclipse o actualizar a dicha versión, siga [estos pasos](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). Los otros pasos de la [documentación de Service Fabric para Eclipse](service-fabric-get-started-eclipse.md) también son aplicables: compilar una aplicación, agregar un servicio a una aplicación, desinstalar una aplicación, etcétera.
 
-El último paso es crear una instancia del contenedor con una ruta de acceso que se comparte con el host. El complemento requiere este tipo de creación de instancias para funcionar con el contenedor de Docker en el equipo Mac. Por ejemplo:
+El último paso es crear una instancia del contenedor con una ruta de acceso que se comparte con el host. El complemento requiere este tipo de creación de instancias para funcionar con el contenedor de Docker en el equipo Mac. Por ejemplo: 
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 Los atributos se definen de la manera siguiente:
@@ -174,7 +173,7 @@ Los atributos se definen de la manera siguiente:
 >Si inicia el contenedor con otro nombre distinto de `sfonebox`, actualice el mismo valor en el archivo testclient.sh, en su aplicación Java del actor de Service Fabric.
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 <!-- Links -->
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Creación e implementación de la primera aplicación de Java para Service Fabric con el complemento de Eclipse para Service Fabric](service-fabric-get-started-eclipse.md)

@@ -1,27 +1,34 @@
 ---
-title: "Previsión de gastos con Azure Cost Management | Microsoft Docs"
-description: Pronostique los gastos mediante el historial de uso y los datos de gastos.
+title: "Tutorial: Previsión de gastos con Azure Cost Management | Microsoft Docs"
+description: "En este tutorial, aprenderá a pronosticar los gastos mediante el historial de uso y los datos de gastos."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Previsión de gastos futuros
+# <a name="tutorial-forecast-future-spending"></a>Tutorial: Previsión de gastos futuros
 
 Azure Cost Management de Cloudyn le ayuda a pronosticar los gastos futuros mediante el historial de uso y los datos de gasto. Use informes de Cloudyn para ver todos los datos de proyección de costos. Los ejemplos de este tutorial le guían por la revisión de las proyecciones de costos mediante los informes. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Previsión de gastos futuros
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="prerequisites"></a>requisitos previos
+
+- Debe tener una cuenta de Azure.
+- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
 
 ## <a name="forecast-future-spending"></a>Previsión de gastos futuros
 

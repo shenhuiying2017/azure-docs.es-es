@@ -1,19 +1,19 @@
 ---
-title: Conceptos sobre servidores de Azure Database for MySQL | Microsoft Docs
+title: Conceptos sobre servidores de Azure Database for MySQL
 description: En este tema se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MySQL.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0cf35efa7b8b4c6f78a8821c6d10e606813b7848
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceptos sobre servidores de Azure Database for MySQL
 En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MySQL.
@@ -33,7 +33,7 @@ Un servidor de Azure Database for MySQL:
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicio de sesión, firewall, usuarios, roles, configuración, etc.
 - Está disponible en varias versiones. Para más información, vea [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md) (Versiones de base de datos admitidas de Azure Database for MySQL).
 
-En un servidor de Azure Database for MySQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. El precio está estructurado por servidor, se basa en la configuración del plan de tarifa, las unidades de proceso y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
+En un servidor de Azure Database for MySQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. El precio está estructurado por servidor y se basa en la configuración del plan de tarifa, los núcleos virtuales y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>¿Cómo conectarse a un servidor de Azure Database for MySQL y autenticarse en él?
 
@@ -49,7 +49,7 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 ## <a name="how-do-i-manage-a-server"></a>¿Cómo se administra un servidor?
 Puede administrar servidores de Azure Database for MySQL en Azure Portal o con la CLI de Azure.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener información general sobre el servicio, vea [Introducción a Azure Database for MySQL](./overview.md).
 - Para obtener información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](./concepts-service-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea [Bibliotecas de conexiones de Azure Database for MySQL](./concepts-connection-libraries.md).

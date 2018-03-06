@@ -6,17 +6,17 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8fe53f834e4fcf7f16174222cb51d89e40305ec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creación del primer contenedor en Azure Container Instances
-Con Azure Container Instances es muy fácil crear y administrar contenedores de Docker en Azure sin tener que aprovisionar máquinas virtuales ni recurrir a un servicio de nivel superior. En esta guía de inicio rápido, crearemos un contenedor en Azure y lo expondremos en Internet con una dirección IP pública. Esta operación se completa en un solo comando. En pocos segundos, veremos lo siguiente en el explorador:
+Con Azure Container Instances es muy fácil crear y administrar contenedores de Docker en Azure sin tener que aprovisionar máquinas virtuales ni recurrir a un servicio de nivel superior. En esta guía de inicio rápido, crearemos un contenedor en Azure y lo expondremos en Internet con un nombre de dominio completo (FQDN). Esta operación se completa en un solo comando. En pocos segundos, veremos lo siguiente en el explorador:
 
 ![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-app-browser]
 
@@ -24,7 +24,7 @@ Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita][azure-accou
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.21 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install Azure CLI 2.0][azure-cli-install] (Instalación de la CLI de Azure 2.0).
+Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.27 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install Azure CLI 2.0][azure-cli-install] (Instalación de la CLI de Azure 2.0).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

@@ -1,20 +1,20 @@
 ---
-title: "Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure | Microsoft Docs"
+title: "Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure"
 description: "En este artículo se describe cómo crear y administrar reglas de firewall de Azure Database for PostgreSQL mediante la línea de comandos de Azure."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 4fbb0adabac3cefa0b889279eed9dfd03fe1b1f5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 1d72761f3c80fbf3068492b6843349fc9d7accfd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure
 Las reglas de firewall de nivel de servidor permiten a los administradores administrar el acceso a un servidor de Azure Database for PostgreSQL desde una dirección IP o desde un intervalo de direcciones IP especificado. Con los comandos de la CLI de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas de firewall para administrar el servidor. Para obtener información general sobre las reglas de firewall de Azure Database for PostgreSQL, consulte [Reglas de firewall del servidor de Azure Database for PostgreSQL](concepts-firewall-rules.md)
@@ -47,6 +47,15 @@ Para permitir el acceso a una única dirección IP, proporcione la misma direcci
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
+Para permitir que las aplicaciones de las direcciones IP de Azure se conecten al servidor Azure Database for PostgreSQL, proporcione la dirección IP 0.0.0.0 como IP inicial e IP final, como en este ejemplo.
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver--name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> Esta opción configura el firewall para permitir todas las conexiones de Azure, incluidas las de las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
+> 
+
 Si se realiza correctamente, la salida del comando muestra los detalles de la regla de firewall que ha creado, de forma predeterminada en formato JSON. Si se produce un error, la salida muestra un mensaje de error en su lugar.
 
 ## <a name="update-firewall-rule"></a>Actualizar reglas de firewall 

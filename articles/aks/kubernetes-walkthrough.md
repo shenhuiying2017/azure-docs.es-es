@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
 
@@ -39,6 +39,7 @@ Después del registro, ya está listo para crear un clúster de Kubernetes con A
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Cree un grupo de recursos con el comando [az group create][az-group-create]. Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure.
+Al crear un grupo de recursos, se le pide que especifique una ubicación, el lugar donde residirán los recursos en Azure. Mientras AKS esté en versión preliminar, solo hay disponibles algunas opciones de ubicación. Estas son `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -88,7 +89,7 @@ Para configurar kubectl para la conexión al clúster de Kubernetes, ejecute el 
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster. Tenga en cuenta que puede tardar unos minutos en aparecer.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote.
+Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. La imagen proporcionada es una aplicación de ejemplo, pero puede leer cómo [crear una imagen](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e [implementarla en Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) para utilizar la suya propia.
 
-Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual.
+Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual. Si está trabajando de forma local, puede utilizar Visual Studio Code para crear este archivo; para ello, ejecute `code azure-vote.yaml`.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ En esta guía de inicio rápido, ha implementado un clúster de Kubernetes y una
 Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Administración de un clúster de AKS][aks-tutorial]:
+> [Tutorial de ASK][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

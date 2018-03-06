@@ -1,19 +1,19 @@
 ---
-title: Registros de servidor en Azure Database for PostgreSQL | Microsoft Docs
-description: Genera registros de errores y consultas en Azure Database for PostgreSQL.
+title: Registros de servidor en Azure Database for PostgreSQL
+description: "En este artículo se describe cómo Azure Database for PostgreSQL genera registros de consultas y de errores, y cómo se configura la retención de registros."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 02/28/2018
+ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registros de servidor en Azure Database for PostgreSQL 
 Azure Database for PostgreSQL genera registros de errores y consultas. Sin embargo, no se admite el acceso a los registros de transacciones. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. Para obtener más información, consulte [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) (Notificación y registro de errores).
@@ -38,6 +38,6 @@ El parámetro **log\_min\_messages** permite controlar qué niveles de mensajes 
 
 Para obtener más información sobre estas opciones de configuración, consulte la documentación sobre [notificación y registro de errores](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html). Para configurar específicamente los parámetros del servidor de Azure Database for PostgreSQL, consulte el artículo [Personalización de los parámetros de configuración del servidor con la CLI de Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para obtener acceso a registros mediante la interfaz de la línea de comandos de la CLI de Azure, consulte el artículo [Configuración y acceso a los registros del servidor con la CLI de Azure](howto-configure-server-logs-using-cli.md).
 - Para más información sobre los parámetros del servidor, consulte cómo [personalizar los parámetros de configuración del servidor mediante la CLI de Azure](howto-configure-server-parameters-using-cli.md).

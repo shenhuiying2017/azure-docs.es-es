@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Incorporación de soluciones de actualización y control de cambios a Azure Automation
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a incorporar soluciones de actualización, control 
 > * Importación de un runbook de incorporación
 > * Inicio del runbook
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los siguientes requisitos son necesarios para completar este tutorial:
 
@@ -42,7 +42,7 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 
 ## <a name="onboard-an-azure-vm"></a>Incorporar una máquina virtual de Azure
 
-Para incorporar máquinas virtuales de Azure automáticamente, debe incorporar una máquina virtual existente con la solución de control de cambios o de administración de actualizaciones. En este paso, se incorpora una máquina virtual con la solución de administración de actualizaciones y control de cambios.
+Hay varias maneras de incorporar máquinas, se puede incorporar la solución [desde una máquina virtual](automation-onboard-solutions-from-vm.md), [desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md) o mediante un runbook. En este tutorial se explica cómo habilitar Update Management mediante un runbook. Para incorporar máquinas virtuales de Azure a escala, debe incorporar una máquina virtual existente con la solución de control de cambios o de administración de actualizaciones. En este paso, se incorpora una máquina virtual con la solución de administración de actualizaciones y control de cambios.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 

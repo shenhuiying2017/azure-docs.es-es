@@ -8,17 +8,17 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 
 Junto con el [catálogo de servicios de Kubernetes][kubernetes-service-catalog], Open Service Broker para Azure (OSBA) permite a los desarrolladores usar servicios administrados de Azure en Kubernetes. Esta guía se centra en la implementación del catálogo de servicios de Kubernetes, Open Service Broker for Azure (OSBA) y las aplicaciones que utilizan servicios administrados de Azure mediante Kubernetes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure
 
 * CLI de Azure 2.0: puede [instalarla localmente][azure-cli-install] o usarla en [Azure Cloud Shell][azure-cloud-shell].
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 El paso siguiente consiste en instalar [Open Service Broker para Azure][open-service-broker-azure], que incluye el catálogo para los servicios administrados de Azure. Algunos ejemplos de servicios de Azure disponibles son Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database y otros.
 
-Puede empezar agregando Open Service Broker para el repositorio de Azure Helm:
+Empiece agregando Open Service Broker para el repositorio de Azure Helm:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Cree una [entidad de servicio][create-service-principal] con el siguiente comando de la CLI de Azure:
+A continuación, use el siguiente script para crear una [entidad de servicio][create-service-principal] y rellene varias variables. Estas variables se utilizan cuando se ejecuta el gráfico de Helm para instalar Service Broker.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-La salida debe ser similar a la siguiente: Tome nota de los valores `appId`, `password` y `tenant`, que se utilizan en el paso siguiente.
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-Establezca las siguientes variables de entorno con los valores anteriores:
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-Ahora obtenga el identificador de la suscripción a Azure:
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-De nuevo, establezca la siguiente variable de entorno con el valor anterior:
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-Ahora que ha rellenado estas variables de entorno, ejecute el siguiente comando para instalar Open Service Broker para Azure mediante el gráfico de Helm:
+Ahora que ha rellenado estas variables de entorno, ejecute el siguiente comando para instalar Service Broker.
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -180,7 +152,7 @@ Enumere los secretos instalados:
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Al seguir este artículo, implementó el catálogo de servicios en un clúster de Azure Container Service (AKS). Usó Open Service Broker for Azure para implementar una instalación de WordPress que use servicios administrados de Azure, en este caso, Azure Database for MySQL.
 

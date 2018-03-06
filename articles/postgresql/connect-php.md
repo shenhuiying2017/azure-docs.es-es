@@ -1,26 +1,26 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL mediante PHP | Microsoft Docs"
+title: "Conexión a Azure Database for PostgreSQL mediante PHP"
 description: "En este tutorial rápido se proporciona un ejemplo de código de PHP que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: dec02baf0ae9df4860a3f67e67b0f62e356658ff
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: dfdfb9b7d275843312dcf955f79b978d411c197e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de PHP para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de [PHP](http://php.net/manual/intro-whatis.php). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante PHP, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
@@ -48,11 +48,10 @@ Instale PHP en su propio servidor o cree una [aplicación web](../app-service/ap
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **mypgserver-20170401**.
-3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
- ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-php/1-connection-string.png)
-5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Haga clic en el nombre del servidor.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
+ ![Nombre de servidor de Azure Database for PostgreSQL](./media/connect-php/1-connection-string.png)
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
@@ -64,9 +63,9 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $host = "mydemoserver.postgres.database.azure.com";
     $database = "mypgsqldb";
-    $user = "mylogin@mypgserver-20170401";
+    $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
 
     // Initialize connection object.
@@ -122,9 +121,9 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $host = "mydemoserver.postgres.database.azure.com";
     $database = "mypgsqldb";
-    $user = "mylogin@mypgserver-20170401";
+    $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
     
     // Initialize connection object.
@@ -160,9 +159,9 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $host = "mydemoserver.postgres.database.azure.com";
     $database = "mypgsqldb";
-    $user = "mylogin@mypgserver-20170401";
+    $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
 
     // Initialize connection object.
@@ -195,9 +194,9 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $host = "mydemoserver.postgres.database.azure.com";
     $database = "mypgsqldb";
-    $user = "mylogin@mypgserver-20170401";
+    $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
 
     // Initialize connection object.
@@ -218,6 +217,6 @@ Reemplace los parámetros `$host`, `$database`, `$user` y `$password` por sus pr
 ?>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

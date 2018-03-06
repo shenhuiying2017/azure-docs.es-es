@@ -1,6 +1,6 @@
 ---
 title: "Integración de Azure Service Fabric con API Management | Microsoft Docs"
-description: "Obtenga información sobre cómo empezar a usar rápidamente Azure API Management y Service Fabric."
+description: "En este tutorial, aprenderá a empezar a usar rápidamente Azure API Management y Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>Implementación de API Management con Service Fabric
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>Tutorial: Implementación de API Management con Service Fabric
 Este tutorial es la cuarta parte de una serie.  La implementación de Azure API Management con Service Fabric es un escenario avanzado.  API Management es útil cuando es necesario publicar API con un completo conjunto de reglas de enrutamiento para los servicios de Service Fabric de back-end. Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado diseñado para la entrada de tráfico, como una aplicación ASP.NET Core, Event Hubs, IoT Hub o Azure API Management. 
 
 En este tutorial se muestra cómo configurar [Azure API Management](../api-management/api-management-key-concepts.md) con Service Fabric para enrutar el tráfico a un servicio back-end de Service Fabric.  Cuando haya terminado, habrá implementado API Management en una red virtual y configurado una operación de API para enviar tráfico a servicios sin estado de back-end. Para más información sobre escenarios de Azure API Management con Service Fabric, consulte el artículo de [introducción](service-fabric-api-management-overview.md).

@@ -1,6 +1,6 @@
 ---
 title: "Implementación de una aplicación de Spring Boot en Azure Service Fabric | Microsoft Docs"
-description: "Implemente una aplicación de Spring Boot en Azure Service Fabric con el ejemplo Getting Started de Spring Boot."
+description: "En esta guía de inicio rápido, implementará una aplicación de Spring Boot para Azure Service Fabric con la aplicación de ejemplo Spring Boot."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>Implementación de una aplicación de Spring Boot
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Inicio rápido: Implementación de una aplicación de Spring Boot con Java en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
 
 En este tutorial rápido se muestra cómo implementar una aplicación de Spring Boot en Service Fabric. Este tutorial rápido se usa el ejemplo [Getting Started](https://spring.io/guides/gs/spring-boot/) del sitio web de Spring. Al utilizar las conocidas herramientas de línea de comandos, esta guía de inicio rápido le guía a través de la implementación del ejemplo de Spring Boot como una aplicación de Service Fabric. Cuando haya terminado, tendrá el ejemplo Getting Started de Spring Boot funcionando en Service Fabric. 

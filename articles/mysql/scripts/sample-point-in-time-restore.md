@@ -1,39 +1,39 @@
 ---
-title: "CLI de Azure: restauración de un servidor de Azure Database for MySQL"
+title: "Script de la CLI de Azure: restauración de un servidor de Azure Database for MySQL"
 description: "En este script de la CLI de Azure de ejemplo se muestra cómo restaurar un servidor de Azure Database for MySQL y sus bases de datos a un momento anterior."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: ed04115ff7e6f83e0357f13d734e4be3738f4c6d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d23227640d4d5bb140aeff63663fe3b3cd92a4c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restauración de un servidor de Azure Database for MySQL mediante la CLI de Azure
 Este script de la CLI de ejemplo restaura un único servidor de Azure Database for MySQL a un momento anterior.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este ejemplo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide ejecutar la CLI localmente, este artículo necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para comprobar la versión. Consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli) para instalar o actualizar su versión. 
 
 ## <a name="sample-script"></a>Script de ejemplo
-En este script de ejemplo, cambie las líneas resaltadas para personalizar el nombre de usuario de administrador y la contraseña. Reemplace el identificador de suscripción que se usa en los comandos az monitor por su propio identificador de suscripción.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=15-16 "Restore Azure Database for MySQL.")]
+En este script de ejemplo, va a modificar las líneas resaltadas para actualizar el nombre de usuario administrador y la contraseña a los suyos propios. Reemplace el identificador de suscripción que se usa en los comandos `az monitor` por su propio identificador de suscripción.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=18-19 "Restore Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
+Use el comando siguiente para quitar el grupo de recursos y todos los recursos asociados a él después de ejecutarse el script de ejemplo. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/delete-mysql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Explicación del script
-Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+Este script usa los comandos que se describen en la tabla siguiente:
 
 | **Comando** | **Notas** |
 |---|---|

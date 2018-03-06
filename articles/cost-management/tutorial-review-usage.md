@@ -1,22 +1,25 @@
 ---
-title: "Revisión del uso y los costos en Azure Cost Management | Microsoft Docs"
-description: Revise el uso y los costos para realizar un seguimiento de las tendencias, detectar deficiencias y crear alertas.
+title: "Tutorial: Revisión del uso y los costos en Azure Cost Management | Microsoft Docs"
+description: "En este tutorial, revisará el uso y los costos para realizar un seguimiento de las tendencias, detectar deficiencias y crear alertas."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Revisión del uso y los costos
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Tutorial: Revisión del uso y los costos
 
 Azure Cost Management de Cloudyn muestra el uso y los costos para que pueda realizar un seguimiento de las tendencias, detectan deficiencias y crear alertas. Todos los datos de uso y costos se muestran en los informes y paneles de Cloudyn. Los ejemplos de este tutorial le guiarán en la revisión del uso y los costos de los paneles e informes. En este tutorial, aprenderá a:
 
@@ -25,7 +28,12 @@ Azure Cost Management de Cloudyn muestra el uso y los costos para que pueda real
 > * Detectar deficiencias de uso
 > * Crear alertas de gastos innecesarios o inusuales
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+## <a name="prerequisites"></a>requisitos previos
+
+- Debe tener una cuenta de Azure.
+- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
 
 ## <a name="open-the-cloudyn-portal"></a>Abrir el portal de Cloudyn
 
@@ -98,7 +106,7 @@ En este tutorial aprendió lo siguiente:
 > * Crear alertas de gastos innecesarios o inusuales
 
 
-Vaya al siguiente tutorial para más información sobre el control del acceso a datos.
+Avance al siguiente tutorial para aprender a pronosticar gastos mediante datos históricos.
 
 > [!div class="nextstepaction"]
-> [Control del acceso a los datos](tutorial-user-access.md)
+> [Previsión de gastos futuros](tutorial-forecast-spending.md)

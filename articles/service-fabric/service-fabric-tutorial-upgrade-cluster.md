@@ -1,6 +1,6 @@
 ---
 title: "Actualización del runtime de Azure Service Fabric | Microsoft Docs"
-description: "Aprenda a utilizar PowerShell para actualizar el runtime de un clúster de Service Fabric hospedado en Azure."
+description: "En este tutorial, aprenderá a utilizar PowerShell para actualizar el runtime de un clúster de Service Fabric hospedado en Azure."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Actualización del runtime de un clúster de Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric
 
 Este tutorial es la tercera parte de una serie, y muestra cómo actualizar el entorno en tiempo de ejecución de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric independientes.
 
@@ -43,7 +43,7 @@ En esta serie de tutoriales, se aprende a:
 > * Actualización del entorno en tiempo de ejecución de un clúster
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
@@ -192,7 +192,7 @@ sfctl cluster upgrade-status
 ```
 
 ## <a name="conclusion"></a>Conclusión
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Obtener la versión del runtime del clúster

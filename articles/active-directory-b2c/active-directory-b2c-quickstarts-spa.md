@@ -1,48 +1,45 @@
 ---
-title: "Versión de prueba de una aplicación de una página de Azure AD B2C | Microsoft Docs"
-description: "Inicio de sesión de versión de prueba, registro, edición de perfil y restablecimiento de los recorridos del usuario de contraseña con un entorno de prueba de Azure AD B2C"
+title: "Versión de prueba de una aplicación de una página habilitada para Azure AD B2C"
+description: "Guía de inicio rápido para probar una aplicación de una página de ejemplo que utiliza Azure Active Directory B2C para autenticar y registrar usuarios."
 services: active-directory-b2c
 documentationcenter: 
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: quickstart
+ms.date: 2/13/2018
+ms.author: patricka
+ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Versión de prueba de una aplicación de una sola página configurada con Azure AD B2C
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Inicio rápido: Versión de prueba de una aplicación de una página habilitada para Azure AD B2C
 
-## <a name="about-this-sample"></a>Acerca de este ejemplo
+Azure Active Directory (Azure AD) B2C proporciona administración de identidades en la nube para mantener la protección de su aplicación, empresa y clientes. Azure AD B2C permite que las aplicaciones puedan autenticarse con cuentas de redes sociales y cuentas de empresa mediante protocolos estándar abiertos.
 
-Azure Active Directory B2C proporciona administración de identidades en la nube para mantener la protección de su aplicación, empresa y clientes.  Esta guía de inicio rápido usa una aplicación de ejemplo de una sola página para mostrar lo siguiente:
-
-* Mediante la directiva de **registro o inicio de sesión** para crear o iniciar sesión con un proveedor de identidades sociales o una cuenta local con una dirección de correo electrónico. 
-* **Llamando a una API** para recuperar el nombre para mostrar de un recurso asegurado de Azure AD B2C.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
-    - **ASP.NET y desarrollo web**
-
-* Instalar [Node.js](https://nodejs.org/en/download/)
-
-* Una cuenta de redes sociales de Facebook, Google, Microsoft o Twitter. Si no dispone de una cuenta de redes sociales, se requiere una dirección de correo electrónico válida.
+En esta guía de inicio rápido, se utiliza una aplicación de una página de ejemplo habilitada para Azure AD B2C para iniciar sesión mediante un proveedor de identidades de redes sociales y llamar a una API web protegida por Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>requisitos previos
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
+* Instalar [Node.js](https://nodejs.org/en/download/)
+* Una cuenta de redes sociales de Facebook, Google, Microsoft o Twitter.
+
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
-[Descargue o clone la aplicación de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) desde GitHub.
+[Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ## <a name="run-the-sample-application"></a>Ejecutar la aplicación de ejemplo
 
@@ -54,64 +51,57 @@ npm install && npm update
 node server.js
 ```
 
-La ventana de la consola muestra el número de puerto para la aplicación web que se ejecuta en el equipo.
+La aplicación Node.js da como resultado el número de puerto que está escuchando en localhost.
 
 ```
 Listening on port 6420...
 ```
 
-Abra `http://localhost:6420` en un explorador web para acceder a la aplicación web.
-
+Vaya a la dirección URL de la aplicación `http://localhost:6420` en un explorador web.
 
 ![Aplicación de ejemplo en el explorador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
 ## <a name="create-an-account"></a>Crear una cuenta
 
-Haga clic en el botón de **inicio de sesión** para iniciar el flujo de trabajo de **registro o inicio de sesión** de Azure AD B2C. Al crear una cuenta, puede usar una cuenta de proveedor de identidades de redes sociales existente o una cuenta de correo electrónico.
+Haga clic en el botón **Login** (Iniciar sesión) para iniciar el flujo de trabajo **Sign Up or Sign In** (Registrarse o iniciar sesión) de Azure AD B2C basado en una directiva de Azure AD B2C. 
+
+El ejemplo admite varias opciones de registro: usar un proveedor de identidades de redes sociales o crear una cuenta local con una dirección de correo electrónico. Para este tutorial rápido, use una cuenta de proveedor de identidades sociales de Facebook, Google, Microsoft o Twitter. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Registro con un proveedor de identidades de redes sociales
 
-Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar. Si prefiere usar una dirección de correo electrónico, vaya a la sección [Registro con una dirección de correo electrónico](#sign-up-using-an-email-address).
+Azure AD B2C presenta una página de inicio de sesión personalizada para una marca ficticia llamada Wingtip Toys para la aplicación web de ejemplo. 
 
-![Proveedor de inicio de sesión o registro](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar.
 
-Debe autenticarse (iniciar sesión) con sus credenciales de cuenta de redes sociales y autorizar a la aplicación a leer información de su cuenta de redes sociales. Al conceder acceso, la aplicación puede recuperar la información del perfil de la cuenta de redes sociales como el nombre y la ciudad. 
+    ![Proveedor de inicio de sesión o registro](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-![Autenticación y autorización con una cuenta de redes sociales](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+    Debe autenticarse (iniciar sesión) con las credenciales de su cuenta de redes sociales y autorizar a la aplicación para que lea la información de su cuenta de redes sociales. Al conceder acceso, la aplicación puede recuperar la información del perfil de la cuenta de redes sociales como el nombre y la ciudad. 
 
-Los detalles del perfil de la cuenta nueva se rellenan automáticamente con la información de su cuenta de redes sociales. 
+2. Finalice el proceso de inicio de sesión para el proveedor de identidades. Por ejemplo, si elige Twitter, escriba sus credenciales de Twitter y haga clic en **Iniciar sesión**.
 
-![Detalles del perfil de registro de la cuenta nueva](media/active-directory-b2c-quickstarts-spa/new-account-sign-up-profile-details-spa.png)
+    ![Autenticación y autorización con una cuenta de redes sociales](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
 
-Actualice los campos de nombre para mostrar, puesto que ocupa y ciudad y haga clic en **Continuar**.  Los valores que especifique se usan para el perfil de cuenta de usuario de Azure AD B2C.
+    Los detalles del perfil de la cuenta nueva se rellenan automáticamente con la información de su cuenta de redes sociales. 
 
-Ha creado correctamente una nueva cuenta de usuario de Azure AD B2C que usa un proveedor de identidades. 
+3. Actualice los campos de nombre para mostrar, puesto que ocupa y ciudad y haga clic en **Continuar**.  Los valores que especifique se usan para el perfil de cuenta de usuario de Azure AD B2C.
 
-Siguiente paso: sección [Llamada a un recurso](#call-a-resource).
+    Ha creado correctamente una nueva cuenta de usuario de Azure AD B2C que usa un proveedor de identidades. 
 
-### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
+## <a name="access-a-protected-web-api-resource"></a>Acceso a un recurso de API web protegido
 
-Si decide no utilizar una cuenta de redes sociales para proporcionar la autenticación, puede crear una cuenta de usuario de Azure AD B2C mediante una dirección de correo electrónico válida. Una cuenta de usuario local de Azure AD B2C usa Azure Active Directory como proveedor de identidades. Para usar su dirección de correo electrónico, haga clic en el vínculo **¿No tiene una cuenta? Regístrese ahora**.
-
-![Inicio de sesión y registro mediante correo electrónico](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-email-spa.png)
-
-Especifique una dirección de correo electrónico válida y haga clic en **Enviar código de verificación**. Se requiere una dirección de correo electrónico válida para recibir el código de verificación de Azure AD B2C. 
-
-Especifique el código de verificación que reciba en el correo electrónico y haga clic en **Comprobar código**.
-
-Agregue la información del perfil y haga clic en **Crear**.
-
-![Registro con una cuenta nueva mediante correo electrónico](media/active-directory-b2c-quickstarts-spa/sign-up-new-account-profile-email-web.png)
-
-Ha creado correctamente una nueva cuenta de usuario local de Azure AD B2C.
-
-## <a name="call-a-resource"></a>Llamada de un recurso
-
-Una vez que haya iniciado sesión, haga clic en el botón **Llamar a API web** para que se devuelva el nombre para mostrar desde la llamada de API web como un objeto JSON. 
+Haga clic en el botón **Llamar a API web** para obtener nombre para mostrar de la llamada de API web como un objeto JSON. 
 
 ![Respuesta de la API web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+La aplicación de una página de ejemplo incluye un token de acceso de Azure AD en la solicitud para el recurso de API web protegido para realizar la operación para devolver el objeto JSON.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales o guías de inicio rápido de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el inquilino de Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+
+## <a name="next-steps"></a>pasos siguientes
+
+En esta guía de inicio rápido, ha utilizado una aplicación de ASP.NET de ejemplo habilitada para Azure AD B2C para iniciar sesión con una página de inicio de sesión personalizada, iniciar sesión con un proveedor de identidades de redes sociales, crear una cuenta de Azure AD B2C y llamar a una API web protegida por Azure AD B2C. 
 
 El siguiente paso es crear su propio inquilino de Azure AD B2C y configurar el ejemplo para la ejecución utilizando el inquilino. 
 

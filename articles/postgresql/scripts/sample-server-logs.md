@@ -1,39 +1,39 @@
 ---
-title: 'Script de la CLI de Azure: Descargar los registros del servidor de Azure Database for PostgreSQL'
+title: 'Script de la CLI de Azure: descarga de registros de Azure Database for PostgreSQL'
 description: "Este script de la CLI de Azure de ejemplo muestra cómo habilitar y descargar los registros del servidor de Azure Database for PostgreSQL."
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.openlocfilehash: 27dad83546c5f6d5bac18d61a1e223ced1158236
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 195a9d1162798e916a9fc8fc6efce58a0af9f2eb
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Habilitar y descargar registros de consultas lentos de un servidor de Azure Database for PostgreSQL con la CLI de Azure
 Este script de la CLI de ejemplo habilita y descarga los registros de consultas lentos de un único servidor de Azure Database for PostgreSQL.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure para este ejemplo. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide ejecutar la CLI localmente, este artículo necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para comprobar la versión. Consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli) para instalar o actualizar su versión.
 
 ## <a name="sample-script"></a>Script de ejemplo
-En este script de ejemplo, cambie las líneas resaltadas para personalizar el nombre de usuario de administrador y la contraseña. Reemplace < log_file_name > en los comandos az monitor por el nombre de su archivo de registro del servidor.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+En este script de ejemplo, va a modificar las líneas resaltadas para actualizar el nombre de usuario administrador y la contraseña a los suyos propios. Reemplace <nombre_archivo_registro> en los comandos `az monitor` por su propio nombre del archivo de registro del servidor.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
+Use el comando siguiente para quitar el grupo de recursos y todos los recursos asociados a él después de ejecutarse el script de ejemplo. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/delete-postgresql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Explicación del script
-Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+Este script usa los comandos que se describen en la tabla siguiente:
 
 | **Comando** | **Notas** |
 |---|---|

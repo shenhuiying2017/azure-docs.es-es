@@ -1,26 +1,26 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL mediante Ruby | Microsoft Docs"
+title: "Conexión a Azure Database for PostgreSQL con Ruby"
 description: "En este tutorial rápido se proporciona un ejemplo de código de Ruby que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 911dcd49273edb202c64d046424418b7db048291
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Ruby para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de [Ruby](https://www.ruby-lang.org). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Ruby, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
@@ -60,11 +60,10 @@ Instale Ruby en su propia máquina.
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **mypgserver-20170401**.
-3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
- ![Azure Database for PostgreSQL: inicio de sesión del administrador del servidor](./media/connect-ruby/1-connection-string.png)
-5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del Administrador del servidor. Si es necesario, restablezca la contraseña.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Haga clic en el nombre del servidor.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
+ ![Nombre de servidor de Azure Database for PostgreSQL](./media/connect-ruby/1-connection-string.png)
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
@@ -77,9 +76,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -120,9 +119,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -154,9 +153,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -188,9 +187,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -209,6 +208,6 @@ ensure
 end
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

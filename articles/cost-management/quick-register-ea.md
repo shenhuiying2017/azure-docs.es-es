@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0f157b465a9da266481be8d208fc18307cd3bb16
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1b552ba5a0c3afd066e2ac62c8b3a90dd7696185
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
@@ -38,7 +38,7 @@ El Contrato Enterprise se usa para registrarse en la Administración de costos d
   3. Vuelva a la página de registro y pegue la clave de API.
 6. Acepte los términos de uso y, después, valide la clave. Haga clic en **Siguiente** para permitir que Cloudyn recopile datos de recursos de Azure. Los datos recopilados incluyen datos de uso, de rendimiento, de facturación y de etiquetas de las suscripciones.  
     ![validación de claves](./media/quick-register-ea/ea-key-validated.png)
-7. En **Invite other stakeholders** (Invitar a otras partes interesadas), puede agregar usuarios escribiendo sus direcciones de correo electrónico. Cuando haya terminado, haga clic en **Siguiente**. Los datos de facturación tardarán, aproximadamente, dos horas en agregarse a Cloudyn.
+7. En **Invite other stakeholders** (Invitar a otras partes interesadas), puede agregar usuarios escribiendo sus direcciones de correo electrónico. Cuando haya terminado, haga clic en **Siguiente**. Según el tamaño de la inscripción de Azure, puede tardar hasta 24 horas para que todos sus datos de facturación se agreguen a Cloudyn.
 8. Haga clic en **Go to Cloudyn** (Ir a Cloudyn) para abrir el portal de Cloudyn y, después, en la página **Cloud Accounts Management**, (Administración de cuentas en la nube) debería ver la información de la cuenta de EA registrada.
 
 Para ver un tutorial de vídeo sobre cómo registrar su contrato Enterprise, consulte [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig) (Búsqueda del identificador de registro de EA y de la clave de API para su uso en Azure Cost Management de Cloudyn).

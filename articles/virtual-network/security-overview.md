@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: ac8a9f28881ff7d249a02976f310bf6a8283aeb6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="network-security"></a>Seguridad de las redes
 
@@ -149,7 +149,7 @@ Los grupos de seguridad de aplicaciones están disponibles en la versión prelim
 ## <a name="azure-platform-considerations"></a>Consideraciones de la plataforma Azure
 
 - **IP virtual del nodo de host:** los servicios de infraestructura básica, como DHCP, DNS y supervisión del estado se proporcionan a través de las direcciones IP de host virtualizadas 168.63.129.16 y 169.254.169.254. Estas direcciones IP públicas pertenecen a Microsoft y son la únicas direcciones IP virtualizadas que se usarán en todas las regiones con este fin. Las direcciones se asignan a la dirección IP física del equipo del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con estas direcciones IP no constituye un ataque. Si bloquea el tráfico hacia estas direcciones IP o el procedente de ellas, puede que una máquina virtual no funcione correctamente.
-- **Licencias (Servicio de administración de claves):** las imágenes de Windows que se ejecutan en máquinas virtuales deben tener licencia. Para garantizar que se usen licencias, se envía una solicitud a los servidores host del Servicio de administración de claves que administran dichas consultas. La solicitud de salida se realiza a través del puerto 1688.
+- **Licencias (Servicio de administración de claves):** las imágenes de Windows que se ejecutan en máquinas virtuales deben tener licencia. Para garantizar que se usen licencias, se envía una solicitud a los servidores host del Servicio de administración de claves que administran dichas consultas. La solicitud de salida se realiza a través del puerto 1688. Para implementaciones que usan la configuración de la [ruta predeterminada 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), se deshabilitará esta regla de plataforma.
 - **Máquinas virtuales en grupos de carga equilibrada**: el puerto y el intervalo de direcciones de origen aplicados proceden del equipo de origen no del equilibrador de carga. El puerto y el intervalo de direcciones de destino son los del equipo de destino, no los del equilibrador de carga.
 - **Instancias de servicio de Azure**: instancias de varios servicios de Azure como HDInsight, conjuntos de escalado de máquinas virtuales y entornos del servicio de aplicaciones implementados en subredes de la red virtual. Para ver una lista completa de los servicios que puede implementar en redes virtuales, consulte el artículo sobre la [Red virtual para los servicios de Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Asegúrese de que conoce los requisitos de puertos de cada servicio antes de aplicar un grupo de seguridad de red a la subred en la que se implementa el recurso. Si deniega los puertos que el servicio requiere, este no funcionará correctamente.
 - **Envío de correo electrónico saliente**: Microsoft recomienda usar servicios de retransmisión SMTP autenticados (que normalmente se conectan a través del puerto TCP 587, pero a menudo también de otros) para enviar correo electrónico Azure Virtual Machines. Los servicios de retransmisión SMTP se especializan en la reputación del remitente, con el fin de minimizar la posibilidad de que proveedores de correo electrónico de terceros rechacen los mensajes. Estos servicios de retransmisión de SMTP incluyen Exchange Online Protection y SendGrid, pero no se limitan a ellos. El uso de servicios de retransmisión de SMTP no tiene ninguna restricción en Azure, independientemente del tipo de suscripción. 

@@ -1,6 +1,6 @@
 ---
 title: "Creación de una aplicación contenedora Windows en Azure Service Fabric | Microsoft Docs"
-description: "Cree la primera aplicación contenedora en Windows en Azure Service Fabric."
+description: "En esta guía de inicio rápido, creará su primera aplicación contenedora Windows en Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implementación de una aplicación contenedora Windows de Service Fabric en Azure
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Inicio rápido: Implementación de una aplicación contenedora Windows de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
 
 Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Esta guía de inicio rápido muestra cómo implementar una imagen de contenedor Docker creada previamente en una aplicación de Service Fabric. Cuando haya terminado, tendrá un contenedor de Windows Server 2016 Nano e IIS en ejecución. Esta guía de inicio rápido describe la implementación de un contenedor Windows; lea [esta otra guía](service-fabric-quickstart-containers-linux.md) para implementar un contenedor Linux.
@@ -48,21 +48,25 @@ Inicie Visual Studio como administrador.  Seleccione **Archivo** > **Nuevo** > *
 
 Seleccione **Aplicación de Service Fabric**, asígnele el nombre "MyFirstContainer" y haga clic en **Aceptar**.
 
-Seleccione **Contenedor** en la lista de **plantillas del servicio**.
+Seleccione **Contenedor** en las plantillas **Aplicaciones y contenedores hospedados**.
 
 En **Nombre de imagen**, escriba "microsoft/iis:nanoserver", la [imagen de base de Windows Server Nano Server e IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Asigne el nombre "MyContainerService" al servicio y haga clic en **Aceptar**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configuración de la comunicación y asignación del puerto "puerto a host" del contenedor
-El servicio necesita un punto de conexión para la comunicación.  Agregue el protocolo, el puerto y el tipo a un `Endpoint` en el archivo ServiceManifest.xml. Para esta guía de inicio rápido, el servicio en contenedor realiza escuchas en el puerto 80: 
+El servicio necesita un punto de conexión para la comunicación.  Para esta guía de inicio rápido, el servicio en contenedor escucha en el puerto 80.  En el Explorador de soluciones, abra *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Actualice el valor de `Endpoint` en el archivo ServiceManifest.xml y agregue el protocolo, el puerto y el esquema de URI: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Si se especifica `UriScheme`, se registra automáticamente el punto de conexión del contenedor con el servicio de nombres de Service Fabric para facilitar la detección. Al final de este artículo se proporciona un archivo ServiceManifest.xml de ejemplo. 
 
-Configure la asignación de puertos de puerto a host del contenedor, para lo que debe especificar una directiva de `PortBinding` en `ContainerHostPolicies` del archivo ApplicationManifest.xml.  Para esta guía de inicio rápido, `ContainerPort` es 80 y `EndpointRef` es "MyContainerServiceTypeEndpoint" (el punto de conexión definido en el manifiesto del servicio).  Las solicitudes entrantes para el servicio en el puerto 80 se asignan al puerto 80 del contenedor.  
+Configure la asignación de los puertos del host al contenedor para que las solicitudes que lleguen al puerto 80 para el servicio se asignen al puerto 80 del contenedor.  En el Explorador de soluciones, abra *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* y especifique una directiva `PortBinding` en `ContainerHostPolicies`.  Para esta guía de inicio rápido, `ContainerPort` es 80 y `EndpointRef` es "MyContainerServiceTypeEndpoint" (el punto de conexión definido en el manifiesto del servicio).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Configure la asignación de puertos de puerto a host del contenedor, para lo que
 Al final de este artículo se proporciona un archivo ApplicationManifest.xml de ejemplo.
 
 ## <a name="create-a-cluster"></a>Crear un clúster
-Para implementar la aplicación en un clúster de Azure, puede unirse a un clúster de terceros o [crear su propio clúster en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo así como para la de cliente a nodo. 
+Para implementar la aplicación en un clúster de Azure, puede unirse a un clúster de entidad. Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo así como para la de cliente a nodo. 
 
 Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. El certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
 
@@ -108,7 +110,7 @@ Ahora que la aplicación está lista, puede implementarla en un clúster directa
 
 Haga clic con el botón derecho en **MyFirstContainer** en el Explorador de soluciones y seleccione **Publicar**. Aparece el cuadro de diálogo de publicación.
 
-Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión**. Por ejemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Haga clic en **Parámetros de conexión avanzada** y rellene la información siguiente.  Los valores de *FindValue* y *ServerCertThumbprint* deben coincidir con la huella digital del certificado instalado en el paso anterior. 
+Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión**. Por ejemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Haga clic en **Parámetros de conexión avanzada** y compruebe la información de los parámetros de conexión.  Los valores de *FindValue* y *ServerCertThumbprint* deben coincidir con la huella digital del certificado instalado en el paso anterior. 
 
 ![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Estos son los manifiestos de servicio y de aplicación completos que se usan en 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -5,15 +5,15 @@ services: automation
 keywords: "cambio, seguimiento, automatización"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Desencadenar un evento
 > * Ver los cambios
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -47,37 +47,19 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 En primer lugar, debe habilitar Change Tracking e Inventario para la máquina virtual en este tutorial. Si habilitó previamente otra solución de automatización para una máquina virtual, este paso no es necesario.
 
 1. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione una máquina virtual de la lista.
-1. En el menú de la izquierda, en la sección **Operaciones**, haga clic en **Inventario**. Se abre la página **Habilitar Change Tracking e Inventario**.
+1. En el menú de la izquierda, en la sección **OPERACIONES**, haga clic en **Inventario**. Se abre la página **Change Tracking**.
 
-Se realiza la validación para determinar si Change Tracking e Inventario está habilitado para esta máquina virtual.
-La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
+![Habilitar cambios](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Se abre la pantalla **Change Tracking**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
 
 Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Inventario.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
-El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y Hybrid Worker.
+Durante la incorporación la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) e Hybrid Worker.
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el software instalado.
-El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y un trabajo de runbook híbrido de Automation.
-
-Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la opción de habilitar la solución.
-
-![Banner de configuración de la incorporación de Change Tracking e Inventario](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Para habilitar la solución, haga clic en el banner.
-Si se detecta que falta alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
-
-* Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automation](./automation-offering-get-started.md)
-* [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
-
-Se abre la ventana **Change Tracking e Inventario**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
-
-![Ventana de habilitación de la solución Change Tracking](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
 Después de habilitar la solución, la información sobre el software instalado y los cambios en la máquina virtual se pasa a Log Analytics.
 Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Uso de Change Tracking en Log Analytics
 
@@ -107,40 +89,47 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 1. En la pestaña **Registro de Windows**, seleccione **Agregar**.
     Se abrirá la ventana **Agregar Registro de Windows para el seguimiento de cambios**.
 
-   ![Agregar Registro para Change Tracking](./media/automation-vm-change-tracking/change-add-registry.png)
+3. En **Agregar Registro de Windows para el seguimiento de cambios**, introduzca la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-2. En **Habilitado**, seleccione **True**.
-3. Agregue un nombre descriptivo en el campo **Nombre del elemento**.
-4. En el cuadro **Grupo**, escriba un nombre de grupo (opcional).
-5. En el cuadro **Clave del Registro de Windows**, agregue el nombre de la clave del Registro de la que quiere realizar un seguimiento.
-6. Seleccione **Guardar**.
+|Propiedad  |DESCRIPCIÓN  |
+|---------|---------|
+|habilitado     | Determina si se aplica la configuración        |
+|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
+|Clave de Registro de Windows   | La ruta de acceso para buscar el archivo, por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Agregar un archivo de Windows
 
 1. En la pestaña **Archivos de Windows**, seleccione **Agregar**. Se abrirá la ventana **Agregar archivo de Windows para el seguimiento de cambios**.
 
-   ![Agregar archivo de Windows para Change Tracking](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. En **Agregar archivo de Windows para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-2. En **Habilitado**, seleccione **True**.
-3. Agregue un nombre descriptivo en el campo **Nombre del elemento**.
-4. En el cuadro **Grupo**, escriba un nombre de grupo (opcional).
-5. En el cuadro **Indicar ruta de acceso**, escriba la ruta de acceso completa y el nombre del archivo del que quiere realizar un seguimiento.
-6. Seleccione **Guardar**.
+|Propiedad  |DESCRIPCIÓN  |
+|---------|---------|
+|habilitado     | Determina si se aplica la configuración        |
+|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
+|Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Agregar un archivo de Linux
 
 1. En la pestaña **Archivos de Linux**, seleccione **Agregar**. Se abrirá la ventana **Agregar archivo de Linux para el seguimiento de cambios**.
 
-   ![Agregar archivo de Linux para Change Tracking](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. En **Agregar archivo de Linux para el seguimiento de cambios**, introduzca la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-2. En **Habilitado**, seleccione **True**.
-3. Agregue un nombre descriptivo en el campo **Nombre del elemento**.
-4. En el cuadro **Grupo**, escriba un nombre de grupo (opcional).
-5. En el cuadro **Indicar ruta de acceso**, escriba la ruta de acceso completa y el nombre del archivo del que quiere realizar un seguimiento.
-6. En el cuadro **Tipo de ruta de acceso**, seleccione **Archivo** o **Directorio**.
-7. En **Recursión**, seleccione **Activado** para realizar el seguimiento de cambios para la ruta de acceso especificada y para todos los archivos y las rutas de acceso que se encuentran bajo ella. Para realizar el seguimiento únicamente de la ruta de acceso o el archivo especificados, seleccione **Desactivar**.
-8. En **Usar sudo**, para realizar un seguimiento de los archivos que requieren el comando `sudo` para el acceso, seleccione **Activado**. De lo contrario, seleccione **Desactivado**.
-9. Seleccione **Guardar**.
+|Propiedad  |DESCRIPCIÓN  |
+|---------|---------|
+|habilitado     | Determina si se aplica la configuración        |
+|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
+|Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
+|Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar; posibles valores son Archivo y Directorio        |
+|Recursión     | Determina si se usa la recursión al buscar el elemento cuyo seguimiento se va a realizar.        |
+|Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
+|Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
+
+   > [!NOTE]   
+   > La opción de administración de vínculos no se recomienda. No se admite la recuperación de contenido de los archivos.
 
 ## <a name="enable-activity-log-connection"></a>Habilitar la conexión del registro de actividad
 
@@ -188,4 +177,4 @@ En este tutorial, ha aprendido cómo:
 Continúe hacia la introducción sobre la solución Change Tracking e Inventario para obtener más información.
 
 > [!div class="nextstepaction"]
-> [Solución de Inventario y administración de cambios](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solución de Inventario y administración de cambios](automation-change-tracking.md)

@@ -1,26 +1,26 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL desde C# | Microsoft Docs"
+title: "Conexión a Azure Database for PostgreSQL desde C#"
 description: "En este tutorial rápido se proporciona un ejemplo de código de C# (.NET) que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 9dc187b17471abe67abc49674b70889c1aca840e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/28/2018
+ms.openlocfilehash: 7c5c549bf2402757e19928d4217954f778947d18
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de .NET (C#) para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de C#. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante C#, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI](quickstart-create-server-database-azure-cli.md)
@@ -34,11 +34,10 @@ Además, deberá:
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **mypgserver-20170401**.
-3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
- ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-csharp/1-connection-string.png)
-5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el **nombre de inicio de sesión del administrador del servidor** y, si es necesario, restablecer la contraseña.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
+3. Haga clic en el nombre del servidor.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
+ ![Nombre de servidor de Azure Database for PostgreSQL](./media/connect-csharp/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
 Use el código siguiente para conectarse y cargar los datos mediante las instrucciones SQL **CREATE TABLE** e **INSERT INTO**. El código usa la clase NpgsqlCommand con el método [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para establecer una conexión a la base de datos PostgreSQL. A continuación, el código usa el método [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), establece la propiedad CommandText y llama al método [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para ejecutar los comandos de base de datos. 
@@ -59,8 +58,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -136,8 +135,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -206,8 +205,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -272,8 +271,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -313,6 +312,6 @@ namespace Driver
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

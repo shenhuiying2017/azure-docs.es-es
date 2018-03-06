@@ -1,25 +1,25 @@
 ---
-title: "Configurar alertas de métricas para Azure Database for PostgreSQL en Azure Portal | Microsoft Docs"
+title: "Configuración de alertas de métricas para Azure Database for PostgreSQL en Azure Portal"
 description: "En este artículo se describe cómo configurar las alertas de métricas de Azure Database for PostgreSQL, y obtener acceso a ellas, mediante Azure Portal."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL 
 
 En este artículo se explica cómo configurar alertas de Azure Database for PostgreSQL mediante Azure Portal. Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure.
 
-La alerta se desencadena cuando el valor de una métrica especificada cruza el umbral que asigna. La alerta se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición deja de cumplirse. 
+La alerta se desencadena cuando el valor de una métrica especificada cruza el umbral que se ha asignado. La alerta se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición deja de cumplirse. 
 
 Puede configurar una alerta para realizar las siguientes acciones cuando se desencadene:
 * Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
@@ -27,7 +27,7 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 * Llamar a un webhook.
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
-* [Portal de Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [portal de Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Interfaz de la línea de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -41,28 +41,28 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 3. Seleccione **Agregar alerta de métrica** (icono +). 
 
-4. La página **Agregar regla** se abre como se muestra a continuación.  Rellene la información necesaria:
+4. Se abre la página **Agregar regla**, como se muestra a continuación.  Rellene la información necesaria:
 
    ![Formulario de adición de alerta de métrica](./media/howto-alert-on-metric/2-add-rule-form.png)
 
-   | Configuración | Descripción  |
+   | Configuración | DESCRIPCIÓN  |
    |---------|---------|
-   | Nombre | Especifique un nombre para la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
-   | Descripción | Proporcione una descripción breve de la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
+   | NOMBRE | Especifique un nombre para la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
+   | DESCRIPCIÓN | Proporcione una descripción breve de la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
    | Alerta activada | Elija **Métricas** para este tipo de alerta. |
    | La suscripción | Este campo se rellena previamente con la suscripción que hospeda Azure Database for PostgreSQL. |
    | Grupos de recursos | Este campo se rellena previamente con el grupo de recursos de Azure Database for PostgreSQL. |
    | Recurso | Este campo se rellena previamente con el nombre de Azure Database for PostgreSQL. |
-   | Métrica | Seleccione la métrica para la que desea emitir una alerta. Por ejemplo, **Porcentaje de almacenamiento**. |
+   | Métrica | Seleccione la métrica para la que quiere emitir una alerta. Por ejemplo, **Porcentaje de almacenamiento**. |
    | Condición | Elija la condición para la métrica con la que va a realizar la comparación. Por ejemplo, **Mayor que**. |
-   | Umbral | Valor de umbral de la métrica, como, por ejemplo, 85 (porcentaje). |
+   | Umbral | Valor de umbral de la métrica, por ejemplo, 85 (porcentaje). |
    | Período | Período de tiempo que debe cumplir la regla de métrica antes de que se desencadene la alerta. Por ejemplo, **En los últimos 30 minutos**. |
 
-   Según el ejemplo, la alerta busca el porcentaje de almacenamiento por encima del 85 % durante un período de 30 minutos. Esa alerta se desencadena cuando el porcentaje de almacenamiento medio se mantiene por encima el 85 % durante 30 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el promedio de porcentaje de almacenamiento está por debajo del 85 % durante más de 30 minutos.
+   Según el ejemplo, la alerta busca un porcentaje de almacenamiento por encima del 85 % durante un período de 30 minutos. Esa alerta se desencadena cuando el porcentaje de almacenamiento medio se mantiene por encima el 85 % durante 30 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el porcentaje de almacenamiento medio está por debajo del 85 % durante más de 30 minutos.
 
-5. Elija el método de notificación que desee para la regla de alerta. 
+5. Elija el método de notificación que quiera para la regla de alerta. 
 
-   Active la opción **Enviar correo electrónico a propietarios, colaboradores y lectores** si desea que se envíe un correo electrónico a los administradores y coadministradores de la suscripción cuando se active la alerta.
+   Active la opción **Enviar correo electrónico a propietarios, colaboradores y lectores** si quiere que se envíe un correo electrónico a los administradores y coadministradores de la suscripción cuando se active la alerta.
 
    Si quiere enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos adicionales del administrador**. Separe las direcciones de correo electrónico con punto y coma, de la siguiente manera: *email@contoso.com;email2@contoso.com*
 
@@ -77,8 +77,8 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 
 * Ver un gráfico que muestre el umbral de las métricas y los valores reales del día anterior en relación con esta alerta.
 * **Editar** o **eliminar** la regla de alerta.
-* **Deshabilitar** o **habilitar** la alerta, si desea detener temporalmente o reanudar la recepción de notificaciones.
+* **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

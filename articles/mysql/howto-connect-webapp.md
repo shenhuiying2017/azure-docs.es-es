@@ -1,25 +1,25 @@
 ---
-title: "Conexión de Azure App Service existente a Azure Database for MySQL | Microsoft Docs"
+title: "Conexión de Azure App Service existente a Azure Database for MySQL"
 description: "Instrucciones sobre cómo conectar correctamente un servicio existente de Azure App Service a Azure Database para MySQL"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conexión de un servicio existente de Azure App Service a un servidor de Azure Database for MySQL
 En este tema se explica cómo conectar un servicio existente de Azure App Service a un servidor de Azure Database for MySQL.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Inicie sesión en el [Portal de Azure](https://portal.azure.com). Cree de un servidor de Azure Database for MySQL. Para obtener más información, consulte [Creación de un servidor de Azure Database for MySQL con Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL con la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+Inicie sesión en [Azure Portal](https://portal.azure.com). Cree de un servidor de Azure Database for MySQL. Para obtener más información, consulte [Creación de un servidor de Azure Database for MySQL con Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL con la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Actualmente hay dos soluciones para habilitar el acceso desde un servicio de Azure App Service a un servidor de Azure Database for MySQL. En ambas soluciones hay que configurar las reglas de firewall de nivel de servidor.
 
@@ -60,5 +60,5 @@ Aunque el Azure App Service intenta que no se modifiquen las direcciones IP con 
 ## <a name="ssl-configuration"></a>Configuración de SSL
 Azure Database for MySQL tiene SSL habilitado de forma predeterminada. Si la aplicación no usa SSL para conectarse a la base de datos, debe deshabilitar SSL en el servidor MySQL. Para más información sobre cómo configurar SSL, consulte [Uso de SSL con Azure Database for MySQL](howto-configure-ssl.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre las cadenas de conexión, consulte [Cadenas de conexión](howto-connection-string.md).

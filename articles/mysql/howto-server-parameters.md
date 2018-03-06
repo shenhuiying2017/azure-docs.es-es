@@ -1,19 +1,19 @@
 ---
-title: "Cómo configurar parámetros del servidor en Azure Database para MySQL | Microsoft Docs"
+title: "Configuración de parámetros del servidor en Azure Database for MySQL"
 description: "En este artículo se explica cómo configurar parámetros del servidor MySQL en Azure Database for MySQL mediante Azure Portal."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 02/28/2018
+ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -22,10 +22,14 @@ Azure Database para MySQL admite la configuración de algunos parámetros del se
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Ir a Parámetros del servidor de Azure Portal
 1. Inicie sesión en Azure Portal y luego localice su servidor de Azure Database for MySQL.
 2. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MySQL.
-3. Localice cualquier configuración que deba ajustar. Revise la columna **Descripción** para entender el propósito y los valores permitidos. 
-4. Haga clic en **Guardar** para guardar los cambios.
-
 ![Página Parámetros del servidor de Azure Portal](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Localice cualquier configuración que deba ajustar. Revise la columna **Descripción** para entender el propósito y los valores permitidos. 
+![Menú desplegable de enumeración](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Haga clic en **Guardar** para guardar los cambios.
+![Guardar o descartar cambios](./media/howto-server-parameters/4-save_parameters.png)
+5. Si ha guardado los nuevos valores para los parámetros, siempre puede revertir todos los elementos a los valores predeterminados; para ello, seleccione **Restablecer todos los valores predeterminados**.
+![Restablecer todos los valores predeterminados](./media/howto-server-parameters/5-reset_parameters.png)
+
 
 ## <a name="list-of-configurable-server-parameters"></a>Lista de parámetros configurables del servidor
 
@@ -34,14 +38,27 @@ La lista de parámetros del servidor admitidos crece constantemente. Use la pest
 ## <a name="nonconfigurable-server-parameters"></a>Parámetros no configurables del servidor
 El grupo de búferes de InnoDB y el número máximo de conexiones no son configurables y están vinculados a su [plan de tarifa](concepts-service-tiers.md). 
 
-| **Plan de tarifa** | **Grupo de búferes InnoDB (MB)** | **Conexiones máximas** |
-| :------------------------ | :-------- | :----------- |
-| 50 unidades de proceso básicas | 1024 | 50 | 
-| 100 unidades de proceso básicas  | 2560 | 100 | 
-| 100 unidades de proceso estándar | 2560 | 200 | 
-| 200 unidades de proceso estándar | 5120 | 400 | 
-| 400 unidades de proceso estándar | 10240 | 800 | 
-| 800 unidades de proceso estándar | 20480 | 1600 |
+|**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**| **Conexiones máximas**|
+|---|---|---|---|--|
+|Básica| Gen 4| 1| 1024| 50 |
+|Básica| Gen 4| 2| 2560| 100 |
+|Básica| Gen 5| 1| 1024| 50 |
+|Básica| Gen 5| 2| 2560| 100 |
+|Uso general| Gen 4| 2| 2560| 200|
+|Uso general| Gen 4| 4| 5120| 400|
+|Uso general| Gen 4| 8| 10240| 800|
+|Uso general| Gen 4| 16| 20480| 1600|
+|Uso general| Gen 4| 32| 40960| 3200|
+|Uso general| Gen 5| 2| 2560| 200|
+|Uso general| Gen 5| 4| 5120| 400|
+|Uso general| Gen 5| 8| 10240| 800|
+|Uso general| Gen 5| 16| 20480| 1600|
+|Uso general| Gen 5| 32| 40960| 3200|
+|Memoria optimizada| Gen 5| 2| 7168| 600|
+|Memoria optimizada| Gen 5| 4| 15360| 1250|
+|Memoria optimizada| Gen 5| 8| 30720| 2.500|
+|Memoria optimizada| Gen 5| 16| 62464| 5000|
+|Memoria optimizada| Gen 5| 32| 125952| 10000| 
 
 Estos parámetros adicionales del servidor no son configurables en el sistema:
 

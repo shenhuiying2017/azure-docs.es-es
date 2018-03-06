@@ -42,12 +42,13 @@
 
 ## Creación y administración de grupos
 ### [Escalado automático de nodos de proceso](batch-automatic-scaling.md)
-### [Máquinas virtuales de procesos intensivos](batch-pool-compute-intensive-sizes.md)
+### [Elección de un tamaño de máquina virtual para los nodos de proceso](batch-pool-vm-sizes.md)
 ### [Configuración del acceso a los nodos de proceso](pool-endpoint-configuration.md)
 ### [Creación de un grupo con una imagen personalizada](batch-custom-images.md)
 ### [Creación de un grupo en una red virtual](batch-virtual-network.md)
-### [Nodos de proceso Linux](batch-linux-nodes.md)
-### [Máquinas virtuales de prioridad baja](batch-low-pri-vms.md)
+### [Uso de máquinas virtuales de procesos intensivos](batch-pool-compute-intensive-sizes.md)
+### [Uso de nodos de proceso Linux](batch-linux-nodes.md)
+### [Uso de máquinas virtuales de prioridad baja](batch-low-pri-vms.md)
 
 ## Administración de trabajos y tareas
 ### [Tareas de preparación y finalización de trabajos](batch-job-prep-release.md)

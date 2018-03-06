@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de la versión preliminar de Azure Databricks
+title: "Documentación de la versión preliminar de Azure Databricks"
 metadata:
-  title: 'Documentación sobre Azure : tutoriales | Microsoft Docs'
-  description: Aprenda a usar Azure Databricks mediante el inicio rápido y los demás vínculos que aparecen aquí. Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure.
+  title: "Documentación sobre Azure : tutoriales | Microsoft Docs"
+  description: "Aprenda a usar Azure Databricks mediante el inicio rápido y los demás vínculos que aparecen aquí. Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure."
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -13,30 +13,44 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
+  ms.openlocfilehash: cc51070b4ff41107700585160cff8bbe41cc5d7d
+  ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/05/2018
 abstract:
-  description: 'Aprenda a usar Azure Databricks mediante el inicio rápido y los demás vínculos que aparecen aquí. Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure. Diseñada por los fundadores de Apache Spark, Databricks está integrado con Azure para proporcionar una configuración con un solo clic, flujos de trabajo optimizados y un área de trabajo interactiva que permite la colaboración entre científicos de datos, ingenieros de datos y analistas empresariales.'
+  description: "Aprenda a usar Azure Databricks mediante el inicio rápido y los demás vínculos que aparecen aquí. Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure. Diseñada por los fundadores de Apache Spark, Databricks está integrado con Azure para proporcionar una configuración con un solo clic, flujos de trabajo optimizados y un área de trabajo interactiva que permite la colaboración entre científicos de datos, ingenieros de datos y analistas empresariales."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: "Introducción a Azure Databricks (3:38)"
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    width: 250
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a crear un área de trabajo de Azure Databricks y un clúster de Spark y, a continuación, ejecutar trabajos mediante:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Aprenda a crear un área de trabajo de Azure Databricks y un clúster de Spark y, a continuación, ejecutar trabajos mediante:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/azure-databricks/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-  - title: Tutoriales detallados
+    - image:
+        src: /azure/azure-databricks/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a trabajar con Azure Databricks:'
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Aprenda a trabajar con Azure Databricks:'
-      - type: list
-        style: ordered
-        items:
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Introducción a Azure Databricks</a>'
-          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importación de datos de Azure Storage</a>'
-          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Uso de cuadernos</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Ejecución de trabajos de Spark</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Uso de orígenes de datos de Spark</a>'
+    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/getting-started.html\" target=\"_blank\">Introducción a Azure Databricks</a>"
+    - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Importación de datos de Azure Storage</a>"
+    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
+    - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Uso de cuadernos</a>
+    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/jobs.html\" target=\"_blank\">Ejecución de trabajos de Spark</a>"
+    - html: "<a href=\"https://docs.azuredatabricks.net/spark/latest/data-sources/index.html\" target=\"_blank\">Uso de orígenes de datos de Spark</a>"

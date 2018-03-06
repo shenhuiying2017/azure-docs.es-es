@@ -1,6 +1,6 @@
 ---
 title: "Creación de un clúster de Service Fabric con Linux en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar un clúster de Service Fabric con Linux en una instancia existente de Azure Virtual Network mediante la CLI de Azure."
+description: "En este tutorial, aprenderá a implementar mediante la CLI de Azure un clúster de Service Fabric con Linux en una red virtual existente de Azure."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric con Linux en una instancia de Azure Virtual Network
+# <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Linux en una instancia de red virtual de Azure
 Este tutorial es la primera parte de una serie. En él aprenderá a implementar un clúster de Service Fabric de Linux en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) mediante la CLI de Azure y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster con Windows mediante PowerShell, consulte la información sobre la [creación de un clúster con Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 En este tutorial, aprenderá a:

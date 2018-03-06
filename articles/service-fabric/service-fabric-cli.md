@@ -2,17 +2,17 @@
 title: "Introducción a la CLI de Azure Service Fabric"
 description: "Aprenda a utilizar la CLI de Azure Service Fabric. Aprenda a conectarse a un clúster y administrar aplicaciones."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -32,7 +32,8 @@ La CLI de Service Fabric debería ser compatible con la versión más reciente d
 
 | Versión de la CLI   | versión compatible del runtime |
 |---------------|---------------------------|
-| Más reciente (~ = 3)  | Más reciente (~=6.0)            |
+| Más reciente (~=4)  | Más reciente (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 También puede especificar la versión de destino de la CLI que se va a instalar. Para ello debe usar `==<version>` delante del comando `pip install`. Por ejemplo, en el caso de la versión 1.1.0 la sintaxis sería:

@@ -1,22 +1,22 @@
 ---
-title: "Administración de costos con Azure Cost Management | Microsoft Docs"
-description: "Administre los costos utilizando informes de asignación, visualización y contracargo de costos."
+title: "Tutorial: Administración de costos con Azure Cost Management | Microsoft Docs"
+description: "En este tutorial, aprenderá a administrar los costos utilizando informes de asignación, visualización y contracargo de costos."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Administración de costos con Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Administración de costos con Azure Cost Management
 
 Administre los costos y genere informes de visualización de costos con Azure Cost Management de Cloudyn mediante la asignación de costos basados en etiquetas. El proceso de asignación de costos asigna los costos a los recursos consumidos en la nube. Los costos se asignan completamente cuando todos los recursos se clasifican con etiquetas. Una vez asignados los costos, puede mostrar o cargar los costos a los usuarios mediante paneles e informes. Pero puede ser que muchos recursos no estén etiquetados o no se puedan etiquetar al empezar a usar Cost Management.
 
@@ -27,6 +27,13 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Usar etiquetas personalizadas para asignar costos.
 > * Crear informes de visualización y contracargo de gastos.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="prerequisites"></a>requisitos previos
+
+- Debe tener una cuenta de Azure.
+- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Uso de etiquetas personalizadas para asignar costos
 
@@ -122,7 +129,7 @@ En este tutorial aprendió lo siguiente:
 
 
 
-Para obtener más información sobre cómo empezar a usar Cloudyn y sus características, pase a la documentación de Cloudyn.
+Vaya al siguiente tutorial para más información sobre el control del acceso a datos.
 
 > [!div class="nextstepaction"]
-> [Documentación de Cloudyn](https://support.cloudyn.com/hc/)
+> [Control del acceso a los datos](tutorial-user-access.md)

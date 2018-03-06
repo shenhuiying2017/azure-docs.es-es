@@ -1,6 +1,6 @@
 ---
 title: "Creación de un clúster de Azure Service Fabric en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar un clúster de Azure Service Fabric con Linux en una instancia existente de Azure Virtual Network mediante PowerShell."
+description: "En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia existente de Azure Virtual Network mediante PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
 Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Service Fabric con Windows en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
 
 Este tutorial describe un escenario de producción.  Si desea crear un clúster pequeño con fines de prueba rápidamente, consulte [Creación de un clúster de prueba de tres nodos](./scripts/service-fabric-powershell-create-test-cluster.md).

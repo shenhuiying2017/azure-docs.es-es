@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: uso del Editor de consultas de SQL para conectarse y consultar datos
+# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Uso del Editor de consultas de SQL para conectarse y consultar datos
 
-El Editor de consultas de SQL es una herramienta de consulta de explorador que proporciona una manera eficaz y flexible de ejecutar consultas SQL en Azure SQL Database o Azure SQL Data Warehouse sin salir de Azure Portal. Esta guía de inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y, después, usar instrucciones Transact-SQL para realizar consultas, insertar, actualizar y eliminar datos de la base de datos.
+El Editor de consultas de SQL es una herramienta de consulta en el explorador que proporciona una manera eficaz y flexible de ejecutar consultas de SQL en Azure SQL Database o Azure SQL Data Warehouse sin salir de Azure Portal. Esta guía de inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y, después, usar instrucciones Transact-SQL para realizar consultas, insertar datos, actualizarlos y eliminarlos de la base de datos.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -33,18 +33,19 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> Asegúrese de que la opción "Permitir el acceso a servicios de Azure" esté establecida en "Activado" en la configuración de firewall de SQL Server. Esta opción proporciona al Editor de consultas de SQL acceso a las bases de datos y los almacenes de datos.
+
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Conexión con la autenticación de SQL
-> [!NOTE]
-> Asegúrese de que la opción "Permitir el acceso a servicios de Azure" esté establecida en "Activado" en la configuración de firewall de SQL Server. Esta opción proporciona al Editor de consultas de SQL acceso a las bases de datos y almacenes de datos.
 
 1. Haga clic en **Bases de datos SQL** en el menú izquierdo y haga clic en la base de datos que desea consultar.
 
-2. En la página de SQL Database, busque y haga clic en **Explorador de datos (versión preliminar)** en el menú de la izquierda.
+2. En la página de la base de datos SQL, busque **Editor de consultas (versión preliminar)** y haga clic en esta opción, en el menú de la izquierda.
 
     ![buscar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

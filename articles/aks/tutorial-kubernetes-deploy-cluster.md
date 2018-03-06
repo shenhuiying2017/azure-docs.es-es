@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
 
@@ -30,10 +30,11 @@ En tutoriales posteriores, la aplicación Azure Vote se implementa en el clúste
 
 En los tutoriales anteriores, se creó una imagen de contenedor y se actualizó en una instancia de Azure Container Registry. Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Habilitación de la versión preliminar de AKS para su suscripción de Azure
+## <a name="enable-aks-preview"></a>Habilitación de la versión preliminar de AKS
+
 Mientras AKS está en versión preliminar, la creación de nuevos clústeres requiere una marca de característica en su suscripción. Esta característica la puede solicitar para cualquier número de suscripciones que desee utilizar. Use el comando `az provider register` para registrar el proveedor de AKS:
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -48,6 +49,59 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Después de varios minutos, la implementación se completa y devuelve información en formato json sobre la implementación de AKS.
+
+```azurecli
+{
+  "additionalProperties": {},
+  "agentPoolProfiles": [
+    {
+      "additionalProperties": {},
+      "count": 1,
+      "dnsPrefix": null,
+      "fqdn": null,
+      "name": "nodepool1",
+      "osDiskSizeGb": null,
+      "osType": "Linux",
+      "ports": null,
+      "storageProfile": "ManagedDisks",
+      "vmSize": "Standard_DS1_v2",
+      "vnetSubnetId": null
+    }
+    ...
+```
+
+## <a name="getting-information-about-your-cluster"></a>Obtención de información sobre el clúster
+
+Una vez que se ha implementado el clúster, podrá utilizar `az aks show` para consultar el clúster y recuperar información importante. Estos datos se pueden utilizar como un parámetro al realizar operaciones más complejas en el clúster. Por ejemplo, si desea obtener información sobre el perfil de Linux que se ejecuta en el clúster, puede ejecutar el siguiente comando.
+
+```azurecli
+az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
+
+{
+  "additionalProperties": {},
+  "adminUsername": "azureuser",
+  "ssh": {
+    "additionalProperties": {},
+    "publicKeys": [
+      {
+        "additionalProperties": {},
+        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
+      }
+    ]
+  }
+}
+```
+
+Esto mostrará información sobre el usuario administrador y las claves públicas de SSH. También puede ejecutar consultas más detalladas mediante la anexión de propiedades JSON a la cadena de consulta, como se indica a continuación.
+
+```azurecli
+az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
+{
+  "name": "nodepool1",
+  "nodeCount": 1
+}
+```
+Esto puede resultar útil para acceder rápidamente a los datos sobre el clúster implementado. Obtenga [aquí](http://jmespath.org/tutorial.html) más información sobre las consultas de JMESPath.
 
 ## <a name="install-the-kubectl-cli"></a>Instalación de la CLI de kubectl
 
@@ -77,10 +131,32 @@ Salida:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 Al finalizar el tutorial, tendrá un clúster de AKS preparado para cargas de trabajo. En los tutoriales posteriores, una aplicación de contenedores múltiples está implementada en este clúster, escalada horizontalmente, actualizada y supervisada.
+
+## <a name="configure-acr-authentication"></a>Configuración de la autenticación de ACR
+
+La autenticación debe configurarse entre el clúster de AKS y el registro de ACR. Esto implica conceder a la identidad de ACS los derechos adecuados para extraer imágenes del registro de ACR.
+
+En primer lugar, obtenga el identificador de la entidad de servicio configurado para AKS. Actualice el nombre del grupo de recursos y el nombre del clúster de AKS para que coincida con su entorno.
+
+```azurecli
+$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+Obtenga el identificador del recurso del registro de ACR. Actualice el nombre de registro con el del registro de ACR y el grupo de recursos con el grupo de recursos donde se encuentra el registro de ACR.
+
+```azurecli
+$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Cree la asignación de roles, que concede el acceso adecuado.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>pasos siguientes
 

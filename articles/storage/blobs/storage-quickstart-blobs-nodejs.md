@@ -1,21 +1,21 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante Node.js | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante Node.js"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Node.js | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: cshoe
+ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Node.js
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js
 
 En este tutorial de inicio rápido, aprenderá a usar Node.js para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
 

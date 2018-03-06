@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -239,7 +239,7 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
 
     ![Seleccionar carga de trabajo](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Se valida la máquina virtual seleccionada. Si no ve las máquinas virtuales que espera ver, compruebe que existen en la misma ubicación de Azure que el almacén de Recovery Services. La ubicación del almacén de Recovery Services se muestra en el panel del almacén.
+    Se valida la máquina virtual seleccionada. Si no ve las máquinas virtuales que espera ver, compruebe que existen en la misma ubicación de Azure que el almacén de Recovery Services y que no estén ya protegidas. La ubicación del almacén de Recovery Services se muestra en el panel del almacén.
 
 6. Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en **Habilitar copia de seguridad** para implementar la directiva en el almacén y en las máquinas virtuales. La implementación de la directiva de copia de seguridad no crea el punto de recuperación inicial para la máquina virtual.
 

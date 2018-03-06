@@ -1,27 +1,21 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante PowerShell | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante PowerShell"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante Azure PowerShell | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede usar Azure PowerShell para crear una cuenta de almacenamiento y un contenedor. Después, puede usar PowerShell para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
-documentationcenter: storage
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ffed1eea8d159ccd05331d741624d8bc9e84b50
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure PowerShell
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía se detalla el uso de PowerShell para transferir archivos entre el disco local y Azure Blob Storage.
 

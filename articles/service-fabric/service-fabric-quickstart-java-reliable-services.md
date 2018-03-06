@@ -1,6 +1,6 @@
 ---
 title: "Creación de una aplicación Java en Azure Service Fabric | Microsoft Docs"
-description: "Cree una aplicación Java para Azure mediante el ejemplo de inicio rápido de Service Fabric."
+description: "En esta guía de inicio rápido, creará una aplicación Java para Azure mediante una aplicación de servicios de confianza de Service Fabric de ejemplo."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>Creación de una aplicación Java
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Inicio rápido: Implementación de una aplicación Java de servicios de confianza de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
 
 En esta guía de inicio rápido se explica cómo implementar la primera aplicación Java en Service Fabric mediante el IDE de Eclipse en un equipo de desarrolladores con Linux. Cuando termine, tendrá una aplicación de votación con un front-end web de Java que guarda los resultados de una votación en un servicio back-end con estado en el clúster.

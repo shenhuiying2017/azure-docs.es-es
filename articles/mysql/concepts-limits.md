@@ -1,43 +1,49 @@
 ---
-title: Limitaciones en Azure Database for MySQL | Microsoft Docs
-description: "Describe las limitaciones de la versión preliminar en Azure Database for MySQL."
+title: Limitaciones en Azure Database for MySQL
+description: "En este artículo se describen las limitaciones de Azure Database for MySQL como el número de conexiones o las opciones de motor de almacenamiento."
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: kamathsun
+ms.author: sukamat
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
-ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 El servicio Azure Database for MySQL se encuentra en versión preliminar pública. En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
 
 ## <a name="service-tier-maximums"></a>Máximos de nivel de servicio
-Azure Database for MySQL tiene varios niveles de servicio entre los que puede elegir al crear un servidor. Para obtener más información, consulte la [descripción sobre los elementos disponibles en cada nivel de servicio](concepts-service-tiers.md).  
+Azure Database for MySQL tiene varios niveles de servicio entre los que puede elegir al crear un servidor. Para más información, consulte el artículo de [planes de tarifa de Azure Database for MySQL](concepts-pricing-tiers.md).  
 
 Hay un número máximo de conexiones, unidades de proceso y almacenamiento en cada nivel de servicio durante la versión preliminar, y son los siguientes: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Conexiones máximas**        |                   |
-| 50 unidades de proceso básicas     | 50 conexiones    |
-| 100 unidades de proceso básicas    | 100 conexiones   |
-| 100 unidades de proceso estándar | 200 conexiones   |
-| 200 unidades de proceso estándar | 400 conexiones   |
-| 400 unidades de proceso estándar | 800 conexiones   |
-| 800 unidades de proceso estándar | 1600 conexiones  |
-| **Unidades de proceso máximas**      |                   |
-| Nivel de servicio Básico         | 100 unidades de proceso |
-| Nivel de servicio Estándar      | 800 unidades de proceso |
-| **Almacenamiento máximo**            |                   |
-| Nivel de servicio Básico         | 1 TB              |
-| Nivel de servicio Estándar      | 1 TB              |
+|**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**| **Conexiones máximas**|
+|---|---|---|---|
+|Básica| Gen 4| 1| 50|
+|Básica| Gen 4| 2| 100|
+|Básica| Gen 5| 1| 50|
+|Básica| Gen 5| 2| 100|
+|Uso general| Gen 4| 2| 200|
+|Uso general| Gen 4| 4| 400|
+|Uso general| Gen 4| 8| 800|
+|Uso general| Gen 4| 16| 1600|
+|Uso general| Gen 4| 32| 3200|
+|Uso general| Gen 5| 2| 200|
+|Uso general| Gen 5| 4| 400|
+|Uso general| Gen 5| 8| 800|
+|Uso general| Gen 5| 16| 1600|
+|Uso general| Gen 5| 32| 3200|
+|Memoria optimizada| Gen 5| 2| 600|
+|Memoria optimizada| Gen 5| 4| 1250|
+|Memoria optimizada| Gen 5| 8| 2.500|
+|Memoria optimizada| Gen 5| 16| 5000|
+|Memoria optimizada| Gen 5| 32| 10000| 
 
 Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 > ERROR 1040 (08004): Too many connections
@@ -57,7 +63,7 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 ## <a name="privilege-support"></a>Compatibilidad de los privilegios
 
 ### <a name="unsupported"></a>No compatible
-- Rol DBA: muchos parámetros de servidor y valores de configuración pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos. Por lo tanto, para mantener la integridad del servicio y SLA en un nivel de producto, no se expone el rol DBA a los clientes. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los clientes realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrados. 
+- Rol DBA: muchos parámetros de servidor y valores de configuración pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos. Por lo tanto, para mantener la integridad del servicio y SLA en un nivel de producto, no se expone el rol DBA de este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrados. 
 - Privilegio SUPER: del mismo modo, los [privilegios SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) también están restringidos.
 
 ## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
@@ -71,8 +77,7 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 ## <a name="preview-functional-limitations"></a>Limitaciones funcionales de la versión preliminar
 
 ### <a name="scale-operations"></a>Operaciones de escalado
-- El escalado dinámico de servidores entre niveles de servicio no se admite en este momento. Es decir, el cambio entre los niveles de servicio Básico y Estándar.
-- El aumento dinámico bajo demanda del almacenamiento en un servidor creado previamente no se admite en este momento.
+- El escalado dinámico de servidores entre planes de tarifa no se admite en este momento. Es decir, no se admite el cambio entre los planes Básico, Uso general y Memoria optimizada.
 - La reducción del tamaño de almacenamiento del servidor no se admite.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
@@ -91,5 +96,5 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 - Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener las versiones de la instancia de servidor correctas, utilice comando select version(); del símbolo del sistema de MySQL.
 
 ## <a name="next-steps"></a>pasos siguientes
-- [Qué está disponible en cada nivel de servicio](concepts-service-tiers.md)
+- [Qué está disponible en cada nivel de servicio](concepts-pricing-tiers.md)
 - [Versiones de base de datos de MySQL admitidas](concepts-supported-versions.md)

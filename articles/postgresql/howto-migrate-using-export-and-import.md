@@ -1,24 +1,24 @@
 ---
-title: "Migración de una base de datos mediante importación y exportación en Azure Database for PostgreSQL | Microsoft Docs"
+title: "Migración de una base de datos mediante importación y exportación en Azure Database for PostgreSQL"
 description: "Describe cómo extraer una base de datos PostgreSQL en un archivo de script e importar los datos en la base de datos de destino desde ese archivo."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ddbfd9ef8b2ae4c3c851afc18b010b234b654c81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 02/28/2018
+ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migración de una base de datos de PostgreSQL mediante exportación e importación
 Puede usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extraer una base de datos PostgreSQL en un archivo de script y [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) para importar los datos en la base de datos de destino desde ese archivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para seguir esta guía, necesitará:
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) con reglas de firewall para permitir el acceso a las bases de datos que hay en él.
 - La utilidad de línea de comandos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) instalada.
@@ -41,9 +41,9 @@ Puede usar la utilidad de la línea de comandos psql y el parámetro --dbname (-
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-En este ejemplo se usa la utilidad psql y el archivo de script **testdb.sql** del paso anterior para importar los datos en la base de datos **mypgsqldb** del servidor de destino **mypgserver-20170401.postgres.database.azure.com**.
+En este ejemplo se usa la utilidad psql y el archivo de script **testdb.sql** del paso anterior para importar los datos en la base de datos **mypgsqldb** del servidor de destino **mydemoserver.postgres.database.azure.com**.
 ```bash
-psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## <a name="next-steps"></a>pasos siguientes

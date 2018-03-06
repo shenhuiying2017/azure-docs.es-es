@@ -1,19 +1,19 @@
 ---
-title: Versiones admitidas de Azure Database for PostgreSQL | Microsoft Docs
+title: Versiones admitidas de Azure Database for PostgreSQL
 description: Se describen las versiones admitidas de Azure Database for PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 646e95f5c3c7bc9bb175a5532435b28bb998b49b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 2065631922d25deaa94601484da9b8de3fd62b22
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="supported-postgresql-database-versions"></a>Versiones de base de datos de PostgreSQL admitidas
 Microsoft pretende agregar la compatibilidad de las versiones n-2 del motor de PostgreSQL en el servicio Azure Database for PostgreSQL, donde n se corresponde con la versión principal lanzada actualmente y -2 con las dos versiones principales anteriores.
@@ -29,5 +29,5 @@ Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.5/s
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
 Azure Database for PostgreSQL administra automáticamente la aplicación de revisiones para las actualizaciones de versión secundaria. Actualmente, en la versión preliminar pública, no se admite la actualización de versión principal. Por ejemplo, no se admite la actualización de PostgreSQL 9.5 a PostgreSQL 9.6.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener información sobre la compatibilidad de las distintas extensiones de PostgreSQL, vea [Extensiones de PostgreSQL](concepts-extensions.md)

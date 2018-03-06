@@ -1,29 +1,25 @@
 ---
-title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante .NET | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante .NET"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante .NET | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para .NET a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferencia de objetos a y desde Azure Blob Storage mediante .NET
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante .NET
 
 En este tutorial de inicio rápido, aprenderá a usar la biblioteca de cliente de .NET para que Azure Storage pueda cargar, descargar y enumerar blobs en bloques en un contenedor.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -228,7 +224,7 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante .NET. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

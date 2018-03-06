@@ -1,19 +1,19 @@
 ---
-title: Conectividad SSL de Azure Database for MySQL | Microsoft Docs
+title: Conectividad SSL de Azure Database for MySQL
 description: "Información para configurar Azure Database for MySQL y las aplicaciones asociadas, a fin de usar correctamente las conexiones SSL"
 services: mysql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 37e2bbbe1ed4b6a9cca0e0b001e5e632b9b73be2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: f59d5eab9772515a3c59f887a48d597d27bab135
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>Conectividad SSL de Azure Database for MySQL
 Azure Database for MySQL permite conectar el servidor de bases de datos a las aplicaciones cliente con la Capa de sockets seguros (SSL). El establecimiento de conexiones SSL entre el servidor de bases de datos y las aplicaciones cliente ofrece protección frente a ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -27,5 +27,5 @@ Las cadenas de conexión para distintos lenguajes de programación se muestran e
 
 Para información sobre cómo habilitar o deshabilitar la conexión SSL al desarrollar la aplicación, consulte [Configuración de SSL](howto-configure-ssl.md). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md)

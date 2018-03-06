@@ -1,22 +1,22 @@
 ---
-title: "Guía de inicio rápido de Azure: transferencia de objetos hacia y desde Azure Blob Storage mediante Ruby | Microsoft Docs"
-description: "Guía rápido para transferir objetos hacia y desde Azure Blob Storage mediante Ruby"
+title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Ruby | Microsoft Docs"
+description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Ruby a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferencia de objetos hacia y desde Azure Blob Storage mediante Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
+
 En esta guía de inicio rápido, aprenderá a usar Ruby para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>requisitos previos

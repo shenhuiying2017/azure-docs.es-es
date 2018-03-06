@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f908b874a8205c2b8738deeccb3d7dd38b9833fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
@@ -97,7 +97,7 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 ## <a name="next-steps"></a>pasos siguientes
 
-Ha usado Visual Studio para crear una aplicación de función en C# con una función simple desencadenada por HTTP. 
+Ha usado Visual Studio para crear y publicar una aplicación de función en C# con una función simple desencadenada por HTTP. 
 
 + Para aprender a configurar su proyecto para que admita otros tipos de desencadenadores y enlaces, consulte la sección [Configuración del proyecto para el desarrollo local](functions-develop-vs.md#configure-the-project-for-local-development) de [Herramientas de Azure Functions para Visual Studio](functions-develop-vs.md).
 + Para más información acerca de la realización de pruebas y la depuración locales mediante Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md). 
