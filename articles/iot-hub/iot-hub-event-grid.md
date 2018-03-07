@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub y Event Grid | Microsoft Docs
-description: Use Azure Event Grid para desencadenar procesos basados en acciones que se producen en IoT Hub.
+description: Use Azure Event Grid para lanzar procesos basados en acciones que se producen en IoT Hub.
 services: iot-hub
 documentationcenter: 
 author: kgremban
@@ -18,9 +18,9 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/23/2018
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reacción a eventos de IoT Hub mediante Event Grid para desencadenar acciones (versión preliminar)
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reacción a eventos de IoT Hub utilizando Event Grid para lanzar acciones (versión preliminar)
 
-Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de bajada. Configure las aplicaciones empresariales para escuchar eventos de IoT Hub, a fin de poder reaccionar a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones, como actualizar una base de datos, crear un vale y entregar una notificación por correo electrónico cada vez que se registre un nuevo dispositivo IoT en IoT Hub. 
+Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. Configure las aplicaciones empresariales para escuchar eventos de IoT Hub, a fin de poder crear reacciones a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones, por ejemplo, actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que se registre un nuevo dispositivo IoT en IoT Hub. 
 
 [Azure Event Grid][lnk-eg-overview] es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada para servicios de Azure, como [Azure Functions](../azure-functions/functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), y puede proporcionar alertas de eventos a los servicios que no son de Azure mediante webhooks. Para obtener una lista completa de los controladores de eventos que Event Grid admite, vea [una introducción a Azure Event Grid][lnk-eg-overview]. 
 
@@ -28,7 +28,7 @@ Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones d
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La integración de Event Grid está disponible para centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones, consulte [Introducción a Azure Event Grid][lnk-eg-overview]. 
+La integración de Event Grid está disponible en centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones disponibles, consulte [Introducción a Azure Event Grid][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Tipos de eventos
 
@@ -112,13 +112,13 @@ devices/{deviceId}
 
 Las aplicaciones que controlan los eventos de IoT Hub deben seguir estas prácticas recomendadas:
 
-* Se pueden configurar varias suscripciones para enrutar los eventos al mismo controlador de eventos, por lo que es importante no asumir que los eventos proceden de un origen particular. Compruebe siempre el tema del mensaje para asegurarse de que se trata de la instancia de IoT Hub que espera. 
-* No suponga que todos los eventos que recibe son los tipos que espera. Compruebe siempre eventType antes de procesar el mensaje.
+* Se pueden configurar varias suscripciones para enrutar los eventos al mismo controlador de eventos, por lo que es importante no asumir que los eventos proceden de un origen particular. Compruebe siempre el tema del mensaje para asegurarse de que se trata de la instancia de IoT Hub que está esperando. 
+* No asuma que todos los eventos que recibe son del tipo de evento que espera. Compruebe siempre eventType antes de procesar el mensaje.
 * Los mensajes pueden llegar desordenados o después de un retraso. Utilice el campo de la etiqueta de entidad para saber si la información sobre los objetos está actualizada.
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Pruebe el tutorial de eventos de IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 * [Más información sobre Event Grid][lnk-eg-overview]
